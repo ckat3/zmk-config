@@ -120,51 +120,50 @@
 			bindings = <&kp ENTER>;
 			key-positions = <16 17>;
 		};
+		
 		combo_nbsp {
 			bindings = <&kp B_NBSP>;
 			key-positions = <32 33>;
 		};
 		
+		
+		
 		combo_tab {
 			bindings = <&kp TAB>;
-			key-positions = <18 19>
+			key-positions = <18 19>;
 			layers = <BASE>;
 		};
+		
 		combo_esc {
 			bindings = <&kp ESC>;
-			key-positions = <12 13>
+			key-positions = <12 13>;
 			layers = <BASE>;
 		};
         
-		combo_f_layer {
-			bindings = <&mo FKEY>;
-			key-positions = <30 31>
-			layers = <BASE>;
-		};
-		combo_conf_layer {
-			bindings = <&mo CONF>;
-			key-positions = <30 31 32 33>
-			layers = <BASE>;
-		};
-		combo_bootloader_reset {
-			bindings = <&bootloader>;
-			key-positions = <20 24>
-			layers = <CONF>;
-		};
-		
 		combo_caps {
 			bindings = <&kp CAPS>;
-			key-positions = <13 14>
+			key-positions = <13 14>;
 			layers = <NAV>;
 		};
 		
-		/* Text processing
-		COMBO(undo,				&kp LC(Z),		20 21,			BASE)
-		COMBO(cut,				&kp LC(X),		21 23,			BASE)
-		COMBO(copy,				&kp LC(C),		21 22,			BASE)
-		COMBO(paste,			&kp LC(V),		21 22 23,		BASE)
-		COMBO(select_all,		&kp LC(A),		20 23,			BASE) 
-		*/
+		
+		combo_f_layer {
+			bindings = <&mo FKEY>;
+			key-positions = <30 31>;
+			layers = <BASE>;
+		};
+		
+		combo_conf_layer {
+			bindings = <&mo CONF>;
+			key-positions = <30 31 32 33>;
+			layers = <BASE>;
+		};
+		
+		combo_bootloader_reset {
+			bindings = <&bootloader>;
+			key-positions = <20 24>;
+			layers = <CONF>;
+		};
     };
 
 	keymap {
