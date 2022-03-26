@@ -102,49 +102,6 @@
 / {
     combos {
         compatible = "zmk,combos";
-		
-		combo_enter {
-			bindings = <&kp ENTER>;
-			key-positions = <16 17>;
-		};
-		
-		combo_nbsp {
-			bindings = <&kp B_NBSP>;
-			key-positions = <32 33>;
-		};
-		
-		
-		
-		combo_tab {
-			bindings = <&kp TAB>;
-			key-positions = <18 19>;
-			layers = <BASE>;
-		};
-		
-		combo_esc {
-			bindings = <&kp ESC>;
-			key-positions = <12 13>;
-			layers = <BASE>;
-		};
-        
-		combo_caps {
-			bindings = <&kp CAPS>;
-			key-positions = <13 14>;
-			layers = <NAV>;
-		};
-		
-		
-		combo_f_layer {
-			bindings = <&mo FUNC>;
-			key-positions = <30 31>;
-			layers = <BASE>;
-		};
-		
-		combo_bootloader_reset {
-			bindings = <&bootloader>;
-			key-positions = <20 24>;
-			layers = <CONF>;
-		};
     };
 
 	keymap {
