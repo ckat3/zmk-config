@@ -117,6 +117,24 @@
 			bindings = <&kp ESC>;
 			key-positions = <12 13>;
 		};
+        
+		combo_caps {
+			bindings = <&kp CAPS>;
+			key-positions = <13 14>;
+			layers = <NAV>;
+		};
+		
+		combo_func_layer {
+			bindings = <&mo FUNC>;
+			key-positions = <30 31>;
+			layers = <BASE>;
+		};
+		
+		combo_bootloader {
+			bindings = <&bootloader>;
+			key-positions = <20 24>;
+			layers = <FUNC>;
+		};
     };
 
 	keymap {
