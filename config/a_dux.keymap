@@ -103,18 +103,19 @@
     combos {
         compatible = "zmk,combos";
 		
-		
-		
-		combo_func_layer {
-			bindings = <&mo FUNC>;
-			key-positions = <30 31>;
-			layers = <BASE>;
+		combo_enter {
+			bindings = <&kp ENTER>;
+			key-positions = <16 17>;
+		};
+				
+		combo_tab {
+			bindings = <&kp TAB>;
+			key-positions = <18 19>;
 		};
 		
-		combo_bootloader {
-			bindings = <&bootloader>;
-			key-positions = <20 24>;
-			layers = <CONF>;
+		combo_esc {
+			bindings = <&kp ESC>;
+			key-positions = <12 13>;
 		};
     };
 
