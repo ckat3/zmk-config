@@ -7,8 +7,7 @@
 #define SYM  1
 #define NUM  2
 #define NAV  3
-#define FKEY 4
-#define CONF 5
+#define FUNC 4
 
 #define B_B		Q
 #define B_EACT	W
@@ -90,19 +89,7 @@
 
 #define B_NBSP	RA(SPACE)
 
-/*#define COMBO(NAME, BINDINGS, KEYPOS, LAYERS) \
-	combo_##NAME { \
-		bindings = <BINDINGS>; \
-		key-positions = <KEYPOS>; \
-		layers = <LAYERS>; \
-	}
-	
-#define COMBO_ALL(NAME, BINDINGS, KEYPOS) \
-	combo_##NAME { \
-		bindings = <BINDINGS>; \
-		key-positions = <KEYPOS>; \
-	}
-
+/*
                 KEY POSITIONS
 
   ╭────────────────────╮ ╭────────────────────╮
@@ -148,14 +135,8 @@
 		
 		
 		combo_f_layer {
-			bindings = <&mo FKEY>;
+			bindings = <&mo FUNC>;
 			key-positions = <30 31>;
-			layers = <BASE>;
-		};
-		
-		combo_conf_layer {
-			bindings = <&mo CONF>;
-			key-positions = <30 31 32 33>;
 			layers = <BASE>;
 		};
 		
@@ -178,19 +159,22 @@
 		#define SEMI_COLON	&mt B_SEMI B_COLN
 		#define EXCL_QMRK	&mt B_EXCL B_QMRK
 		
+		#define PSBRK PAUSE_BREAK
+		
 		base_layer {
 			bindings = <
-				&kp B_B		&kp B_EACT	&kp B_P		&kp B_O		&kp B_Z				&kp B_Y		&kp B_V		&kp B_D		&kp B_L		&kp B_J
+				&kp B_B		&kp B_EACT	&kp B_P		&kp B_O		EXCL_QMRK			&kp B_Y		&kp B_V		&kp B_D		&kp B_L		&kp B_J
 				&kp B_W		&kp B_U		&kp B_I		&kp B_A		DOT_COMMA			&kp B_C		&kp B_T		&kp B_S		&kp B_R		&kp B_N
-				&kp B_P		&kp B_Y		&kp B_X		&kp B_M		&kp B_K				&key_repeat	&kp B_Q		&kp B_G		&kp B_H		&kp B_F
+				&kp B_Z		&kp B_Y		&kp B_X		&kp B_M		&kp B_K				&key_repeat	&kp B_Q		&kp B_G		&kp B_H		&kp B_F
 												/*	SYM ENTER	NUM E				NAV SPACE	LSHIFT BSPC	*/
 													THUMB1		THUMB2				THUMB3		THUMB4
 			>;
+			
 		};
 		
 		sym_layer {
 			bindings = <
-				&kp B_LBRK	&kp B_RBRK	&kp B_LGLM	&kp B_RGLM	&none				&kp B_AE	&kp B_OE	&kp B_AT	&kp B_AMPR	&none
+				&kp B_LBRK	&kp B_RBRK	&kp B_LGLM	&kp B_RGLM	&none				&kp B_AE	&kp B_OE	&kp B_AT	&kp B_AMPR	&kp B_NBSP
 				&kp B_LPAR	&kp B_RPAR	&kp B_QUOT	&kp B_APST	SEMI_COLON			&kp B_TRMA	&kp B_ACUT	&kp B_GRAV	&kp B_CRAT	&kp B_TILD
 				&kp B_LCRL	&kp B_RCRL	&kp B_LT	&kp B_GT	EXCL_QMRK			&none		&kp B_MIN	&kp B_MDSH	&kp B_NDSH	&kp B_ULIN
 													&trans		&trans				&trans		&trans
@@ -201,35 +185,26 @@
 			bindings = <
 				&kp B_PCNT	&kp B_HASH	&kp B_DLLR	&kp B_EURO	&none				&none		&kp KP_N4	&kp KP_N5	&kp KP_N6	&none
 				&kp B_FSLA	&kp B_STAR	&kp B_MIN	&kp B_PLUS	DOT_COMMA			&none		&kp KP_N1	&kp KP_N2	&kp KP_N3	&kp KP_N0
-				&kp B_BSLA	&none		&none		&kp B_EQUL	&none				&none		&kp KP_N7	&kp KP_N8	&kp KP_N9	&none
+				&kp B_BSLA	&kp LA(TAB)	&kp LC(TAB)	&kp B_EQUL	&none				&none		&kp KP_N7	&kp KP_N8	&kp KP_N9	&none
 													&trans		&trans				&trans		&trans
 			>;
 		};
 		
 		nav_layer {
 			bindings = <
-				&none		&sk RALT	&none		&none		&none				&kp PG_UP	&kp HOME		&kp LEFT	&kp RIGHT	&kp END
+				&kp INSERT	&sk RALT	&kp PSCRN	&kp PSBRK	&none				&kp PG_UP	&kp HOME		&kp LEFT	&kp RIGHT	&kp END
 				&sk LGUI	&sk LALT	&sk LCTRL	&sk LSHIFT	&caps_word			&kp PG_DN	&kp LC(LEFT)	&kp DOWN	&kp UP		&kp LC(RIGHT)
 				&kp LC(B_Z)	&kp LC(B_X)	&kp LC(B_C)	&kp LC(B_V)	&none				&none		&kp LC(BSPC)	&kp BSPC	&kp DEL		&kp LC(DEL)
-													&trans		&trans				&trans		&trans
+													&kp LC(RET)	&kp B_NBSP			&trans		&trans
 			>;
 		};
 		
-		f_layer { /*insert pause prtscr numlk scrlk light light media media media*/
+		func_layer {
 			bindings = <
-				&bt BT_CLR	&bt BT_SEL 0	&bt BT_SEL 1	&bt BT_SEL 2	&none			&none		&kp F1		&kp F2		&kp F3		&kp F4
-				&none		&kp C_VOL_DN	&kp C_VOL_UP	&kp C_MUTE		&none			&none		&kp F5		&kp F6		&kp F7		&kp F8
-				&none		&none			&none			&none			&none			&none		&kp F9		&kp F10		&kp F11		&kp F12
-													&trans		&trans						&trans		&trans
-			>;
-		};
-		
-		conf_layer {
-			bindings = <
-				&bt BT_CLR	&bt BT_SEL 0	&bt BT_SEL 1	&bt BT_SEL 2		&none	&none	&none	&none	&none
-				&none		&none			&none			&none				&none	&none	&none	&none	&none
-				&none		&none			&none			&none				&none	&none	&none	&none	&none
-											&trans			&trans				&trans	&trans
+				&bt BT_CLR		&bt BT_SEL 0	&bt BT_SEL 1	&bt BT_SEL 2	&bt BT_SEL 3		&none		&kp F1		&kp F2		&kp F3		&kp F4
+				&kp C_VOL_DN	&kp C_VOL_UP	&kp C_MUTE		&kp C_BRI_UP	&kp LSLCK			&none		&kp F5		&kp F6		&kp F7		&kp F8
+				&kp C_PREV		&kp C_NEXT		&kp C_PP		&kp C_BRI_DN	&kp LNLCK			&none		&kp F9		&kp F10		&kp F11		&kp F12
+																&trans			&trans				&trans		&trans
 			>;
 		};
 	};
