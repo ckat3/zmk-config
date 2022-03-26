@@ -117,6 +117,18 @@
 / {
     combos {
         compatible = "zmk,combos";
+		
+		COMBO_ALL(enter, &kp ENTER, 16 17)
+		COMBO_ALL(nbsp, &kp B_NBSP, 32 33)
+		
+		COMBO(tab, &kp TAB, 18 19, BASE)
+		COMBO(esc, &kp ESC, 12 13, BASE)
+        
+		COMBO(f_layer, &mo FKEY, 30 31, BASE)
+		COMBO(conf_layer, &mo CONF, 30 31 32 33, BASE)
+		COMBO(bootloader_reset,	&bootloader, 20 24, CONF)
+		
+		COMBO(caps, &kp CAPS, 13 14, NAV)
     };
 
 	keymap {
