@@ -20,9 +20,9 @@
 
 #define B_B		Q
 #define B_É		W
-#define B_P 	E
+#define B_P		E
 #define B_O		R
-#define B_È		T
+#define B_EGR	T
 #define B_CRAT	Y
 #define B_V		U
 #define B_D		I
@@ -43,8 +43,8 @@
 #define B_N		SEMI
 #define B_M		APOSTROPHE
 
-#define B_Ê		BACKSLASH
-#define B_À		Z
+#define B_ECRA	BACKSLASH
+#define B_AGR	Z
 #define B_Y		X
 #define B_X		C
 #define B_DOT	V
@@ -193,8 +193,9 @@
 		COMBO(tab,				&kp TAB,		18 19,			BASE)
 		COMBO(esc,				&kp ESC,		12 13,			BASE)
         
-		COMBO(bootloader_reset,	&bootloader,	20 24, 			CONF)
+		COMBO(f_layer,			&mo FKEY,		32 33, 			BASE)
 		COMBO(conf_layer,		&mo CONF,		30 31 32 33, 	BASE)
+		COMBO(bootloader_reset,	&bootloader,	20 24, 			CONF)
 		
 		COMBO(caps,				&kp CAPSLOCK,	13 14,			NAV)
 		
