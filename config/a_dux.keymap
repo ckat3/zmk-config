@@ -102,27 +102,6 @@
 
 
 / { 
-	behaviors {
-		hm: homerow_mods {
-			compatible = "zmk,behavior-hold-tap";
-			label = "HOMEROW_MODS";
-			#binding-cells = <2>;
-			tapping-term-ms = <150>;
-			quick-tap-ms = <0>;
-			flavor = "tap-preferred";
-			bindings = <&kp>, <&kp>;
-		};
-		
-		lttp: layer_toggle_tap_preferred {
-			compatible = "zmk,behavior-hold-tap";
-			label = "LAYER_TOGGLE_TAP_PREFERRED";
-			#binding-cells = <2>;
-			tapping-term-ms = <150>;
-			quick-tap-ms = <0>;
-			flavor = "tap-preferred";
-			bindings = <&mo>, <&kp>;
-		};
-	};
 
 
 
@@ -186,8 +165,8 @@
 	keymap {
 		compatible = "zmk,keymap";
 
-		#define THUMB1		&sl SYM
-		#define THUMB2		&lttp NUM B_E
+		#define THUMB1		&lt NAV SPACE
+		#define THUMB2		&lt NAV SPACE
 		#define THUMB3		&lt NAV SPACE
 		#define THUMB4		&mt LSHIFT BSPC
 		
@@ -200,7 +179,7 @@
 		base_layer {
 			bindings = <
 				&kp B_B		&kp B_EACT	&kp B_P		&kp B_O		EXCL_QMRK		&kp B_Y		&kp B_V		&kp B_D		&kp B_L		&kp B_J
-				&hm LG B_W	&hm LA B_U	&hm LC B_I	&hm LS B_A	DOT_COMMA		&kp B_C		&hm LS B_T	&hm LC B_S	&hm LA B_R	&hm LG B_N
+				&kp B_W	&kp B_U	&kp B_I	&kp B_A	DOT_COMMA		&kp B_C		&kp B_T	&kp B_S	&kp B_R	&kp B_N
 				&kp B_Z		&kp B_Y		&kp B_X		&kp B_M		&kp B_K			&key_repeat	&kp B_Q		&kp B_G		&kp B_H		&kp B_F
 									/*	SYM ENTER	NUM E			NAV SPACE	LSHIFT BSPC	*/
 										THUMB1		THUMB2			THUMB3		THUMB4
