@@ -112,16 +112,6 @@
 			flavor = "tap-preferred";
 			bindings = <&kp>, <&kp>;
 		};
-		
-		lttp: layer_toggle_tap_preferred {
-			compatible = "zmk,behavior-hold-tap";
-			label = "LAYER_TOGGLE_TAP_PREFERRED";
-			#binding-cells = <2>;
-			tapping-term-ms = <150>;
-			quick-tap-ms = <0>;
-			flavor = "tap-preferred";
-			bindings = <&mo>, <&kp>;
-		};
 	};
 
 
@@ -185,10 +175,10 @@
 	keymap {
 		compatible = "zmk,keymap";
 
-		#define THUMB1		&sl		SYM
-		#define THUMB2		&lttp	NUM B_E
-		#define THUMB3		&lt		NAV SPACE
-		#define THUMB4		&mt		LSHIFT BSPC
+		#define THUMB1		&sl SYM
+		#define THUMB2		&lt NUM B_E
+		#define THUMB3		&lt NAV SPACE
+		#define THUMB4		&mt LSHIFT BSPC
 		
 		#define DOT_COMMA	&mt B_DOT  B_COMM
 		#define SEMI_COLON	&mt B_SEMI B_COLN
