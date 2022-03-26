@@ -1,158 +1,150 @@
-/*
- * Copyright (c) 2021 The ZMK Contributors
- *
- * SPDX-License-Identifier: MIT
- */
-
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
 #define BASE 0
-#define NUN  1
+#define NUM  1
 #define NAV  2
 #define SYM  3
 #define FKEY 4
 #define CONF 5
 
-#define xxx &none
+#define B_B		Q
+#define B_EACT	W
+#define B_P		E
+#define B_O		R
+#define B_EGRV	T
+#define B_CRAT	Y
+#define B_V		U
+#define B_D		I
+#define B_L		O
+#define B_J		P
+#define B_Z		LBKT
+#define B_W		RBKT
 
-#define B_B  Q
-#define B_EACT W
-#define B_P  E
-#define B_O  R
-#define B_EGR T
-#define B_CRAT Y
-#define B_V  U
-#define B_D  I
-#define B_L  O
-#define B_J  P
-#define B_Z  LBKT
-#define B_W  RBKT
+#define B_A		A
+#define B_U		S
+#define B_I		D
+#define B_E		F
+#define B_COMM	G
+#define B_C		H
+#define B_T		J
+#define B_S		K
+#define B_R		L
+#define B_N		SEMI
+#define B_M		APOSTROPHE
 
-#define B_A  A
-#define B_U  S
-#define B_I  D
-#define B_E  F
-#define B_COMM G
-#define B_C  H
-#define B_T  J
-#define B_S  K
-#define B_R  L
-#define B_N  SEMI
-#define B_M  APOSTROPHE
+#define B_ECRA	BACKSLASH
+#define B_AGRV	Z
+#define B_Y		X
+#define B_X		C
+#define B_DOT	V
+#define B_K		B
+#define B_APST	N
+#define B_Q		M
+#define B_G		COMMA
+#define B_H		DOT
+#define B_F		SLASH
 
-#define B_ECRA BACKSLASH
-#define B_AGR Z
-#define B_Y  X
-#define B_X  C
-#define B_DOT V
-#define B_K  B
-#define B_APST N
-#define B_Q  M
-#define B_G  COMMA
-#define B_H  DOT
-#define B_F  SLASH
+#define B_EXCL	LS(B_CRAT)
+#define B_SEMI	LS(B_COMM)
+#define B_COLN	LS(B_DOT)
+#define B_QMRK	LS(B_APST)
 
-#define B_EXCL LS(B_CARAT)
-#define B_SEMI LS(B_COMMA)
-#define B_COLN LS(B_DOT)
-#define B_QMRK LS(B_APST)
+#define B_ACUT	RA(B_EACT)
+#define B_GRAV	RA(B_EGRV)
+#define B_TILD	RA(B_N)
+#define B_AMPR	RA(B_P)
+#define B_OE	RA(B_O)
 
-#define B_ACUT RA(B_EACT)
-#define B_GRAV RA(B_EGRV)
-#define B_TILD RA(B_N)
-#define B_AMPR RA(B_P)
-#define B_OE RA(B_O)
+#define B_AE	RA(B_A)
+#define B_TRMA	RA(B_U)
+#define B_EURO	RA(B_E)
+#define B_BSLA	RA(B_AGRV)
+#define B_LCRL	RA(B_Y)
+#define B_RCRL	RA(B_X)
+#define B_ULIN	RA(SPC)
 
-#define B_AE RA(B_A)
-#define B_TRMA RA(B_U)
-#define B_EURO RA(B_E)
-#define B_BSLA RA(B_AGRV)
-#define B_LCRL RA(B_Y)
-#define B_RCRL RA(B_X)
-#define B_ULIN RA(SPC)
-
-#define B_DLLR GRAVE
-#define B_HASH LS(B_DLLAR)
-#define B_QUOT N1
-#define B_LGLM N2
-#define B_RGLM N3
-#define B_LT RA(B_LGLM)
-#define B_GT RA(B_RGLM)
-#define B_LPAR N4
-#define B_RPAR N5
-#define B_LBRK RA(B_LPAR)
-#define B_RBRK RA(B_RPAR)
-#define B_AT N6
-#define B_PLUS N7
-#define B_MIN N8
-#define B_FSLA N9
-#define B_STAR N0
-#define B_EQUL MINUS
-#define B_PCNT EQUAL
+#define B_DLLR	GRAVE
+#define B_HASH	LS(B_DLLR)
+#define B_QUOT	N1
+#define B_LGLM	N2
+#define B_RGLM	N3
+#define B_LT	RA(B_LGLM)
+#define B_GT	RA(B_RGLM)
+#define B_LPAR	N4
+#define B_RPAR	N5
+#define B_LBRK	RA(B_LPAR)
+#define B_RBRK	RA(B_RPAR)
+#define B_AT	N6
+#define B_PLUS	N7
+#define B_MIN	N8
+#define B_FSLA	N9
+#define B_STAR	N0
+#define B_EQUL	MINUS
+#define B_PCNT	EQUAL
 
 / {
 
- keymap {
-  compatible = "zmk,keymap";
+	keymap {
+		compatible = "zmk,keymap";
 
-  #define DOT_COMMA &mt B_DOT B_COMM
-  #define shftbspc &mt LSHIFT BSPC
-  base_layer {
-   bindings = <
-    &kp B_B  &kp B_ACT &kp B_P  &kp B_O  &none    &kp B_Y  &kp B_V  &kp B_D  &kp B_L  &kp B_J
-    &kp B_W  &kp B_U  &kp B_I  &kp B_A  DOT_COMMA   &kp B_C  &kp B_T  &kp B_S  &kp B_R  &kp B_N
-    &kp B_Z  &kp B_Y  &kp B_X  &kp B_M  &kp B_K    &key_repeat &kp B_Q  &kp B_G  &kp B_H  &kp B_F
-             shftbspc &lt NUM B_E   &lt NAV SPC &lt SYM ENTER
-   >;
-  };
-  
-  num_layer {
-   bindings = <
-    &none  &none  &none  &none  &none    &none  &kp KP_N4 &kp KP_N5 &kp KP_N6 &none
-    &kp B_FSLA &kp B_STAR &kp B_MIN &kp B_PLUS DOT_COMMA   &none  &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_N0
-    &kp B_BSLA &none  &none  &none  &none    &none  &kp KP_N7 &kp KP_N8 &kp KP_N9 &none
-             &trans  &trans    &trans  &trans
-   >;
-  };
-  
-  nav_layer {
-   bindings = <
-    &none  &sk RALT &none  &none  &none    &kp PG_UP &kp HOME  &kp LEFT &kp RIGHT &kp END
-    &sk LGUI &sk LALT &sk LCTRL &sk LSHIFT &capsword   &kp PG_DN &kp LC(LEFT) &kp DOWN &kp UP  &kp LC(RIGHT)
-    &kp LC(B_Z) &kp LC(B_X) &kp LC(B_C) &kp LC(B_V) &none    &none  &kp LC(BSPC) &kp BSPC &kp DEL  &kp LC(DEL)
-             &trans  &trans    &trans  &trans
-   >;
-  };
-  
-  #define SEMI_COLON &mt B_SEMI B_COLN
-  sym_layer {
-   bindings = <
-    &none  &none  &none  &none  &none    &none  &none  &none  &none  &none
-    &kp B_MIN &kp B_APST &kp B_LPAR &kp B_RPAR SEMI_COLON   &kp B_TRMA &kp B_ACUT &kp B_GRAV &kp B_CART &kp B_TILDE
-    &none  &none  &none  &none  &none    &none  &none  &none  &none  &none
-             &trans  &trans    &trans  &trans
-   >;
-  };
-  
-  f_layer { /*insert pause prtscr numlk scrlk sound sound sound light light media media media*/
-   bindings = <
-    &none  &none  &none  &none  &none    &none  &kp F1  &kp F2  &kp F3  &kp F4
-    &none  &none  &none  &none  &none    &none  &kp F5  &kp F6  &kp F7  &kp F8
-    &none  &none  &none  &none  &none    &none  &kp F9  &kp F10  &kp F11  &kp F12
-             &trans  &trans    &trans  &trans
-   >;
-  };
-  
-  conf_layer {
-   bindings = <
-    &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2  &none &none &none &none &none
-    &none  &none   &none   &none    &none &none &none &none &none
-    &none  &none   &none   &none    &none &none &none &none &none
-           &trans   &trans    &trans &trans
-   >;
-  };
- };
+		#define DOT_COMMA	&mt B_DOT B_COMM
+		#define SHFTBSPC	&mt LSHIFT BSPC
+		base_layer {
+			bindings = <
+				&kp B_B		&kp B_EACT	&kp B_P		&kp B_O		&none				&kp B_Y		&kp B_V		&kp B_D		&kp B_L		&kp B_J
+				&kp B_W		&kp B_U		&kp B_I		&kp B_A		DOT_COMMA			&kp B_C		&kp B_T		&kp B_S		&kp B_R		&kp B_N
+				&kp B_Z		&kp B_Y		&kp B_X		&kp B_M		&kp B_K				&key_repeat	&kp B_Q		&kp B_G		&kp B_H		&kp B_F
+													SHFTBSPC	&lt NUM B_E			&lt NAV SPACE	&lt SYM ENTER
+			>;
+		};
+		
+		num_layer {
+			bindings = <
+				&none		&none		&none		&none		&none				&none		&kp KP_N4	&kp KP_N5	&kp KP_N6	&none
+				&kp B_FSLA	&kp B_STAR	&kp B_MIN	&kp B_PLUS	DOT_COMMA			&none		&kp KP_N1	&kp KP_N2	&kp KP_N3	&kp KP_N0
+				&kp B_BSLA	&none		&none		&none		&none				&none		&kp KP_N7	&kp KP_N8	&kp KP_N9	&none
+													&trans		&trans				&trans		&trans
+			>;
+		};
+		
+		nav_layer {
+			bindings = <
+				&none		&sk RALT	&none		&none		&none				&kp PG_UP	&kp HOME		&kp LEFT	&kp RIGHT	&kp END
+				&sk LGUI	&sk LALT	&sk LCTRL	&sk LSHIFT	&capsword			&kp PG_DN	&kp LC(LEFT)	&kp DOWN	&kp UP		&kp LC(RIGHT)
+				&kp LC(B_Z)	&kp LC(B_X)	&kp LC(B_C)	&kp LC(B_V)	&none				&none		&kp LC(BSPC)	&kp BSPC	&kp DEL		&kp LC(DEL)
+													&trans		&trans				&trans		&trans
+			>;
+		};
+		
+		#define SEMI_COLON &mt B_SEMI B_COLN
+		sym_layer {
+			bindings = <
+				&none		&none		&none		&none		&none				&none		&none		&none		&none		&none
+				&kp B_MIN	&kp B_APST	&kp B_LPAR	&kp B_RPAR	SEMI_COLON			&kp B_TRMA	&kp B_ACUT	&kp B_GRAV	&kp B_CRAT	&kp B_TILD
+				&none		&none		&none		&none		&none				&none		&none		&none		&none		&none
+													&trans		&trans				&trans		&trans
+			>;
+		};
+		
+		f_layer { /*insert pause prtscr numlk scrlk sound sound sound light light media media media*/
+			bindings = <
+				&none		&none		&none		&none		&none				&none		&kp F1		&kp F2		&kp F3		&kp F4
+				&none		&none		&none		&none		&none				&none		&kp F5		&kp F6		&kp F7		&kp F8
+				&none		&none		&none		&none		&none				&none		&kp F9		&kp F10		&kp F11		&kp F12
+													&trans		&trans				&trans		&trans
+			>;
+		};
+		
+		conf_layer {
+			bindings = <
+				&bt BT_CLR	&bt BT_SEL 0	&bt BT_SEL 1	&bt BT_SEL 2		&none	&none	&none	&none	&none
+				&none		&none			&none			&none				&none	&none	&none	&none	&none
+				&none		&none			&none			&none				&none	&none	&none	&none	&none
+											&trans			&trans				&trans	&trans
+			>;
+		};
+	};
 };
