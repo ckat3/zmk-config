@@ -102,6 +102,20 @@
 / {
     combos {
         compatible = "zmk,combos";
+		
+		
+		
+		combo_func_layer {
+			bindings = <&mo FUNC>;
+			key-positions = <30 31>;
+			layers = <BASE>;
+		};
+		
+		combo_bootloader {
+			bindings = <&bootloader>;
+			key-positions = <20 24>;
+			layers = <CONF>;
+		};
     };
 
 	keymap {
@@ -133,7 +147,7 @@
 			bindings = <
 				&kp B_LBRK	&kp B_RBRK	&kp B_LGLM	&kp B_RGLM	&none				&kp B_AE	&kp B_OE	&kp B_AT	&kp B_AMPR	&kp B_NBSP
 				&kp B_LPAR	&kp B_RPAR	&kp B_QUOT	&kp B_APST	SEMI_COLON			&kp B_TRMA	&kp B_ACUT	&kp B_GRAV	&kp B_CRAT	&kp B_TILD
-				&kp B_LCRL	&kp B_RCRL	&kp B_LT	&kp B_GT	EXCL_QMRK			&none		&kp B_MIN	&kp B_MDSH	&kp B_NDSH	&kp B_ULIN
+				&kp B_LCRL	&kp B_RCRL	&kp B_LT	&kp B_GT	&none				&none		&kp B_MIN	&kp B_MDSH	&kp B_NDSH	&kp B_ULIN
 													&trans		&trans				&trans		&trans
 			>;
 		};
@@ -158,10 +172,10 @@
 		
 		func_layer {
 			bindings = <
-				&bt BT_CLR		&bt BT_SEL 0	&bt BT_SEL 1	&bt BT_SEL 2	&bt BT_SEL 3		&none		&kp F1		&kp F2		&kp F3		&kp F4
-				&kp C_VOL_DN	&kp C_VOL_UP	&kp C_MUTE		&kp C_BRI_UP	&kp LSLCK			&none		&kp F5		&kp F6		&kp F7		&kp F8
-				&kp C_PREV		&kp C_NEXT		&kp C_PP		&kp C_BRI_DN	&kp LNLCK			&none		&kp F9		&kp F10		&kp F11		&kp F12
-																&trans			&trans				&trans		&trans
+				&bt BT_CLR		&bt BT_SEL 0	&bt BT_SEL 1	&bt BT_SEL 2	&bt BT_SEL 3			&none		&kp F1		&kp F2		&kp F3		&kp F4
+				&kp C_VOL_DN	&kp C_VOL_UP	&kp C_MUTE		&kp C_BRI_UP	&kp LSLCK				&none		&kp F5		&kp F6		&kp F7		&kp F8
+				&kp C_PREV		&kp C_NEXT		&kp C_PP		&kp C_BRI_DN	&kp LNLCK				&none		&kp F9		&kp F10		&kp F11		&kp F12
+																&trans			&trans					&trans		&trans
 			>;
 		};
 	};
