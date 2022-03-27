@@ -267,9 +267,9 @@
 		
 		base_layer {
 			bindings = <
-				&kp B_		&kp  EACT_	&kp  P_		&kp  O_		EXCL_QMRK			&none		&kp  V_		&kp  D_		&kp  L_		&kp C_
-				&kp W_		HMLA U_		HMLC I_		HMLS A_		DOT_COMMA			&kp J_		HMRS T_		HMRC S_		HMRA R_		&kp N_
-				&kp Z_		HMLC Y_		&kp  X_		&kp  Q_		&kp K_				&key_repeat	&kp  M_		&kp  G_		&kp  H_		&kp F_
+				&kp B_		&kp  EACT_	&kp  P_		&kp  O_		EXCL_QMRK			&kp K_		&kp  V_		&kp  D_		&kp  L_		&kp C_
+				&kp W_		HMLA U_		HMLC I_		HMLS A_		&kp COMM_			&kp J_		HMRS T_		HMRC S_		HMRA R_		&kp N_
+				&kp Z_		HMLC Y_		&kp  X_		&kp  Q_		&kp DOT_			&key_repeat	&kp  M_		&kp  G_		&kp  H_		&kp F_
 												/*	SYM 		NUM E				NAV SPACE	LSHIFT BSPC	*/
 													THUMB1		THUMB2				THUMB3		THUMB4
 			>;
@@ -304,10 +304,10 @@
 		
 		func_layer {
 			bindings = <
-				&bt BT_CLR   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2	&bt BT_SEL 3			&reset  &kp F4  &kp F5  &kp F6  &kp F10
-				&kp C_VOL_DN &kp C_VOL_UP  &kp C_MUTE	&kp C_BRI_UP	&kp LSLCK				&none   &kp F1  &kp F2  &kp F3  &kp F11
-				&kp C_PREV   &kp C_NEXT	&kp C_PP	  &kp C_BRI_DN	&kp LNLCK				&none   &kp F7  &kp F8  &kp F9  &kp F12
-														 &trans			&trans					&trans	&trans
+				&bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3			&reset		  &kp F4  &kp F5  &kp F6  &kp F10
+				&kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE    &kp C_BRI_UP  &kp LSLCK				&out OUT_TOG  &kp F1  &kp F2  &kp F3  &kp F11
+				&kp C_PREV    &kp C_NEXT    &kp C_PP      &kp C_BRI_DN  &kp LNLCK				&none		  &kp F7  &kp F8  &kp F9  &kp F12
+													      &trans		&trans					&trans	&trans
 			>;
 		};
 		/*
