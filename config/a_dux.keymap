@@ -225,10 +225,10 @@
 		#define HMLC &hm LCTRL
 		#define HMLS &hml LSHIFT
 		
-		#define HMRS &hm RSHIFT
+		#define HMRG &hm RGUI
 		#define HMRA &hm RALT
 		#define HMRC &hm RCTRL
-		#define HMRG &hmr RGUI
+		#define HMRS &hmr RSHIFT
 		
 		base_layer {
 			bindings = <
