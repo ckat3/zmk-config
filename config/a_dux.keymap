@@ -40,7 +40,7 @@
 #define X_		C
 #define DOT_	V
 #define K_		B
-/* #define APST_	N */
+#define APSC_	N /* inverted comma */
 #define APST_	RA(COMM_)
 #define Q_		M
 #define G_		COMMA
@@ -50,7 +50,7 @@
 #define EXCL_	LS(CRAT_)
 #define SEMI_	LS(COMM_)
 #define COLN_	LS(DOT_)
-#define QMRK_	LS(APST_)
+#define QMRK_	LS(APSC_)
 
 #define ACUT_	RA(EACT_)
 #define GRAV_	RA(EGRV_)
@@ -102,7 +102,7 @@
 #define N9_	LS(N9)
 
 &sk {
-	release-after-ms = <2000>;
+	release-after-ms = <1000>;
 };
 
 &caps_word {
@@ -169,62 +169,75 @@
     combos {
         compatible = "zmk,combos";
 		
+		#define COMBO_TIMEOUT 20
+		
 		combo_enter {
 			bindings = <&kp ENTER>;
 			key-positions = <16 17>;
+			timeout-ms = COMBO_TIMEOUT;
 		};
 		
 		combo_backspace_l {
 			bindings = <&kp BACKSPACE>;
 			key-positions = <11 12>;
+			timeout-ms = COMBO_TIMEOUT;
 		};
 		
 		combo_backspace_r {
 			bindings = <&kp BACKSPACE>;
 			key-positions = <17 18>;
+			timeout-ms = COMBO_TIMEOUT;
 		};
 		
 		combo_space_r {
 			bindings = <&kp SPACE>;
 			key-positions = <16 17 18>;
+			timeout-ms = COMBO_TIMEOUT;
 		};
 		
 		combo_space_l {
 			bindings = <&kp SPACE>;
 			key-positions = <11 12 13>;
+			timeout-ms = COMBO_TIMEOUT;
 		};
 		
 		combo_delete {
 			bindings = <&kp DELETE>;
 			key-positions = <18 19>;
+			timeout-ms = COMBO_TIMEOUT;
 		};
 				
 		combo_tab {
 			bindings = <&kp TAB>;
 			key-positions = <12 13>;
+			timeout-ms = COMBO_TIMEOUT;
 		};
 		
 		combo_esc {
 			bindings = <&kp ESC>;
 			key-positions = <10 11 12 13>;
+			timeout-ms = COMBO_TIMEOUT;
 		};
 		
 		combo_func_layer {
 			bindings = <&mo FUNC>;
 			key-positions = <30 31>;
 			layers = <BASE>;
+			timeout-ms = COMBO_TIMEOUT;
 		};
         
 		combo_caps {
 			bindings = <&kp CAPS>;
 			key-positions = <13 14>;
 			layers = <NAV>;
+			timeout-ms = COMBO_TIMEOUT;
 		};
 		
 		combo_bootloader {
 			bindings = <&bootloader>;
 			key-positions = <20 24>;
 			layers = <FUNC>;
+			timeout-ms = COMBO_TIMEOUT;
 		};
     };
 
@@ -260,23 +273,22 @@
 												/*	SYM 		NUM E				NAV SPACE	LSHIFT BSPC	*/
 													THUMB1		THUMB2				THUMB3		THUMB4
 			>;
-			
 		};
 		
 		sym_layer {
 			bindings = <
 				&kp LBRK_	&kp RBRK_	&kp LGLM_	&kp RGLM_	&none				&kp AE_		&kp OE_		&kp AT_		&kp AMPR_	&none
-				&kp LPAR_	&kp RPAR_	&kp QUOT_	&kp APST_	COLON_SEMI			&kp CCED_	&kp ACUT_	&kp GRAV_	&kp CRAT_	&kp TILD_
-				&kp LCRL_	&kp RCRL_	&kp LT_		&kp GT_		&none				&kp TRMA_	&kp MIN_	&kp MDSH_	&kp NDSH_	&none
+				&kp LT_		&kp GT_		&kp QUOT_	&kp APST_	COLON_SEMI			&kp CCED_	&kp ACUT_	&kp GRAV_	&kp CRAT_	&kp TILD_
+				&kp LCRL_	&kp RCRL_	&kp LPAR_	&kp RPAR_	&none				&kp TRMA_	&kp MIN_	&kp MDSH_	&kp NDSH_	&none
 													&trans		&trans				&trans		&kp NBSP_
 			>;
 		};
 		
 		num_layer {
 			bindings = <
-				&kp PCNT_	&kp HASH_	&kp DLLR_	&kp EURO_	&none				&none		&kp N4_		&kp N5_		&kp	 N6_	&none
+				&kp PCNT_	&kp HASH_	&kp DLLR_	&kp EURO_	&none				&none		&kp N4_		&kp N5_		&kp	 N6_	&kp EQUL_
 				&kp FSLA_	&kp STAR_	&kp MIN_	&kp PLUS_	DOT_COMMA			&none		&kp N1_		&kp N2_		&kp	 N3_	&kp N0_
-				&kp BSLA_	&kp EQUL_	&kp LA(TAB)	&kp LC(TAB)	&none				&none		&kp N7_		&kp N8_		&kp N9_		&tog NUM
+				&kp BSLA_	&none		&none		&none		&none				&none		&kp N7_		&kp N8_		&kp N9_		&tog NUM
 													&trans		&tog NUM			&trans		&trans
 			>;
 		};
