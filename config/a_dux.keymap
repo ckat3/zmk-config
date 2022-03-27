@@ -40,7 +40,8 @@
 #define B_X		C
 #define B_DOT	V
 #define B_K		B
-#define B_APST	N
+/* #define B_APST	N */
+#define B_APST	RA(B_COMM)
 #define B_Q		M
 #define B_G		COMMA
 #define B_H		DOT
@@ -63,7 +64,7 @@
 #define B_BSLA	RA(B_AGRV)
 #define B_LCRL	RA(B_Y)
 #define B_RCRL	RA(B_X)
-#define B_ULIN	RA(SPC)
+#define B_ULIN	RA(SPACE)
 
 #define B_DLLR	GRAVE
 #define B_HASH	LS(B_DLLR)
@@ -87,7 +88,7 @@
 #define B_MDSH	RA(N8)
 #define B_NDSH	RA(N1)
 
-#define B_NBSP	RA(SPACE)
+#define B_NBSP	LS(SPACE)
 
 #define B_N0	LS(N0)
 #define B_N1	LS(N1)
@@ -200,7 +201,7 @@
 				
 		combo_tab {
 			bindings = <&kp TAB>;
-			key-positions = <22 23>;
+			key-positions = <12 13>;
 		};
 		
 		combo_esc {
@@ -253,8 +254,8 @@
 		
 		base_layer {
 			bindings = <
-				&kp B_B		&kp B_EACT	&kp B_P		&kp B_O		EXCL_QMRK			&kp B_Y		&kp B_V		&kp B_D		&kp B_L		&kp B_J
-				&kp B_W		HMLA B_U	HMLC B_I	HMLS B_A	DOT_COMMA			&kp B_C		HMRS B_T	HMRC B_S	HMRA B_R	&kp B_N
+				&kp B_B		&kp B_EACT	&kp B_P		&kp B_O		EXCL_QMRK			&none		&kp B_V		&kp B_D		&kp B_L		&kp B_C
+				&kp B_W		HMLA B_U	HMLC B_I	HMLS B_A	DOT_COMMA			&kp B_J		HMRS B_T	HMRC B_S	HMRA B_R	&kp B_N
 				&kp B_Z		HMLC B_Y	&kp B_X		&kp B_Q		&kp B_K				&key_repeat	&kp B_M		&kp B_G		&kp B_H		&kp B_F
 												/*	SYM 		NUM E				NAV SPACE	LSHIFT BSPC	*/
 													THUMB1		THUMB2				THUMB3		THUMB4
@@ -298,4 +299,4 @@
 			>;
 		};
 	};
-};	
+};
