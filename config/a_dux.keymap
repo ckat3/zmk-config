@@ -9,104 +9,104 @@
 #define NAV  3
 #define FUNC 4
 
-#define _B		Q
-#define _EACT	W
-#define _P		E
-#define _O		R
-#define _EGRV	T
-#define _CRAT	Y
-#define _V		U
-#define _D		I
-#define _L		O
-#define _J		P
-#define _Z		LBKT
-#define _W		RBKT
+#define B_		Q
+#define EACT_	W
+#define P_		E
+#define O_		R
+#define EGRV_	T
+#define CRAT_	Y
+#define V_		U
+#define D_		I
+#define L_		O
+#define J_		P
+#define Z_		LBKT
+#define W_		RBKT
 
-#define _A		A
-#define _U		S
-#define _I		D
-#define _E		F
-#define _COMM	G
-#define _C		H
-#define _T		J
-#define _S		K
-#define _R		L
-#define _N		SEMI
-#define _M		APOSTROPHE
-#define _CCED	BACKSLASH
+#define A_		A
+#define U_		S
+#define I_		D
+#define E_		F
+#define COMM_	G
+#define C_		H
+#define T_		J
+#define S_		K
+#define R_		L
+#define N_		SEMI
+#define M_		APOSTROPHE
+#define CCED_	BACKSLASH
 
-#define _AGRV	Z
-#define _Y		X
-#define _X		C
-#define _DOT	V
-#define _K		B
-/* #define _APST	N */
-#define _APST	RA(_COMM)
-#define _Q		M
-#define _G		COMMA
-#define _H		DOT
-#define _F		SLASH
+#define AGRV_	Z
+#define Y_		X
+#define X_		C
+#define DOT_	V
+#define K_		B
+/* #define APST_	N */
+#define APST_	RA(COMM_)
+#define Q_		M
+#define G_		COMMA
+#define H_		DOT
+#define F_		SLASH
 
-#define _EXCL	LS(_CRAT)
-#define _SEMI	LS(_COMM)
-#define _COLN	LS(_DOT)
-#define _QMRK	LS(_APST)
+#define EXCL_	LS(CRAT_)
+#define SEMI_	LS(COMM_)
+#define COLN_	LS(DOT_)
+#define QMRK_	LS(APST_)
 
-#define _ACUT	RA(_EACT)
-#define _GRAV	RA(_EGRV)
-#define _TILD	RA(_N)
-#define _AMPR	RA(_P)
-#define _OE	RA(_O)
+#define ACUT_	RA(EACT_)
+#define GRAV_	RA(EGRV_)
+#define TILD_	RA(N_)
+#define AMPR_	RA(P_)
+#define OE_		RA(O_)
 
-#define _AE	RA(_A)
-#define _TRMA	RA(_U)
-#define _EURO	RA(_E)
-#define _BSLA	RA(_AGRV)
-#define _LCRL	RA(_Y)
-#define _RCRL	RA(_X)
-#define _ULIN	RA(SPACE)
+#define AE_		RA(A_)
+#define TRMA_	RA(U_)
+#define EURO_	RA(E_)
+#define BSLA_	RA(AGRV_)
+#define LCRL_	RA(Y_)
+#define RCRL_	RA(X_)
+#define ULIN_	RA(SPACE)
 
-#define _DLLR	GRAVE
-#define _HASH	LS(_DLLR)
-#define _QUOT	N1
-#define _LGLM	N2
-#define _RGLM	N3
-#define _LT	RA(_LGLM)
-#define _GT	RA(_RGLM)
-#define _LPAR	N4
-#define _RPAR	N5
-#define _LBRK	RA(_LPAR)
-#define _RBRK	RA(_RPAR)
-#define _AT	N6
-#define _PLUS	N7
-#define _MIN	N8
-#define _FSLA	N9
-#define _STAR	N0
-#define _EQUL	MINUS
-#define _PCNT	EQUAL
+#define DLLR_	GRAVE
+#define HASH_	LS(DLLR_)
+#define QUOT_	N1
+#define LGLM_	N2
+#define RGLM_	N3
+#define LT_		RA(LGLM_)
+#define GT_		RA(RGLM_)
+#define LPAR_	N4
+#define RPAR_	N5
+#define LBRK_	RA(LPAR_)
+#define RBRK_	RA(RPAR_)
+#define AT_		N6
+#define PLUS_	N7
+#define MIN_	N8
+#define FSLA_	N9
+#define STAR_	N0
+#define EQUL_	MINUS
+#define PCNT_	EQUAL
 
-#define _MDSH	RA(N8)
-#define _NDSH	RA(N1)
+#define MDSH_	RA(N8)
+#define NDSH_	RA(N1)
 
-#define _NBSP	LS(SPACE)
+#define NBSP_	LS(SPACE)
 
-#define _N0	LS(N0)
-#define _N1	LS(N1)
-#define _N2	LS(N2)
-#define _N3	LS(N3)
-#define _N4	LS(N4)
-#define _N5	LS(N5)
-#define _N6	LS(N6)
-#define _N7	LS(N7)
-#define _N8	LS(N8)
-#define _N9	LS(N9)
+#define N0_	LS(N0)
+#define N1_	LS(N1)
+#define N2_	LS(N2)
+#define N3_	LS(N3)
+#define N4_	LS(N4)
+#define N5_	LS(N5)
+#define N6_	LS(N6)
+#define N7_	LS(N7)
+#define N8_	LS(N8)
+#define N9_	LS(N9)
 
 &sk {
 	release-after-ms = <2000>;
 };
 
 &caps_word {
-	continue-list = <_ULIN _MIN BACKSPACE>;
+	continue-list = <ULIN_ MIN_ BACKSPACE>;
 };
 
 / { 
@@ -232,13 +232,13 @@
 		compatible = "zmk,keymap";
 
 		#define THUMB1		&sl SYM
-		#define THUMB2		&lttp NUM _E
+		#define THUMB2		&lttp NUM E_
 		#define THUMB3		&lt NAV SPACE
 		#define THUMB4		&mt LSHIFT BSPC
 		
-		#define DOT_COMMA	&mt _DOT _COMM
-		#define COLON_SEMI	&mt _COLN _SEMI
-		#define EXCL_QMRK	&mt _EXCL _QMRK
+		#define DOT_COMMA	&mt DOT_ COMM_
+		#define COLON_SEMI	&mt COLN_ SEMI_
+		#define EXCL_QMRK	&mt EXCL_ QMRK_
 		
 		#define PSBRK PAUSE_BREAK
 		
@@ -254,9 +254,9 @@
 		
 		base_layer {
 			bindings = <
-				&kp _B		&kp _EACT	&kp _P		&kp _O		EXCL_QMRK			&none		&kp _V		&kp _D		&kp _L		&kp _C
-				&kp _W		HMLA _U	HMLC _I	HMLS _A	DOT_COMMA			&kp _J		HMRS _T	HMRC _S	HMRA _R	&kp _N
-				&kp _Z		HMLC _Y	&kp _X		&kp _Q		&kp _K				&key_repeat	&kp _M		&kp _G		&kp _H		&kp _F
+				&kp B_		&kp  EACT_	&kp  P_		&kp  O_		EXCL_QMRK			&none		&kp  V_		&kp  D_		&kp  L_		&kp C_
+				&kp W_		HMLA U_		HMLC I_		HMLS A_		DOT_COMMA			&kp J_		HMRS T_		HMRC S_		HMRA R_		&kp N_
+				&kp Z_		HMLC Y_		&kp  X_		&kp  Q_		&kp K_				&key_repeat	&kp  M_		&kp  G_		&kp  H_		&kp F_
 												/*	SYM 		NUM E				NAV SPACE	LSHIFT BSPC	*/
 													THUMB1		THUMB2				THUMB3		THUMB4
 			>;
@@ -265,18 +265,18 @@
 		
 		sym_layer {
 			bindings = <
-				&kp _LBRK	&kp _RBRK	&kp _LGLM	&kp _RGLM	&none				&kp _AE	&kp _OE	&kp _AT	&kp _AMPR	&none
-				&kp _LPAR	&kp _RPAR	&kp _QUOT	&kp _APST	COLON_SEMI			&kp _CCED	&kp _ACUT	&kp _GRAV	&kp _CRAT	&kp _TILD
-				&kp _LCRL	&kp _RCRL	&kp _LT	&kp _GT	&none				&kp _TRMA	&kp _MIN	&kp _MDSH	&kp _NDSH	&none
-													&trans		&trans				&trans		&kp _NBSP
+				&kp LBRK_	&kp RBRK_	&kp LGLM_	&kp RGLM_	&none				&kp AE_		&kp OE_		&kp AT_		&kp AMPR_	&none
+				&kp LPAR_	&kp RPAR_	&kp QUOT_	&kp APST_	COLON_SEMI			&kp CCED_	&kp ACUT_	&kp GRAV_	&kp CRAT_	&kp TILD_
+				&kp LCRL_	&kp RCRL_	&kp LT_		&kp GT_		&none				&kp TRMA_	&kp MIN_	&kp MDSH_	&kp NDSH_	&none
+													&trans		&trans				&trans		&kp NBSP_
 			>;
 		};
 		
 		num_layer {
 			bindings = <
-				&kp _PCNT	&kp _HASH	&kp _DLLR	&kp _EURO	&none				&none		&kp _N4	&kp _N5	&kp _N6	&none
-				&kp _FSLA	&kp _STAR	&kp _MIN	&kp _PLUS	DOT_COMMA			&none		&kp _N1	&kp _N2	&kp _N3	&kp _N0
-				&kp _BSLA	&kp _EQUL	&kp LA(TAB)	&kp LC(TAB)	&none				&none		&kp _N7	&kp _N8	&kp _N9	&tog NUM
+				&kp PCNT_	&kp HASH_	&kp DLLR_	&kp EURO_	&none				&none		&kp N4_		&kp N5_		&kp	 N6_	&none
+				&kp FSLA_	&kp STAR_	&kp MIN_	&kp PLUS_	DOT_COMMA			&none		&kp N1_		&kp N2_		&kp	 N3_	&kp N0_
+				&kp BSLA_	&kp EQUL_	&kp LA(TAB)	&kp LC(TAB)	&none				&none		&kp N7_		&kp N8_		&kp N9_		&tog NUM
 													&trans		&tog NUM			&trans		&trans
 			>;
 		};
@@ -285,8 +285,8 @@
 			bindings = <
 				&kp INSERT	&sk RALT	&kp PSCRN	&kp PSBRK	&none				&kp PG_UP	&kp HOME		&kp LEFT	&kp RIGHT	&kp END
 				&sk LGUI	&sk LALT	&sk LCTRL	&sk LSHIFT	&caps_word			&kp PG_DN	&kp LC(LEFT)	&kp DOWN	&kp UP		&kp LC(RIGHT)
-				&kp LC(_Z)	&kp LC(_X)	&kp LC(_C)	&kp LC(_V)	&none				&none		&kp LC(BSPC)	&kp BSPC	&kp DEL		&kp LC(DEL)
-													&kp LC(RET)	&kp _ULIN			&trans		&trans
+				&kp LC(Z_)	&kp LC(X_)	&kp LC(C_)	&kp LC(V_)	&none				&none		&kp LC(BSPC)	&kp BSPC	&kp DEL		&kp LC(DEL)
+													&kp LC(RET)	&kp ULIN_			&trans		&trans
 			>;
 		};
 		
