@@ -105,7 +105,7 @@
 };
 
 &caps_word {
-	continue-list = <B_ULIN B_MIN BACKSPACE>
+	continue-list = <B_ULIN B_MIN BACKSPACE>;
 };
 
 / { 
@@ -166,7 +166,65 @@
               ╰────────╯ ╰────────╯            */
 			  
     combos {
-       
+        compatible = "zmk,combos";
+		
+		combo_enter {
+			bindings = <&kp ENTER>;
+			key-positions = <16 17>;
+		};
+		
+		combo_backspace_l {
+			bindings = <&kp BACKSPACE>;
+			key-positions = <11 12>;
+		};
+		
+		combo_backspace_r {
+			bindings = <&kp BACKSPACE>;
+			key-positions = <17 18>;
+		};
+		
+		combo_space_r {
+			bindings = <&kp SPACE>;
+			key-positions = <16 17 18>;
+		};
+		
+		combo_space_l {
+			bindings = <&kp SPACE>;
+			key-positions = <11 12 13>;
+		};
+		
+		combo_delete {
+			bindings = <&kp DELETE>;
+			key-positions = <18 19>;
+		};
+				
+		combo_tab {
+			bindings = <&kp TAB>;
+			key-positions = <22 23>;
+		};
+		
+		combo_esc {
+			bindings = <&kp ESC>;
+			key-positions = <10 11 12 13>;
+		};
+		
+		combo_func_layer {
+			bindings = <&mo FUNC>;
+			key-positions = <30 31>;
+			layers = <BASE>;
+		};
+        
+		combo_caps {
+			bindings = <&kp CAPS>;
+			key-positions = <13 14>;
+			layers = <NAV>;
+		};
+		
+		combo_bootloader {
+			bindings = <&bootloader>;
+			key-positions = <20 24>;
+			layers = <FUNC>;
+		};
     };
 
 	keymap {
@@ -206,7 +264,7 @@
 		
 		sym_layer {
 			bindings = <
-				&kp B_LBRK	&kp B_RBRK	&kp B_LGLM	&kp B_RGLM	&none				&kp B_AE	&kp B_OE	&kp B_AT	&kp B_AMPR	&kp B_NBSP
+				&kp B_LBRK	&kp B_RBRK	&kp B_LGLM	&kp B_RGLM	&none				&kp B_AE	&kp B_OE	&kp B_AT	&kp B_AMPR	&none
 				&kp B_LPAR	&kp B_RPAR	&kp B_QUOT	&kp B_APST	COLON_SEMI			&kp B_CCED	&kp B_ACUT	&kp B_GRAV	&kp B_CRAT	&kp B_TILD
 				&kp B_LCRL	&kp B_RCRL	&kp B_LT	&kp B_GT	&none				&kp B_TRMA	&kp B_MIN	&kp B_MDSH	&kp B_NDSH	&none
 													&trans		&trans				&trans		&kp B_NBSP
@@ -240,4 +298,4 @@
 			>;
 		};
 	};
-};
+};	
