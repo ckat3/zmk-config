@@ -166,65 +166,7 @@
               ╰────────╯ ╰────────╯            */
 			  
     combos {
-        compatible = "zmk,combos";
-		
-		combo_enter {
-			bindings = <&kp ENTER>;
-			key-positions = <16 17>;
-		};
-		
-		combo_backspace_l {
-			bindings = <&kp BACKSPACE>;
-			key-positions = <11 12>;
-		};
-		
-		combo_backspace_r {
-			bindings = <&kp BACKSPACE>;
-			key-positions = <17 18>;
-		};
-		
-		combo_space_r {
-			bindings = <&kp SPACE>;
-			key-positions = <16 17 18>;
-		};
-		
-		combo_space_l {
-			bindings = <&kp SPACE>;
-			key-positions = <11 12 13>;
-		};
-		
-		combo_delete {
-			bindings = <&kp DELETE>;
-			key-positions = <18 19>;
-		};
-				
-		combo_tab {
-			bindings = <&kp TAB>;
-			key-positions = <22 23>;
-		};
-		
-		combo_esc {
-			bindings = <&kp ESC>;
-			key-positions = <10 11 12 13>;
-		};
-		
-		combo_func_layer {
-			bindings = <&mo FUNC>;
-			key-positions = <30 31>;
-			layers = <BASE>;
-		};
-        
-		combo_caps {
-			bindings = <&kp CAPS>;
-			key-positions = <13 14>;
-			layers = <NAV>;
-		};
-		
-		combo_bootloader {
-			bindings = <&bootloader>;
-			key-positions = <20 24>;
-			layers = <FUNC>;
-		};
+       
     };
 
 	keymap {
