@@ -59,7 +59,7 @@
 #define OE_		RA(O_)
 
 #define AE_		RA(A_)
-#define TRMA_	RA(U_)
+#define TRMA_	RA(I_)
 #define EURO_	RA(E_)
 #define BSLA_	RA(AGRV_)
 #define LCRL_	RA(Y_)
@@ -164,7 +164,7 @@
 			label = "HOLD_OR_STICKY";
 			#binding-cells = <2>;
 			tapping-term-ms = <300>;
-			quick-tap-ms = <0>;
+			release-after-ms = <6000>;
 			flavor = "balanced";
 			bindings = <&mo>, <&tog>;
 		};
@@ -262,29 +262,35 @@
 		
 		#define PSBRK PAUSE_BREAK
 		
-		#define HMLG &hm LGUI
-		#define HMLA &hm LALT
-		#define HMLC &hm LCTRL
-		#define HMLS &hml LSHIFT
+		#define HMLG  &hm LGUI
+		#define HMLA  &hm LALT
+		#define HMLC  &hm LCTRL
+		#define HMLS  &hml LSHIFT
 		
-		#define HMRG &hm RGUI
-		#define HMRA &hm RALT
-		#define HMRC &hm RCTRL
-		#define HMRS &hmr RSHIFT
+		#define HMRG  &hm RGUI
+		#define HMRA  &hm RALT
+		#define HMRC  &hm RCTRL
+		#define HMRS  &hmr RSHIFT
 		
-		#define DOT_COMMA	&mt DOT_ COMM_
+		#define DOT_COMMA	&mt DOT_  COMM_
 		#define COLON_SEMI	&mt COLN_ SEMI_
 		#define EXCL_QMRK	&mt EXCL_ QMRK_
-
-		#define THUMB1		&lhs  NUM NUM /* num num num */
-		#define THUMB2		&lttp SYM E_
-		#define THUMB3		&lt   NAV SPACE
-		#define THUMB4		&mt   LSHIFT BSPC
+		
+		#define MTPAR  &mt RPAR_ LPAR_
+		#define MTCRL  &mt RCRL_ LCRL_
+		#define MTBRK  &mt RBRK_ LBRK_
+		#define MTGLM  &mt RGLM_ LGLM_
+		#define MTGLT  &mt GT_   LT_
+		
+		#define THUMB1	&lhs  NUM NUM /* num num num */
+		#define THUMB2	&lttp SYM E_
+		#define THUMB3	&lt   NAV SPACE
+		#define THUMB4	&mt   LSHIFT BSPC
 		
 		base_layer {
 			bindings = <
 				&kp B_		&kp  EACT_	&kp  P_		&kp  O_		EXCL_QMRK			&kp K_		&kp  V_		&kp  D_		&kp  L_		&kp F_
-				&kp W_		HMLA U_		HMLC I_		HMLS A_		&kp COMM_			&kp J_		HMRS T_		HMRC S_		HMRA R_		&kp N_
+				&kp W_		HMLA U_		HMLC I_		HMLS A_		DOT_COMMA			&kp J_		HMRS T_		HMRC S_		HMRA R_		&kp N_
 				&kp Z_		HMLC Y_		&kp  X_		&kp  Q_		&kp DOT_			&key_repeat	&kp  M_		&kp  G_		&kp  H_		&kp C_
 												/*	NUM 		SYM E				NAV SPACE	LSHIFT BSPC	*/
 													THUMB1		THUMB2				THUMB3		THUMB4
@@ -293,9 +299,9 @@
 		
 		sym_layer {
 			bindings = <
-				&kp LBRK_	&kp RBRK_	&kp LGLM_	&kp RGLM_	&none				&kp AE_		&kp OE_		&kp AT_		&kp AMPR_	&kp CCED_
-				&kp LT_		&kp GT_		&kp QUOT_	&kp APST_	COLON_SEMI			&kp CCED_	&kp ACUT_	&kp GRAV_	&kp CRAT_	&kp TILD_
-				&kp LCRL_	&kp RCRL_	&kp LPAR_	&kp RPAR_	&none				&kp TRMA_	&kp APST_	&kp MIN_	&kp MDSH_	&kp NDSH_
+				&none		&kp RBRK_	&none		MTBRK		&none				&kp AE_		&kp OE_		&kp AT_		&kp AMPR_	&kp CCED_
+				MTGLM		&kp QUOT_	&kp APST_	&kp MIN_	COLON_SEMI			&kp CCED_	&kp ACUT_	&kp GRAV_	&kp CRAT_	&kp TILD_
+				MTCRL		MTGLT		&none		MTPAR		&none				&kp TRMA_	&none		&none		&kp MDSH_	&kp NDSH_
 													&trans		&trans				&trans		&kp NBSP_
 			>;
 		};
@@ -304,7 +310,7 @@
 			bindings = <
 				&kp PCNT_	&kp HASH_	&kp DLLR_	&kp EURO_	&none				&none		&kp N4_		&kp N5_		&kp	N6_		&kp EQUL_
 				&kp FSLA_	&kp STAR_	&kp MIN_	&kp PLUS_	DOT_COMMA			&none		&kp N1_		&kp N2_		&kp	N3_		&kp N0_
-				&kp BSLA_	&none		&none		&none		&none				&none		&kp N7_		&kp N8_		&kp N9_		&to NUM
+				&kp BSLA_	MTGLT		&kp EQUL_	MTPAR		&none				&none		&kp N7_		&kp N8_		&kp N9_		&to NUM
 													&tog NUM	&trans				&trans		&trans
 			>;
 		};
