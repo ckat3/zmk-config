@@ -182,7 +182,7 @@
 		
 		
 		#define MACRO_DOUBLE(FIRST, SECOND) \
-			ZMK_MACRO(macro_##FIRST,
+			ZMK_MACRO(dbl_##FIRST,
 				tap-ms = <30>;
 				bindings = <&kp FIRST, &kp SECOND, &kp LEFT>;)
 				
@@ -420,8 +420,8 @@
 		symdouble_layer {
 			bindings = <
 				&none		&none		&none		&none		&none				&trans	&trans	&trans	&trans	&trans
-				&macr_LGLM_	&macr_QUOT_	&macr_APST_	&trans		&trans				&trans	&trans	&trans	&trans	&trans
-				&macr_LCRL_	&macr_LGT_	&macr_LBRK_	&macr_LPAR_	&none				&trans	&trans	&trans	&trans	&trans
+				&dbl_LGLM_	&dbl_QUOT_	&dbl_APST_	&trans		&trans				&trans	&trans	&trans	&trans	&trans
+				&dbl_LCRL_	&dbl_LGT_	&dbl_LBRK_	&dbl_LPAR_	&none				&trans	&trans	&trans	&trans	&trans
 													&trans		&trans				&trans	&trans
 			>;
 		};
