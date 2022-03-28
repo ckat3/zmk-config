@@ -181,7 +181,7 @@
 		
 		
 		
-		/*#define MACRO_DOUBLE(FIRST, SECOND) \
+		#define MACRO_DOUBLE(FIRST, SECOND) \
 			ZMK_MACRO(macro_##FIRST,
 				tap-ms = <30>;
 				bindings = <&kp FIRST, &kp SECOND, &kp LEFT>;)
@@ -192,7 +192,7 @@
 		MACRO_DOUBLE(LT_,   GT_)
 		MACRO_DOUBLE(LGLM_, RGLM_)
 		MACRO_DOUBLE(APST_, APST_)
-		MACRO_DOUBLE(QUOT_, QUOT_)*/
+		MACRO_DOUBLE(QUOT_, QUOT_)
 	
 		ZMK_MACRO(macro_par,
 			tap-ms = <30>;
@@ -396,7 +396,7 @@
 		
 		#define THUMB1	&lttp SYM E_
 		#define THUMB2	&lhs  NUM NUM /* num num num */
-		#define THUMB3	&mt   LSHIFT BSPC
+		#define THUMB3	&mt   LSHIFT ACUT_
 		#define THUMB4	&lt   NAV SPACE
 		
 		base_layer {
@@ -420,8 +420,8 @@
 		symdouble_layer {
 			bindings = <
 				&none		&none		&none		&none		&none				&trans	&trans	&trans	&trans	&trans
-				&macro_glm	&macro_quot	&macro_apst	&trans		&trans				&trans	&trans	&trans	&trans	&trans
-				&macro_crl	&macro_glt	&macro_brk	&macro_par	&none				&trans	&trans	&trans	&trans	&trans
+				&macr_LGLM_	&macr_QUOT_	&macr_APST_	&trans		&trans				&trans	&trans	&trans	&trans	&trans
+				&macr_LCRL_	&macr_LGT_	&macr_LBRK_	&macr_LPAR_	&none				&trans	&trans	&trans	&trans	&trans
 													&trans		&trans				&trans	&trans
 			>;
 		};
