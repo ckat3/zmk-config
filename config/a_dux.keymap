@@ -233,34 +233,19 @@
 			};
 			
 		COMBO(TAB,   12 13,)
-		COMBO(ENTER, 16 17)
-		COMBO(BSPC,  11 12)
-		COMBO(SPACE, 11 12 13)
-		COMBO(DEL,   18 19)
-		COMBO(ESC,   10 11 12 13)
-		
-		combo_backspace_r {
-			bindings = <&kp BACKSPACE>;
-			key-positions = <17 18>;
-			timeout-ms = <COMBO_TIMEOUT>;
-		};
-		
-		combo_space_r {
-			bindings = <&kp SPACE>;
-			key-positions = <16 17 18>;
-			timeout-ms = <COMBO_TIMEOUT>;
-		};
+		COMBO(ENTER, 16 17,)
+		COMBO(BSPC,  11 12,)
+		COMBO(BSPC,  17 18,_)
+		COMBO(SPACE, 11 12 13,)
+		COMBO(SPACE, 16 17 18,_)
+		COMBO(DEL,   18 19,)
+		COMBO(ESC,   10 11 12 13,)
+		COMBO(ESC,   13 23>,_)
 		
 				
 		combo_ctrl_z {
 			bindings = <&kp LC(Z_)>;
 			key-positions = <20 21>;
-			timeout-ms = <COMBO_TIMEOUT>;
-		};
-		
-		combo_esc_2 {
-			bindings = <&kp ESC>;
-			key-positions = <13 23>;
 			timeout-ms = <COMBO_TIMEOUT>;
 		};
 		
