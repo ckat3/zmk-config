@@ -240,7 +240,7 @@
 		COMBO(SPACE, 16 17 18,_)
 		COMBO(DEL,   18 19,)
 		COMBO(ESC,   10 11 12 13,)
-		COMBO(ESC,   13 23>,_)
+		COMBO(ESC,   13 23,_)
 		
 				
 		combo_ctrl_z {
@@ -249,18 +249,12 @@
 			timeout-ms = <COMBO_TIMEOUT>;
 		};
 		
-		
-		
-		
 		combo_pause {
 			bindings = <&kp PAUSE_BREAK>;
 			key-positions = <20 21 22 23>;
 			layers = <BASE>;
 			timeout-ms = <COMBO_TIMEOUT>;
 		};
-		
-		
-		
 		
 		combo_func_layer {
 			bindings = <&mo FUNC>;
