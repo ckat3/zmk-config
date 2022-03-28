@@ -172,10 +172,7 @@
 
 	
 	macros {
-		macro_qu: macro_qu {
-			label = "MACRO_QU";
-			compatible = "zmk,behavior-macro";
-			#binding-cells = <0>;
+		ZMK_MACRO(macro_qu,
 			tap-ms = <30>;
 			bindings
 				= <&macro_tap &kp Q_ &kp U_>
@@ -184,60 +181,42 @@
 		
 		
 		
-		macro_par: macro_par {
-			label = "MACRO_PAR";
-			compatible = "zmk,behavior-macro";
-			#binding-cells = <0>;
+		ZMK_MACRO(macro_par,
 			tap-ms = <30>;
 			bindings
 				= <&macro_tap &kp LPAR_ &kp RPAR_ &kp LEFT>
 				;
 		};	
 		
-		macro_brk: macro_brk {
-			label = "MACRO_BRK";
-			compatible = "zmk,behavior-macro";
-			#binding-cells = <0>;
+		ZMK_MACRO(macro_brk,
 			tap-ms = <30>;
 			bindings
 				= <&macro_tap &kp LBRK_ &kp RBRK_ &kp LEFT>
 				;
 		};
 		
-		macro_crl: macro_crl {
-			label = "MACRO_CRL";
-			compatible = "zmk,behavior-macro";
-			#binding-cells = <0>;
+		ZMK_MACRO(macro_crl,
 			tap-ms = <30>;
 			bindings
 				= <&macro_tap &kp LCRL_ &kp RCRL_ &kp LEFT>
 				;
 		};
 		
-		macro_glt: macro_glt {
-			label = "MACRO_GLT";
-			compatible = "zmk,behavior-macro";
-			#binding-cells = <0>;
+		ZMK_MACRO(macro_glt,
 			tap-ms = <30>;
 			bindings
 				= <&macro_tap &kp LT_ &kp GT_ &kp LEFT>
 				;
 		};
 		
-		macro_quot: macro_quot {
-			label = "MACRO_QUOT";
-			compatible = "zmk,behavior-macro";
-			#binding-cells = <0>;
+		ZMK_MACRO(macro_quot,
 			tap-ms = <30>;
 			bindings
 				= <&macro_tap &kp QUOT_ &kp QUOT_ &kp LEFT>
 				;
 		};
 		
-		macro_apst: macro_apst {
-			label = "MACRO_APST";
-			compatible = "zmk,behavior-macro";
-			#binding-cells = <0>;
+		ZMK_MACRO(macro_apst,
 			tap-ms = <30>;
 			bindings
 				= <&macro_tap &kp APST_ &kp APST_ &kp LEFT>
@@ -337,7 +316,7 @@
 			timeout-ms = <COMBO_TIMEOUT>;
 		};
 		
-		combo_cs_esc {
+		combo_pause {
 			bindings = <&kp PAUSE_BREAK>;
 			key-positions = <20 21 22 23>;
 			layers = <BASE>;
