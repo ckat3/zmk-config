@@ -283,9 +283,9 @@
 		
 		base_layer {
 			bindings = <
-				&kp B_		&kp  EACT_	&kp  P_		&kp  O_		EXCL_QMRK			&kp K_		&kp  V_		&kp  D_		&kp  L_		&kp C_
+				&kp B_		&kp  EACT_	&kp  P_		&kp  O_		EXCL_QMRK			&kp K_		&kp  V_		&kp  D_		&kp  L_		&kp F_
 				&kp W_		HMLA U_		HMLC I_		HMLS A_		&kp COMM_			&kp J_		HMRS T_		HMRC S_		HMRA R_		&kp N_
-				&kp Z_		HMLC Y_		&kp  X_		&kp  Q_		&kp DOT_			&key_repeat	&kp  M_		&kp  G_		&kp  H_		&kp F_
+				&kp Z_		HMLC Y_		&kp  X_		&kp  Q_		&kp DOT_			&key_repeat	&kp  M_		&kp  G_		&kp  H_		&kp C_
 												/*	NUM 		SYM E				NAV SPACE	LSHIFT BSPC	*/
 													THUMB1		THUMB2				THUMB3		THUMB4
 			>;
