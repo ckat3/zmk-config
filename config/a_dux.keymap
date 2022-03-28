@@ -172,7 +172,9 @@
 
 	
 	macros {
-		#define DOUBLE
+		/*#define MACRO_DOUBLE(FIRST, SECOND) \
+			ZMK_MACRO(macro_##FIRST,
+				bindings = <&kp FIRST, &kp SECOND, LEFT>;)*/
 	
 		ZMK_MACRO(macro_qu,
 			tap-ms = <30>;
@@ -208,6 +210,13 @@
 			tap-ms = <30>;
 			bindings
 				= <&macro_tap &kp LT_ &kp GT_ &kp LEFT>
+				;
+		)
+		
+		ZMK_MACRO(macro_glm,
+			tap-ms = <30>;
+			bindings
+				= <&macro_tap &kp LGLM_ &kp RGLM_ &kp LEFT>
 				;
 		)
 		
