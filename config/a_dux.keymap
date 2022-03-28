@@ -420,11 +420,11 @@
 		
 		symdouble_layer {
 			bindings = <
-				&none		&none		&none		&none		&none				&trans	&trans	&trans	&trans	&trans
-				&dbl_LGLM_	&dbl_QUOT_	&dbl_APST_	&trans		&trans				&trans	&trans	&trans	&trans	&trans
-				&dbl_LCRL_	&dbl_LT_	&dbl_LBRK_	&dbl_LPAR_	&none				&trans	&trans	&trans	&trans	&trans
-													&trans		&trans				&trans	&trans
-			>;
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none
+				>;
 		};
 		
 		num_layer {
