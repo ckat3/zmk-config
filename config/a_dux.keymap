@@ -217,11 +217,21 @@
 			timeout-ms = <COMBO_TIMEOUT>;
 		};
 		
-		combo_acute {
+		
+		#define COMBO(KEY, POSITIONS) \
+			combo_##KEY { \
+				bindings = <&kp KEY>; \
+				key-positions = <POSITIONS>; \
+				timeout-ms = <COMBO_TIMEOUT>; \
+			};
+			
+		COMBO(ACUT_, 32 33)
+		
+		/*combo_acute {
 			bindings = <&kp ACUT_>;
 			key-positions = <32 33>;
 			timeout-ms = <COMBO_TIMEOUT>;
-		};
+		};*/
 		
 		
 		
@@ -298,7 +308,6 @@
 		
 		
 		
-		
 		combo_func_layer {
 			bindings = <&mo FUNC>;
 			key-positions = <30 31>;
@@ -353,9 +362,9 @@
 		
 		base_layer {
 			bindings = <
-				&kp B_		&kp  EACT_	&kp  P_		&kp  W_		&kp Q_				&kp K_		&kp  V_		&kp  D_		&kp  L_		&kp F_
-				&kp U_		HMLA O_		HMLC I_		HMLS A_		&kp DOT_			&kp J_		HMRS T_		HMRC S_		HMRA R_		&kp N_
-				&kp Z_		HMLC Y_		&kp  X_		&kp COMM_	EXCL_QMRK			&key_repeat	&kp  M_		&kp  G_		&kp  H_		&kp C_
+				&kp Z_		&kp  EACT_	&kp  P_		&kp  W_		&kp Q_				&kp K_		&kp  V_		&kp  D_		&kp  L_		&kp J_
+				&kp U_		HMLA O_		HMLC I_		HMLS A_		&kp DOT_			&kp F_		HMRS T_		HMRC S_		HMRA R_		&kp N_
+				&kp B_		HMLC Y_		&kp  X_		&kp COMM_	EXCL_QMRK			&key_repeat	&kp  M_		&kp  G_		&kp  H_		&kp C_
 													THUMB1		THUMB2				THUMB3		THUMB4
 			>;
 		};
