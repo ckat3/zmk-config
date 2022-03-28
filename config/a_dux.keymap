@@ -186,6 +186,12 @@
 		
 		#define COMBO_TIMEOUT 20
 		
+		combo_q {
+			bindings = <&kp Q_>;
+			key-positions = <25 26>;
+			timeout-ms = <COMBO_TIMEOUT>;
+		};
+		
 		combo_enter {
 			bindings = <&kp ENTER>;
 			key-positions = <16 17>;
@@ -281,10 +287,10 @@
 		#define MTGLM  &mt RGLM_ LGLM_
 		#define MTGLT  &mt GT_   LT_
 		
-		#define THUMB1	&lhs  NUM NUM /* num num num */
-		#define THUMB2	&lttp SYM E_
-		#define THUMB3	&lt   NAV SPACE
-		#define THUMB4	&mt   LSHIFT BSPC
+		#define THUMB1	&lttp SYM E_
+		#define THUMB2	&lhs  NUM NUM /* num num num */
+		#define THUMB3	&mt   LSHIFT BSPC
+		#define THUMB4	&lt   NAV SPACE
 		
 		base_layer {
 			bindings = <
@@ -317,7 +323,7 @@
 		nav_layer {
 			bindings = <
 				&kp INSERT	&sk RALT	&kp PSCRN	&kp PSBRK	&none				&kp PG_UP	&kp HOME		&kp LEFT	&kp RIGHT	&kp END
-				&sk LGUI	&sk LALT	&sk LCTRL	&sk LSHIFT	&caps_word			&kp PG_DN	&kp LC(LEFT)	&kp DOWN	&kp UP		&kp LC(RIGHT)
+				&sk LGUI	&sk LALT	&sk LCTRL	&sk LSHIFT	&capslock			&kp PG_DN	&kp LC(LEFT)	&kp DOWN	&kp UP		&kp LC(RIGHT)
 				&kp LC(Z_)	&kp LC(X_)	&kp LC(C_)	&kp LC(V_)	&none				&none		&kp LC(BSPC)	&kp BSPC	&kp DEL		&kp LC(DEL)
 													&none		&kp ULIN_			&trans		&trans
 			>;
