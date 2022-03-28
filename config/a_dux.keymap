@@ -225,10 +225,11 @@
 				timeout-ms = <COMBO_TIMEOUT>; \
 			};
 			
-		#define COMBO_L(KEY, POSITIONS, LAYER) \
+		#define COMBO_LAYER(KEY, POSITIONS, LAYERS) \
 			combo_##KEY { \
 				bindings = <&kp KEY>; \
 				key-positions = <POSITIONS>; \
+				layers = <LAYERS>;
 				timeout-ms = <COMBO_TIMEOUT>; \
 			};
 			
@@ -249,12 +250,7 @@
 			timeout-ms = <COMBO_TIMEOUT>;
 		};
 		
-		combo_pause {
-			bindings = <&kp PAUSE_BREAK>;
-			key-positions = <20 21 22 23>;
-			layers = <BASE>;
-			timeout-ms = <COMBO_TIMEOUT>;
-		};
+		COMBO_LAYER(PAUSE_BREAK, 20 21 22 23, BASE)
 		
 		combo_func_layer {
 			bindings = <&mo FUNC>;
