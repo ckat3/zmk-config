@@ -175,6 +175,7 @@
 			label = "MACRO_QU";
 			compatible = "zmk,behavior-macro";
 			#binding-cells = <0>;
+			tap-ms = <30>;
 			bindings
 				= <&macro_tap &kp Q_ &kp U_>
 				;
@@ -307,7 +308,6 @@
 				&kp B_		&kp  EACT_	&kp  P_		&kp  O_		&kp Q_				&kp K_		&kp  V_		&kp  D_		&kp  L_		&kp F_
 				&kp W_		HMLA U_		HMLC I_		HMLS A_		EXCL_QMRK			&kp J_		HMRS T_		HMRC S_		HMRA R_		&kp N_
 				&kp Z_		HMLC Y_		&kp  X_		DOT_COMMA	&kp DOT_			&key_repeat	&kp  M_		&kp  G_		&kp  H_		&kp C_
-												/*	NUM 		SYM E				NAV SPACE	LSHIFT BSPC	*/
 													THUMB1		THUMB2				THUMB3		THUMB4
 			>;
 		};
@@ -317,7 +317,7 @@
 				&none		&none		&none		&none		&none				&kp AE_		&kp OE_		&kp AT_		&kp AMPR_	&kp CCED_
 				MTGLM		&kp QUOT_	&kp APST_	&kp MIN_	COLON_SEMI			&kp CCED_	&kp ACUT_	&kp GRAV_	&kp CRAT_	&kp TILD_
 				MTCRL		MTGLT		MTBRK		MTPAR		&none				&kp TRMA_	&none		&none		&kp MDSH_	&kp NDSH_
-													&trans		&trans				&trans		&kp NBSP_
+													&trans		&trans				&kp NBSP_	&trans
 			>;
 		};
 		
@@ -341,7 +341,7 @@
 				&kp INSERT	&sk RALT	&kp PSCRN	&kp PSBRK	&none				&kp PG_UP	&kp HOME		&kp LEFT	&kp RIGHT	&kp END
 				&sk LGUI	&sk LALT	&sk LCTRL	&sk LSHIFT	&kp CAPS			&kp PG_DN	&kp LC(LEFT)	&kp DOWN	&kp UP		&kp LC(RIGHT)
 				&kp LC(Z_)	&kp LC(X_)	&kp LC(C_)	&kp LC(V_)	&none				&none		&kp LC(BSPC)	&kp BSPC	&kp DEL		&kp LC(DEL)
-													&none		&kp ULIN_			&trans		&trans
+													&kp ULIN_	&trans				&trans		&trans
 			>;
 		};
 		
@@ -350,7 +350,7 @@
 				&bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3			&reset		  &kp F4  &kp F5  &kp F6  &kp F10
 				&kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE    &kp C_BRI_UP  &kp LSLCK				&none		  &kp F1  &kp F2  &kp F3  &kp F11
 				&kp C_PREV    &kp C_NEXT    &kp C_PP      &kp C_BRI_DN  &kp LNLCK				&out OUT_TOG  &kp F7  &kp F8  &kp F9  &kp F12
-													      &trans		&trans					&trans	&trans
+													      &trans		&trans					&trans		  &trans
 			>;
 		};
 		/*
