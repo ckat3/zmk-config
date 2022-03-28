@@ -234,22 +234,13 @@
 			
 		COMBO(TAB,   12 13)
 		COMBO(ENTER, 16 17)
-		
-		combo_backspace_l {
-			bindings = <&kp BACKSPACE>;
-			key-positions = <11 12>;
-			timeout-ms = <COMBO_TIMEOUT>;
-		};
+		COMBO(BSPC,  11 12)
+		COMBO(SPACE, 11 12 13)
+		COMBO(DEL,   18 19)
 		
 		combo_backspace_r {
 			bindings = <&kp BACKSPACE>;
 			key-positions = <17 18>;
-			timeout-ms = <COMBO_TIMEOUT>;
-		};
-		
-		combo_space_l {
-			bindings = <&kp SPACE>;
-			key-positions = <11 12 13>;
 			timeout-ms = <COMBO_TIMEOUT>;
 		};
 		
@@ -258,13 +249,6 @@
 			key-positions = <16 17 18>;
 			timeout-ms = <COMBO_TIMEOUT>;
 		};
-		
-		combo_delete {
-			bindings = <&kp DELETE>;
-			key-positions = <18 19>;
-			timeout-ms = <COMBO_TIMEOUT>;
-		};
-		
 		
 				
 		combo_ctrl_z {
