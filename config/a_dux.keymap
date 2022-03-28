@@ -218,8 +218,8 @@
 		};
 		
 		
-		#define COMBO(KEY, POSITIONS) \
-			combo_##KEY { \
+		#define COMBO(KEY, POSITIONS, SUFFIX) \
+			combo_##KEY##SUFFIX { \
 				bindings = <&kp KEY>; \
 				key-positions = <POSITIONS>; \
 				timeout-ms = <COMBO_TIMEOUT>; \
@@ -232,11 +232,12 @@
 				timeout-ms = <COMBO_TIMEOUT>; \
 			};
 			
-		COMBO(TAB,   12 13)
+		COMBO(TAB,   12 13,)
 		COMBO(ENTER, 16 17)
 		COMBO(BSPC,  11 12)
 		COMBO(SPACE, 11 12 13)
 		COMBO(DEL,   18 19)
+		COMBO(ESC,   10 11 12 13)
 		
 		combo_backspace_r {
 			bindings = <&kp BACKSPACE>;
@@ -257,17 +258,14 @@
 			timeout-ms = <COMBO_TIMEOUT>;
 		};
 		
-		combo_esc {
-			bindings = <&kp ESC>;
-			key-positions = <10 11 12 13>;
-			timeout-ms = <COMBO_TIMEOUT>;
-		};
-		
 		combo_esc_2 {
 			bindings = <&kp ESC>;
 			key-positions = <13 23>;
 			timeout-ms = <COMBO_TIMEOUT>;
 		};
+		
+		
+		
 		
 		combo_pause {
 			bindings = <&kp PAUSE_BREAK>;
