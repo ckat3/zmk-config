@@ -112,7 +112,7 @@
 };
 
 &caps_word {
-	continue-list = <ULIN_ MIN_ BACKSPACE>;
+	continue-list = <ULIN_ MIN_ BACKSPACE Z_ W_ N_ M_ CCED_ G_ H_ F_>;
 };
 
 / { 
