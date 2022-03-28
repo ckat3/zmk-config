@@ -218,6 +218,7 @@
 		};
 		
 		
+		
 		#define COMBO(KEY, POSITIONS) \
 			combo_##KEY { \
 				bindings = <&kp KEY>; \
@@ -225,60 +226,29 @@
 				timeout-ms = <COMBO_TIMEOUT>; \
 			};
 			
+		#define COMBO_2(KEY, POSITIONS) \
+			combo_2_##KEY { \
+				bindings = <&kp KEY>; \
+				key-positions = <POSITIONS>; \
+				timeout-ms = <COMBO_TIMEOUT>; \
+			};
+			
+		#define COMBO_LAYER(KEY, POSITIONS, LAYER) \
+			combo_##KEY { \
+				bindings = <&kp KEY>; \
+				key-positions = <POSITIONS>; \
+				layers = <BASE>;
+				timeout-ms = <COMBO_TIMEOUT>; \
+			};
+			
 		COMBO(ACUT_, 32 33)
-		
-		/*combo_acute {
-			bindings = <&kp ACUT_>;
-			key-positions = <32 33>;
-			timeout-ms = <COMBO_TIMEOUT>;
-		};*/
-		
-		
-		
-				
-		combo_tab {
-			bindings = <&kp TAB>;
-			key-positions = <12 13>;
-			timeout-ms = <COMBO_TIMEOUT>;
-		};
-		
-		combo_enter {
-			bindings = <&kp ENTER>;
-			key-positions = <16 17>;
-			timeout-ms = <COMBO_TIMEOUT>;
-		};
-		
-		combo_backspace_l {
-			bindings = <&kp BACKSPACE>;
-			key-positions = <11 12>;
-			timeout-ms = <COMBO_TIMEOUT>;
-		};
-		
-		combo_backspace_r {
-			bindings = <&kp BACKSPACE>;
-			key-positions = <17 18>;
-			timeout-ms = <COMBO_TIMEOUT>;
-		};
-		
-		combo_space_l {
-			bindings = <&kp SPACE>;
-			key-positions = <11 12 13>;
-			timeout-ms = <COMBO_TIMEOUT>;
-		};
-		
-		combo_space_r {
-			bindings = <&kp SPACE>;
-			key-positions = <16 17 18>;
-			timeout-ms = <COMBO_TIMEOUT>;
-		};
-		
-		combo_delete {
-			bindings = <&kp DELETE>;
-			key-positions = <18 19>;
-			timeout-ms = <COMBO_TIMEOUT>;
-		};
-		
-		
+		COMBO(TAB, 12 13)
+		COMBO(ENTER, 16 17)
+		COMBO(BACKSPACE, 11 12)
+		COMBO_2(BACKSPACE, 17 18)
+		COMBO(SPACE, 11 12 13)
+		COMBO_2(SPACE, 16 17 18)
+		COMBO(DELETE, 18 19)
 				
 		combo_ctrl_z {
 			bindings = <&kp LC(Z_)>;
@@ -286,25 +256,9 @@
 			timeout-ms = <COMBO_TIMEOUT>;
 		};
 		
-		combo_esc {
-			bindings = <&kp ESC>;
-			key-positions = <10 11 12 13>;
-			timeout-ms = <COMBO_TIMEOUT>;
-		};
-		
-		combo_esc_2 {
-			bindings = <&kp ESC>;
-			key-positions = <13 23>;
-			timeout-ms = <COMBO_TIMEOUT>;
-		};
-		
-		combo_pause {
-			bindings = <&kp PAUSE_BREAK>;
-			key-positions = <20 21 22 23>;
-			layers = <BASE>;
-			timeout-ms = <COMBO_TIMEOUT>;
-		};
-		
+		COMBO(ESC, 10 11 12 13)
+		COMBO_2(ESC, 13 23)
+		COMBO_LAYER(PAUSE_BREAK, 20 21 22 23, BASE)
 		
 		
 		
