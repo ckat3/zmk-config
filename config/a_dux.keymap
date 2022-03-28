@@ -229,12 +229,25 @@
 			combo_##KEY { \
 				bindings = <&kp KEY>; \
 				key-positions = <POSITIONS>; \
-				layers = <BASE>;
 				timeout-ms = <COMBO_TIMEOUT>; \
 			};
 			
 		COMBO(ACUT_, 32 33)
-		COMBO(TAB, 12 13)
+		
+		/*combo_acute {
+			bindings = <&kp ACUT_>;
+			key-positions = <32 33>;
+			timeout-ms = <COMBO_TIMEOUT>;
+		};*/
+		
+		
+		
+				
+		combo_tab {
+			bindings = <&kp TAB>;
+			key-positions = <12 13>;
+			timeout-ms = <COMBO_TIMEOUT>;
+		};
 		
 		combo_enter {
 			bindings = <&kp ENTER>;
