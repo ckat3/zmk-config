@@ -182,9 +182,10 @@
 		
 		
 		#define MACRO_DOUBLE(FIRST, SECOND) \
-			ZMK_MACRO(dbl_##FIRST,
-				tap-ms = <30>;
-				bindings = <&kp FIRST, &kp SECOND, &kp LEFT>;)
+			ZMK_MACRO(dbl_##FIRST, \
+				tap-ms = <30>; \
+				bindings = <&kp FIRST, &kp SECOND, &kp LEFT>; \
+				)
 				
 		MACRO_DOUBLE(LPAR_, RPAR_)
 		MACRO_DOUBLE(LBRK_, RBRK_)
@@ -402,7 +403,7 @@
 		base_layer {
 			bindings = <
 				&kp B_		&kp  EACT_	&kp  P_		&kp  W_		&kp Q_				&kp K_		&kp  V_		&kp  D_		&kp  L_		&kp F_
-				&kp O_		HMLA U_		HMLC I_		HMLS A_		&kp DOT_			&kp J_		HMRS T_		HMRC S_		HMRA R_		&kp N_
+				&kp U_		HMLA O_		HMLC I_		HMLS A_		&kp DOT_			&kp J_		HMRS T_		HMRC S_		HMRA R_		&kp N_
 				&kp Z_		HMLC Y_		&kp  X_		&kp COMM_	EXCL_QMRK			&key_repeat	&kp  M_		&kp  G_		&kp  H_		&kp C_
 													THUMB1		THUMB2				THUMB3		THUMB4
 			>;
