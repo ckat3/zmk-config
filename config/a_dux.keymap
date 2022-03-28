@@ -5,10 +5,10 @@
 
 #define BASE 0
 #define SYM  1
-#define SDBL 1
-#define NUM  2
-#define NAV  3
-#define FUNC 4
+#define SDBL 2
+#define NUM  3
+#define NAV  4
+#define FUNC 5
 
 #define B_		Q
 #define EACT_	W
@@ -172,10 +172,6 @@
 
 	
 	macros {
-		/*#define MACRO_DOUBLE(FIRST, SECOND) \
-			ZMK_MACRO(macro_##FIRST,
-				bindings = <&kp FIRST, &kp SECOND, LEFT>;)*/
-	
 		ZMK_MACRO(macro_qu,
 			tap-ms = <30>;
 			bindings
@@ -185,6 +181,13 @@
 		
 		
 		
+		#define MACRO_DOUBLE(FIRST, SECOND) \
+			ZMK_MACRO(macro_##FIRST,
+				tap-ms = <30>;
+				bindings = <&kp FIRST, &kp SECOND, LEFT>;)
+				
+		MACRO_DOUBLE(LPAR_, RPAR_)
+	
 		ZMK_MACRO(macro_par,
 			tap-ms = <30>;
 			bindings
@@ -413,7 +416,7 @@
 				&none		&none		&none		&none		&none				&trans	&trans	&trans	&trans	&trans
 				&macro_glm	&macro_quot	&macro_apst	&trans		&trans				&trans	&trans	&trans	&trans	&trans
 				&macro_crl	&macro_glt	&macro_brk	&macro_par	&none				&trans	&trans	&trans	&trans	&trans
-													&trans		&trans				&kp NBSP_	&trans
+													&trans		&trans				&trans	&trans
 			>;
 		};
 		
