@@ -101,7 +101,7 @@
 #define N8_	LS(N8)
 #define N9_	LS(N9)
 
-#DEFINE LT_TAPPING_TERM 250
+#define LT_TAPPING_TERM 250
 
 &lt {
 	tapping-term-ms = <LT_TAPPING_TERM>;
