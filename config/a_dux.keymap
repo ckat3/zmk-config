@@ -262,30 +262,30 @@
 		
 		#define PSBRK PAUSE_BREAK
 		
-		#define HMLG  &hm LGUI
-		#define HMLA  &hm LALT
-		#define HMLC  &hm LCTRL
-		#define HMLS  &hml LSHIFT
+		#define HMLG &hm LGUI
+		#define HMLA &hm LALT
+		#define HMLC &hm LCTRL
+		#define HMLS &hml LSHIFT
 		
-		#define HMRG  &hm RGUI
-		#define HMRA  &hm RALT
-		#define HMRC  &hm RCTRL
-		#define HMRS  &hmr RSHIFT
+		#define HMRG &hm RGUI
+		#define HMRA &hm RALT
+		#define HMRC &hm RCTRL
+		#define HMRS &hmr RSHIFT
 		
-		#define DOT_COMMA	&mt DOT_  COMM_
-		#define COLON_SEMI	&mt COLN_ SEMI_
-		#define EXCL_QMRK	&mt EXCL_ QMRK_
+		#define DOT_COMMA &mt DOT_ COMM_
+		#define COLON_SEMI &mt COLN_ SEMI_
+		#define EXCL_QMRK &mt EXCL_ QMRK_
 		
-		#define MTPAR  &mt RPAR_ LPAR_
-		#define MTCRL  &mt RCRL_ LCRL_
-		#define MTBRK  &mt RBRK_ LBRK_
-		#define MTGLM  &mt RGLM_ LGLM_
-		#define MTGLT  &mt GT_   LT_
+		#define MTPAR &mt RPAR_ LPAR_
+		#define MTCRL &mt RCRL_ LCRL_
+		#define MTBRK &mt RBRK_ LBRK_
+		#define MTGLM &mt RGLM_ LGLM_
+		#define MTGLT &mt GT_ LT_
 		
-		#define THUMB1	&lhs  NUM NUM /* num num num */
-		#define THUMB2	&lttp SYM E_
-		#define THUMB3	&lt   NAV SPACE
-		#define THUMB4	&mt   LSHIFT BSPC
+		#define THUMB1 &lhs NUM NUM /* num num num */
+		#define THUMB2 &lttp SYM E_
+		#define THUMB3 &lt NAV SPACE
+		#define THUMB4 &mt LSHIFT BSPC
 		
 		base_layer {
 			bindings = <
