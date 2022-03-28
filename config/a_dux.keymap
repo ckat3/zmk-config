@@ -181,12 +181,18 @@
 		
 		
 		
-		#define MACRO_DOUBLE(FIRST, SECOND) \
+		/*#define MACRO_DOUBLE(FIRST, SECOND) \
 			ZMK_MACRO(macro_##FIRST,
 				tap-ms = <30>;
-				bindings = <&kp FIRST, &kp SECOND, LEFT>;)
+				bindings = <&kp FIRST, &kp SECOND, &kp LEFT>;)
 				
 		MACRO_DOUBLE(LPAR_, RPAR_)
+		MACRO_DOUBLE(LBRK_, RBRK_)
+		MACRO_DOUBLE(LCRL_, RCRL_)
+		MACRO_DOUBLE(LT_,   GT_)
+		MACRO_DOUBLE(LGLM_, RGLM_)
+		MACRO_DOUBLE(APST_, APST_)
+		MACRO_DOUBLE(QUOT_, QUOT_)*/
 	
 		ZMK_MACRO(macro_par,
 			tap-ms = <30>;
