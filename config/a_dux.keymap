@@ -169,7 +169,17 @@
 		};
 	};
 
-
+	
+	macros {
+		macro_qu: macro_qu {
+			label = "MACRO_QU";
+			compatible = "zmk,behavior-macro";
+			#binding-cells = <0>;
+			bindings
+				= <&macro_tap &kp Q_ &kp U_>
+				;
+		};
+	};
 
 	/*
 					KEY POSITIONS
@@ -186,8 +196,8 @@
 		
 		#define COMBO_TIMEOUT 20
 		
-		combo_q {
-			bindings = <&kp Q_>;
+		combo_qu {
+			bindings = <&macro_qu>;
 			key-positions = <26 27>;
 			timeout-ms = <COMBO_TIMEOUT>;
 		};
@@ -294,9 +304,9 @@
 		
 		base_layer {
 			bindings = <
-				&kp B_		&kp  EACT_	&kp  P_		&kp  O_		EXCL_QMRK			&kp K_		&kp  V_		&kp  D_		&kp  L_		&kp F_
-				&kp W_		HMLA U_		HMLC I_		HMLS A_		DOT_COMMA			&kp J_		HMRS T_		HMRC S_		HMRA R_		&kp N_
-				&kp Z_		HMLC Y_		&kp  X_		&kp  Q_		&kp DOT_			&key_repeat	&kp  M_		&kp  G_		&kp  H_		&kp C_
+				&kp B_		&kp  EACT_	&kp  P_		&kp  O_		&kp Q_				&kp K_		&kp  V_		&kp  D_		&kp  L_		&kp F_
+				&kp W_		HMLA U_		HMLC I_		HMLS A_		EXCL_QMRK			&kp J_		HMRS T_		HMRC S_		HMRA R_		&kp N_
+				&kp Z_		HMLC Y_		&kp  X_		DOT_COMMA	&kp DOT_			&key_repeat	&kp  M_		&kp  G_		&kp  H_		&kp C_
 												/*	NUM 		SYM E				NAV SPACE	LSHIFT BSPC	*/
 													THUMB1		THUMB2				THUMB3		THUMB4
 			>;
@@ -304,9 +314,9 @@
 		
 		sym_layer {
 			bindings = <
-				&none		&kp RBRK_	&none		MTBRK		&none				&kp AE_		&kp OE_		&kp AT_		&kp AMPR_	&kp CCED_
+				&none		&none		&none		&none		&none				&kp AE_		&kp OE_		&kp AT_		&kp AMPR_	&kp CCED_
 				MTGLM		&kp QUOT_	&kp APST_	&kp MIN_	COLON_SEMI			&kp CCED_	&kp ACUT_	&kp GRAV_	&kp CRAT_	&kp TILD_
-				MTCRL		MTGLT		&none		MTPAR		&none				&kp TRMA_	&none		&none		&kp MDSH_	&kp NDSH_
+				MTCRL		MTGLT		MTBRK		MTPAR		&none				&kp TRMA_	&none		&none		&kp MDSH_	&kp NDSH_
 													&trans		&trans				&trans		&kp NBSP_
 			>;
 		};
@@ -317,6 +327,12 @@
 				&kp FSLA_	&kp STAR_	&kp MIN_	&kp PLUS_	DOT_COMMA			&none		&kp N1_		&kp N2_		&kp	N3_		&kp N0_
 				&kp BSLA_	MTGLT		&kp EQUL_	MTPAR		&none				&none		&kp N7_		&kp N8_		&kp N9_		&to NUM
 													&tog NUM	&trans				&trans		&trans
+				/*									
+				&kp EQUL_	&kp N4_		&kp N5_		&kp	N6_		&none				&none		&kp PCNT_	&kp HASH_	&kp DLLR_	&kp EURO_
+				&kp N0_		&kp N1_		&kp N2_		&kp	N3_		DOT_COMMA			&none		&kp FSLA_	&kp STAR_	&kp MIN_	&kp PLUS_
+				&none		&kp N7_		&kp N8_		&kp N9_		&none				&none		&kp BSLA_	MTGLT		&kp EQUL_	MTPAR
+													&tog NUM	&trans				&trans		&trans
+													*/
 			>;
 		};
 		
