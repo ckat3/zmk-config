@@ -5,6 +5,7 @@
 
 #define BASE 0
 #define SYM  1
+#define SDBL 1
 #define NUM  2
 #define NAV  3
 #define FUNC 4
@@ -180,6 +181,68 @@
 				= <&macro_tap &kp Q_ &kp U_>
 				;
 		};
+		
+		
+		
+		macro_par: macro_par {
+			label = "MACRO_PAR";
+			compatible = "zmk,behavior-macro";
+			#binding-cells = <0>;
+			tap-ms = <30>;
+			bindings
+				= <&macro_tap &kp LPAR_ &kp RPAR_ &kp LEFT>
+				;
+		};	
+		
+		macro_brk: macro_brk {
+			label = "MACRO_BRK";
+			compatible = "zmk,behavior-macro";
+			#binding-cells = <0>;
+			tap-ms = <30>;
+			bindings
+				= <&macro_tap &kp LBRK_ &kp RBRK_ &kp LEFT>
+				;
+		};
+		
+		macro_crl: macro_crl {
+			label = "MACRO_CRL";
+			compatible = "zmk,behavior-macro";
+			#binding-cells = <0>;
+			tap-ms = <30>;
+			bindings
+				= <&macro_tap &kp LCRL_ &kp RCRL_ &kp LEFT>
+				;
+		};
+		
+		macro_glt: macro_glt {
+			label = "MACRO_GLT";
+			compatible = "zmk,behavior-macro";
+			#binding-cells = <0>;
+			tap-ms = <30>;
+			bindings
+				= <&macro_tap &kp LT_ &kp GT_ &kp LEFT>
+				;
+		};
+		
+		macro_quot: macro_quot {
+			label = "MACRO_QUOT";
+			compatible = "zmk,behavior-macro";
+			#binding-cells = <0>;
+			tap-ms = <30>;
+			bindings
+				= <&macro_tap &kp QUOT_ &kp QUOT_ &kp LEFT>
+				;
+		};
+		
+		macro_apst: macro_apst {
+			label = "MACRO_APST";
+			compatible = "zmk,behavior-macro";
+			#binding-cells = <0>;
+			tap-ms = <30>;
+			bindings
+				= <&macro_tap &kp APST_ &kp APST_ &kp LEFT>
+				;
+		};
 	};
 
 	/*
@@ -205,9 +268,10 @@
 		
 		combo_acute {
 			bindings = <&kp ACUT_>;
-			key-positions = <16 26>;
+			key-positions = <32 33>;
 			timeout-ms = <COMBO_TIMEOUT>;
 		};
+		
 		
 		
 				
@@ -256,7 +320,7 @@
 		
 				
 		combo_ctrl_z {
-			bindings = <&kp LC(Z)>;
+			bindings = <&kp LC(Z_)>;
 			key-positions = <20 21>;
 			timeout-ms = <COMBO_TIMEOUT>;
 		};
@@ -274,10 +338,13 @@
 		};
 		
 		combo_cs_esc {
-			bindings = <&kp LC(LS(ESC))>;
+			bindings = <&kp PAUSE_BREAK>;
 			key-positions = <20 21 22 23>;
+			layers = <BASE>;
 			timeout-ms = <COMBO_TIMEOUT>;
 		};
+		
+		
 		
 		
 		
@@ -285,6 +352,13 @@
 			bindings = <&mo FUNC>;
 			key-positions = <30 31>;
 			layers = <BASE>;
+			timeout-ms = <COMBO_TIMEOUT>;
+		};
+		
+		combo_cs_esc {
+			bindings = <&kp LC(LS(ESC))>;
+			key-positions = <10 11 12 13>;
+			layers = <FUNC>;
 			timeout-ms = <COMBO_TIMEOUT>;
 		};
 		
@@ -329,7 +403,7 @@
 		base_layer {
 			bindings = <
 				&kp B_		&kp  EACT_	&kp  P_		&kp  W_		&kp Q_				&kp K_		&kp  V_		&kp  D_		&kp  L_		&kp F_
-				&kp A_		HMLA U_		HMLC I_		HMLS O_		&kp DOT_			&kp J_		HMRS T_		HMRC S_		HMRA R_		&kp N_
+				&kp O_		HMLA U_		HMLC I_		HMLS A_		&kp DOT_			&kp J_		HMRS T_		HMRC S_		HMRA R_		&kp N_
 				&kp Z_		HMLC Y_		&kp  X_		&kp COMM_	EXCL_QMRK			&key_repeat	&kp  M_		&kp  G_		&kp  H_		&kp C_
 													THUMB1		THUMB2				THUMB3		THUMB4
 			>;
@@ -340,6 +414,15 @@
 				&none		&none		&none		&none		&none				&kp AE_		&kp OE_		&kp AT_		&kp AMPR_	&kp CCED_
 				MTGLM		&kp QUOT_	&kp APST_	&kp MIN_	COLON_SEMI			&kp CCED_	&kp ACUT_	&kp GRAV_	&kp CRAT_	&kp TILD_
 				MTCRL		MTGLT		MTBRK		MTPAR		&none				&kp TRMA_	&none		&none		&kp MDSH_	&kp NDSH_
+													&trans		&trans				&mo SDBL	&trans
+			>;
+		};
+		
+		symdouble_layer {
+			bindings = <
+				&none		&none		&none		&none		&none				&trans	&trans	&trans	&trans	&trans
+				&macro_glm	&macro_quot	&macro_apst	&trans		&trans				&trans	&trans	&trans	&trans	&trans
+				&macro_crl	&macro_glt	&macro_brk	&macro_par	&none				&trans	&trans	&trans	&trans	&trans
 													&trans		&trans				&kp NBSP_	&trans
 			>;
 		};
