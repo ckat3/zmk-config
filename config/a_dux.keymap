@@ -172,12 +172,14 @@
 
 	
 	macros {
+		#define DOUBLE
+	
 		ZMK_MACRO(macro_qu,
 			tap-ms = <30>;
 			bindings
 				= <&macro_tap &kp Q_ &kp U_>
 				;
-		};
+		)
 		
 		
 		
@@ -186,42 +188,42 @@
 			bindings
 				= <&macro_tap &kp LPAR_ &kp RPAR_ &kp LEFT>
 				;
-		};	
+		)
 		
 		ZMK_MACRO(macro_brk,
 			tap-ms = <30>;
 			bindings
 				= <&macro_tap &kp LBRK_ &kp RBRK_ &kp LEFT>
 				;
-		};
+		)
 		
 		ZMK_MACRO(macro_crl,
 			tap-ms = <30>;
 			bindings
 				= <&macro_tap &kp LCRL_ &kp RCRL_ &kp LEFT>
 				;
-		};
+		)
 		
 		ZMK_MACRO(macro_glt,
 			tap-ms = <30>;
 			bindings
 				= <&macro_tap &kp LT_ &kp GT_ &kp LEFT>
 				;
-		};
+		)
 		
 		ZMK_MACRO(macro_quot,
 			tap-ms = <30>;
 			bindings
 				= <&macro_tap &kp QUOT_ &kp QUOT_ &kp LEFT>
 				;
-		};
+		)
 		
 		ZMK_MACRO(macro_apst,
 			tap-ms = <30>;
 			bindings
 				= <&macro_tap &kp APST_ &kp APST_ &kp LEFT>
 				;
-		};
+		)
 	};
 
 	/*
