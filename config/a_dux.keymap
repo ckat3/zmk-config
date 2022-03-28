@@ -232,7 +232,7 @@
 				timeout-ms = <COMBO_TIMEOUT>; \
 			};
 			
-		COMBO(TAB_,   12 13)
+		COMBO(TAB_, 12 13)
 		COMBO(ENTER_, 16 17)
 		
 		combo_backspace_l {
