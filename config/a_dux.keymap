@@ -352,7 +352,7 @@
 		accent_layer {
 			bindings = <
 				&none		&none		&none		&none		&none				&none		&none		&none		&none		&none
-				&none		&none		&none		&m_TILD_A_	&none				&kp CCED_	&kp ACUT_	&kp ACUT_	&kp GRAV_	&kp TILD_
+				&none		&none		&none		&none	&none				&kp CCED_	&kp ACUT_	&kp ACUT_	&kp GRAV_	&kp TILD_
 				&none		&none		&none		&none		&none				&kp TRMA_	&none		&none		&none		&none
 													&trans		&trans				&trans		&trans
 			>;
