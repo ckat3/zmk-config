@@ -386,18 +386,18 @@
 		sym_layer {
 			bindings = <
 				&none		&none		&none		&none		&none				&kp AE_		&kp OE_		&kp AT_		&kp AMPR_	&kp CCED_
-				MTGLM		&kp QUOT_	&kp APST_	&kp MIN_	COLON_SEMI			&none		&none		&none		&none		&none
-				MTCRL		MTGLT		MTBRK		MTPAR		&none				&none		&none		&none		&kp MDSH_	&kp NDSH_
+				&none		&kp QUOT_	&kp APST_	&kp MIN_	COLON_SEMI			&none		&kp LGLM_	&kp RGLM_	&kp LT_		&kp GT_	
+				&kp LCRL_	&kp RCRL_	&kp LPAR_	&kp RPAR_	&none				&none		&kp LBRK_	&kp RBRK_	&kp MDSH_	&kp NDSH_
 													&trans		&trans				&mo SDBL	&trans
 			>;
 		};
 		
 		symdouble_layer {
 			bindings = <
-				&none		&none		&none		&none		&none				&trans	&trans	&trans	&trans	&trans
-				&dbl_LGLM_	&dbl_QUOT_	&dbl_APST_	&trans		&trans				&trans	&trans	&trans	&trans	&trans
-				&dbl_LCRL_	&dbl_LT_	&dbl_LBRK_	&dbl_LPAR_	&none				&trans	&trans	&trans	&trans	&trans
-													&trans		&trans				&trans	&trans
+				&none		&none		&none		&none		&none				&trans		&trans		&trans		&trans		&trans
+				&none		&dbl_QUOT_	&dbl_APST_	&trans		&trans				&trans		&dbl_LGLM_	&trans		&dbl_LT_	&trans
+				&dbl_LCRL_	&none		&dbl_LPAR_	&none		&none				&trans		&dbl_LBRK_	&trans		&trans		&trans
+													&trans		&trans				&trans		&trans
 			>;
 		};
 		
