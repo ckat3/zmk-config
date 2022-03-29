@@ -197,7 +197,7 @@
 		
 		#define MACRO(FIRST, SECOND) \
 			ZMK_MACRO(m_##FIRST##SECOND, \
-				tap-ms = <30>; \
+				tap-ms = <20>; \
 				bindings = <&macro_tap &kp FIRST &kp SECOND>; \
 				)
 	
@@ -229,7 +229,7 @@
 	combos {
 		compatible = "zmk,combos";
 		
-		#define COMBO_TIMEOUT 20
+		#define COMBO_TIMEOUT 25
 		
 		combo_qu {
 			bindings = <&macro_qu>;
@@ -336,9 +336,9 @@
 		
 		base_layer {
 			bindings = <
-				&kp  Z_		&kp EACT_	&kp  X_		&kp  Y_		&kp Q_				&kp K_		&kp  C_		&kp  H_		&kp  F_		&kp  J_
+				&kp  Z_		&kp W_		&kp  X_		&kp  Y_		&kp Q_				&kp K_		&kp  C_		&kp  H_		&kp  F_		&kp  J_
 				HMRG U_		HMLA O_		HMLC I_		HMLS A_		&kp DOT_			&kp G_		HMRS T_		HMRC S_		HMRA R_		HMRG N_
-				&kp  B_		HMLC W_		&kp  P_		DOT_COMMA	EXCL_QMRK			&key_repeat	&kp  D_		&kp  M_		&kp  L_		&kp  V_
+				&kp  B_		HMLC EACT_	&kp  P_		DOT_COMMA	EXCL_QMRK			&key_repeat	&kp  D_		&kp  M_		&kp  L_		&kp  V_
 													THUMB1		THUMB2				THUMB3		THUMB4
 			>;
 		};
@@ -363,7 +363,7 @@
 		
 		accent_layer {
 			bindings = <
-				&m_CRFX_O_	&m_GRAV_O_	&m_CRFX_A_	&m_GRAV_A_	&none				&none		&kp CCED_	&none		&none		&none
+				&none		&m_CRFX_O_	&m_CRFX_A_	&m_GRAV_A_	&none				&none		&kp CCED_	&none		&none		&none
 				&m_ACUT_U_	&m_ACUT_O_	&m_ACUT_I_	&m_ACUT_A_	&none				&kp TRMA_	&kp ACUT_	&kp CRFX_	&kp GRAV_	&kp TILD_
 				&kp E_		&m_TILD_O_	&kp O_		&m_TILD_A_	&none				&none		&none		&none		&none		&none
 													&m_CRFX_E_	&m_GRAV_E_			&trans		&trans
