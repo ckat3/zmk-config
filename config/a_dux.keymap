@@ -244,7 +244,7 @@
 		COMBO(SPACE, 16 17 18,_)
 		COMBO(DEL,   18 19,)
 		COMBO(ESC,   10 11 12 13,)
-		COMBO(ESC,   13 23,_)
+		COMBO(ESC,   22 23,_)
 		
 				o
 		combo_ctrl_z {
@@ -314,7 +314,7 @@
 		
 		base_layer {
 			bindings = <
-				&kp B_		&kp  X_		&kp  Y_		&kp EACUT_	&kp Q_				&kp K_		&kp  V_		&kp  H_		&kp  C_		&kp G_
+				&kp B_		&kp  X_		&kp  Y_		&kp EACT_	&kp Q_				&kp K_		&kp  V_		&kp  H_		&kp  C_		&kp G_
 				&kp U_		HMLA O_		HMLC I_		HMLS A_		&kp DOT_			&kp J_		HMRS T_		HMRC S_		HMRA R_		&kp N_
 				&kp Z_		HMLC W_		&kp  P_		&kp COMM_	EXCL_QMRK			&key_repeat	&kp  M_		&kp  D_		&kp  L_		&kp F_
 													THUMB1		THUMB2				THUMB3		THUMB4
