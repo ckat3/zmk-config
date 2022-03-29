@@ -194,14 +194,6 @@
 		MACRO_DOUBLE(LGLM_, RGLM_)
 		MACRO_DOUBLE(APST_, APST_)
 		MACRO_DOUBLE(QUOT_, QUOT_)
-		
-		#define MACRO(FIRST, SECOND) \
-			ZMK_MACRO(m_##FIRST#SECOND, \
-				tap-ms = <30>; \
-				bindings = <&macro_tap &kp FIRST &kp SECOND>; \
-				)
-	
-		MACRO(TILD_, A_)
 	};
 
 	/*
