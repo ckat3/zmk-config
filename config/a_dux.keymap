@@ -264,29 +264,12 @@
 				timeout-ms = <COMBO_TIMEOUT>; \
 			};
 			
-		combo_qu {
-			bindings = <&m_qu>;
-			key-positions = <26 27>;
-			timeout-ms = <COMBO_TIMEOUT>;
-		};
-		
-		combo_ae {
-			bindings = <&m_ae>;
-			key-positions = <13 30>;
-			timeout-ms = <COMBO_TIMEOUT>;
-		};
-		
-		combo_ao {
-			bindings = <&m_ao>;
-			key-positions = <13 11>;
-			timeout-ms = <COMBO_TIMEOUT>;
-		};
-		
-		combo_oe {
-			bindings = <&m_oe>;
-			key-positions = <11 30>;
-			timeout-ms = <COMBO_TIMEOUT>;
-		};
+		COMBO_MACRO(qu, 26 27)
+		COMBO_MACRO(ae, 13 30)
+		COMBO_MACRO(ao, 13 11)
+		COMBO_MACRO(oe, 11 30)
+		COMBO_MACRO(ion, 12 11 19)
+		COMBO_MACRO(ment, 27 30 19 16)
 		
 		
 		#define COMBO(KEY, POSITIONS, SUFFIX) \
