@@ -206,15 +206,13 @@
 		MACRO(ACUT_, I_)
 		MACRO(ACUT_, O_)
 		MACRO(ACUT_, U_)
-		MACRO(GRAV_, A_)
-		MACRO(GRAV_, E_)
-		MACRO(TILD_, A_)
-		MACRO(TILD_, O_)
 		MACRO(CRAT_, A_)
 		MACRO(CRAT_, E_)
 		MACRO(CRAT_, O_)
 		MACRO(GRAV_, A_)
 		MACRO(GRAV_, E_)
+		MACRO(TILD_, A_)
+		MACRO(TILD_, O_)
 	};
 
 	/*
