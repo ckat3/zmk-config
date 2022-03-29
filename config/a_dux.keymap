@@ -332,38 +332,34 @@
 		
 		symdouble_layer {
 			bindings = <
-				&none		&none		&none		&none		&none				&trans	&trans	&trans	&trans	&trans
-				&dbl_LGLM_	&dbl_QUOT_	&dbl_APST_	&trans		&trans				&trans	&trans	&trans	&trans	&trans
-				&dbl_LCRL_	&dbl_LT_	&dbl_LBRK_	&dbl_LPAR_	&none				&trans	&trans	&trans	&trans	&trans
-													&trans		&trans				&trans	&trans
-			>;
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none>;
 		};
 		
 		num_layer {
-			bindings = <				
-				&kp EQUL_	&kp N4_		&kp N5_		&kp	N6_		&none				&none		&kp PCNT_	&kp HASH_	&kp DLLR_	&kp EURO_
-				&kp N0_		&kp N1_		&kp N2_		&kp	N3_		DOT_COMMA			&none		&kp PLUS_	&kp MIN_	&kp STAR_	&kp FSLA_
-				&none		&kp N7_		&kp N8_		&kp N9_		&none				&none		MTPAR		MTGLT		&kp EQUL_	&kp BSLA_
-													&tog NUM	&trans				&trans		&trans
-			>;
+			bindings = <	
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none>;
 		};
 		
 		nav_layer {
 			bindings = <
-				&kp INSERT	&sk RALT	&kp PSCRN	&kp PSBRK	&none				&kp PG_UP	&kp HOME		&kp LEFT	&kp RIGHT	&kp END
-				&sk LGUI	&sk LALT	&sk LCTRL	&sk LSHIFT	&kp CAPS			&kp PG_DN	&kp LC(LEFT)	&kp DOWN	&kp UP		&kp LC(RIGHT)
-				&kp LC(Z_)	&kp LC(X_)	&kp LC(C_)	&kp LC(V_)	&none				&none		&kp LC(BSPC)	&kp BSPC	&kp DEL		&kp LC(DEL)
-													&kp ULIN_	&trans				&trans		&trans
-			>;
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none>;
 		};
 		
 		func_layer {
 			bindings = <
-				&bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3			&reset		  &kp F4  &kp F5  &kp F6  &kp F10
-				&kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE    &kp C_BRI_UP  &kp LSLCK				&none		  &kp F1  &kp F2  &kp F3  &kp F11
-				&kp C_PREV    &kp C_NEXT    &kp C_PP      &kp C_BRI_DN  &kp LNLCK				&out OUT_TOG  &kp F7  &kp F8  &kp F9  &kp F12
-													      &trans		&trans					&trans		  &trans
-			>;
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none>;
 		};
 		/*
 		none_layer {
