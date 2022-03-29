@@ -201,7 +201,20 @@
 				bindings = <&macro_tap &kp FIRST &kp SECOND>; \
 				)
 	
+		MACRO(ACUT_, A_)
+		MACRO(ACUT_, E_)
+		MACRO(ACUT_, I_)
+		MACRO(ACUT_, O_)
+		MACRO(ACUT_, U_)
+		MACRO(GRAV_, A_)
+		MACRO(GRAV_, E_)
 		MACRO(TILD_, A_)
+		MACRO(TILD_, O_)
+		MACRO(CRAT_, A_)
+		MACRO(CRAT_, E_)
+		MACRO(CRAT_, O_)
+		MACRO(GRAV_, A_)
+		MACRO(GRAV_, E_)
 	};
 
 	/*
@@ -351,10 +364,10 @@
 		
 		accent_layer {
 			bindings = <
-				&none		&none		&none		&none		&none				&none		&none		&none		&none		&none
-				&none		&none		&none		&m_TILD_A_	&none				&kp CCED_	&kp ACUT_	&kp CRAT_	&kp GRAV_	&kp TILD_
-				&none		&none		&none		&none		&none				&kp TRMA_	&none		&none		&none		&none
-													&trans		&trans				&trans		&trans
+				&none		&m_GRAV_O	&none		&m_GRAV_A	&none				&none		&kp CCED_	&none		&none		&none
+				&none		&m_TILD_O_	&none		&m_TILD_A_	&none				&kp TRMA_	&kp ACUT_	&kp CRAT_	&kp GRAV_	&kp TILD_
+				&m_ACUT_U_	&m_ACUT_O_	&m_ACUT_I_	&m_ACUT_A_	&none				&none		&none		&none		&none		&none
+													&m_CRAT_E	&m_GRAV_E			&trans		&trans
 			>;
 		};
 		
