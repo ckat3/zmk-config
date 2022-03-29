@@ -216,13 +216,7 @@
 		MACRO(TILD_, O_)
 		MACRO(TILD_, N_)
 		
-		
-		MACRO_(qu,   &macro_tap &kp Q_ &kp U_)
-		MACRO_(ae,   &macro_tap &kp TILD_ &kp A_ &kp E_)
-		MACRO_(ao,   &macro_tap &kp TILD_ &kp A_ &kp O_)
-		MACRO_(oe,   &macro_tap &kp TILD_ &kp O_ &kp E_)
-		MACRO_(ment, &macro_tap &kp M_ &kp E_ &kp N_ &kp T_)
-		MACRO_(ion,  &macro_tap &kp I_ &kp O_ &kp N_)
+	
 		)
 	};
 
@@ -248,12 +242,6 @@
 				timeout-ms = <COMBO_TIMEOUT>; \
 			};
 			
-		COMBO_MACRO(qu, 26 27)
-		COMBO_MACRO(ae, 13 30)
-		COMBO_MACRO(ao, 13 11)
-		COMBO_MACRO(oe, 11 30)
-		COMBO_MACRO(ion, 12 11 19)
-		COMBO_MACRO(ment, 27 30 19 16)
 		
 		
 		#define COMBO(KEY, POSITIONS, SUFFIX) \
