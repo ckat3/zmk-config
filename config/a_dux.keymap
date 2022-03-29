@@ -16,7 +16,7 @@
 #define P_		E
 #define O_		R
 #define EGRV_	T
-#define CRAT_	Y
+#define CRFX_	Y
 #define V_		U
 #define D_		I
 #define L_		O
@@ -49,7 +49,7 @@
 #define H_		DOT
 #define F_		SLASH
 
-#define EXCL_	LS(CRAT_)
+#define EXCL_	LS(CRFX_)
 #define SEMI_	LS(COMM_)
 #define COLN_	LS(DOT_)
 #define QMRK_	LS(APSC_)
@@ -206,9 +206,9 @@
 		MACRO(ACUT_, I_)
 		MACRO(ACUT_, O_)
 		MACRO(ACUT_, U_)
-		MACRO(CRAT_, A_)
-		MACRO(CRAT_, E_)
-		MACRO(CRAT_, O_)
+		MACRO(CRFX_, A_)
+		MACRO(CRFX_, E_)
+		MACRO(CRFX_, O_)
 		MACRO(GRAV_, A_)
 		MACRO(GRAV_, E_)
 		MACRO(GRAV_, O_)
@@ -346,8 +346,8 @@
 		sym_layer {
 			bindings = <
 				&none		&none		&none		&none		&none				&kp AE_		&kp OE_		&kp AT_		&kp AMPR_	&kp CCED_
-				MTGLM		&kp QUOT_	&kp APST_	&kp MIN_	COLON_SEMI			&kp CCED_	&kp CRAT_	&kp ACUT_	&kp GRAV_	&kp TILD_
-				MTCRL		MTGLT		MTBRK		MTPAR		&none				&kp TRMA_	&none		&none		&kp MDSH_	&kp NDSH_
+				MTGLM		&kp QUOT_	&kp APST_	&kp MIN_	COLON_SEMI			&none		&none		&none		&none		&none
+				MTCRL		MTGLT		MTBRK		MTPAR		&none				&none		&none		&none		&kp MDSH_	&kp NDSH_
 													&trans		&trans				&mo SDBL	&trans
 			>;
 		};
@@ -363,10 +363,10 @@
 		
 		accent_layer {
 			bindings = <
-				&none		&m_GRAV_O_	&none		&m_GRAV_A_	&none				&none		&kp CCED_	&none		&none		&none
-				&none		&m_TILD_O_	&none		&m_TILD_A_	&none				&kp TRMA_	&kp ACUT_	&kp CRAT_	&kp GRAV_	&kp TILD_
-				&m_ACUT_U_	&m_ACUT_O_	&m_ACUT_I_	&m_ACUT_A_	&none				&none		&none		&none		&none		&none
-													&m_CRAT_E_	&m_GRAV_E_			&trans		&trans
+				&m_CRFX_O_	&m_GRAV_O_	&m_CRFX_A_	&m_GRAV_A_	&none				&none		&kp CCED_	&none		&none		&none
+				&m_ACUT_U_	&m_ACUT_O_	&m_ACUT_I_	&m_ACUT_A_	&none				&kp TRMA_	&kp ACUT_	&kp CRFX_	&kp GRAV_	&kp TILD_
+				&kp E_		&m_TILD_O_	&kp O_		&m_TILD_A_	&none				&none		&none		&none		&none		&none
+													&m_CRFX_E_	&m_GRAV_E_			&trans		&trans
 			>;
 		};
 		
