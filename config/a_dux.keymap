@@ -194,6 +194,14 @@
 		MACRO_DOUBLE(LGLM_, RGLM_)
 		MACRO_DOUBLE(APST_, APST_)
 		MACRO_DOUBLE(QUOT_, QUOT_)
+		
+		#define MACRO(FIRST, SECOND) \
+			ZMK_MACRO(m_##FIRST##SECOND, \
+				tap-ms = <30>; \
+				bindings = <&macro_tap &kp FIRST &kp SECOND>; \
+				)
+	
+		MACRO(TILD_, A_)
 	};
 
 	/*
@@ -344,7 +352,7 @@
 		accent_layer {
 			bindings = <
 				&none		&none		&none		&none		&none				&none		&none		&none		&none		&none
-				&none		&none		&none		&none	&none				&kp CCED_	&kp ACUT_	&kp ACUT_	&kp GRAV_	&kp TILD_
+				&none		&none		&none		&m_TILD_A_	&none				&kp CCED_	&kp ACUT_	&kp CRAT_	&kp GRAV_	&kp TILD_
 				&none		&none		&none		&none		&none				&kp TRMA_	&none		&none		&none		&none
 													&trans		&trans				&trans		&trans
 			>;
