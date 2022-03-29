@@ -173,27 +173,37 @@
 
 	
 	macros {
+		#define MACRO_DELAY 20
+	
 		ZMK_MACRO(m_qu,
-			tap-ms = <30>;
+			tap-ms = <MACRO_DELAY>;
 			bindings = <&macro_tap &kp Q_ &kp U_>;
 		)
 		
 		ZMK_MACRO(m_ae,
-			tap-ms = <30>;
+			tap-ms = <MACRO_DELAY>;
 			bindings = <&macro_tap &kp TILD_ &kp A_ &kp E_>;
 		)
 		
 		ZMK_MACRO(m_ao,
-			tap-ms = <30>;
+			tap-ms = <MACRO_DELAY>;
 			bindings = <&macro_tap &kp TILD_ &kp A_ &kp O_>;
 		)
 		
 		ZMK_MACRO(m_oe,
-			tap-ms = <30>;
+			tap-ms = <MACRO_DELAY>;
 			bindings = <&macro_tap &kp TILD_ &kp O_ &kp E_>;
 		)
 		
+		ZMK_MACRO(m_ment,
+			tap-ms = <MACRO_DELAY>;
+			bindings = <&macro_tap &kp M_ &kp E_ &kp N_ &kp T_>;
+		)
 		
+		ZMK_MACRO(m_ion,
+			tap-ms = <MACRO_DELAY>;
+			bindings = <&macro_tap &kp I_ &kp O_ &kp N_>;
+		)
 		
 		
 		#define MACRO_DOUBLE(FIRST, SECOND) \
@@ -247,6 +257,13 @@
 		
 		#define COMBO_TIMEOUT 25
 		
+		#define COMBO_MACRO(MACRO, POSITIONS) \
+			combo_##MACRO { \
+				bindings = <&m_##MACRO>; \
+				key-positions = <POSITIONS>; \
+				timeout-ms = <COMBO_TIMEOUT>; \
+			};
+			
 		combo_qu {
 			bindings = <&m_qu>;
 			key-positions = <26 27>;
@@ -257,21 +274,18 @@
 			bindings = <&m_ae>;
 			key-positions = <13 30>;
 			timeout-ms = <COMBO_TIMEOUT>;
-			layers = <ACNT>;
 		};
 		
 		combo_ao {
 			bindings = <&m_ao>;
 			key-positions = <13 11>;
 			timeout-ms = <COMBO_TIMEOUT>;
-			layers = <ACNT>;
 		};
 		
 		combo_oe {
 			bindings = <&m_oe>;
 			key-positions = <11 30>;
 			timeout-ms = <COMBO_TIMEOUT>;
-			layers = <ACNT>;
 		};
 		
 		
@@ -304,7 +318,7 @@
 		COMBO(ESC,   10 11 12 13,)
 		COMBO(ESC,   22 23,_)
 		COMBO(CAPS,  13 14,)
-		COMBO(CAPS,  15 16,_)
+		/*COMBO(CAPS,  15 16,_)*/
 		
 		
 		
