@@ -195,7 +195,7 @@
 				bindings = <&macro_tap &kp FIRST &kp SECOND>; \
 				)
 		
-		#define MACRO_B(NAME, BINDINGS) \
+		#define MACRO_(NAME, BINDINGS) \
 			ZMK_MACRO(m_##NAME, \
 				tap-ms = <MACRO_DELAY>; \
 				bindings = <BINDINGS>; \
