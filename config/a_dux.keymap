@@ -200,9 +200,9 @@
 				tap-ms = <30>; \
 				bindings = <&macro_tap &kp FIRST &kp SECOND>; \
 				)
-	};
 	
-	MACRO(TILD_, A_)
+		MACRO(TILD_, A_)
+	};
 
 	/*
 					KEY POSITIONS
