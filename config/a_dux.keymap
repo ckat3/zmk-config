@@ -323,11 +323,11 @@
 		
 		sym_layer {
 			bindings = <
-				&none		&none		&none		&none		&none				&kp AE_		&kp OE_		&kp AT_		&kp AMPR_	&kp CCED_
-				MTGLM		&kp QUOT_	&kp APST_	&kp MIN_	COLON_SEMI			&kp CCED_	&kp ACUT_	&kp GRAV_	&kp CRAT_	&kp TILD_
-				MTCRL		MTGLT		MTBRK		MTPAR		&none				&kp TRMA_	&none		&none		&kp MDSH_	&kp NDSH_
-													&trans		&trans				&mo SDBL	&trans
-			>;
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none
+				>;
 		};
 		
 		symdouble_layer {
