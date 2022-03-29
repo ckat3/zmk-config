@@ -211,6 +211,7 @@
 		MACRO(CRAT_, O_)
 		MACRO(GRAV_, A_)
 		MACRO(GRAV_, E_)
+		MACRO(GRAV_, O_)
 		MACRO(TILD_, A_)
 		MACRO(TILD_, O_)
 	};
@@ -365,7 +366,7 @@
 				&none		&m_GRAV_O_	&none		&m_GRAV_A_	&none				&none		&kp CCED_	&none		&none		&none
 				&none		&m_TILD_O_	&none		&m_TILD_A_	&none				&kp TRMA_	&kp ACUT_	&kp CRAT_	&kp GRAV_	&kp TILD_
 				&m_ACUT_U_	&m_ACUT_O_	&m_ACUT_I_	&m_ACUT_A_	&none				&none		&none		&none		&none		&none
-													&m_CRAT_E	&m_GRAV_E			&trans		&trans
+													&m_CRAT_E_	&m_GRAV_E_			&trans		&trans
 			>;
 		};
 		
