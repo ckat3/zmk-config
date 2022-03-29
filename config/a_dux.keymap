@@ -180,18 +180,20 @@
 		
 		ZMK_MACRO(m_ae,
 			tap-ms = <30>;
-			bindings = <&macro_tap &kp A_ &kp TILD_ &kp E_>;
+			bindings = <&macro_tap &kp TILD_ &kp A_ &kp E_>;
 		)
 		
 		ZMK_MACRO(m_ao,
 			tap-ms = <30>;
-			bindings = <&macro_tap &kp A_ &kp TILD_ &kp O_>;
+			bindings = <&macro_tap &kp TILD_ &kp A_ &kp O_>;
 		)
 		
 		ZMK_MACRO(m_oe,
 			tap-ms = <30>;
-			bindings = <&macro_tap &kp O_ &kp TILD_ &kp E_>;
+			bindings = <&macro_tap &kp TILD_ &kp O_ &kp E_>;
 		)
+		
+		
 		
 		
 		#define MACRO_DOUBLE(FIRST, SECOND) \
@@ -253,21 +255,21 @@
 		
 		combo_ae {
 			bindings = <&m_ae>;
-			key-positions = <23 30>;
+			key-positions = <13 30>;
 			timeout-ms = <COMBO_TIMEOUT>;
 			layers = <ACNT>;
 		};
 		
 		combo_ao {
 			bindings = <&m_ao>;
-			key-positions = <23 21>;
+			key-positions = <13 11>;
 			timeout-ms = <COMBO_TIMEOUT>;
 			layers = <ACNT>;
 		};
 		
 		combo_oe {
 			bindings = <&m_oe>;
-			key-positions = <21 30>;
+			key-positions = <11 30>;
 			timeout-ms = <COMBO_TIMEOUT>;
 			layers = <ACNT>;
 		};
