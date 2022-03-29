@@ -315,7 +315,7 @@
 		
 		base_layer {
 			bindings = <
-				&kp  Z_		&kp EACT_	&kp  X_		&kp  Y_		&kp Q_				&kp K_		&kp  V_		&kp  H_		&kp  C_		&kp  J_
+				&kp  Z_		&kp EACT_	&kp  X_		&kp  Y_		&kp Q_				&kp K_		&kp  C_		&kp  H_		&kp  V_		&kp  J_
 				HMRG U_		HMLA O_		HMLC I_		HMLS A_		&kp DOT_			&kp G_		HMRS T_		HMRC S_		HMRA R_		HMRG N_
 				&kp  B_		HMLC W_		&kp  P_		DOT_COMMA	EXCL_QMRK			&key_repeat	&kp  D_		&kp  M_		&kp  L_		&kp  F_
 													THUMB1		THUMB2				THUMB3		THUMB4
@@ -342,9 +342,9 @@
 		
 		num_layer {
 			bindings = <				
-				&kp EQUL_	&kp N4_		&kp N5_		&kp	N6_		&none				&none		&kp PCNT_	&kp HASH_	&kp DLLR_	&kp EURO_
+				&kp EQUL_	&kp N7_		&kp N8_		&kp N9_		&none				&none		&kp PCNT_	&kp HASH_	&kp DLLR_	&kp EURO_
 				&kp N0_		&kp N1_		&kp N2_		&kp	N3_		DOT_COMMA			&none		&kp PLUS_	&kp MIN_	&kp STAR_	&kp FSLA_
-				&none		&kp N7_		&kp N8_		&kp N9_		&none				&none		MTPAR		MTGLT		&kp EQUL_	&kp BSLA_
+				&none		&kp N4_		&kp N5_		&kp	N6_		&none				&none		MTPAR		MTGLT		&kp EQUL_	&kp BSLA_
 													&tog NUM	&trans				&trans		&trans
 			>;
 		};
@@ -352,7 +352,7 @@
 		nav_layer {
 			bindings = <
 				&kp INSERT	&sk RALT	&kp PSCRN	&kp PSBRK	&none				&kp PG_UP	&kp HOME		&kp LEFT	&kp RIGHT	&kp END
-				&sk LGUI	&sk LALT	&sk LCTRL	&sk LSHIFT	&kp CAPS			&kp PG_DN	&kp LC(LEFT)	&kp DOWN	&kp UP		&kp LC(RIGHT)
+				&sk LGUI	&sk LALT	&sk LCTRL	&sk LSHIFT	&none				&kp PG_DN	&kp LC(LEFT)	&kp DOWN	&kp UP		&kp LC(RIGHT)
 				&kp LC(Z_)	&kp LC(X_)	&kp LC(C_)	&kp LC(V_)	&none				&none		&kp LC(BSPC)	&kp BSPC	&kp DEL		&kp LC(DEL)
 													&kp ULIN_	&trans				&trans		&trans
 			>;
@@ -360,9 +360,9 @@
 		
 		func_layer {
 			bindings = <
-				&bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3			&reset		  &kp F4  &kp F5  &kp F6  &kp F10
+				&bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3			&reset		  &kp F7  &kp F8  &kp F9  &kp F12
 				&kp C_BRI_UP  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE    &kp LSLCK				&none		  &kp F1  &kp F2  &kp F3  &kp F11
-				&kp C_BRI_DN  &kp C_PREV    &kp C_NEXT    &kp C_PP      &kp LNLCK				&out OUT_TOG  &kp F7  &kp F8  &kp F9  &kp F12
+				&kp C_BRI_DN  &kp C_PREV    &kp C_NEXT    &kp C_PP      &kp LNLCK				&out OUT_TOG  &kp F4  &kp F5  &kp F6  &kp F10
 													      &trans		&trans					&trans		  &trans
 			>;
 		};
