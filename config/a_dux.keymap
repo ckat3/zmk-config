@@ -87,6 +87,10 @@
 #define EQUL_	MINUS
 #define PCNT_	EQUAL
 
+#define CRAT_ RA(N6_)
+#define TLDL_ RA(K_) /* loose tilde */
+
+
 #define MDSH_	RA(N8)
 #define NDSH_	RA(N1)
 
@@ -354,7 +358,7 @@
 		#define MTGLT  &mt GT_   LT_
 		
 		#define THUMB1	&lttp SYM E_
-		#define THUMB2	&lttp SYM &m_CRFX_E_
+		#define THUMB2	&lttp NUM &m_CRFX_E_
 		#define THUMB3	&lttp ACNT APST_
 		#define THUMB4	&lt   NAV SPACE
 		
@@ -370,8 +374,8 @@
 		sym_layer {
 			bindings = <
 				&none		&none		&none		&none		&none				&kp AE_		&kp OE_		&kp AT_		&kp AMPR_	&kp CCED_
-				&none		&kp QUOT_	&kp APST_	&kp MIN_	COLON_SEMI			&none		&kp LGLM_	&kp RGLM_	&kp LT_		&kp GT_	
-				&kp LCRL_	&kp RCRL_	&kp LPAR_	&kp RPAR_	&none				&none		&kp LBRK_	&kp RBRK_	&kp MDSH_	&kp NDSH_
+				&none		&kp QUOT_	&kp APST_	&kp MIN_	&none				&none		&kp LPAR_	&kp RPAR_	&kp LT_		&kp GT_	
+				&kp LCRL_	&kp RCRL_	&kp LGLM_	&kp RGLM_	&none				&none		&kp LBRK_	&kp RBRK_	&kp MDSH_	&kp NDSH_
 													&trans		&trans				&mo SDBL	&trans
 			>;
 		};
@@ -389,7 +393,7 @@
 			bindings = <
 				&kp RA(N6_) &m_CRFX_O_	&m_CRFX_A_	&m_GRAV_A_	&none				&none		&kp CCED_	&none		&none		&none
 				&m_ACUT_U_	&m_ACUT_O_	&m_ACUT_I_	&m_ACUT_A_	&none				&kp TRMA_	&kp ACUT_	&kp CRFX_	&kp GRAV_	&m_TILD_N_
-				&none		&m_TILD_O_	&none		&m_TILD_A_	&none				&none		&none		&kp RA(N6_) &none		&kp TILD_
+				&none		&m_TILD_O_	&none		&m_TILD_A_	&none				&none		&none		&kp CRAT_	&none		&kp TILD_
 													&m_GRAV_E_	&none				&trans		&trans
 			>;
 		};
