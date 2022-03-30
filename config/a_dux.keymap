@@ -16,7 +16,7 @@
 #define P_		E
 #define O_		R
 #define EGRV_	T
-#define CRFX_	Y
+#define CFLX_	Y
 #define V_		U
 #define D_		I
 #define L_		O
@@ -49,7 +49,7 @@
 #define H_		DOT
 #define F_		SLASH
 
-#define EXCL_	LS(CRFX_)
+#define EXCL_	LS(CFLX_)
 #define SEMI_	LS(COMM_)
 #define COLN_	LS(DOT_)
 #define QMRK_	LS(APSC_)
@@ -128,7 +128,7 @@
 			label = "HOMEROW_MODS";
 			#binding-cells = <2>;
 			flavor = "tap-preferred";
-			tapping-term-ms = <250>;
+			tapping-term-ms = <300>;
 			quick-tap-ms = <0>;
 			bindings = <&kp>, <&kp>;
 		};
@@ -173,6 +173,15 @@
 			flavor = "balanced";
 			bindings = <&mo>, <&tog>;
 		};
+		
+		lecflx: layer_or_ecflx {
+			compatible = "zmk,behavior-hold-tap";
+			label = "LAYER_OR_ECFLX";
+			#binding-cells = <1>;
+			tapping-term-ms = <300>;
+			flavor = "balanced";
+			bindings = <&mo>, <&m_CFLX_E_>;
+		};
 	};
 
 	
@@ -210,12 +219,15 @@
 		MACRO(ACUT_, I_)
 		MACRO(ACUT_, O_)
 		MACRO(ACUT_, U_)
-		MACRO(CRFX_, A_)
-		MACRO(CRFX_, E_)
-		MACRO(CRFX_, O_)
+		MACRO(CFLX_, A_)
+		MACRO(CFLX_, E_)
+		MACRO(CFLX_, I_)
+		MACRO(CFLX_, O_)
+		MACRO(CFLX_, U_)
 		MACRO(GRAV_, A_)
 		MACRO(GRAV_, E_)
 		MACRO(GRAV_, O_)
+		MACRO(GRAV_, U_)
 		MACRO(TILD_, A_)
 		MACRO(TILD_, O_)
 		MACRO(TILD_, N_)
@@ -245,7 +257,7 @@
 	combos {
 		compatible = "zmk,combos";
 		
-		#define COMBO_TIMEOUT 25
+		#define COMBO_TIMEOUT 5
 		
 		#define COMBO_MACRO(NAME, POSITIONS) \
 			combo_##NAME { \
@@ -358,7 +370,7 @@
 		#define MTGLT  &mt GT_   LT_
 		
 		#define THUMB1	&lttp SYM E_
-		#define THUMB2	&lttp NUM &m_CRFX_E_
+		#define THUMB2	&lecflx NUM
 		#define THUMB3	&lttp ACNT APST_
 		#define THUMB4	&lt   NAV SPACE
 		
@@ -391,9 +403,9 @@
 		
 		accent_layer {
 			bindings = <
-				&kp RA(N6_) &m_CRFX_O_	&m_CRFX_A_	&m_GRAV_A_	&none				&none		&kp CCED_	&none		&none		&none
-				&m_ACUT_U_	&m_ACUT_O_	&m_ACUT_I_	&m_ACUT_A_	&none				&kp TRMA_	&kp ACUT_	&kp CRFX_	&kp GRAV_	&m_TILD_N_
-				&none		&m_TILD_O_	&none		&m_TILD_A_	&none				&none		&none		&kp CRAT_	&none		&kp TILD_
+				&m_CFLX_U_	&m_CFLX_O_	&m_CFLX_I_	&m_CFLX_A_	&none				&none		&kp CCED_	&none		&none		&none
+				&m_ACUT_U_	&m_ACUT_O_	&m_ACUT_I_	&m_ACUT_A_	&m_GRAV_A_			&kp TRMA_	&kp ACUT_	&kp CFLX_	&kp GRAV_	&m_TILD_N_
+				&m_GRAV_U_	&m_TILD_O_	&m_CFLX_A_	&m_TILD_A_	&none				&none		&none		&kp CRAT_	&none		&kp TILD_
 													&m_GRAV_E_	&none				&trans		&trans
 			>;
 		};
