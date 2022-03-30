@@ -222,6 +222,10 @@
 		MACRO_(oe,   &macro_tap &kp TILD_ &kp O_ &kp E_)
 		MACRO_(ion,  &macro_tap &kp I_ &kp O_ &kp N_)
 		MACRO_(ment, &macro_tap &kp M_ &kp E_ &kp N_ &kp T_)
+		
+		MACRO_(surpar, &macro_tap &kp LC(X_) &kp LPAR_ &kp LC(V_) &kp RPAR_)
+		MACRO_(surglm, &macro_tap &kp LC(X_) &kp LGLM_ &kp LC(V_) &kp RGLM_)
+		MACRO_(surquot, &macro_tap &kp LC(X_) &kp QUOT_ &kp LC(V_) &kp QUOT_)
 	};
 
 	/*
@@ -283,6 +287,7 @@
 		COMBO(ESC,   10 11 12 13,)
 		COMBO(ESC,   22 23,_)
 		COMBO(CAPS,  13 14,)
+		COMBO(DOT_,  10, 11,)
 		/*COMBO(CAPS,  15 16,_)*/
 		
 		
@@ -374,8 +379,8 @@
 		symdouble_layer {
 			bindings = <
 				&none		&none		&none		&none		&none				&trans		&trans		&trans		&trans		&trans
-				&none		&dbl_QUOT_	&dbl_APST_	&trans		&trans				&trans		&dbl_LGLM_	&trans		&dbl_LT_	&trans
-				&dbl_LCRL_	&none		&dbl_LPAR_	&none		&none				&trans		&dbl_LBRK_	&trans		&trans		&trans
+				&none		&dbl_QUOT_	&dbl_APST_	&trans		&trans				&trans		&dbl_LPAR_	&m_surpar	&dbl_LT_	&trans
+				&dbl_LCRL_	&m_surquot	&dbl_LGLM_	&m_surglm	&none				&trans		&dbl_LBRK_	&trans		&trans		&trans
 													&trans		&trans				&trans		&trans
 			>;
 		};
@@ -385,7 +390,7 @@
 				&kp RA(N6_) &m_CRFX_O_	&m_CRFX_A_	&m_GRAV_A_	&none				&none		&kp CCED_	&none		&none		&none
 				&m_ACUT_U_	&m_ACUT_O_	&m_ACUT_I_	&m_ACUT_A_	&none				&kp TRMA_	&kp ACUT_	&kp CRFX_	&kp GRAV_	&m_TILD_N_
 				&none		&m_TILD_O_	&none		&m_TILD_A_	&none				&none		&none		&kp RA(N6_) &none		&kp TILD_
-													&m_CRFX_E_	&m_GRAV_E_			&trans		&trans
+													&m_GRAV_E_	&none				&trans		&trans
 			>;
 		};
 		
