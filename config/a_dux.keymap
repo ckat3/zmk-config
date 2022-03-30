@@ -237,22 +237,18 @@
 				timeout-ms = <COMBO_TIMEOUT>; \
 		
 		#define COMBO(KEY, POSITIONS, SUFFIX) \
-			COMBO_HEADER(KEY##SUFFIX, POSITIONS)
+			COMBO_HEADER(KEY##SUFFIX, POSITIONS) \
 				bindings = <&kp KEY>; \
 			};
 			
-		/*
 		#define COMBO_LAYER(KEY, POSITIONS, LAYERS) \
-			combo_##KEY { \
+			COMBO_HEADER(KEY, POSITIONS) \
 				bindings = <&kp KEY>; \
-				key-positions = <POSITIONS>; \
 				layers = <LAYERS>;
-				timeout-ms = <COMBO_TIMEOUT>; \
 			};
-			*/
 		
 		#define COMBO_MACRO(MACRO, POSITIONS) \
-			COMBO_HEADER(MACRO, POSITIONS)
+			COMBO_HEADER(MACRO, POSITIONS) \
 				bindings = <&m_##MACRO>; \
 			};
 			
