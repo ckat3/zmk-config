@@ -3,6 +3,10 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
+/* SETTINGS */
+#define MACRO_DELAY 30
+#define COMBO_TIMEOUT 5
+
 #define BASE 0
 #define SYM  1
 #define SDBL 2
@@ -134,19 +138,9 @@
 				bindings = BINDINGS; \
 			};
 			
-		HOLDTAP(ahm, tap-preferred, <&kp>, <&kp>)
-		HOLDTAP(alttp, tap-preferred, <&mo>, <&kp>)
-		HOLDTAP(alhs, balanced, <&mo>, <&tog>)
-
-		hm: homerow_mods {
-			compatible = "zmk,behavior-hold-tap";
-			label = "HOMEROW_MODS";
-			#binding-cells = <2>;
-			flavor = "tap-preferred";
-			tapping-term-ms = <300>;
-			quick-tap-ms = <0>;
-			bindings = <&kp>, <&kp>;
-		};
+		HOLDTAP(hm, tap-preferred, <&kp>, <&kp>)
+		HOLDTAP(lttp, tap-preferred, <&mo>, <&kp>)
+		HOLDTAP(lhs, balanced, <&mo>, <&tog>)
 		
 		hml: homerow_left {
 			compatible = "zmk,behavior-hold-tap";
@@ -170,25 +164,6 @@
 			bindings = <&kp>, <&kp>;
 		};
 		
-		lttp: layer_toggle_tap_preferred {
-			compatible = "zmk,behavior-hold-tap";
-			label = "LAYER_TOGGLE_TAP_PREFERRED";
-			#binding-cells = <2>;
-			tapping-term-ms = <LT_TAPPING_TERM>;
-			quick-tap-ms = <0>;
-			flavor = "balanced";
-			bindings = <&mo>, <&kp>;
-		};
-		
-		lhs: layer_hold_or_sticky {
-			compatible = "zmk,behavior-hold-tap";
-			label = "HOLD_OR_STICKY";
-			#binding-cells = <2>;
-			tapping-term-ms = <300>;
-			flavor = "balanced";
-			bindings = <&mo>, <&tog>;
-		};
-		
 		lecflx: layer_or_ecflx {
 			compatible = "zmk,behavior-hold-tap";
 			label = "LAYER_OR_ECFLX";
@@ -200,23 +175,7 @@
 	};
 
 	
-	macros {
-		#define MACRO_DELAY 30
-		
-		#define MACRO_DOUBLE(FIRST, SECOND) \
-			ZMK_MACRO(dbl_##FIRST, \
-				tap-ms = <MACRO_DELAY>; \
-				bindings = <&macro_tap &kp FIRST &kp SECOND &kp LEFT>; \
-				)
-				
-		MACRO_DOUBLE(LPAR_, RPAR_)
-		MACRO_DOUBLE(LBRK_, RBRK_)
-		MACRO_DOUBLE(LCRL_, RCRL_)
-		MACRO_DOUBLE(LT_,   GT_)
-		MACRO_DOUBLE(LGLM_, RGLM_)
-		MACRO_DOUBLE(APST_, APST_)
-		MACRO_DOUBLE(QUOT_, QUOT_)
-		
+	macros {		
 		#define MACRO(FIRST, SECOND) \
 			ZMK_MACRO(m_##FIRST##SECOND, \
 				tap-ms = <MACRO_DELAY>; \
@@ -227,6 +186,12 @@
 			ZMK_MACRO(m_##NAME, \
 				tap-ms = <MACRO_DELAY>; \
 				bindings = <BINDINGS>; \
+				)
+		
+		#define MACRO_DOUBLE(FIRST, SECOND) \
+			ZMK_MACRO(dbl_##FIRST, \
+				tap-ms = <MACRO_DELAY>; \
+				bindings = <&macro_tap &kp FIRST &kp SECOND &kp LEFT>; \
 				)
 	
 		MACRO(ACUT_, A_)
@@ -257,6 +222,14 @@
 		MACRO_(surpar,  &macro_tap &kp LC(X_) &kp LPAR_ &kp LC(V_) &kp RPAR_)
 		MACRO_(surglm,  &macro_tap &kp LC(X_) &kp LGLM_ &kp LC(V_) &kp RGLM_)
 		MACRO_(surquot, &macro_tap &kp LC(X_) &kp QUOT_ &kp LC(V_) &kp QUOT_)
+				
+		MACRO_DOUBLE(LPAR_, RPAR_)
+		MACRO_DOUBLE(LBRK_, RBRK_)
+		MACRO_DOUBLE(LCRL_, RCRL_)
+		MACRO_DOUBLE(LT_,   GT_)
+		MACRO_DOUBLE(LGLM_, RGLM_)
+		MACRO_DOUBLE(APST_, APST_)
+		MACRO_DOUBLE(QUOT_, QUOT_)
 	};
 
 	/*
@@ -271,23 +244,6 @@
 			  
 	combos {
 		compatible = "zmk,combos";
-		
-		#define COMBO_TIMEOUT 5
-		
-		#define COMBO_MACRO(NAME, POSITIONS) \
-			combo_##NAME { \
-				bindings = <&m_##NAME>; \
-				key-positions = <POSITIONS>; \
-				timeout-ms = <COMBO_TIMEOUT>; \
-			};
-			
-		COMBO_MACRO(qu,   26 27)
-		COMBO_MACRO(ae,   13 30)
-		COMBO_MACRO(ao,   13 11)
-		COMBO_MACRO(oe,   11 30)
-		COMBO_MACRO(ion,  12 11 19)
-		COMBO_MACRO(ment, 27 19 16)
-		
 		
 		#define COMBO(KEY, POSITIONS, SUFFIX) \
 			combo_##KEY##SUFFIX { \
@@ -305,7 +261,13 @@
 				timeout-ms = <COMBO_TIMEOUT>; \
 			};
 			*/
-			
+		
+		#define COMBO_MACRO(NAME, POSITIONS) \
+			combo_##NAME { \
+				bindings = <&m_##NAME>; \
+				key-positions = <POSITIONS>; \
+				timeout-ms = <COMBO_TIMEOUT>; \
+			};
 			
 		COMBO(TAB,   12 13,)
 		COMBO(ENTER, 16 17,)
@@ -321,6 +283,12 @@
 		COMBO(DOT_,  10 11,)
 		/*COMBO(CAPS,  15 16,_)*/
 		
+		COMBO_MACRO(qu,   26 27)
+		COMBO_MACRO(ae,   13 30)
+		COMBO_MACRO(ao,   13 11)
+		COMBO_MACRO(oe,   11 30)
+		COMBO_MACRO(ion,  12 11 19)
+		COMBO_MACRO(ment, 27 19 16)
 		
 		
 				
