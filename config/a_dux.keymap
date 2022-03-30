@@ -123,6 +123,19 @@
 
 / { 
 	behaviors {
+		#define HOLDTAP(NAME, FLAVOR, BINDINGS...) \
+			##NAME: ht_##NAME {
+				compatible = "zmk,behavior-hold-tap";
+				label = #NAME;
+				#binding-cells = <2>;
+				flavor = #FLAVOR;
+				tapping-term-ms = <300>;
+				quick-tap-ms = <0>;
+				bindings = BINDINGS;
+			};
+			
+		HOLDTAP(hmaaa, tap-preferred, <&kp>, <&kp>)
+
 		hm: homerow_mods {
 			compatible = "zmk,behavior-hold-tap";
 			label = "HOMEROW_MODS";
@@ -180,7 +193,8 @@
 			#binding-cells = <2>;
 			tapping-term-ms = <300>;
 			flavor = "balanced";
-			bindings = <&mo>, <&m_CFLX_E_>;
+			bindings = <&mo>, <&tog>;
+			/*bindings = <&mo>, <&m_CFLX_E_>;*/
 		};
 	};
 
