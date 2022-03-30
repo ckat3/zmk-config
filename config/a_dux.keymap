@@ -127,28 +127,28 @@
 
 / { 
 	behaviors {
+		#define HOLDTAP_HEADER \
+				compatible = "zmk,behavior-hold-tap"; \
+				#binding-cells = <2>; \
+				tapping-term-ms = <300>; \
+				quick-tap-ms = <200>;
+				
 		#define HOLDTAP(NAME, FLAVOR, BINDINGS...) \
 			NAME: ht_##NAME { \
-				compatible = "zmk,behavior-hold-tap"; \
+				HOLDTAP_HEADER
 				label = #NAME; \
 				flavor = #FLAVOR; \
 				bindings = BINDINGS; \
-				#binding-cells = <2>; \
-				tapping-term-ms = <300>; \
-				quick-tap-ms = <0>; \
 			};
 			
 		#define HRMOD_POS(NAME, POSITIONS) \
 			NAME: ht_##NAME { \
-				compatible = "zmk,behavior-hold-tap"; \
-				label = #NAME; \
-				#binding-cells = <2>; \
+				HOLDTAP_HEADER
 				flavor = "balanced"; \
-				tapping-term-ms = <300>; \
-				quick-tap-ms = <200>; \
-				hold-trigger-key-positions = <POSITIONS>; \
 				bindings = <&kp>, <&kp>; \
-			};		
+				label = #NAME; \
+				hold-trigger-key-positions = <POSITIONS>; \
+			};
 			
 		HOLDTAP(hm,     tap-preferred, <&kp>, <&kp>)
 		HOLDTAP(lttp,   tap-preferred, <&mo>, <&kp>)
