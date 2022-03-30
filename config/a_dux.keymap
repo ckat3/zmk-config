@@ -153,7 +153,6 @@
 			};
 			
 		HOLDTAP(hm,     tap-preferred, <&kp>, <&kp>)
-		HOLDTAP(lttp,   tap-preferred, <&mo>, <&kp>)
 		HOLDTAP(lhs,    balanced,      <&mo>, <&tog>)
 		HOLDTAP(lecflx, balanced,      <&mo>, <&m_CFLX_E_>)
 		
@@ -232,11 +231,14 @@
 	combos {
 		compatible = "zmk,combos";
 		
-		#define COMBO(KEY, POSITIONS, SUFFIX) \
-			combo_##KEY##SUFFIX { \
-				bindings = <&kp KEY>; \
+		#define COMBO_HEADER(NAME, POSITIONS)
+			combo_##NAME { \
 				key-positions = <POSITIONS>; \
 				timeout-ms = <COMBO_TIMEOUT>; \
+		
+		#define COMBO(KEY, POSITIONS, SUFFIX) \
+			COMBO_HEADER(KEY##SUFFIX, POSITIONS)
+				bindings = <&kp KEY>; \
 			};
 			
 		/*
@@ -249,11 +251,9 @@
 			};
 			*/
 		
-		#define COMBO_MACRO(NAME, POSITIONS) \
-			combo_##NAME { \
-				bindings = <&m_##NAME>; \
-				key-positions = <POSITIONS>; \
-				timeout-ms = <COMBO_TIMEOUT>; \
+		#define COMBO_MACRO(MACRO, POSITIONS) \
+			COMBO_HEADER(MACRO, POSITIONS)
+				bindings = <&m_##MACRO>; \
 			};
 			
 		COMBO(TAB,   12 13,)
