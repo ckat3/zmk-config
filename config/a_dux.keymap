@@ -269,7 +269,7 @@
 		COMBO(ESC,   22 23,_)
 		COMBO(CAPS,  13 14,)
 		COMBO(DOT_,  10 11,)
-		COMBO(LC(Z_), 20 21,)
+		/*COMBO(LC(Z_), 20 21,)*/
 		COMBO(PAUSE_BREAK, 20 21 22 23,)
 		/*COMBO(CAPS,  15 16,_)*/
 		
@@ -279,8 +279,6 @@
 		COMBO_MACRO(oe,   11 30)
 		COMBO_MACRO(ion,  12 11 19)
 		COMBO_MACRO(ment, 27 19 16)
-		
-		
 		
 		combo_func_layer {
 			bindings = <&mo FUNC>;
