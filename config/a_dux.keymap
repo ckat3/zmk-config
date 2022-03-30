@@ -231,7 +231,7 @@
 	combos {
 		compatible = "zmk,combos";
 		
-		#define COMBO_HEADER(NAME, POSITIONS)
+		#define COMBO_HEADER(NAME, POSITIONS) \
 			combo_##NAME { \
 				key-positions = <POSITIONS>; \
 				timeout-ms = <COMBO_TIMEOUT>; \
@@ -244,7 +244,7 @@
 		#define COMBO_LAYER(KEY, POSITIONS, LAYERS) \
 			COMBO_HEADER(KEY, POSITIONS) \
 				bindings = <&kp KEY>; \
-				layers = <LAYERS>;
+				layers = <LAYERS>; \
 			};
 		
 		#define COMBO_MACRO(MACRO, POSITIONS) \
