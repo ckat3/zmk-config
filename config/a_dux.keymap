@@ -223,8 +223,8 @@
 		MACRO_(ion,  &macro_tap &kp I_ &kp O_ &kp N_)
 		MACRO_(ment, &macro_tap &kp M_ &kp E_ &kp N_ &kp T_)
 		
-		MACRO_(surpar, &macro_tap &kp LC(X_) &kp LPAR_ &kp LC(V_) &kp RPAR_)
-		MACRO_(surglm, &macro_tap &kp LC(X_) &kp LGLM_ &kp LC(V_) &kp RGLM_)
+		MACRO_(surpar,  &macro_tap &kp LC(X_) &kp LPAR_ &kp LC(V_) &kp RPAR_)
+		MACRO_(surglm,  &macro_tap &kp LC(X_) &kp LGLM_ &kp LC(V_) &kp RGLM_)
 		MACRO_(surquot, &macro_tap &kp LC(X_) &kp QUOT_ &kp LC(V_) &kp QUOT_)
 	};
 
@@ -287,7 +287,7 @@
 		COMBO(ESC,   10 11 12 13,)
 		COMBO(ESC,   22 23,_)
 		COMBO(CAPS,  13 14,)
-		COMBO(DOT_,  10, 11,)
+		COMBO(DOT_,  10 11,)
 		/*COMBO(CAPS,  15 16,_)*/
 		
 		
@@ -355,7 +355,7 @@
 		
 		#define THUMB1	&lttp SYM E_
 		#define THUMB2	&lttp SYM &m_CRFX_E_
-		#define THUMB3	&lttp ACNT ACUT_
+		#define THUMB3	&lttp ACNT APST_
 		#define THUMB4	&lt   NAV SPACE
 		
 		base_layer {
