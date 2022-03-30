@@ -349,7 +349,7 @@
 		#define MTGLT  &mt GT_   LT_
 		
 		#define THUMB1	&lttp SYM E_
-		#define THUMB2	&mo   NUM
+		#define THUMB2	&lttp SYM &m_CRFX_E_
 		#define THUMB3	&lttp ACNT ACUT_
 		#define THUMB4	&lt   NAV SPACE
 		
