@@ -135,7 +135,7 @@
 				
 		#define HOLDTAP(NAME, FLAVOR, BINDINGS...) \
 			NAME: ht_##NAME { \
-				HOLDTAP_HEADER
+				HOLDTAP_HEADER \
 				label = #NAME; \
 				flavor = #FLAVOR; \
 				bindings = BINDINGS; \
@@ -143,7 +143,7 @@
 			
 		#define HRMOD_POS(NAME, POSITIONS) \
 			NAME: ht_##NAME { \
-				HOLDTAP_HEADER
+				HOLDTAP_HEADER \
 				flavor = "balanced"; \
 				bindings = <&kp>, <&kp>; \
 				label = #NAME; \
