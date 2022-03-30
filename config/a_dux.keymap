@@ -177,7 +177,7 @@
 
 	
 	macros {
-		#define MACRO_DELAY 5
+		#define MACRO_DELAY 30
 		
 		#define MACRO_DOUBLE(FIRST, SECOND) \
 			ZMK_MACRO(dbl_##FIRST, \
