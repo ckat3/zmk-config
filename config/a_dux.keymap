@@ -173,7 +173,7 @@
 
 	
 	macros {
-		#define MACRO_DELAY 20
+		#define MACRO_DELAY 5
 		
 		#define MACRO_DOUBLE(FIRST, SECOND) \
 			ZMK_MACRO(dbl_##FIRST, \
@@ -216,11 +216,11 @@
 		MACRO(TILD_, O_)
 		MACRO(TILD_, N_)
 		
-		MACRO_(qu, &macro_tap &kp Q_ &kp U_)
-		MACRO_(ae, &macro_tap &kp TILD_ &kp A_ &kp E_)
-		MACRO_(ao, &macro_tap &kp TILD_ &kp A_ &kp O_)
-		MACRO_(oe, &macro_tap &kp TILD_ &kp O_ &kp E_)
-		MACRO_(ion, &macro_tap &kp I_ &kp O_ &kp N_)
+		MACRO_(qu,   &macro_tap &kp Q_ &kp U_)
+		MACRO_(ae,   &macro_tap &kp TILD_ &kp A_ &kp E_)
+		MACRO_(ao,   &macro_tap &kp TILD_ &kp A_ &kp O_)
+		MACRO_(oe,   &macro_tap &kp TILD_ &kp O_ &kp E_)
+		MACRO_(ion,  &macro_tap &kp I_ &kp O_ &kp N_)
 		MACRO_(ment, &macro_tap &kp M_ &kp E_ &kp N_ &kp T_)
 	};
 
@@ -246,11 +246,11 @@
 				timeout-ms = <COMBO_TIMEOUT>; \
 			};
 			
-		COMBO_MACRO(qu, 26 27)
-		COMBO_MACRO(ae, 13 30)
-		COMBO_MACRO(ao, 13 11)
-		COMBO_MACRO(oe, 11 30)
-		COMBO_MACRO(ion, 12 11 19)
+		COMBO_MACRO(qu,   26 27)
+		COMBO_MACRO(ae,   13 30)
+		COMBO_MACRO(ao,   13 11)
+		COMBO_MACRO(oe,   11 30)
+		COMBO_MACRO(ion,  12 11 19)
 		COMBO_MACRO(ment, 27 19 16)
 		
 		
@@ -355,7 +355,7 @@
 		
 		base_layer {
 			bindings = <
-				&kp  Z_		&kp W_		&kp  X_		&kp  Y_		&kp Q_				&kp K_		&kp  C_		&kp  H_		&kp  F_		&kp  J_
+				&kp  Z_		&kp W_		&kp  Y_		&kp  X_		&kp Q_				&kp K_		&kp  C_		&kp  H_		&kp  F_		&kp  J_
 				HMRG U_		HMLA O_		HMLC I_		HMLS A_		&kp DOT_			&kp G_		HMRS T_		HMRC S_		HMRA R_		HMRG N_
 				&kp  B_		HMLC EACT_	&kp  P_		DOT_COMMA	EXCL_QMRK			&key_repeat	&kp  D_		&kp  M_		&kp  L_		&kp  V_
 													THUMB1		THUMB2				THUMB3		THUMB4
