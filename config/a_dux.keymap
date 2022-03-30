@@ -124,7 +124,7 @@
 / { 
 	behaviors {
 		#define HOLDTAP(NAME, FLAVOR, BINDINGS...) \
-			##NAME: ht_##NAME {
+			NAME: ht_##NAME {
 				compatible = "zmk,behavior-hold-tap";
 				label = #NAME;
 				#binding-cells = <2>;
