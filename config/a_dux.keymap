@@ -123,20 +123,20 @@
 
 / { 
 	behaviors {
-		/*#define HOLDTAP(NAME, FLAVOR, BINDINGS...) \
-			NAME: ht_##NAME {
-				compatible = "zmk,behavior-hold-tap";
-				label = #NAME;
-				#binding-cells = <2>;
-				flavor = #FLAVOR;
-				tapping-term-ms = <300>;
-				quick-tap-ms = <0>;
-				bindings = BINDINGS;
+		#define HOLDTAP(NAME, FLAVOR, BINDINGS...) \
+			NAME: ht_##NAME { \
+				compatible = "zmk,behavior-hold-tap"; \
+				label = #NAME; \
+				#binding-cells = <2>; \
+				flavor = #FLAVOR; \
+				tapping-term-ms = <300>; \
+				quick-tap-ms = <0>; \
+				bindings = BINDINGS; \
 			};
 			
-		HOLDTAP(hm, tap-preferred, <&kp>, <&kp>)
-		HOLDTAP(lttp, tap-preferred, <&mo>, <&kp>)
-		HOLDTAP(lhs, balanced, <&mo>, <&tog>)*/
+		HOLDTAP(ahm, tap-preferred, <&kp>, <&kp>)
+		HOLDTAP(alttp, tap-preferred, <&mo>, <&kp>)
+		HOLDTAP(alhs, balanced, <&mo>, <&tog>)
 
 		hm: homerow_mods {
 			compatible = "zmk,behavior-hold-tap";
