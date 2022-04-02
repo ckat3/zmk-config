@@ -95,6 +95,8 @@
 #define EQUL_	MINUS
 #define PCNT_	EQUAL
 
+#define PIPE_	RA(B_)
+
 #define CRAT_ RA(N6_)
 #define TLDL_ RA(K_) /* loose tilde */
 
@@ -315,6 +317,7 @@
 			key-positions = <0 4>;
 			layers = <FUNC>;
 			timeout-ms = <COMBO_DELAY>;
+		};
 		
 		combo_bootloader {
 			bindings = <&bootloader>;
@@ -350,7 +353,7 @@
 		#define THUMB1	&lt SYM E_
 		#define THUMB2	&lecflx NUM 0
 		#define THUMB3	&lt ACNT APST_
-		#define THUMB4	&lt   NAV SPACE
+		#define THUMB4	&lt NAV SPACE
 		
 		base_layer {
 			bindings = <
@@ -363,7 +366,7 @@
 		
 		sym_layer {
 			bindings = <
-				&none		&none		&none		&none		&none				&kp AE_		&kp OE_		&kp AT_		&kp AMPR_	&kp CCED_
+				&kp PIPE_	&none		&none		&none		&none				&kp AE_		&kp OE_		&kp AT_		&kp AMPR_	&kp CCED_
 				&none		&kp QUOT_	&kp APST_	&kp MIN_	&none				&none		&kp LPAR_	&kp RPAR_	&kp LT_		&kp GT_	
 				&kp LCRL_	&kp RCRL_	&kp LGLM_	&kp RGLM_	&none				&none		&kp LBRK_	&kp RBRK_	&kp MDSH_	&kp NDSH_
 													&trans		&trans				&mo SDBL	&trans
