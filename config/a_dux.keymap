@@ -310,6 +310,12 @@
 			timeout-ms = <COMBO_DELAY>;
 		};
 		
+		combo_reset_left {
+			bindings = <&reset>;
+			key-positions = <0 4>;
+			layers = <FUNC>;
+			timeout-ms = <COMBO_DELAY>;
+		
 		combo_bootloader {
 			bindings = <&bootloader>;
 			key-positions = <20 24>;
@@ -348,9 +354,9 @@
 		
 		base_layer {
 			bindings = <
-				&kp  Z_		&kp W_		&kp  Y_		&kp  X_		&kp Q_				&key_repeat	&kp  C_		&kp  H_		&kp  F_		&kp  J_
-				HMRG U_		HMLA O_		HMLC I_		HMLS A_		&kp K_				&kp G_		HMRS T_		HMRC R_		HMRA S_		HMRG N_
-				&kp  B_		HMLC EACT_	&kp  P_		DOT_COMMA	&kp DOT_			EXCL_QMRK	&kp  D_		&kp  M_		&kp  L_		&kp  V_
+				&kp  Z_		&kp X_		&kp  Y_		&kp DOT_	&kp Q_				&kp K_		&kp  C_		&kp  H_		&kp  J_		&kp  W_
+				HMRG U_		HMLA O_		HMLC I_		HMLS A_		&kp F_				&kp G_		HMRS T_		HMRC R_		HMRA S_		HMRG N_
+				&kp  B_		HMLC EACT_	&kp  P_		DOT_COMMA	&key_repeat			EXCL_QMRK	&kp  D_		&kp  M_		&kp  L_		&kp  V_
 													THUMB1		THUMB2				THUMB3		THUMB4
 			>;
 		};
@@ -384,9 +390,9 @@
 		
 		num_layer {
 			bindings = <				
-				&kp EQUL_	&kp N7_		&kp N8_		&kp N9_		&none				&none		&kp PCNT_	&kp HASH_	&kp DLLR_	&kp EURO_
-				&kp N0_		&kp N1_		&kp N2_		&kp	N3_		DOT_COMMA			&none		&kp PLUS_	&kp MIN_	&kp STAR_	&kp FSLA_
-				&none		&kp N4_		&kp N5_		&kp	N6_		&none				&none		MTPAR		MTGLT		&kp EQUL_	&kp BSLA_
+				&kp EQUL_	&kp N9_		&kp N8_		&kp N7_		&none				&none		&kp PCNT_	&kp HASH_	&kp DLLR_	&kp EURO_
+				&kp N0_		&kp N3_		&kp N2_		&kp	N1_		DOT_COMMA			&none		&kp PLUS_	&kp MIN_	&kp STAR_	&kp FSLA_
+				&none		&kp N6_		&kp N5_		&kp	N4_		&none				&none		MTPAR		MTGLT		&kp EQUL_	&kp BSLA_
 													&tog NUM	&trans				&trans		&trans
 			>;
 		};
@@ -403,8 +409,8 @@
 		func_layer {
 			bindings = <
 				&bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3			&reset		  &kp F7  &kp F8  &kp F9  &kp F12
-				&kp C_BRI_UP  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE    &kp LSLCK				&none		  &kp F1  &kp F2  &kp F3  &kp F11
-				&kp C_BRI_DN  &kp C_PREV    &kp C_NEXT    &kp C_PP      &kp LNLCK				&out OUT_TOG  &kp F4  &kp F5  &kp F6  &kp F10
+				&kp C_BRI_UP  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE    &kp LSLCK				&out OUT_BLE  &kp F1  &kp F2  &kp F3  &kp F11
+				&kp C_BRI_DN  &kp C_PREV    &kp C_NEXT    &kp C_PP      &kp LNLCK				&out OUT_USB  &kp F4  &kp F5  &kp F6  &kp F10
 													      &trans		&trans					&trans		  &trans
 			>;
 		};
