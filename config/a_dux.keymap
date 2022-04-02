@@ -357,7 +357,7 @@
 		
 		base_layer {
 			bindings = <
-				&kp  Z_		&kp X_		&kp  Y_		&kp DOT_	&kp Q_				&kp K_		&kp  C_		&kp  H_		&kp  J_		&kp  W_
+				&kp  Z_		&kp X_		&kp  Y_		&kp GRAV_A	&kp Q_				&kp K_		&kp  C_		&kp  H_		&kp  W_		&kp  J_
 				HMRG U_		HMLA O_		HMLC I_		HMLS A_		&kp F_				&kp G_		HMRS T_		HMRC R_		HMRA S_		HMRG N_
 				&kp  B_		HMLC EACT_	&kp  P_		DOT_COMMA	&key_repeat			EXCL_QMRK	&kp  D_		&kp  M_		&kp  L_		&kp  V_
 													THUMB1		THUMB2				THUMB3		THUMB4
