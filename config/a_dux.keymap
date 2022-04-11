@@ -206,7 +206,6 @@
 		MACRO(TILD_, A_)
 		MACRO(TILD_, O_)
 		MACRO(TILD_, N_)
-		MACRO(COMM_, SPACE)
 		
 		MACRO_(qu,   &macro_tap &kp Q_ &kp U_)
 		MACRO_(ae,   &macro_tap &kp TILD_ &kp A_ &kp E_)
@@ -360,7 +359,7 @@
 			bindings = <
 				&kp  Z_		&kp X_		&kp  Y_		&kp AGRV_	&kp Q_				&kp K_		&kp  C_		&kp  H_		&kp  W_		&kp  J_
 				HMRG U_		HMLA O_		HMLC I_		HMLS A_		&kp F_				&kp G_		HMRS T_		HMRC R_		HMRA S_		HMRG N_
-				&kp  V_		HMLC EACT_	&kp  P_		&dotcomma	DOT_COMMA			EXCL_QMRK	&kp  D_		&kp  M_		&kp  L_		&kp  B_
+				&kp  V_		HMLC EACT_	&kp  P_		DOT_COMMA	DOT_COMMA			EXCL_QMRK	&kp  D_		&kp  M_		&kp  L_		&kp  B_
 													THUMB1		THUMB2				THUMB3		THUMB4
 			>;
 		};
