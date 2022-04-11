@@ -160,8 +160,8 @@
 			};
 			
 		HOLDTAP(hm,       tap-preferred, <&kp>, <&kp>)
-		HOLDTAP(lhs,      balanced,      <&mo>, <&tog>)
-		HOLDTAP(lsk,      balanced,      <&mo>, <&sk>)
+		HOLDTAP(lhs,      balanced,      <&mo>, <&tog>)       // lhs: layer if held, toggle if pressed
+		HOLDTAP(lsk,      balanced,      <&mo>, <&sk>)        // lsk: layer if held, one-shot if pressed
 		HOLDTAP(lecflx,   balanced,      <&mo>, <&m_CFLX_E_>)
 		HOLDTAP(dotcomma, balanced,      <&m_dot_ns>, <&m_dot_ns>)
 		
@@ -206,13 +206,14 @@
 		MACRO(TILD_, A_)
 		MACRO(TILD_, O_)
 		MACRO(TILD_, N_)
+		MACRO(COMM_, SPACE)
 		
-		MACRO_(qu,   &macro_tap &kp Q_ &kp U_)
-		MACRO_(ae,   &macro_tap &kp TILD_ &kp A_ &kp E_)
-		MACRO_(ao,   &macro_tap &kp TILD_ &kp A_ &kp O_)
-		MACRO_(oe,   &macro_tap &kp TILD_ &kp O_ &kp E_)
-		MACRO_(ion,  &macro_tap &kp I_ &kp O_ &kp N_)
-		MACRO_(ment, &macro_tap &kp M_ &kp E_ &kp N_ &kp T_)
+		MACRO_(qu,     &macro_tap &kp Q_ &kp U_)
+		MACRO_(ae,     &macro_tap &kp TILD_ &kp A_ &kp E_)
+		MACRO_(ao,     &macro_tap &kp TILD_ &kp A_ &kp O_)
+		MACRO_(oe,     &macro_tap &kp TILD_ &kp O_ &kp E_)
+		MACRO_(ion,    &macro_tap &kp I_ &kp O_ &kp N_)
+		MACRO_(ment,   &macro_tap &kp M_ &kp E_ &kp N_ &kp T_)
 		MACRO_(dot_ns, &macro_tap &kp DOT_ &kp SPACE &sk LSHIFT)
 		
 		MACRO_(surpar,  &macro_tap &kp LC(X_) &kp LPAR_ &kp LC(V_) &kp RPAR_)
@@ -359,7 +360,7 @@
 			bindings = <
 				&kp  Z_		&kp X_		&kp  Y_		&kp AGRV_	&kp Q_				&kp K_		&kp  C_		&kp  H_		&kp  W_		&kp  J_
 				HMRG U_		HMLA O_		HMLC I_		HMLS A_		&kp F_				&kp G_		HMRS T_		HMRC R_		HMRA S_		HMRG N_
-				&kp  V_		HMLC EACT_	&kp  P_		DOT_COMMA	DOT_COMMA			EXCL_QMRK	&kp  D_		&kp  M_		&kp  L_		&kp  B_
+				&kp  V_		HMLC EACT_	&kp  P_		&dotcomma	DOT_COMMA			EXCL_QMRK	&kp  D_		&kp  M_		&kp  L_		&kp  B_
 													THUMB1		THUMB2				THUMB3		THUMB4
 			>;
 		};
@@ -386,8 +387,8 @@
 			bindings = <
 				&m_CFLX_U_	&m_CFLX_O_	&m_CFLX_I_	&m_CFLX_A_	&none				&none		&kp CCED_	&none		&none		&none
 				&m_ACUT_U_	&m_ACUT_O_	&m_ACUT_I_	&m_ACUT_A_	&m_GRAV_A_			&kp TRMA_	&kp ACUT_	&kp CFLX_	&kp GRAV_	&m_TILD_N_
-				&m_GRAV_U_	&m_TILD_O_	&m_CFLX_A_	&m_TILD_A_	&none				&none		&none		&kp CRAT_	&none		&kp TILD_
-													&m_GRAV_E_	&none				&trans		&trans
+				&m_GRAV_U_	&m_TILD_O_	&none		&m_TILD_A_	&none				&none		&none		&kp CRAT_	&none		&kp TILD_
+													&m_CFLX_E	&m_GRAV_E_			&trans		&trans
 			>;
 		};
 		
