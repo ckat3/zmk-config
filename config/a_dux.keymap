@@ -163,7 +163,7 @@
 		HOLDTAP(lhs,      balanced,      <&mo>, <&tog>)       // lhs: layer if held, toggle if pressed
 		HOLDTAP(lsk,      balanced,      <&mo>, <&sk>)        // lsk: layer if held, one-shot if pressed
 		HOLDTAP(lecflx,   balanced,      <&mo>, <&m_CFLX_E_>)
-		HOLDTAP(comdotns, balanced,      <&m_dot_ns>, <&kp>)
+		HOLDTAP(dotcomma, balanced,      <&m_dot_ns>, <&m_COMM_SPC>)
 		
 		HRMOD_POS(hml, 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33)
 		HRMOD_POS(hmr, 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31)
@@ -206,6 +206,7 @@
 		MACRO(TILD_, A_)
 		MACRO(TILD_, O_)
 		MACRO(TILD_, N_)
+		MACRO(COMM_, SPC)
 		
 		MACRO_(qu,   &macro_tap &kp Q_ &kp U_)
 		MACRO_(ae,   &macro_tap &kp TILD_ &kp A_ &kp E_)
@@ -343,7 +344,7 @@
 		#define HMRS  &hmr RSHIFT
 		
 		#define DOT_COMMA	&mt DOT_  COMM_
-		#define DOT_COMMA	&comdotns 0 COMM_
+		#define DOT_COMMS	&dotcomma
 		#define COLON_SEMI	&mt COLN_ SEMI_
 		#define EXCL_QMRK	&mt EXCL_ QMRK_
 		
@@ -362,7 +363,7 @@
 			bindings = <
 				&kp  Z_		&kp X_		&kp  Y_		&kp AGRV_	&kp Q_				&kp K_		&kp  C_		&kp  H_		&kp  W_		&kp  J_
 				HMRG U_		HMLA O_		HMLC I_		HMLS A_		&kp F_				&kp G_		HMRS T_		HMRC R_		HMRA S_		HMRG N_
-				&kp  V_		HMLC EACT_	&kp  P_		DOT_COMMA	&kp DOT_			EXCL_QMRK	&kp  D_		&kp  M_		&kp  L_		&kp  B_
+				&kp  V_		HMLC EACT_	&kp  P_		DOT_COMMS	DOT_COMMA			EXCL_QMRK	&kp  D_		&kp  M_		&kp  L_		&kp  B_
 													THUMB1		THUMB2				THUMB3		THUMB4
 			>;
 		};
