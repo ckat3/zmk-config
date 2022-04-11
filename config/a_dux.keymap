@@ -163,7 +163,7 @@
 		HOLDTAP(lhs,      balanced,      <&mo>, <&tog>)       // lhs: layer if held, toggle if pressed
 		HOLDTAP(lsk,      balanced,      <&mo>, <&sk>)        // lsk: layer if held, one-shot if pressed
 		HOLDTAP(lecflx,   balanced,      <&mo>, <&m_CFLX_E_>)
-		HOLDTAP(dotcomma, balanced,      <&m_dot_ns>, <&m_dot_ns>)
+		HOLDTAP(dotcomma, balanced,      <&m_dot_ns>, <&m_com_ns>)
 		
 		HRMOD_POS(hml, 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33)
 		HRMOD_POS(hmr, 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31)
@@ -215,6 +215,7 @@
 		MACRO_(ion,    &macro_tap &kp I_ &kp O_ &kp N_)
 		MACRO_(ment,   &macro_tap &kp M_ &kp E_ &kp N_ &kp T_)
 		MACRO_(dot_ns, &macro_tap &kp DOT_ &kp SPACE &sk LSHIFT)
+		MACRO_(com_ns, &macro_tap &kp COMM_ &kp SPACE)
 		
 		MACRO_(surpar,  &macro_tap &kp LC(X_) &kp LPAR_ &kp LC(V_) &kp RPAR_)
 		MACRO_(surglm,  &macro_tap &kp LC(X_) &kp LGLM_ &kp LC(V_) &kp RGLM_)
