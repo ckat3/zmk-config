@@ -163,7 +163,7 @@
 		HOLDTAP(lhs,      balanced,      <&mo>, <&tog>)       // lhs: layer if held, toggle if pressed
 		HOLDTAP(lsk,      balanced,      <&mo>, <&sk>)        // lsk: layer if held, one-shot if pressed
 		HOLDTAP(lecflx,   balanced,      <&mo>, <&m_CFLX_E_>)
-		HOLDTAP(comdotns, balanced,      <&kp>, <&m_dot_ns>)
+		HOLDTAP(comdotns, balanced,      <&m_dot_ns>, <&kp>)
 		
 		HRMOD_POS(hml, 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33)
 		HRMOD_POS(hmr, 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31)
@@ -343,7 +343,7 @@
 		#define HMRS  &hmr RSHIFT
 		
 		#define DOT_COMMA	&mt DOT_  COMM_
-		#define DOT_COMMA	&comdotns COMM_ 0
+		#define DOT_COMMA	&comdotns 0 COMM_
 		#define COLON_SEMI	&mt COLN_ SEMI_
 		#define EXCL_QMRK	&mt EXCL_ QMRK_
 		
