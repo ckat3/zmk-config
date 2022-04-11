@@ -163,7 +163,7 @@
 		HOLDTAP(lhs,      balanced,      <&mo>, <&tog>)
 		HOLDTAP(lsk,      balanced,      <&mo>, <&sk>)
 		HOLDTAP(lecflx,   balanced,      <&mo>, <&m_CFLX_E_>)
-		HOLDTAP(dotcomma, balanced,      <&m_dot_ns>, <&m_COMM_SPACE>)
+		HOLDTAP(dotcomma, balanced,      <&m_dot_ns>, <&m_dot_ns>)
 		
 		HRMOD_POS(hml, 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33)
 		HRMOD_POS(hmr, 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31)
