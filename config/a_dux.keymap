@@ -343,7 +343,7 @@
 		#define HMRS  &hmr RSHIFT
 		
 		#define DOT_COMMA	&mt DOT_  COMM_
-		#define DOT_COMMA	&mt COMM_ 0
+		#define DOT_COMMA	&comdotns COMM_ 0
 		#define COLON_SEMI	&mt COLN_ SEMI_
 		#define EXCL_QMRK	&mt EXCL_ QMRK_
 		
