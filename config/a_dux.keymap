@@ -160,7 +160,7 @@
 		HOLDTAP(hm,       tap-preferred, <&kp>, <&kp>)
 		HOLDTAP(lhs,      balanced,      <&mo>, <&tog>)       // lhs: layer if held, toggle if pressed
 		HOLDTAP(lsk,      balanced,      <&mo>, <&sk>)        // lsk: layer if held, one-shot kp if pressed
-		HOLDTAP(lsl,      balanced,      <&mo>, <&sk>)        // lsk: layer if held, one-shot layer if pressed
+		HOLDTAP(lsl,      balanced,      <&mo>, <&sl>)        // lsk: layer if held, one-shot layer if pressed
 		HOLDTAP(lecflx,   balanced,      <&mo>, <&m_CFLX_E_>)
 		HOLDTAP(dotcomma, balanced,      <&m_dot_ns>, <&m_com_ns>)
 		
