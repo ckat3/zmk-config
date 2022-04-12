@@ -4,7 +4,7 @@
 #include <dt-bindings/zmk/outputs.h>
 
 /* SETTINGS */
-#define MACRO_DELAY 30
+#define MACRO_DELAY 20 /* max 30 */
 #define COMBO_DELAY 15 /* min 10 */
 #define HT_TAPPING_TERM 300
 #define HT_QUICK_TAP 200
@@ -219,6 +219,9 @@
 		MACRO_(com_ns, &macro_tap &kp COMM_ &kp SPACE)
 		
 		MACRO_(surpar,  &macro_tap &kp LC(X_) &kp LPAR_ &kp LC(V_) &kp RPAR_)
+		MACRO_(surbrk,  &macro_tap &kp LC(X_) &kp LBRK_ &kp LC(V_) &kp RBRK_)
+		MACRO_(surcrl,  &macro_tap &kp LC(X_) &kp LCRL_ &kp LC(V_) &kp RCRL_)
+		MACRO_(surlt,   &macro_tap &kp LC(X_) &kp LT_   &kp LC(V_) &kp GT_)
 		MACRO_(surglm,  &macro_tap &kp LC(X_) &kp LGLM_ &kp LC(V_) &kp RGLM_)
 		MACRO_(surquot, &macro_tap &kp LC(X_) &kp QUOT_ &kp LC(V_) &kp QUOT_)
 				
@@ -277,10 +280,10 @@
 		COMBO_KP(DEL,   27 28,_)
 		COMBO_KP(ESC,   10 11 12 13,)
 		COMBO_KP(ESC,   22 23,_)
-		COMBO_KP(CAPS,  13 14,)
+		COMBO_KP(CAPS,  23 24,)
+		COMBO_KP(CAPS,  25 26,_)
 		COMBO_KP(DOT_,  10 11,)
 		COMBO_KP(PSBRK, 20 21 22 23,)
-		COMBO_KP(CAPS,  15 16,_)
 		
 		COMBO_MACRO(qu,   26 27)
 		COMBO_MACRO(ae,   13 30)
@@ -379,9 +382,9 @@
 		
 		symdouble_layer {
 			bindings = <
-				&none		&none		&none		&none		&none				&trans		&trans		&trans		&trans		&trans
-				&none		&dbl_QUOT_	&dbl_APST_	&trans		&trans				&trans		&dbl_LPAR_	&m_surpar	&dbl_LT_	&trans
-				&dbl_LCRL_	&m_surquot	&dbl_LGLM_	&m_surglm	&none				&trans		&dbl_LBRK_	&trans		&trans		&trans
+				&none		&m_surquot	&none		&none		&none				&trans		&trans		&trans		&trans		&trans
+				&none		&dbl_QUOT_	&dbl_APST_	&trans		&trans				&trans		&dbl_LPAR_	&m_surpar	&dbl_LT_	&m_surlt	
+				&dbl_LCRL_	&m_surcrl	&dbl_LGLM_	&m_surglm	&none				&trans		&dbl_LBRK_	&m_surbrk	&trans		&trans
 													&trans		&trans				&trans		&trans
 			>;
 		};
@@ -390,7 +393,7 @@
 			bindings = <
 				&m_CFLX_U_	&m_CFLX_O_	&m_CFLX_I_	&m_CFLX_A_	&none				&none		&kp CCED_	&none		&none		&none
 				&m_ACUT_U_	&m_ACUT_O_	&m_ACUT_I_	&m_ACUT_A_	&m_GRAV_A_			&kp TRMA_	&kp ACUT_	&kp CFLX_	&kp GRAV_	&m_TILD_N_
-				&m_GRAV_U_	&m_TILD_O_	&none		&m_TILD_A_	&none				&none		&none		&kp CRAT_	&none		&kp TILD_
+				&m_GRAV_U_	&m_TILD_O_	&m_TRMA_I_	&m_TILD_A_	&none				&none		&none		&kp CRAT_	&none		&kp TILD_
 													&m_CFLX_E_	&m_GRAV_E_			&trans		&trans
 			>;
 		};
@@ -406,9 +409,9 @@
 		
 		nav_layer {
 			bindings = <
-				&kp INSERT	&sk RALT	&kp PSCRN	&kp PSBRK	&none				&kp PG_UP	&kp HOME		&kp LEFT	&kp RIGHT	&kp END
-				&sk LGUI	&sk LALT	&sk LCTRL	&sk LSHIFT	&none				&kp PG_DN	&kp LC(LEFT)	&kp DOWN	&kp UP		&kp LC(RIGHT)
-				&kp LC(Z_)	&kp LC(X_)	&kp LC(C_)	&kp LC(V_)	&none				&none		&kp LC(BSPC)	&kp BSPC	&kp DEL		&kp LC(DEL)
+				&kp INSERT	&sk RALT	&kp PSCRN	&kp PSBRK	&none				&none		&kp PG_UP		&kp HOME	&kp END		&kp PG_DN	
+				&sk LGUI	&sk LALT	&sk LCTRL	&sk LSHIFT	&none				&none		&kp LC(LEFT)	&kp DOWN	&kp UP		&kp LC(RIGHT)
+				&kp LC(Z_)	&kp LC(X_)	&kp LC(C_)	&kp LC(V_)	&none				&none		&kp LC(BSPC)	&kp LEFT	&kp RIGHT	&kp LC(DEL)
 													&kp ULIN_	&trans				&trans		&trans
 			>;
 		};
