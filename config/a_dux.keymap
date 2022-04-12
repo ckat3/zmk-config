@@ -4,11 +4,12 @@
 #include <dt-bindings/zmk/outputs.h>
 
 /* SETTINGS */
-#define MACRO_DELAY 20 /* max 30 */
+#define MACRO_DELAY 16 /* max 30 */
 #define COMBO_DELAY 15 /* min 10 */
 #define HT_TAPPING_TERM 300
 #define HT_QUICK_TAP 200
 #define LT_TAPPING_TERM 250
+#define STICKY_KEY_RELEASE_DELAY 2000 /* min 1000 */
 
 /* BINDINGS FOR BÉPO */
 #define BASE 0
@@ -129,12 +130,8 @@
 };
 
 &sk {
-	release-after-ms = <1000>;
+	release-after-ms = <STICKY_KEY_RELEASE_DELAY>;
 	quick-release;
-};
-
-&caps_word {
-	continue-list = <ULIN_ MIN_ BACKSPACE Z_ W_ N_ M_ CCED_ G_ H_ F_>;
 };
 
 / { 
@@ -352,12 +349,12 @@
 		
 		#define THUMB1	&lt SYM E_
 		#define THUMB2	&lsk NUM LSHIFT
-		#define THUMB3	&lt ACNT APST_
+		#define THUMB3	&lsk ACNT ACNT
 		#define THUMB4	&lt NAV SPACE
 		
 		base_layer {
 			bindings = <
-				&kp  Z_		&kp X_		&kp  Y_		&kp AGRV_	&kp Q_				&kp K_		&kp  C_		&kp  H_		&kp  W_		&kp  J_
+				&kp  Z_		&kp X_		&kp  Y_		&kp APST_	&kp Q_				&kp K_		&kp  C_		&kp  H_		&kp  W_		&kp  J_
 				HMRG U_		HMLA O_		HMLC I_		HMLS A_		&kp F_				&kp G_		HMRS T_		HMRC R_		HMRA S_		HMRG N_
 				&kp  V_		HMLC EACT_	&kp  P_		DOT_COMMS	DOT_COMMA			EXCL_QMRK	&kp  D_		&kp  M_		&kp  L_		&kp  B_
 													THUMB1		THUMB2				THUMB3		THUMB4
@@ -384,9 +381,9 @@
 		
 		accent_layer {
 			bindings = <
-				&m_CFLX_U_	&m_CFLX_O_	&m_CFLX_I_	&m_CFLX_A_	&none				&none		&kp CCED_	&none		&none		&none
-				&m_ACUT_U_	&m_ACUT_O_	&m_ACUT_I_	&m_ACUT_A_	&kp AGRV_			&kp TRMA_	&kp ACUT_	&kp CFLX_	&kp GRAV_	&m_TILD_N_
-				&m_GRAV_U_	&m_TILD_O_	&m_TRMA_I_	&m_TILD_A_	&none				&none		&none		&kp CRAT_	&none		&kp TILD_
+				&m_CFLX_U_	&m_CFLX_O_	&m_CFLX_I_	&kp AGRV_	&none				&none		&kp CCED_	&kp APST_	&none		&none
+				&m_ACUT_U_	&m_ACUT_O_	&m_ACUT_I_	&m_ACUT_A_	&m_CFLX_A_			&kp APST_	&kp ACUT_	&kp CFLX_	&kp GRAV_	&m_TILD_N_
+				&m_GRAV_U_	&m_TILD_O_	&m_TRMA_I_	&m_TILD_A_	&none				&none		&kp TRMA_	&kp CRAT_	&none		&kp TILD_
 													&m_CFLX_E_	&m_GRAV_E_			&trans		&trans
 			>;
 		};
