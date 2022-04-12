@@ -200,13 +200,13 @@
 		MACRO(CFLX_, I_)
 		MACRO(CFLX_, O_)
 		MACRO(CFLX_, U_)
-		MACRO(GRAV_, A_)
 		MACRO(GRAV_, E_)
 		MACRO(GRAV_, O_)
 		MACRO(GRAV_, U_)
 		MACRO(TILD_, A_)
 		MACRO(TILD_, O_)
 		MACRO(TILD_, N_)
+		MACRO(TRMA_, I_)
 		MACRO(COMM_, SPACE)
 		
 		MACRO_(qu,     &macro_tap &kp Q_ &kp U_)
@@ -311,13 +311,6 @@
 			timeout-ms = <COMBO_DELAY>;
 		};
 		
-		combo_cs_esc {
-			bindings = <&kp LC(LS(ESC))>;
-			key-positions = <10 11 12 13>;
-			layers = <FUNC>;
-			timeout-ms = <COMBO_DELAY>;
-		};
-		
 		combo_reset_left {
 			bindings = <&reset>;
 			key-positions = <0 4>;
@@ -392,7 +385,7 @@
 		accent_layer {
 			bindings = <
 				&m_CFLX_U_	&m_CFLX_O_	&m_CFLX_I_	&m_CFLX_A_	&none				&none		&kp CCED_	&none		&none		&none
-				&m_ACUT_U_	&m_ACUT_O_	&m_ACUT_I_	&m_ACUT_A_	&m_GRAV_A_			&kp TRMA_	&kp ACUT_	&kp CFLX_	&kp GRAV_	&m_TILD_N_
+				&m_ACUT_U_	&m_ACUT_O_	&m_ACUT_I_	&m_ACUT_A_	&kp AGRV_			&kp TRMA_	&kp ACUT_	&kp CFLX_	&kp GRAV_	&m_TILD_N_
 				&m_GRAV_U_	&m_TILD_O_	&m_TRMA_I_	&m_TILD_A_	&none				&none		&none		&kp CRAT_	&none		&kp TILD_
 													&m_CFLX_E_	&m_GRAV_E_			&trans		&trans
 			>;
