@@ -159,7 +159,8 @@
 			
 		HOLDTAP(hm,       tap-preferred, <&kp>, <&kp>)
 		HOLDTAP(lhs,      balanced,      <&mo>, <&tog>)       // lhs: layer if held, toggle if pressed
-		HOLDTAP(lsk,      balanced,      <&mo>, <&sk>)        // lsk: layer if held, one-shot if pressed
+		HOLDTAP(lsk,      balanced,      <&mo>, <&sk>)        // lsk: layer if held, one-shot kp if pressed
+		HOLDTAP(lsl,      balanced,      <&mo>, <&sk>)        // lsk: layer if held, one-shot layer if pressed
 		HOLDTAP(lecflx,   balanced,      <&mo>, <&m_CFLX_E_>)
 		HOLDTAP(dotcomma, balanced,      <&m_dot_ns>, <&m_com_ns>)
 		
@@ -349,7 +350,7 @@
 		
 		#define THUMB1	&lt SYM E_
 		#define THUMB2	&lsk NUM LSHIFT
-		#define THUMB3	&lsk ACNT ACNT
+		#define THUMB3	&lsl ACNT ACNT
 		#define THUMB4	&lt NAV SPACE
 		
 		base_layer {
