@@ -303,10 +303,10 @@
 		
 		num_layer {
 			bindings = <
-				&none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none
+				&kp EQUL_	&kp N9_		&kp N8_		&kp N7_		&none				&none		&kp PCNT_	&kp HASH_	&kp DLLR_	&kp EURO_
+				&kp N0_		&kp N3_		&kp N2_		&kp	N1_		COMMA_DOT			&none		HMRS PLUS_	HMRC MIN_	HMLA STAR_	HMRG FSLA_
+				&none		&kp N6_		&kp N5_		&kp	N4_		&none				&none		&kp EQUL_	MTPAR		MTGLT		&kp BSLA_
+													&tog NUM	&trans				&kp ULIN_	&trans
 			>;
 		};
 		
