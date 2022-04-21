@@ -292,17 +292,6 @@
 			>;
 		};
 		
-		/*
-		symdouble_layer {
-			bindings = <
-				&none		&m_surquot	&none		&none		&none				&trans		&trans		&trans		&trans		&trans
-				&none		&dbl_QUOT_	&dbl_APST_	&trans		&trans				&trans		&dbl_LPAR_	&m_surpar	&dbl_LT_	&m_surlt	
-				&dbl_LCRL_	&m_surcrl	&dbl_LGLM_	&m_surglm	&none				&trans		&dbl_LBRK_	&m_surbrk	&trans		&trans
-													&trans		&trans				&trans		&trans
-			>;
-		};
-		*/
-		
 		accent_layer {
 			bindings = <
 				&m_CFLX_U_	&m_CFLX_O_	&m_CFLX_I_	&m_CFLX_A_	&none				&none		&kp CCED_	&kp APST_	&none		&none
@@ -332,10 +321,10 @@
 		
 		func_layer {
 			bindings = <
-				&bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3			&reset		  &kp F7  &kp F8  &kp F9  &kp F12
-				HMLG C_BRI_UP HMLA C_VOL_DN HMLC C_VOL_UP HMLS C_MUTE   &kp LSLCK				&out OUT_BLE  &kp F1  &kp F2  &kp F3  &kp F11
-				&kp C_BRI_DN  &kp C_PREV    &kp C_NEXT    &kp C_PP      &kp LNLCK				&out OUT_USB  &kp F4  &kp F5  &kp F6  &kp F10
-													      &trans		&trans					&trans		  &trans
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none
 			>;
 		};
 		/*
