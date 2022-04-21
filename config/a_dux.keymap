@@ -157,18 +157,29 @@
 				hold-trigger-key-positions = <POSITIONS>; \
 			};
 			
+		mtslow: ht_mtslow {
+			label: "mtslow";
+				compatible = "zmk,behavior-hold-tap";
+				#binding-cells = <2>;
+				tapping-term-ms = <300>;
+				quick-tap-ms = <HT_QUICK_TAP>;
+				flavor = "tap-preferred";
+				bindings = <&kp>, <&kp>;
+			};
+			
 		HOLDTAP(hm,       tap-preferred, <&kp>, <&kp>)
 		HOLDTAP(lhs,      balanced,      <&mo>, <&tog>)       // lhs: layer if held, toggle if pressed
 		HOLDTAP(lsk,      balanced,      <&mo>, <&sk>)        // lsk: layer if held, one-shot kp if pressed
 		HOLDTAP(lsl,      balanced,      <&mo>, <&sl>)        // lsk: layer if held, one-shot layer if pressed
 		HOLDTAP(lecflx,   balanced,      <&mo>, <&m_CFLX_E_>)
-		HOLDTAP(dotcomma, balanced,      <&m_dot_ns>, <&m_com_ns>)
+		//HOLDTAP(dotcomma, balanced,      <&m_dot_ns>, <&m_com_ns>)
+		HOLDTAP(dot,      balanced,      <&m_dot_ns>, <&kp>)
+		HOLDTAP(comma,    balanced,      <&kp>, <&m_com_ns>)
 		
 		HRMOD_POS(hml, 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33)
 		HRMOD_POS(hmr, 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31)
 	};
 
-	
 	macros {		
 		#define MACRO(FIRST, SECOND) \
 			ZMK_MACRO(m_##FIRST##SECOND, \
@@ -231,15 +242,14 @@
 		MACRO_DOUBLE(APST_, APST_)
 		MACRO_DOUBLE(QUOT_, QUOT_)*/
 	};
-
+			  
+	combos {
 	/*
 	     0   1   2   3    4 |  5    6   7   8   9
 	    10  11  12  13   14 | 15   16  17  18  19
 	    20  21  22  23   24 | 25   26  27  28  29
 	                30   31 | 32   33
 	*/
-			  
-	combos {
 		compatible = "zmk,combos";
 		
 		#define COMBO_HEADER(NAME, POSITIONS) \
@@ -337,10 +347,7 @@
 		#define HMLG  &hm LGUI
 		#define HMRG  &hm RGUI
 		
-		#define DOT_COMMS	&dotcomma 0 0
-		#define COMMA_DOT	&mt COMM_ DOT_
-		#define DOT_COMMA	&mt DOT_ COMM_
-		#define COLON_SEMI	&mt COLN_ SEMI_
+		#define COMMA_		&comma COMM_ 0
 		#define EXCL_QMRK	&mt EXCL_ QMRK_
 		
 		#define MTPAR  &mt RPAR_ LPAR_
@@ -349,8 +356,8 @@
 		#define MTGLM  &mt RGLM_ LGLM_
 		#define MTGLT  &mt GT_   LT_
 		
-		#define MTDASH  &mt NDSH_ MDSH_
-		#define MTCASH  &mt EURO_ DLLR_ 
+		#define MTDASH  &mtslow NDSH_ MDSH_
+		#define MTCASH  &mt EURO_ DLLR_
 		
 		#define THUMB1	&lt SYM E_
 		#define THUMB2	&lsk NUM LSHIFT
@@ -359,9 +366,9 @@
 		
 		base_layer {
 			bindings = <
-				&kp  Z_		&kp EACT_	&kp  Y_		COMMA_DOT	&kp Q_				&kp K_		&kp  C_		&kp  H_		&kp  W_		&kp  J_
+				&kp  Z_		&kp EACT_	&kp  Y_		&dot 0 DOT_	&kp Q_				&kp K_		&kp  C_		&kp  H_		&kp  W_		&kp  J_
 				HMRG U_		HMLA O_		HMLC I_		HMLS A_		&kp F_				&kp G_		HMRS T_		HMRC R_		HMRA S_		HMRG N_
-				&kp  V_		HMLC X_		&kp  P_		DOT_COMMS	&kp FSLA_			EXCL_QMRK	&kp  D_		&kp  M_		&kp  L_		&kp  B_
+				&kp  V_		HMLC X_		&kp  P_		COMMA_		&kp FSLA_			EXCL_QMRK	&kp  D_		&kp  M_		&kp  L_		&kp  B_
 													THUMB1		THUMB2				THUMB3		THUMB4
 			>;
 		};
@@ -369,7 +376,7 @@
 		sym_layer {
 			bindings = <
 				&none		&kp AT_		&kp AMPR_	MTDASH		&none				&none		&kp PCNT_	&kp HASH_	MTCASH		&kp PIPE_	
-				HMRG LCRL_	HMLA LBRK_	HMLC LPAR_	HMLS MIN_	&none				&none		HMRS QUOT_	HMRC RPAR_	HMLA RBRK_	HMRG RCRL_
+				HMRG LCRL_	HMLA LBRK_	HMLC LPAR_	HMLS QUOT_	&none				&none		HMRS MIN_	HMRC RPAR_	HMLA RBRK_	HMRG RCRL_
 				&kp AE_		&kp OE_		&kp LT_		&kp LGLM_	&none				&none		&kp RGLM_	&kp GT_		&kp EQUL_	&none
 													&trans		&trans				&trans		&trans
 			>;
