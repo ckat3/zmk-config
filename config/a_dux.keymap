@@ -246,21 +246,21 @@
 				key-positions = <POSITIONS>; \
 				timeout-ms = <COMBO_DELAY>; \
 		
-		/*#define COMBO(NAME, BINDINGS, POSITIONS, SUFFIX) \
+		#define COMBO(NAME, BINDINGS, POSITIONS, SUFFIX) \
 			COMBO_HEADER(NAME, POSITIONS) \
 				bindings = <BINDINGS>; \
-			};*/
+			};
 		
 		#define COMBO_KP(KEY, POSITIONS, SUFFIX) \
 			COMBO_HEADER(KEY##SUFFIX, POSITIONS) \
 				bindings = <&kp KEY>; \
 			};
 			
-		/*#define COMBO_LAYER(KEY, POSITIONS, LAYERS) \
+		#define COMBO_LAYER(KEY, POSITIONS, LAYERS) \
 			COMBO_HEADER(KEY, POSITIONS) \
 				bindings = <&kp KEY>; \
 				layers = <LAYERS>; \
-			};*/
+			};
 		
 		#define COMBO_MACRO(MACRO, POSITIONS) \
 			COMBO_HEADER(MACRO, POSITIONS) \
@@ -353,7 +353,7 @@
 			bindings = <
 				&kp  Z_		&kp EACT_	&kp  Y_		COMMA_DOT	&kp Q_				&kp K_		&kp  C_		&kp  H_		&kp  W_		&kp  J_
 				HMRG U_		HMLA O_		HMLC I_		HMLS A_		&kp F_				&kp G_		HMRS T_		HMRC R_		HMRA S_		HMRG N_
-				&kp  V_		HMLC X_		&kp  P_		DOT_COMMS	&kp FSLA_			EXCL_QMRK	&kp  D_		&kp  M_		&kp  B_		&kp  L_
+				&kp  V_		HMLC X_		&kp  P_		DOT_COMMS	&kp FSLA_			EXCL_QMRK	&kp  D_		&kp  M_		&kp  L_		&kp  B_
 													THUMB1		THUMB2				THUMB3		THUMB4
 			>;
 		};
