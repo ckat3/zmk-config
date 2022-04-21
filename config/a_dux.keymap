@@ -12,13 +12,6 @@
 #define STICKY_KEY_RELEASE_DELAY 2000 /* min 1000 */
 
 /* BINDINGS FOR BÉPO */
-#define BASE 0
-#define SYM  1
-#define SDBL 2
-#define ACNT 3
-#define NUM  4
-#define NAV  5
-#define FUNC 6
 
 #define B_		Q
 #define EACT_	W
@@ -271,7 +264,7 @@
 			
 		COMBO_KP(TAB,   12 13,)
 		COMBO_KP(ENTER, 16 17,)
-		COMBO_KP(BSPC,  11 12,)
+		COMBO_KP(BSPC,  17 18,)
 		COMBO_KP(SPACE, 11 12 13,)
 		COMBO_KP(SPACE, 16 17 18,_)
 		COMBO_KP(DEL,   21 22,)
@@ -292,7 +285,7 @@
 		
 		combo_ctrl_bspc {
 			bindings = <&kp LC(BSPC)>;
-			key-positions = <17 18>;
+			key-positions = <11 12>;
 			timeout-ms = <COMBO_DELAY>;
 		};
 		
@@ -327,6 +320,13 @@
 	keymap {
 		compatible = "zmk,keymap";
 		
+		#define BASE 0
+		#define SYM  1
+		#define ACNT 2
+		#define NUM  3
+		#define NAV  4
+		#define FUNC 5
+		
 		#define HMLG  &hm LGUI
 		#define HMLA  &hm LALT
 		#define HMLC  &hm LCTRL
@@ -338,7 +338,8 @@
 		#define HMRS  &hmr RSHIFT
 		
 		#define DOT_COMMS	&dotcomma 0 0
-		#define DOT_COMMA	&mt DOT_  COMM_
+		#define COMMA_DOT	&mt COMM_ DOT_
+		#define DOT_COMMA	&mt DOT_ COMM_
 		#define COLON_SEMI	&mt COLN_ SEMI_
 		#define EXCL_QMRK	&mt EXCL_ QMRK_
 		
@@ -355,22 +356,23 @@
 		
 		base_layer {
 			bindings = <
-				&kp  Z_		&kp X_		&kp  Y_		&kp APST_	&kp Q_				&kp K_		&kp  C_		&kp  H_		&kp  W_		&kp  J_
+				&kp  Z_		&kp EACT_	&kp  Y_		COMMA_DOT	&kp Q_				&kp K_		&kp  C_		&kp  H_		&kp  W_		&kp  J_
 				HMRG U_		HMLA O_		HMLC I_		HMLS A_		&kp F_				&kp G_		HMRS T_		HMRC R_		HMRA S_		HMRG N_
-				&kp  V_		HMLC EACT_	&kp  P_		DOT_COMMS	DOT_COMMA			EXCL_QMRK	&kp  D_		&kp  M_		&kp  L_		&kp  B_
+				&kp  V_		HMLC X_		&kp  P_		DOT_COMMS	&kp _				EXCL_QMRK	&kp  D_		&kp  M_		&kp  B_		&kp  L_
 													THUMB1		THUMB2				THUMB3		THUMB4
 			>;
 		};
 		
 		sym_layer {
 			bindings = <
-				&kp PIPE_	&none		&none		&none		&none				&kp AE_		&kp OE_		&kp AT_		&kp AMPR_	&kp CCED_
-				&none		&kp QUOT_	&kp APST_	&kp MIN_	&none				&none		&kp LPAR_	&kp RPAR_	&kp LT_		&kp GT_	
-				&kp LCRL_	&kp RCRL_	&kp LGLM_	&kp RGLM_	&none				&none		&kp LBRK_	&kp RBRK_	&kp MDSH_	&kp NDSH_
-													&trans		&trans				&mo SDBL	&trans
+				&kp PIPE_	&none		&none		&kp MDSH_	&none				&kp AE_		&kp OE_		&kp AT_		&kp AMPR_	&none		
+				HMRG LCRL_	HMLA LBRK_	HMLC LPAR_	HMLS MIN_	&none				&none		HMRS QUOT_	HMRC RPAR_	HMLA RBRK_	HMRG RCRL_	
+				&none		&kp LT_		&kp LCRL_	&kp LGLM_	&none				&none		&kp RGLM_	&kp RCRL_	&kp GT_		&kp NDSH_
+													&trans		&trans				&trans		&trans
 			>;
 		};
 		
+		/*
 		symdouble_layer {
 			bindings = <
 				&none		&m_surquot	&none		&none		&none				&trans		&trans		&trans		&trans		&trans
@@ -379,12 +381,13 @@
 													&trans		&trans				&trans		&trans
 			>;
 		};
+		*/
 		
 		accent_layer {
 			bindings = <
-				&m_CFLX_U_	&m_CFLX_O_	&m_CFLX_I_	&kp AGRV_	&none				&none		&kp CCED_	&kp APST_	&none		&none
-				&m_ACUT_U_	&m_ACUT_O_	&m_ACUT_I_	&m_ACUT_A_	&m_CFLX_A_			&kp APST_	&kp ACUT_	&kp CFLX_	&kp GRAV_	&m_TILD_N_
-				&m_GRAV_U_	&m_TILD_O_	&m_TRMA_I_	&m_TILD_A_	&none				&none		&kp TRMA_	&kp CRAT_	&none		&kp TILD_
+				&m_CFLX_U_	&m_CFLX_O_	&m_CFLX_I_	&m_CFLX_A_	&none				&none		&kp CCED_	&kp APST_	&none		&none
+				&m_ACUT_U_	&m_ACUT_O_	&m_ACUT_I_	&m_ACUT_A_	&m_TILD_A			&kp APST_	&kp ACUT_	&kp CFLX_	&kp GRAV_	&m_TILD_N_
+				&m_GRAV_U_	&m_TILD_O_	&m_TRMA_I_	&kp AGRV__	&none				&none		&kp TRMA_	&kp CRAT_	&none		&kp TILD_
 													&m_CFLX_E_	&m_GRAV_E_			&trans		&trans
 			>;
 		};
@@ -392,9 +395,9 @@
 		num_layer {
 			bindings = <				
 				&kp EQUL_	&kp N9_		&kp N8_		&kp N7_		&none				&none		&kp PCNT_	&kp HASH_	&kp DLLR_	&kp EURO_
-				&kp N0_		&kp N3_		&kp N2_		&kp	N1_		DOT_COMMA			&none		&kp PLUS_	&kp MIN_	&kp STAR_	&kp FSLA_
-				&none		&kp N6_		&kp N5_		&kp	N4_		&none				&none		MTPAR		MTGLT		&kp EQUL_	&kp BSLA_
-													&tog NUM	&trans				&trans		&trans
+				&kp N0_		&kp N3_		&kp N2_		&kp	N1_		COMMA_DOT			&none		HMRS PLUS_	HMRC MIN_	HMLA STAR_	HMRG FSLA_
+				&none		&kp N6_		&kp N5_		&kp	N4_		&none				&none		&kp EQUL_	MTPAR		MTGLT		&kp BSLA_
+													&tog NUM	&trans				&kp ULIN_	&trans
 			>;
 		};
 		
@@ -410,7 +413,7 @@
 		func_layer {
 			bindings = <
 				&bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3			&reset		  &kp F7  &kp F8  &kp F9  &kp F12
-				&kp C_BRI_UP  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE    &kp LSLCK				&out OUT_BLE  &kp F1  &kp F2  &kp F3  &kp F11
+				HMLG C_BRI_UP HMLA C_VOL_DN HMLC C_VOL_UP HMLS C_MUTE   &kp LSLCK				&out OUT_BLE  &kp F1  &kp F2  &kp F3  &kp F11
 				&kp C_BRI_DN  &kp C_PREV    &kp C_NEXT    &kp C_PP      &kp LNLCK				&out OUT_USB  &kp F4  &kp F5  &kp F6  &kp F10
 													      &trans		&trans					&trans		  &trans
 			>;
