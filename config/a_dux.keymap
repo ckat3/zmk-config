@@ -242,6 +242,40 @@
 			  
 	combos {
 
+		compatible = "zmk,combos";
+		
+		combo_ctrl_bspc {
+			bindings = <&kp LC(BSPC)>;
+			key-positions = <17 18>;
+			timeout-ms = <COMBO_DELAY>;
+		};
+		
+		combo_ctrl_z {
+			bindings = <&kp LC(Z_)>;
+			key-positions = <20 21>;
+			timeout-ms = <COMBO_DELAY>;
+		};
+		
+		combo_func_layer {
+			bindings = <&mo FUNC>;
+			key-positions = <30 31>;
+			layers = <BASE>;
+			timeout-ms = <COMBO_DELAY>;
+		};
+		
+		combo_reset_left {
+			bindings = <&reset>;
+			key-positions = <0 4>;
+			layers = <FUNC>;
+			timeout-ms = <COMBO_DELAY>;
+		};
+		
+		combo_bootloader {
+			bindings = <&bootloader>;
+			key-positions = <20 24>;
+			layers = <FUNC>;
+			timeout-ms = <COMBO_DELAY>;
+		};
 	};
 
 	keymap {
