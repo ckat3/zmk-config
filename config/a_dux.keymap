@@ -405,8 +405,8 @@
 		num_layer {
 			bindings = <
 				&kp EQUL_	&kp N9_		&kp N8_		&kp N7_		&none				&none		&kp PCNT_	&kp HASH_	MTCASH		&kp PIPE_	
-				&kp N0_		&kp N3_		&kp N2_		&kp	N1_		COMMA_DOT			&none		HMRS PLUS_	HMRC MIN_	HMLA STAR_	HMRG FSLA_
-				&none		&kp N6_		&kp N5_		&kp	N4_		&none				&none		MTPAR		MTGLT		&kp EQUL_	&kp BSLA_
+				&kp N0_		&kp N3_		&kp N2_		&kp	N1_		&kp DOT_			&none		HMRS PLUS_	HMRC MIN_	HMLA STAR_	HMRG FSLA_
+				&none		&kp N6_		&kp N5_		&kp	N4_		&kp COMMA_			&none		MTPAR		MTGLT		&kp EQUL_	&kp BSLA_
 													&trans		&trans				&kp ULIN_	&trans
 			>;
 		};
