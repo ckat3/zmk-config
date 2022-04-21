@@ -354,32 +354,21 @@
 		
 		base_layer {
 			bindings = <
-				&kp  Z_		&kp EACT_	&kp  Y_		COMMA_DOT	&kp Q_				&kp K_		&kp  C_		&kp  H_		&kp  W_		&kp  J_
-				HMRG U_		HMLA O_		HMLC I_		HMLS A_		&kp F_				&kp G_		HMRS T_		HMRC R_		HMRA S_		HMRG N_
-				&kp  V_		HMLC X_		&kp  P_		DOT_COMMS	&kp FSLA_			EXCL_QMRK	&kp  D_		&kp  M_		&kp  B_		&kp  L_
-													THUMB1		THUMB2				THUMB3		THUMB4
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none
 			>;
 		};
 		
 		sym_layer {
 			bindings = <
-				&kp PIPE_	&none		&none		&kp MDSH_	&none				&kp AE_		&kp OE_		&kp AT_		&kp AMPR_	&none
-				HMRG LCRL_	HMLA LBRK_	HMLC LPAR_	HMLS MIN_	&none				&none		HMRS QUOT_	HMRC RPAR_	HMLA RBRK_	HMRG RCRL_
-				&none		&kp LT_		&kp LCRL_	&kp LGLM_	&none				&none		&kp RGLM_	&kp RCRL_	&kp GT_		&kp NDSH_
-													&trans		&trans				&trans		&trans
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none
 			>;
 		};
-		
-		/*
-		symdouble_layer {
-			bindings = <
-				&none		&m_surquot	&none		&none		&none				&trans		&trans		&trans		&trans		&trans
-				&none		&dbl_QUOT_	&dbl_APST_	&trans		&trans				&trans		&dbl_LPAR_	&m_surpar	&dbl_LT_	&m_surlt	
-				&dbl_LCRL_	&m_surcrl	&dbl_LGLM_	&m_surglm	&none				&trans		&dbl_LBRK_	&m_surbrk	&trans		&trans
-													&trans		&trans				&trans		&trans
-			>;
-		};
-		*/
 		
 		accent_layer {
 			bindings = <
