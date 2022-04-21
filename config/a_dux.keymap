@@ -241,9 +241,103 @@
 				  ╰──────────╯ ╰──────────╯			*/
 			  
 	combos {
+
 	};
 
 	keymap {
+		compatible = "zmk,keymap";
+		
+		#define HMLS  &hml LSHIFT
+		#define HMRS  &hmr RSHIFT
+		#define HMLC  &hm LCTRL
+		#define HMRC  &hm RCTRL
+		#define HMLA  &hm LALT
+		#define HMRA  &hm RALT
+		#define HMLG  &hm LGUI
+		#define HMRG  &hm RGUI
+		
+		#define DOT_COMMS	&dotcomma 0 0
+		#define COMMA_DOT	&mt COMM_ DOT_
+		#define DOT_COMMA	&mt DOT_ COMM_
+		#define COLON_SEMI	&mt COLN_ SEMI_
+		#define EXCL_QMRK	&mt EXCL_ QMRK_
+		
+		#define MTPAR  &mt RPAR_ LPAR_
+		#define MTCRL  &mt RCRL_ LCRL_
+		#define MTBRK  &mt RBRK_ LBRK_
+		#define MTGLM  &mt RGLM_ LGLM_
+		#define MTGLT  &mt GT_   LT_
+		
+		#define THUMB1	&lt SYM E_
+		#define THUMB2	&lsk NUM LSHIFT
+		#define THUMB3	&lsl ACNT ACNT
+		#define THUMB4	&lt NAV SPACE
+		
+		base_layer {
+			bindings = <
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none
+			>;
+		};
+		
+		sym_layer {
+			bindings = <
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none
+			>;
+		};
+		
+		/*
+		symdouble_layer {
+			bindings = <
+				&none		&m_surquot	&none		&none		&none				&trans		&trans		&trans		&trans		&trans
+				&none		&dbl_QUOT_	&dbl_APST_	&trans		&trans				&trans		&dbl_LPAR_	&m_surpar	&dbl_LT_	&m_surlt	
+				&dbl_LCRL_	&m_surcrl	&dbl_LGLM_	&m_surglm	&none				&trans		&dbl_LBRK_	&m_surbrk	&trans		&trans
+													&trans		&trans				&trans		&trans
+			>;
+		};
+		*/
+		
+		accent_layer {
+			bindings = <
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none
+			>;
+		};
+		
+		num_layer {
+			bindings = <
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none
+			>;
+		};
+		
+		nav_layer {
+			bindings = <
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none
+			>;
+		};
+		
+		func_layer {
+			bindings = <
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none
+			>;
+		};
+		/*
 		none_layer {
 			bindings = <
 				&none &none &none &none &none &none &none &none &none &none
@@ -252,5 +346,6 @@
 				&none &none &none &none
 			>;
 		};
+		*/
 	};
 };	
