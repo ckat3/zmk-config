@@ -276,46 +276,46 @@
 		
 		base_layer {
 			bindings = <
-				&kp  Z_		&kp EACT_	&kp  Y_		COMMA_DOT	&kp Q_				&kp K_		&kp  C_		&kp  H_		&kp  W_		&kp  J_
-				HMRG U_		HMLA O_		HMLC I_		HMLS A_		&kp F_				&kp G_		HMRS T_		HMRC R_		HMRA S_		HMRG N_
-				&kp  V_		HMLC X_		&kp  P_		DOT_COMMS	&kp _				EXCL_QMRK	&kp  D_		&kp  M_		&kp  B_		&kp  L_
-													THUMB1		THUMB2				THUMB3		THUMB4
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none
 			>;
 		};
 		
 		sym_layer {
 			bindings = <
-				&kp PIPE_	&none		&none		&kp MDSH_	&none				&kp AE_		&kp OE_		&kp AT_		&kp AMPR_	&none		
-				HMRG LCRL_	HMLA LBRK_	HMLC LPAR_	HMLS MIN_	&none				&none		HMRS QUOT_	HMRC RPAR_	HMLA RBRK_	HMRG RCRL_	
-				&none		&kp LT_		&kp LCRL_	&kp LGLM_	&none				&none		&kp RGLM_	&kp RCRL_	&kp GT_		&kp NDSH_
-													&trans		&trans				&trans		&trans
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none
 			>;
 		};
 		
 		accent_layer {
 			bindings = <
-				&m_CFLX_U_	&m_CFLX_O_	&m_CFLX_I_	&m_CFLX_A_	&none				&none		&kp CCED_	&kp APST_	&none		&none
-				&m_ACUT_U_	&m_ACUT_O_	&m_ACUT_I_	&m_ACUT_A_	&m_TILD_A			&kp APST_	&kp ACUT_	&kp CFLX_	&kp GRAV_	&m_TILD_N_
-				&m_GRAV_U_	&m_TILD_O_	&m_TRMA_I_	&kp AGRV__	&none				&none		&kp TRMA_	&kp CRAT_	&none		&kp TILD_
-													&m_CFLX_E_	&m_GRAV_E_			&trans		&trans
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none
 			>;
 		};
 		
 		num_layer {
-			bindings = <				
-				&kp EQUL_	&kp N9_		&kp N8_		&kp N7_		&none				&none		&kp PCNT_	&kp HASH_	&kp DLLR_	&kp EURO_
-				&kp N0_		&kp N3_		&kp N2_		&kp	N1_		COMMA_DOT			&none		HMRS PLUS_	HMRC MIN_	HMLA STAR_	HMRG FSLA_
-				&none		&kp N6_		&kp N5_		&kp	N4_		&none				&none		&kp EQUL_	MTPAR		MTGLT		&kp BSLA_
-													&tog NUM	&trans				&kp ULIN_	&trans
+			bindings = <
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none
 			>;
 		};
 		
 		nav_layer {
 			bindings = <
-				&kp INSERT	&sk RALT	&kp PSCRN	&kp PSBRK	&none				&none		&kp PG_UP		&kp HOME	&kp END		&kp PG_DN	
-				&sk LGUI	&sk LALT	&sk LCTRL	&sk LSHIFT	&none				&none		&kp LC(LEFT)	&kp DOWN	&kp UP		&kp LC(RIGHT)
-				&kp LC(Z_)	&kp LC(X_)	&kp LC(C_)	&kp LC(V_)	&none				&none		&kp LC(BSPC)	&kp LEFT	&kp RIGHT	&kp LC(DEL)
-													&kp ULIN_	&trans				&trans		&trans
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none &none &none &none &none &none &none
+				&none &none &none &none
 			>;
 		};
 		
