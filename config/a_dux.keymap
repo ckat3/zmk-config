@@ -11,6 +11,14 @@
 #define LT_TAPPING_TERM 250
 #define STICKY_KEY_RELEASE_DELAY 2000 /* min 1000 */
 
+/* LAYERS */
+#define BASE 0
+#define SYM  1
+#define ACNT 2
+#define NUM  3
+#define NAV  4
+#define FUNC 5
+
 /* BINDINGS FOR BÉPO */
 #define B_		Q
 #define EACT_	W
@@ -233,17 +241,91 @@
 				  ╰──────────╯ ╰──────────╯			*/
 			  
 	combos {
+		compatible = "zmk,combos";
+		
+		#define COMBO_HEADER(NAME, POSITIONS) \
+			combo_##NAME { \
+				key-positions = <POSITIONS>; \
+				timeout-ms = <COMBO_DELAY>; \
+		
+		#define COMBO(NAME, BINDINGS, POSITIONS, SUFFIX) \
+			COMBO_HEADER(NAME, POSITIONS) \
+				bindings = <BINDINGS>; \
+			};
+		
+		#define COMBO_KP(KEY, POSITIONS, SUFFIX) \
+			COMBO_HEADER(KEY##SUFFIX, POSITIONS) \
+				bindings = <&kp KEY>; \
+			};
+			
+		#define COMBO_LAYER(KEY, POSITIONS, LAYERS) \
+			COMBO_HEADER(KEY, POSITIONS) \
+				bindings = <&kp KEY>; \
+				layers = <LAYERS>; \
+			};
+		
+		#define COMBO_MACRO(MACRO, POSITIONS) \
+			COMBO_HEADER(MACRO, POSITIONS) \
+				bindings = <&m_##MACRO>; \
+			};
+			
+		COMBO_KP(TAB,   12 13,)
+		COMBO_KP(ENTER, 16 17,)
+		COMBO_KP(BSPC,  11 12,)
+		COMBO_KP(SPACE, 11 12 13,)
+		COMBO_KP(SPACE, 16 17 18,_)
+		COMBO_KP(DEL,   21 22,)
+		COMBO_KP(DEL,   27 28,_)
+		COMBO_KP(ESC,   10 11 12 13,)
+		COMBO_KP(ESC,   22 23,_)
+		COMBO_KP(CAPS,  23 24,)
+		COMBO_KP(CAPS,  25 26,_)
+		COMBO_KP(DOT_,  10 11,)
+		COMBO_KP(PSBRK, 20 21 22 23,)
+		
+		COMBO_MACRO(qu,   26 27)
+		COMBO_MACRO(ae,   13 30)
+		COMBO_MACRO(ao,   13 11)
+		COMBO_MACRO(oe,   11 30)
+		COMBO_MACRO(ion,  12 11 19)
+		COMBO_MACRO(ment, 27 19 16)
+		
+		combo_ctrl_bspc {
+			bindings = <&kp LC(BSPC)>;
+			key-positions = <17 18>;
+			timeout-ms = <COMBO_DELAY>;
+		};
+		
+		combo_ctrl_z {
+			bindings = <&kp LC(Z_)>;
+			key-positions = <20 21>;
+			timeout-ms = <COMBO_DELAY>;
+		};
+		
+		combo_func_layer {
+			bindings = <&mo FUNC>;
+			key-positions = <30 31>;
+			layers = <BASE>;
+			timeout-ms = <COMBO_DELAY>;
+		};
+		
+		combo_reset_left {
+			bindings = <&reset>;
+			key-positions = <0 4>;
+			layers = <FUNC>;
+			timeout-ms = <COMBO_DELAY>;
+		};
+		
+		combo_bootloader {
+			bindings = <&bootloader>;
+			key-positions = <20 24>;
+			layers = <FUNC>;
+			timeout-ms = <COMBO_DELAY>;
+		};
 	};
 
 	keymap {
 		compatible = "zmk,keymap";
-		
-		#define BASE 0
-		#define SYM  1
-		#define ACNT 2
-		#define NUM  3
-		#define NAV  4
-		#define FUNC 5
 		
 		#define HMLS  &hml LSHIFT
 		#define HMRS  &hmr RSHIFT
@@ -273,55 +355,66 @@
 		
 		base_layer {
 			bindings = <
-				&none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none
+				&kp  Z_		&kp EACT_	&kp  Y_		COMMA_DOT	&kp Q_				&kp K_		&kp  C_		&kp  H_		&kp  W_		&kp  J_
+				HMRG U_		HMLA O_		HMLC I_		HMLS A_		&kp F_				&kp G_		HMRS T_		HMRC R_		HMRA S_		HMRG N_
+				&kp  V_		HMLC X_		&kp  P_		DOT_COMMS	&kp FSLA_			EXCL_QMRK	&kp  D_		&kp  M_		&kp  B_		&kp  L_
+													THUMB1		THUMB2				THUMB3		THUMB4
 			>;
 		};
 		
 		sym_layer {
 			bindings = <
-				&none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none
+				&kp PIPE_	&none		&none		&kp MDSH_	&none				&kp AE_		&kp OE_		&kp AT_		&kp AMPR_	&none
+				HMRG LCRL_	HMLA LBRK_	HMLC LPAR_	HMLS MIN_	&none				&none		HMRS QUOT_	HMRC RPAR_	HMLA RBRK_	HMRG RCRL_
+				&none		&kp LT_		&kp LCRL_	&kp LGLM_	&none				&none		&kp RGLM_	&kp RCRL_	&kp GT_		&kp NDSH_
+													&trans		&trans				&trans		&trans
 			>;
 		};
 		
+		/*
+		symdouble_layer {
+			bindings = <
+				&none		&m_surquot	&none		&none		&none				&trans		&trans		&trans		&trans		&trans
+				&none		&dbl_QUOT_	&dbl_APST_	&trans		&trans				&trans		&dbl_LPAR_	&m_surpar	&dbl_LT_	&m_surlt	
+				&dbl_LCRL_	&m_surcrl	&dbl_LGLM_	&m_surglm	&none				&trans		&dbl_LBRK_	&m_surbrk	&trans		&trans
+													&trans		&trans				&trans		&trans
+			>;
+		};
+		*/
+		
 		accent_layer {
 			bindings = <
-				&none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none
+				&m_CFLX_U_	&m_CFLX_O_	&m_CFLX_I_	&m_CFLX_A_	&none				&none		&kp CCED_	&kp APST_	&none		&none
+				&m_ACUT_U_	&m_ACUT_O_	&m_ACUT_I_	&m_ACUT_A_	&m_TILD_A			&kp APST_	&kp ACUT_	&kp CFLX_	&kp GRAV_	&m_TILD_N_
+				&m_GRAV_U_	&m_TILD_O_	&m_TRMA_I_	&kp AGRV__	&none				&none		&kp TRMA_	&kp CRAT_	&none		&kp TILD_
+													&m_CFLX_E_	&m_GRAV_E_			&trans		&trans
 			>;
 		};
 		
 		num_layer {
 			bindings = <
-				&none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none
+				&kp EQUL_	&kp N9_		&kp N8_		&kp N7_		&none				&none		&kp PCNT_	&kp HASH_	&kp DLLR_	&kp EURO_
+				&kp N0_		&kp N3_		&kp N2_		&kp	N1_		COMMA_DOT			&none		HMRS PLUS_	HMRC MIN_	HMLA STAR_	HMRG FSLA_
+				&none		&kp N6_		&kp N5_		&kp	N4_		&none				&none		&kp EQUL_	MTPAR		MTGLT		&kp BSLA_
+													&trans		&trans				&kp ULIN_	&trans
 			>;
 		};
 		
 		nav_layer {
 			bindings = <
-				&none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none
+				&kp INSERT	&sk RALT	&kp PSCRN	&kp PSBRK	&none				&none		&kp PG_UP		&kp HOME	&kp END		&kp PG_DN	
+				&sk LGUI	&sk LALT	&sk LCTRL	&sk LSHIFT	&none				&none		&kp LC(LEFT)	&kp DOWN	&kp UP		&kp LC(RIGHT)
+				&kp LC(Z_)	&kp LC(X_)	&kp LC(C_)	&kp LC(V_)	&none				&none		&kp LC(BSPC)	&kp LEFT	&kp RIGHT	&kp LC(DEL)
+													&kp ULIN_	&trans				&trans		&trans
 			>;
 		};
 		
 		func_layer {
 			bindings = <
-				&none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none
+				&bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3			&reset        &kp F7  &kp F8  &kp F9  &kp F12
+				HMLG C_BRI_UP HMLA C_VOL_DN HMLC C_VOL_UP HMLS C_MUTE   &kp LSLCK				&out OUT_BLE  &kp F1  &kp F2  &kp F3  &kp F11
+				&kp C_BRI_DN  &kp C_PREV    &kp C_NEXT    &kp C_PP      &kp LNLCK				&out OUT_USB  &kp F4  &kp F5  &kp F6  &kp F10
+													      &trans		&trans					&trans		  &trans
 			>;
 		};
 		/*
