@@ -263,7 +263,7 @@
 			
 		COMBO_KP(TAB,   12 13,)
 		COMBO_KP(ENTER, 16 17,)
-		COMBO_KP(BSPC,  17 18,)
+		COMBO_KP(BSPC,  11 12,)
 		COMBO_KP(SPACE, 11 12 13,)
 		COMBO_KP(SPACE, 16 17 18,_)
 		COMBO_KP(DEL,   21 22,)
@@ -284,7 +284,7 @@
 		
 		combo_ctrl_bspc {
 			bindings = <&kp LC(BSPC)>;
-			key-positions = <11 12>;
+			key-positions = <17 18>;
 			timeout-ms = <COMBO_DELAY>;
 		};
 		
@@ -356,7 +356,7 @@
 			bindings = <
 				&kp  Z_		&kp EACT_	&kp  Y_		COMMA_DOT	&kp Q_				&kp K_		&kp  C_		&kp  H_		&kp  W_		&kp  J_
 				HMRG U_		HMLA O_		HMLC I_		HMLS A_		&kp F_				&kp G_		HMRS T_		HMRC R_		HMRA S_		HMRG N_
-				&kp  V_		HMLC X_		&kp  P_		DOT_COMMS	&kp _				EXCL_QMRK	&kp  D_		&kp  M_		&kp  B_		&kp  L_
+				&kp  V_		HMLC X_		&kp  P_		DOT_COMMS	&kp FSLA_			EXCL_QMRK	&kp  D_		&kp  M_		&kp  B_		&kp  L_
 													THUMB1		THUMB2				THUMB3		THUMB4
 			>;
 		};
