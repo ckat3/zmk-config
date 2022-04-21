@@ -287,10 +287,8 @@
 		COMBO_MACRO(ae,   13 30)
 		COMBO_MACRO(ao,   13 11)
 		COMBO_MACRO(oe,   11 30)
-		COMBO_MACRO(ion,  12 11 19)
-		COMBO_MACRO(ment, 27 19 16)
 		
-		combo_ctrl_bspc {
+		/*combo_ctrl_bspc {
 			bindings = <&kp LC(BSPC)>;
 			key-positions = <17 18>;
 			timeout-ms = <COMBO_DELAY>;
@@ -321,7 +319,7 @@
 			key-positions = <20 24>;
 			layers = <FUNC>;
 			timeout-ms = <COMBO_DELAY>;
-		};
+		};*/
 	};
 
 	keymap {
