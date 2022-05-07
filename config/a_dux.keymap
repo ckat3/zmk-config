@@ -318,13 +318,13 @@
 		};
 		
 		combo_comma {
-			bindings = <&com_ns>;
+			bindings = <&m_com_ns>;
 			key-positions = <20 23>;
 			timeout-ms = <COMBO_DELAY>;
 		};
 		
 		combo_newsentence {
-			bindings = <&dot_ns>;
+			bindings = <&m_dot_ns>;
 			key-positions = <20 21 22 23>;
 			timeout-ms = <COMBO_DELAY>;
 		};
@@ -438,7 +438,7 @@
 		accent_layer {
 			bindings = <
 				&m_CFLX_U_	&m_CFLX_O_	&m_CFLX_I_	&m_CFLX_A_	&none				&none		&kp CCED_	&kp APST_	&none		&none
-				&m_ACUT_U_	&m_ACUT_O_	&m_ACUT_I_	&m_ACUT_A_	&m_TILD_A_			&kp APST_	&kp MIN_	&kp CFLX_	&kp GRAV_	&m_TILD_N_
+				&m_ACUT_U_	&m_ACUT_O_	&m_ACUT_I_	&m_ACUT_A_	&m_TILD_A_			&kp ACUT_	&kp MIN_	&kp CFLX_	&kp GRAV_	&m_TILD_N_
 				&m_GRAV_U_	&m_TILD_O_	&m_TRMA_I_	&kp AGRV_	&none				&none		&kp TRMA_	&kp CRAT_	&none		&kp TILD_
 													&m_CFLX_E_	&m_GRAV_E_			&trans		&trans
 			>;
