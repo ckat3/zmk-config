@@ -327,8 +327,8 @@
 			timeout-ms = <COMBO_DELAY>;
 		};*/
 		
-		COMBO(shift, &sk LSHIFT, 32 33)
-		COMBO(shift, &m_dot_ns, 2 3)
+		COMBO(osshift, &sk LSHIFT, 32 33,)
+		COMBO(newsent, &m_dot_ns, 2 3,)
 		
 		combo_ctrl_bspc {
 			bindings = <&kp LC(BSPC)>;
