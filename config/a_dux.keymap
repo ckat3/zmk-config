@@ -5,7 +5,7 @@
 
 /* SETTINGS */
 #define MACRO_DELAY 5 /* max 10 */
-#define COMBO_DELAY 20 /* min 15 */
+#define COMBO_TIMEOUT 20 /* min 15 */
 #define HT_TAPPING_TERM 250
 #define HT_QUICK_TAP 200
 #define LT_TAPPING_TERM 250
@@ -173,7 +173,6 @@
 		HOLDTAP(lsk,      balanced,      <&mo>, <&sk>)        // lsk: layer if held, one-shot kp if pressed
 		HOLDTAP(lsl,      balanced,      <&mo>, <&sl>)        // lsk: layer if held, one-shot layer if pressed
 		HOLDTAP(lecflx,   balanced,      <&mo>, <&m_CFLX_E_>)
-		//HOLDTAP(dotcomma, balanced,      <&m_dot_ns>, <&m_com_ns>)
 		HOLDTAP(dot,      balanced,      <&m_dot_ns>, <&kp>)
 		HOLDTAP(comma,    balanced,      <&kp>, <&m_com_ns>)
 		
@@ -182,68 +181,45 @@
 	};
 
 	macros {		
-		#define MACRO(FIRST, SECOND) \
+		#define MACRO_(FIRST, SECOND) \
 			ZMK_MACRO(m_##FIRST##SECOND, \
 				tap-ms = <MACRO_DELAY>; \
 				bindings = <&macro_tap &kp FIRST &kp SECOND>; \
 				)
 		
-		#define MACRO_(NAME, BINDINGS...) \
+		#define MACRO(NAME, BINDINGS...) \
 			ZMK_MACRO(m_##NAME, \
 				tap-ms = <MACRO_DELAY>; \
 				bindings = BINDINGS; \
 				)
-		
-		/*
-		#define MACRO_DOUBLE(FIRST, SECOND) \
-			ZMK_MACRO(dbl_##FIRST, \
-				tap-ms = <MACRO_DELAY>; \
-				bindings = <&macro_tap &kp FIRST &kp SECOND &kp LEFT>; \
-				)
-		*/
 	
-		MACRO(ACUT_, A_)
-		MACRO(ACUT_, E_)
-		MACRO(ACUT_, I_)
-		MACRO(ACUT_, O_)
-		MACRO(ACUT_, U_)
-		MACRO(CFLX_, A_)
-		MACRO(CFLX_, E_)
-		MACRO(CFLX_, I_)
-		MACRO(CFLX_, O_)
-		MACRO(CFLX_, U_)
-		MACRO(GRAV_, E_)
-		MACRO(GRAV_, O_)
-		MACRO(GRAV_, U_)
-		MACRO(TILD_, A_)
-		MACRO(TILD_, O_)
-		MACRO(TILD_, N_)
-		MACRO(TRMA_, I_)
-		MACRO(COMM_, SPACE)
+		MACRO_(ACUT_, A_)
+		MACRO_(ACUT_, E_)
+		MACRO_(ACUT_, I_)
+		MACRO_(ACUT_, O_)
+		MACRO_(ACUT_, U_)
+		MACRO_(CFLX_, A_)
+		MACRO_(CFLX_, E_)
+		MACRO_(CFLX_, I_)
+		MACRO_(CFLX_, O_)
+		MACRO_(CFLX_, U_)
+		MACRO_(GRAV_, E_)
+		MACRO_(GRAV_, O_)
+		MACRO_(GRAV_, U_)
+		MACRO_(TILD_, A_)
+		MACRO_(TILD_, O_)
+		MACRO_(TILD_, N_)
+		MACRO_(TRMA_, I_)
+		MACRO_(COMM_, SPACE)
 		
-		MACRO_(qu,     <&macro_tap &kp Q_ &kp U_>)
-		MACRO_(ae,     <&macro_tap &kp TILD_ &kp A_ &kp E_>)
-		MACRO_(ao,     <&macro_tap &kp TILD_ &kp A_ &kp O_>)
-		MACRO_(oe,     <&macro_tap &kp TILD_ &kp O_ &kp E_>)
-		MACRO_(cao,    <&macro_tap &kp CCED_ &kp TILD_ &kp A_ &kp O_>)
-		MACRO_(coe,    <&macro_tap &kp CCED_ &kp TILD_ &kp O_ &kp E_>)
-		MACRO_(dot_ns, <&macro_tap &kp DOT_>,  <&macro_release &kp LSHIFT &kp RSHIFT>, <&macro_tap &kp SPACE &sk LSHIFT>)
-		MACRO_(com_ns, <&macro_tap &kp COMM_>, <&macro_release &kp LSHIFT &kp RSHIFT>, <&macro_tap &kp SPACE>)
-		
-		MACRO_(surpar,  <&macro_tap &kp LC(X_) &kp LPAR_ &kp LC(V_) &kp RPAR_>)
-		MACRO_(surbrk,  <&macro_tap &kp LC(X_) &kp LBRK_ &kp LC(V_) &kp RBRK_>)
-		MACRO_(surcrl,  <&macro_tap &kp LC(X_) &kp LCRL_ &kp LC(V_) &kp RCRL_>)
-		MACRO_(surlt,   <&macro_tap &kp LC(X_) &kp LT_   &kp LC(V_) &kp GT_>)
-		MACRO_(surglm,  <&macro_tap &kp LC(X_) &kp LGLM_ &kp LC(V_) &kp RGLM_>)
-		MACRO_(surquot, <&macro_tap &kp LC(X_) &kp QUOT_ &kp LC(V_) &kp QUOT_>)
-				
-		/*MACRO_DOUBLE(LPAR_, RPAR_)
-		MACRO_DOUBLE(LBRK_, RBRK_)
-		MACRO_DOUBLE(LCRL_, RCRL_)
-		MACRO_DOUBLE(LT_,   GT_)
-		MACRO_DOUBLE(LGLM_, RGLM_)
-		MACRO_DOUBLE(APST_, APST_)
-		MACRO_DOUBLE(QUOT_, QUOT_)*/
+		MACRO(qu,     <&macro_tap &kp Q_ &kp U_>)
+		MACRO(ae,     <&macro_tap &kp TILD_ &kp A_ &kp E_>)
+		MACRO(ao,     <&macro_tap &kp TILD_ &kp A_ &kp O_>)
+		MACRO(oe,     <&macro_tap &kp TILD_ &kp O_ &kp E_>)
+		MACRO(cao,    <&macro_tap &kp CCED_ &kp TILD_ &kp A_ &kp O_>)
+		MACRO(coe,    <&macro_tap &kp CCED_ &kp TILD_ &kp O_ &kp E_>)
+		MACRO(dot_ns, <&macro_tap &kp DOT_>,  <&macro_release &kp LSHIFT &kp RSHIFT>, <&macro_tap &kp SPACE &sk LSHIFT>)
+		MACRO(com_ns, <&macro_tap &kp COMM_>, <&macro_release &kp LSHIFT &kp RSHIFT>, <&macro_tap &kp SPACE>)
 	};
 			  
 	combos {
@@ -252,7 +228,7 @@
 		#define COMBO_HEADER(NAME, POSITIONS) \
 			combo_##NAME { \
 				key-positions = <POSITIONS>; \
-				timeout-ms = <COMBO_DELAY>; \
+				timeout-ms = <COMBO_TIMEOUT>; \
 		
 		#define COMBO(BINDINGS, POSITIONS, NAME) \
 			COMBO_HEADER(NAME, POSITIONS) \
@@ -310,35 +286,35 @@
 		combo_ctrl_z {
 			bindings = <&kp LC(Z_)>;
 			key-positions = <20 21>;
-			timeout-ms = <COMBO_DELAY>;
+			timeout-ms = <COMBO_TIMEOUT>;
 		};
 		
 		combo_qwerty_layer {
 			bindings = <&tog QWERTY>;
 			key-positions = <0 1 2>;
 			layers = <FUNC>;
-			timeout-ms = <COMBO_DELAY>;
+			timeout-ms = <COMBO_TIMEOUT>;
 		};
 		
 		combo_func_layer {
 			bindings = <&mo FUNC>;
 			key-positions = <30 31>;
 			layers = <BASE>;
-			timeout-ms = <COMBO_DELAY>;
+			timeout-ms = <COMBO_TIMEOUT>;
 		};
 		
 		combo_reset_left {
 			bindings = <&reset>;
 			key-positions = <0 4>;
 			layers = <FUNC>;
-			timeout-ms = <COMBO_DELAY>;
+			timeout-ms = <COMBO_TIMEOUT>;
 		};
 		
 		combo_bootloader {
 			bindings = <&bootloader>;
 			key-positions = <20 24>;
 			layers = <FUNC>;
-			timeout-ms = <COMBO_DELAY>;
+			timeout-ms = <COMBO_TIMEOUT>;
 		};
 	};
 
@@ -389,17 +365,6 @@
 													&trans		&trans				&trans		&trans
 			>;
 		};
-		
-		/*
-		symdouble_layer {
-			bindings = <
-				&none		&m_surquot	&none		&none		&none				&trans		&trans		&trans		&trans		&trans
-				&none		&dbl_QUOT_	&dbl_APST_	&trans		&trans				&trans		&dbl_LPAR_	&m_surpar	&dbl_LT_	&m_surlt	
-				&dbl_LCRL_	&m_surcrl	&dbl_LGLM_	&m_surglm	&none				&trans		&dbl_LBRK_	&m_surbrk	&trans		&trans
-													&trans		&trans				&trans		&trans
-			>;
-		};
-		*/
 		
 		accent_layer {
 			bindings = <
