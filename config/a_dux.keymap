@@ -305,7 +305,7 @@
 		COMBO_MACRO(cao, 6 13 11)
 		COMBO_MACRO(coe, 6 11 30)
 		
-		combo_oneshotshift_l {
+		/*combo_oneshotshift_l {
 			bindings = <&sk LSHIFT>;
 			key-positions = <2 3>;
 			timeout-ms = <COMBO_DELAY>;
@@ -317,15 +317,17 @@
 			timeout-ms = <COMBO_DELAY>;
 		};
 		
-		combo_comma {
-			bindings = <&m_com_ns>;
-			key-positions = <20 23>;
+		combo_oneshotshift_thumb {
+			bindings = <&sk LSHIFT>;
+			key-positions = <32 33>;
 			timeout-ms = <COMBO_DELAY>;
-		};
+		};*/
+		
+		COMBO(shift, &sk LSHIFT, 32 33)
 		
 		combo_newsentence {
 			bindings = <&m_dot_ns>;
-			key-positions = <20 21 22 23>;
+			key-positions = <2 3>;
 			timeout-ms = <COMBO_DELAY>;
 		};
 		
@@ -350,7 +352,7 @@
 		combo_qwerty_layer {
 			bindings = <&tog QWERTY>;
 			key-positions = <0 1 2>;
-			layers = <BASE>;
+			layers = <FUNC>;
 			timeout-ms = <COMBO_DELAY>;
 		};
 		
