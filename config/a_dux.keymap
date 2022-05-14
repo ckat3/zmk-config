@@ -254,12 +254,12 @@
 				key-positions = <POSITIONS>; \
 				timeout-ms = <COMBO_DELAY>; \
 		
-		#define COMBO(NAME, BINDINGS, POSITIONS, SUFFIX) \
+		#define COMBO(BINDINGS, POSITIONS, NAME) \
 			COMBO_HEADER(NAME, POSITIONS) \
 				bindings = <BINDINGS>; \
 			};
 		
-		#define COMBO_KP(KEY, POSITIONS, SUFFIX) \
+		#define COMBO_KP(KEY, SUFFIX, POSITIONS) \
 			COMBO_HEADER(KEY##SUFFIX, POSITIONS) \
 				bindings = <&kp KEY>; \
 			};
@@ -284,17 +284,24 @@
 	                30   31 | 32   33
 	*/
 	
-		COMBO_KP(TAB,   12 13,)
-		COMBO_KP(ENTER, 16 17,)
-		COMBO_KP(SPACE, 11 12 13,)
-		COMBO_KP(SPACE, 16 17 18,_)
+		COMBO_KP(TAB,,    12 13)
+		COMBO_KP(ENTER,,  16 17)
+		COMBO_KP(SPACE,l, 11 12 13)
+		COMBO_KP(SPACE,r, 16 17 18)
 		
-		COMBO_KP(BSPC,  11 12,)
-		COMBO_KP(DEL,   1 2,_)
-		COMBO_KP(DEL,   17 18,)
+		COMBO_KP(BSPC,, 11 12)
+		COMBO_KP(DEL,l, 1 2)
+		COMBO_KP(DEL,r, 17 18)
+		COMBO(&kp LC(DEL), 27 28, ctrldel)
 		
-		COMBO_KP(ESC,  10 11,)
-		COMBO_KP(CAPS,  10 13,)
+		/*combo_ctrl_del {
+			bindings = <&kp LC(DEL)>;
+			key-positions = <27 28>;
+			timeout-ms = <COMBO_DELAY>;
+		};*/
+		
+		COMBO_KP(ESC,,  10 11)
+		COMBO_KP(CAPS,, 10 13)
 		
 		COMBO_MACRO(qu, 26 27)
 		COMBO_MACRO(ae, 13 30)
@@ -303,42 +310,12 @@
 		COMBO_MACRO(cao, 6 13 11)
 		COMBO_MACRO(coe, 6 11 30)
 		
-		/*combo_oneshotshift_l {
-			bindings = <&sk LSHIFT>;
-			key-positions = <2 3>;
-			timeout-ms = <COMBO_DELAY>;
-		};
-		
-		combo_oneshotshift_r {
-			bindings = <&sk LSHIFT>;
-			key-positions = <6 7>;
-			timeout-ms = <COMBO_DELAY>;
-		};
-		
-		combo_oneshotshift_thumb {
-			bindings = <&sk LSHIFT>;
-			key-positions = <32 33>;
-			timeout-ms = <COMBO_DELAY>;
-		};
-		
-		combo_newsentence {
-			bindings = <&m_dot_ns>;
-			key-positions = <2 3>;
-			timeout-ms = <COMBO_DELAY>;
-		};*/
-		
-		COMBO(osshift, &sk LSHIFT, 32 33,)
-		COMBO(newsent, &m_dot_ns, 2 3,)
+		COMBO(&sk LSHIFT, 32 33, oneshotshift)
+		COMBO(&m_dot_ns,  2 3,   newsentence)
 		
 		combo_ctrl_bspc {
 			bindings = <&kp LC(BSPC)>;
 			key-positions = <21 22>;
-			timeout-ms = <COMBO_DELAY>;
-		};
-		
-		combo_ctrl_del {
-			bindings = <&kp LC(DEL)>;
-			key-positions = <27 28>;
 			timeout-ms = <COMBO_DELAY>;
 		};
 		
