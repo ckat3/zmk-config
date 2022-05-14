@@ -290,15 +290,9 @@
 		COMBO_KP(SPACE,r, 16 17 18)
 		
 		COMBO_KP(BSPC,, 11 12)
-		COMBO_KP(DEL,l, 1 2)
-		COMBO_KP(DEL,r, 17 18)
-		COMBO(&kp LC(DEL), 27 28, ctrldel)
-		
-		/*combo_ctrl_del {
-			bindings = <&kp LC(DEL)>;
-			key-positions = <27 28>;
-			timeout-ms = <COMBO_DELAY>;
-		};*/
+		COMBO_KP(DEL,,  21 22)
+		COMBO(&kp LC(BSPC), 17 18, cbsp)
+		COMBO(&kp LC(DEL),  27 28, cdel)
 		
 		COMBO_KP(ESC,,  10 11)
 		COMBO_KP(CAPS,, 10 13)
@@ -312,12 +306,6 @@
 		
 		COMBO(&sk LSHIFT, 32 33, oneshotshift)
 		COMBO(&m_dot_ns,  2 3,   newsentence)
-		
-		combo_ctrl_bspc {
-			bindings = <&kp LC(BSPC)>;
-			key-positions = <21 22>;
-			timeout-ms = <COMBO_DELAY>;
-		};
 		
 		combo_ctrl_z {
 			bindings = <&kp LC(Z_)>;
