@@ -254,12 +254,10 @@
 				key-positions = <POSITIONS>; \
 				timeout-ms = <COMBO_DELAY>; \
 		
-		/*
 		#define COMBO(NAME, BINDINGS, POSITIONS, SUFFIX) \
 			COMBO_HEADER(NAME, POSITIONS) \
 				bindings = <BINDINGS>; \
 			};
-		*/
 		
 		#define COMBO_KP(KEY, POSITIONS, SUFFIX) \
 			COMBO_HEADER(KEY##SUFFIX, POSITIONS) \
@@ -321,15 +319,16 @@
 			bindings = <&sk LSHIFT>;
 			key-positions = <32 33>;
 			timeout-ms = <COMBO_DELAY>;
-		};*/
-		
-		COMBO(shift, &sk LSHIFT, 32 33)
+		};
 		
 		combo_newsentence {
 			bindings = <&m_dot_ns>;
 			key-positions = <2 3>;
 			timeout-ms = <COMBO_DELAY>;
-		};
+		};*/
+		
+		COMBO(shift, &sk LSHIFT, 32 33)
+		COMBO(shift, &m_dot_ns, 2 3)
 		
 		combo_ctrl_bspc {
 			bindings = <&kp LC(BSPC)>;
