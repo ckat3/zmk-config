@@ -121,7 +121,8 @@
 		MACRO(cao,    <&macro_tap &kp CCED_ &kp TILD_ &kp A_ &kp O_>)
 		MACRO(coe,    <&macro_tap &kp CCED_ &kp TILD_ &kp O_ &kp E_>)
 		MACRO(dot_ns, <&macro_tap &kp DOT_>,  <&macro_release &kp LSHIFT &kp RSHIFT>, <&macro_tap &kp SPACE &sk LSHIFT>)
-		MACRO(com_ns, <&macro_tap &kp COMM_>, <&macro_release &kp LSHIFT &kp RSHIFT>, <&macro_tap &kp SPACE>)
+		MACRO(sposs,  <&macro_tap &kp SPACE &sk LSHIFT>)
+		MACRO(spcap,  <&macro_tap &kp SPACE &tog CAPL>)
 	};
 			  
 	combos {
@@ -180,18 +181,30 @@
 		COMBO_MACRO(ao, 13 11)
 		COMBO_MACRO(oe, 11 30)
 		
-		COMBO(&sk LSHIFT, 32 33, oneshotshift)
-		/*COMBO(&m_dot_ns,  2 3,   newsentence)*/
+		//COMBO(&m_sposs, 32 33, oneshotshift)
 		
-		combo_ctrl_z {
-			bindings = <&kp LC(Z_)>;
-			key-positions = <20 21>;
+		combo_sposs {
+			bindings = <&m_sposs>;
+			key-positions = <32 33>;
+			timeout-ms = <COMBO_TIMEOUT>;
+		};
+		
+		combo_spcap {
+			bindings = <&m_spcap>;
+			key-positions = <32 33>;
+			layers = <CAPL>;
 			timeout-ms = <COMBO_TIMEOUT>;
 		};
 		
 		combo_func_osshift {
 			bindings = <&lsk FUNC LSHIFT>;
 			key-positions = <30 31>;
+			timeout-ms = <COMBO_TIMEOUT>;
+		};
+		
+		combo_ctrl_z {
+			bindings = <&kp LC(Z_)>;
+			key-positions = <20 21>;
 			timeout-ms = <COMBO_TIMEOUT>;
 		};
 		
@@ -266,9 +279,9 @@
 		
 		caps_layer {
 			bindings = <
-				&kp  FSLA_	&kp LS(EACT_)	&kp  LS(Y_)		&kp DOT_	&kp LS(Q_)				&kp LS(K_)		&kp  LS(C_)		&kp  LS(H_)		&kp  LS(W_)		&kp  LS(J_)
+				&trans		&kp LS(EACT_)	&kp  LS(Y_)		&trans		&kp LS(Q_)				&kp LS(K_)		&kp  LS(C_)		&kp  LS(H_)		&kp  LS(W_)		&kp  LS(J_)
 				HMRG LS(U_)	HMLA LS(O_)		HMLC LS(I_)		HMLS LS(A_)	&kp LS(F_)				&kp LS(G_)		HMRS LS(T_)		HMRC LS(R_)		HMRA LS(S_)		HMRG LS(N_)
-				&kp  LS(Z_)	HMLC LS(X_)		&kp  LS(P_)		&kp COMM_	&kp LS(V_)				EXCL_QMRK		&kp  LS(D_)		&kp  LS(M_)		&kp  LS(L_)		&kp  LS(B_)
+				&kp  LS(Z_)	HMLC LS(X_)		&kp  LS(P_)		&trans		&kp LS(V_)				&trans			&kp  LS(D_)		&kp  LS(M_)		&kp  LS(L_)		&kp  LS(B_)
 													THUMB1		THUMB2				THUMB3		THUMB4
 			>;
 		};
