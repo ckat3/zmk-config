@@ -275,7 +275,7 @@
 		
 		caps_layer {
 			bindings = <
-				&kp  FSLA_	&kp LS(EACT_	&kp  LS(Y_)		&kp DOT_	&kp LS(Q_)				&kp LS(K_)		&kp  LS(C_)		&kp  LS(H_)		&kp  LS(W_)		&kp  LS(J_)
+				&kp  FSLA_	&kp LS(EACT_)	&kp  LS(Y_)		&kp DOT_	&kp LS(Q_)				&kp LS(K_)		&kp  LS(C_)		&kp  LS(H_)		&kp  LS(W_)		&kp  LS(J_)
 				HMRG LS(U_)	HMLA LS(O_)		HMLC LS(I_)		HMLS LS(A_)	&kp LS(F_)				&kp LS(G_)		HMRS LS(T_)		HMRC LS(R_)		HMRA LS(S_)		HMRG LS(N_)
 				&kp  LS(Z_)	HMLC LS(X_)		&kp  LS(P_)		&kp COMM_	&kp LS(V_)				EXCL_QMRK		&kp  LS(D_)		&kp  LS(M_)		&kp  LS(L_)		&kp  LS(B_)
 													THUMB1		THUMB2				THUMB3		THUMB4
