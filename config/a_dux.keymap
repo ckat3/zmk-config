@@ -295,7 +295,7 @@
 			bindings = <
 				&none		&kp N9_		&kp N8_		&kp N7_		&none				&none		MTCASH		&kp HASH_	&kp PCNT_	&kp PIPE_
 				&kp N0_		&kp N3_		&kp N2_		&kp	N1_		&kp DOT_			&none		HMRS PLUS_	HMRC MIN_	HMLA STAR_	HMRG FSLA_
-				&none		&kp N6_		&kp N5_		&kp	N4_		&kp COMM_			&none		MTPAR		MTGLT		&kp EQUL_	&kp BSLA_
+				&none		&kp N6_		&kp N5_		&kp	N4_		&kp COMM_			&none		&kp LT_		&kp GT_		&kp EQUL_	&kp BSLA_
 													&trans		&trans				&kp ULIN_	&trans
 			>;
 		};
