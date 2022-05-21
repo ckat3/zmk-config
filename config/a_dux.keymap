@@ -264,21 +264,21 @@
 			>;
 		};
 		
-		sym_layer {
-			bindings = <
-				&none		&kp AT_		&kp AMPR_	&kp NDSH_	&none				&none		MTCASH		&kp HASH_	&kp PCNT_	&kp PIPE_
-				HMRG LCRL_	HMLA LBRK_	HMLC LPAR_	HMLS QUOT_	&kp MDSH_			&none		HMRS MIN_	HMRC RPAR_	HMLA RBRK_	HMRG RCRL_
-				&kp AE_		&kp OE_		&kp LT_		&kp LGLM_	&none				&none		&kp RGLM_	&kp GT_		&kp EQUL_	&none
-													&trans		&trans				&trans		&trans
-			>;
-		};
-		
 		caps_layer {
 			bindings = <
 				&kp  FSLA_	&kp LS(EACT_)	&kp  LS(Y_)		&kp DOT_	&kp LS(Q_)				&kp LS(K_)		&kp  LS(C_)		&kp  LS(H_)		&kp  LS(W_)		&kp  LS(J_)
 				HMRG LS(U_)	HMLA LS(O_)		HMLC LS(I_)		HMLS LS(A_)	&kp LS(F_)				&kp LS(G_)		HMRS LS(T_)		HMRC LS(R_)		HMRA LS(S_)		HMRG LS(N_)
 				&kp  LS(Z_)	HMLC LS(X_)		&kp  LS(P_)		&kp COMM_	&kp LS(V_)				EXCL_QMRK		&kp  LS(D_)		&kp  LS(M_)		&kp  LS(L_)		&kp  LS(B_)
 													THUMB1		THUMB2				THUMB3		THUMB4
+			>;
+		};
+		
+		sym_layer {
+			bindings = <
+				&none		&kp AT_		&kp AMPR_	&kp NDSH_	&none				&none		MTCASH		&kp HASH_	&kp PCNT_	&kp PIPE_
+				HMRG LCRL_	HMLA LBRK_	HMLC LPAR_	HMLS QUOT_	&kp MDSH_			&none		HMRS MIN_	HMRC RPAR_	HMLA RBRK_	HMRG RCRL_
+				&kp AE_		&kp OE_		&kp LT_		&kp LGLM_	&none				&none		&kp RGLM_	&kp GT_		&kp EQUL_	&none
+													&trans		&trans				&trans		&trans
 			>;
 		};
 		
