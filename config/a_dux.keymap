@@ -293,7 +293,7 @@
 				&none		&kp AT_		&kp AMPR_	&kp NDSH_	&none				&none		MTCASH		&kp HASH_	&kp PCNT_	&kp PIPE_
 				HMRG LCRL_	HMLA LBRK_	HMLC LPAR_	HMLS QUOT_	&kp MDSH_			&none		HMRS MIN_	HMRC RPAR_	HMLA RBRK_	HMRG RCRL_
 				&kp AE_		&kp OE_		&kp LT_		&kp LGLM_	&none				&none		&kp RGLM_	&kp GT_		&kp EQUL_	&none
-													&trans		&trans				&trans		&trans
+													THUMB1S		&trans				&trans		&trans
 			>;
 		};
 		
