@@ -186,6 +186,7 @@
 		combo_sposs {
 			bindings = <&m_sposs>;
 			key-positions = <32 33>;
+			layers = <BASE>;
 			timeout-ms = <COMBO_TIMEOUT>;
 		};
 		
@@ -264,6 +265,7 @@
 		#define MTCASH  &mt EURO_ DLLR_
 		
 		#define THUMB1	&lt NUM E_
+		#define THUMB1S	&lt NUM LS(E_)
 		#define THUMB2	&lsl SYM SYM
 		#define THUMB3	&lsl ACNT ACNT
 		#define THUMB4	&lt NAV SPACE
