@@ -150,18 +150,23 @@
 				bindings = <&kp KEY>; \
 			};
 			
-		/*	
-		#define COMBO_LAYER(KEY, POSITIONS, LAYERS) \
+		#define COMBO_KP_LAYER(KEY, POSITIONS, LAYERS) \
 			COMBO_HEADER(KEY, POSITIONS) \
 				bindings = <&kp KEY>; \
 				layers = <LAYERS>; \
 			};
-		*/
 		
 		#define COMBO_MACRO(MACRO, POSITIONS) \
 			COMBO_HEADER(MACRO, POSITIONS) \
 				bindings = <&m_##MACRO>; \
 			};
+		
+		#define COMBO_MACRO_LAYER(MACRO, POSITIONS, LAYERS) \
+			COMBO_HEADER(MACRO, POSITIONS) \
+				bindings = <&m_##MACRO>; \
+				layers = <LAYERS>; \
+			};
+		};
 			
 	/*
 	     0   1   2   3     4 |  5     6   7   8   9
@@ -180,10 +185,10 @@
 		COMBO(&kp LC(BSPC), 17 18, cbsp)
 		COMBO(&kp LC(DEL),  27 28, cdel)
 		
-		COMBO_KP(ESC,,  10 11)
+		COMBO_KP_LAYER(ESC,,  10 11)
 		COMBO_KP(CAPS,, 16 19)
 		
-		COMBO_MACRO(qu, 26 27)
+		COMBO_MACRO_LAYER(qu, 26 27, BASE)
 		COMBO_MACRO(ae, 13 30)
 		COMBO_MACRO(ao, 13 11)
 		COMBO_MACRO(oe, 11 30)
