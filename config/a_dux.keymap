@@ -89,43 +89,43 @@
 				bindings = BINDINGS; \
 				)
 				
-		#define MACRO_(FIRST, SECOND) \
-			MACRO(FIRST##SECOND, <&macro_tap &kp FIRST &kp SECOND>)
+		/*#define MACRO_SIMPLE(FIRST, SECOND) \
+			MACRO(FIRST##SECOND, <&macro_tap &kp FIRST &kp SECOND>)*/
 				
-		/*#define MACRO_(FIRST, SECOND) \
+		#define MACRO_SIMPLE(FIRST, SECOND) \
 			ZMK_MACRO(m_##FIRST##SECOND, \
 				tap-ms = <MACRO_DELAY>; \
 				bindings = <&macro_tap &kp FIRST &kp SECOND>; \
-				)*/
+				)
 	
-		MACRO_(ACUT_, A_)
-		MACRO_(ACUT_, E_)
-		MACRO_(ACUT_, I_)
-		MACRO_(ACUT_, O_)
-		MACRO_(ACUT_, U_)
-		MACRO_(CFLX_, A_)
-		MACRO_(CFLX_, E_)
-		MACRO_(CFLX_, I_)
-		MACRO_(CFLX_, O_)
-		MACRO_(CFLX_, U_)
-		MACRO_(GRAV_, E_)
-		MACRO_(GRAV_, O_)
-		MACRO_(GRAV_, U_)
-		MACRO_(TILD_, A_)
-		MACRO_(TILD_, O_)
-		MACRO_(TILD_, N_)
-		MACRO_(TRMA_, I_)
-		MACRO_(COMM_, SPACE)
+		MACRO_SIMPLE(ACUT_, A_)
+		MACRO_SIMPLE(ACUT_, E_)
+		MACRO_SIMPLE(ACUT_, I_)
+		MACRO_SIMPLE(ACUT_, O_)
+		MACRO_SIMPLE(ACUT_, U_)
+		MACRO_SIMPLE(CFLX_, A_)
+		MACRO_SIMPLE(CFLX_, E_)
+		MACRO_SIMPLE(CFLX_, I_)
+		MACRO_SIMPLE(CFLX_, O_)
+		MACRO_SIMPLE(CFLX_, U_)
+		MACRO_SIMPLE(GRAV_, E_)
+		MACRO_SIMPLE(GRAV_, O_)
+		MACRO_SIMPLE(GRAV_, U_)
+		MACRO_SIMPLE(TILD_, A_)
+		MACRO_SIMPLE(TILD_, O_)
+		MACRO_SIMPLE(TILD_, N_)
+		MACRO_SIMPLE(TRMA_, I_)
+		MACRO_SIMPLE(COMM_, SPACE)
 		
-		MACRO(qu,     <&macro_tap &kp Q_ &kp U_>)
-		MACRO(ae,     <&macro_tap &kp TILD_ &kp A_ &kp E_>)
-		MACRO(ao,     <&macro_tap &kp TILD_ &kp A_ &kp O_>)
-		MACRO(oe,     <&macro_tap &kp TILD_ &kp O_ &kp E_>)
+		MACRO(qu, <&macro_tap &kp Q_ &kp U_>)
+		MACRO(ae, <&macro_tap &kp TILD_ &kp A_ &kp E_>)
+		MACRO(ao, <&macro_tap &kp TILD_ &kp A_ &kp O_>)
+		MACRO(oe, <&macro_tap &kp TILD_ &kp O_ &kp E_>)
 		
-		MACRO(squ,     <&macro_press &kp LSHFT>, <&macro_tap &kp Q_ &kp U_>, <&macro_release &kp LSHFT>)
-		MACRO(sae,     <&macro_tap &kp TILD_>, <&macro_press &kp LSHFT>, <&macro_tap &kp A_ &kp E_>, <&macro_release &kp LSHFT>)
-		MACRO(sao,     <&macro_tap &kp TILD_>, <&macro_press &kp LSHFT>, <&macro_tap &kp A_ &kp O_>, <&macro_release &kp LSHFT>)
-		MACRO(soe,     <&macro_tap &kp TILD_>, <&macro_press &kp LSHFT>, <&macro_tap &kp O_ &kp E_>, <&macro_release &kp LSHFT>)
+		MACRO(squ, <&macro_press &kp LSHFT>, <&macro_tap &kp Q_ &kp U_>, <&macro_release &kp LSHFT>)
+		MACRO(sae, <&macro_tap &kp TILD_>, <&macro_press &kp LSHFT>, <&macro_tap &kp A_ &kp E_>, <&macro_release &kp LSHFT>)
+		MACRO(sao, <&macro_tap &kp TILD_>, <&macro_press &kp LSHFT>, <&macro_tap &kp A_ &kp O_>, <&macro_release &kp LSHFT>)
+		MACRO(soe, <&macro_tap &kp TILD_>, <&macro_press &kp LSHFT>, <&macro_tap &kp O_ &kp E_>, <&macro_release &kp LSHFT>)
 		
 		//MACRO(dot_ns, <&macro_tap &kp DOT_>,  <&macro_release &kp LSHIFT &kp RSHIFT>, <&macro_tap &kp SPACE &sk LSHIFT>)
 		MACRO(sposs,  <&macro_tap &kp SPACE &sk LSHIFT>)
