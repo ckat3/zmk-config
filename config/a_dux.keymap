@@ -90,10 +90,13 @@
 				)
 				
 		#define MACRO_(FIRST, SECOND) \
+			MACRO(FIRST##SECOND, <&macro_tap &kp FIRST &kp SECOND>)
+				
+		/*#define MACRO_(FIRST, SECOND) \
 			ZMK_MACRO(m_##FIRST##SECOND, \
 				tap-ms = <MACRO_DELAY>; \
 				bindings = <&macro_tap &kp FIRST &kp SECOND>; \
-				)
+				)*/
 	
 		MACRO_(ACUT_, A_)
 		MACRO_(ACUT_, E_)
@@ -118,9 +121,13 @@
 		MACRO(ae,     <&macro_tap &kp TILD_ &kp A_ &kp E_>)
 		MACRO(ao,     <&macro_tap &kp TILD_ &kp A_ &kp O_>)
 		MACRO(oe,     <&macro_tap &kp TILD_ &kp O_ &kp E_>)
-		MACRO(cao,    <&macro_tap &kp CCED_ &kp TILD_ &kp A_ &kp O_>)
-		MACRO(coe,    <&macro_tap &kp CCED_ &kp TILD_ &kp O_ &kp E_>)
-		MACRO(dot_ns, <&macro_tap &kp DOT_>,  <&macro_release &kp LSHIFT &kp RSHIFT>, <&macro_tap &kp SPACE &sk LSHIFT>)
+		
+		MACRO(squ,     <&macro_press &kp LSHFT>, <&macro_tap &kp Q_ &kp U_>, <&macro_release &kp LSHFT>)
+		MACRO(sae,     <&macro_tap &kp TILD_>, <&macro_press &kp LSHFT>, <&macro_tap &kp A_ &kp E_>, <&macro_release &kp LSHFT>)
+		MACRO(sao,     <&macro_tap &kp TILD_>, <&macro_press &kp LSHFT>, <&macro_tap &kp A_ &kp O_>, <&macro_release &kp LSHFT>)
+		MACRO(soe,     <&macro_tap &kp TILD_>, <&macro_press &kp LSHFT>, <&macro_tap &kp O_ &kp E_>, <&macro_release &kp LSHFT>)
+		
+		//MACRO(dot_ns, <&macro_tap &kp DOT_>,  <&macro_release &kp LSHIFT &kp RSHIFT>, <&macro_tap &kp SPACE &sk LSHIFT>)
 		MACRO(sposs,  <&macro_tap &kp SPACE &sk LSHIFT>)
 		MACRO(spcap,  <&macro_tap &kp SPACE &tog CAPL>)
 	};
@@ -291,8 +298,8 @@
 		sym_layer {
 			bindings = <
 				&none		&kp AT_		&kp AMPR_	&kp OE_		&kp AE_				&none		MTCASH		&kp HASH_	&kp PCNT_	&kp PIPE_
-				HMRG LCRL_	HMLA RCRL_	HMLC LPAR_	HMLS RPAR_	&kp MDSH_			&none		HMRS LBRK_	HMRC RBRK_	HMLA MDASH_	HMRG NDASH_
-				&kp NDASH_	&kp MDASH_	&kp LGLM_	&kp RGLM_	&none				&none		&kp LT_		&kp GT_		&kp EQUL_	&none
+				HMRG LCRL_	HMLA RCRL_	HMLC LPAR_	HMLS RPAR_	&kp MDSH_			&none		HMRS LBRK_	HMRC RBRK_	HMLA MDSH_	HMRG NDSH_
+				&kp NDSH_	&kp MDSH_	&kp LGLM_	&kp RGLM_	&none				&none		&kp LT_		&kp GT_		&kp EQUL_	&none
 													THUMB1		&trans				&trans		&trans
 			>;
 		};
