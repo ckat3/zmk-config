@@ -145,10 +145,10 @@
 				bindings = <BINDINGS>; \
 			};
 		
-		#define COMBO_LAYER(BINDINGS, POSITIONS, LAYERS, NAME) \
-			COMBO_HEADER(NAME, POSITIONS) \
-				bindings = <BINDINGS>; \
-			};
+		// #define COMBO_LAYER(BINDINGS, POSITIONS, LAYERS, NAME) \
+			// COMBO_HEADER(NAME, POSITIONS) \
+				// bindings = <BINDINGS>; \
+			// };
 		
 		#define COMBO_KP(KEY, SUFFIX, POSITIONS) \
 			COMBO_HEADER(KEY##SUFFIX, POSITIONS) \
@@ -313,7 +313,7 @@
 				&kp  LS(Q_)		&kp  LS(EACT_)	&kp  LS(Y_)	 &trans		  &kp LS(EACT_)			&kp LS(K_)		&kp  LS(C_)		&kp  LS(H_)		&kp  LS(W_)		&kp  LS(J_)
 				HMRG LS(U_)		HMLA LS(O_)		HMLC LS(I_)	 HMLS LS(A_)  &kp LS(F_)			&kp LS(G_)		HMRS LS(T_)		HMRC LS(R_)		HMRA LS(S_)		HMRG LS(N_)
 				&kp  LS(Z_)		HMLC LS(X_)		&kp  LS(P_)	 &trans		  &kp LS(V_)			&trans			&kp  LS(D_)		&kp  LS(M_)		&kp  LS(L_)		&kp  LS(B_)
-															THUMB1S		THUMB2					THUMB3			THUMB4
+														     THUMB1S	  THUMB2				THUMB3			THUMB4
 			>;
 		};
 		
@@ -364,7 +364,7 @@
 		
 		game_layer {
 			bindings = <
-				&kp  Q_		&kp  F_		&kp  G_		&kp  E_		&kp T_				&kp Y_		&kp  U_		&kp  I_		&kp  O_		&kp  P_
+				&kp Q_		&kp  F_		&kp  G_		&kp  E_		&kp T_				&kp Y_		&kp  U_		&kp  I_		&kp  O_		&kp  P_
 				&kp LSHIFT	&kp  A_		&kp  W_		&kp  D_		&kp R_				&kp H_		&kp  J_		&kp  K_		&kp  L_		&kp  N_
 				&kp TAB		&kp  X_		&kp  S_		&kp  V_		&kp B_				&kp  N_		&kp  M_		&kp  L_		&kp  COMM_	&kp  DOT_	
 													&kp SPACE	&kp LCTRL			&kp LALT	&kp SPACE
