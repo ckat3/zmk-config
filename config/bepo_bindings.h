@@ -37,6 +37,8 @@
 #define H_		DOT
 #define F_		SLASH
 
+#define SZET_	RA(S_)
+
 #define EXCL_	LS(CFLX_)
 #define SEMI_	LS(COMM_)
 #define COLN_	LS(DOT_)
