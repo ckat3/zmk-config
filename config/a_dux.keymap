@@ -81,7 +81,7 @@
 		#define MACRO_SIMPLE(FIRST, SECOND) \
 			MACRO(FIRST##SECOND, <&macro_tap &kp FIRST &kp SECOND>)
 				
-		#define MACRO_SIMPL(FIRST, SECOND) \
+		#define MACRO_SIMPLE_OLD(FIRST, SECOND) \
 			ZMK_MACRO(m_##FIRST##SECOND, \
 				tap-ms = <MACRO_TAP_DELAY>; \
 				wait-ms = <MACRO_WAIT>; \
@@ -105,9 +105,11 @@
 		MACRO_SIMPLE(TILD_, O_)
 		MACRO_SIMPLE(TILD_, N_)
 		MACRO_SIMPLE(TRMA_, I_)
+		
 		MACRO_SIMPLE(B_, J_)
 		
 		MACRO(qu, <&macro_tap &kp Q_ &kp U_>)
+		MACRO(bj, <&macro_tap &kp B_ &kp J_>)
 		MACRO(ae, <&macro_tap &kp TILD_ &kp A_ &kp E_>)
 		MACRO(ao, <&macro_tap &kp TILD_ &kp A_ &kp O_>)
 		MACRO(oe, <&macro_tap &kp TILD_ &kp O_ &kp E_>)
@@ -167,7 +169,8 @@
 	    0   1   2   3      4 | 5      6   7   8   9
 	    10  11  12  13    14 | 15    16  17  18  19
 	    20  21  22  23    24 | 25    26  27  28  29
-	                30    31 | 32    33
+							 |
+	                   30 31 | 32 33
 	*/
 	
 		COMBO_KP(TAB,,    12 13)
@@ -187,6 +190,7 @@
 		COMBO_KP(CAPS,, 16 19)
 		
 		COMBO_MACRO_LAYER(qu, 26 27, BASE)
+		COMBO_MACRO_LAYER(bj, 28 29, BASE)
 		COMBO_MACRO_LAYER(ae, 13 30, BASE)
 		COMBO_MACRO_LAYER(ao, 13 11, BASE)
 		COMBO_MACRO_LAYER(oe, 11 30, BASE)
@@ -195,32 +199,6 @@
 		COMBO_MACRO_LAYER(sae, 13 30, CAPL)
 		COMBO_MACRO_LAYER(sao, 13 11, CAPL)
 		COMBO_MACRO_LAYER(soe, 11 30, CAPL)
-		
-		/*combo_sposs {
-			bindings = <&m_sposs>;
-			key-positions = <32 33>;
-			layers = <BASE>;
-			timeout-ms = <COMBO_TIMEOUT>;
-		};
-		
-		combo_spcap {
-			bindings = <&m_spcap>;
-			key-positions = <32 33>;
-			layers = <CAPL>;
-			timeout-ms = <COMBO_TIMEOUT>;
-		};*/
-		
-		/*combo_l_osshift_func {
-			bindings = <&lsk FUNC LSHIFT>;
-			key-positions = <30 31>;
-			timeout-ms = <COMBO_TIMEOUT>;
-		};
-		
-		combo_r_osshift {
-			bindings = <&sk RSHIFT>;
-			key-positions = <32 33>;
-			timeout-ms = <COMBO_TIMEOUT>;
-		};*/
 		
 		combo_ctrl_z {
 			bindings = <&kp LC(Z_)>;
