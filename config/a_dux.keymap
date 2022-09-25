@@ -6,8 +6,8 @@
 #include "bepo_bindings.h"
 
 /* SETTINGS */
-#define MACRO_WAIT 20 /* max 10 */
-#define MACRO_TAP_DELAY 5 /* max 10 */
+#define MACRO_WAIT 30 /* max 10 */
+#define MACRO_TAP_DELAY 15 /* max 10 */
 #define COMBO_TIMEOUT 20 /* min 15 */
 #define HT_TAPPING_TERM 250
 #define HT_QUICK_TAP 200
@@ -88,6 +88,7 @@
 				bindings = <&macro_tap &kp FIRST &kp SECOND>; \
 				)
 	
+		// define macros like m_ACUT_A_ for accents layer
 		MACRO_SIMPLE(ACUT_, A_)
 		MACRO_SIMPLE(ACUT_, E_)
 		MACRO_SIMPLE(ACUT_, I_)
@@ -106,8 +107,6 @@
 		MACRO_SIMPLE(TILD_, N_)
 		MACRO_SIMPLE(TRMA_, I_)
 		
-		MACRO_SIMPLE(B_, J_)
-		
 		MACRO(qu, <&macro_tap &kp Q_ &kp U_>)
 		MACRO(bj, <&macro_tap &kp B_ &kp J_>)
 		MACRO(ae, <&macro_tap &kp TILD_ &kp A_ &kp E_>)
@@ -119,8 +118,6 @@
 		MACRO(sao, <&macro_tap &kp TILD_>, <&macro_press &kp LSHFT>, <&macro_tap &kp A_ &kp O_>, <&macro_release &kp LSHFT>)
 		MACRO(soe, <&macro_tap &kp TILD_>, <&macro_press &kp LSHFT>, <&macro_tap &kp O_ &kp E_>, <&macro_release &kp LSHFT>)
 		
-		//MACRO(dot_ns, <&macro_tap &kp DOT_>,  <&macro_release &kp LSHIFT &kp RSHIFT>, <&macro_tap &kp SPACE &sk LSHIFT>)
-		MACRO(sposs,  <&macro_tap &kp SPACE &sk LSHIFT>)
 		MACRO(spcap,  <&macro_tap &kp SPACE &tog CAPL>)
 	};
 			  
