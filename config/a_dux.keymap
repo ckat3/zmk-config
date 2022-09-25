@@ -106,6 +106,7 @@
 		MACRO_SIMPLE(TILD_, O_)
 		MACRO_SIMPLE(TILD_, N_)
 		MACRO_SIMPLE(TRMA_, I_)
+		MACRO_SIMPLE(B_, J_)
 		
 		MACRO(qu, <&macro_tap &kp Q_ &kp U_>)
 		MACRO(bj, <&macro_tap &kp B_ &kp J_>)
