@@ -61,23 +61,10 @@
 				hold-trigger-key-positions = <POSITIONS>; \
 			};
 			
-		/*mtslow: ht_mtslow {
-			label = "mtslow";
-			compatible = "zmk,behavior-hold-tap";
-			#binding-cells = <2>;
-			tapping-term-ms = <200>;
-			quick-tap-ms = <HT_QUICK_TAP>;
-			flavor = "tap-preferred";
-			bindings = <&kp>, <&kp>;
-			};*/
-			
 		HOLDTAP(hm,       tap-preferred, <&kp>, <&kp>)
 		//HOLDTAP(lhs,      balanced,      <&mo>, <&tog>)       // lhs: layer if held, toggle if pressed
 		HOLDTAP(lsk,      balanced,      <&mo>, <&sk>)        // lsk: layer if held, one-shot kp if pressed
 		HOLDTAP(lsl,      balanced,      <&mo>, <&sl>)        // lsl: layer if held, one-shot layer if pressed
-		//HOLDTAP(lecflx,   balanced,      <&mo>, <&m_CFLX_E_>)
-		//HOLDTAP(dot,      balanced,      <&m_dot_ns>, <&kp>)
-		//HOLDTAP(comma,    balanced,      <&kp>, <&m_com_ns>)
 		
 		HRMOD_POS(hml, 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33)
 		HRMOD_POS(hmr, 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31)
@@ -91,10 +78,10 @@
 				bindings = BINDINGS; \
 				)
 				
-		/*#define MACRO_SIMPLE(FIRST, SECOND) \
-			MACRO(FIRST##SECOND, <&macro_tap &kp FIRST &kp SECOND>)*/
-				
 		#define MACRO_SIMPLE(FIRST, SECOND) \
+			MACRO(FIRST##SECOND, <&macro_tap &kp FIRST &kp SECOND>)
+				
+		#define MACRO_SIMPL(FIRST, SECOND) \
 			ZMK_MACRO(m_##FIRST##SECOND, \
 				tap-ms = <MACRO_TAP_DELAY>; \
 				wait-ms = <MACRO_WAIT>; \
@@ -369,8 +356,8 @@
 			bindings = <
 				&kp Q_		&kp  F_		&kp  G_		&kp  E_		&kp T_				&kp Y_		&kp  U_		&kp  I_		&kp  O_		&kp  P_
 				&kp LSHIFT	&kp  A_		&kp  W_		&kp  D_		&kp R_				&kp H_		&kp  J_		&kp  K_		&kp  L_		&kp  N_
-				&kp TAB		&kp  X_		&kp  S_		&kp  V_		&kp B_				&kp  N_		&kp  M_		&kp  L_		&kp  COMM_	&kp  DOT_	
-													&kp SPACE	&kp LCTRL			&kp LALT	&kp SPACE
+				&kp LCTRL	&kp  X_		&kp  S_		&kp  V_		&kp B_				&kp N_		&kp  M_		&kp  L_		&kp  COMM_	&kp  DOT_	
+													&kp SPACE	&kp TAB				&kp LALT	&kp SPACE
 			>;
 		};
 		/* FOR DEBUGGING:
