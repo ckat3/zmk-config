@@ -86,7 +86,7 @@
 	macros {
 		#define MACRO(NAME, BINDINGS...) \
 			ZMK_MACRO(m_##NAME, \
-				tap-ms = <MACRO_TAP_DELAY>;
+				tap-ms = <MACRO_TAP_DELAY>; \
 				wait-ms = <MACRO_WAIT>; \
 				bindings = BINDINGS; \
 				)
