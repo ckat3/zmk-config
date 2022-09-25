@@ -7,7 +7,7 @@
 
 /* SETTINGS */
 #define MACRO_WAIT 20 /* max 10 */
-#define MACRO_TAP 5 /* max 10 */
+#define MACRO_TAP_DELAY 5 /* max 10 */
 #define COMBO_TIMEOUT 20 /* min 15 */
 #define HT_TAPPING_TERM 250
 #define HT_QUICK_TAP 200
