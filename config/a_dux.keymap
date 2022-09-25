@@ -6,7 +6,8 @@
 #include "bepo_bindings.h"
 
 /* SETTINGS */
-#define MACRO_DELAY 5 /* max 10 */
+#define MACRO_WAIT 20 /* max 10 */
+#define MACRO_TAP 5 /* max 10 */
 #define COMBO_TIMEOUT 20 /* min 15 */
 #define HT_TAPPING_TERM 250
 #define HT_QUICK_TAP 200
@@ -85,7 +86,8 @@
 	macros {
 		#define MACRO(NAME, BINDINGS...) \
 			ZMK_MACRO(m_##NAME, \
-				tap-ms = <MACRO_DELAY>; \
+				tap-ms = <MACRO_TAP_DELAY>;
+				wait-ms = <MACRO_WAIT>; \
 				bindings = BINDINGS; \
 				)
 				
@@ -94,7 +96,8 @@
 				
 		#define MACRO_SIMPLE(FIRST, SECOND) \
 			ZMK_MACRO(m_##FIRST##SECOND, \
-				tap-ms = <MACRO_DELAY>; \
+				tap-ms = <MACRO_TAP_DELAY>; \
+				wait-ms = <MACRO_WAIT>; \
 				bindings = <&macro_tap &kp FIRST &kp SECOND>; \
 				)
 	
@@ -379,4 +382,4 @@
 			>;
 		*/
 	};
-};
+};	
