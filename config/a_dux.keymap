@@ -304,19 +304,19 @@
 		
 		base_layer {
 			bindings = <
-				&kp  Q_		HMRA MIN_	&kp  Y_		&kp DOT_	&kp X_				&kp K_		&kp  C_		&kp  H_		&kp  W_		&kp  J_
+				&kp  Q_		HMRA MIN_	&kp  Y_		&kp EACT_	EXCL_QMRK			&kp K_		&kp  C_		&kp  H_		&kp  W_		&kp  J_
 				HMRG U_		HMLA O_		HMLC I_		HMLS A_		&kp F_				&kp G_		HMRS T_		HMRC R_		HMRA S_		HMRG N_
-				&kp  Z_		HMLC EACT_	&kp  P_		&kp COMM_	EXCL_QMRK			&kp V_		&kp  D_		&kp  M_		&kp  L_		&kp  B_
+				&kp  Z_		HMLC X_		&kp  P_		&kp COMM_	&kp DOT_			&kp V_		&kp  D_		&kp  M_		&kp  L_		&kp  B_
 													THUMB1		THUMB2				THUMB3		THUMB4
 			>;
 		};
 		
 		caps_layer {
 			bindings = <
-				&kp  LS(Q_)		&trans			&kp  LS(Y_)	 &trans		  &kp LS(X_)			&kp LS(K_)		&kp  LS(C_)		&kp  LS(H_)		&kp  LS(W_)		&kp  LS(J_)
-				HMRG LS(U_)		HMLA LS(O_)		HMLC LS(I_)	 HMLS LS(A_)  &kp LS(F_)			&kp LS(G_)		HMRS LS(T_)		HMRC LS(R_)		HMRA LS(S_)		HMRG LS(N_)
-				&kp  LS(Z_)		HMLC LS(EACT_)	&kp  LS(P_)	 &trans		  &trans				&kp LS(V_)		&kp  LS(D_)		&kp  LS(M_)		&kp  LS(L_)		&kp  LS(B_)
-														     THUMB1S	  THUMB2				THUMB3			THUMB4
+				&kp  LS(Q_)		&trans			&kp  LS(Y_)	 &kp LS(EACT_) &trans				&kp LS(K_)		&kp  LS(C_)		&kp  LS(H_)		&kp  LS(W_)		&kp  LS(J_)
+				HMRG LS(U_)		HMLA LS(O_)		HMLC LS(I_)	 HMLS LS(A_)   &kp LS(F_)			&kp LS(G_)		HMRS LS(T_)		HMRC LS(R_)		HMRA LS(S_)		HMRG LS(N_)
+				&kp  LS(Z_)		HMLC LS(X_)		&kp  LS(P_)	 &trans		   &trans				&kp LS(V_)		&kp  LS(D_)		&kp  LS(M_)		&kp  LS(L_)		&kp  LS(B_)
+														     THUMB1S	   THUMB2				THUMB3			THUMB4
 			>;
 		};
 		
