@@ -64,10 +64,12 @@
 				hold-trigger-key-positions = <POSITIONS>; \
 			};
 			
-		HOLDTAP(hm,       tap-preferred, <&kp>, <&kp>)
+			
 		//HOLDTAP(lhs,      balanced,      <&mo>, <&tog>)       // lhs: layer if held, toggle if pressed
-		HOLDTAP(lsk,      balanced,      <&mo>, <&sk>)        // lsk: layer if held, one-shot kp if pressed
-		HOLDTAP(lsl,      balanced,      <&mo>, <&sl>)        // lsl: layer if held, one-shot layer if pressed
+		HOLDTAP(hm,  tap-preferred, <&kp>, <&kp>)
+		HOLDTAP(lsk, balanced,      <&mo>, <&sk>)        // lsk: layer if held, one-shot kp if pressed
+		HOLDTAP(lsl, balanced,      <&mo>, <&sl>)        // lsl: layer if held, one-shot layer if pressed
+		//HOLDTAP(s20, balanced,      <&mo>, <&m_twe2_osshift>)        // s20: layer if held, one-shot shift + alpha2 if pressed
 		
 		HRMOD_POS(hml, 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33)
 		HRMOD_POS(hmr, 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31)
@@ -117,12 +119,13 @@
 		MACRO(ao, <&macro_tap &kp TILD_ &kp A_ &kp O_>)
 		MACRO(oe, <&macro_tap &kp TILD_ &kp O_ &kp E_>)
 		
-		MACRO(squ, <&macro_press &kp LSHFT>, <&macro_tap &kp Q_ &kp U_>, <&macro_release &kp LSHFT>)
-		MACRO(sae, <&macro_tap &kp TILD_>, <&macro_press &kp LSHFT>, <&macro_tap &kp A_ &kp E_>, <&macro_release &kp LSHFT>)
-		MACRO(sao, <&macro_tap &kp TILD_>, <&macro_press &kp LSHFT>, <&macro_tap &kp A_ &kp O_>, <&macro_release &kp LSHFT>)
-		MACRO(soe, <&macro_tap &kp TILD_>, <&macro_press &kp LSHFT>, <&macro_tap &kp O_ &kp E_>, <&macro_release &kp LSHFT>)
+		MACRO(shift_qu, <&macro_press &kp LSHFT>, <&macro_tap &kp Q_ &kp U_>, <&macro_release &kp LSHFT>)
+		MACRO(shift_ae, <&macro_tap &kp TILD_>, <&macro_press &kp LSHFT>, <&macro_tap &kp A_ &kp E_>, <&macro_release &kp LSHFT>)
+		MACRO(shift_ao, <&macro_tap &kp TILD_>, <&macro_press &kp LSHFT>, <&macro_tap &kp A_ &kp O_>, <&macro_release &kp LSHFT>)
+		MACRO(shift_oe, <&macro_tap &kp TILD_>, <&macro_press &kp LSHFT>, <&macro_tap &kp O_ &kp E_>, <&macro_release &kp LSHFT>)
 		
-		MACRO(spcap,  <&macro_tap &kp SPACE &tog CAPL>)
+		MACRO(spc_capl, <&macro_tap &kp SPACE &tog CAPL>) // space then toggle caps layer
+		MACRO(twe2_osshift, <&macro_tap &tog TWE2 &sk LSHFT>)
 	};
 			  
 	combos {
@@ -196,10 +199,14 @@
 		COMBO_MACRO_LAYER(ao, 13 11, BASE)
 		COMBO_MACRO_LAYER(oe, 11 30, BASE)
 		
-		COMBO_MACRO_LAYER(squ, 26 27, CAPL)
-		COMBO_MACRO_LAYER(sae, 13 30, CAPL)
-		COMBO_MACRO_LAYER(sao, 13 11, CAPL)
-		COMBO_MACRO_LAYER(soe, 11 30, CAPL)
+		COMBO_MACRO_LAYER(shift_qu, 26 27, CAPL)
+		COMBO_MACRO_LAYER(shift_ae, 13 30, CAPL)
+		COMBO_MACRO_LAYER(shift_ao, 13 11, CAPL)
+		COMBO_MACRO_LAYER(shift_oe, 11 30, CAPL)
+		
+		COMBO_MACRO_LAYER(ae, 12 13, TWEN)
+		COMBO_MACRO_LAYER(ao, 13 23, TWEN)
+		COMBO_MACRO_LAYER(oe, 12 23, TWEN)
 		
 		combo_ctrl_z {
 			bindings = <&kp LC(Z_)>;
@@ -357,7 +364,7 @@
 			bindings = <
 				&tog TWEN ___ ___ ___ ___ ___ ___ ___ ___ ___
 				HMRA N_		HMLA U_		HMLC A_		HMLS E_			___	___		HMRS T_		HMRC R_		HMRA S_		HMRG I_
-				&kp  MIN_	HMLC APST_	&kp  C_		&kp O_			___	___		&kp  D_		&kp  H_		&kp  L_		&kp  COMM_
+				&kp  MIN_	HMLC C_		&kp  APST_	&kp O_			___	___		&kp  D_		&kp  H_		&kp  L_		&kp  COMM_
 															TWETH1	THLH2	TWETH3	THRH1
 			>;
 		};
