@@ -236,7 +236,7 @@
 		};
 		
 		combo_twenty {
-			bindings = <&tog CAPL>;
+			bindings = <&tog TWEN>;
 			key-positions = <15 25>;
 			layers = <FUNC>;
 			timeout-ms = <COMBO_TIMEOUT>;
@@ -278,6 +278,9 @@
 		#define TWETH1	&lsl TWE2 TWE2
 		#define TWETH3	&lsl TWEA TWEA
 		
+		
+		#define ___ &none
+		
 		base_layer {
 			bindings = <
 				&kp  Q_		HMRA MIN_	&kp  Y_		&kp EACT_	EXCL_QMRK			&kp K_		&kp  C_		&kp  H_		&kp  W_		&kp  J_
@@ -298,37 +301,37 @@
 		
 		sym_layer {
 			bindings = <
-				&none		&kp AT_		&kp AMPR_	&kp OE_		&kp AE_				&none		MTCASH		&kp HASH_	&kp PCNT_	&kp PIPE_
-				HMRG LCRL_	HMLA RCRL_	HMLC LPAR_	HMLS RPAR_	&kp MDSH_			&none		HMRS LBRK_	HMRC RBRK_	HMLA MDSH_	HMRG NDSH_
-				&kp NDSH_	&kp MDSH_	&kp LGLM_	&kp RGLM_	&none				&none		&kp LT_		&kp GT_		&kp EQUL_	&none
-													THLH1		&trans				&trans		&trans
+				___			&kp AT_		&kp AMPR_	&kp OE_		&kp AE_			___		MTCASH		&kp HASH_	&kp PCNT_	&kp PIPE_
+				HMRG LCRL_	HMLA RCRL_	HMLC LPAR_	HMLS RPAR_	&kp MDSH_		___		HMRS LBRK_	HMRC RBRK_	HMLA MDSH_	HMRG NDSH_
+				&kp NDSH_	&kp MDSH_	&kp LGLM_	&kp RGLM_	___				___		&kp LT_		&kp GT_		&kp EQUL_	___
+													THLH1		&trans			&trans		&trans
 			>;
 		};
 		
 		accent_layer {
 			bindings = <
-				&m_CFLX_U_	&m_CFLX_O_	&m_CFLX_I_	&m_CFLX_A_	&none				&none		&kp CCED_	&kp APST_	&kp QUOT_	&m_B_J_
+				&m_CFLX_U_	&m_CFLX_O_	&m_CFLX_I_	&m_CFLX_A_	___					___			&kp CCED_	&kp APST_	&kp QUOT_	&m_B_J_
 				&m_ACUT_U_	&m_ACUT_O_	&m_ACUT_I_	&m_ACUT_A_	&m_TILD_A_			&kp ACUT_	&kp MIN_	&kp CFLX_	&kp GRAV_	&m_TILD_N_
-				&m_GRAV_U_	&m_TILD_O_	&m_TRMA_I_	&kp AGRV_	&none				&none		&kp TRMA_	&kp CRAT_	&kp SZET_	&kp TILD_
+				&m_GRAV_U_	&m_TILD_O_	&m_TRMA_I_	&kp AGRV_	___					___			&kp TRMA_	&kp CRAT_	&kp SZET_	&kp TILD_
 													&m_CFLX_E_	&m_GRAV_E_			&trans		&trans
 			>;
 		};
 		
 		num_layer {
 			bindings = <
-				&none		&kp N9_		&kp N8_		&kp N7_		&none				&none		MTCASH		&kp HASH_	&kp PCNT_	&kp PIPE_
-				&kp N0_		&kp N3_		&kp N2_		&kp	N1_		&kp DOT_			&none		HMRS PLUS_	HMRC MIN_	HMLA STAR_	HMRG FSLA_
-				&none		&kp N6_		&kp N5_		&kp	N4_		&kp COMM_			&none		&kp LT_		&kp GT_		&kp EQUL_	&kp BSLA_
+				___			&kp N9_		&kp N8_		&kp N7_		___					___		MTCASH		&kp HASH_	&kp PCNT_	&kp PIPE_
+				&kp N0_		&kp N3_		&kp N2_		&kp	N1_		&kp DOT_			___		HMRS PLUS_	HMRC MIN_	HMLA STAR_	HMRG FSLA_
+				___			&kp N6_		&kp N5_		&kp	N4_		&kp COMM_			___		&kp LT_		&kp GT_		&kp EQUL_	&kp BSLA_
 													&trans		&trans				&kp ULIN_	&trans
 			>;
 		};
 		
 		nav_layer {
 			bindings = <
-				&kp INSERT	&sk RALT	&kp PSCRN	&kp PSBRK	&none				&none		&kp LC(HOME)	&kp PG_UP	&kp PG_DN	&kp LC(END)
-				&sk LGUI	&sk LALT	&sk LCTRL	&sk LSHIFT	&none				&none		&kp LC(LEFT)	&kp DOWN	&kp UP		&kp LC(RIGHT)
-				&kp LC(Z_)	&kp LC(X_)	&kp LC(C_)	&kp LC(V_)	&none				&none		&kp HOME		&kp LEFT	&kp RIGHT	&kp END
-													&kp ULIN_	&trans				&trans		&trans
+				&kp INSERT	&sk RALT	&kp PSCRN	&kp PSBRK	___				___		&kp LC(HOME)	&kp PG_UP	&kp PG_DN	&kp LC(END)
+				&sk LGUI	&sk LALT	&sk LCTRL	&sk LSHIFT	___				___		&kp LC(LEFT)	&kp DOWN	&kp UP		&kp LC(RIGHT)
+				&kp LC(Z_)	&kp LC(X_)	&kp LC(C_)	&kp LC(V_)	___				___		&kp HOME		&kp LEFT	&kp RIGHT	&kp END
+													&kp ULIN_	&trans			&trans		&trans
 			>;
 		};
 		
@@ -352,36 +355,36 @@
 		
 		twenty_layer {
 			bindings = <
-				&tog TWEN &none &none &none &none &none &none &none &none &none
-				HMRA N_		HMLA U_		HMLC A_		HMLS E_			&none	&none		HMRS T_		HMRC R_		HMRA S_		HMRG I_
-				&kp  MIN_	HMLC APST_	&kp  C_		&kp O_			&none	&none		&kp  D_		&kp  H_		&kp  L_		&kp  COMM_
+				&tog TWEN ___ ___ ___ ___ ___ ___ ___ ___ ___
+				HMRA N_		HMLA U_		HMLC A_		HMLS E_			___	___		HMRS T_		HMRC R_		HMRA S_		HMRG I_
+				&kp  MIN_	HMLC APST_	&kp  C_		&kp O_			___	___		&kp  D_		&kp  H_		&kp  L_		&kp  COMM_
 															TWETH1	THLH2	TWETH3	THRH1
 			>;
 		};
 		
 		twenty_layer_two {
 			bindings = <
-				&none &none &none &none &none &none &none &none &none &none
-				HMRA J_		HMLA Q_		HMLC B_		HMLS EACT_		&none	&none		HMRS F_		HMRC M_		HMRA X_		HMRG P_
-				&kp  Q_		HMLC Z_		&kp  K_		&kp DOT_		&none	&none		&kp  G_		&kp  V_		&kp  W_		&kp  Y_
+				___ ___ ___ ___ ___ ___ ___ ___ ___ ___
+				HMRA J_		HMLA Q_		HMLC B_		HMLS EACT_		___	___		HMRS F_		HMRC M_		HMRA X_		HMRG P_
+				&kp  Q_		HMLC Z_		&kp  K_		&kp DOT_		___	___		&kp  G_		&kp  V_		&kp  W_		&kp  Y_
 															TWETH1	THLH2	TWETH3	THRH1
 			>;
 		};
 		
 		twenty_layer_accents {
 			bindings = <
-				&none &none &none &none &none &none &none &none &none &none
-				&m_TILD_N_	&m_ACUT_U_	&m_ACUT_A_	&m_CFLX_E_		&none	&none		HMRS LPAR_	HMRC RPAR_	&kp CRAT_	&m_ACUT_I_
-				&m_GRAV_E_	&kp CCED_	&kp AGRV_	&m_ACUT_O_		&none	&none		&kp GRAV_	&kp TILD_	&kp TRMA_	EXCL_QMRK
+				___ ___ ___ ___ ___ ___ ___ ___ ___ ___
+				&m_TILD_N_	&m_ACUT_U_	&m_ACUT_A_	&m_CFLX_E_		___	___		HMRS LPAR_	HMRC RPAR_	&kp CRAT_	&m_ACUT_I_
+				&m_GRAV_E_	&kp CCED_	&kp AGRV_	&m_ACUT_O_		___	___		&kp GRAV_	&kp TILD_	&kp TRMA_	EXCL_QMRK
 															TWETH1	THLH2	TWETH3	THRH1
 			>;
 		};
 		/* FOR DEBUGGING:
 			bindings = <
-				&none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none
+				___ ___ ___ ___ ___ ___ ___ ___ ___ ___
+				___ ___ ___ ___ ___ ___ ___ ___ ___ ___
+				___ ___ ___ ___ ___ ___ ___ ___ ___ ___
+				___ ___ ___ ___
 			>;
 		*/
 	};
