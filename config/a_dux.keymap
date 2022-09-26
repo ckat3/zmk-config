@@ -69,6 +69,8 @@
 		HOLDTAP(hm,  tap-preferred, <&kp>, <&kp>)
 		HOLDTAP(lsk, balanced,      <&mo>, <&sk>)        // lsk: layer if held, one-shot kp if pressed
 		HOLDTAP(lsl, balanced,      <&mo>, <&sl>)        // lsl: layer if held, one-shot layer if pressed
+		HOLDTAP(hmlaqu, tap-preferred,   <&kp>, <&m_qu>)
+		&hm LALT
 		//HOLDTAP(s20, balanced,      <&mo>, <&m_twe2_osshift>)        // s20: layer if held, one-shot shift + alpha2 if pressed
 		
 		HRMOD_POS(hml, 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33)
@@ -258,6 +260,7 @@
 		#define HMLC  &hm LCTRL
 		#define HMRC  &hm RCTRL
 		#define HMLA  &hm LALT
+		#define HMLA_QU  &hmlaqu LALT 0
 		#define HMRA  &hm RALT
 		#define HMLG  &hm LGUI
 		#define HMRG  &hm RGUI
@@ -372,7 +375,7 @@
 		twenty_layer_two {
 			bindings = <
 				___ ___ ___ ___ ___ ___ ___ ___ ___ ___
-				HMRA J_		HMLA Q_		HMLC B_		HMLS EACT_		___	___		HMRS F_		HMRC M_		HMRA X_		HMRG P_
+				HMRA J_		HMLA_QU		HMLC B_		HMLS EACT_		___	___		HMRS F_		HMRC M_		HMRA X_		HMRG P_
 				&kp  Q_		HMLC Z_		&kp  K_		&kp DOT_		___	___		&kp  G_		&kp  V_		&kp  W_		&kp  Y_
 															TWETH1	THLH2	TWETH3	THRH1
 			>;
