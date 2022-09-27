@@ -16,16 +16,16 @@
 
 /* LAYERS */
 #define BASE 0
-#define CAPL 2
-#define TWEN 3
-#define TWE2 4
-#define TWEA 5
-#define GAME 6
-#define SYM  7
-#define ACNT 8
-#define NUM  9
-#define NAV  10
-#define FUNC 11
+#define CAPL 1
+#define TWEN 2
+#define TWE2 3
+#define TWEA 4
+#define GAME 5
+#define SYM  6
+#define ACNT 7
+#define NUM  8
+#define NAV  9
+#define FUNC 10
 
 &lt {
 	tapping-term-ms = <LT_TAPPING_TERM>;
