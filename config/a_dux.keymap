@@ -283,8 +283,10 @@
 		#define THRH2	&lsl ACNT ACNT
 		#define THRH1	&lt NAV SPACE
 		
-		#define TWETH1	&lsl TWE2 TWE2
-		#define TWETH3	&lsl TWEA TWEA
+		#define TH20LH1	&lsl TWE2 TWE2
+		#define TH20LH2	&lsl NUM SYM
+		#define TH20RH1	&lt NAV SPACE
+		#define TH20RH2	&lsl TWEA TWEA
 		
 		#define ___ &none
 		
@@ -311,7 +313,7 @@
 				&tog TWEN ___ ___ ___ ___ ___ ___ ___ ___ ___
 				HMRA N_		HMLA U_		HMLC A_		HMLS E_			___	___		HMRS T_		HMRC R_		HMRA S_		HMRG I_
 				&kp  MIN_	HMLC C_		&kp  APST_	&kp O_			___	___		&kp  D_		&kp  H_		&kp  L_		&kp  COMM_
-															TWETH1	THLH2	TWETH3	THRH1
+															TH20LH1	TH20LH2	TH20RH2	TH20RH1
 			>;
 		};
 		
@@ -320,7 +322,7 @@
 				___ ___ ___ ___ ___ ___ ___ ___ ___ ___
 				HMRA J_		HMLA_QU		HMLC B_		HMLS EACT_		___	___		HMRS F_		HMRC M_		HMRA X_		HMRG P_
 				&kp  Q_		HMLC Z_		&kp  K_		&kp DOT_		___	___		&kp  G_		&kp  V_		&kp  W_		&kp  Y_
-															TWETH1	THLH2	TWETH3	THRH1
+															&trans	&trans	&trans	&trans
 			>;
 		};
 		
@@ -329,7 +331,7 @@
 				___ ___ ___ ___ ___ ___ ___ ___ ___ ___
 				&m_TILD_N_	&m_ACUT_U_	&m_ACUT_A_	&m_CFLX_E_		___	___		HMRS LPAR_	HMRC RPAR_	&kp CRAT_	&m_ACUT_I_
 				&m_GRAV_E_	&kp CCED_	&kp AGRV_	&m_ACUT_O_		___	___		&kp GRAV_	&kp TILD_	&kp TRMA_	EXCL_QMRK
-															TWETH1	THLH2	TWETH3	THRH1
+															&trans	&trans	&trans	&trans
 			>;
 		};
 		
