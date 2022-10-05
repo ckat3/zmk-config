@@ -178,17 +178,17 @@
 	                   30 31 | 32 33
 	*/
 	
-		COMBO_KP(TAB,,    12 13)
-		COMBO_KP(ENTER,,  16 17)
+		COMBO_KP(TAB,, 12 13)
+		COMBO_KP(ENTER,, 16 17)
 		COMBO_KP(SPACE,l, 11 12 13)
 		COMBO_KP(SPACE,r, 16 17 18)
 		
 		COMBO_KP(BSPC,, 11 12)
-		COMBO_KP(DEL,,  21 22)
+		COMBO_KP(DEL,, 21 22)
 		COMBO(&kp LC(BSPC), 17 18, gslqgrnqsl)
-		COMBO(&kp LC(DEL),  27 28, rgsrnqsj)
+		COMBO(&kp LC(DEL), 27 28, rgsrnqsj)
 		
-		COMBO(&kp LC(Z_),  20 21, cdldljltsr)
+		COMBO(&kp LC(Z_), 20 21, cdldljltsr)
 		
 		COMBO(&lsk FUNC LSHIFT, 30 31, dljsdqsrt)
 		COMBO(&sk RSHIFT,       32 33, sqljqrjqsl)
@@ -210,12 +210,6 @@
 		COMBO_MACRO_LAYER(ae, 12 13, TWEN)
 		COMBO_MACRO_LAYER(ao, 12 23, TWEN)
 		COMBO_MACRO_LAYER(oe, 13 23, TWEN)
-		
-		// combo_ctrl_z {
-			// bindings = <&kp LC(Z_)>;
-			// key-positions = <20 21>;
-			// timeout-ms = <COMBO_TIMEOUT>;
-		// };
 		
 		combo_reset_left {
 			bindings = <&reset>;
@@ -292,46 +286,46 @@
 		
 		base_layer {
 			bindings = <
-				&kp  Q_		HMRA MIN_	&kp  Y_		&kp EACT_	EXCL_QMRK			&kp K_		&kp  C_		&kp  H_		&kp  W_		&kp  J_
+				&kp  Q_		HMRA MIN_	&kp  Y_		&kp DOT_	EXCL_QMRK			&kp K_		&kp  C_		&kp  H_		&kp  W_		&kp  J_
 				HMRG U_		HMLA O_		HMLC I_		HMLS A_		&kp F_				&kp G_		HMRS T_		HMRC R_		HMRA S_		HMRG N_
-				&kp  Z_		HMLC X_		&kp  P_		&kp COMM_	&kp DOT_			&kp V_		&kp  D_		&kp  M_		&kp  L_		&kp  B_
+				&kp  Z_		HMLC EACT_	&kp  P_		&kp COMM_	&kp X_				&kp V_		&kp  D_		&kp  M_		&kp  L_		&kp  B_
 													THLH1		THLH2				THRH2		THRH1
 			>;
 		};
 		
 		caps_layer {
 			bindings = <
-				&kp  LS(Q_)		&trans			&kp  LS(Y_)	 &kp LS(EACT_) &trans				&kp LS(K_)		&kp  LS(C_)		&kp  LS(H_)		&kp  LS(W_)		&kp  LS(J_)
+				&kp  LS(Q_)		&trans			&kp  LS(Y_)	 &kp DOT_	   &trans				&kp LS(K_)		&kp  LS(C_)		&kp  LS(H_)		&kp  LS(W_)		&kp  LS(J_)
 				HMRG LS(U_)		HMLA LS(O_)		HMLC LS(I_)	 HMLS LS(A_)   &kp LS(F_)			&kp LS(G_)		HMRS LS(T_)		HMRC LS(R_)		HMRA LS(S_)		HMRG LS(N_)
-				&kp  LS(Z_)		HMLC LS(X_)		&kp  LS(P_)	 &trans		   &trans				&kp LS(V_)		&kp  LS(D_)		&kp  LS(M_)		&kp  LS(L_)		&kp  LS(B_)
-														     THLH1S	   THLH2				THRH2			THRH1
+				&kp  LS(Z_)		HMLC LS(EACT_)	&kp  LS(P_)	 &trans		   &trans				&kp LS(V_)		&kp  LS(D_)		&kp  LS(M_)		&kp  LS(L_)		&kp  LS(B_)
+														     THLH1S	  	   THLH2				THRH2			THRH1
 			>;
 		};
 		
 		twenty_layer {
 			bindings = <
 				&tog TWEN ___ ___ ___ ___ ___ ___ ___ ___ ___
-				HMRA N_		HMLA U_		HMLC A_		HMLS E_			___	___		HMRS T_		HMRC R_		HMRA S_		HMRG I_
-				&kp  MIN_	HMLC C_		&kp  APST_	&kp O_			___	___		&kp  D_		&kp  H_		&kp  L_		&kp  COMM_
-															TH20LH1	TH20LH2	TH20RH2	TH20RH1
+				HMRA N_		HMLA U_		HMLC A_		HMLS E_			___	___			HMRS T_		HMRC R_		HMRA S_		HMRG I_
+				&kp  MIN_	HMLC C_		&kp  APST_	&kp O_			___	___			&kp  D_		&kp  H_		&kp  L_		&kp  COMM_
+														TH20LH1	TH20LH2	TH20RH2	TH20RH1
 			>;
 		};
 		
 		twenty_layer_two {
 			bindings = <
 				___ ___ ___ ___ ___ ___ ___ ___ ___ ___
-				HMRA J_		HMLA_QU		HMLC B_		HMLS EACT_		___	___		HMRS F_		HMRC M_		HMRA X_		HMRG P_
-				&kp  Q_		HMLC Z_		&kp  K_		&kp DOT_		___	___		&kp  G_		&kp  V_		&kp  W_		&kp  Y_
-															&trans	&trans	&trans	&trans
+				HMRA J_		HMLA_QU		HMLC B_		HMLS EACT_		___	___			HMRS F_		HMRC M_		HMRA X_		HMRG P_
+				&kp  Q_		HMLC Z_		&kp  K_		&kp DOT_		___	___			&kp  G_		&kp  V_		&kp  W_		&kp  Y_
+														&trans	 &trans	&trans	&trans
 			>;
 		};
 		
 		twenty_layer_accents {
 			bindings = <
 				___ ___ ___ ___ ___ ___ ___ ___ ___ ___
-				&m_TILD_N_	&m_ACUT_U_	&m_ACUT_A_	&m_CFLX_E_		___	___		HMRS LPAR_	HMRC RPAR_	&kp CRAT_	&m_ACUT_I_
-				&m_GRAV_E_	&kp CCED_	&kp AGRV_	&m_ACUT_O_		___	___		&kp GRAV_	&kp TILD_	&kp TRMA_	EXCL_QMRK
-															&trans	&trans	&trans	&trans
+				&m_TILD_N_	&m_ACUT_U_	&m_ACUT_A_	&m_CFLX_E_		___	___			HMRS LPAR_	HMRC RPAR_	&kp CRAT_	&m_ACUT_I_
+				&m_GRAV_E_	&kp CCED_	&kp AGRV_	&m_ACUT_O_		___	___			&kp GRAV_	&kp TILD_	&kp TRMA_	EXCL_QMRK
+														&trans	 &trans	&trans	&trans
 			>;
 		};
 		
@@ -346,10 +340,10 @@
 		
 		sym_layer {
 			bindings = <
-				___			&kp AT_		&kp AMPR_	&kp OE_		&kp AE_			___		MTCASH		&kp HASH_	&kp PCNT_	&kp PIPE_
-				HMRG LCRL_	HMLA RCRL_	HMLC LPAR_	HMLS RPAR_	&kp MDSH_		___		HMRS LBRK_	HMRC RBRK_	HMLA MDSH_	HMRG NDSH_
-				&kp NDSH_	&kp MDSH_	&kp LGLM_	&kp RGLM_	___				___		&kp LT_		&kp GT_		&kp EQUL_	___
-													THLH1		&trans			&trans		&trans
+				___			&kp AT_		&kp AMPR_	&kp OE_		&kp AE_				___			MTCASH		&kp HASH_	&kp PCNT_	&kp PIPE_
+				HMRG LCRL_	HMLA RCRL_	HMLC LPAR_	HMLS RPAR_	&kp MDSH_			___			HMRS LBRK_	HMRC RBRK_	HMLA MDSH_	HMRG NDSH_
+				&kp NDSH_	&kp MDSH_	&kp LGLM_	&kp RGLM_	___					___			&kp LT_		&kp GT_		&kp EQUL_	___
+													THLH1		&trans				&trans		&trans
 			>;
 		};
 		
@@ -364,19 +358,19 @@
 		
 		num_layer {
 			bindings = <
-				___			&kp N9_		&kp N8_		&kp N7_		___					___		MTCASH		&kp HASH_	&kp PCNT_	&kp PIPE_
-				&kp N0_		&kp N3_		&kp N2_		&kp	N1_		&kp DOT_			___		HMRS PLUS_	HMRC MIN_	HMLA STAR_	HMRG FSLA_
-				___			&kp N6_		&kp N5_		&kp	N4_		&kp COMM_			___		&kp LT_		&kp GT_		&kp EQUL_	&kp BSLA_
+				___			&kp N9_		&kp N8_		&kp N7_		___					___			MTCASH		&kp HASH_	&kp PCNT_	&kp PIPE_
+				&kp N0_		&kp N3_		&kp N2_		&kp	N1_		&kp DOT_			___			HMRS PLUS_	HMRC MIN_	HMLA STAR_	HMRG FSLA_
+				___			&kp N6_		&kp N5_		&kp	N4_		&kp COMM_			___			&kp LT_		&kp GT_		&kp EQUL_	&kp BSLA_
 													&trans		&trans				&kp ULIN_	&trans
 			>;
 		};
 		
 		nav_layer {
 			bindings = <
-				&kp INSERT	&sk RALT	&kp PSCRN	&kp PSBRK	___				___		&kp LC(HOME)	&kp PG_UP	&kp PG_DN	&kp LC(END)
-				&sk LGUI	&sk LALT	&sk LCTRL	&sk LSHIFT	___				___		&kp LC(LEFT)	&kp DOWN	&kp UP		&kp LC(RIGHT)
-				&kp LC(Z_)	&kp LC(X_)	&kp LC(C_)	&kp LC(V_)	___				___		&kp HOME		&kp LEFT	&kp RIGHT	&kp END
-													&kp ULIN_	&trans			&trans		&trans
+				&kp INSERT	&sk RALT	&kp PSCRN	&kp PSBRK	___					___			&kp LC(HOME)	&kp PG_UP	&kp PG_DN	&kp LC(END)
+				&sk LGUI	&sk LALT	&sk LCTRL	&sk LSHIFT	___					___			&kp LC(LEFT)	&kp DOWN	&kp UP		&kp LC(RIGHT)
+				&kp LC(Z_)	&kp LC(X_)	&kp LC(C_)	&kp LC(V_)	___					___			&kp HOME		&kp LEFT	&kp RIGHT	&kp END
+													&kp ULIN_	&trans				&trans		&trans
 			>;
 		};
 		
