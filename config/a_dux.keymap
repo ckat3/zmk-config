@@ -6,9 +6,11 @@
 #include "bepo_bindings.h"
 
 /* SETTINGS */
-#define MACRO_WAIT 30 /* max 10 */
-#define MACRO_TAP_DELAY 15 /* max 10 */
-#define COMBO_TIMEOUT 20 /* min 15 */
+#define MACRO_WAIT 10 /* max 30 */
+#define MACRO_TAP_DELAY 10 /* max 15 */
+
+#define COMBO_TIMEOUT 20 /* min 20 */
+
 #define HT_TAPPING_TERM 250
 #define HT_QUICK_TAP 200
 #define LT_TAPPING_TERM 250
@@ -115,7 +117,6 @@
 		MACRO_SIMPLE(B_, J_)
 		
 		MACRO(qu, <&macro_tap &kp Q_ &kp U_>)
-		MACRO(bj, <&macro_tap &kp B_ &kp J_>)
 		MACRO(ae, <&macro_tap &kp TILD_ &kp A_ &kp E_>)
 		MACRO(ao, <&macro_tap &kp TILD_ &kp A_ &kp O_>)
 		MACRO(oe, <&macro_tap &kp TILD_ &kp O_ &kp E_>)
@@ -197,7 +198,6 @@
 		COMBO_KP(CAPS,, 15 19)
 		
 		COMBO_MACRO_LAYER(qu, 26 27, BASE)
-		COMBO_MACRO_LAYER(bj, 28 29, BASE)
 		COMBO_MACRO_LAYER(ae, 13 30, BASE)
 		COMBO_MACRO_LAYER(ao, 13 11, BASE)
 		COMBO_MACRO_LAYER(oe, 11 30, BASE)
@@ -358,9 +358,9 @@
 		
 		num_layer {
 			bindings = <
-				___			&kp N9_		&kp N8_		&kp N7_		___					___			MTCASH		&kp HASH_	&kp PCNT_	&kp PIPE_
-				&kp N0_		&kp N3_		&kp N2_		&kp	N1_		&kp DOT_			___			HMRS PLUS_	HMRC MIN_	HMLA STAR_	HMRG FSLA_
-				___			&kp N6_		&kp N5_		&kp	N4_		&kp COMM_			___			&kp LT_		&kp GT_		&kp EQUL_	&kp BSLA_
+				___			&kp N7_		&kp N8_		&kp N9_		___					___			MTCASH		&kp HASH_	&kp PCNT_	&kp PIPE_
+				&kp N0_		&kp N1_		&kp N2_		&kp	N3_		&kp DOT_			___			HMRS PLUS_	HMRC MIN_	HMLA STAR_	HMRG FSLA_
+				___			&kp N4_		&kp N5_		&kp	N6_		&kp COMM_			___			&kp LT_		&kp GT_		&kp EQUL_	&kp BSLA_
 													&trans		&trans				&kp ULIN_	&trans
 			>;
 		};
