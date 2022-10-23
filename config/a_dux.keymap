@@ -304,8 +304,8 @@
 		
 		twenty_layer {
 			bindings = <
-				HMRA U_		___ ___ ___ ___ ___ ___ ___ ___																&kp P_
-				&kp  COMM_	HMLA A_		HMLC N_		HMLS E_			___	___			HMRS S_		HMRC T_		HMRA R_		&kp I_
+				HMRA U_		___ 		___ 		___ 			___ ___ 		___ 		___ 		___			&kp I_
+				&kp  COMM_	HMLA A_		HMLC N_		HMLS E_			___	___			HMRS S_		HMRC T_		HMRA R_		&kp P_
 				&tog TWEN 	HMLC F_		&kp L_		&kp O_			___	___			&kp  M_		&kp  D_		&kp  H_		___
 														TH20LH1	TH20LH2	TH20RH2	TH20RH1
 			>;
@@ -313,7 +313,7 @@
 		
 		twenty_layer_two {
 			bindings = <
-				&kp Q_ ___ ___ ___ ___ ___ ___ ___ ___ 																	&kp Y_
+				&kp Q_ 		___ 		___ 		___ 			___ ___ 		___ 		___ 		___ 		&kp Y_
 				HMRA DOT_	HMLA K_		HMLC V_		HMLS EACT_		___	___			HMRS C_		HMRC B_		HMRA APST_	HMRG Z_
 				___			HMLC MIN_	&kp  J_		&kp Q_			___	___			&kp  W_		&kp  G_		&kp  X_		___
 														&trans	 &trans	&trans	&trans
@@ -322,9 +322,9 @@
 		
 		twenty_layer_accents {
 			bindings = <
-				&m_ACUT_U_ ___ ___ ___ ___ ___ ___ ___ ___ 																___
-				&kp LPAR_	&m_ACUT_A_	&kp CRAT_	&kp QUOT_		___	___			HMRS CCED_	HMRC TRMA_	MTCASH		&kp TILD_
-				___			&kp RPAR_	&kp GRAV_	&m_ACUT_O_		___	___			&kp LGLM_	&kp RGLM_	&kp AT_		EXCL_QMRK
+				&m_ACUT_U_	___ 		___ 		___ 			___ ___ 		___ 		___ 		___ 		&kp TILD_
+				&kp LPAR_	&m_ACUT_A_	&kp CRAT_	&kp QUOT_		___	___			HMRS CCED_	HMRC TRMA_	MTCASH		EXCL_QMRK
+				___			&kp RPAR_	&kp GRAV_	&m_ACUT_O_		___	___			&kp LGLM_	&kp RGLM_	&kp AT_		___
 														&trans	 &trans	&trans	&trans
 			>;
 		};
@@ -332,8 +332,8 @@
 		game_layer {
 			bindings = <
 				&kp ESC_	&kp  F_		&kp  W_		&kp  E_		&kp T_				&kp Y_		&kp  U_		&kp  I_		&kp  O_		&kp  P_
-				&kp LSHIFT	&kp  A_		&kp  W_		&kp  D_		&kp R_				&kp H_		&kp  J_		&kp  K_		&kp  L_		&kp  N_
-				&kp LCTRL	&kp  C_		&kp  S_		&kp  V_		&kp B_				&kp N_		&kp  M_		&kp  COMM_	&kp  DOT_	&kp  BSPC
+				&kp LSHIFT	&kp  A_		&kp  S_		&kp  D_		&kp R_				&kp H_		&kp  J_		&kp  K_		&kp  L_		&kp  N_
+				&kp LCTRL	&kp  Z_		&kp  X_		&kp  C_		&kp V_				&kp N_		&kp  M_		&kp  COMM_	&kp  DOT_	&kp  BSPC
 													&kp SPACE	&kp TAB				&kp LALT	&kp SPACE
 			>;
 		};
