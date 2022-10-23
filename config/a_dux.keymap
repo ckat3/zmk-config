@@ -297,43 +297,43 @@
 			bindings = <
 				&kp  LS(Q_)		&trans			&kp  LS(Y_)	 &kp DOT_	   &trans				&kp LS(K_)		&kp  LS(C_)		&kp  LS(H_)		&kp  LS(W_)		&kp  LS(J_)
 				HMRG LS(U_)		HMLA LS(O_)		HMLC LS(I_)	 HMLS LS(A_)   &kp LS(F_)			&kp LS(G_)		HMRS LS(T_)		HMRC LS(R_)		HMRA LS(S_)		HMRG LS(N_)
-				&kp  LS(Z_)		HMLC LS(EACT_)	&kp  LS(P_)	 &trans		   &trans				&kp LS(V_)		&kp  LS(D_)		&kp  LS(M_)		&kp  LS(L_)		&kp  LS(B_)
+				&kp  LS(Z_)		HMLC LS(EACT_)	&kp  LS(P_)	 &trans		   &kp LS(X_)			&kp LS(V_)		&kp  LS(D_)		&kp  LS(M_)		&kp  LS(L_)		&kp  LS(B_)
 														     THLH1S	  	   THLH2				THRH2			THRH1
 			>;
 		};
 		
 		twenty_layer {
 			bindings = <
-				&tog TWEN ___ ___ ___ ___ ___ ___ ___ ___ ___
-				HMRA N_		HMLA U_		HMLC A_		HMLS E_			___	___			HMRS T_		HMRC R_		HMRA S_		HMRG I_
-				&kp  MIN_	HMLC C_		&kp  APST_	&kp O_			___	___			&kp  D_		&kp  H_		&kp  L_		&kp  COMM_
+				HMRA U_		___ ___ ___ ___ ___ ___ ___ ___																&kp P_
+				&kp  COMM_	HMLA A_		HMLC N_		HMLS E_			___	___			HMRS S_		HMRC T_		HMRA R_		&kp I_
+				&tog TWEN 	HMLC F_		&kp L_		&kp O_			___	___			&kp  M_		&kp  D_		&kp  H_		___
 														TH20LH1	TH20LH2	TH20RH2	TH20RH1
 			>;
 		};
 		
 		twenty_layer_two {
 			bindings = <
-				___ ___ ___ ___ ___ ___ ___ ___ ___ ___
-				HMRA J_		HMLA_QU		HMLC B_		HMLS EACT_		___	___			HMRS F_		HMRC M_		HMRA X_		HMRG P_
-				&kp  Q_		HMLC Z_		&kp  K_		&kp DOT_		___	___			&kp  G_		&kp  V_		&kp  W_		&kp  Y_
+				&kp Q_ ___ ___ ___ ___ ___ ___ ___ ___ 																	&kp Y_
+				HMRA DOT_	HMLA K_		HMLC V_		HMLS EACT_		___	___			HMRS C_		HMRC B_		HMRA APST_	HMRG Z_
+				___			HMLC MIN_	&kp  J_		&kp Q_			___	___			&kp  W_		&kp  G_		&kp  X_		___
 														&trans	 &trans	&trans	&trans
 			>;
 		};
 		
 		twenty_layer_accents {
 			bindings = <
-				___ ___ ___ ___ ___ ___ ___ ___ ___ ___
-				&m_TILD_N_	&m_ACUT_U_	&m_ACUT_A_	&m_CFLX_E_		___	___			HMRS LPAR_	HMRC RPAR_	&kp CRAT_	&m_ACUT_I_
-				&m_GRAV_E_	&kp CCED_	&kp AGRV_	&m_ACUT_O_		___	___			&kp GRAV_	&kp TILD_	&kp TRMA_	EXCL_QMRK
+				&m_ACUT_U_ ___ ___ ___ ___ ___ ___ ___ ___ 																___
+				&kp LPAR_	&m_ACUT_A_	&kp CRAT_	&kp QUOT_		___	___			HMRS CCED_	HMRC TRMA_	MTCASH		&kp TILD_
+				___			&kp RPAR_	&kp GRAV_	&m_ACUT_O_		___	___			&kp LGLM_	&kp RGLM_	&kp AT_		EXCL_QMRK
 														&trans	 &trans	&trans	&trans
 			>;
 		};
 		
 		game_layer {
 			bindings = <
-				&kp Q_		&kp  F_		&kp  G_		&kp  E_		&kp T_				&kp Y_		&kp  U_		&kp  I_		&kp  O_		&kp  P_
+				&kp ESC_	&kp  F_		&kp  W_		&kp  E_		&kp T_				&kp Y_		&kp  U_		&kp  I_		&kp  O_		&kp  P_
 				&kp LSHIFT	&kp  A_		&kp  W_		&kp  D_		&kp R_				&kp H_		&kp  J_		&kp  K_		&kp  L_		&kp  N_
-				&kp LCTRL	&kp  X_		&kp  S_		&kp  V_		&kp B_				&kp N_		&kp  M_		&kp  L_		&kp  COMM_	&kp  DOT_	
+				&kp LCTRL	&kp  C_		&kp  S_		&kp  V_		&kp B_				&kp N_		&kp  M_		&kp  COMM_	&kp  DOT_	&kp  BSPC
 													&kp SPACE	&kp TAB				&kp LALT	&kp SPACE
 			>;
 		};
