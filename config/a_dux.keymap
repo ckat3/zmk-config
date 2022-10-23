@@ -331,7 +331,7 @@
 		
 		game_layer {
 			bindings = <
-				&kp ESC_	&kp  F_		&kp  W_		&kp  E_		&kp T_				&kp Y_		&kp  U_		&kp  I_		&kp  O_		&kp  P_
+				&kp ESC		&kp  F_		&kp  W_		&kp  E_		&kp T_				&kp Y_		&kp  U_		&kp  I_		&kp  O_		&kp  P_
 				&kp LSHIFT	&kp  A_		&kp  S_		&kp  D_		&kp R_				&kp H_		&kp  J_		&kp  K_		&kp  L_		&kp  N_
 				&kp LCTRL	&kp  Z_		&kp  X_		&kp  C_		&kp V_				&kp N_		&kp  M_		&kp  COMM_	&kp  DOT_	&kp  BSPC
 													&kp SPACE	&kp TAB				&kp LALT	&kp SPACE
