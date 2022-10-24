@@ -207,8 +207,8 @@
 		COMBO_MACRO_LAYER(shift_ao,, 13 11, CAPL)
 		COMBO_MACRO_LAYER(shift_oe,, 11 30, CAPL)
 		
-		COMBO_MACRO_LAYER(ae,twen, 12 13, TWEN)
-		COMBO_MACRO_LAYER(ao,twen, 12 23, TWEN)
+		COMBO_MACRO_LAYER(ae,twen, 11 13, TWEN)
+		COMBO_MACRO_LAYER(ao,twen, 11 23, TWEN)
 		COMBO_MACRO_LAYER(oe,twen, 13 23, TWEN)
 		
 		combo_reset_left {
@@ -255,10 +255,10 @@
 		#define HMLC  &hm LCTRL
 		#define HMRC  &hm RCTRL
 		#define HMLA  &hm LALT
-		#define HMLA_QU  &hm_qu LALT 0
 		#define HMRA  &hm RALT
 		#define HMLG  &hm LGUI
 		#define HMRG  &hm RGUI
+		#define HMLG_QU  &hm_qu LGUI 0
 		
 		#define EXCL_QMRK	&mt EXCL_ QMRK_
 		
@@ -302,32 +302,41 @@
 			>;
 		};
 		
+		
+		
+		
+		
 		twenty_layer {
 			bindings = <
-				HMRA U_		___ 		___ 		___ 			___ ___ 		___ 		___ 		___			&kp I_
-				&kp  COMM_	HMLA A_		HMLC N_		HMLS E_			___	___			HMRS S_		HMRC T_		HMRA R_		&kp P_
-				&tog TWEN 	HMLC F_		&kp L_		&kp O_			___	___			&kp  M_		&kp  D_		&kp  H_		___
+				HMLG U_		___ 		___ 		___ 			___ ___ 		___ 		___ 		___			&kp I_
+				&kp  F_		HMLA A_		HMLC N_		HMLS E_			___	___			HMRS S_		HMRC T_		HMRA R_		&kp P_
+				___		 	HMRA COMM_	&kp  L_		&kp  O_			___	___		 	&kp  M_		&kp  D_		&kp  H_		___
 														TH20LH1	TH20LH2	TH20RH2	TH20RH1
 			>;
 		};
 		
 		twenty_layer_two {
 			bindings = <
-				&kp Q_ 		___ 		___ 		___ 			___ ___ 		___ 		___ 		___ 		&kp Y_
+				HMLG_QU		___ 		___ 		___ 			___ ___ 		___ 		___ 		___ 		&kp Y_
 				HMRA DOT_	HMLA K_		HMLC V_		HMLS EACT_		___	___			HMRS C_		HMRC B_		HMRA APST_	HMRG Z_
-				___			HMLC MIN_	&kp  J_		&kp Q_			___	___			&kp  W_		&kp  G_		&kp  X_		___
+				___			HMLC MIN_	&kp  J_		&kp  Q_	  &tog TWEN ___			&kp  W_		&kp  G_		&kp  X_		___
 														&trans	 &trans	&trans	&trans
 			>;
 		};
 		
 		twenty_layer_accents {
 			bindings = <
-				&m_ACUT_U_	___ 		___ 		___ 			___ ___ 		___ 		___ 		___ 		&kp TILD_
-				&kp LPAR_	&m_ACUT_A_	&kp CRAT_	&kp QUOT_		___	___			HMRS CCED_	HMRC TRMA_	MTCASH		EXCL_QMRK
-				___			&kp RPAR_	&kp GRAV_	&m_ACUT_O_		___	___			&kp LGLM_	&kp RGLM_	&kp AT_		___
+				&m_ACUT_U_	___ 		___ 		___ 			___ ___ 		___ 		___ 		___ 		&m_ACUT_I_
+				&kp LPAR_	&m_ACUT_A_	&kp CFLX_	&kp QUOT_		___	___			HMRS CCED_	HMRC TRMA_	MTCASH		EXCL_QMRK
+				___			&kp RPAR_	&kp GRAV_	&m_ACUT_O_		___	___			&kp LGLM_	&kp RGLM_	TILD_		___
 														&trans	 &trans	&trans	&trans
 			>;
 		};
+		
+		
+		
+		
+		
 		
 		game_layer {
 			bindings = <
