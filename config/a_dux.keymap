@@ -6,10 +6,10 @@
 #include "bepo_bindings.h"
 
 /* SETTINGS */
-#define MACRO_WAIT 10 /* max 30 */
-#define MACRO_TAP_DELAY 10 /* max 15 */
+#define MACRO_WAIT 5 /* good 10 */
+#define MACRO_TAP_DELAY 5 /* good 10 */
 
-#define COMBO_TIMEOUT 20 /* min 20 */
+#define COMBO_TIMEOUT 20 /* good 20 */
 
 #define HT_TAPPING_TERM 250
 #define HT_QUICK_TAP 200
@@ -22,7 +22,7 @@
 #define TWEN 2
 #define TWE2 3
 #define TWEA 4
-#define  5
+#define TWENAV 5
 #define GAME 6
 #define SYM  7
 #define ACNT 8
@@ -414,4 +414,4 @@
 			>;
 		*/
 	};
-};	
+};
