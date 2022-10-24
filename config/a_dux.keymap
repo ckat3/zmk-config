@@ -17,18 +17,18 @@
 #define STICKY_KEY_RELEASE_DELAY 2000 /* min 1000 */
 
 /* LAYERS */
-#define BASE 0
-#define CAPL 1
-#define TWEN 2
-#define TWE2 3
-#define TWEA 4
+#define BASE   0
+#define CAPL   1
+#define TWEN   2
+#define TWE2   3
+#define TWEA   4
 #define TWENAV 5
-#define GAME 6
-#define SYM  7
-#define ACNT 8
-#define NUM  9
-#define NAV  10
-#define FUNC 11
+#define GAME   6
+#define SYM    7
+#define ACNT   8
+#define NUM    9
+#define NAV    10
+#define FUNC   11
 
 #define NOT_TWENTY BASE CAPL GAME SYM ACNT NUM NAV FUNC
 #define TWENTY_LAYERS TWEN TWE2 TWEA TWENAV
@@ -157,7 +157,7 @@
 				bindings = <&kp KEY>; \
 			};
 			
-		#define COMBO_KP_LAYER(KEY, POSITIONS, LAYERS) \
+		#define COMBO_KP_LAYER(KEY, SUFFIX, POSITIONS, LAYERS) \
 			COMBO_HEADER(KEY, POSITIONS) \
 				bindings = <&kp KEY>; \
 				layers = <LAYERS>; \
