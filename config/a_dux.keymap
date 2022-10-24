@@ -328,7 +328,7 @@
 			bindings = <
 				&m_ACUT_U_	___ 		___ 		___ 			___ ___ 		___ 		___ 		___ 		&m_ACUT_I_
 				&kp LPAR_	&m_ACUT_A_	&kp CFLX_	&kp QUOT_		___	___			HMRS CCED_	HMRC TRMA_	MTCASH		EXCL_QMRK
-				___			&kp RPAR_	&kp GRAV_	&m_ACUT_O_		___	___			&kp LGLM_	&kp RGLM_	TILD_		___
+				___			&kp RPAR_	&kp GRAV_	&m_ACUT_O_		___	___			&kp LGLM_	&kp RGLM_	&kp TILD_	___
 														&trans	 &trans	&trans	&trans
 			>;
 		};
