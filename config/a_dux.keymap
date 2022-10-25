@@ -17,18 +17,18 @@
 #define STICKY_KEY_RELEASE_DELAY 2000 /* min 1000 */
 
 /* LAYERS */
-#define BASE   0
-#define CAPL   1
-#define TWEN   2
-#define TWE2   3
-#define TWEA   4
+#define BASE 0
+#define CAPL 1
+#define TWEN 2
+#define TWE2 3
+#define TWEA 4
 #define TWENAV 5
-#define GAME   6
-#define SYM    7
-#define ACNT   8
-#define NUM    9
-#define NAV    10
-#define FUNC   11
+#define GAME 6
+#define SYM 7
+#define ACNT 8
+#define NUM 9
+#define NAV 10
+#define FUNC 11
 
 #define NOT_TWENTY BASE CAPL GAME SYM ACNT NUM NAV FUNC
 #define TWENTY_LAYERS TWEN TWE2 TWEA TWENAV
@@ -158,7 +158,7 @@
 			};
 			
 		#define COMBO_KP_LAYER(KEY, SUFFIX, POSITIONS, LAYERS) \
-			COMBO_HEADER(KEY, POSITIONS) \
+			COMBO_HEADER(KEY##SUFFIX, POSITIONS) \
 				bindings = <&kp KEY>; \
 				layers = <LAYERS>; \
 			};
@@ -198,10 +198,10 @@
 		COMBO(&lsk FUNC LSHIFT, 30 31, dljsdqsrt)
 		COMBO(&sk RSHIFT,       32 33, sqljqrjqsl)
 		
-		COMBO_KP_LAYER(ESC,, 	 10 11,  NOT_TWENTY)
-		COMBO_KP_LAYER(ESC,twen,  0 11,  TWENTY_LAYERS)
-		COMBO_KP_LAYER(CAPS,,	  15 19, NOT_TWENTY)
-		COMBO_KP_LAYER(CAPS,twen, 15  9, TWENTY_LAYERS)
+		COMBO_KP_LAYER(ESC,, 	 10 11,  BASE CAPL GAME SYM ACNT NUM NAV FUNC)
+		COMBO_KP_LAYER(ESC,twen,  0 11,  TWEN TWE2 TWEA TWENAV)
+		COMBO_KP_LAYER(CAPS,,	  15 19, BASE CAPL GAME SYM ACNT NUM NAV FUNC)
+		COMBO_KP_LAYER(CAPS,twen, 15  9, TWEN TWE2 TWEA TWENAV)
 		
 		COMBO_MACRO_LAYER(qu,, 26 27, BASE)
 		COMBO_MACRO_LAYER(ae,, 13 30, BASE)
