@@ -324,8 +324,8 @@
 		twenty_layer_two {
 			bindings = <
 				HMLG_QU		___ 		___ 		___ 			___ ___ 		___ 		___ 		___ 		&kp Y_
-				HMRA MIN_	HMLA K_		HMLC V_		HMLS EACT_		___	___			HMRS C_		HMRC B_		HMRA APST_	HMRG Z_
-				___			HMLC DOT_	&kp  J_		&kp  Q_	  &tog TWEN ___			&kp  W_		&kp  G_		&kp  X_		___
+				HMRA MIN_	HMLA K_		HMLC V_		HMLS EACT_		___	___			HMRS C_		HMRC G_		HMRA APST_	HMRG Z_
+				___			HMLC DOT_	&kp  J_		&kp  Q_	  &tog TWEN ___			&kp  W_		&kp  B_		&kp  X_		___
 														&trans	 &trans	&trans	&trans
 			>;
 		};
@@ -333,17 +333,17 @@
 		twenty_layer_accents {
 			bindings = <
 				&m_ACUT_U_	___ 		___ 		___ 			___ ___ 		___ 		___ 		___ 		&m_ACUT_I_
-				&kp LPAR_	&m_ACUT_A_	&kp CFLX_	&kp QUOT_		___	___			HMRS CCED_	HMRC TRMA_	MTCASH		EXCL_QMRK
-				___			&kp RPAR_	&kp GRAV_	&m_ACUT_O_		___	___			&kp LGLM_	&kp RGLM_	&kp TILD_	___
+				&kp LPAR_	&m_ACUT_A_	HMLC CFLX_	HMLS TRMA_		___	___			HMRS CCED_	HMRC QUOT_	MTCASH		EXCL_QMRK
+				___			&kp RPAR_	&kp GRAV_	&m_ACUT_O_		___	___			&kp LGLM_	&kp  RGLM_	&kp TILD_	___
 														&trans	 &trans	&trans	&trans
 			>;
 		};
 		
 		twenty_layer_nav {
 			bindings = <
-				&kp INSERT		&sk RALT	&kp PSCRN	&kp PSBRK		___	___			___				___			___			&kp LC(RIGHT)
-				&kp LC(HOME)	&kp PG_DN	&kp PG_UP	&kp LC(END)		___	___			&kp LC(LEFT)	&kp DOWN	&kp UP		&kp END
-				&kp LC(Z_)		&kp LC(X_)	&kp LC(C_)	&kp LC(V_)		___	___			&kp HOME		&kp LEFT	&kp RIGHT	___
+				&kp LC(HOME) &sk RALT	&kp PSCRN	&kp PSBRK		___	___			___				___			___			&kp LC(RIGHT)
+				&kp LC(Z_)	 HMLA PG_DN	HMLC PG_UP	HMLS LC(END)	___	___			&kp LC(LEFT)	&kp DOWN	&kp UP		&kp END
+				___			 &kp LC(X_)	&kp LC(C_)	&kp LC(V_)		___	___			&kp HOME		&kp LEFT	&kp RIGHT	___
 														&kp ULIN_	&trans	&trans		&trans
 			>;
 		};
