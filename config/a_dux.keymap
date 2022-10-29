@@ -6,12 +6,12 @@
 #include "bepo_bindings.h"
 
 /* SETTINGS */
-#define MACRO_WAIT 5 /* good 10 */
-#define MACRO_TAP_DELAY 5 /* good 10 */
+#define MACRO_WAIT 3 /* good 5 */
+#define MACRO_TAP_DELAY 3 /* good 5 */
 
-#define COMBO_TIMEOUT 20 /* good 20 */
+#define COMBO_TIMEOUT 15 /* max 20 */
 
-#define HT_TAPPING_TERM 250
+#define HT_TAPPING_TERM 300
 #define HT_QUICK_TAP 200
 #define LT_TAPPING_TERM 250
 #define STICKY_KEY_RELEASE_DELAY 2000 /* min 1000 */
