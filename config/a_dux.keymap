@@ -200,7 +200,7 @@
 		COMBO(&kp LC(Z_), 20 21, cdldljltsr)
 				
 		COMBO_LAYER(k34, &lsk FUNC LSHIFT, 30 31, NOT_TWENTY, dljsdqsrt)
-		COMBO_LAYER(k20, &osstwe2 FUNC LSHIFT, 30 31, TWENTY_LAYERS, eiueiueiu)
+		COMBO_LAYER(k20, &osstwe2 FUNC 0, 30 31, TWENTY_LAYERS, eiueiueiu)
 		COMBO(&sk RSHIFT,       32 33, sqljqrjqsl)
 		
 		COMBO_KP_LAYER(ESC,, 	  10 11, NOT_TWENTY)
