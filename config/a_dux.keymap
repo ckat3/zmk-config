@@ -70,8 +70,7 @@
 				hold-trigger-key-positions = <POSITIONS>; \
 			};
 			
-			
-		//HOLDTAP(lhs,      balanced,      <&mo>, <&tog>)       // lhs: layer if held, toggle if pressed
+		
 		HOLDTAP(hm,  tap-preferred, <&kp>, <&kp>)
 		HOLDTAP(lsk, balanced,      <&mo>, <&sk>)        // lsk: layer if held, one-shot kp if pressed
 		HOLDTAP(lsl, balanced,      <&mo>, <&sl>)        // lsl: layer if held, one-shot layer if pressed
@@ -81,7 +80,7 @@
 		HOLDTAP(hm_uact, tap-preferred,   <&kp>, <&m_ACUT_U_>)
 		HOLDTAP(hm_iact, tap-preferred,   <&kp>, <&m_ACUT_I_>)
 		
-		//HOLDTAP(s20, balanced,      <&mo>, <&m_twe2_osshift>)        // s20: layer if held, one-shot shift + alpha2 if pressed
+		HOLDTAP(osstwe2, balanced,      <&mo>, <&m_twe2_osshift>)        // s20: layer if held, one-shot shift + alpha2 if pressed
 		
 		HRMOD_POS(hml, 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33)
 		HRMOD_POS(hmr, 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31)
@@ -135,7 +134,7 @@
 		MACRO(shift_ao, <&macro_tap &kp TILD_>, <&macro_press &kp LSHFT>, <&macro_tap &kp A_ &kp O_>, <&macro_release &kp LSHFT>)
 		MACRO(shift_oe, <&macro_tap &kp TILD_>, <&macro_press &kp LSHFT>, <&macro_tap &kp O_ &kp E_>, <&macro_release &kp LSHFT>)
 		
-		MACRO(spc_capl, <&macro_tap &kp SPACE &tog CAPL>) // space then toggle caps layer
+		// MACRO(spc_capl, <&macro_tap &kp SPACE &tog CAPL>) // space then toggle caps layer
 		MACRO(twe2_osshift, <&macro_tap &tog TWE2 &sk LSHFT>)
 	};
 			  
@@ -152,7 +151,7 @@
 				bindings = <BINDINGS>; \
 			};
 		
-		#define COMBO_LAYER(BINDINGS, POSITIONS, LAYERS, NAME) \
+		#define COMBO_LAYER(SUFFIX, BINDINGS, POSITIONS, LAYERS, NAME) \
 			COMBO_HEADER(NAME, POSITIONS) \
 				bindings = <BINDINGS>; \
 			};
@@ -199,14 +198,15 @@
 		COMBO(&kp LC(DEL), 27 28, rgsrnqsj)
 		
 		COMBO(&kp LC(Z_), 20 21, cdldljltsr)
-		
-		COMBO(&lsk FUNC LSHIFT, 30 31, dljsdqsrt)
+				
+		COMBO_LAYER(k34, &lsk FUNC LSHIFT, 30 31, NOT_TWENTY, dljsdqsrt)
+		COMBO_LAYER(k20, &osstwe2 FUNC LSHIFT, 30 31, TWENTY_LAYERS, eiueiueiu)
 		COMBO(&sk RSHIFT,       32 33, sqljqrjqsl)
 		
-		COMBO_KP_LAYER(ESC,, 	 10 11,  BASE CAPL GAME SYM ACNT NUM NAV FUNC)
-		COMBO_KP_LAYER(ESC,twen,  0 11,  TWEN TWE2 TWEA TWENAV)
-		COMBO_KP_LAYER(CAPS,,	  15 19, BASE CAPL GAME SYM ACNT NUM NAV FUNC)
-		COMBO_KP_LAYER(CAPS,twen, 15  9, TWEN TWE2 TWEA TWENAV)
+		COMBO_KP_LAYER(ESC,, 	  10 11, NOT_TWENTY)
+		COMBO_KP_LAYER(ESC,twen,  0  11, TWENTY_LAYERS)
+		COMBO_KP_LAYER(CAPS,,	  15 19, NOT_TWENTY)
+		COMBO_KP_LAYER(CAPS,twen, 15 9,  TWENTY_LAYERS)
 		
 		COMBO_MACRO_LAYER(qu,, 26 27, BASE)
 		COMBO_MACRO_LAYER(ae,, 13 30, BASE)
