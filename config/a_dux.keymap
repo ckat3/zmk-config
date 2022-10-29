@@ -75,7 +75,12 @@
 		HOLDTAP(hm,  tap-preferred, <&kp>, <&kp>)
 		HOLDTAP(lsk, balanced,      <&mo>, <&sk>)        // lsk: layer if held, one-shot kp if pressed
 		HOLDTAP(lsl, balanced,      <&mo>, <&sl>)        // lsl: layer if held, one-shot layer if pressed
+		
 		HOLDTAP(hm_qu, tap-preferred,   <&kp>, <&m_qu>)
+		HOLDTAP(hm_aact, tap-preferred,   <&kp>, <&m_ACUT_A_>)
+		HOLDTAP(hm_uact, tap-preferred,   <&kp>, <&m_ACUT_U_>)
+		HOLDTAP(hm_iact, tap-preferred,   <&kp>, <&m_ACUT_I_>)
+		
 		//HOLDTAP(s20, balanced,      <&mo>, <&m_twe2_osshift>)        // s20: layer if held, one-shot shift + alpha2 if pressed
 		
 		HRMOD_POS(hml, 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33)
@@ -264,7 +269,11 @@
 		#define HMRA  &hm RALT
 		#define HMLG  &hm LGUI
 		#define HMRG  &hm RGUI
-		#define HMLG_QU  &hm_qu LGUI 0
+		
+		#define HMLG_QU		&hm_qu LGUI 0
+		#define HMRG_IACT	&hm_iact RGUI 0
+		#define HMLA_AACT	&hm_aact LALT 0
+		#define HMLG_UACT	&hm_uact LGUI 0
 		
 		#define EXCL_QMRK	&mt EXCL_ QMRK_
 		
@@ -314,17 +323,17 @@
 		
 		twenty_layer {
 			bindings = <
-				HMLG U_		___ 		___ 		___ 			___ ___ 		___ 		___ 		___			&kp I_
-				&kp  F_		HMLA A_		HMLC N_		HMLS E_			___	___			HMRS S_		HMRC T_		HMRA R_		&kp P_
-				___		 	HMRA COMM_	&kp  L_		&kp  O_			___	___		 	&kp  M_		&kp  D_		&kp  H_		___
+				HMLG U_		___ 		___ 		___ 			___ ___ 		___ 		___ 		___			HMRG I_
+				HMRA F_		HMLA A_		HMLC N_		HMLS E_			___	___			HMRS S_		HMRC T_		HMRA R_		&kp P_
+				___		 	HMLC COMM_	&kp  L_		&kp  O_			___	___		 	&kp  M_		&kp  D_		&kp  H_		___
 														TH20LH1	TH20LH2	TH20RH2	TH20RH1
 			>;
 		};
 		
 		twenty_layer_two {
 			bindings = <
-				HMLG_QU		___ 		___ 		___ 			___ ___ 		___ 		___ 		___ 		&kp Y_
-				HMRA MIN_	HMLA K_		HMLC V_		HMLS EACT_		___	___			HMRS C_		HMRC G_		HMRA APST_	HMRG Z_
+				HMLG_QU		___ 		___ 		___ 			___ ___ 		___ 		___ 		___ 		HMRG Y_
+				HMRA MIN_	HMLA K_		HMLC V_		HMLS EACT_		___	___			HMRS C_		HMRC G_		HMRA APST_	&kp Z_
 				___			HMLC DOT_	&kp  J_		&kp  Q_	  &tog TWEN ___			&kp  W_		&kp  B_		&kp  X_		___
 														&trans	 &trans	&trans	&trans
 			>;
@@ -332,8 +341,8 @@
 		
 		twenty_layer_accents {
 			bindings = <
-				&m_ACUT_U_	___ 		___ 		___ 			___ ___ 		___ 		___ 		___ 		&m_ACUT_I_
-				&kp LPAR_	&m_ACUT_A_	HMLC CFLX_	HMLS TRMA_		___	___			HMRS CCED_	HMRC QUOT_	MTCASH		EXCL_QMRK
+				HMLG_UACT	___ 		___ 		___ 			___ ___ 		___ 		___ 		___ 		HMRG_IACT
+				&kp LPAR_	HMLA_AACT	HMLC CFLX_	HMLS TRMA_		___	___			HMRS CCED_	HMRC QUOT_	MTCASH		EXCL_QMRK
 				___			&kp RPAR_	&kp GRAV_	&m_ACUT_O_		___	___			&kp LGLM_	&kp  RGLM_	&kp TILD_	___
 														&trans	 &trans	&trans	&trans
 			>;
@@ -341,8 +350,8 @@
 		
 		twenty_layer_nav {
 			bindings = <
-				&kp LC(HOME) &sk RALT	&kp PSCRN	&kp PSBRK		___	___			___				___			___			&kp LC(RIGHT)
-				&kp LC(Z_)	 HMLA PG_DN	HMLC PG_UP	HMLS LC(END)	___	___			&kp LC(LEFT)	&kp DOWN	&kp UP		&kp END
+				&kp LC(HOME) ___		___			___				___	___			___				___			___			HMRG LC(RIGHT)
+				&kp LC(Z_)	 HMLA PG_DN	HMLC PG_UP	HMLS LC(END)	___	___			HMRS LC(LEFT)	HMRC DOWN	HMRA UP		&kp END
 				___			 &kp LC(X_)	&kp LC(C_)	&kp LC(V_)		___	___			&kp HOME		&kp LEFT	&kp RIGHT	___
 														&kp ULIN_	&trans	&trans		&trans
 			>;
