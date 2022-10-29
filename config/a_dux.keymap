@@ -204,6 +204,11 @@
 		COMBO_LAYER(TWENTY_LAYERS, &osstwe2 FUNC 0,      30 31, eiueiueiu)
 		COMBO(&sk RSHIFT,       32 33, sqljqrjqsl)
 		
+		COMBO_LAYER(TWENAV, &kp LC(HOME), 26 27, rstrstrl)
+		COMBO_LAYER(TWENAV, &kp LC(END),  28 29, grjqljg)
+		COMBO_LAYER(TWENAV, &kp PG_DN,  17 27, ldnrshld)
+		COMBO_LAYER(TWENAV, &kp PG_UP,  18 28, njlzdnr)
+		
 		COMBO_KP_LAYER(ESC,, 	  10 11, NOT_TWENTY)
 		COMBO_KP_LAYER(ESC,twen,  0  11, TWENTY_LAYERS)
 		COMBO_KP_LAYER(CAPS,,	  15 19, NOT_TWENTY)
@@ -351,8 +356,8 @@
 		
 		twenty_layer_nav {
 			bindings = <
-				&kp LC(HOME) ___		___			___				___	___			___				___			___			HMRG LC(RIGHT)
-				&kp LC(Z_)	 HMLA PG_DN	HMLC PG_UP	HMLS LC(END)	___	___			HMRS LC(LEFT)	HMRC DOWN	HMRA UP		&kp END
+				HMLG INSERT	 ___		___			___				___	___			___				___			___			&kp LC(RIGHT)
+				&kp LC(Z_)	 HMLA PSCRN	HMLC PSBRK	HMLS C_PP		___	___			&kp LC(LEFT)	&kp DOWN	&kp UP		&kp END
 				___			 &kp LC(X_)	&kp LC(C_)	&kp LC(V_)		___	___			&kp HOME		&kp LEFT	&kp RIGHT	___
 														&kp ULIN_	&trans	&trans		&trans
 			>;
