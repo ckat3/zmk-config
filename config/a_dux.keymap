@@ -11,7 +11,7 @@
 
 #define COMBO_TIMEOUT 15 /* max 20 */
 
-#define HT_TAPPING_TERM 350
+#define HT_TAPPING_TERM 400
 #define HT_QUICK_TAP 200
 #define LT_TAPPING_TERM 250
 #define STICKY_KEY_RELEASE_DELAY 2000 /* min 1000 */
@@ -129,9 +129,10 @@
 		MACRO_SIMPLE(F_, U_)
 		MACRO_SIMPLE(U_, F_)
 		
-		MACRO(ae, <&macro_tap &kp TILD_ &kp A_ &kp E_>)
-		MACRO(ao, <&macro_tap &kp TILD_ &kp A_ &kp O_>)
-		MACRO(oe, <&macro_tap &kp TILD_ &kp O_ &kp E_>)
+		MACRO(ae,  <&macro_tap &kp TILD_ &kp A_ &kp E_>)
+		MACRO(ao,  <&macro_tap &kp TILD_ &kp A_ &kp O_>)
+		MACRO(nao, <&macro_tap &kp N_ &kp TILD_ &kp A_ &kp O_>)
+		MACRO(oe,  <&macro_tap &kp TILD_ &kp O_ &kp E_>)
 		
 		MACRO(shift_qu, <&macro_press &kp LSHFT>, <&macro_tap &kp Q_ &kp U_>, <&macro_release &kp LSHFT>)
 		MACRO(shift_ae, <&macro_tap &kp TILD_>, <&macro_press &kp LSHFT>, <&macro_tap &kp A_ &kp E_>, <&macro_release &kp LSHFT>)
@@ -238,6 +239,7 @@
 		
 		COMBO_MACRO_LAYER(ae,twen, 11 13, TWEN)
 		COMBO_MACRO_LAYER(ao,twen, 11 23, TWEN)
+		COMBO_MACRO_LAYER(nao,twen, 11 12 23, TWEN)
 		COMBO_MACRO_LAYER(oe,twen, 13 23, TWEN)
 		COMBO_MACRO_LAYER(U_F_,twen, 0 21, TWEN)
 		COMBO_MACRO_LAYER(F_U_,twen, 10 21, TWEN)
