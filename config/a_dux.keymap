@@ -137,7 +137,7 @@
 		MACRO(shift_oe, <&macro_tap &kp TILD_>, <&macro_press &kp LSHFT>, <&macro_tap &kp O_ &kp E_>, <&macro_release &kp LSHFT>)
 		
 		// MACRO(spc_capl, <&macro_tap &kp SPACE &tog CAPL>) // space then toggle caps layer
-		MACRO(twe2_osshift, <&macro_tap &sk LSHFT, <&macro_tap &sl TWE2>)
+		MACRO(twe2_osshift, <&macro_tap &sk LSHFT>, <&macro_tap &sl TWE2>)
 	};
 			  
 	combos {
