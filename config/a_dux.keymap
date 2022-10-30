@@ -337,7 +337,7 @@
 			bindings = <
 				HMLG U_		___ 		___ 		___ 			___ ___ 		___ 		___ 		___			HMRG R_
 				HMRA F_		HMLA A_		HMLC N_		HMLS E_			___	___			HMRS S_		HMRC T_		HMRA I_		&kp H_
-				___		 	HMLC COMM_	&kp  L_		&kp  O_			___	___		 	&kp  M_		&kp  D_		&kp  P		___
+				___		 	HMLC COMM_	&kp  L_		&kp  O_			___	___		 	&kp  M_		&kp  D_		&kp  P_		___
 														TH20LH1	TH20LH2	TH20RH2	TH20RH1
 			>;
 		};
