@@ -122,9 +122,11 @@
 		MACRO_SIMPLE(TILD_, O_)
 		MACRO_SIMPLE(TILD_, N_)
 		MACRO_SIMPLE(TRMA_, I_)
+		MACRO_SIMPLE(Q_, U_)
 		MACRO_SIMPLE(B_, J_)
+		MACRO_SIMPLE(F_, U_)
+		MACRO_SIMPLE(U_, F_)
 		
-		MACRO(qu, <&macro_tap &kp Q_ &kp U_>)
 		MACRO(ae, <&macro_tap &kp TILD_ &kp A_ &kp E_>)
 		MACRO(ao, <&macro_tap &kp TILD_ &kp A_ &kp O_>)
 		MACRO(oe, <&macro_tap &kp TILD_ &kp O_ &kp E_>)
@@ -204,17 +206,12 @@
 		COMBO_LAYER(TWENTY_LAYERS, &osstwe2 FUNC 0,      30 31, eiueiueiu)
 		COMBO(&sk RSHIFT,       32 33, sqljqrjqsl)
 		
-		COMBO_LAYER(TWENAV, &kp LC(HOME), 26 27, rstrstrl)
-		COMBO_LAYER(TWENAV, &kp LC(END),  28 29, grjqljg)
-		COMBO_LAYER(TWENAV, &kp PG_DN,  17 27, ldnrshld)
-		COMBO_LAYER(TWENAV, &kp PG_UP,  18 28, njlzdnr)
-		
 		COMBO_KP_LAYER(ESC,, 	  10 11, NOT_TWENTY)
 		COMBO_KP_LAYER(ESC,twen,  0  11, TWENTY_LAYERS)
 		COMBO_KP_LAYER(CAPS,,	  15 19, NOT_TWENTY)
 		COMBO_KP_LAYER(CAPS,twen, 15 9,  TWENTY_LAYERS)
 		
-		COMBO_MACRO_LAYER(qu,, 26 27, BASE)
+		COMBO_MACRO_LAYER(Q_U_,, 26 27, BASE)
 		COMBO_MACRO_LAYER(ae,, 13 30, BASE)
 		COMBO_MACRO_LAYER(ao,, 13 11, BASE)
 		COMBO_MACRO_LAYER(oe,, 11 30, BASE)
@@ -224,9 +221,18 @@
 		COMBO_MACRO_LAYER(shift_ao,, 13 11, CAPL)
 		COMBO_MACRO_LAYER(shift_oe,, 11 30, CAPL)
 		
+		// 20-key combos
+		COMBO_LAYER(TWENAV, &kp LC(HOME), 26 27, rstrstrl)
+		COMBO_LAYER(TWENAV, &kp LC(END),  28 29, grjqljg)
+		COMBO_LAYER(TWENAV, &kp PG_DN,  17 27, ldnrshld)
+		COMBO_LAYER(TWENAV, &kp PG_UP,  18 28, njlzdnr)
+		
 		COMBO_MACRO_LAYER(ae,twen, 11 13, TWEN)
 		COMBO_MACRO_LAYER(ao,twen, 11 23, TWEN)
 		COMBO_MACRO_LAYER(oe,twen, 13 23, TWEN)
+		COMBO_MACRO_LAYER(F_U_,twen, 20 21, TWEN)
+		COMBO_MACRO_LAYER(U_F_,twen, 0 21, TWEN)
+		
 		
 		combo_reset_left {
 			bindings = <&reset>;
@@ -277,7 +283,7 @@
 		#define HMRG  &hm RGUI
 		
 		#define HMLG_QU		&hm_qu LGUI 0
-		#define HMRG_IACT	&hm_iact RGUI 0
+		#define HMRA_IACT	&hm_iact RALT 0
 		#define HMLA_AACT	&hm_aact LALT 0
 		#define HMLG_UACT	&hm_uact LGUI 0
 		
@@ -329,26 +335,26 @@
 		
 		twenty_layer {
 			bindings = <
-				HMLG U_		___ 		___ 		___ 			___ ___ 		___ 		___ 		___			HMRG I_
-				HMRA F_		HMLA A_		HMLC N_		HMLS E_			___	___			HMRS S_		HMRC T_		HMRA R_		&kp P_
-				___		 	HMLC COMM_	&kp  L_		&kp  O_			___	___		 	&kp  M_		&kp  D_		&kp  H_		___
+				HMLG U_		___ 		___ 		___ 			___ ___ 		___ 		___ 		___			HMRG R_
+				HMRA F_		HMLA A_		HMLC N_		HMLS E_			___	___			HMRS S_		HMRC T_		HMRA I_		&kp H_
+				___		 	HMLC COMM_	&kp  L_		&kp  O_			___	___		 	&kp  M_		&kp  D_		&kp  P		___
 														TH20LH1	TH20LH2	TH20RH2	TH20RH1
 			>;
 		};
 		
 		twenty_layer_two {
 			bindings = <
-				HMLG_QU		___ 		___ 		___ 			___ ___ 		___ 		___ 		___ 		HMRG Y_
-				HMRA MIN_	HMLA K_		HMLC V_		HMLS EACT_		___	___			HMRS C_		HMRC G_		HMRA APST_	&kp Z_
-				___			HMLC DOT_	&kp  J_		&kp  Q_	  &tog TWEN ___			&kp  W_		&kp  B_		&kp  X_		___
+				HMLG_QU		___ 		___ 		___ 			___ ___ 		___ 		___ 		___ 		HMRG APST_
+				HMRA MIN_	HMLA K_		HMLC V_		HMLS EACT_		___	___			HMRS C_		HMRC G_		HMRA Y_	&kp X_
+				___			HMLC DOT_	&kp  J_		&kp  Q_	  &tog TWEN ___			&kp  W_		&kp  B_		&kp  Z_		___
 														&trans	 &trans	&trans	&trans
 			>;
 		};
 		
 		twenty_layer_accents {
 			bindings = <
-				HMLG_UACT	___ 		___ 		___ 			___ ___ 		___ 		___ 		___ 		HMRG_IACT
-				&kp LPAR_	HMLA_AACT	HMLC CFLX_	HMLS TRMA_		___	___			HMRS CCED_	HMRC QUOT_	MTCASH		EXCL_QMRK
+				HMLG_UACT	___ 		___ 		___ 			___ ___ 		___ 		___ 		___ 		MTCASH
+				&kp LPAR_	HMLA_AACT	HMLC CFLX_	HMLS TRMA_		___	___			HMRS CCED_	HMRC QUOT_	HMRA_IACT	EXCL_QMRK
 				___			&kp RPAR_	&kp GRAV_	&m_ACUT_O_		___	___			&kp LGLM_	&kp  RGLM_	&kp TILD_	___
 														&trans	 &trans	&trans	&trans
 			>;
