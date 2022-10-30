@@ -6,8 +6,8 @@
 #include "bepo_bindings.h"
 
 /* SETTINGS */
-#define MACRO_WAIT 25 /* good 5 */
-#define MACRO_TAP_DELAY 25 /* good 5 */
+#define MACRO_WAIT 3 /* good 5 */
+#define MACRO_TAP_DELAY 3 /* good 5 */
 
 #define COMBO_TIMEOUT 15 /* max 20 */
 
@@ -137,7 +137,7 @@
 		MACRO(shift_oe, <&macro_tap &kp TILD_>, <&macro_press &kp LSHFT>, <&macro_tap &kp O_ &kp E_>, <&macro_release &kp LSHFT>)
 		
 		// MACRO(spc_capl, <&macro_tap &kp SPACE &tog CAPL>) // space then toggle caps layer
-		MACRO(twe2_osshift, <&macro_tap &sk LSHFT &sl TWE2>)
+		MACRO(twe2_osshift, <&macro_tap &sl TWE2 &sk LSHFT>)
 	};
 			  
 	combos {
