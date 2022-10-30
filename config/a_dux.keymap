@@ -230,8 +230,8 @@
 		COMBO_MACRO_LAYER(ae,twen, 11 13, TWEN)
 		COMBO_MACRO_LAYER(ao,twen, 11 23, TWEN)
 		COMBO_MACRO_LAYER(oe,twen, 13 23, TWEN)
-		COMBO_MACRO_LAYER(F_U_,twen, 20 21, TWEN)
 		COMBO_MACRO_LAYER(U_F_,twen, 0 21, TWEN)
+		COMBO_MACRO_LAYER(F_U_,twen, 10 21, TWEN)
 		
 		
 		combo_reset_left {
