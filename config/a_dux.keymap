@@ -21,17 +21,18 @@
 #define CAPL 1
 #define TWEN 2
 #define TWE2 3
-#define TWEA 4
-#define TWENAV 5
-#define GAME 6
-#define SYM 7
-#define ACNT 8
-#define NUM 9
-#define NAV 10
-#define FUNC 11
+#define TWE2C 4
+#define TWEA 5
+#define TWENAV 6
+#define GAME 7
+#define SYM 8
+#define ACNT 9
+#define NUM 10
+#define NAV 11
+#define FUNC 12
 
 #define NOT_TWENTY BASE CAPL GAME SYM ACNT NUM NAV FUNC
-#define TWENTY_LAYERS TWEN TWE2 TWEA TWENAV
+#define TWENTY_LAYERS TWEN TWE2 TWE2C TWEA TWENAV
 
 &lt {
 	tapping-term-ms = <LT_TAPPING_TERM>;
@@ -76,6 +77,7 @@
 		HOLDTAP(lsl, balanced,      <&mo>, <&sl>)        // lsl: layer if held, one-shot layer if pressed
 		
 		HOLDTAP(hm_qu, tap-preferred,   <&kp>, <&m_Q_U_>)
+		HOLDTAP(hm_quc, tap-preferred,   <&kp>, <&m_shift_qu>)
 		HOLDTAP(hm_aact, tap-preferred,   <&kp>, <&m_ACUT_A_>)
 		HOLDTAP(hm_uact, tap-preferred,   <&kp>, <&m_ACUT_U_>)
 		HOLDTAP(hm_iact, tap-preferred,   <&kp>, <&m_ACUT_I_>)
@@ -137,7 +139,7 @@
 		MACRO(shift_oe, <&macro_tap &kp TILD_>, <&macro_press &kp LSHFT>, <&macro_tap &kp O_ &kp E_>, <&macro_release &kp LSHFT>)
 		
 		// MACRO(spc_capl, <&macro_tap &kp SPACE &tog CAPL>) // space then toggle caps layer
-		MACRO(twe2_osshift, <&macro_tap &sk LSHFT>, <&macro_tap &sl TWE2>)
+		// MACRO(twe2_osshift, <&macro_tap &sk LSHFT &sl TWE2>)
 	};
 			  
 	combos {
@@ -146,7 +148,7 @@
 		#define COMBO_HEADER(NAME, POSITIONS) \
 			combo_##NAME { \
 				key-positions = <POSITIONS>; \
-				timeout-ms = <COMBO_TIMEOUT>; \
+				timeout-ms = <COMBO_TIMEOUT>;
 		
 		#define COMBO(BINDINGS, POSITIONS, NAME) \
 			COMBO_HEADER(NAME, POSITIONS) \
@@ -208,8 +210,8 @@
 		
 		COMBO(&kp LC(Z_), 20 21, cdldljltsr)
 				
-		COMBO_LAYER(NOT_TWENTY,    &lsk     FUNC LSHIFT, 30 31, dljsdqsrt)
-		COMBO(&sk RSHIFT,       32 33, sqljqrjqsl)
+		COMBO_LAYER(NOT_TWENTY, &lsk FUNC LSHIFT, 30 31, dljsdqsrt)
+		COMBO(&sk RSHIFT, 32 33, sqljqrjqsl)
 		
 		COMBO_KP_LAYER(ESC,, 	  10 11, NOT_TWENTY)
 		COMBO_KP_LAYER(ESC,twen,  0  11, TWENTY_LAYERS)
@@ -227,7 +229,7 @@
 		COMBO_MACRO_LAYER(shift_oe,, 11 30, CAPL)
 		
 		// 20-key combos
-		COMBO_LAYER(TWENTY_LAYERS, &osstwe2 FUNC 0, 30 31, eiueiueiu)
+		COMBO_LAYER(TWENTY_LAYERS, &lsl FUNC TWE2C, 30 31, eiueiueiu)
 		
 		COMBO_LAYER(TWENAV, &kp LC(HOME), 26 27, rstrstrl)
 		COMBO_LAYER(TWENAV, &kp LC(END),  28 19, grjqljg)
@@ -290,6 +292,7 @@
 		#define HMRG  &hm RGUI
 		
 		#define HMLG_QU		&hm_qu LGUI 0
+		#define HMLG_QUC	&hm_quc LGUI 0
 		#define HMRA_IACT	&hm_iact RALT 0
 		#define HMLA_AACT	&hm_aact LALT 0
 		#define HMLG_UACT	&hm_uact LGUI 0
@@ -354,6 +357,15 @@
 				HMLG_QU		___ 		___ 		___ 			___ ___ 		___ 		___ 		___ 		HMRG APST_
 				HMRA MIN_	HMLA K_		HMLC V_		HMLS EACT_		___	___			HMRS C_		HMRC G_		HMRA Y_	&kp X_
 				___			HMLC DOT_	&kp  J_		&kp  Q_	  &tog TWEN ___			&kp  W_		&kp  B_		&kp  Z_		___
+														&trans	 &trans	&trans	&trans
+			>;
+		};
+		
+		twenty_layer_two_caps {
+			bindings = <
+				HMLG_QUC		___ 		___ 		___ 			___ ___ 		___ 		___ 		___ 		HMRG LS(APST_)
+				HMRA LS(MIN_)	HMLA LS(K_)		HMLC LS(V_)		HMLS LS(EACT_)		___	___			HMRS LS(C_)		HMRC LS(G_)		HMRA LS(Y_)	&kp LS(X_)
+				___			HMLC LS(DOT_)	&kp  LS(J_)		&kp  LS(Q_)	  &tog TWEN ___			&kp  LS(W_)		&kp  LS(B_)		&kp  LS(Z_)		___
 														&trans	 &trans	&trans	&trans
 			>;
 		};
