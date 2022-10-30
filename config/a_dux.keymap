@@ -6,8 +6,8 @@
 #include "bepo_bindings.h"
 
 /* SETTINGS */
-#define MACRO_WAIT 5 /* good 5 */
-#define MACRO_TAP_DELAY 5 /* good 5 */
+#define MACRO_WAIT 25 /* good 5 */
+#define MACRO_TAP_DELAY 25 /* good 5 */
 
 #define COMBO_TIMEOUT 15 /* max 20 */
 
