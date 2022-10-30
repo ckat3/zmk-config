@@ -188,6 +188,12 @@
 	    20  21  22  23    24 | 25    26  27  28  29
 							 |
 	                   30 31 | 32 33
+					   
+					   
+	     0  11  12  13  |  16  17  18  9
+	    10  21  22  23  |  26  27  28  19
+					    |
+	              30 31 | 32 33
 	*/
 	
 		COMBO_KP(TAB,, 12 13)
@@ -223,7 +229,7 @@
 		
 		// 20-key combos
 		COMBO_LAYER(TWENAV, &kp LC(HOME), 26 27, rstrstrl)
-		COMBO_LAYER(TWENAV, &kp LC(END),  28 29, grjqljg)
+		COMBO_LAYER(TWENAV, &kp LC(END),  28 19, grjqljg)
 		COMBO_LAYER(TWENAV, &kp PG_DN,  17 27, ldnrshld)
 		COMBO_LAYER(TWENAV, &kp PG_UP,  18 28, njlzdnr)
 		
