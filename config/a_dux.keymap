@@ -75,7 +75,7 @@
 		HOLDTAP(lsk, balanced,      <&mo>, <&sk>)        // lsk: layer if held, one-shot kp if pressed
 		HOLDTAP(lsl, balanced,      <&mo>, <&sl>)        // lsl: layer if held, one-shot layer if pressed
 		
-		HOLDTAP(hm_qu, tap-preferred,   <&kp>, <&m_qu>)
+		HOLDTAP(hm_qu, tap-preferred,   <&kp>, <&m_Q_U_>)
 		HOLDTAP(hm_aact, tap-preferred,   <&kp>, <&m_ACUT_A_>)
 		HOLDTAP(hm_uact, tap-preferred,   <&kp>, <&m_ACUT_U_>)
 		HOLDTAP(hm_iact, tap-preferred,   <&kp>, <&m_ACUT_I_>)
