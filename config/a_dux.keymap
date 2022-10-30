@@ -6,8 +6,8 @@
 #include "bepo_bindings.h"
 
 /* SETTINGS */
-#define MACRO_WAIT 3 /* good 5 */
-#define MACRO_TAP_DELAY 3 /* good 5 */
+#define MACRO_WAIT 5 /* good 5 */
+#define MACRO_TAP_DELAY 5 /* good 5 */
 
 #define COMBO_TIMEOUT 15 /* max 20 */
 
@@ -80,7 +80,7 @@
 		HOLDTAP(hm_uact, tap-preferred,   <&kp>, <&m_ACUT_U_>)
 		HOLDTAP(hm_iact, tap-preferred,   <&kp>, <&m_ACUT_I_>)
 		
-		HOLDTAP(osstwe2, balanced,      <&mo>, <&m_twe2_osshift>)        // s20: layer if held, one-shot shift + alpha2 if pressed
+		HOLDTAP(osstwe2, balanced, <&mo>, <&m_twe2_osshift>)        // s20: layer if held, one-shot shift + alpha2 if pressed
 		
 		HRMOD_POS(hml, 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33)
 		HRMOD_POS(hmr, 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31)
@@ -209,7 +209,6 @@
 		COMBO(&kp LC(Z_), 20 21, cdldljltsr)
 				
 		COMBO_LAYER(NOT_TWENTY,    &lsk     FUNC LSHIFT, 30 31, dljsdqsrt)
-		COMBO_LAYER(TWENTY_LAYERS, &osstwe2 FUNC 0,      30 31, eiueiueiu)
 		COMBO(&sk RSHIFT,       32 33, sqljqrjqsl)
 		
 		COMBO_KP_LAYER(ESC,, 	  10 11, NOT_TWENTY)
@@ -228,6 +227,8 @@
 		COMBO_MACRO_LAYER(shift_oe,, 11 30, CAPL)
 		
 		// 20-key combos
+		COMBO_LAYER(TWENTY_LAYERS, &osstwe2 FUNC 0, 30 31, eiueiueiu)
+		
 		COMBO_LAYER(TWENAV, &kp LC(HOME), 26 27, rstrstrl)
 		COMBO_LAYER(TWENAV, &kp LC(END),  28 19, grjqljg)
 		COMBO_LAYER(TWENAV, &kp PG_DN,  17 27, ldnrshld)
