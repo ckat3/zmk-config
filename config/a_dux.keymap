@@ -245,13 +245,6 @@
 			timeout-ms = <COMBO_TIMEOUT>;
 		};
 		
-		combo_caps_layer {
-			bindings = <&tog CAPL>;
-			key-positions = <10 13>;
-			layers = <BASE CAPL>;
-			timeout-ms = <COMBO_TIMEOUT>;
-		};
-		
 		combo_game_layer {
 			bindings = <&tog GAME>;
 			key-positions = <0 1 2>;
@@ -260,6 +253,13 @@
 		};
 		
 		// 20-key combos
+		combo_twenty {
+			bindings = <&tog TWEN>;
+			key-positions = <16 26>;
+			layers = <FUNC>;
+			timeout-ms = <COMBO_TIMEOUT>;
+		};
+		
 		COMBO_LAYER(TWENTY_LAYERS, &lsl FUNC TWE2C, 30 31, eiueiueiu)
 		
 		COMBO_LAYER(TWENAV, &kp LC(HOME), 26 27, rstrstrl)
@@ -274,13 +274,6 @@
 		COMBO_MACRO_LAYER(oe,twen, 13 23, TWEN)
 		// COMBO_MACRO_LAYER(U_F_,twen, 0 21, TWEN)
 		// COMBO_MACRO_LAYER(F_U_,twen, 10 21, TWEN)
-		
-		combo_twenty {
-			bindings = <&tog TWEN>;
-			key-positions = <16 26>;
-			layers = <FUNC>;
-			timeout-ms = <COMBO_TIMEOUT>;
-		};
 	};
 
 	keymap {
