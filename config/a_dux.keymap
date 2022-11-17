@@ -9,11 +9,12 @@
 #define MACRO_WAIT 3 /* good 5 */
 #define MACRO_TAP_DELAY 3 /* good 5 */
 
-#define COMBO_TIMEOUT 15 /* max 20 */
+#define COMBO_TIMEOUT 17 /* max 20, 15 maybe too little */
 
-#define HT_TAPPING_TERM 400
-#define HT_QUICK_TAP 200
+#define MT_TAPPING_TERM 120
 #define LT_TAPPING_TERM 250
+#define HT_TAPPING_TERM 250
+#define HT_QUICK_TAP 200
 #define STICKY_KEY_RELEASE_DELAY 2000 /* min 1000 */
 
 /* LAYERS */
@@ -40,7 +41,7 @@
 };
 
 &mt {
-	tapping-term-ms = <120>;
+	tapping-term-ms = <MT_TAPPING_TERM>;
 };
 
 &sk {
@@ -216,8 +217,8 @@
 		
 		COMBO_KP_LAYER(ESC,, 	  10 11, NOT_TWENTY)
 		COMBO_KP_LAYER(ESC,twen,  0  11, TWENTY_LAYERS)
-		COMBO_KP_LAYER(CAPS,,	  15 19, NOT_TWENTY)
-		COMBO_KP_LAYER(CAPS,twen, 15 9,  TWENTY_LAYERS)
+		// COMBO_KP_LAYER(CAPS,,	  15 19, NOT_TWENTY)
+		// COMBO_KP_LAYER(CAPS,twen, 15 9,  TWENTY_LAYERS)
 		
 		COMBO_MACRO_LAYER(Q_U_,, 26 27, BASE)
 		COMBO_MACRO_LAYER(ae,, 13 30, BASE)
@@ -228,21 +229,6 @@
 		COMBO_MACRO_LAYER(shift_ae,, 13 30, CAPL)
 		COMBO_MACRO_LAYER(shift_ao,, 13 11, CAPL)
 		COMBO_MACRO_LAYER(shift_oe,, 11 30, CAPL)
-		
-		// 20-key combos
-		COMBO_LAYER(TWENTY_LAYERS, &lsl FUNC TWE2C, 30 31, eiueiueiu)
-		
-		COMBO_LAYER(TWENAV, &kp LC(HOME), 26 27, rstrstrl)
-		COMBO_LAYER(TWENAV, &kp LC(END),  28 19, grjqljg)
-		COMBO_LAYER(TWENAV, &kp PG_DN,  17 27, ldnrshld)
-		COMBO_LAYER(TWENAV, &kp PG_UP,  18 28, njlzdnr)
-		
-		COMBO_MACRO_LAYER(ae,twen, 11 13, TWEN)
-		COMBO_MACRO_LAYER(ao,twen, 11 23, TWEN)
-		COMBO_MACRO_LAYER(nao,twen, 11 12 23, TWEN)
-		COMBO_MACRO_LAYER(oe,twen, 13 23, TWEN)
-		COMBO_MACRO_LAYER(U_F_,twen, 0 21, TWEN)
-		COMBO_MACRO_LAYER(F_U_,twen, 10 21, TWEN)
 		
 		
 		combo_reset_left {
@@ -273,9 +259,25 @@
 			timeout-ms = <COMBO_TIMEOUT>;
 		};
 		
+		// 20-key combos
+		COMBO_LAYER(TWENTY_LAYERS, &lsl FUNC TWE2C, 30 31, eiueiueiu)
+		
+		COMBO_LAYER(TWENAV, &kp LC(HOME), 26 27, rstrstrl)
+		COMBO_LAYER(TWENAV, &kp LC(END),  27 28, grjqljg)
+		// COMBO_LAYER(TWENAV, &kp LC(END),  28 29, grjqljg) // something here
+		COMBO_LAYER(TWENAV, &kp PG_DN,  17 27, ldnrshld)
+		COMBO_LAYER(TWENAV, &kp PG_UP,  18 28, njlzdnr)
+		
+		COMBO_MACRO_LAYER(ae,twen, 11 13, TWEN)
+		COMBO_MACRO_LAYER(ao,twen, 11 23, TWEN)
+		COMBO_MACRO_LAYER(nao,twen, 11 12 23, TWEN)
+		COMBO_MACRO_LAYER(oe,twen, 13 23, TWEN)
+		// COMBO_MACRO_LAYER(U_F_,twen, 0 21, TWEN)
+		// COMBO_MACRO_LAYER(F_U_,twen, 10 21, TWEN)
+		
 		combo_twenty {
 			bindings = <&tog TWEN>;
-			key-positions = <15 25>;
+			key-positions = <16 26>;
 			layers = <FUNC>;
 			timeout-ms = <COMBO_TIMEOUT>;
 		};
@@ -357,29 +359,30 @@
 		twenty_layer_two {
 			bindings = <
 				HMLG_QU		___ 		___ 		___ 			___ ___ 		___ 		___ 		___ 		HMRG APST_
-				HMRA MIN_	HMLA K_		HMLC V_		HMLS EACT_		___	___			HMRS C_		HMRC G_		HMRA Y_	&kp X_
-				___			HMLC DOT_	&kp  J_		&kp  Q_	  &tog TWEN ___			&kp  W_		&kp  B_		&kp  Z_		___
+				HMRA MIN_	HMLA K_		HMLC W_		HMLS EACT_		___	___			HMRS C_		HMRC G_		HMRA Y_	&kp X_
+				___			HMLC DOT_	&kp  Z_		&kp  Q_	  &tog TWEN ___			&kp  V_		&kp  B_		&kp  J_		___
 														&trans	 &trans	&trans	&trans
 			>;
 		};
 		
 		twenty_layer_two_caps {
 			bindings = <
-				HMLG_QUC		___ 		___ 		___ 			___ ___ 		___ 		___ 		___ 		HMRG LS(APST_)
-				HMRA LS(MIN_)	HMLA LS(K_)		HMLC LS(V_)		HMLS LS(EACT_)		___	___			HMRS LS(C_)		HMRC LS(G_)		HMRA LS(Y_)	&kp LS(X_)
-				___			HMLC LS(DOT_)	&kp  LS(J_)		&kp  LS(Q_)	  &tog TWEN ___			&kp  LS(W_)		&kp  LS(B_)		&kp  LS(Z_)		___
+				HMLG_QUC	___ 			___ 			___ 				___	___ 		___ 			___ 			___ 		HMRG LS(APST_)
+				HMRA MIN_	HMLA LS(K_)		HMLC LS(W_)		HMLS LS(EACT_)		___	___			HMRS LS(C_)		HMRC LS(G_)		HMRA LS(Y_)	&kp LS(X_)
+				___			HMLC LS(DOT_)	&kp  LS(Z_)		&kp  LS(Q_)	 		___ ___			&kp  LS(V_)		&kp  LS(B_)		&kp  LS(J_)		___
 														&trans	 &trans	&trans	&trans
 			>;
 		};
 		
 		twenty_layer_accents {
 			bindings = <
-				HMLG_UACT	___ 		___ 		___ 			___ ___ 		___ 		___ 		___ 		MTCASH
-				&kp LPAR_	HMLA_AACT	HMLC CFLX_	HMLS TRMA_		___	___			HMRS CCED_	HMRC QUOT_	HMRA_IACT	EXCL_QMRK
-				___			&kp RPAR_	&kp GRAV_	&m_ACUT_O_		___	___			&kp LGLM_	&kp  RGLM_	&kp TILD_	___
+				HMLG_UACT	___ 		___ 		___ 			___ ___ 		___ 		___ 		___ 		HMRG GRAV_
+				___			HMLA_AACT	&m_TILD_N_ 	&m_CFLX_E_		___	___			HMRS CCED_	HMRC CFLX_	HMRA_IACT	EXCL_QMRK
+				___			&kp OE_		&kp TILD_	&m_ACUT_O_		___	___			&kp SZET_	&kp TRMA_	&kp  QUOT_	___
 														&trans	 &trans	&trans	&trans
 			>;
 		};
+		
 		
 		twenty_layer_nav {
 			bindings = <
@@ -415,7 +418,7 @@
 		accent_layer {
 			bindings = <
 				&m_CFLX_U_	&m_CFLX_O_	&m_CFLX_I_	&m_CFLX_A_	___					___			&kp CCED_	&kp APST_	&kp QUOT_	&m_B_J_
-				&m_ACUT_U_	&m_ACUT_O_	&m_ACUT_I_	&m_ACUT_A_	&m_TILD_A_			&kp ACUT_	&kp MIN_	&kp CFLX_	&kp GRAV_	&m_TILD_N_
+				&m_ACUT_U_	&m_ACUT_O_	&m_ACUT_I_	&m_ACUT_A_	&m_TILD_A_			&kp ACUT_	HMRS MIN_	HMRC CFLX_	HMLA GRAV_	&m_TILD_N_
 				&m_GRAV_U_	&m_TILD_O_	&m_TRMA_I_	&kp AGRV_	___					___			&kp TRMA_	&kp CRAT_	&kp SZET_	&kp TILD_
 													&m_CFLX_E_	&m_GRAV_E_			&trans		&trans
 			>;
@@ -433,7 +436,7 @@
 		nav_layer {
 			bindings = <
 				&kp INSERT	&sk RALT	&kp PSCRN	&kp PSBRK	___					___			&kp LC(HOME)	&kp PG_DN	&kp PG_UP	&kp LC(END)
-				&sk LGUI	&sk LALT	&sk LCTRL	&sk LSHIFT	___					___			&kp LC(LEFT)	&kp DOWN	&kp UP		&kp LC(RIGHT)
+				&sk LGUI	&sk LALT	&sk LCTRL	&sk LSHIFT	&tog CAPL			&kp CAPS	&kp LC(LEFT)	&kp DOWN	&kp UP		&kp LC(RIGHT)
 				&kp LC(Z_)	&kp LC(X_)	&kp LC(C_)	&kp LC(V_)	___					___			&kp HOME		&kp LEFT	&kp RIGHT	&kp END
 													&kp ULIN_	&trans				&trans		&trans
 			>;
