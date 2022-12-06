@@ -209,10 +209,6 @@
 		COMBO_KP(DEL,, 21 22)
 		COMBO(&kp LC(BSPC), 17 18, gslqgrnqsl)
 		COMBO(&kp LC(DEL), 27 28, rgsrnqsj)
-		
-		// COMBO(&kp LC(Z_), 20 21, cdldljltsr)
-		COMBO_KP_LAYER(LC(Z_),, 	  20 21, NOT_TWENTY)
-		COMBO_KP_LAYER(LC(Z_),, 	  10 21, TWENTY_LAYERS) // does this work
 				
 		COMBO_LAYER(NOT_TWENTY, &lsk FUNC LSHIFT, 30 31, dljsdqsrt)
 		COMBO(&sk RSHIFT, 32 33, sqljqrjqsl)
@@ -232,6 +228,20 @@
 		COMBO_MACRO_LAYER(shift_ao,, 13 11, CAPL)
 		COMBO_MACRO_LAYER(shift_oe,, 11 30, CAPL)
 		
+		
+		combo_reset_left {
+			bindings = <LC(Z_)>;
+			key-positions = <20 21>;
+			layers = <NOT_TWENTY>;
+			timeout-ms = <COMBO_TIMEOUT>;
+		};
+		
+		combo_reset_left {
+			bindings = <LC(Z_)>;
+			key-positions = <10 21>;
+			layers = <TWENTY_LAYERS>;
+			timeout-ms = <COMBO_TIMEOUT>;
+		};
 		
 		combo_reset_left {
 			bindings = <&reset>;
