@@ -9,7 +9,7 @@
 #define MACRO_WAIT 3 /* good 5 */
 #define MACRO_TAP_DELAY 3 /* good 5 */
 
-#define COMBO_TIMEOUT 17 /* max 20, 15 maybe too little */
+#define COMBO_TIMEOUT 16 /* max 17, 15 maybe too little */
 
 #define MT_TAPPING_TERM 120
 #define LT_TAPPING_TERM 250
@@ -210,7 +210,9 @@
 		COMBO(&kp LC(BSPC), 17 18, gslqgrnqsl)
 		COMBO(&kp LC(DEL), 27 28, rgsrnqsj)
 		
-		COMBO(&kp LC(Z_), 20 21, cdldljltsr)
+		// COMBO(&kp LC(Z_), 20 21, cdldljltsr)
+		COMBO_KP_LAYER(LC(Z_),, 	  20 21, NOT_TWENTY)
+		COMBO_KP_LAYER(LC(Z_),, 	  10 21, TWENTY_LAYERS) // does this work
 				
 		COMBO_LAYER(NOT_TWENTY, &lsk FUNC LSHIFT, 30 31, dljsdqsrt)
 		COMBO(&sk RSHIFT, 32 33, sqljqrjqsl)
@@ -371,11 +373,10 @@
 			bindings = <
 				HMLG_UACT	___ 		___ 		___ 			___ ___ 		___ 		___ 		___ 		HMRG GRAV_
 				___			HMLA_AACT	&m_TILD_N_ 	&m_CFLX_E_		___	___			HMRS CCED_	HMRC CFLX_	HMRA_IACT	EXCL_QMRK
-				___			&kp OE_		&kp TILD_	&m_ACUT_O_		___	___			&kp SZET_	&kp TRMA_	&kp  QUOT_	___
+				___			&kp AGRV_	&kp TILD_	&m_ACUT_O_		___	___			&kp SZET_	&kp TRMA_	&kp  QUOT_	___
 														&trans	 &trans	&trans	&trans
 			>;
 		};
-		
 		
 		twenty_layer_nav {
 			bindings = <
