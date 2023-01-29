@@ -132,9 +132,6 @@
 		MACRO_SIMPLE(F_, U_)
 		MACRO_SIMPLE(U_, F_)
 		
-		MACRO(nbsp_lguil, <&macro_tap &kp LS(SPACE) &kp LGLM_>)
-		MACRO(nbsp_lguil, <&macro_tap &kp RGLM_ &kp LS(SPACE)>)
-		
 		MACRO(ae,  <&macro_tap &kp TILD_ &kp A_ &kp E_>)
 		MACRO(ao,  <&macro_tap &kp TILD_ &kp A_ &kp O_>)
 		MACRO(nao, <&macro_tap &kp N_ &kp TILD_ &kp A_ &kp O_>)
