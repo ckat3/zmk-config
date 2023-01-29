@@ -240,20 +240,6 @@
 		COMBO_MACRO_LAYER(shift_oe,, 11 30, CAPL)
 		
 		
-		combo_ctrlz {
-			bindings = <&kp LC(Z_)>;
-			key-positions = <20 21>;
-			layers = <NOT_TWENTY>;
-			timeout-ms = <COMBO_TIMEOUT>;
-		};
-		
-		combo_ctrlz_twenty {
-			bindings = <&kp LC(Z_)>;
-			key-positions = <10 21>;
-			layers = <TWENTY_LAYERS>;
-			timeout-ms = <COMBO_TIMEOUT>;
-		};
-		
 		combo_reset_left {
 			bindings = <&reset>;
 			key-positions = <0 4>;
