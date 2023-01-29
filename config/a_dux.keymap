@@ -97,6 +97,8 @@
 				bindings = BINDINGS; \
 				)
 				
+		// MACRO_SIMPLE will name the macro "m_FIRST##SECOND", eg "mQ_U_".
+		// it cannot therefore contain parentheses (i think?) or complex sequences. 
 		#define MACRO_SIMPLE(FIRST, SECOND) \
 			MACRO(FIRST##SECOND, <&macro_tap &kp FIRST &kp SECOND>)
 				
@@ -129,6 +131,9 @@
 		MACRO_SIMPLE(B_, J_)
 		MACRO_SIMPLE(F_, U_)
 		MACRO_SIMPLE(U_, F_)
+		
+		MACRO(nbsp_lguil, <&macro_tap &kp LS(SPACE) &kp LGLM_>)
+		MACRO(nbsp_lguil, <&macro_tap &kp RGLM_ &kp LS(SPACE)>)
 		
 		MACRO(ae,  <&macro_tap &kp TILD_ &kp A_ &kp E_>)
 		MACRO(ao,  <&macro_tap &kp TILD_ &kp A_ &kp O_>)
@@ -229,14 +234,14 @@
 		COMBO_MACRO_LAYER(shift_oe,, 11 30, CAPL)
 		
 		
-		combo_reset_left {
+		combo_ctrlz {
 			bindings = <LC(Z_)>;
 			key-positions = <20 21>;
 			layers = <NOT_TWENTY>;
 			timeout-ms = <COMBO_TIMEOUT>;
 		};
 		
-		combo_reset_left {
+		combo_ctrlz_twenty {
 			bindings = <LC(Z_)>;
 			key-positions = <10 21>;
 			layers = <TWENTY_LAYERS>;
