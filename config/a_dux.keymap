@@ -329,6 +329,9 @@
 		/*#define MTDASH  &mtslow NDSH_ MDSH_*/
 		#define MTCASH  &mt EURO_ DLLR_
 		
+		#define MTLGLM &ht_lglm 0 0
+		#define MTRGLM &ht_rglm 0 0 
+		
 		// thumb keys
 		#define THLH1	&lt NUM E_
 		#define THLH1S	&lt NUM LS(E_)
@@ -428,7 +431,7 @@
 			bindings = <
 				___			&kp AT_		&kp AMPR_	&kp OE_		&kp AE_				___			MTCASH		&kp HASH_	&kp PCNT_	&kp PIPE_
 				HMRG LCRL_	HMLA RCRL_	HMLC LPAR_	HMLS RPAR_	&kp MDSH_			___			HMRS LBRK_	HMRC RBRK_	HMLA MDSH_	HMRG NDSH_
-				&kp NDSH_	&kp MDSH_	&ht_lglm	&ht_rglm	___					___			&kp LT_		&kp GT_		&kp EQUL_	___
+				&kp NDSH_	&kp MDSH_	MTLGLM		MTRGLM		___					___			&kp LT_		&kp GT_		&kp EQUL_	___
 													THLH1		&trans				&trans		&trans
 			>;
 		};
