@@ -77,11 +77,17 @@
 		HOLDTAP(lsk, balanced,      <&mo>, <&sk>)        // lsk: layer if held, one-shot kp if pressed
 		HOLDTAP(lsl, balanced,      <&mo>, <&sl>)        // lsl: layer if held, one-shot layer if pressed
 		
+		// the following are for home-row mods
 		HOLDTAP(hm_qu, tap-preferred,   <&kp>, <&m_Q_U_>)
 		HOLDTAP(hm_quc, tap-preferred,   <&kp>, <&m_shift_qu>)
 		HOLDTAP(hm_aact, tap-preferred,   <&kp>, <&m_ACUT_A_>)
 		HOLDTAP(hm_uact, tap-preferred,   <&kp>, <&m_ACUT_U_>)
 		HOLDTAP(hm_iact, tap-preferred,   <&kp>, <&m_ACUT_I_>)
+		
+		// these are for « and » with or without automatic nbsp. use with 0 0 arguments.
+		HOLDTAP(ht_lglm, tap-preferred,   <&kp LGLM_>, <&m_nbsp_lglm>)
+		HOLDTAP(ht_rglm, tap-preferred,   <&kp RGLM_>, <&m_nbsp_rglm>)
+		
 		
 		//HOLDTAP(osstwe2, balanced, <&mo>, <&m_twe2_osshift>)        // s20: layer if held, one-shot shift + alpha2 if pressed
 		
@@ -131,6 +137,9 @@
 		MACRO_SIMPLE(B_, J_)
 		MACRO_SIMPLE(F_, U_)
 		MACRO_SIMPLE(U_, F_)
+		
+		MACRO(nbsp_lglm, <&macro_tap &kp LS(SPACE) &kp LGLM_>)
+		MACRO(nbsp_rglm, <&macro_tap &kp RGLM_ &kp LS(SPACE)>)
 		
 		MACRO(ae,  <&macro_tap &kp TILD_ &kp A_ &kp E_>)
 		MACRO(ao,  <&macro_tap &kp TILD_ &kp A_ &kp O_>)
@@ -231,6 +240,19 @@
 		COMBO_MACRO_LAYER(shift_oe,, 11 30, CAPL)
 		
 		
+		combo_ctrlz {
+			bindings = <&kp LC(Z_)>;
+			key-positions = <20 21>;
+			layers = <NOT_TWENTY>;
+			timeout-ms = <COMBO_TIMEOUT>;
+		};
+		
+		combo_ctrlz_twenty {
+			bindings = <&kp LC(Z_)>;
+			key-positions = <10 21>;
+			layers = <TWENTY_LAYERS>;
+			timeout-ms = <COMBO_TIMEOUT>;
+		};
 		
 		combo_reset_left {
 			bindings = <&reset>;
@@ -297,21 +319,24 @@
 		
 		#define EXCL_QMRK	&mt EXCL_ QMRK_
 		
+		/*
 		#define MTPAR  &mt RPAR_ LPAR_
-		/*#define MTCRL  &mt RCRL_ LCRL_
+		#define MTCRL  &mt RCRL_ LCRL_
 		#define MTBRK  &mt RBRK_ LBRK_
-		#define MTGLM  &mt RGLM_ LGLM_*/
-		#define MTGLT  &mt GT_   LT_
+		#define MTGLM  &mt RGLM_ LGLM_
+		#define MTGLT  &mt GT_   LT_*/
 		
 		/*#define MTDASH  &mtslow NDSH_ MDSH_*/
 		#define MTCASH  &mt EURO_ DLLR_
 		
+		// thumb keys
 		#define THLH1	&lt NUM E_
 		#define THLH1S	&lt NUM LS(E_)
 		#define THLH2	&lsl SYM SYM
 		#define THRH2	&lsl ACNT ACNT
 		#define THRH1	&lt NAV SPACE
 		
+		// thumb keys for 20-key layout
 		#define TH20LH1	&lsl TWE2 TWE2
 		#define TH20LH2	&lsl NUM SYM
 		#define TH20RH1	&lt TWENAV SPACE
@@ -403,7 +428,7 @@
 			bindings = <
 				___			&kp AT_		&kp AMPR_	&kp OE_		&kp AE_				___			MTCASH		&kp HASH_	&kp PCNT_	&kp PIPE_
 				HMRG LCRL_	HMLA RCRL_	HMLC LPAR_	HMLS RPAR_	&kp MDSH_			___			HMRS LBRK_	HMRC RBRK_	HMLA MDSH_	HMRG NDSH_
-				&kp NDSH_	&kp MDSH_	&kp LGLM_	&kp RGLM_	___					___			&kp LT_		&kp GT_		&kp EQUL_	___
+				&kp NDSH_	&kp MDSH_	&ht_lglm	&ht_rglm	___					___			&kp LT_		&kp GT_		&kp EQUL_	___
 													THLH1		&trans				&trans		&trans
 			>;
 		};
