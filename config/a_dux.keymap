@@ -305,7 +305,7 @@
 		#define THRH1	&lt NAV SPACE
 		
 		#define xxxx &none
-		#define xxxx &trans
+		#define ____ &trans
 		
 		base_layer {
 			bindings = <
