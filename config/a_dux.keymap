@@ -20,20 +20,14 @@
 /* LAYERS */
 #define BASE 0
 #define CAPL 1
-#define TWEN 2
-#define TWE2 3
-#define TWE2C 4
-#define TWEA 5
-#define TWENAV 6
+#define SYM 2
+#define ACNT 3
+#define NUM 4
+#define NAV 5
+#define FUNC 6
 #define GAME 7
-#define SYM 8
-#define ACNT 9
-#define NUM 10
-#define NAV 11
-#define FUNC 12
 
-#define NOT_TWENTY BASE CAPL GAME SYM ACNT NUM NAV FUNC
-#define TWENTY_LAYERS TWEN TWE2 TWE2C TWEA TWENAV
+#define NOT_GAME BASE CAPL SYM ACNT NUM NAV FUNC
 
 &lt {
 	tapping-term-ms = <LT_TAPPING_TERM>;
@@ -87,9 +81,7 @@
 		// these are for « and » with or without automatic nbsp. use with 0 0 arguments.
 		HOLDTAP(ht_lglm, tap-preferred,   <&kp LGLM_>, <&m_nbsp_lglm>)
 		HOLDTAP(ht_rglm, tap-preferred,   <&kp RGLM_>, <&m_nbsp_rglm>)
-		
-		
-		//HOLDTAP(osstwe2, balanced, <&mo>, <&m_twe2_osshift>)        // s20: layer if held, one-shot shift + alpha2 if pressed
+
 		
 		HRMOD_POS(hml, 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33)
 		HRMOD_POS(hmr, 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31)
@@ -152,11 +144,12 @@
 		MACRO(shift_oe, <&macro_tap &kp TILD_>, <&macro_press &kp LSHFT>, <&macro_tap &kp O_ &kp E_>, <&macro_release &kp LSHFT>)
 		
 		// MACRO(spc_capl, <&macro_tap &kp SPACE &tog CAPL>) // space then toggle caps layer
-		// MACRO(twe2_osshift, <&macro_tap &sk LSHFT &sl TWE2>)
 	};
 			  
 	combos {
 		compatible = "zmk,combos";
+		
+		// todo: add bindings into header
 		
 		#define COMBO_HEADER(NAME, POSITIONS) \
 			combo_##NAME { \
@@ -166,6 +159,7 @@
 		#define COMBO(BINDINGS, POSITIONS, NAME) \
 			COMBO_HEADER(NAME, POSITIONS) \
 				bindings = <BINDINGS>; \
+				layers = <NOT_GAME>; \
 			};
 		
 		#define COMBO_LAYER(LAYERS, BINDINGS, POSITIONS, NAME) \
@@ -177,6 +171,7 @@
 		#define COMBO_KP(KEY, SUFFIX, POSITIONS) \
 			COMBO_HEADER(KEY##SUFFIX, POSITIONS) \
 				bindings = <&kp KEY>; \
+				layers = <NOT_GAME>; \
 			};
 			
 		#define COMBO_KP_LAYER(KEY, SUFFIX, POSITIONS, LAYERS) \
@@ -221,13 +216,10 @@
 		COMBO(&kp LC(BSPC), 17 18, gslqgrnqsl)
 		COMBO(&kp LC(DEL), 27 28, rgsrnqsj)
 				
-		COMBO_LAYER(NOT_TWENTY, &lsk FUNC LSHIFT, 30 31, dljsdqsrt)
-		COMBO(&sk RSHIFT, 32 33, sqljqrjqsl)
+		COMBO(&lsk FUNC LSHIFT, 30 31, dljsdqsrt)
+		COMBO(&sk RSHIFT,       32 33, sqljqrjqsl)
 		
-		COMBO_KP_LAYER(ESC,, 	  10 11, NOT_TWENTY)
-		COMBO_KP_LAYER(ESC,twen,  0  11, TWENTY_LAYERS)
-		// COMBO_KP_LAYER(CAPS,,	  15 19, NOT_TWENTY)
-		// COMBO_KP_LAYER(CAPS,twen, 15 9,  TWENTY_LAYERS)
+		COMBO_KP(ESC,, 	  10 11)
 		
 		COMBO_MACRO_LAYER(Q_U_,, 26 27, BASE)
 		COMBO_MACRO_LAYER(ae,, 13 30, BASE)
@@ -239,6 +231,12 @@
 		COMBO_MACRO_LAYER(shift_ao,, 13 11, CAPL)
 		COMBO_MACRO_LAYER(shift_oe,, 11 30, CAPL)
 		
+		
+		combo_ctrlz {
+			bindings = <&kp LC(Z_)>;
+			key-positions = <20 21>;
+			timeout-ms = <COMBO_TIMEOUT>;
+		};
 		
 		combo_reset_left {
 			bindings = <&reset>;
@@ -260,29 +258,6 @@
 			layers = <FUNC>;
 			timeout-ms = <COMBO_TIMEOUT>;
 		};
-		
-		// 20-key combos
-		combo_twenty {
-			bindings = <&tog TWEN>;
-			key-positions = <16 26>;
-			layers = <FUNC>;
-			timeout-ms = <COMBO_TIMEOUT>;
-		};
-		
-		COMBO_LAYER(TWENTY_LAYERS, &lsl FUNC TWE2C, 30 31, eiueiueiu)
-		
-		COMBO_LAYER(TWENAV, &kp LC(HOME), 26 27, rstrstrl)
-		COMBO_LAYER(TWENAV, &kp LC(END),  27 28, grjqljg)
-		// COMBO_LAYER(TWENAV, &kp LC(END),  28 29, grjqljg) // something here
-		COMBO_LAYER(TWENAV, &kp PG_DN,  17 27, ldnrshld)
-		COMBO_LAYER(TWENAV, &kp PG_UP,  18 28, njlzdnr)
-		
-		COMBO_MACRO_LAYER(ae,twen, 11 13, TWEN)
-		COMBO_MACRO_LAYER(ao,twen, 11 23, TWEN)
-		COMBO_MACRO_LAYER(nao,twen, 11 12 23, TWEN)
-		COMBO_MACRO_LAYER(oe,twen, 13 23, TWEN)
-		// COMBO_MACRO_LAYER(U_F_,twen, 0 21, TWEN)
-		// COMBO_MACRO_LAYER(F_U_,twen, 10 21, TWEN)
 	};
 
 	keymap {
@@ -316,7 +291,7 @@
 		#define MTCASH  &mt EURO_ DLLR_
 		
 		#define MTLGLM &ht_lglm 0 0
-		#define MTRGLM &ht_rglm 0 0 
+		#define MTRGLM &ht_rglm 0 0
 		
 		// thumb keys
 		#define THLH1	&lt NUM E_
@@ -324,12 +299,6 @@
 		#define THLH2	&lsl SYM SYM
 		#define THRH2	&lsl ACNT ACNT
 		#define THRH1	&lt NAV SPACE
-		
-		// thumb keys for 20-key layout
-		#define TH20LH1	&lsl TWE2 TWE2
-		#define TH20LH2	&lsl NUM SYM
-		#define TH20RH1	&lt TWENAV SPACE
-		#define TH20RH2	&lsl TWEA TWEA
 		
 		#define ___ &none
 		
@@ -351,71 +320,9 @@
 			>;
 		};
 		
-		
-		
-		
-		
-		twenty_layer {
-			bindings = <
-				HMLG U_		___ 		___ 		___ 			___ ___ 		___ 		___ 		___			HMRG R_
-				HMRA F_		HMLA A_		HMLC N_		HMLS E_			___	___			HMRS S_		HMRC T_		HMRA I_		&kp H_
-				___		 	HMLC COMM_	&kp  L_		&kp  O_			___	___		 	&kp  M_		&kp  D_		&kp  P_		___
-														TH20LH1	TH20LH2	TH20RH2	TH20RH1
-			>;
-		};
-		
-		twenty_layer_two {
-			bindings = <
-				HMLG_QU		___ 		___ 		___ 			___ ___ 		___ 		___ 		___ 		HMRG APST_
-				HMRA MIN_	HMLA K_		HMLC W_		HMLS EACT_		___	___			HMRS C_		HMRC G_		HMRA Y_	&kp X_
-				___			HMLC DOT_	&kp  Z_		&kp  Q_	  &tog TWEN ___			&kp  V_		&kp  B_		&kp  J_		___
-														&trans	 &trans	&trans	&trans
-			>;
-		};
-		
-		twenty_layer_two_caps {
-			bindings = <
-				HMLG_QUC	___ 			___ 			___ 				___	___ 		___ 			___ 			___ 		HMRG LS(APST_)
-				HMRA MIN_	HMLA LS(K_)		HMLC LS(W_)		HMLS LS(EACT_)		___	___			HMRS LS(C_)		HMRC LS(G_)		HMRA LS(Y_)	&kp LS(X_)
-				___			HMLC LS(DOT_)	&kp  LS(Z_)		&kp  LS(Q_)	 		___ ___			&kp  LS(V_)		&kp  LS(B_)		&kp  LS(J_)		___
-														&trans	 &trans	&trans	&trans
-			>;
-		};
-		
-		twenty_layer_accents {
-			bindings = <
-				HMLG_UACT	___ 		___ 		___ 			___ ___ 		___ 		___ 		___ 		HMRG GRAV_
-				___			HMLA_AACT	&m_TILD_N_ 	&m_CFLX_E_		___	___			HMRS CCED_	HMRC CFLX_	HMRA_IACT	EXCL_QMRK
-				___			&kp AGRV_	&kp TILD_	&m_ACUT_O_		___	___			&kp SZET_	&kp TRMA_	&kp  QUOT_	___
-														&trans	 &trans	&trans	&trans
-			>;
-		};
-		
-		twenty_layer_nav {
-			bindings = <
-				HMLG INSERT	 ___		___			___				___	___			___				___			___			&kp LC(RIGHT)
-				&kp LC(Z_)	 HMLA PSCRN	HMLC PSBRK	HMLS C_PP		___	___			&kp LC(LEFT)	&kp DOWN	&kp UP		&kp END
-				___			 &kp LC(X_)	&kp LC(C_)	&kp LC(V_)		___	___			&kp HOME		&kp LEFT	&kp RIGHT	___
-														&kp ULIN_	&trans	&trans		&trans
-			>;
-		};
-		
-		
-		
-		
-		
-		game_layer {
-			bindings = <
-				&kp ESC		&kp  F_		&kp  W_		&kp  E_		&kp T_				&kp Y_		&kp  U_		&kp  I_		&kp  O_		&kp  P_
-				&kp LSHIFT	&kp  A_		&kp  S_		&kp  D_		&kp R_				&kp H_		&kp  J_		&kp  K_		&kp  L_		&kp  N_
-				&kp LCTRL	&kp  Z_		&kp  X_		&kp  C_		&kp V_				&kp N_		&kp  M_		&kp  COMM_	&kp  DOT_	&kp  BSPC
-													&kp SPACE	&kp TAB				&kp LALT	&kp SPACE
-			>;
-		};
-		
 		sym_layer {
 			bindings = <
-				___			&kp AT_		&kp AMPR_	&kp OE_		&kp AE_				___			MTCASH		&kp HASH_	&kp PCNT_	&kp PIPE_
+				___			&kp AT_		&kp AMPR_	&kp OE_		&kp AE_				___			___			___			___			___
 				HMRG LCRL_	HMLA RCRL_	HMLC LPAR_	HMLS RPAR_	&kp MDSH_			___			HMRS LBRK_	HMRC RBRK_	HMLA MDSH_	HMRG NDSH_
 				&kp NDSH_	&kp MDSH_	MTLGLM		MTRGLM		___					___			&kp LT_		&kp GT_		&kp EQUL_	___
 													THLH1		&trans				&trans		&trans
@@ -424,9 +331,9 @@
 		
 		accent_layer {
 			bindings = <
-				&m_CFLX_U_	&m_CFLX_O_	&m_CFLX_I_	&m_CFLX_A_	___					___			&kp CCED_	&kp APST_	&kp QUOT_	&m_B_J_
+				&m_CFLX_U_	&m_CFLX_O_	&m_CFLX_I_	&m_CFLX_A_	___					___			&kp CCED_	&kp  APST_	&kp  QUOT_	&m_B_J_
 				&m_ACUT_U_	&m_ACUT_O_	&m_ACUT_I_	&m_ACUT_A_	&m_TILD_A_			&kp ACUT_	HMRS MIN_	HMRC CFLX_	HMLA GRAV_	&m_TILD_N_
-				&m_GRAV_U_	&m_TILD_O_	&m_TRMA_I_	&kp AGRV_	___					___			&kp TRMA_	&kp CRAT_	&kp SZET_	&kp TILD_
+				&m_GRAV_U_	&m_TILD_O_	&m_TRMA_I_	&kp AGRV_	___					___			&kp TRMA_	&kp  CRAT_	&kp  SZET_	&kp TILD_
 													&m_CFLX_E_	&m_GRAV_E_			&trans		&trans
 			>;
 		};
@@ -451,12 +358,22 @@
 		
 		func_layer {
 			bindings = <
-				&bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3			&reset        &kp F7  &kp F8  &kp F9  &kp F10
-				HMLG C_BRI_UP HMLA C_VOL_DN HMLC C_VOL_UP HMLS C_MUTE   &kp LSLCK				&out OUT_BLE  &kp F1  &kp F2  &kp F3  &kp F11
-				&kp C_BRI_DN  &kp C_PREV    &kp C_NEXT    &kp C_PP      &kp LNLCK				&out OUT_USB  &kp F4  &kp F5  &kp F6  &kp F12
-													      &trans		&trans					&trans		  &trans
+				&bt  BT_CLR    &bt  BT_SEL 0  &bt  BT_SEL 1  &bt  BT_SEL 2  &bt BT_SEL 3			&reset        &kp F7  &kp F8  &kp F9  &kp F10
+				HMLG C_BRI_UP  HMLA C_NEXT	  HMLC C_VOL_UP  HMLS C_PP  	&kp LSLCK				&out OUT_BLE  &kp F1  &kp F2  &kp F3  &kp F11
+				&kp  C_BRI_DN  &kp  C_PREV    &kp  C_VOL_DN  &kp  C_MUTE    &kp LNLCK				&out OUT_USB  &kp F4  &kp F5  &kp F6  &kp F12
+															 &trans			&trans					&trans		  &trans
 			>;
 		};
+		
+		game_layer {
+			bindings = <
+				&kp ESC		&kp  F_		&kp  W_		&kp  E_		&kp T_				&kp Y_		&kp  U_		&kp  I_		&kp  O_		&kp  P_
+				&kp LSHIFT	&kp  A_		&kp  S_		&kp  D_		&kp R_				&kp H_		&kp  J_		&kp  K_		&kp  L_		&kp  N_
+				&kp LCTRL	&kp  Z_		&kp  X_		&kp  C_		&kp V_				&kp N_		&kp  M_		&kp  COMM_	&kp  DOT_	&kp  BSPC
+													&kp SPACE	&kp TAB				&tog GAME	&kp LALT
+			>;
+		};
+		
 		/* FOR DEBUGGING:
 			bindings = <
 				___ ___ ___ ___ ___ ___ ___ ___ ___ ___
