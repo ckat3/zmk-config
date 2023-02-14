@@ -233,7 +233,7 @@
 		
 		
 		combo_ctrlz {
-			bindings = <&kp LC(Z_)>;
+			bindings = <&reset>;
 			key-positions = <20 21>;
 			timeout-ms = <COMBO_TIMEOUT>;
 		};
