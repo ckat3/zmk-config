@@ -78,9 +78,10 @@
 		HOLDTAP(hm_uact, tap-preferred,   <&kp>, <&m_ACUT_U_>)
 		HOLDTAP(hm_iact, tap-preferred,   <&kp>, <&m_ACUT_I_>)
 		
-		// these are for « and » with or without automatic nbsp. use with 0 0 arguments.
+		/* these are for « and » with or without automatic nbsp. use with 0 0 arguments.
 		HOLDTAP(ht_lglm, tap-preferred,   <&kp LGLM_>, <&m_nbsp_lglm>)
 		HOLDTAP(ht_rglm, tap-preferred,   <&kp RGLM_>, <&m_nbsp_rglm>)
+		*/
 
 		
 		HRMOD_POS(hml, 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33)
