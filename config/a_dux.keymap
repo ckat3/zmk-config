@@ -79,8 +79,8 @@
 		HOLDTAP(hm_iact, tap-preferred,   <&kp>, <&m_ACUT_I_>)
 		
 		// these are for « and » with or without automatic nbsp. use with 0 0 arguments.
-		// HOLDTAP(ht_lglm, tap-preferred,   <&kp LGLM_>, <&m_nbsp_lglm>)
-		// HOLDTAP(ht_rglm, tap-preferred,   <&kp RGLM_>, <&m_nbsp_rglm>)
+		HOLDTAP(ht_lglm, tap-preferred,   <&kp>, <&m_nbsp_lglm>)
+		HOLDTAP(ht_rglm, tap-preferred,   <&kp>, <&m_nbsp_rglm>)
 
 		
 		HRMOD_POS(hml, 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33)
@@ -130,8 +130,8 @@
 		MACRO_SIMPLE(F_, U_)
 		MACRO_SIMPLE(U_, F_)
 		
-		// MACRO(nbsp_lglm, <&macro_tap &kp LS(SPACE) &kp LGLM_>)
-		// MACRO(nbsp_rglm, <&macro_tap &kp RGLM_ &kp LS(SPACE)>)
+		MACRO(nbsp_lglm, <&macro_tap &kp LS(SPACE) &kp LGLM_>)
+		MACRO(nbsp_rglm, <&macro_tap &kp RGLM_ &kp LS(SPACE)>)
 		
 		MACRO(ae,  <&macro_tap &kp TILD_ &kp A_ &kp E_>)
 		MACRO(ao,  <&macro_tap &kp TILD_ &kp A_ &kp O_>)
@@ -238,7 +238,6 @@
 		
 		combo_ctrlz {
 			bindings = <&kp LC(Z_)>;
-			//bindings = <&reset>;
 			key-positions = <20 21>;
 			timeout-ms = <COMBO_TIMEOUT>;
 		};
@@ -295,8 +294,8 @@
 		/*#define MTDASH  &mtslow NDSH_ MDSH_*/
 		#define MTCASH  &mt EURO_ DLLR_
 		
-		// #define MTLGLM &ht_lglm 0 0
-		// #define MTRGLM &ht_rglm 0 0
+		#define MTLGLM &ht_lglm LGLM_ 0
+		#define MTRGLM &ht_rglm RGLM_ 0
 		
 		// thumb keys
 		#define THLH1	&lt NUM E_
@@ -329,7 +328,7 @@
 			bindings = <
 				___			&kp AT_		&kp AMPR_	&kp OE_		&kp AE_				___			___			___			___			___
 				HMRG LCRL_	HMLA RCRL_	HMLC LPAR_	HMLS RPAR_	&kp MDSH_			___			HMRS LBRK_	HMRC RBRK_	HMLA MDSH_	HMRG NDSH_
-				&kp NDSH_	&kp MDSH_	___/*MTLGLM_*/		___/*MTRGLM*/		___					___			&kp LT_		&kp GT_		&kp EQUL_	___
+				&kp NDSH_	&kp MDSH_	MTLGLM		MTRGLM		___					___			&kp LT_		&kp GT_		&kp EQUL_	___
 													THLH1		&trans				&trans		&trans
 			>;
 		};
