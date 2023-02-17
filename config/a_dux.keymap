@@ -132,6 +132,7 @@
 		
 		MACRO(nbsp_lglm, <&macro_tap &kp LGLM_ 	   &kp LS(SPACE)>)
 		MACRO(nbsp_rglm, <&macro_tap &kp LS(SPACE) &kp RGLM_>)
+		MACRO(nbsp_coln, <&macro_tap &kp LS(SPACE) &kp LS(DOT_)>)
 		
 		MACRO(ae,  <&macro_tap &kp TILD_ &kp A_ &kp E_>)
 		MACRO(ao,  <&macro_tap &kp TILD_ &kp A_ &kp O_>)
@@ -149,51 +150,31 @@
 	combos {
 		compatible = "zmk,combos";
 		
-		// todo: add to header and manual combos
-		#define COMBO_STAPLES(POSITIONS) \
-			key-positions = <POSITIONS>; \
-			timeout-ms = <COMBO_TIMEOUT>;
-		
-		// todo: add bindings into header
-		#define COMBO_HEADER(NAME, POSITIONS) \
+		#define DEFINE_COMBO(BINDINGS, POSITIONS, NAME) \
 			combo_##NAME { \
+				bindings = <BINDINGS>; \
 				key-positions = <POSITIONS>; \
-				timeout-ms = <COMBO_TIMEOUT>;
-		
-		#define COMBO(BINDINGS, POSITIONS, NAME) \
-			COMBO_HEADER(NAME, POSITIONS) \
-				bindings = <BINDINGS>; \
-				layers = <NOT_GAME>; \
-			};
-		
-		#define COMBO_LAYER(LAYERS, BINDINGS, POSITIONS, NAME) \
-			COMBO_HEADER(NAME, POSITIONS) \
-				bindings = <BINDINGS>; \
 				layers = <LAYERS>; \
+				timeout-ms = <COMBO_TIMEOUT>; \
 			};
+		
+		// when not defining layers, will default to NOT_GAME
+		#define COMBO(BINDINGS, POSITIONS, NAME) \
+			DEFINE_COMBO(BINDINGS, POSITIONS, NAME, NOT_GAME)		
+		#define COMBO_LAYER(LAYERS, BINDINGS, POSITIONS, NAME) \
+			DEFINE_COMBO(BINDINGS, POSITIONS, NAME, LAYERS)
+
 		
 		#define COMBO_KP(KEY, SUFFIX, POSITIONS) \
-			COMBO_HEADER(KEY##SUFFIX, POSITIONS) \
-				bindings = <&kp KEY>; \
-				layers = <NOT_GAME>; \
-			};
-			
+			DEFINE_COMBO(&kp KEY, POSITIONS, KEY##SUFFIX, NOT_GAME)			
 		#define COMBO_KP_LAYER(KEY, SUFFIX, POSITIONS, LAYERS) \
-			COMBO_HEADER(KEY##SUFFIX, POSITIONS) \
-				bindings = <&kp KEY>; \
-				layers = <LAYERS>; \
-			};
+			DEFINE_COMBO(&kp KEY, POSITIONS, KEY##SUFFIX, LAYERS)
+			
 		
 		#define COMBO_MACRO(MACRO, POSITIONS) \
-			COMBO_HEADER(MACRO, POSITIONS) \
-				bindings = <&m_##MACRO>; \
-			};
-		
+			DEFINE_COMBO(&m_##MACRO>, POSITIONS, MACRO, NOT_GAME)		
 		#define COMBO_MACRO_LAYER(MACRO, SUFFIX, POSITIONS, LAYERS) \
-			COMBO_HEADER(MACRO##SUFFIX, POSITIONS) \
-				bindings = <&m_##MACRO>; \
-				layers = <LAYERS>; \
-			};
+			DEFINE_COMBO(&m_##MACRO>, POSITIONS, MACRO##SUFFIX, LAYERS)
 		
 			
 	/*
