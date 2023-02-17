@@ -53,38 +53,49 @@
 				tapping-term-ms = <HT_TAPPING_TERM>; \
 				quick-tap-ms = <HT_QUICK_TAP>;
 				
-		#define HOLDTAP(NAME, FLAVOR, BINDINGS...) \
+		#define HOLDTAP(NAME, BINDINGS...) \
 				HOLDTAP_HEADER(NAME) \
-				flavor = #FLAVOR; \
-				bindings = BINDINGS; \
+					bindings = BINDINGS; \
+					flavor = "tap-preferred"; \
+			};
+				
+		#define HOLDTAP_FLAVOR(NAME, FLAVOR, BINDINGS...) \
+				HOLDTAP_HEADER(NAME) \
+					bindings = BINDINGS; \
+					flavor = #FLAVOR; \
 			};
 			
 		#define HRMOD_POS(NAME, POSITIONS) \
 				HOLDTAP_HEADER(NAME) \
-				flavor = "tap-preferred"; \
-				bindings = <&kp>, <&kp>; \
-				hold-trigger-key-positions = <POSITIONS>; \
+					bindings = <&kp>, <&kp>; \
+					flavor = "tap-preferred"; \
+					hold-trigger-key-positions = <POSITIONS>; \
 			};
 			
 		
-		HOLDTAP(hm,  tap-preferred, <&kp>, <&kp>)
-		HOLDTAP(lsk, balanced,      <&mo>, <&sk>)        // lsk: layer if held, one-shot kp if pressed
-		HOLDTAP(lsl, balanced,      <&mo>, <&sl>)        // lsl: layer if held, one-shot layer if pressed
 		
-		// the following are for home-row mods
-		HOLDTAP(hm_qu, tap-preferred,   <&kp>, <&m_Q_U_>)
-		HOLDTAP(hm_quc, tap-preferred,   <&kp>, <&m_shift_qu>)
-		HOLDTAP(hm_aact, tap-preferred,   <&kp>, <&m_ACUT_A_>)
-		HOLDTAP(hm_uact, tap-preferred,   <&kp>, <&m_ACUT_U_>)
-		HOLDTAP(hm_iact, tap-preferred,   <&kp>, <&m_ACUT_I_>)
+		HOLDTAP_FLAVOR(lsk, balanced, <&mo>, <&sk>) // lsk: layer if held, one-shot kp if pressed
+		HOLDTAP_FLAVOR(lsl, balanced, <&mo>, <&sl>) // lsl: layer if held, one-shot layer if pressed
 		
-		// these are for « and » with or without automatic nbsp. use with 0 0 arguments.
-		HOLDTAP(ht_lglm, tap-preferred,   <&kp>, <&m_nbsp_lglm>)
-		HOLDTAP(ht_rglm, tap-preferred,   <&kp>, <&m_nbsp_rglm>)
+		// home-row mods
+		HOLDTAP(hm, <&kp>, <&kp>)		
+		HOLDTAP(hm_qu,   <&kp>, <&m_Q_U_>)
+		HOLDTAP(hm_quc,  <&kp>, <&m_shift_qu>)
+		HOLDTAP(hm_aact, <&kp>, <&m_ACUT_A_>)
+		HOLDTAP(hm_uact, <&kp>, <&m_ACUT_U_>)
+		HOLDTAP(hm_iact, <&kp>, <&m_ACUT_I_>)
 
-		
+		// hrm for opposite hand only (used for shift)
 		HRMOD_POS(hml, 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33)
 		HRMOD_POS(hmr, 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31)
+		
+		// for chars with automatic nbsp on tap
+		HOLDTAP(ht_lglm, <&kp>, <&m_nbsp_lglm>)
+		HOLDTAP(ht_rglm, <&kp>, <&m_nbsp_rglm>)
+		
+		// for chars with automatic nbsp on hold
+		HOLDTAP(ht_coln, <&m_nbsp_coln>, <&kp>)
+		HOLDTAP(ht_scln, <&m_nbsp_scln>, <&kp>)
 	};
 
 	macros {
@@ -141,10 +152,14 @@
 		MACRO(nao, <&macro_tap &kp N_ &kp TILD_ &kp A_ &kp O_>)
 		MACRO(oe,  <&macro_tap &kp TILD_ &kp O_ &kp E_>)
 		
-		MACRO(shift_qu, <&macro_press &kp LSHFT>, <&macro_tap &kp Q_ &kp U_>, <&macro_release &kp LSHFT>)
+		MACRO(shift_qu, <&macro_tap &kp LS(Q_) &kp LS(U_)>)
+		MACRO(shift_ae, <&macro_tap &kp TILD_ &kp LS(A_) &kp LS(E_)>)
+		MACRO(shift_ao, <&macro_tap &kp TILD_ &kp LS(A_) &kp LS(O_)>)
+		MACRO(shift_oe, <&macro_tap &kp TILD_ &kp LS(O_) &kp LS(E_)>)
+		/*MACRO(shift_qu, <&macro_press &kp LSHFT>, <&macro_tap &kp Q_ &kp U_>, <&macro_release &kp LSHFT>)
 		MACRO(shift_ae, <&macro_tap &kp TILD_>, <&macro_press &kp LSHFT>, <&macro_tap &kp A_ &kp E_>, <&macro_release &kp LSHFT>)
 		MACRO(shift_ao, <&macro_tap &kp TILD_>, <&macro_press &kp LSHFT>, <&macro_tap &kp A_ &kp O_>, <&macro_release &kp LSHFT>)
-		MACRO(shift_oe, <&macro_tap &kp TILD_>, <&macro_press &kp LSHFT>, <&macro_tap &kp O_ &kp E_>, <&macro_release &kp LSHFT>)
+		MACRO(shift_oe, <&macro_tap &kp TILD_>, <&macro_press &kp LSHFT>, <&macro_tap &kp O_ &kp E_>, <&macro_release &kp LSHFT>)*/
 		
 		// MACRO(spc_capl, <&macro_tap &kp SPACE &tog CAPL>) // space then toggle caps layer
 	};
@@ -253,6 +268,10 @@
 	keymap {
 		compatible = "zmk,keymap";
 		
+		#define xxxx &none
+		#define ____ &trans
+		
+		// home-row mods
 		#define HMLS  &hml LSHIFT
 		#define HMRS  &hmr RSHIFT
 		#define HMLC  &hm LCTRL
@@ -269,6 +288,7 @@
 		#define HMLG_UACT	&hm_uact LGUI 0
 		
 		#define EXCL_QMRK	&mt EXCL_ QMRK_
+		#define EURO_DLLR_  &mt EURO_ DLLR_
 		
 		/*
 		#define MTPAR  &mt RPAR_ LPAR_
@@ -278,10 +298,14 @@
 		#define MTGLT  &mt GT_   LT_*/
 		
 		/*#define MTDASH  &mtslow NDSH_ MDSH_*/
-		#define MTCASH  &mt EURO_ DLLR_
 		
+		// «» with nbsp on tap
 		#define MTLGLM &ht_lglm LGLM_ 0
 		#define MTRGLM &ht_rglm RGLM_ 0
+		
+		// :; with nbsp on hold
+		#define MTDOT  &ht_coln 0 DOT_
+		#define MTCOMM &ht_scln 0 COMM_
 		
 		// thumb keys
 		#define THLH1	&lt NUM E_
@@ -290,14 +314,11 @@
 		#define THRH2	&lsl ACNT ACNT
 		#define THRH1	&lt NAV SPACE
 		
-		#define xxxx &none
-		#define ____ &trans
-		
 		base_layer {
 			bindings = <
-				&kp  Q_		HMRA MIN_	&kp  Y_		&kp DOT_	EXCL_QMRK			&kp K_		&kp  C_		&kp  H_		&kp  W_		&kp  J_
+				&kp  Q_		HMRA MIN_	&kp  Y_		MTDOT		EXCL_QMRK			&kp K_		&kp  C_		&kp  H_		&kp  W_		&kp  J_
 				HMRG U_		HMLA O_		HMLC I_		HMLS A_		&kp F_				&kp G_		HMRS T_		HMRC R_		HMRA S_		HMRG N_
-				&kp  Z_		HMLC EACT_	&kp  P_		&kp COMM_	&kp X_				&kp V_		&kp  D_		&kp  M_		&kp  L_		&kp  B_
+				&kp  Z_		HMLC EACT_	&kp  P_		MTCOMM		&kp X_				&kp V_		&kp  D_		&kp  M_		&kp  L_		&kp  B_
 													THLH1		THLH2				THRH2		THRH1
 			>;
 		};
@@ -331,7 +352,7 @@
 		
 		num_layer {
 			bindings = <
-				xxxx		&kp N7_		&kp N8_		&kp N9_		xxxx				xxxx		MTCASH		&kp HASH_	&kp PCNT_	&kp PIPE_
+				xxxx		&kp N7_		&kp N8_		&kp N9_		xxxx				xxxx		EURO_DLLR_	&kp HASH_	&kp PCNT_	&kp PIPE_
 				&kp N0_		&kp N1_		&kp N2_		&kp	N3_		&kp DOT_			xxxx		HMRS PLUS_	HMRC MIN_	HMLA STAR_	HMRG FSLA_
 				xxxx		&kp N4_		&kp N5_		&kp	N6_		&kp COMM_			xxxx		&kp LT_		&kp GT_		&kp EQUL_	&kp BSLA_
 													____		____				&kp ULIN_	____
