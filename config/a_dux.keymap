@@ -6,8 +6,8 @@
 #include "bepo_bindings.h"
 
 /* SETTINGS */
-#define MACRO_WAIT 3 /* good 5 */
-#define MACRO_TAP_DELAY 3 /* good 5 */
+#define MACRO_WAIT 3 /* max 5 */
+#define MACRO_TAP_DELAY 3 /* max 5 */
 
 #define COMBO_TIMEOUT 16 /* max 17, 15 maybe too little */
 
@@ -106,8 +106,8 @@
 				bindings = BINDINGS; \
 				)
 				
-		// MACRO_SIMPLE will name the macro "m_FIRST##SECOND", eg "mQ_U_".
-		// it cannot therefore contain parentheses (i think?) or complex sequences. 
+		// MACRO_SIMPLE names the macro "m_FIRST##SECOND", eg "mQ_U_".
+		// it cannot contain parentheses (i think?) or complex sequences. 
 		#define MACRO_SIMPLE(FIRST, SECOND) \
 			MACRO(FIRST##SECOND, <&macro_tap &kp FIRST &kp SECOND>)
 				
@@ -144,8 +144,8 @@
 		MACRO(nbsp_lglm, <&macro_tap &kp LGLM_ 	   &kp LS(SPACE)>)
 		MACRO(nbsp_rglm, <&macro_tap &kp LS(SPACE) &kp RGLM_>)
 		
-		MACRO(nbsp_coln, <&macro_tap &kp LS(SPACE) &kp LS(DOT_)>)
-		MACRO(nbsp_scln, <&macro_tap &kp LS(SPACE) &kp LS(COMM_)>)
+		MACRO(nbsp_coln, <&macro_tap &kp LS(SPACE) &kp LS(DOT_) &kp SPACE>)
+		MACRO(nbsp_scln, <&macro_tap &kp LS(SPACE) &kp LS(COMM_) &kp SPACE>)
 		
 		MACRO(ae,  <&macro_tap &kp TILD_ &kp A_ &kp E_>)
 		MACRO(ao,  <&macro_tap &kp TILD_ &kp A_ &kp O_>)
