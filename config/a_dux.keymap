@@ -176,10 +176,10 @@
 			
 		
 		#define COMBO_MACRO(MACRO, POSITIONS) \
-			DEFINE_COMBO(NOT_GAME, &m_##MACRO>, POSITIONS, MACRO)		
+			DEFINE_COMBO(NOT_GAME, &m_##MACRO, POSITIONS, MACRO)		
 			
 		#define COMBO_MACRO_LAYER(MACRO, SUFFIX, POSITIONS, LAYERS) \
-			DEFINE_COMBO(LAYERS, &m_##MACRO>, POSITIONS, MACRO##SUFFIX)
+			DEFINE_COMBO(LAYERS, &m_##MACRO, POSITIONS, MACRO##SUFFIX)
 		
 			
 	/*
@@ -341,7 +341,7 @@
 		nav_layer {
 			bindings = <
 				&kp INSERT	&sk RALT	&kp PSCRN	&kp PSBRK	xxxx				xxxx		&kp LC(HOME)	&kp PG_DN	&kp PG_UP	&kp LC(END)
-				&sk LGUI	&sk LALT	&sk LCTRL	&sk LSHIFT	&tog CAPL			&kp CAPS	&kp LC(LEFT)	&kp DOWN	&kp UP		&kp LC(RIGHT)
+				&sk LGUI	&sk LALT	&sk LCTRL	&sk LSHIFT	&kp CAPS			&tog CAPL	&kp LC(LEFT)	&kp DOWN	&kp UP		&kp LC(RIGHT)
 				&kp LC(Z_)	&kp LC(X_)	&kp LC(C_)	&kp LC(V_)	xxxx				xxxx		&kp HOME		&kp LEFT	&kp RIGHT	&kp END
 													&kp ULIN_	____				____		____
 			>;
