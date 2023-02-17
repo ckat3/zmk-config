@@ -104,8 +104,8 @@
 			};*/
 		
 		
-		HOLDTAP_FLAVOR(lsk, balanced, <&mo>, <&sk>) // lsk: layer if held, one-shot kp if pressed
-		HOLDTAP_FLAVOR(lsl, balanced, <&mo>, <&sl>) // lsl: layer if held, one-shot layer if pressed
+		HOLDTAP(lsk, balanced, <&mo>, <&sk>) // lsk: layer if held, one-shot kp if pressed
+		HOLDTAP(lsl, balanced, <&mo>, <&sl>) // lsl: layer if held, one-shot layer if pressed
 		
 		// home-row mods
 		HOLDTAP(hm, <&kp>, <&kp>)		
@@ -174,8 +174,8 @@
 		MACRO(nbsp_lglm, <&macro_tap &kp LGLM_ 	   &kp LS(SPACE)>)
 		MACRO(nbsp_rglm, <&macro_tap &kp LS(SPACE) &kp RGLM_>)
 		
-		MACRO(nbsp_coln, <&macro_tap &kp LS(SPACE) &kp LS(DOT_)>)
-		MACRO(nbsp_scln, <&macro_tap &kp LS(SPACE) &kp LS(COMM_)>)
+		MACRO(nbsp_coln, <&macro_tap &kp LS(SPACE) &kp LS(DOT_)  &kp SPACE>)
+		MACRO(nbsp_scln, <&macro_tap &kp LS(SPACE) &kp LS(COMM_) &kp SPACE>)
 		
 		MACRO(ae,  <&macro_tap &kp TILD_ &kp A_ &kp E_>)
 		MACRO(ao,  <&macro_tap &kp TILD_ &kp A_ &kp O_>)
