@@ -13,8 +13,8 @@
 
 #define MT_TAPPING_TERM 120
 #define LT_TAPPING_TERM 250
-					
 #define HT_TAPPING_TERM 250
+#define HT_TAPPING_TERM_QUICK 200
 #define HT_QUICK_TAP 200
 #define STICKY_KEY_RELEASE_DELAY 2000 /* min 1000 */
 
@@ -52,6 +52,7 @@
 				flavor = #FLAVOR; \
 				tapping-term-ms = <DELAY>; \
 				bindings = BINDINGS; \
+	 
 				#binding-cells = <2>; \
 				compatible = "zmk,behavior-hold-tap"; \
 				quick-tap-ms = <HT_QUICK_TAP>;
@@ -65,49 +66,19 @@
 			};
 				
 		#define HOLDTAP_QUICK(NAME, FLAVOR, BINDINGS...) \
-				DEFINE_HOLDTAP(NAME, FLAVOR, HT_TAPPING_TERM, BINDINGS) \
+				DEFINE_HOLDTAP(NAME, FLAVOR, HT_TAPPING_TERM_QUICK, BINDINGS) \
 			};
 			
 		#define HRMOD_POS(NAME, POSITIONS) \
 				DEFINE_HOLDTAP(NAME, tap-preferred, HT_TAPPING_TERM, <&kp>, <&kp>) \
 					hold-trigger-key-positions = <POSITIONS>; \
 			};
-   
-															  
-					  
-					
-					   
-								
-						  
-	 
-						   
-										   
-								  
-	
-									  
-															 
-	 
-	
-													 
-													  
-	 
-	
-													
-															
-	 
 			
-									  
-																 
-												
-	   
 		
 		
-																			
-																			   
 		HOLDTAP_FLAVOR(lsk, balanced, <&mo>, <&sk>) // lsk: layer if held, one-shot kp if pressed
 		HOLDTAP_FLAVOR(lsl, balanced, <&mo>, <&sl>) // lsl: layer if held, one-shot layer if pressed
 		
-  
 		// home-row mods
 		HOLDTAP(hm, <&kp>, <&kp>)		
 		HOLDTAP(hm_qu,   <&kp>, <&m_Q_U_>)
@@ -125,8 +96,8 @@
 		HOLDTAP(ht_rglm, <&kp>, <&m_nbsp_rglm>)
 		
 		// for chars with automatic nbsp on hold
-		HOLDTAP(ht_coln, <&m_nbsp_coln>, <&kp>)
-		HOLDTAP(ht_scln, <&m_nbsp_scln>, <&kp>)
+		HOLDTAP_QUICK(ht_coln, <&m_nbsp_coln>, <&kp>)
+		HOLDTAP_QUICK(ht_scln, <&m_nbsp_scln>, <&kp>)
 	};
 
 	macros {
