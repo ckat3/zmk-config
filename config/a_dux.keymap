@@ -6,15 +6,14 @@
 #include "bepo_bindings.h"
 
 /* SETTINGS */
-#define MACRO_WAIT 3 /* max 5 */
-#define MACRO_TAP_DELAY 3 /* max 5 */
+#define MACRO_WAIT 3 /* good 5 */
+#define MACRO_TAP_DELAY 3 /* good 5 */
 
 #define COMBO_TIMEOUT 16 /* max 17, 15 maybe too little */
 
-#define MT_DELAY 120
-#define LT_DELAY 250
-#define HT_DELAY 250
-#define HT_DELAY_QUICK 200
+#define MT_TAPPING_TERM 120
+#define LT_TAPPING_TERM 250
+#define HT_TAPPING_TERM 250
 #define HT_QUICK_TAP 200
 #define STICKY_KEY_RELEASE_DELAY 2000 /* min 1000 */
 
@@ -31,12 +30,12 @@
 #define NOT_GAME BASE CAPL SYM ACNT NUM NAV FUNC
 
 &lt {
-	tapping-term-ms = <LT_DELAY>;
+	tapping-term-ms = <LT_TAPPING_TERM>;
 	flavor = "balanced";
 };
 
 &mt {
-	tapping-term-ms = <MT_DELAY>;
+	tapping-term-ms = <MT_TAPPING_TERM>;
 };
 
 &sk {
@@ -59,8 +58,6 @@
 					bindings = BINDINGS; \
 					flavor = "tap-preferred"; \
 			};
-			
-		#define HOLDTAP_QUICK(NAME, BINDINGS...) HOLDTAP(NAME, BINDINGS)
 				
 		#define HOLDTAP_FLAVOR(NAME, FLAVOR, BINDINGS...) \
 				HOLDTAP_HEADER(NAME) \
@@ -75,40 +72,10 @@
 					hold-trigger-key-positions = <POSITIONS>; \
 			};
 			
-		/*#define DEFINE_HOLDTAP(NAME, FLAVOR, DELAY, BINDINGS...) \
-			NAME: ht_##NAME { \
-				label = #NAME; \
-				flavor = #FLAVOR; \
-				tapping-term-ms = <DELAY>; \
-				bindings = BINDINGS; \
-				\
-				#binding-cells = <2>; \
-				compatible = "zmk,behavior-hold-tap"; \
-				quick-tap-ms = <HT_QUICK_TAP>;
-				
-		#define HOLDTAP(NAME, BINDINGS...) \
-				DEFINE_HOLDTAP(NAME, tap-preferred, HT_DELAY, BINDINGS) \
-			};
-				
-		#define HOLDTAP_FLAVOR(NAME, FLAVOR, BINDINGS...) \
-				DEFINE_HOLDTAP(NAME, FLAVOR, HT_DELAY, BINDINGS) \
-			};
-				
-		#define HOLDTAP_QUICK(NAME, FLAVOR, BINDINGS...) \
-				DEFINE_HOLDTAP(NAME, FLAVOR, HT_DELAY_QUICK, BINDINGS) \
-			};
-			
-		#define HRMOD_POS(NAME, POSITIONS) \
-				DEFINE_HOLDTAP(NAME, tap-preferred, HT_DELAY, <&kp>, <&kp>) \
-					hold-trigger-key-positions = <POSITIONS>; \
-			};*/
 		
 		
-		/*HOLDTAP(lsk, <&mo>, <&sk>) // lsk: layer if held, one-shot kp if pressed
-		HOLDTAP(lsl, <&mo>, <&sl>) // lsl: layer if held, one-shot layer if pressed*/
 		HOLDTAP_FLAVOR(lsk, balanced, <&mo>, <&sk>) // lsk: layer if held, one-shot kp if pressed
 		HOLDTAP_FLAVOR(lsl, balanced, <&mo>, <&sl>) // lsl: layer if held, one-shot layer if pressed
-		
 		
 		// home-row mods
 		HOLDTAP(hm, <&kp>, <&kp>)		
@@ -139,8 +106,8 @@
 				bindings = BINDINGS; \
 				)
 				
-		// MACRO_SIMPLE names the macro "m_FIRST##SECOND", eg "mQ_U_".
-		// it cannot contain parentheses (i think?) or complex sequences. 
+		// MACRO_SIMPLE will name the macro "m_FIRST##SECOND", eg "mQ_U_".
+		// it cannot therefore contain parentheses (i think?) or complex sequences. 
 		#define MACRO_SIMPLE(FIRST, SECOND) \
 			MACRO(FIRST##SECOND, <&macro_tap &kp FIRST &kp SECOND>)
 				
@@ -177,8 +144,8 @@
 		MACRO(nbsp_lglm, <&macro_tap &kp LGLM_ 	   &kp LS(SPACE)>)
 		MACRO(nbsp_rglm, <&macro_tap &kp LS(SPACE) &kp RGLM_>)
 		
-		MACRO(nbsp_coln, <&macro_tap &kp LS(SPACE) &kp LS(DOT_)  &kp SPACE>)
-		MACRO(nbsp_scln, <&macro_tap &kp LS(SPACE) &kp LS(COMM_) &kp SPACE>)
+		MACRO(nbsp_coln, <&macro_tap &kp LS(SPACE) &kp LS(DOT_)>)
+		MACRO(nbsp_scln, <&macro_tap &kp LS(SPACE) &kp LS(COMM_)>)
 		
 		MACRO(ae,  <&macro_tap &kp TILD_ &kp A_ &kp E_>)
 		MACRO(ao,  <&macro_tap &kp TILD_ &kp A_ &kp O_>)
