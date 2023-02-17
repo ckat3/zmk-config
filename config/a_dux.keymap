@@ -13,7 +13,7 @@
 
 #define MT_DELAY 120
 #define LT_DELAY 250
-#define HT_DELAY 250
+#define HT_TAPPING_TERM 250
 #define HT_DELAY_QUICK 200
 #define HT_QUICK_TAP 200
 #define STICKY_KEY_RELEASE_DELAY 2000 /* min 1000 */
@@ -45,8 +45,8 @@
 };
 
 / { 
-	behaviors {		
-	#define HOLDTAP_HEADER(NAME) \
+	behaviors {
+		#define HOLDTAP_HEADER(NAME) \
 			NAME: ht_##NAME { \
 				label = #NAME; \
 				compatible = "zmk,behavior-hold-tap"; \
@@ -59,8 +59,6 @@
 					bindings = BINDINGS; \
 					flavor = "tap-preferred"; \
 			};
-			
-		#define HOLDTAP_QUICK(NAME, BINDINGS...) HOLDTAP(NAME, BINDINGS)
 				
 		#define HOLDTAP_FLAVOR(NAME, FLAVOR, BINDINGS...) \
 				HOLDTAP_HEADER(NAME) \
@@ -75,37 +73,10 @@
 					hold-trigger-key-positions = <POSITIONS>; \
 			};
 			
-		/*#define DEFINE_HOLDTAP(NAME, FLAVOR, DELAY, BINDINGS...) \
-			NAME: ht_##NAME { \
-				label = #NAME; \
-				flavor = #FLAVOR; \
-				tapping-term-ms = <DELAY>; \
-				bindings = BINDINGS; \
-				\
-				#binding-cells = <2>; \
-				compatible = "zmk,behavior-hold-tap"; \
-				quick-tap-ms = <HT_QUICK_TAP>;
-				
-		#define HOLDTAP(NAME, BINDINGS...) \
-				DEFINE_HOLDTAP(NAME, tap-preferred, HT_DELAY, BINDINGS) \
-			};
-				
-		#define HOLDTAP_FLAVOR(NAME, FLAVOR, BINDINGS...) \
-				DEFINE_HOLDTAP(NAME, FLAVOR, HT_DELAY, BINDINGS) \
-			};
-				
-		#define HOLDTAP_QUICK(NAME, FLAVOR, BINDINGS...) \
-				DEFINE_HOLDTAP(NAME, FLAVOR, HT_DELAY_QUICK, BINDINGS) \
-			};
-			
-		#define HRMOD_POS(NAME, POSITIONS) \
-				DEFINE_HOLDTAP(NAME, tap-preferred, HT_DELAY, <&kp>, <&kp>) \
-					hold-trigger-key-positions = <POSITIONS>; \
-			};*/
 		
 		
-		HOLDTAP(lsk, <&mo>, <&sk>) // lsk: layer if held, one-shot kp if pressed
-		HOLDTAP(lsl, <&mo>, <&sl>) // lsl: layer if held, one-shot layer if pressed
+		HOLDTAP_FLAVOR(lsk, balanced, <&mo>, <&sk>) // lsk: layer if held, one-shot kp if pressed
+		HOLDTAP_FLAVOR(lsl, balanced, <&mo>, <&sl>) // lsl: layer if held, one-shot layer if pressed
 		
 		// home-row mods
 		HOLDTAP(hm, <&kp>, <&kp>)		
@@ -124,8 +95,8 @@
 		HOLDTAP(ht_rglm, <&kp>, <&m_nbsp_rglm>)
 		
 		// for chars with automatic nbsp on hold
-		HOLDTAP_QUICK(ht_coln, <&m_nbsp_coln>, <&kp>)
-		HOLDTAP_QUICK(ht_scln, <&m_nbsp_scln>, <&kp>)
+		HOLDTAP(ht_coln, <&m_nbsp_coln>, <&kp>)
+		HOLDTAP(ht_scln, <&m_nbsp_scln>, <&kp>)
 	};
 
 	macros {
