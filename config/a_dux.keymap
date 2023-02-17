@@ -45,8 +45,37 @@
 };
 
 / { 
-	behaviors {
-		#define DEFINE_HOLDTAP(NAME, FLAVOR, DELAY, BINDINGS...) \
+	behaviors {		
+	#define HOLDTAP_HEADER(NAME) \
+			NAME: ht_##NAME { \
+				label = #NAME; \
+				compatible = "zmk,behavior-hold-tap"; \
+				#binding-cells = <2>; \
+				tapping-term-ms = <HT_TAPPING_TERM>; \
+				quick-tap-ms = <HT_QUICK_TAP>;
+				
+		#define HOLDTAP(NAME, BINDINGS...) \
+				HOLDTAP_HEADER(NAME) \
+					bindings = BINDINGS; \
+					flavor = "tap-preferred"; \
+			};
+			
+		#define HOLDTAP_QUICK(NAME, BINDINGS...) HOLDTAP(NAME, BINDINGS)
+				
+		#define HOLDTAP_FLAVOR(NAME, FLAVOR, BINDINGS...) \
+				HOLDTAP_HEADER(NAME) \
+					bindings = BINDINGS; \
+					flavor = #FLAVOR; \
+			};
+			
+		#define HRMOD_POS(NAME, POSITIONS) \
+				HOLDTAP_HEADER(NAME) \
+					bindings = <&kp>, <&kp>; \
+					flavor = "tap-preferred"; \
+					hold-trigger-key-positions = <POSITIONS>; \
+			};
+			
+		/*#define DEFINE_HOLDTAP(NAME, FLAVOR, DELAY, BINDINGS...) \
 			NAME: ht_##NAME { \
 				label = #NAME; \
 				flavor = #FLAVOR; \
@@ -72,7 +101,7 @@
 		#define HRMOD_POS(NAME, POSITIONS) \
 				DEFINE_HOLDTAP(NAME, tap-preferred, HT_DELAY, <&kp>, <&kp>) \
 					hold-trigger-key-positions = <POSITIONS>; \
-			};
+			};*/
 		
 		
 		HOLDTAP_FLAVOR(lsk, balanced, <&mo>, <&sk>) // lsk: layer if held, one-shot kp if pressed
