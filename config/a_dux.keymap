@@ -104,8 +104,8 @@
 			};*/
 		
 		
-		HOLDTAP(lsk, balanced, <&mo>, <&sk>) // lsk: layer if held, one-shot kp if pressed
-		HOLDTAP(lsl, balanced, <&mo>, <&sl>) // lsl: layer if held, one-shot layer if pressed
+		HOLDTAP(lsk, <&mo>, <&sk>) // lsk: layer if held, one-shot kp if pressed
+		HOLDTAP(lsl, <&mo>, <&sl>) // lsl: layer if held, one-shot layer if pressed
 		
 		// home-row mods
 		HOLDTAP(hm, <&kp>, <&kp>)		
