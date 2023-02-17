@@ -13,6 +13,7 @@
 
 #define MT_TAPPING_TERM 120
 #define LT_TAPPING_TERM 250
+	 
 #define HT_TAPPING_TERM 250
 #define HT_TAPPING_TERM_QUICK 200
 #define HT_QUICK_TAP 200
@@ -52,7 +53,6 @@
 				flavor = #FLAVOR; \
 				tapping-term-ms = <DELAY>; \
 				bindings = BINDINGS; \
-	 
 				#binding-cells = <2>; \
 				compatible = "zmk,behavior-hold-tap"; \
 				quick-tap-ms = <HT_QUICK_TAP>;
@@ -65,20 +65,50 @@
 				DEFINE_HOLDTAP(NAME, FLAVOR, HT_TAPPING_TERM, BINDINGS) \
 			};
 				
-		#define HOLDTAP_QUICK(NAME, FLAVOR, BINDINGS...) \
-				DEFINE_HOLDTAP(NAME, FLAVOR, HT_TAPPING_TERM_QUICK, BINDINGS) \
+		#define HOLDTAP_QUICK(NAME, BINDINGS...) \
+				DEFINE_HOLDTAP(NAME, tap-preferred, HT_TAPPING_TERM_QUICK, BINDINGS) \
 			};
 			
 		#define HRMOD_POS(NAME, POSITIONS) \
 				DEFINE_HOLDTAP(NAME, tap-preferred, HT_TAPPING_TERM, <&kp>, <&kp>) \
 					hold-trigger-key-positions = <POSITIONS>; \
 			};
+   
+				 
+	   
+	 
+		
+		
+		
+  
+		 
+			 
+		  
+ 
+		   
+				
+  
+ 
+			  
+			   
+  
+ 
+			 
+			   
+  
 			
+		   
+				 
+			
+	
 		
 		
+																							  
+																		 
 		HOLDTAP_FLAVOR(lsk, balanced, <&mo>, <&sk>) // lsk: layer if held, one-shot kp if pressed
 		HOLDTAP_FLAVOR(lsl, balanced, <&mo>, <&sl>) // lsl: layer if held, one-shot layer if pressed
 		
+  
 		// home-row mods
 		HOLDTAP(hm, <&kp>, <&kp>)		
 		HOLDTAP(hm_qu,   <&kp>, <&m_Q_U_>)
