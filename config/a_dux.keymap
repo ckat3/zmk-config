@@ -132,7 +132,9 @@
 		
 		MACRO(nbsp_lglm, <&macro_tap &kp LGLM_ 	   &kp LS(SPACE)>)
 		MACRO(nbsp_rglm, <&macro_tap &kp LS(SPACE) &kp RGLM_>)
+		
 		MACRO(nbsp_coln, <&macro_tap &kp LS(SPACE) &kp LS(DOT_)>)
+		MACRO(nbsp_scln, <&macro_tap &kp LS(SPACE) &kp LS(COMM_)>)
 		
 		MACRO(ae,  <&macro_tap &kp TILD_ &kp A_ &kp E_>)
 		MACRO(ao,  <&macro_tap &kp TILD_ &kp A_ &kp O_>)
@@ -150,7 +152,7 @@
 	combos {
 		compatible = "zmk,combos";
 		
-		#define DEFINE_COMBO(BINDINGS, POSITIONS, NAME) \
+		#define DEFINE_COMBO(LAYERS, BINDINGS, POSITIONS, NAME) \
 			combo_##NAME { \
 				bindings = <BINDINGS>; \
 				key-positions = <POSITIONS>; \
@@ -160,21 +162,21 @@
 		
 		// when not defining layers, will default to NOT_GAME
 		#define COMBO(BINDINGS, POSITIONS, NAME) \
-			DEFINE_COMBO(BINDINGS, POSITIONS, NAME, NOT_GAME)		
+			DEFINE_COMBO(NOT_GAME, BINDINGS, POSITIONS, NAME)		
 		#define COMBO_LAYER(LAYERS, BINDINGS, POSITIONS, NAME) \
-			DEFINE_COMBO(BINDINGS, POSITIONS, NAME, LAYERS)
+			DEFINE_COMBO(LAYERS, BINDINGS, POSITIONS, NAME)
 
 		
 		#define COMBO_KP(KEY, SUFFIX, POSITIONS) \
-			DEFINE_COMBO(&kp KEY, POSITIONS, KEY##SUFFIX, NOT_GAME)			
+			DEFINE_COMBO(NOT_GAME, &kp KEY, POSITIONS, KEY##SUFFIX)			
 		#define COMBO_KP_LAYER(KEY, SUFFIX, POSITIONS, LAYERS) \
-			DEFINE_COMBO(&kp KEY, POSITIONS, KEY##SUFFIX, LAYERS)
+			DEFINE_COMBO(LAYERS, &kp KEY, POSITIONS, KEY##SUFFIX)
 			
 		
 		#define COMBO_MACRO(MACRO, POSITIONS) \
-			DEFINE_COMBO(&m_##MACRO>, POSITIONS, MACRO, NOT_GAME)		
+			DEFINE_COMBO(NOT_GAME, &m_##MACRO>, POSITIONS, MACRO)		
 		#define COMBO_MACRO_LAYER(MACRO, SUFFIX, POSITIONS, LAYERS) \
-			DEFINE_COMBO(&m_##MACRO>, POSITIONS, MACRO##SUFFIX, LAYERS)
+			DEFINE_COMBO(LAYERS, &m_##MACRO>, POSITIONS, MACRO##SUFFIX)
 		
 			
 	/*
