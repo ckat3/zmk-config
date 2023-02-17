@@ -6,16 +6,16 @@
 #include "bepo_bindings.h"
 
 /* SETTINGS */
-#define MACRO_WAIT 3 /* good 5 */
-#define MACRO_TAP_DELAY 3 /* good 5 */
+#define MACRO_WAIT 3 /* max 5 */
+#define MACRO_TAP_DELAY 3 /* max 5 */
 
 #define COMBO_TIMEOUT 16 /* max 17, 15 maybe too little */
 
-#define MT_DELAY  120
-#define LT_DELAY  250
+#define MT_DELAY 120
+#define LT_DELAY 250
 #define HT_DELAY 250
-#define HT_DELAY_QUICK   200
-#define HT_QUICK_TAP     200
+#define HT_DELAY_QUICK 200
+#define HT_QUICK_TAP 200
 #define STICKY_KEY_RELEASE_DELAY 2000 /* min 1000 */
 
 /* LAYERS */
@@ -107,8 +107,8 @@
 				bindings = BINDINGS; \
 				)
 				
-		// MACRO_SIMPLE will name the macro "m_FIRST##SECOND", eg "mQ_U_".
-		// it cannot therefore contain parentheses (i think?) or complex sequences. 
+		// MACRO_SIMPLE names the macro "m_FIRST##SECOND", eg "mQ_U_".
+		// it cannot contain parentheses (i think?) or complex sequences. 
 		#define MACRO_SIMPLE(FIRST, SECOND) \
 			MACRO(FIRST##SECOND, <&macro_tap &kp FIRST &kp SECOND>)
 				
