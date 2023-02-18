@@ -37,8 +37,6 @@
 #define H_		DOT
 #define F_		SLASH
 
-#define SZET_	RA(S_)
-
 #define EXCL_	LS(CFLX_)
 #define SEMI_	LS(COMM_)
 #define COLN_	LS(DOT_)
@@ -78,9 +76,6 @@
 #define PCNT_	EQUAL
 
 #define PIPE_	RA(B_)
-
-#define CRAT_ RA(N6_)
-#define TLDL_ RA(K_) /* loose tilde */
 
 
 #define MDSH_  RA(N8)
