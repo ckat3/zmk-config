@@ -13,7 +13,6 @@
 
 #define MT_TAPPING_TERM 120
 #define LT_TAPPING_TERM 250
-	 
 #define HT_TAPPING_TERM 250
 #define HT_TAPPING_TERM_QUICK 200
 #define HT_QUICK_TAP 200
@@ -61,56 +60,27 @@
 				DEFINE_HOLDTAP(NAME, tap-preferred, HT_TAPPING_TERM, BINDINGS) \
 			};
 				
-		#define HOLDTAP_FLAVOR(NAME, FLAVOR, BINDINGS...) \
-				DEFINE_HOLDTAP(NAME, FLAVOR, HT_TAPPING_TERM, BINDINGS) \
-			};
-				
 		#define HOLDTAP_QUICK(NAME, BINDINGS...) \
 				DEFINE_HOLDTAP(NAME, tap-preferred, HT_TAPPING_TERM_QUICK, BINDINGS) \
+			};
+				
+		#define HOLDTAP_FLAVOR(NAME, FLAVOR, BINDINGS...) \
+				DEFINE_HOLDTAP(NAME, FLAVOR, HT_TAPPING_TERM, BINDINGS) \
 			};
 			
 		#define HRMOD_POS(NAME, POSITIONS) \
 				DEFINE_HOLDTAP(NAME, tap-preferred, HT_TAPPING_TERM, <&kp>, <&kp>) \
 					hold-trigger-key-positions = <POSITIONS>; \
 			};
-   
-				 
-	   
-	 
-		
-		
-		
-  
-		 
-			 
-		  
- 
-		   
-				
-  
- 
-			  
-			   
-  
- 
-			 
-			   
-  
 			
-		   
-				 
-			
-	
 		
 		
-																							  
-																		 
 		HOLDTAP_FLAVOR(lsk, balanced, <&mo>, <&sk>) // lsk: layer if held, one-shot kp if pressed
 		HOLDTAP_FLAVOR(lsl, balanced, <&mo>, <&sl>) // lsl: layer if held, one-shot layer if pressed
 		
-  
 		// home-row mods
-		HOLDTAP(hm, <&kp>, <&kp>)		
+		HOLDTAP(hm,      <&kp>, <&kp>)
+		HOLDTAP(hmsk,    <&sk>, <&kp>)		
 		HOLDTAP(hm_qu,   <&kp>, <&m_Q_U_>)
 		HOLDTAP(hm_quc,  <&kp>, <&m_shift_qu>)
 		HOLDTAP(hm_aact, <&kp>, <&m_ACUT_A_>)
@@ -183,6 +153,10 @@
 		MACRO(ao,  <&macro_tap &kp TILD_ &kp A_ &kp O_>)
 		MACRO(nao, <&macro_tap &kp N_ &kp TILD_ &kp A_ &kp O_>)
 		MACRO(oe,  <&macro_tap &kp TILD_ &kp O_ &kp E_>)
+		
+		MACRO(cfxloos, <&macro_tap &kp CFLX_  &kp SPACE>) // loose ^
+		MACRO(grvloos, <&macro_tap &kp GRAV_  &kp SPACE>) // loose `
+		MACRO(eszett,  <&macro_tap &kp RA(S_) &kp S_>) // ß
 		
 		MACRO(shift_qu, <&macro_tap &kp LS(Q_) &kp LS(U_)>)
 		MACRO(shift_ae, <&macro_tap &kp TILD_ &kp LS(A_) &kp LS(E_)>)
@@ -313,6 +287,11 @@
 		#define HMLG  &hm LGUI
 		#define HMRG  &hm RGUI
 		
+		#define SKLS  &hmsk LSHIFT
+		#define SKLC  &hmsk LCTRL
+		#define SKLA  &hmsk LALT
+		#define SKLG  &hmsk LGUI
+		
 		#define HMLG_QU		&hm_qu LGUI 0
 		#define HMLG_QUC	&hm_quc LGUI 0
 		#define HMRA_IACT	&hm_iact RALT 0
@@ -349,7 +328,7 @@
 		base_layer {
 			bindings = <
 				&kp  Q_		HMRA MIN_	&kp  Y_		MTDOT		EXCL_QMRK			&kp K_		&kp  C_		&kp  H_		&kp  W_		&kp  J_
-				HMRG U_		HMLA O_		HMLC I_		HMLS A_		&kp F_				&kp G_		HMRS T_		HMRC R_		HMRA S_		HMRG N_
+				HMLG U_		HMLA O_		HMLC I_		HMLS A_		&kp F_				&kp G_		HMRS T_		HMRC R_		HMRA S_		HMRG N_
 				&kp  Z_		HMLC EACT_	&kp  P_		MTCOMM		&kp X_				&kp V_		&kp  D_		&kp  M_		&kp  L_		&kp  B_
 													THLH1		THLH2				THRH2		THRH1
 			>;
@@ -358,7 +337,7 @@
 		caps_layer {
 			bindings = <
 				&kp  LS(Q_)		____			&kp  LS(Y_)	 &kp DOT_	   ____				&kp LS(K_)		&kp  LS(C_)		&kp  LS(H_)		&kp  LS(W_)		&kp  LS(J_)
-				HMRG LS(U_)		HMLA LS(O_)		HMLC LS(I_)	 HMLS LS(A_)   &kp LS(F_)		&kp LS(G_)		HMRS LS(T_)		HMRC LS(R_)		HMRA LS(S_)		HMRG LS(N_)
+				HMLG LS(U_)		HMLA LS(O_)		HMLC LS(I_)	 HMLS LS(A_)   &kp LS(F_)		&kp LS(G_)		HMRS LS(T_)		HMRC LS(R_)		HMRA LS(S_)		HMRG LS(N_)
 				&kp  LS(Z_)		HMLC LS(EACT_)	&kp  LS(P_)	 ____		   &kp LS(X_)		&kp LS(V_)		&kp  LS(D_)		&kp  LS(M_)		&kp  LS(L_)		&kp  LS(B_)
 														     THLH1S	  	   THLH2			THRH2			THRH1
 			>;
@@ -367,17 +346,17 @@
 		sym_layer {
 			bindings = <
 				xxxx		&kp AT_		&kp AMPR_	&kp OE_		&kp AE_				xxxx	xxxx		xxxx		xxxx		xxxx
-				HMRG LCRL_	HMLA RCRL_	HMLC LPAR_	HMLS RPAR_	&kp MDSH_			xxxx	HMRS LBRK_	HMRC RBRK_	HMLA MDSH_	HMRG NDSH_
-				&kp NDSH_	&kp MDSH_	MTLGLM		MTRGLM		xxxx				xxxx	&kp LT_		&kp GT_		&kp EQUL_	xxxx
+				SKLG LBRK_	SKLA RBRK_	SKLC LPAR_	SKLS RPAR_	&kp MDSH_			xxxx	HMRS LCRL_	HMRC RCRL_	HMLA xxxx	HMRG xxxx
+				&kp NDSH_	&kp MDSH_	MTLGLM		MTRGLM		xxxx				xxxx	xxxx		&m_cfxloos	&m_grvloos	xxxx
 													THLH1		____				____	____
 			>;
 		};
 		
 		accent_layer {
 			bindings = <
-				&m_CFLX_U_	&m_CFLX_O_	&m_CFLX_I_	&m_CFLX_A_	xxxx				xxxx		&kp CCED_	&kp  APST_	&kp  QUOT_	&m_B_J_
-				&m_ACUT_U_	&m_ACUT_O_	&m_ACUT_I_	&m_ACUT_A_	&m_TILD_A_			&kp ACUT_	HMRS MIN_	HMRC CFLX_	HMLA GRAV_	&m_TILD_N_
-				&m_GRAV_U_	&m_TILD_O_	&m_TRMA_I_	&kp AGRV_	xxxx				xxxx		&kp TRMA_	&kp  CRAT_	&kp  SZET_	&kp TILD_
+				&m_CFLX_U_	&m_CFLX_O_	&m_CFLX_I_	&m_CFLX_A_	xxxx				xxxx		&kp  CCED_	&kp  APST_	&kp  QUOT_	&m_B_J_
+				&m_ACUT_U_	&m_ACUT_O_	&m_ACUT_I_	&m_ACUT_A_	&m_TILD_A_			xxxx		HMRS ACUT_	HMRC CFLX_	HMLA GRAV_	&m_TILD_N_
+				&m_GRAV_U_	&m_TILD_O_	&m_TRMA_I_	&kp AGRV_	xxxx				xxxx		&kp  TRMA_	xxxx		&m_eszett	&kp TILD_
 													&m_CFLX_E_	&m_GRAV_E_			____		____
 			>;
 		};
@@ -394,7 +373,7 @@
 		nav_layer {
 			bindings = <
 				&kp INSERT	&sk RALT	&kp PSCRN	&kp PSBRK	xxxx				xxxx		&kp LC(HOME)	&kp PG_DN	&kp PG_UP	&kp LC(END)
-				&sk LGUI	&sk LALT	&sk LCTRL	&sk LSHIFT	&kp CAPS			&tog CAPL	&kp LC(LEFT)	&kp DOWN	&kp UP		&kp LC(RIGHT)
+				HMRG LGUI	HMLA LALT	HMLC LCTRL	HMLS LSHIFT	&kp CAPS			&tog CAPL	&kp LC(LEFT)	&kp DOWN	&kp UP		&kp LC(RIGHT)
 				&kp LC(Z_)	&kp LC(X_)	&kp LC(C_)	&kp LC(V_)	xxxx				xxxx		&kp HOME		&kp LEFT	&kp RIGHT	&kp END
 													&kp ULIN_	____				____		____
 			>;
