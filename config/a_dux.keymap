@@ -84,7 +84,7 @@
 		HOLDTAP(hm,      <&kp>, <&kp>)
 		HOLDTAP(hmsk,    <&sk>, <&kp>)		
 		HOLDTAP(hm_qu,   <&kp>, <&m_Q_U_>)
-		HOLDTAP(hm_quc,  <&kp>, <&m_caps_qu>)
+		HOLDTAP(hm_quc,  <&kp>, <&m_cp_qu>)
 		HOLDTAP(hm_aact, <&kp>, <&m_ACUT_A_>)
 		HOLDTAP(hm_uact, <&kp>, <&m_ACUT_U_>)
 		HOLDTAP(hm_iact, <&kp>, <&m_ACUT_I_>)
@@ -182,9 +182,9 @@
 		MACRO(ae,  <&macro_tap &kp TILD_ &kp A_ &kp E_>)
 		MACRO(ao,  <&macro_tap &kp TILD_ &kp A_ &kp O_>)
 		MACRO(oe,  <&macro_tap &kp TILD_ &kp O_ &kp E_>)
-		MACRO(caps_ae, <&macro_tap &kp TILD_ &kp LS(A_) &kp LS(E_)>)
-		MACRO(caps_ao, <&macro_tap &kp TILD_ &kp LS(A_) &kp LS(O_)>)
-		MACRO(caps_oe, <&macro_tap &kp TILD_ &kp LS(O_) &kp LS(E_)>)
+		MACRO(cp_ae, <&macro_tap &kp TILD_ &kp LS(A_) &kp LS(E_)>)
+		MACRO(cp_ao, <&macro_tap &kp TILD_ &kp LS(A_) &kp LS(O_)>)
+		MACRO(cp_oe, <&macro_tap &kp TILD_ &kp LS(O_) &kp LS(E_)>)
 		
 		// loose ^ `
 		MACRO(cfxloos, <&macro_tap &kp CFLX_  &kp SPACE>)
@@ -266,10 +266,10 @@
 		COMBO_MACRO_LAYER(ao,,   13 11, BASE)
 		COMBO_MACRO_LAYER(oe,,   11 30, BASE)
 		
-		COMBO_MACRO_LAYER(caps_qu,, 26 27, CAPL)
-		COMBO_MACRO_LAYER(caps_ae,, 13 30, CAPL)
-		COMBO_MACRO_LAYER(caps_ao,, 13 11, CAPL)
-		COMBO_MACRO_LAYER(caps_oe,, 11 30, CAPL)
+		COMBO_MACRO_LAYER(cp_qu,, 26 27, CAPL)
+		COMBO_MACRO_LAYER(cp_ae,, 13 30, CAPL)
+		COMBO_MACRO_LAYER(cp_ao,, 13 11, CAPL)
+		COMBO_MACRO_LAYER(cp_oe,, 11 30, CAPL)
 		
 		combo_ctrlz {
 			bindings = <&kp LC(Z_)>;
@@ -387,7 +387,7 @@
 		
 		accent_caps_layer {
 			bindings = <
-				&m_cp_cf_u	&m_cp_cf_o		 &m_cp_cf_i   &m_cp_cf_a	 xxxx				xxxx		&kp  CCED_	&kp  APST_	&kp  QUOT_	&m_caps_bj
+				&m_cp_cf_u	&m_cp_cf_o		 &m_cp_cf_i   &m_cp_cf_a	 xxxx				xxxx		&kp  CCED_	&kp  APST_	&kp  QUOT_	&m_cp_bj
 				&m_cp_ac_u	&m_cp_ac_o		 &m_cp_ac_i	  &m_cp_ac_a	 &m_cp_tl_a			xxxx		HMRS ACUT_	HMRC CFLX_	HMLA GRAV_	&m_cp_tl_n
 				&m_cp_gv_u	&m_cp_tl_o		 &m_cp_tr_i	  &kp LS(AGRV_)  xxxx				xxxx		&kp  TRMA_	xxxx		&m_cp_sztt	&kp TILD_
 														  &m_cp_cf_e	 &kp LS(EGRV_)		____		____
