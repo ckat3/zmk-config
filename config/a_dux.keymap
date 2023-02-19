@@ -154,7 +154,7 @@
 		MACRO(cp_ac_u, <&macro_tap &kp ACUT_ &kp LS(U_)>)
 		
 		MACRO(cp_cf_a, <&macro_tap &kp CFLX_ &kp LS(A_)>)
-		//MACRO(cp_cf_e, <&macro_tap &LS(CFLX_) &kp LS(E_)>)
+		MACRO(cp_cf_e, <&macro_tap &LS(CFLX_) &kp LS(E_)>)
 		MACRO(cp_cf_i, <&macro_tap &kp CFLX_ &kp LS(I_)>)
 		MACRO(cp_cf_o, <&macro_tap &kp CFLX_ &kp LS(O_)>)
 		MACRO(cp_cf_u, <&macro_tap &kp CFLX_ &kp LS(U_)>)
