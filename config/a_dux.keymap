@@ -352,12 +352,17 @@
 		
 		base_layer {
 			bindings = <
-				&kp  Q_		 HMRA MIN_		 &kp  Y_	  MTDOT	   	   EXCL_QMRK			&kp K_		 &kp  C_	  &kp  H_	   &kp  W_		&kp  J_
-				HMLG U_		 HMLA O_		 HMLC I_	  HMLS A_	   &kp F_				&kp G_		 HMRS T_	  HMRC R_	   HMRA S_		HMRG N_
-				&kp  Z_		 HMLC EACT_		 &kp  P_	  MTCOMM	   &kp X_				&kp V_		 &kp  D_	  &kp  M_	   &kp  L_		&kp  B_
-														  // L_INNER	   L_OUTER				R_OUTER		 R_INNER
+				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
+				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
+				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
 				xxxx xxxx xxxx xxxx
 			>;
+			// bindings = <
+				// &kp  Q_		 HMRA MIN_		 &kp  Y_	  MTDOT	   	   EXCL_QMRK			&kp K_		 &kp  C_	  &kp  H_	   &kp  W_		&kp  J_
+				// HMLG U_		 HMLA O_		 HMLC I_	  HMLS A_	   &kp F_				&kp G_		 HMRS T_	  HMRC R_	   HMRA S_		HMRG N_
+				// &kp  Z_		 HMLC EACT_		 &kp  P_	  MTCOMM	   &kp X_				&kp V_		 &kp  D_	  &kp  M_	   &kp  L_		&kp  B_
+														  // L_INNER	   L_OUTER				R_OUTER		 R_INNER
+			// >;
 		};
 		
 		caps_word_layer {
@@ -378,11 +383,18 @@
 		
 		sym_layer {
 			bindings = <
-				xxxx		 &kp AT_		 &kp AMPR_	  &kp OE_	   &kp AE_				xxxx		 xxxx		  xxxx		   xxxx		   xxxx
-				SKLG LBRK_	 SKLA RBRK_		 SKLC LPAR_	  SKLS RPAR_   &kp MDSH_			xxxx		 HMRS LCRL_	  HMRC RCRL_   HMLA		   HMRG xxxx
-				&kp NDSH_	 &kp MDSH_		 MTLGLM		  MTRGLM	   xxxx					xxxx		 xxxx		  &m_cfxloos   &m_grvloos  xxxx
-														  ____		   ____					____		 ____
+				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
+				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
+				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
+				xxxx xxxx xxxx xxxx
 			>;
+			// bindings = <
+				// xxxx		 &kp AT_		 &kp AMPR_	  &kp OE_	   &kp AE_				xxxx		 xxxx		  xxxx		   xxxx		   xxxx
+				// SKLG LBRK_	 SKLA RBRK_		 SKLC LPAR_	  SKLS RPAR_   &kp MDSH_			xxxx		 HMRS LCRL_	  HMRC RCRL_   HMLA		   HMRG xxxx
+				// &kp NDSH_	 &kp MDSH_		 MTLGLM		  MTRGLM	   xxxx					xxxx		 xxxx		  &m_cfxloos   &m_grvloos  xxxx
+				// xxxx xxxx xxxx xxxx
+														  // ____		   ____					____		 ____
+			// >;
 		};
 		
 		accent_layer {
