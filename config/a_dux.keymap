@@ -148,30 +148,30 @@
 		MACRO_SIMPLE(Q_, U_)
 		MACRO_SIMPLE(B_, J_)
 		
- 		// MACRO(cp_ac_a, <&macro_tap &kp ACUT_ &kp LS(A_)>)
-		// MACRO(cp_ac_e, <&macro_tap &kp ACUT_ &kp LS(E_)>) // unused
-		// MACRO(cp_ac_i, <&macro_tap &kp ACUT_ &kp LS(I_)>)
-		// MACRO(cp_ac_o, <&macro_tap &kp ACUT_ &kp LS(O_)>)
-		// MACRO(cp_ac_u, <&macro_tap &kp ACUT_ &kp LS(U_)>)
+ 		MACRO(cp_ac_a, <&macro_tap &kp ACUT_ &kp LS(A_)>)
+		MACRO(cp_ac_e, <&macro_tap &kp ACUT_ &kp LS(E_)>) // unused
+		MACRO(cp_ac_i, <&macro_tap &kp ACUT_ &kp LS(I_)>)
+		MACRO(cp_ac_o, <&macro_tap &kp ACUT_ &kp LS(O_)>)
+		MACRO(cp_ac_u, <&macro_tap &kp ACUT_ &kp LS(U_)>)
 		
-		// MACRO(cp_cf_a, <&macro_tap &kp CFLX_ &kp LS(A_)>)
-		// MACRO(cp_cf_e, <&macro_tap &kp CFLX_ &kp LS(E_)>)
-		// MACRO(cp_cf_i, <&macro_tap &kp CFLX_ &kp LS(I_)>)
-		// MACRO(cp_cf_o, <&macro_tap &kp CFLX_ &kp LS(O_)>)
-		// MACRO(cp_cf_u, <&macro_tap &kp CFLX_ &kp LS(U_)>)
+		MACRO(cp_cf_a, <&macro_tap &kp CFLX_ &kp LS(A_)>)
+		MACRO(cp_cf_e, <&macro_tap &kp CFLX_ &kp LS(E_)>)
+		MACRO(cp_cf_i, <&macro_tap &kp CFLX_ &kp LS(I_)>)
+		MACRO(cp_cf_o, <&macro_tap &kp CFLX_ &kp LS(O_)>)
+		MACRO(cp_cf_u, <&macro_tap &kp CFLX_ &kp LS(U_)>)
 		
-		// MACRO(cp_gv_a, <&macro_tap &LS(GRAV_) &kp LS(A_)>) // unused
-		// MACRO(cp_gv_e, <&macro_tap &kp GRAV_ &kp LS(E_)>)
-		// MACRO(cp_gv_o, <&macro_tap &kp GRAV_ &kp LS(O_)>)
-		// MACRO(cp_gv_u, <&macro_tap &kp GRAV_ &kp LS(U_)>)
+		MACRO(cp_gv_a, <&macro_tap &LS(GRAV_) &kp LS(A_)>) // unused
+		MACRO(cp_gv_e, <&macro_tap &kp GRAV_ &kp LS(E_)>)
+		MACRO(cp_gv_o, <&macro_tap &kp GRAV_ &kp LS(O_)>)
+		MACRO(cp_gv_u, <&macro_tap &kp GRAV_ &kp LS(U_)>)
 		
-		// MACRO(cp_tl_a, <&macro_tap &kp TILD_ &kp LS(A_)>)
-		// MACRO(cp_tl_o, <&macro_tap &kp TILD_ &kp LS(O_)>)
-		// MACRO(cp_tl_n, <&macro_tap &kp TILD_ &kp LS(N_)>)
-		// MACRO(cp_tr_i, <&macro_tap &kp TRMA_ &kp LS(I_)>)
+		MACRO(cp_tl_a, <&macro_tap &kp TILD_ &kp LS(A_)>)
+		MACRO(cp_tl_o, <&macro_tap &kp TILD_ &kp LS(O_)>)
+		MACRO(cp_tl_n, <&macro_tap &kp TILD_ &kp LS(N_)>)
+		MACRO(cp_tr_i, <&macro_tap &kp TRMA_ &kp LS(I_)>)
 		
-		// MACRO(cp_qu, <&macro_tap &kp LS(Q_) &kp LS(U_)>)
-		// MACRO(cp_bj, <&macro_tap &kp LS(B_) &kp LS(J_)>)
+		MACRO(cp_qu, <&macro_tap &kp LS(Q_) &kp LS(U_)>)
+		MACRO(cp_bj, <&macro_tap &kp LS(B_) &kp LS(J_)>)
 		
 		// «»:; with nbsp
 		MACRO(nbsp_lglm, <&macro_tap &kp LGLM_ 	   &kp LS(SPACE)>)
@@ -267,10 +267,10 @@
 		COMBO_MACRO_LAYER(ao,,   13 11, BASE)
 		COMBO_MACRO_LAYER(oe,,   11 30, BASE)
 		
- 		// COMBO_MACRO_LAYER(cp_qu,, 26 27, CAPL)
-		// COMBO_MACRO_LAYER(cp_ae,, 13 30, CAPL)
-		// COMBO_MACRO_LAYER(cp_ao,, 13 11, CAPL)
-		// COMBO_MACRO_LAYER(cp_oe,, 11 30, CAPL)
+ 		COMBO_MACRO_LAYER(cp_qu,, 26 27, CAPL)
+		COMBO_MACRO_LAYER(cp_ae,, 13 30, CAPL)
+		COMBO_MACRO_LAYER(cp_ao,, 13 11, CAPL)
+		COMBO_MACRO_LAYER(cp_oe,, 11 30, CAPL)
 		
 		combo_ctrlz {
 			bindings = <&kp LC(Z_)>;
@@ -342,12 +342,12 @@
 		// #define L_INNER	&lt NUM E_
 		// #define L_OUTER	&lsl SYM SYM
 		
-		// #define L_INNERCAPS &lt NUM LS(E_)
+		// #define L_INNERCAPS &lt NUM E_ // LS(E_)
 		
 		// #define R_INNER	&lt NAV SPACE
 		// #define R_OUTER	&lsl ACNT ACNT
 		
-		// #define R_INNERCAPS &ht_layer_spcaps NAV 0
+		// #define R_INNERCAPS &lt NUM E_ // &ht_layer_spcaps NAV 0
 		// #define R_OUTERCAPS &lsl ACPS ACPS
 		
 		base_layer {
@@ -376,6 +376,7 @@
 				// &kp  LS(Q_)	 ____			 &kp  LS(Y_)  &kp DOT_	   ____					&kp LS(K_)	 &kp  LS(C_)  &kp  LS(H_)  &kp  LS(W_)  &kp  LS(J_)
 				// HMLG LS(U_)	 HMLA LS(O_)	 HMLC LS(I_)  HMLS LS(A_)  &kp LS(F_)			&kp LS(G_)	 HMRS LS(T_)  HMRC LS(R_)  HMRA LS(S_)  HMRG LS(N_)
 				// &kp  LS(Z_)	 HMLC LS(EACT_)	 &kp  LS(P_)  ____		   &kp LS(X_)			&kp LS(V_)   &kp  LS(D_)  &kp  LS(M_)  &kp  LS(L_)  &kp  LS(B_)
+				// xxxx xxxx xxxx xxxx
 														  // L_INNERCAPS  ____					R_OUTERCAPS	 R_INNERCAPS
 			// >;
 		};
@@ -407,6 +408,7 @@
 				// &m_CFLX_U_	 &m_CFLX_O_		 &m_CFLX_I_   &m_CFLX_A_   xxxx					xxxx		 &kp  CCED_	  &kp  APST_   &kp  QUOT_  &m_B_J_
 				// &m_ACUT_U_	 &m_ACUT_O_		 &m_ACUT_I_	  &m_ACUT_A_   &m_TILD_A_			xxxx		 HMRS ACUT_   HMRC CFLX_   HMLA GRAV_  &m_TILD_N_
 				// &m_GRAV_U_	 &m_TILD_O_		 &m_TRMA_I_	  &kp AGRV_    xxxx					xxxx		 &kp  TRMA_	  xxxx		   &m_eszett   &kp TILD_
+				// xxxx xxxx xxxx xxxx
 														  // &m_CFLX_E_   &kp EGRV_			____		 ____
 			// >;
 		};
@@ -422,67 +424,45 @@
 				// &m_cp_cf_u	&m_cp_cf_o		 &m_cp_cf_i   &m_cp_cf_a	 xxxx				xxxx		&kp  CCED_	&kp  APST_	&kp  QUOT_	&m_cp_bj
 				// &m_cp_ac_u	&m_cp_ac_o		 &m_cp_ac_i	  &m_cp_ac_a	 &m_cp_tl_a			xxxx		HMRS ACUT_	HMRC CFLX_	HMLA GRAV_	&m_cp_tl_n
 				// &m_cp_gv_u	&m_cp_tl_o		 &m_cp_tr_i	  &kp LS(AGRV_)  xxxx				xxxx		&kp  TRMA_	xxxx		&m_cp_sztt	&kp TILD_
+				// xxxx xxxx xxxx xxxx
 														  // &m_cp_cf_e	 &kp LS(EGRV_)		____		____
 			// >;
 		};
 		
 		num_layer {
 			bindings = <
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx
+				xxxx		&kp N7_		&kp N8_		&kp N9_		xxxx				xxxx		EURO_DLLR_	&kp HASH_	&kp PCNT_	&kp PIPE_
+				&kp N0_		&kp N1_		&kp N2_		&kp	N3_		&kp DOT_			xxxx		HMRS PLUS_	HMRC MIN_	HMLA STAR_	HMRG FSLA_
+				xxxx		&kp N4_		&kp N5_		&kp	N6_		&kp COMM_			xxxx		&kp LT_		&kp GT_		&kp EQUL_	&kp BSLA_
+													____		____				&kp ULIN_	____
 			>;
-			// bindings = <
-				// xxxx		&kp N7_		&kp N8_		&kp N9_		xxxx				xxxx		EURO_DLLR_	&kp HASH_	&kp PCNT_	&kp PIPE_
-				// &kp N0_		&kp N1_		&kp N2_		&kp	N3_		&kp DOT_			xxxx		HMRS PLUS_	HMRC MIN_	HMLA STAR_	HMRG FSLA_
-				// xxxx		&kp N4_		&kp N5_		&kp	N6_		&kp COMM_			xxxx		&kp LT_		&kp GT_		&kp EQUL_	&kp BSLA_
-													// ____		____				&kp ULIN_	____
-			// >;
 		};
 		
 		nav_layer {
 			bindings = <
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx
+				&kp INSERT	&sk RALT	&kp PSCRN	&kp PSBRK	xxxx				xxxx		&kp LC(HOME)	&kp PG_DN	&kp PG_UP	&kp LC(END)
+				HMRG LGUI	HMLA LALT	HMLC LCTRL	HMLS LSHIFT	&kp CAPS			&tog CAPL	&kp LC(LEFT)	&kp DOWN	&kp UP		&kp LC(RIGHT)
+				&kp LC(Z_)	&kp LC(X_)	&kp LC(C_)	&kp LC(V_)	xxxx				xxxx		&kp HOME		&kp LEFT	&kp RIGHT	&kp END
+													xxxx		____				____		____
 			>;
-			// bindings = <
-				// &kp INSERT	&sk RALT	&kp PSCRN	&kp PSBRK	xxxx				xxxx		&kp LC(HOME)	&kp PG_DN	&kp PG_UP	&kp LC(END)
-				// HMRG LGUI	HMLA LALT	HMLC LCTRL	HMLS LSHIFT	&kp CAPS			&tog CAPL	&kp LC(LEFT)	&kp DOWN	&kp UP		&kp LC(RIGHT)
-				// &kp LC(Z_)	&kp LC(X_)	&kp LC(C_)	&kp LC(V_)	xxxx				xxxx		&kp HOME		&kp LEFT	&kp RIGHT	&kp END
-													// xxxx		____				____		____
-			// >;
 		};
 		
 		func_layer {
 			bindings = <
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx
+				&bt  BT_CLR    &bt  BT_SEL 0  &bt  BT_SEL 1  &bt  BT_SEL 2  &bt BT_SEL 3			&reset        &kp F7  &kp F8  &kp F9  &kp F10
+				HMLG C_BRI_UP  HMLA C_NEXT	  HMLC C_VOL_UP  HMLS C_PP  	&kp LSLCK				&out OUT_BLE  &kp F1  &kp F2  &kp F3  &kp F11
+				&kp  C_BRI_DN  &kp  C_PREV    &kp  C_VOL_DN  &kp  C_MUTE    &kp LNLCK				&out OUT_USB  &kp F4  &kp F5  &kp F6  &kp F12
+															 ____			____					____		  ____
 			>;
-			// bindings = <
-				// &bt  BT_CLR    &bt  BT_SEL 0  &bt  BT_SEL 1  &bt  BT_SEL 2  &bt BT_SEL 3			&reset        &kp F7  &kp F8  &kp F9  &kp F10
-				// HMLG C_BRI_UP  HMLA C_NEXT	  HMLC C_VOL_UP  HMLS C_PP  	&kp LSLCK				&out OUT_BLE  &kp F1  &kp F2  &kp F3  &kp F11
-				// &kp  C_BRI_DN  &kp  C_PREV    &kp  C_VOL_DN  &kp  C_MUTE    &kp LNLCK				&out OUT_USB  &kp F4  &kp F5  &kp F6  &kp F12
-															 // ____			____					____		  ____
-			// >;
 		};
 		
 		game_layer {
 			bindings = <
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx
+				&kp ESC		&kp A_		&kp W_		&kp D_		&kp T_				&kp Y_		&kp U_		&kp I_		&kp O_		&kp P_
+				&kp LSHIFT	&kp F_		&kp S_		&kp E_		&kp R_				&kp H_		&kp J_		&kp K_		&kp L_		&kp N_
+				&kp LCTRL	&kp Z_		&kp X_		&kp C_		&kp V_				&kp N_		&kp M_		&kp COMM_	&kp DOT_	&kp BSPC
+													&kp SPACE	&kp TAB				&tog GAME	&kp LALT
 			>;
-				// &kp ESC		&kp A_		&kp W_		&kp D_		&kp T_				&kp Y_		&kp U_		&kp I_		&kp O_		&kp P_
-				// &kp LSHIFT	&kp F_		&kp S_		&kp E_		&kp R_				&kp H_		&kp J_		&kp K_		&kp L_		&kp N_
-				// &kp LCTRL	&kp Z_		&kp X_		&kp C_		&kp V_				&kp N_		&kp M_		&kp COMM_	&kp DOT_	&kp BSPC
-													// &kp SPACE	&kp TAB				&tog GAME	&kp LALT
-			// >;
 		};
 		
 		/* FOR DEBUGGING:
