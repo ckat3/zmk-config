@@ -195,7 +195,7 @@
 		MACRO(cp_sztt, <&macro_tap &kp RA(S_) &kp LS(S_)>)
 		
 		// to turn off capsword
-		MACRO(sp_togcaps, <&macro_tap &kp SPACE &tog CAPS>)
+		MACRO(sp_togcaps, <&macro_tap &kp SPACE &tog CAPL>)
 	};
 			  
 	combos {
