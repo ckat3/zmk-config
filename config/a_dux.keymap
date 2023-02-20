@@ -78,7 +78,7 @@
 		HOLDTAP_FLAVOR(lsk, balanced, <&mo>, <&sk>) // lsk: layer if held, one-shot kp if pressed
 		HOLDTAP_FLAVOR(lsl, balanced, <&mo>, <&sl>) // lsl: layer if held, one-shot layer if pressed
 		
-		HOLDTAP_FLAVOR(ht_layer_spcaps, balanced, <&mo>, <&m_sp_togcaps>)
+		//HOLDTAP_FLAVOR(ht_layer_spcaps, balanced, <&mo>, <&m_sp_togcaps>)
 		
 		// home-row mods
 		HOLDTAP(hm,      <&kp>, <&kp>)
@@ -341,13 +341,13 @@
 		#define L_INNER	&lt NUM E_
 		#define L_OUTER	&lsl SYM SYM
 		
-		#define L_INNERCAPS &lt NUM LS(E_)
+		// #define L_INNERCAPS &lt NUM LS(E_)
 		
 		#define R_INNER	&lt NAV SPACE
 		#define R_OUTER	&lsl ACNT ACNT
 		
-		#define R_INNERCAPS &ht_layer_spcaps NAV 0
-		#define R_OUTERCAPS &lsl ACPS ACPS
+		// #define R_INNERCAPS &ht_layer_spcaps NAV 0
+		// #define R_OUTERCAPS &lsl ACPS ACPS
 		
 		base_layer {
 			bindings = <
