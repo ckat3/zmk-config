@@ -74,8 +74,6 @@
 				DEFINE_HOLDTAP(NAME, tap-preferred, HT_TAPPING_TERM, <&kp>, <&kp>) \
 					hold-trigger-key-positions = <POSITIONS>; \
 			};
-																																																																																												
-																																																				   
 		
 		HOLDTAP_FLAVOR(lsk, balanced, <&mo>, <&sk>) // lsk: layer if held, one-shot kp if pressed
 		HOLDTAP_FLAVOR(lsl, balanced, <&mo>, <&sl>) // lsl: layer if held, one-shot layer if pressed
@@ -177,35 +175,27 @@
 		// «»:; with nbsp
 		MACRO(nbsp_lglm, <&macro_tap &kp LGLM_ 	   &kp LS(SPACE)>)
 		MACRO(nbsp_rglm, <&macro_tap &kp LS(SPACE) &kp RGLM_>)
-																																																				   
 		MACRO(nbsp_coln, <&macro_tap &kp LS(SPACE) &kp LS(DOT_) &kp SPACE>)
 		MACRO(nbsp_scln, <&macro_tap &kp LS(SPACE) &kp LS(COMM_) &kp SPACE>)
 		
 		// ãe ão õe
 		MACRO(ae,  <&macro_tap &kp TILD_ &kp A_ &kp E_>)
 		MACRO(ao,  <&macro_tap &kp TILD_ &kp A_ &kp O_>)
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																		  
 		MACRO(oe,  <&macro_tap &kp TILD_ &kp O_ &kp E_>)
 		MACRO(cp_ae, <&macro_tap &kp TILD_ &kp LS(A_) &kp LS(E_)>)
 		MACRO(cp_ao, <&macro_tap &kp TILD_ &kp LS(A_) &kp LS(O_)>)
 		MACRO(cp_oe, <&macro_tap &kp TILD_ &kp LS(O_) &kp LS(E_)>)
 		
 		// loose ^ `
-		MACRO(cfxloos, <&macro_tap &kp CFLX_ &kp SPACE>)
-		MACRO(grvloos, <&macro_tap &kp GRAV_ &kp SPACE>)
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																														 
+		MACRO(cfxloos, <&macro_tap &kp CFLX_  &kp SPACE>)
+		MACRO(grvloos, <&macro_tap &kp GRAV_  &kp SPACE>)
 		
 		// ß
 		MACRO(eszett,  <&macro_tap &kp RA(S_) &kp S_>)
 		MACRO(cp_sztt, <&macro_tap &kp RA(S_) &kp LS(S_)>)
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																										  
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																									
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																													
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																													
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																													  
 		
 		// to turn off capsword
-		MACRO(sp_togcaps, <&macro_tap &kp SPACE>)
+		// MACRO(sp_togcaps, <&macro_tap &kp SPACE &tog CAPL>)
 	};
 			  
 	combos {
@@ -271,17 +261,10 @@
 		COMBO(&lsk FUNC LSHIFT, 30 31, dljsdqsrt)
 		COMBO(&sk RSHIFT,       32 33, sqljqrjqsl)
 		
-																																																																																																																																																																																																																																																																																													 
-																																																				   
 		COMBO_MACRO_LAYER(Q_U_,, 26 27, BASE)
 		COMBO_MACRO_LAYER(ae,,   13 30, BASE)
 		COMBO_MACRO_LAYER(ao,,   13 11, BASE)
 		COMBO_MACRO_LAYER(oe,,   11 30, BASE)
-																																																				   
-																																																																																																																																																																																																																																																																																																																																																																																																																																					
-																																																																																																																																																																																																																																																																																																																																																																																																																																					
-																																																																																																																																																																																																																																																																																																																																																																																																																																					
-																																																																																																																																																																																																																																																																																																																																																																																																																																					
 		
 		COMBO_MACRO_LAYER(cp_qu,, 26 27, CAPL)
 		COMBO_MACRO_LAYER(cp_ae,, 13 30, CAPL)
@@ -346,15 +329,6 @@
 		#define EXCL_QMRK	&mt EXCL_ QMRK_
 		#define EURO_DLLR_  &mt EURO_ DLLR_
 		
-																																																																																					 
-																																																																																																																																																																																																																																																																																																																																																																																																										 
-																																																																																																																																																																																																																																																																																																																																																																																																										 
-																																																																																																																																																																																																																																																																																																																																																																																																										 
-																																																																																																																																																																																																																																																																																																																																																																																																										 
-																																																																																																																																																																																																																																																																																																																																																																																																										 
-																																																				   
-																																																																																																																																																																																																																																																																																																																																																																																																																																																											  
-																																																				   
 		// «» with nbsp on tap
 		#define MTLGLM &ht_lglm LGLM_ 0
 		#define MTRGLM &ht_rglm RGLM_ 0
@@ -365,7 +339,6 @@
 		
 		// thumb keys
 		#define L_INNER	&lt NUM E_
-																																																																																																																																																																																																																																																																																																																																																																																																										
 		#define L_OUTER	&lsl SYM SYM
 		
 		#define L_INNERCAPS &lt NUM LS(E_)
@@ -373,8 +346,8 @@
 		#define R_INNER	&lt NAV SPACE
 		#define R_OUTER	&lsl ACNT ACNT
 		
-		#define R_INNERCAPS &lsl ACNT ACNT
-		#define R_OUTERCAPS &lsl ACNT ACNT
+		#define R_INNERCAPS &ht_layer_spcaps NAV 0
+		#define R_OUTERCAPS &lsl ACPS ACPS
 		
 		base_layer {
 			bindings = <
@@ -387,10 +360,11 @@
 		
 		caps_layer {
 			bindings = <
-				&kp  LS(Q_)	 ____			 &kp  LS(Y_)  &kp DOT_	   ____					&kp LS(K_)	 &kp  LS(C_)  &kp  LS(H_)  &kp  LS(W_)  &kp  LS(J_)
-				HMLG LS(U_)	 HMLA LS(O_)	 HMLC LS(I_)  HMLS LS(A_)  &kp LS(F_)			&kp LS(G_)	 HMRS LS(T_)  HMRC LS(R_)  HMRA LS(S_)  HMRG LS(N_)
-				&kp  LS(Z_)	 HMLC LS(EACT_)	 &kp  LS(P_)  ____		   &kp LS(X_)			&kp LS(V_)   &kp  LS(D_)  &kp  LS(M_)  &kp  LS(L_)  &kp  LS(B_)
-														  L_INNERCAPS  ____					R_OUTERCAPS	 R_INNERCAPS
+			bindings = <
+				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
+				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
+				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
+				xxxx xxxx xxxx xxxx
 			>;
 		};
 		
@@ -414,10 +388,10 @@
 		
 		accent_caps_layer {
 			bindings = <
-				&m_cp_cf_u	&m_cp_cf_o		 &m_cp_cf_i   &m_cp_cf_a	 xxxx				xxxx		&kp  CCED_	&kp  APST_	&kp  QUOT_	&m_cp_bj
-				&m_cp_ac_u	&m_cp_ac_o		 &m_cp_ac_i	  &m_cp_ac_a	 &m_cp_tl_a			xxxx		HMRS ACUT_	HMRC CFLX_	HMLA GRAV_	&m_cp_tl_n
-				&m_cp_gv_u	&m_cp_tl_o		 &m_cp_tr_i	  &kp LS(AGRV_)  xxxx				xxxx		&kp  TRMA_	xxxx		&m_cp_sztt	&kp TILD_
-														  &m_cp_cf_e	 &kp LS(EGRV_)		____		____
+				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
+				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
+				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
+				xxxx xxxx xxxx xxxx
 			>;
 		};
 		
