@@ -160,7 +160,7 @@
 		MACRO(cp_cf_o, <&macro_tap &kp CFLX_ &kp LS(O_)>)
 		MACRO(cp_cf_u, <&macro_tap &kp CFLX_ &kp LS(U_)>)
 		
-		MACRO(cp_gv_a, <&macro_tap &LS(GRAV_) &kp LS(A_)>) // unused
+		MACRO(cp_gv_a, <&macro_tap &kp GRAV_ &kp LS(A_)>) // unused
 		MACRO(cp_gv_e, <&macro_tap &kp GRAV_ &kp LS(E_)>)
 		MACRO(cp_gv_o, <&macro_tap &kp GRAV_ &kp LS(O_)>)
 		MACRO(cp_gv_u, <&macro_tap &kp GRAV_ &kp LS(U_)>)
