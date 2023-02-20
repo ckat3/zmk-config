@@ -23,14 +23,18 @@
 #define CAPL 1
 #define SYM 2
 #define ACNT 3
-#define ACPS 4
-#define NUM 5
-#define NAV 6
-#define FUNC 7
-#define GAME 8
+#define NUM 4
+#define NAV 5
+#define FUNC 6
+#define GAME 7
+// #define ACPS 4
+// #define NUM 5
+// #define NAV 6
+// #define FUNC 7
+// #define GAME 8
 
 // combos shouldn't work on game layer, to minimize delay
-#define NOT_GAME BASE CAPL SYM ACNT ACPS NUM NAV FUNC
+#define NOT_GAME BASE CAPL SYM ACNT /* ACPS */ NUM NAV FUNC
 
 &lt {
 	tapping-term-ms = <LT_TAPPING_TERM>;
@@ -147,7 +151,7 @@
 		MACRO_SIMPLE(Q_, U_)
 		MACRO_SIMPLE(B_, J_)
 		
-		MACRO(cp_ac_a, <&macro_tap &kp ACUT_ &kp LS(A_)>)
+/* 		MACRO(cp_ac_a, <&macro_tap &kp ACUT_ &kp LS(A_)>)
 		//MACRO(cp_ac_e, <&macro_tap &kp ACUT_ &kp LS(E_)>)
 		MACRO(cp_ac_i, <&macro_tap &kp ACUT_ &kp LS(I_)>)
 		MACRO(cp_ac_o, <&macro_tap &kp ACUT_ &kp LS(O_)>)
@@ -170,7 +174,7 @@
 		MACRO(cp_tr_i, <&macro_tap &kp TRMA_ &kp LS(I_)>)
 		
 		MACRO(cp_qu, <&macro_tap &kp LS(Q_) &kp LS(U_)>)
-		MACRO(cp_bj, <&macro_tap &kp LS(B_) &kp LS(J_)>)
+		MACRO(cp_bj, <&macro_tap &kp LS(B_) &kp LS(J_)>) */
 		
 		// «»:; with nbsp
 		MACRO(nbsp_lglm, <&macro_tap &kp LGLM_ 	   &kp LS(SPACE)>)
@@ -266,10 +270,10 @@
 		COMBO_MACRO_LAYER(ao,,   13 11, BASE)
 		COMBO_MACRO_LAYER(oe,,   11 30, BASE)
 		
-		COMBO_MACRO_LAYER(cp_qu,, 26 27, CAPL)
+/* 		COMBO_MACRO_LAYER(cp_qu,, 26 27, CAPL)
 		COMBO_MACRO_LAYER(cp_ae,, 13 30, CAPL)
 		COMBO_MACRO_LAYER(cp_ao,, 13 11, CAPL)
-		COMBO_MACRO_LAYER(cp_oe,, 11 30, CAPL)
+		COMBO_MACRO_LAYER(cp_oe,, 11 30, CAPL) */
 		
 		combo_ctrlz {
 			bindings = <&kp LC(Z_)>;
@@ -338,13 +342,13 @@
 		#define MTCOMM &ht_scln 0 COMM_
 		
 		// thumb keys
-		#define L_INNER	&lt NUM E_
-		#define L_OUTER	&lsl SYM SYM
+		// #define L_INNER	&lt NUM E_
+		// #define L_OUTER	&lsl SYM SYM
 		
 		// #define L_INNERCAPS &lt NUM LS(E_)
 		
-		#define R_INNER	&lt NAV SPACE
-		#define R_OUTER	&lsl ACNT ACNT
+		// #define R_INNER	&lt NAV SPACE
+		// #define R_OUTER	&lsl ACNT ACNT
 		
 		// #define R_INNERCAPS &ht_layer_spcaps NAV 0
 		// #define R_OUTERCAPS &lsl ACPS ACPS
@@ -354,7 +358,7 @@
 				&kp  Q_		 HMRA MIN_		 &kp  Y_	  MTDOT	   	   EXCL_QMRK			&kp K_		 &kp  C_	  &kp  H_	   &kp  W_		&kp  J_
 				HMLG U_		 HMLA O_		 HMLC I_	  HMLS A_	   &kp F_				&kp G_		 HMRS T_	  HMRC R_	   HMRA S_		HMRG N_
 				&kp  Z_		 HMLC EACT_		 &kp  P_	  MTCOMM	   &kp X_				&kp V_		 &kp  D_	  &kp  M_	   &kp  L_		&kp  B_
-														  L_INNER	   L_OUTER				R_OUTER		 R_INNER
+														  // L_INNER	   L_OUTER				R_OUTER		 R_INNER
 			>;
 		};
 		
@@ -372,7 +376,8 @@
 				xxxx		 &kp AT_		 &kp AMPR_	  &kp OE_	   &kp AE_				xxxx		 xxxx		  xxxx		   xxxx		   xxxx
 				SKLG LBRK_	 SKLA RBRK_		 SKLC LPAR_	  SKLS RPAR_   &kp MDSH_			xxxx		 HMRS LCRL_	  HMRC RCRL_   HMLA		   HMRG xxxx
 				&kp NDSH_	 &kp MDSH_		 MTLGLM		  MTRGLM	   xxxx					xxxx		 xxxx		  &m_cfxloos   &m_grvloos  xxxx
-														  ____		   ____					____		 ____
+				xxxx xxxx xxxx xxxx
+														  // ____		   ____					____		 ____
 			>;
 		};
 		
@@ -381,7 +386,8 @@
 				&m_CFLX_U_	 &m_CFLX_O_		 &m_CFLX_I_   &m_CFLX_A_   xxxx					xxxx		 &kp  CCED_	  &kp  APST_   &kp  QUOT_  &m_B_J_
 				&m_ACUT_U_	 &m_ACUT_O_		 &m_ACUT_I_	  &m_ACUT_A_   &m_TILD_A_			xxxx		 HMRS ACUT_   HMRC CFLX_   HMLA GRAV_  &m_TILD_N_
 				&m_GRAV_U_	 &m_TILD_O_		 &m_TRMA_I_	  &kp AGRV_    xxxx					xxxx		 &kp  TRMA_	  xxxx		   &m_eszett   &kp TILD_
-														  &m_CFLX_E_   &kp EGRV_			____		 ____
+				xxxx xxxx xxxx xxxx
+														  // &m_CFLX_E_   &kp EGRV_			____		 ____
 			>;
 		};
 		
@@ -408,7 +414,7 @@
 				&kp INSERT	&sk RALT	&kp PSCRN	&kp PSBRK	xxxx				xxxx		&kp LC(HOME)	&kp PG_DN	&kp PG_UP	&kp LC(END)
 				HMRG LGUI	HMLA LALT	HMLC LCTRL	HMLS LSHIFT	&kp CAPS			&tog CAPL	&kp LC(LEFT)	&kp DOWN	&kp UP		&kp LC(RIGHT)
 				&kp LC(Z_)	&kp LC(X_)	&kp LC(C_)	&kp LC(V_)	xxxx				xxxx		&kp HOME		&kp LEFT	&kp RIGHT	&kp END
-													&kp ULIN_	____				____		____
+													xxxx		____				____		____
 			>;
 		};
 		
@@ -423,11 +429,17 @@
 		
 		game_layer {
 			bindings = <
-				&kp ESC		&kp A_		&kp W_		&kp D_		&kp T_				&kp Y_		&kp U_		&kp I_		&kp O_		&kp P_
-				&kp LSHIFT	&kp F_		&kp S_		&kp E_		&kp R_				&kp H_		&kp J_		&kp K_		&kp L_		&kp N_
-				&kp LCTRL	&kp Z_		&kp X_		&kp C_		&kp V_				&kp N_		&kp M_		&kp COMM_	&kp DOT_	&kp BSPC
-													&kp SPACE	&kp TAB				&tog GAME	&kp LALT
+			bindings = <
+				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
+				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
+				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
+				xxxx xxxx xxxx xxxx
 			>;
+				// &kp ESC		&kp A_		&kp W_		&kp D_		&kp T_				&kp Y_		&kp U_		&kp I_		&kp O_		&kp P_
+				// &kp LSHIFT	&kp F_		&kp S_		&kp E_		&kp R_				&kp H_		&kp J_		&kp K_		&kp L_		&kp N_
+				// &kp LCTRL	&kp Z_		&kp X_		&kp C_		&kp V_				&kp N_		&kp M_		&kp COMM_	&kp DOT_	&kp BSPC
+													// &kp SPACE	&kp TAB				&tog GAME	&kp LALT
+			// >;
 		};
 		
 		/* FOR DEBUGGING:
