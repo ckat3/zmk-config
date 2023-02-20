@@ -352,17 +352,12 @@
 		
 		base_layer {
 			bindings = <
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
+				&kp  Q_		 HMRA MIN_		 &kp  Y_	  MTDOT	   	   EXCL_QMRK			&kp K_		 &kp  C_	  &kp  H_	   &kp  W_		&kp  J_
+				HMLG U_		 HMLA O_		 HMLC I_	  HMLS A_	   &kp F_				&kp G_		 HMRS T_	  HMRC R_	   HMRA S_		HMRG N_
+				&kp  Z_		 HMLC EACT_		 &kp  P_	  MTCOMM	   &kp X_				&kp V_		 &kp  D_	  &kp  M_	   &kp  L_		&kp  B_
+														  // L_INNER	   L_OUTER				R_OUTER		 R_INNER
 				xxxx xxxx xxxx xxxx
 			>;
-			// bindings = <
-				// &kp  Q_		 HMRA MIN_		 &kp  Y_	  MTDOT	   	   EXCL_QMRK			&kp K_		 &kp  C_	  &kp  H_	   &kp  W_		&kp  J_
-				// HMLG U_		 HMLA O_		 HMLC I_	  HMLS A_	   &kp F_				&kp G_		 HMRS T_	  HMRC R_	   HMRA S_		HMRG N_
-				// &kp  Z_		 HMLC EACT_		 &kp  P_	  MTCOMM	   &kp X_				&kp V_		 &kp  D_	  &kp  M_	   &kp  L_		&kp  B_
-														  // L_INNER	   L_OUTER				R_OUTER		 R_INNER
-			// >;
 		};
 		
 		caps_word_layer {
@@ -383,34 +378,21 @@
 		
 		sym_layer {
 			bindings = <
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx
+				xxxx		 &kp AT_		 &kp AMPR_	  &kp OE_	   &kp AE_				xxxx		 xxxx		  xxxx		   xxxx		   xxxx
+				SKLG LBRK_	 SKLA RBRK_		 SKLC LPAR_	  SKLS RPAR_   &kp MDSH_			xxxx		 HMRS LCRL_	  HMRC RCRL_   HMLA		   HMRG xxxx
+				&kp NDSH_	 &kp MDSH_		 MTLGLM		  MTRGLM	   xxxx					xxxx		 xxxx		  &m_cfxloos   &m_grvloos  xxxx
+														  ____		   ____					____		 ____
 			>;
-			// bindings = <
-				// xxxx		 &kp AT_		 &kp AMPR_	  &kp OE_	   &kp AE_				xxxx		 xxxx		  xxxx		   xxxx		   xxxx
-				// SKLG LBRK_	 SKLA RBRK_		 SKLC LPAR_	  SKLS RPAR_   &kp MDSH_			xxxx		 HMRS LCRL_	  HMRC RCRL_   HMLA		   HMRG xxxx
-				// &kp NDSH_	 &kp MDSH_		 MTLGLM		  MTRGLM	   xxxx					xxxx		 xxxx		  &m_cfxloos   &m_grvloos  xxxx
-				// xxxx xxxx xxxx xxxx
-														  // ____		   ____					____		 ____
-			// >;
 		};
 		
 		accent_layer {
 			bindings = <
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
+				&m_CFLX_U_	 &m_CFLX_O_		 &m_CFLX_I_   &m_CFLX_A_   xxxx					xxxx		 &kp  CCED_	  &kp  APST_   &kp  QUOT_  &m_B_J_
+				&m_ACUT_U_	 &m_ACUT_O_		 &m_ACUT_I_	  &m_ACUT_A_   &m_TILD_A_			xxxx		 HMRS ACUT_   HMRC CFLX_   HMLA GRAV_  &m_TILD_N_
+				&m_GRAV_U_	 &m_TILD_O_		 &m_TRMA_I_	  &kp AGRV_    xxxx					xxxx		 &kp  TRMA_	  xxxx		   &m_eszett   &kp TILD_
 				xxxx xxxx xxxx xxxx
-			>;
-			// bindings = <
-				// &m_CFLX_U_	 &m_CFLX_O_		 &m_CFLX_I_   &m_CFLX_A_   xxxx					xxxx		 &kp  CCED_	  &kp  APST_   &kp  QUOT_  &m_B_J_
-				// &m_ACUT_U_	 &m_ACUT_O_		 &m_ACUT_I_	  &m_ACUT_A_   &m_TILD_A_			xxxx		 HMRS ACUT_   HMRC CFLX_   HMLA GRAV_  &m_TILD_N_
-				// &m_GRAV_U_	 &m_TILD_O_		 &m_TRMA_I_	  &kp AGRV_    xxxx					xxxx		 &kp  TRMA_	  xxxx		   &m_eszett   &kp TILD_
-				// xxxx xxxx xxxx xxxx
 														  // &m_CFLX_E_   &kp EGRV_			____		 ____
-			// >;
+			>;
 		};
 		
 		accent_caps_layer {
