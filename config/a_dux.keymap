@@ -383,18 +383,12 @@
 		
 		sym_layer {
 			bindings = <
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
+				xxxx		 &kp AT_		 &kp AMPR_	  &kp OE_	   &kp AE_				xxxx		 xxxx		  xxxx		   xxxx		   xxxx
+				SKLG LBRK_	 SKLA RBRK_		 SKLC LPAR_	  SKLS RPAR_   &kp MDSH_			xxxx		 HMRS LCRL_	  HMRC RCRL_   HMLA		   HMRG xxxx
+				&kp NDSH_	 &kp MDSH_		 MTLGLM		  MTRGLM	   xxxx					xxxx		 xxxx		  &m_cfxloos   &m_grvloos  xxxx
 				xxxx xxxx xxxx xxxx
-			>;
-			// bindings = <
-				// xxxx		 &kp AT_		 &kp AMPR_	  &kp OE_	   &kp AE_				xxxx		 xxxx		  xxxx		   xxxx		   xxxx
-				// SKLG LBRK_	 SKLA RBRK_		 SKLC LPAR_	  SKLS RPAR_   &kp MDSH_			xxxx		 HMRS LCRL_	  HMRC RCRL_   HMLA		   HMRG xxxx
-				// &kp NDSH_	 &kp MDSH_		 MTLGLM		  MTRGLM	   xxxx					xxxx		 xxxx		  &m_cfxloos   &m_grvloos  xxxx
-				// xxxx xxxx xxxx xxxx
 														  // ____		   ____					____		 ____
-			// >;
+			>;
 		};
 		
 		accent_layer {
