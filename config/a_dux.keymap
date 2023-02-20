@@ -27,16 +27,8 @@
 #define NAV 5
 #define FUNC 6
 #define GAME 7
-// #define ACPS 4
-// #define NUM 5
-// #define NAV 6
-// #define FUNC 7
-// #define GAME 8
 
-// combos shouldn't work on game layer, to minimize delay
-// #define NOT_GAME BASE CAPL SYM ACNT ACPS NUM NAV FUNC
 #define NOT_GAME BASE CAPL SYM ACNT NUM NAV FUNC
-
 
 &lt {
 	tapping-term-ms = <LT_TAPPING_TERM>;
@@ -80,17 +72,17 @@
 				DEFINE_HOLDTAP(NAME, tap-preferred, HT_TAPPING_TERM, <&kp>, <&kp>) \
 					hold-trigger-key-positions = <POSITIONS>; \
 			};
+			
+		
 		
 		HOLDTAP_FLAVOR(lsk, balanced, <&mo>, <&sk>) // lsk: layer if held, one-shot kp if pressed
 		HOLDTAP_FLAVOR(lsl, balanced, <&mo>, <&sl>) // lsl: layer if held, one-shot layer if pressed
-		
-		//HOLDTAP_FLAVOR(ht_layer_spcaps, balanced, <&mo>, <&m_sp_togcaps>)
 		
 		// home-row mods
 		HOLDTAP(hm,      <&kp>, <&kp>)
 		HOLDTAP(hmsk,    <&sk>, <&kp>)		
 		HOLDTAP(hm_qu,   <&kp>, <&m_Q_U_>)
-		// HOLDTAP(hm_quc,  <&kp>, <&m_cp_qu>)
+		HOLDTAP(hm_quc,  <&kp>, <&m_shift_qu>)
 		HOLDTAP(hm_aact, <&kp>, <&m_ACUT_A_>)
 		HOLDTAP(hm_uact, <&kp>, <&m_ACUT_U_>)
 		HOLDTAP(hm_iact, <&kp>, <&m_ACUT_I_>)
@@ -116,7 +108,7 @@
 				bindings = BINDINGS; \
 				)
 				
-		// MACRO_SIMPLE names the macro "m_FIRST##SECOND", eg "m_Q_U_".
+		// MACRO_SIMPLE names the macro "m_FIRST##SECOND", eg "mQ_U_".
 		// it cannot contain parentheses (i think?) or complex sequences. 
 		#define MACRO_SIMPLE(FIRST, SECOND) \
 			MACRO(FIRST##SECOND, <&macro_tap &kp FIRST &kp SECOND>)
@@ -128,80 +120,54 @@
 				bindings = <&macro_tap &kp FIRST &kp SECOND>; \
 				)
 	
-		// áíóú
+		// define macros like m_ACUT_A_ for accents layer
 		MACRO_SIMPLE(ACUT_, A_)
-		MACRO_SIMPLE(ACUT_, E_) //unused
+		MACRO_SIMPLE(ACUT_, E_)
 		MACRO_SIMPLE(ACUT_, I_)
 		MACRO_SIMPLE(ACUT_, O_)
 		MACRO_SIMPLE(ACUT_, U_)
-		
 		MACRO_SIMPLE(CFLX_, A_)
 		MACRO_SIMPLE(CFLX_, E_)
 		MACRO_SIMPLE(CFLX_, I_)
 		MACRO_SIMPLE(CFLX_, O_)
 		MACRO_SIMPLE(CFLX_, U_)
-		
-		MACRO_SIMPLE(GRAV_, E_) //unused
+		MACRO_SIMPLE(GRAV_, E_)
 		MACRO_SIMPLE(GRAV_, O_)
 		MACRO_SIMPLE(GRAV_, U_)
-		
 		MACRO_SIMPLE(TILD_, A_)
 		MACRO_SIMPLE(TILD_, O_)
 		MACRO_SIMPLE(TILD_, N_)
 		MACRO_SIMPLE(TRMA_, I_)
-		
 		MACRO_SIMPLE(Q_, U_)
 		MACRO_SIMPLE(B_, J_)
+		MACRO_SIMPLE(F_, U_)
+		MACRO_SIMPLE(U_, F_)
 		
- 		// MACRO(cp_ac_a, <&macro_tap &kp ACUT_ &kp LS(A_)>)
-		// MACRO(cp_ac_e, <&macro_tap &kp ACUT_ &kp LS(E_)>) // unused
-		// MACRO(cp_ac_i, <&macro_tap &kp ACUT_ &kp LS(I_)>)
-		// MACRO(cp_ac_o, <&macro_tap &kp ACUT_ &kp LS(O_)>)
-		// MACRO(cp_ac_u, <&macro_tap &kp ACUT_ &kp LS(U_)>)
-		
-		// MACRO(cp_cf_a, <&macro_tap &kp CFLX_ &kp LS(A_)>)
-		// MACRO(cp_cf_e, <&macro_tap &kp CFLX_ &kp LS(E_)>)
-		// MACRO(cp_cf_i, <&macro_tap &kp CFLX_ &kp LS(I_)>)
-		// MACRO(cp_cf_o, <&macro_tap &kp CFLX_ &kp LS(O_)>)
-		// MACRO(cp_cf_u, <&macro_tap &kp CFLX_ &kp LS(U_)>)
-		
-		// MACRO(cp_gv_a, <&macro_tap &LS(GRAV_) &kp LS(A_)>) // unused
-		// MACRO(cp_gv_e, <&macro_tap &kp GRAV_ &kp LS(E_)>)
-		// MACRO(cp_gv_o, <&macro_tap &kp GRAV_ &kp LS(O_)>)
-		// MACRO(cp_gv_u, <&macro_tap &kp GRAV_ &kp LS(U_)>)
-		
-		// MACRO(cp_tl_a, <&macro_tap &kp TILD_ &kp LS(A_)>)
-		// MACRO(cp_tl_o, <&macro_tap &kp TILD_ &kp LS(O_)>)
-		// MACRO(cp_tl_n, <&macro_tap &kp TILD_ &kp LS(N_)>)
-		// MACRO(cp_tr_i, <&macro_tap &kp TRMA_ &kp LS(I_)>)
-		
-		// MACRO(cp_qu, <&macro_tap &kp LS(Q_) &kp LS(U_)>)
-		// MACRO(cp_bj, <&macro_tap &kp LS(B_) &kp LS(J_)>)
-		
-		// «»:; with nbsp
 		MACRO(nbsp_lglm, <&macro_tap &kp LGLM_ 	   &kp LS(SPACE)>)
 		MACRO(nbsp_rglm, <&macro_tap &kp LS(SPACE) &kp RGLM_>)
+		
 		MACRO(nbsp_coln, <&macro_tap &kp LS(SPACE) &kp LS(DOT_) &kp SPACE>)
 		MACRO(nbsp_scln, <&macro_tap &kp LS(SPACE) &kp LS(COMM_) &kp SPACE>)
 		
-		// ãe ão õe
 		MACRO(ae,  <&macro_tap &kp TILD_ &kp A_ &kp E_>)
 		MACRO(ao,  <&macro_tap &kp TILD_ &kp A_ &kp O_>)
+		MACRO(nao, <&macro_tap &kp N_ &kp TILD_ &kp A_ &kp O_>)
 		MACRO(oe,  <&macro_tap &kp TILD_ &kp O_ &kp E_>)
-		MACRO(cp_ae, <&macro_tap &kp TILD_ &kp LS(A_) &kp LS(E_)>)
-		MACRO(cp_ao, <&macro_tap &kp TILD_ &kp LS(A_) &kp LS(O_)>)
-		MACRO(cp_oe, <&macro_tap &kp TILD_ &kp LS(O_) &kp LS(E_)>)
 		
-		// loose ^ `
-		MACRO(cfxloos, <&macro_tap &kp CFLX_  &kp SPACE>)
-		MACRO(grvloos, <&macro_tap &kp GRAV_  &kp SPACE>)
+		MACRO(cfxloos, <&macro_tap &kp CFLX_  &kp SPACE>) // loose ^
+		MACRO(grvloos, <&macro_tap &kp GRAV_  &kp SPACE>) // loose `
+		MACRO(eszett,  <&macro_tap &kp RA(S_) &kp S_>) // ß
 		
-		// ß
-		MACRO(eszett,  <&macro_tap &kp RA(S_) &kp S_>)
-		MACRO(cp_sztt, <&macro_tap &kp RA(S_) &kp LS(S_)>)
+		MACRO(shift_qu, <&macro_tap &kp LS(Q_) &kp LS(U_)>)
+		MACRO(shift_ae, <&macro_tap &kp TILD_ &kp LS(A_) &kp LS(E_)>)
+		MACRO(shift_ao, <&macro_tap &kp TILD_ &kp LS(A_) &kp LS(O_)>)
+		MACRO(shift_oe, <&macro_tap &kp TILD_ &kp LS(O_) &kp LS(E_)>)
+		/*MACRO(shift_qu, <&macro_press &kp LSHFT>, <&macro_tap &kp Q_ &kp U_>, <&macro_release &kp LSHFT>)
+		MACRO(shift_ae, <&macro_tap &kp TILD_>, <&macro_press &kp LSHFT>, <&macro_tap &kp A_ &kp E_>, <&macro_release &kp LSHFT>)
+		MACRO(shift_ao, <&macro_tap &kp TILD_>, <&macro_press &kp LSHFT>, <&macro_tap &kp A_ &kp O_>, <&macro_release &kp LSHFT>)
+		MACRO(shift_oe, <&macro_tap &kp TILD_>, <&macro_press &kp LSHFT>, <&macro_tap &kp O_ &kp E_>, <&macro_release &kp LSHFT>)*/
 		
-		// to turn off capsword
-		// MACRO(sp_togcaps, <&macro_tap &kp SPACE &tog CAPL>)
+		// MACRO(spc_capl, <&macro_tap &kp SPACE &tog CAPL>) // space then toggle caps layer
 	};
 			  
 	combos {
@@ -251,13 +217,10 @@
 	              30 31 | 32 33
 	*/
 	
-		COMBO_KP(TAB,,   12 13)
+		COMBO_KP(TAB,, 12 13)
 		COMBO_KP(ENTER,, 16 17)
-		
 		COMBO_KP(SPACE,l, 11 12 13)
 		COMBO_KP(SPACE,r, 16 17 18)
-		
-		COMBO_KP(ESC,, 10 11)
 		
 		COMBO_KP(BSPC,, 11 12)
 		COMBO_KP(DEL,, 21 22)
@@ -267,15 +230,18 @@
 		COMBO(&lsk FUNC LSHIFT, 30 31, dljsdqsrt)
 		COMBO(&sk RSHIFT,       32 33, sqljqrjqsl)
 		
-		COMBO_MACRO_LAYER(Q_U_,, 26 27, BASE)
-		COMBO_MACRO_LAYER(ae,,   13 30, BASE)
-		COMBO_MACRO_LAYER(ao,,   13 11, BASE)
-		COMBO_MACRO_LAYER(oe,,   11 30, BASE)
+		COMBO_KP(ESC,, 	  10 11)
 		
- 		// COMBO_MACRO_LAYER(cp_qu,, 26 27, CAPL)
-		// COMBO_MACRO_LAYER(cp_ae,, 13 30, CAPL)
-		// COMBO_MACRO_LAYER(cp_ao,, 13 11, CAPL)
-		// COMBO_MACRO_LAYER(cp_oe,, 11 30, CAPL)
+		COMBO_MACRO_LAYER(Q_U_,, 26 27, BASE)
+		COMBO_MACRO_LAYER(ae,, 13 30, BASE)
+		COMBO_MACRO_LAYER(ao,, 13 11, BASE)
+		COMBO_MACRO_LAYER(oe,, 11 30, BASE)
+		
+		COMBO_MACRO_LAYER(shift_qu,, 26 27, CAPL)
+		COMBO_MACRO_LAYER(shift_ae,, 13 30, CAPL)
+		COMBO_MACRO_LAYER(shift_ao,, 13 11, CAPL)
+		COMBO_MACRO_LAYER(shift_oe,, 11 30, CAPL)
+		
 		
 		combo_ctrlz {
 			bindings = <&kp LC(Z_)>;
@@ -335,6 +301,15 @@
 		#define EXCL_QMRK	&mt EXCL_ QMRK_
 		#define EURO_DLLR_  &mt EURO_ DLLR_
 		
+		/*
+		#define MTPAR  &mt RPAR_ LPAR_
+		#define MTCRL  &mt RCRL_ LCRL_
+		#define MTBRK  &mt RBRK_ LBRK_
+		#define MTGLM  &mt RGLM_ LGLM_
+		#define MTGLT  &mt GT_   LT_*/
+		
+		/*#define MTDASH  &mtslow NDSH_ MDSH_*/
+		
 		// «» with nbsp on tap
 		#define MTLGLM &ht_lglm LGLM_ 0
 		#define MTRGLM &ht_rglm RGLM_ 0
@@ -344,150 +319,82 @@
 		#define MTCOMM &ht_scln 0 COMM_
 		
 		// thumb keys
-		// #define L_INNER	&lt NUM E_
-		// #define L_OUTER	&lsl SYM SYM
-		
-		// #define L_INNERCAPS &lt NUM LS(E_)
-		
-		// #define R_INNER	&lt NAV SPACE
-		// #define R_OUTER	&lsl ACNT ACNT
-		
-		// #define R_INNERCAPS &ht_layer_spcaps NAV 0
-		// #define R_OUTERCAPS &lsl ACPS ACPS
+		#define THLH1	&lt NUM E_
+		#define THLH1S	&lt NUM LS(E_)
+		#define THLH2	&lsl SYM SYM
+		#define THRH2	&lsl ACNT ACNT
+		#define THRH1	&lt NAV SPACE
 		
 		base_layer {
 			bindings = <
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx
+				&kp  Q_		HMRA MIN_	&kp  Y_		MTDOT		EXCL_QMRK			&kp K_		&kp  C_		&kp  H_		&kp  W_		&kp  J_
+				HMLG U_		HMLA O_		HMLC I_		HMLS A_		&kp F_				&kp G_		HMRS T_		HMRC R_		HMRA S_		HMRG N_
+				&kp  Z_		HMLC EACT_	&kp  P_		MTCOMM		&kp X_				&kp V_		&kp  D_		&kp  M_		&kp  L_		&kp  B_
+													THLH1		THLH2				THRH2		THRH1
 			>;
-			// bindings = <
-				// &kp  Q_		 HMRA MIN_		 &kp  Y_	  MTDOT	   	   EXCL_QMRK			&kp K_		 &kp  C_	  &kp  H_	   &kp  W_		&kp  J_
-				// HMLG U_		 HMLA O_		 HMLC I_	  HMLS A_	   &kp F_				&kp G_		 HMRS T_	  HMRC R_	   HMRA S_		HMRG N_
-				// &kp  Z_		 HMLC EACT_		 &kp  P_	  MTCOMM	   &kp X_				&kp V_		 &kp  D_	  &kp  M_	   &kp  L_		&kp  B_
-														  L_INNER	   L_OUTER				R_OUTER		 R_INNER
-			// >;
 		};
 		
-		caps_word_layer {
+		caps_layer {
 			bindings = <
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx
+				&kp  LS(Q_)		____			&kp  LS(Y_)	 &kp DOT_	   ____				&kp LS(K_)		&kp  LS(C_)		&kp  LS(H_)		&kp  LS(W_)		&kp  LS(J_)
+				HMLG LS(U_)		HMLA LS(O_)		HMLC LS(I_)	 HMLS LS(A_)   &kp LS(F_)		&kp LS(G_)		HMRS LS(T_)		HMRC LS(R_)		HMRA LS(S_)		HMRG LS(N_)
+				&kp  LS(Z_)		HMLC LS(EACT_)	&kp  LS(P_)	 ____		   &kp LS(X_)		&kp LS(V_)		&kp  LS(D_)		&kp  LS(M_)		&kp  LS(L_)		&kp  LS(B_)
+														     THLH1S	  	   THLH2			THRH2			THRH1
 			>;
-			// bindings = <
-				// &kp  LS(Q_)	 ____			 &kp  LS(Y_)  &kp DOT_	   ____					&kp LS(K_)	 &kp  LS(C_)  &kp  LS(H_)  &kp  LS(W_)  &kp  LS(J_)
-				// HMLG LS(U_)	 HMLA LS(O_)	 HMLC LS(I_)  HMLS LS(A_)  &kp LS(F_)			&kp LS(G_)	 HMRS LS(T_)  HMRC LS(R_)  HMRA LS(S_)  HMRG LS(N_)
-				// &kp  LS(Z_)	 HMLC LS(EACT_)	 &kp  LS(P_)  ____		   &kp LS(X_)			&kp LS(V_)   &kp  LS(D_)  &kp  LS(M_)  &kp  LS(L_)  &kp  LS(B_)
-														  // L_INNERCAPS  ____					R_OUTERCAPS	 R_INNERCAPS
-			// >;
 		};
 		
 		sym_layer {
 			bindings = <
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx
+				xxxx		&kp AT_		&kp AMPR_	&kp OE_		&kp AE_				xxxx	xxxx		xxxx		xxxx		xxxx
+				SKLG LBRK_	SKLA RBRK_	SKLC LPAR_	SKLS RPAR_	&kp MDSH_			xxxx	HMRS LCRL_	HMRC RCRL_	HMLA xxxx	HMRG xxxx
+				&kp NDSH_	&kp MDSH_	MTLGLM		MTRGLM		xxxx				xxxx	xxxx		&m_cfxloos	&m_grvloos	xxxx
+													THLH1		____				____	____
 			>;
-			// bindings = <
-				// xxxx		 &kp AT_		 &kp AMPR_	  &kp OE_	   &kp AE_				xxxx		 xxxx		  xxxx		   xxxx		   xxxx
-				// SKLG LBRK_	 SKLA RBRK_		 SKLC LPAR_	  SKLS RPAR_   &kp MDSH_			xxxx		 HMRS LCRL_	  HMRC RCRL_   HMLA		   HMRG xxxx
-				// &kp NDSH_	 &kp MDSH_		 MTLGLM		  MTRGLM	   xxxx					xxxx		 xxxx		  &m_cfxloos   &m_grvloos  xxxx
-				// xxxx xxxx xxxx xxxx
-														  ____		   ____					____		 ____
-			// >;
 		};
 		
 		accent_layer {
 			bindings = <
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx
+				&m_CFLX_U_	&m_CFLX_O_	&m_CFLX_I_	&m_CFLX_A_	xxxx				xxxx		&kp  CCED_	&kp  APST_	&kp  QUOT_	&m_B_J_
+				&m_ACUT_U_	&m_ACUT_O_	&m_ACUT_I_	&m_ACUT_A_	&m_TILD_A_			xxxx		HMRS ACUT_	HMRC CFLX_	HMLA GRAV_	&m_TILD_N_
+				&m_GRAV_U_	&m_TILD_O_	&m_TRMA_I_	&kp AGRV_	xxxx				xxxx		&kp  TRMA_	xxxx		&m_eszett	&kp TILD_
+													&m_CFLX_E_	&m_GRAV_E_			____		____
 			>;
-			// bindings = <
-				// &m_CFLX_U_	 &m_CFLX_O_		 &m_CFLX_I_   &m_CFLX_A_   xxxx					xxxx		 &kp  CCED_	  &kp  APST_   &kp  QUOT_  &m_B_J_
-				// &m_ACUT_U_	 &m_ACUT_O_		 &m_ACUT_I_	  &m_ACUT_A_   &m_TILD_A_			xxxx		 HMRS ACUT_   HMRC CFLX_   HMLA GRAV_  &m_TILD_N_
-				// &m_GRAV_U_	 &m_TILD_O_		 &m_TRMA_I_	  &kp AGRV_    xxxx					xxxx		 &kp  TRMA_	  xxxx		   &m_eszett   &kp TILD_
-														  // &m_CFLX_E_   &kp EGRV_			____		 ____
-			// >;
-		};
-		
-		accent_caps_layer {
-			bindings = <
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx
-			>;
-			// bindings = <
-				// &m_cp_cf_u	&m_cp_cf_o		 &m_cp_cf_i   &m_cp_cf_a	 xxxx				xxxx		&kp  CCED_	&kp  APST_	&kp  QUOT_	&m_cp_bj
-				// &m_cp_ac_u	&m_cp_ac_o		 &m_cp_ac_i	  &m_cp_ac_a	 &m_cp_tl_a			xxxx		HMRS ACUT_	HMRC CFLX_	HMLA GRAV_	&m_cp_tl_n
-				// &m_cp_gv_u	&m_cp_tl_o		 &m_cp_tr_i	  &kp LS(AGRV_)  xxxx				xxxx		&kp  TRMA_	xxxx		&m_cp_sztt	&kp TILD_
-														  // &m_cp_cf_e	 &kp LS(EGRV_)		____		____
-			// >;
 		};
 		
 		num_layer {
 			bindings = <
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx
+				xxxx		&kp N7_		&kp N8_		&kp N9_		xxxx				xxxx		EURO_DLLR_	&kp HASH_	&kp PCNT_	&kp PIPE_
+				&kp N0_		&kp N1_		&kp N2_		&kp	N3_		&kp DOT_			xxxx		HMRS PLUS_	HMRC MIN_	HMLA STAR_	HMRG FSLA_
+				xxxx		&kp N4_		&kp N5_		&kp	N6_		&kp COMM_			xxxx		&kp LT_		&kp GT_		&kp EQUL_	&kp BSLA_
+													____		____				&kp ULIN_	____
 			>;
-			// bindings = <
-				// xxxx		&kp N7_		&kp N8_		&kp N9_		xxxx				xxxx		EURO_DLLR_	&kp HASH_	&kp PCNT_	&kp PIPE_
-				// &kp N0_		&kp N1_		&kp N2_		&kp	N3_		&kp DOT_			xxxx		HMRS PLUS_	HMRC MIN_	HMLA STAR_	HMRG FSLA_
-				// xxxx		&kp N4_		&kp N5_		&kp	N6_		&kp COMM_			xxxx		&kp LT_		&kp GT_		&kp EQUL_	&kp BSLA_
-													// ____		____				&kp ULIN_	____
-			// >;
 		};
 		
 		nav_layer {
 			bindings = <
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx
+				&kp INSERT	&sk RALT	&kp PSCRN	&kp PSBRK	xxxx				xxxx		&kp LC(HOME)	&kp PG_DN	&kp PG_UP	&kp LC(END)
+				HMRG LGUI	HMLA LALT	HMLC LCTRL	HMLS LSHIFT	&kp CAPS			&tog CAPL	&kp LC(LEFT)	&kp DOWN	&kp UP		&kp LC(RIGHT)
+				&kp LC(Z_)	&kp LC(X_)	&kp LC(C_)	&kp LC(V_)	xxxx				xxxx		&kp HOME		&kp LEFT	&kp RIGHT	&kp END
+													&kp ULIN_	____				____		____
 			>;
-			// bindings = <
-				// &kp INSERT	&sk RALT	&kp PSCRN	&kp PSBRK	xxxx				xxxx		&kp LC(HOME)	&kp PG_DN	&kp PG_UP	&kp LC(END)
-				// HMRG LGUI	HMLA LALT	HMLC LCTRL	HMLS LSHIFT	&kp CAPS			&tog CAPL	&kp LC(LEFT)	&kp DOWN	&kp UP		&kp LC(RIGHT)
-				// &kp LC(Z_)	&kp LC(X_)	&kp LC(C_)	&kp LC(V_)	xxxx				xxxx		&kp HOME		&kp LEFT	&kp RIGHT	&kp END
-													// xxxx		____				____		____
-			// >;
 		};
 		
 		func_layer {
 			bindings = <
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx
+				&bt  BT_CLR    &bt  BT_SEL 0  &bt  BT_SEL 1  &bt  BT_SEL 2  &bt BT_SEL 3			&reset        &kp F7  &kp F8  &kp F9  &kp F10
+				HMLG C_BRI_UP  HMLA C_NEXT	  HMLC C_VOL_UP  HMLS C_PP  	&kp LSLCK				&out OUT_BLE  &kp F1  &kp F2  &kp F3  &kp F11
+				&kp  C_BRI_DN  &kp  C_PREV    &kp  C_VOL_DN  &kp  C_MUTE    &kp LNLCK				&out OUT_USB  &kp F4  &kp F5  &kp F6  &kp F12
+															 ____			____					____		  ____
 			>;
-			// bindings = <
-				// &bt  BT_CLR    &bt  BT_SEL 0  &bt  BT_SEL 1  &bt  BT_SEL 2  &bt BT_SEL 3			&reset        &kp F7  &kp F8  &kp F9  &kp F10
-				// HMLG C_BRI_UP  HMLA C_NEXT	  HMLC C_VOL_UP  HMLS C_PP  	&kp LSLCK				&out OUT_BLE  &kp F1  &kp F2  &kp F3  &kp F11
-				// &kp  C_BRI_DN  &kp  C_PREV    &kp  C_VOL_DN  &kp  C_MUTE    &kp LNLCK				&out OUT_USB  &kp F4  &kp F5  &kp F6  &kp F12
-															 // ____			____					____		  ____
-			// >;
 		};
 		
 		game_layer {
 			bindings = <
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx
+				&kp ESC		&kp  F_		&kp  W_		&kp  E_		&kp T_				&kp Y_		&kp  U_		&kp  I_		&kp  O_		&kp  P_
+				&kp LSHIFT	&kp  A_		&kp  S_		&kp  D_		&kp R_				&kp H_		&kp  J_		&kp  K_		&kp  L_		&kp  N_
+				&kp LCTRL	&kp  Z_		&kp  X_		&kp  C_		&kp V_				&kp N_		&kp  M_		&kp  COMM_	&kp  DOT_	&kp  BSPC
+													&kp SPACE	&kp TAB				&tog GAME	&kp LALT
 			>;
-				// &kp ESC		&kp A_		&kp W_		&kp D_		&kp T_				&kp Y_		&kp U_		&kp I_		&kp O_		&kp P_
-				// &kp LSHIFT	&kp F_		&kp S_		&kp E_		&kp R_				&kp H_		&kp J_		&kp K_		&kp L_		&kp N_
-				// &kp LCTRL	&kp Z_		&kp X_		&kp C_		&kp V_				&kp N_		&kp M_		&kp COMM_	&kp DOT_	&kp BSPC
-													// &kp SPACE	&kp TAB				&tog GAME	&kp LALT
-			// >;
 		};
 		
 		/* FOR DEBUGGING:
