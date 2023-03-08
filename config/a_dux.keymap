@@ -28,6 +28,7 @@
 #define NAV 6
 #define FUNC 7
 #define GAME 8
+#define GAM2 9
 
 // combos shouldn't work on game layer, to minimize delay
 #define NOT_GAME BASE CPWD SYM ACNT ACCP NUM NAV FUNC
@@ -283,7 +284,14 @@
 		
 		combo_game_layer {
 			bindings = <&tog GAME>;
-			key-positions = <0 1 2>;
+			key-positions = <4 14>;
+			layers = <FUNC>;
+			timeout-ms = <COMBO_TIMEOUT>;
+		};
+		
+		combo_game_2_layer {
+			bindings = <&tog GAME>;
+			key-positions = <14 24>;
 			layers = <FUNC>;
 			timeout-ms = <COMBO_TIMEOUT>;
 		};
@@ -415,6 +423,15 @@
 				&kp LCTRL	&kp Q_		&kp S_		&kp E_		&kp F_				&kp H_		&kp J_		&kp K_		&kp L_		&kp N_
 				&kp ESC		&kp Z_		&kp X_		&kp C_		&kp V_				&kp N_		&kp M_		&kp COMM_	&kp DOT_	&kp BSPC
 													&kp TAB		&kp SPACE			&tog GAME	&kp LALT
+			>;
+		};
+		
+		game_layer_2 {
+			bindings = <
+				&kp LSHIFT	&kp A_		&kp EACT_	&kp I_		&kp O_				&kp Y_		&kp U_		&kp I_		&kp O_		&kp P_
+				&kp LCTRL	&kp B_		&kp U_		&kp P_		&kp E_				&kp H_		&kp J_		&kp K_		&kp L_		&kp N_
+				&kp ESC		&kp AGRV_	&kp Y_		&kp X_		&kp DOT				&kp N_		&kp M_		&kp COMM_	&kp DOT_	&kp BSPC
+													&kp TAB		&kp SPACE			&tog GAM2	&kp LALT
 			>;
 		};
 		
