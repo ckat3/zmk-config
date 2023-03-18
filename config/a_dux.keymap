@@ -79,7 +79,7 @@
 		HOLDTAP_FLAVOR(lsk, balanced, <&mo>, <&sk>) // lsk: layer if held, one-shot kp if pressed
 		HOLDTAP_FLAVOR(lsl, balanced, <&mo>, <&sl>) // lsl: layer if held, one-shot layer if pressed
 		
-		HOLDTAP_FLAVOR(ht_sp_togcaps, balanced, <&mo>, <&m_sp_togcaps>)
+		HOLDTAP_FLAVOR(ht_spc_togcaps, balanced, <&mo>, <&m_spc_togcaps>)
 		
 		// home-row mods
 		HOLDTAP(hm,      <&kp>, <&kp>)
@@ -190,8 +190,10 @@
 		MACRO(cfxloos, <&macro_tap &kp CFLX_  &kp SPACE>)
 		MACRO(grvloos, <&macro_tap &kp GRAV_  &kp SPACE>)
 		
-		// space and turn off capsword
-		MACRO(sp_togcaps, <&macro_tap &kp SPACE &tog CPWD>)
+		// key and turn off capsword
+		MACRO(spc_togcaps, <&macro_tap &kp SPACE &tog CPWD>)
+		MACRO(tab_togcaps, <&macro_tap &kp TAB &tog CPWD>)
+		MACRO(entr_togcaps, <&macro_tap &kp ENTER &tog CPWD>)
 	};
 			  
 	combos {
@@ -261,6 +263,8 @@
 		COMBO_MACRO_LAYER(cp_ae,, 13 30, CPWD)
 		COMBO_MACRO_LAYER(cp_ao,, 13 11, CPWD)
 		COMBO_MACRO_LAYER(cp_oe,, 11 30, CPWD)
+		COMBO_MACRO_LAYER(tab_togcaps,, 12 13, CPWD)
+		COMBO_MACRO_LAYER(entr_togcaps,, 16 17, CPWD)
 		
 		combo_ctrlz {
 			bindings = <&kp LC(Z_)>;
@@ -339,7 +343,7 @@
 		#define L_OUTER	&lsl SYM SYM
 		
 		#define R_INNER	&lt  NAV SPACE // todo space ok?
-		#define R_INNERCAPS &ht_sp_togcaps NAV 0
+		#define R_INNERCAPS &ht_spc_togcaps NAV 0
 		#define R_OUTER	&lsl ACNT ACNT
 		#define R_OUTERCAPS &lsl ACCP ACCP
 		
@@ -367,7 +371,7 @@
 			bindings = <
 				xxxx		 &kp AT_		 &kp AMPR_	  &kp OE_	   &kp AE_				xxxx		 xxxx		  xxxx		   xxxx		   xxxx
 				SKLG LBRK_	 SKLA RBRK_		 SKLC LPAR_	  SKLS RPAR_   &kp MDSH_			xxxx		 HMRS LCRL_	  HMRC RCRL_   HMLA xxxx   HMRG xxxx
-				&kp NDSH_	 &kp MDSH_		 MTLGLM		  MTRGLM	   xxxx					xxxx		 xxxx		  &m_cfxloos   &m_grvloos  xxxx
+				&kp NDSH_	 &kp MDSH_		 MTLGLM		  MTRGLM	   xxxx					xxxx		 xxxx		  &m_grvloos   &m_cfxloos  xxxx
 														  ____		   ____					____		 ____
 			>;
 		};
@@ -375,7 +379,7 @@
 		accent_layer {
 			bindings = <
 				&m_CFLX_U_	 &m_CFLX_O_		 &m_CFLX_I_   &m_CFLX_A_   xxxx					xxxx		 &kp  CCED_	  &kp  APST_   &kp  QUOT_  &m_B_J_
-				&m_ACUT_U_	 &m_ACUT_O_		 &m_ACUT_I_	  &m_ACUT_A_   &m_TILD_A_			xxxx		 HMRS ACUT_   HMRC CFLX_   HMLA GRAV_  &m_TILD_N_
+				&m_ACUT_U_	 &m_ACUT_O_		 &m_ACUT_I_	  &m_ACUT_A_   &m_TILD_A_			xxxx		 HMRS ACUT_   HMRC GRAV_   HMLA CFLX_  &m_TILD_N_
 				&m_GRAV_U_	 &m_TILD_O_		 &m_TRMA_I_	  &kp AGRV_    xxxx					xxxx		 &kp  TRMA_	  xxxx		   &m_eszett   &kp TILD_
 														  &m_CFLX_E_   &kp EGRV_			____		 ____
 			>;
@@ -384,7 +388,7 @@
 		accent_caps_layer {
 			bindings = <
 				&m_cp_cf_u	&m_cp_cf_o		 &m_cp_cf_i   &m_cp_cf_a	 xxxx				xxxx		&kp  CCED_	&kp  APST_	&kp  QUOT_	&m_cp_bj
-				&m_cp_ac_u	&m_cp_ac_o		 &m_cp_ac_i	  &m_cp_ac_a	 &m_cp_tl_a			xxxx		HMRS ACUT_	HMRC CFLX_	HMLA GRAV_	&m_cp_tl_n
+				&m_cp_ac_u	&m_cp_ac_o		 &m_cp_ac_i	  &m_cp_ac_a	 &m_cp_tl_a			xxxx		HMRS ACUT_	HMRC GRAV_	HMLA CFLX_	&m_cp_tl_n
 				&m_cp_gv_u	&m_cp_tl_o		 &m_cp_tr_i	  &kp LS(AGRV_)  xxxx				xxxx		&kp  TRMA_	xxxx		&m_cp_sztt	&kp TILD_
 														  &m_cp_cf_e	 &kp LS(EGRV_)		____		____
 			>;
@@ -419,10 +423,10 @@
 		
 		game_layer {
 			bindings = <
-				&kp LSHIFT	&kp A_		&kp W_		&kp D_		&kp R_				&kp Y_		&kp U_		&kp I_		&kp O_		&kp P_
-				&kp LCTRL	&kp Q_		&kp S_		&kp E_		&kp F_				&kp H_		&kp J_		&kp K_		&kp L_		&kp N_
-				&kp ESC		&kp Z_		&kp X_		&kp C_		&kp V_				&kp N_		&kp M_		&kp COMM_	&kp DOT_	&kp BSPC
-													&kp TAB		&kp SPACE			&tog GAME	&kp LALT
+				&kp Q_		&kp MIN_	&kp Y_		&kp DOT_	&kp R_			&kp K_		&kp C_		&kp H_		&kp W_		&kp J_
+				&kp U_		&kp O_		&kp I_		&kp A_		&kp F_			&kp G_		&kp T_		&kp LEFT	&kp UP		&kp RIGHT
+				&kp Z_		&kp S_		&kp P_		&kp COMM_	&kp X_			&kp V_		&kp D_		&kp M_		&kp DOWN	&kp B_
+													&kp TAB		&kp SPACE		&tog GAME	&kp LALT
 			>;
 		};
 		
