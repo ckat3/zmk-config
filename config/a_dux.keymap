@@ -32,6 +32,7 @@
 
 // combos shouldn't work on game layer, to minimize delay
 #define NOT_GAME BASE CPWD SYM ACNT ACCP NUM NAV FUNC
+#define NOT_CPWD BASE SYM ACNT ACCP NUM NAV FUNC
 
 &lt {
 	tapping-term-ms = <LT_TAPPING_TERM>;
@@ -238,8 +239,8 @@
 	              30 31 | 32 33
 	*/
 	
-		COMBO_KP(TAB,,   12 13)
-		COMBO_KP(ENTER,, 16 17)
+		COMBO_KP_LAYER(TAB,,   12 13, NOT_CPWD)
+		COMBO_KP_LAYER(ENTER,, 16 17, NOT_CPWD)
 		
 		COMBO_KP(SPACE,l, 11 12 13)
 		COMBO_KP(SPACE,r, 16 17 18)
@@ -249,10 +250,10 @@
 		COMBO_KP(BSPC,, 11 12)
 		COMBO_KP(DEL,, 21 22)
 		COMBO(&kp LC(BSPC), 17 18, gslqgrnqsl) // whatever name
-		COMBO(&kp LC(DEL), 27 28, rgsrnqsj)
+		COMBO(&kp LC(DEL),  27 28, rgsrnqsj)
 				
 		COMBO(&lsk FUNC LSHIFT, 30 31, dljsdqsrt)
-		COMBO(&sk RSHIFT,       32 33, sqljqrjqsl)
+		COMBO(&sk  RSHIFT,       32 33, sqljqrjqsl)
 		
 		COMBO_MACRO_LAYER(Q_U_,, 26 27, BASE)
 		COMBO_MACRO_LAYER(ae,,   13 30, BASE)
