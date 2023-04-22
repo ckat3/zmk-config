@@ -330,13 +330,20 @@
 		#define EXCL_QMRK	&mt EXCL_ QMRK_
 		#define EURO_DLLR_  &mt EURO_ DLLR_
 		
-		// «» with nbsp on tap
+		// «», with nbsp on tap
 		#define MTLGLM &ht_lglm LGLM_ 0
 		#define MTRGLM &ht_rglm RGLM_ 0
 		
-		// :; with nbsp on hold
+		// ., or :; with nbsp on hold
 		#define MTDOT  &ht_coln 0 DOT_
 		#define MTCOMM &ht_scln 0 COMM_
+		
+		// undo/redo and paste/no formatting (power toys)
+		#define MTCTRZ &ht_coln &mt LC(Y_) LC(Z_)
+		#define MTCTRV &ht_coln &mt LC(Z_) LC(LG(LA(V_)))
+		
+		// task manager
+		#define C_S_DEL &kp LC(LS(DEL))
 		
 		// thumb keys
 		#define L_INNER	&lt NUM E_
@@ -406,9 +413,9 @@
 		
 		nav_layer {
 			bindings = <
-				&kp INSERT	&sk RALT	&kp PSCRN	&kp PSBRK	xxxx				xxxx		&kp LC(HOME)	&kp PG_DN	&kp PG_UP	&kp LC(END)
+				&kp INSERT	&sk RALT	&kp PSCRN	&kp PSBRK	C_S_DEL				xxxx		&kp LC(HOME)	&kp PG_DN	&kp PG_UP	&kp LC(END)
 				HMRG LGUI	HMLA LALT	HMLC LCTRL	HMLS LSHIFT	&kp CAPS			&tog CPWD	&kp LC(LEFT)	&kp DOWN	&kp UP		&kp LC(RIGHT)
-				&kp LC(Z_)	&kp LC(X_)	&kp LC(C_)	&kp LC(V_)	xxxx				xxxx		&kp HOME		&kp LEFT	&kp RIGHT	&kp END
+				MTCTRZ		&kp LC(X_)	&kp LC(C_)	MTCTRV		xxxx				xxxx		&kp HOME		&kp LEFT	&kp RIGHT	&kp END
 													____		&kp ULIN_			____		____
 			>;
 		};
@@ -425,9 +432,9 @@
 		game_layer {
 			bindings = <
 				&kp Q_		&kp MIN_	&kp Y_		&kp DOT_	&kp R_			&kp K_		&kp C_		&kp H_		&kp W_		&kp J_
-				&kp U_		&kp O_		&kp I_		&kp A_		&kp F_			&kp G_		&kp T_		&kp LEFT	&kp UP		&kp RIGHT
-				&kp Z_		&kp S_		&kp P_		&kp COMM_	&kp X_			&kp V_		&kp D_		&kp M_		&kp DOWN	&kp B_
-													&kp TAB		&kp SPACE		&tog GAME	&kp LALT
+				&kp U_		&kp O_		&kp I_		&kp A_		&kp F_			&kp G_		&kp LEFT	&kp UP		&kp RIGHT	&kp N_
+				&kp Z_		&kp S_		&kp P_		&kp COMM_	&kp X_			&tog GAME	&kp D_		&kp DOWN	&kp L_		&kp B_
+													&kp ENTER	&kp SPACE		&kp TAB 	&kp LALT
 			>;
 		};
 		
@@ -435,8 +442,8 @@
 			bindings = <
 				&kp LSHIFT	&kp A_		&kp EACT_	&kp I_		&kp O_				&kp Y_		&kp U_		&kp I_		&kp O_		&kp P_
 				&kp LCTRL	&kp B_		&kp U_		&kp P_		&kp E_				&kp H_		&kp J_		&kp K_		&kp L_		&kp N_
-				&kp ESC		&kp AGRV_	&kp Y_		&kp X_		&kp DOT				&kp N_		&kp M_		&kp COMM_	&kp DOT_	&kp BSPC
-													&kp TAB		&kp SPACE			&tog GAM2	&kp LALT
+				&kp ESC		&kp AGRV_	&kp Y_		&kp X_		&kp DOT				&tog GAM2	&kp M_		&kp COMM_	&kp DOT_	&kp BSPC
+													&kp ENTER	&kp SPACE			&kp TAB 	&kp LALT
 			>;
 		};
 		
