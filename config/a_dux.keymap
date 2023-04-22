@@ -339,8 +339,8 @@
 		#define MTCOMM &ht_scln 0 COMM_
 		
 		// undo/redo and paste/no formatting (power toys)
-		#define MTCTRZ &ht_coln &mt LC(Y_) LC(Z_)
-		#define MTCTRV &ht_coln &mt LC(Z_) LC(LG(LA(V_)))
+		#define MTCTRZ &mt LC(Y_) LC(Z_)
+		#define MTCTRV &mt LC(Z_) LC(LG(LA(V_)))
 		
 		// task manager
 		#define C_S_DEL &kp LC(LS(DEL))
