@@ -274,7 +274,7 @@
 		};
 		
 		combo_reset_left {
-			bindings = <&reset>;
+			bindings = <&sys_reset>;
 			key-positions = <0 4>;
 			layers = <FUNC>;
 			timeout-ms = <COMBO_TIMEOUT>;
@@ -309,7 +309,7 @@
 		#define ____ &trans
 		
 		// just a mnemonic
-		#define RESET_LEFT &reset
+		#define RESET_LEFT &sys_reset
 		
 		// home-row mods
 		#define HMLS  &hml LSHIFT
@@ -413,10 +413,10 @@
 		
 		nav_layer {
 			bindings = <
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx
+				&kp INSERT	&sk RALT	&kp PSCRN	&kp PSBRK	C_S_DEL				xxxx		&kp LC(HOME)	&kp PG_DN	&kp PG_UP	&kp LC(END)
+				HMRG LGUI	HMLA LALT	HMLC LCTRL	HMLS LSHIFT	&kp CAPS			&tog CPWD	&kp LC(LEFT)	&kp DOWN	&kp UP		&kp LC(RIGHT)
+				MTCTRZ		&kp LC(X_)	&kp LC(C_)	MTCTRV		xxxx				xxxx		&kp HOME		&kp LEFT	&kp RIGHT	&kp END
+													____		&kp ULIN_			____		____
 			>;
 		};
 		
@@ -431,19 +431,19 @@
 		
 		game_layer {
 			bindings = <
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx
+				&kp Q_		&kp MIN_	&kp Y_		&kp DOT_	&kp R_			&kp K_		&kp C_		&kp H_		&kp W_		&kp J_
+				&kp U_		&kp O_		&kp I_		&kp A_		&kp F_			&kp G_		&kp LEFT	&kp UP		&kp RIGHT	&kp N_
+				&kp Z_		&kp S_		&kp P_		&kp COMM_	&kp X_			&tog GAME	&kp D_		&kp DOWN	&kp L_		&kp B_
+													&kp ENTER	&kp SPACE		&kp TAB 	&kp LALT
 			>;
 		};
 		
 		game_layer_2 {
 			bindings = <
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx
+				&kp LSHIFT	&kp A_		&kp EACT_	&kp I_		&kp O_				&kp Y_		&kp U_		&kp I_		&kp O_		&kp P_
+				&kp LCTRL	&kp B_		&kp U_		&kp P_		&kp E_				&kp H_		&kp J_		&kp K_		&kp L_		&kp N_
+				&kp ESC		&kp AGRV_	&kp Y_		&kp X_		&kp DOT				&tog GAM2	&kp M_		&kp COMM_	&kp DOT_	&kp BSPC
+													&kp ENTER	&kp SPACE			&kp TAB 	&kp LALT
 			>;
 		};
 		
