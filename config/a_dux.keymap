@@ -11,11 +11,10 @@
 
 #define COMBO_TIMEOUT 16 /* max 17, 15 maybe too little */
 
-#define MT_TAPPING_TERM 120
-#define LT_TAPPING_TERM 250
 #define HT_TAPPING_TERM 250
-#define HT_TAPPING_TERM_QUICK 200
+#define HT_TAPPING_TERM_QUICK 120
 #define HT_QUICK_TAP 200
+
 #define STICKY_KEY_RELEASE_DELAY 2000 /* min 1000 */
 
 /* LAYERS */
@@ -35,12 +34,12 @@
 #define NOT_CPWD BASE SYM ACNT ACCP NUM NAV FUNC
 
 &lt {
-	tapping-term-ms = <LT_TAPPING_TERM>;
+	tapping-term-ms = <HT_TAPPING_TERM>;
 	flavor = "balanced";
 };
 
 &mt {
-	tapping-term-ms = <MT_TAPPING_TERM>;
+	tapping-term-ms = <HT_TAPPING_TERM_QUICK>;
 };
 
 &sk {
@@ -66,6 +65,10 @@
 				
 		#define HOLDTAP_QUICK(NAME, BINDINGS...) \
 				DEFINE_HOLDTAP(NAME, tap-preferred, HT_TAPPING_TERM_QUICK, BINDINGS) \
+			};
+				
+		#define HOLDTAP_SLOW(NAME, BINDINGS...) \
+				DEFINE_HOLDTAP(NAME, tap-preferred, HT_TAPPING_TERM_SLOW, BINDINGS) \
 			};
 				
 		#define HOLDTAP_FLAVOR(NAME, FLAVOR, BINDINGS...) \
@@ -338,9 +341,9 @@
 		#define MTDOT  &ht_coln 0 DOT_
 		#define MTCOMM &ht_scln 0 COMM_
 		
-		// undo/redo and paste/no formatting (power toys)
+		// undo/redo and paste/power toys no formatting
 		#define MTCTRZ &mt LC(Y_) LC(Z_)
-		#define MTCTRV &mt LC(Z_) LC(LG(LA(V_)))
+		#define MTCTRV &mt LC(LG(LA(V_))) LC(V_)
 		
 		// task manager
 		#define C_S_DEL &kp LC(LS(DEL))
@@ -350,7 +353,7 @@
 		#define L_INNERCAPS &lt NUM LS(E_)
 		#define L_OUTER	&lsl SYM SYM
 		
-		#define R_INNER	&lt  NAV SPACE // todo space ok?
+		#define R_INNER	&lt  NAV SPACE
 		#define R_INNERCAPS &ht_spc_togcaps NAV 0
 		#define R_OUTER	&lsl ACNT ACNT
 		#define R_OUTERCAPS &lsl ACCP ACCP
