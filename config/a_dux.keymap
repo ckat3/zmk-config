@@ -83,9 +83,15 @@
 					hold-trigger-key-positions = <POSITIONS>; \
 			};
 		
-		HOLDTAP_FLAVOR(lsk, balanced, <&mo>, <&sk>) // lsk: layer if held, one-shot kp if pressed
-		HOLDTAP_FLAVOR(lsl, balanced, <&mo>, <&sl>) // lsl: layer if held, one-shot layer if pressed
+		// takes longer to count hold
+		HOLDTAP_SLOW(htslow, <&kp>, <&kp>)
 		
+		// layer / one-shot kp
+		HOLDTAP_FLAVOR(lsk, balanced, <&mo>, <&sk>)
+		// layer / one-shot layer
+		HOLDTAP_FLAVOR(lsl, balanced, <&mo>, <&sl>)
+		
+		// layer / space then desactivate capsword
 		HOLDTAP_FLAVOR(ht_spc_togcaps, balanced, <&mo>, <&m_spc_togcaps>)
 		
 		// home-row mods
@@ -345,8 +351,8 @@
 		#define MTCOMM &ht_scln 0 COMM_
 		
 		// undo/redo and paste/power toys no formatting
-		#define MTCTRZ &mt LC(Y_) LC(Z_)
-		#define MTCTRV &mt LC(LG(LA(V_))) LC(V_)
+		#define MTCTRZ &hm LC(Y_) 			LC(Z_)
+		#define MTCTRV &hm LC(LG(LA(V_)))	LC(V_)
 		
 		// task manager
 		#define C_S_DEL &kp LC(LS(DEL))
