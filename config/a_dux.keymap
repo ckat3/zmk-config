@@ -11,8 +11,11 @@
 
 #define COMBO_TIMEOUT 16 /* max 17, 15 maybe too little */
 
+#define HT_TAPPING_TERM_SLOW 300
 #define HT_TAPPING_TERM 250
-#define HT_TAPPING_TERM_QUICK 120
+#define HT_TAPPING_TERM_QUICK 200
+#define HT_TAPPING_TERM_BLAZIN 120
+
 #define HT_QUICK_TAP 200
 
 #define STICKY_KEY_RELEASE_DELAY 2000 /* min 1000 */
@@ -39,7 +42,7 @@
 };
 
 &mt {
-	tapping-term-ms = <HT_TAPPING_TERM_QUICK>;
+	tapping-term-ms = <HT_TAPPING_TERM_BLAZIN>;
 };
 
 &sk {
@@ -315,23 +318,23 @@
 		#define RESET_LEFT &sys_reset
 		
 		// home-row mods
-		#define HMLS  &hml LSHIFT
-		#define HMRS  &hmr RSHIFT
-		#define HMLC  &hm LCTRL
-		#define HMRC  &hm RCTRL
-		#define HMLA  &hm LALT
-		#define HMRA  &hm RALT
-		#define HMLG  &hm LGUI
-		#define HMRG  &hm RGUI
+		#define HMLS &hml LSHIFT
+		#define HMRS &hmr RSHIFT
+		#define HMLC &hm LCTRL
+		#define HMRC &hm RCTRL
+		#define HMLA &hm LALT
+		#define HMRA &hm RALT
+		#define HMLG &hm LGUI
+		#define HMRG &hm RGUI
 		
-		#define SKLS  &hmsk LSHIFT
-		#define SKLC  &hmsk LCTRL
-		#define SKLA  &hmsk LALT
-		#define SKLG  &hmsk LGUI
+		#define SKLS &hmsk LSHIFT
+		#define SKLC &hmsk LCTRL
+		#define SKLA &hmsk LALT
+		#define SKLG &hmsk LGUI
 		
 		// hold/tap for !/? and €/$
-		#define EXCL_QMRK	&mt EXCL_ QMRK_
-		#define EURO_DLLR_  &mt EURO_ DLLR_
+		#define EXCL_QMRK  &mt EXCL_ QMRK_
+		#define EURO_DLLR_ &mt EURO_ DLLR_
 		
 		// «», with nbsp on tap
 		#define MTLGLM &ht_lglm LGLM_ 0
