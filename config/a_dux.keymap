@@ -135,7 +135,7 @@
 			// MACRO_SIMPLE( FIRST, SECOND )
 			// MACRO_SIMPLE_SHIFT(FIRST, SECOND)
 		#define MACRO_ACCENT(FIRST, SECOND) \
-			MACRO_SIMPLE( FIRST, SECOND )
+			MACRO(FIRST##SECOND, <&macro_tap &kp FIRST &kp SECOND>)
 			
 	
 		// accented letters
