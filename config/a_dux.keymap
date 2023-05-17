@@ -6,47 +6,47 @@
 #include "bepo_bindings.h"
 
 /* SETTINGS */
-#define MACRO_WAIT 3 /* max 5 */
-#define MACRO_TAP_DELAY 3 /* max 5 */
+#define _MACRO_INTERVAL   3 /* max 5 */
+#define _MACRO_TAP_FOR    3 /* max 5 */
 
-#define COMBO_TIMEOUT 16 /* max 17, 15 maybe too little */
+#define _COMBO_TIMEOUT    16 /* max 17, 15 maybe too little */
 
-#define HT_TAPPING_TERM_SLOW 300
-#define HT_TAPPING_TERM 250
-#define HT_TAPPING_TERM_QUICK 200
-#define HT_TAPPING_TERM_BLAZIN 120
+#define _TAP_TERM_SLOW    300
+#define _TAP_TERM         250
+#define _TAP_TERM_QUICK   200
+#define _TAP_TERM_BLAZIN  120
 
-#define HT_QUICK_TAP 200
+#define _QUICK_TAP        200
 
-#define STICKY_KEY_RELEASE_DELAY 2000 /* min 1000 */
+#define STICKY_TIMEOUT    2000 /* min 1000 */
 
 /* LAYERS */
 #define BASE 0
 #define CPWD 1
-#define SYM 2
+#define SYM  2
 #define ACNT 3
 #define ACCP 4
-#define NUM 5
-#define NAV 6
+#define NUM  5
+#define NAV  6
 #define FUNC 7
 #define GAME 8
 #define GAM2 9
 
 // combos shouldn't work on game layer, to minimize delay
-#define NOT_GAME BASE CPWD SYM ACNT ACCP NUM NAV FUNC
-#define NOT_CPWD BASE SYM ACNT ACCP NUM NAV FUNC
+#define NOT_GAME  BASE CPWD SYM ACNT ACCP NUM NAV FUNC
+#define NOT_CPWD  BASE      SYM ACNT ACCP NUM NAV FUNC // not capsword nor game
 
 &lt {
-	tapping-term-ms = <HT_TAPPING_TERM>;
+	tapping-term-ms = <_TAP_TERM>;
 	flavor = "balanced";
 };
 
 &mt {
-	tapping-term-ms = <HT_TAPPING_TERM_BLAZIN>;
+	tapping-term-ms = <_TAP_TERM_BLAZIN>;
 };
 
 &sk {
-	release-after-ms = <STICKY_KEY_RELEASE_DELAY>;
+	release-after-ms = <_STICKY_TIMEOUT>;
 	quick-release;
 };
 
@@ -60,26 +60,26 @@
 				bindings = BINDINGS; \
 				#binding-cells = <2>; \
 				compatible = "zmk,behavior-hold-tap"; \
-				quick-tap-ms = <HT_QUICK_TAP>;
+				quick-tap-ms = <_QUICK_TAP>;
 				
 		#define HOLDTAP(NAME, BINDINGS...) \
-				DEFINE_HOLDTAP(NAME, tap-preferred, HT_TAPPING_TERM, BINDINGS) \
+				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM, BINDINGS) \
 			};
 				
 		#define HOLDTAP_QUICK(NAME, BINDINGS...) \
-				DEFINE_HOLDTAP(NAME, tap-preferred, HT_TAPPING_TERM_QUICK, BINDINGS) \
+				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM_QUICK, BINDINGS) \
 			};
 				
 		#define HOLDTAP_SLOW(NAME, BINDINGS...) \
-				DEFINE_HOLDTAP(NAME, tap-preferred, HT_TAPPING_TERM_SLOW, BINDINGS) \
+				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM_SLOW, BINDINGS) \
 			};
 				
 		#define HOLDTAP_FLAVOR(NAME, FLAVOR, BINDINGS...) \
-				DEFINE_HOLDTAP(NAME, FLAVOR, HT_TAPPING_TERM, BINDINGS) \
+				DEFINE_HOLDTAP(NAME, FLAVOR, _TAP_TERM, BINDINGS) \
 			};
 			
 		#define HRMOD_POS(NAME, POSITIONS) \
-				DEFINE_HOLDTAP(NAME, tap-preferred, HT_TAPPING_TERM, <&kp>, <&kp>) \
+				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM, <&kp>, <&kp>) \
 					hold-trigger-key-positions = <POSITIONS>; \
 			};
 		
@@ -118,8 +118,8 @@
 	macros {
 		#define MACRO(NAME, BINDINGS...) \
 			ZMK_MACRO(m_##NAME, \
-				tap-ms = <MACRO_TAP_DELAY>; \
-				wait-ms = <MACRO_WAIT>; \
+				tap-ms   = <_MACRO_TAP_FOR>; \
+				wait-ms  = <_MACRO_INTERVAL>; \
 				bindings = BINDINGS; \
 				)
 				
@@ -130,8 +130,8 @@
 				
 		#define MACRO_SIMPLE_OLD(FIRST, SECOND) \
 			ZMK_MACRO(m_##FIRST##SECOND, \
-				tap-ms = <MACRO_TAP_DELAY>; \
-				wait-ms = <MACRO_WAIT>; \
+				tap-ms   = <_MACRO_TAP_FOR>; \
+				wait-ms  = <_MACRO_INTERVAL>; \
 				bindings = <&macro_tap &kp FIRST &kp SECOND>; \
 				)
 	
@@ -153,60 +153,62 @@
 		MACRO_SIMPLE(TRMA_, I_)
 		
 		// caps accented letters		
-		MACRO(cp_ac_a, <&macro_tap &kp ACUT_ &kp LS(A_)>)
-		MACRO(cp_ac_i, <&macro_tap &kp ACUT_ &kp LS(I_)>)
-		MACRO(cp_ac_o, <&macro_tap &kp ACUT_ &kp LS(O_)>)
-		MACRO(cp_ac_u, <&macro_tap &kp ACUT_ &kp LS(U_)>)
+		MACRO(cp_ac_a,      <&macro_tap  &kp ACUT_  &kp LS(A_)>)
+		MACRO(cp_ac_i,      <&macro_tap  &kp ACUT_  &kp LS(I_)>)
+		MACRO(cp_ac_o,      <&macro_tap  &kp ACUT_  &kp LS(O_)>)
+		MACRO(cp_ac_u,      <&macro_tap  &kp ACUT_  &kp LS(U_)>)
 		
-		MACRO(cp_cf_a, <&macro_tap &kp CFLX_ &kp LS(A_)>)
-		MACRO(cp_cf_e, <&macro_tap &kp CFLX_ &kp LS(E_)>)
-		MACRO(cp_cf_i, <&macro_tap &kp CFLX_ &kp LS(I_)>)
-		MACRO(cp_cf_o, <&macro_tap &kp CFLX_ &kp LS(O_)>)
-		MACRO(cp_cf_u, <&macro_tap &kp CFLX_ &kp LS(U_)>)
+		MACRO(cp_cf_a,      <&macro_tap  &kp CFLX_  &kp LS(A_)>)
+		MACRO(cp_cf_e,      <&macro_tap  &kp CFLX_  &kp LS(E_)>)
+		MACRO(cp_cf_i,      <&macro_tap  &kp CFLX_  &kp LS(I_)>)
+		MACRO(cp_cf_o,      <&macro_tap  &kp CFLX_  &kp LS(O_)>)
+		MACRO(cp_cf_u,      <&macro_tap  &kp CFLX_  &kp LS(U_)>)
 		
-		MACRO(cp_gv_e, <&macro_tap &kp GRAV_ &kp LS(E_)>)
-		MACRO(cp_gv_o, <&macro_tap &kp GRAV_ &kp LS(O_)>)
-		MACRO(cp_gv_u, <&macro_tap &kp GRAV_ &kp LS(U_)>)
+		MACRO(cp_gv_e,      <&macro_tap  &kp GRAV_  &kp LS(E_)>)
+		MACRO(cp_gv_o,      <&macro_tap  &kp GRAV_  &kp LS(O_)>)
+		MACRO(cp_gv_u,      <&macro_tap  &kp GRAV_  &kp LS(U_)>)
 		
-		MACRO(cp_tl_a, <&macro_tap &kp TILD_ &kp LS(A_)>)
-		MACRO(cp_tl_o, <&macro_tap &kp TILD_ &kp LS(O_)>)
-		MACRO(cp_tl_n, <&macro_tap &kp TILD_ &kp LS(N_)>)
-		MACRO(cp_tr_i, <&macro_tap &kp TRMA_ &kp LS(I_)>)
+		MACRO(cp_tl_a,      <&macro_tap  &kp TILD_  &kp LS(A_)>)
+		MACRO(cp_tl_o,      <&macro_tap  &kp TILD_  &kp LS(O_)>)
+		MACRO(cp_tl_n,      <&macro_tap  &kp TILD_  &kp LS(N_)>)
+		MACRO(cp_tr_i,      <&macro_tap  &kp TRMA_  &kp LS(I_)>)
 		
 		// qu bj (shortcuts for inconvenient sequences)
 		MACRO_SIMPLE(Q_, U_)
 		MACRO_SIMPLE(B_, J_)
 		
 		// caps bj (shortcuts for inconvenient sequences)
-		MACRO(cp_qu, <&macro_tap &kp LS(Q_) &kp LS(U_)>)
-		MACRO(cp_bj, <&macro_tap &kp LS(B_) &kp LS(J_)>)
+		MACRO(cp_qu,        <&macro_tap  &kp LS(Q_)  &kp LS(U_)>)
+		MACRO(cp_bj,        <&macro_tap  &kp LS(B_)  &kp LS(J_)>)
 		
 		// ãe ão õe
-		MACRO(ae,  <&macro_tap &kp TILD_ &kp A_ &kp E_>)
-		MACRO(ao,  <&macro_tap &kp TILD_ &kp A_ &kp O_>)
-		MACRO(oe,  <&macro_tap &kp TILD_ &kp O_ &kp E_>)
-		MACRO(cp_ae, <&macro_tap &kp TILD_ &kp LS(A_) &kp LS(E_)>)
-		MACRO(cp_ao, <&macro_tap &kp TILD_ &kp LS(A_) &kp LS(O_)>)
-		MACRO(cp_oe, <&macro_tap &kp TILD_ &kp LS(O_) &kp LS(E_)>)
+		MACRO(ae,           <&macro_tap  &kp TILD_  &kp A_  &kp E_>)
+		MACRO(ao,           <&macro_tap  &kp TILD_  &kp A_  &kp O_>)
+		MACRO(oe,           <&macro_tap  &kp TILD_  &kp O_  &kp E_>)
+		MACRO(cp_ae,        <&macro_tap  &kp TILD_  &kp LS(A_)  &kp LS(E_)>)
+		MACRO(cp_ao,        <&macro_tap  &kp TILD_  &kp LS(A_)  &kp LS(O_)>)
+		MACRO(cp_oe,        <&macro_tap  &kp TILD_  &kp LS(O_)  &kp LS(E_)>)
 		
 		// ß
-		MACRO(eszett,  <&macro_tap &kp RA(S_) &kp S_>)
-		MACRO(cp_sztt, <&macro_tap &kp RA(S_) &kp LS(S_)>)
+		MACRO(eszett,       <&macro_tap  &kp RA(S_)  &kp S_>)
+		MACRO(cp_sztt,      <&macro_tap  &kp RA(S_)  &kp LS(S_)>)
 		
-		// «»:; with nbsp
-		MACRO(nbsp_lglm, <&macro_tap &kp LGLM_ 	   &kp LS(SPACE)>)
-		MACRO(nbsp_rglm, <&macro_tap &kp LS(SPACE) &kp RGLM_>)
-		MACRO(nbsp_coln, <&macro_tap &kp LS(SPACE) &kp LS(DOT_) &kp SPACE>)
-		MACRO(nbsp_scln, <&macro_tap &kp LS(SPACE) &kp LS(COMM_) &kp SPACE>)
+		// :;?!«» with nbsp	
+		MACRO(nbsp_qmrk,    <&macro_tap  &kp LS(SPACE)  &kp LS(QMRK_)  &kp SPACE>)
+		MACRO(nbsp_excl,    <&macro_tap  &kp LS(SPACE)  &kp LS(EXCL_)  &kp SPACE>)
+		MACRO(nbsp_coln,    <&macro_tap  &kp LS(SPACE)  &kp LS(DOT_)   &kp SPACE>)
+		MACRO(nbsp_scln,    <&macro_tap  &kp LS(SPACE)  &kp LS(COMM_)  &kp SPACE>)
+		MACRO(nbsp_rglm,    <&macro_tap  &kp LS(SPACE)  &kp RGLM_>)
+		MACRO(nbsp_lglm,    <&macro_tap  &kp LGLM_      &kp LS(SPACE)>)
 		
 		// loose ^ and `
-		MACRO(cfxloos, <&macro_tap &kp CFLX_  &kp SPACE>)
-		MACRO(grvloos, <&macro_tap &kp GRAV_  &kp SPACE>)
+		MACRO(cfxloos,      <&macro_tap  &kp CFLX_  &kp SPACE>)
+		MACRO(grvloos,      <&macro_tap  &kp GRAV_  &kp SPACE>)
 		
 		// key and turn off capsword
-		MACRO(spc_togcaps, <&macro_tap &kp SPACE &tog CPWD>)
-		MACRO(tab_togcaps, <&macro_tap &kp TAB &tog CPWD>)
-		MACRO(entr_togcaps, <&macro_tap &kp ENTER &tog CPWD>)
+		MACRO(spc_togcaps,  <&macro_tap  &kp SPACE  &tog CPWD>)
+		MACRO(tab_togcaps,  <&macro_tap  &kp TAB    &tog CPWD>)
+		MACRO(entr_togcaps, <&macro_tap  &kp ENTER  &tog CPWD>)
 	};
 			  
 	combos {
@@ -217,7 +219,7 @@
 				layers = <LAYERS>; \
 				bindings = <BINDINGS>; \
 				key-positions = <POSITIONS>; \
-				timeout-ms = <COMBO_TIMEOUT>; \
+				timeout-ms = <_COMBO_TIMEOUT>; \
 			};
 		
 		// when not defining layers, will default to NOT_GAME
@@ -251,211 +253,219 @@
 	              30 31 | 32 33
 	*/
 	
-		COMBO_KP_LAYER(TAB,,   12 13, NOT_CPWD)
-		COMBO_KP_LAYER(ENTER,, 16 17, NOT_CPWD)
+		COMBO_KP_LAYER(TAB,,      12 13, NOT_CPWD)
+		COMBO_KP_LAYER(ENTER,,    16 17, NOT_CPWD)
 		
-		COMBO_KP(SPACE,l, 11 12 13)
-		COMBO_KP(SPACE,r, 16 17 18)
+		COMBO_KP(SPACE,l,         11 12 13)
+		COMBO_KP(SPACE,r,         16 17 18)
 		
-		COMBO_KP(ESC,, 10 11)
+		COMBO_KP(ESC,,            10 11)
 		
-		COMBO_KP(BSPC,, 11 12)
-		COMBO_KP(DEL,, 21 22)
-		COMBO(&kp LC(BSPC), 17 18, gslqgrnqsl) // whatever name
-		COMBO(&kp LC(DEL),  27 28, rgsrnqsj)
+		COMBO_KP(BSPC,,           11 12)
+		COMBO_KP(DEL,,            21 22)
+		COMBO(&kp LC(BSPC),       17 18,       gslqgrnqsl) // whatever name
+		COMBO(&kp LC(DEL),        27 28,       rgsrnqsj)
 				
-		COMBO(&lsk FUNC LSHIFT, 30 31, dljsdqsrt)
-		COMBO(&sk  RSHIFT,       32 33, sqljqrjqsl)
+		COMBO(&lsk FUNC LSHIFT,   30 31,       dljsdqsrt)
+		COMBO(&sk  RSHIFT,        32 33,       sqljqrjqsl)
 		
-		COMBO_MACRO_LAYER(Q_U_,, 26 27, BASE)
-		COMBO_MACRO_LAYER(ae,,   13 30, BASE)
-		COMBO_MACRO_LAYER(ao,,   13 11, BASE)
-		COMBO_MACRO_LAYER(oe,,   11 30, BASE)
+		COMBO_MACRO_LAYER(Q_U_,,  26 27, BASE)
+		COMBO_MACRO_LAYER(ae,,    13 30, BASE)
+		COMBO_MACRO_LAYER(ao,,    13 11, BASE)
+		COMBO_MACRO_LAYER(oe,,    11 30, BASE)
 		
 		COMBO_MACRO_LAYER(cp_qu,, 26 27, CPWD)
 		COMBO_MACRO_LAYER(cp_ae,, 13 30, CPWD)
 		COMBO_MACRO_LAYER(cp_ao,, 13 11, CPWD)
 		COMBO_MACRO_LAYER(cp_oe,, 11 30, CPWD)
-		COMBO_MACRO_LAYER(tab_togcaps,, 12 13, CPWD)
+		COMBO_MACRO_LAYER(tab_togcaps,,  12 13, CPWD)
 		COMBO_MACRO_LAYER(entr_togcaps,, 16 17, CPWD)
 		
 		combo_ctrlz {
 			bindings = <&kp LC(Z_)>;
 			key-positions = <20 21>;
-			timeout-ms = <COMBO_TIMEOUT>;
+			timeout-ms = <_COMBO_TIMEOUT>;
 		};
 		
 		combo_reset_left {
 			bindings = <&sys_reset>;
 			key-positions = <0 4>;
 			layers = <FUNC>;
-			timeout-ms = <COMBO_TIMEOUT>;
+			timeout-ms = <_COMBO_TIMEOUT>;
 		};
 		
 		combo_bootloader {
 			bindings = <&bootloader>;
 			key-positions = <20 24>;
 			layers = <FUNC>;
-			timeout-ms = <COMBO_TIMEOUT>;
+			timeout-ms = <_COMBO_TIMEOUT>;
 		};
 		
 		combo_game_layer {
 			bindings = <&tog GAME>;
 			key-positions = <4 14>;
 			layers = <FUNC>;
-			timeout-ms = <COMBO_TIMEOUT>;
+			timeout-ms = <_COMBO_TIMEOUT>;
 		};
 		
 		combo_game_2_layer {
 			bindings = <&tog GAME>;
 			key-positions = <14 24>;
 			layers = <FUNC>;
-			timeout-ms = <COMBO_TIMEOUT>;
+			timeout-ms = <_COMBO_TIMEOUT>;
 		};
 	};
 
 	keymap {
 		compatible = "zmk,keymap";
 		
-		#define xxxx &none
-		#define ____ &trans
+		#define ____         &trans
+		#define _________    &trans
+		#define xxxx         &none
+		#define xxxxxxxxx    &none
 		
-		// just a mnemonic
-		#define RESET_LEFT &sys_reset
+		#define RESET_LEFT   &sys_reset // just a mnemonic
 		
 		// home-row mods
-		#define HMLS &hml LSHIFT
-		#define HMRS &hmr RSHIFT
-		#define HMLC &hm LCTRL
-		#define HMRC &hm RCTRL
-		#define HMLA &hm LALT
-		#define HMRA &hm RALT
-		#define HMLG &hm LGUI
-		#define HMRG &hm RGUI
+		#define HMLS         &hml LSHIFT
+		#define HMRS         &hmr RSHIFT
+		#define HMLC         &hm  LCTRL
+		#define HMRC         &hm  RCTRL
+		#define HMLA         &hm  LALT
+		#define HMRA         &hm  RALT
+		#define HMLG         &hm  LGUI
+		#define HMRG         &hm  RGUI
 		
-		#define SKLS &hmsk LSHIFT
-		#define SKLC &hmsk LCTRL
-		#define SKLA &hmsk LALT
-		#define SKLG &hmsk LGUI
+		#define SKLS         &hmsk LSHIFT
+		#define SKLC         &hmsk LCTRL
+		#define SKLA         &hmsk LALT
+		#define SKLG         &hmsk LGUI
 		
 		// hold/tap for !/? and €/$
-		#define EXCL_QMRK  &mt EXCL_ QMRK_
-		#define EURO_DLLR_ &mt EURO_ DLLR_
+		#define EURO_DLLR    &mt EURO_ DLLR_
+		#define EXCL_QMRK    &mt EXCL_ QMRK_ // unused
 		
-		// «», with nbsp on tap
-		#define MTLGLM &ht_lglm LGLM_ 0
-		#define MTRGLM &ht_rglm RGLM_ 0
+		// ? and ! with nbsp on hold
+		#define MTQMRK       &ht_qmrk 0 QMRK_
+		#define MTEXCL       &ht_excl 0 EXCL_
 		
 		// ., or :; with nbsp on hold
-		#define MTDOT  &ht_coln 0 DOT_
-		#define MTCOMM &ht_scln 0 COMM_
+		#define MTDOT		 &ht_coln 0 DOT_
+		#define MTCOMM		 &ht_scln 0 COMM_
 		
-		// undo/redo and paste/power toys no formatting
-		#define MTCTRZ &hm LC(Y_) 			LC(Z_)
-		#define MTCTRV &hm LC(LG(LA(V_)))	LC(V_)
+		// «», with nbsp on tap
+		#define MTLGLM		 &ht_lglm LGLM_ 0
+		#define MTRGLM		 &ht_rglm RGLM_ 0
+		
+		// tap/hold: undo/redo and paste/(no formatting with power toys)
+		#define MTCTRZ 		 &hm LC(Y_)         LC(Z_)
+		#define MTCTRV 		 &hm LC(LG(LA(V_))) LC(V_)
 		
 		// task manager
-		#define C_S_DEL &kp LC(LS(DEL))
+		#define C_S_DEL 	 &kp LC(LS(DEL))
 		
 		// thumb keys
-		#define L_INNER	&lt NUM E_
-		#define L_INNERCAPS &lt NUM LS(E_)
-		#define L_OUTER	&lsl SYM SYM
+		#define L_INNER		 &lt NUM E_
+		#define L_INNERCAPS  &lt NUM LS(E_)
 		
-		#define R_INNER	&lt  NAV SPACE
-		#define R_INNERCAPS &ht_spc_togcaps NAV 0
-		#define R_OUTER	&lsl ACNT ACNT
-		#define R_OUTERCAPS &lsl ACCP ACCP
+		#define L_OUTER		 &lsl SYM SYM
+		
+		#define R_INNER		 &lt NAV SPACE
+		#define R_INNERCAPS  &ht_spc_togcaps NAV 0
+		
+		#define R_OUTER		 &lsl ACNT ACNT
+		#define R_OUTERCAPS  &lsl ACCP ACCP
 		
 		
 		
 		base_layer {
 			bindings = <
-				&kp  Q_		 HMRA MIN_		 &kp  Y_	  MTDOT	   	   EXCL_QMRK			&kp K_		 &kp  C_	  &kp  H_	   &kp  W_		&kp  J_
-				HMLG U_		 HMLA O_		 HMLC I_	  HMLS A_	   &kp F_				&kp G_		 HMRS T_	  HMRC R_	   HMRA S_		HMRG N_
-				&kp  Z_		 HMLC EACT_		 &kp  P_	  MTCOMM	   &kp X_				&kp V_		 &kp  D_	  &kp  M_	   &kp  L_		&kp  B_
-														  L_INNER	   L_OUTER				R_OUTER		 R_INNER
+				&kp  Q_    HMRA MIN_   &kp  Y_    MTDOT       MTQMRK            &kp K_      &kp  C_     &kp  H_	    &kp  W_	    &kp  J_
+				HMLG U_    HMLA O_     HMLC I_    HMLS A_     &kp F_            &kp G_      HMRS T_     HMRC R_	    HMRA S_	    HMRG N_
+				&kp  Z_    HMLC EACT_  &kp  P_    MTCOMM      &kp X_            &kp V_      &kp  D_     &kp  M_	    &kp  L_	    &kp  B_
+											      L_INNER     L_OUTER           R_OUTER     R_INNER
 			>;
 		};
 		
 		caps_word_layer {
 			bindings = <
-				&kp  LS(Q_)	 ____			 &kp  LS(Y_)  &kp DOT_	   ____					&kp LS(K_)	 &kp  LS(C_)  &kp  LS(H_)  &kp  LS(W_)  &kp  LS(J_)
-				HMLG LS(U_)	 HMLA LS(O_)	 HMLC LS(I_)  HMLS LS(A_)  &kp LS(F_)			&kp LS(G_)	 HMRS LS(T_)  HMRC LS(R_)  HMRA LS(S_)  HMRG LS(N_)
-				&kp  LS(Z_)	 HMLC LS(EACT_)	 &kp  LS(P_)  ____		   &kp LS(X_)			&kp LS(V_)   &kp  LS(D_)  &kp  LS(M_)  &kp  LS(L_)  &kp  LS(B_)
-														  L_INNERCAPS  ____					R_OUTERCAPS	 R_INNERCAPS
+			 // 
+				&kp  LS(Q_)	 _________		 &kp  LS(Y_)  &kp DOT_	   _________          &kp LS(K_)   &kp  LS(C_)  &kp  LS(H_)  &kp  LS(W_)  &kp  LS(J_)
+				HMLG LS(U_)	 HMLA LS(O_)	 HMLC LS(I_)  HMLS LS(A_)  &kp LS(F_)         &kp LS(G_)   HMRS LS(T_)  HMRC LS(R_)  HMRA LS(S_)  HMRG LS(N_)
+				&kp  LS(Z_)	 HMLC LS(EACT_)	 &kp  LS(P_)  _________	   &kp LS(X_)         &kp LS(V_)   &kp  LS(D_)  &kp  LS(M_)  &kp  LS(L_)  &kp  LS(B_)
+														  L_INNERCAPS  _________          R_OUTERCAPS  R_INNERCAPS
 			>;
 		};
 		
 		sym_layer {
 			bindings = <
-				xxxx		 &kp AT_		 &kp AMPR_	  &kp OE_	   &kp AE_				xxxx		 xxxx		  xxxx		   xxxx		   xxxx
-				SKLG LBRK_	 SKLA RBRK_		 SKLC LPAR_	  SKLS RPAR_   &kp MDSH_			xxxx		 HMRS LCRL_	  HMRC RCRL_   HMLA xxxx   HMRG xxxx
-				&kp NDSH_	 &kp MDSH_		 MTLGLM		  MTRGLM	   xxxx					xxxx		 xxxx		  &m_grvloos   &m_cfxloos  xxxx
-														  ____		   ____					____		 ____
+				&kp AE_		 &kp AT_       &kp AMPR_   &kp OE_     MTEXCL            xxxxxxxxx  xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
+				SKLG LBRK_	 SKLA RBRK_    SKLC LPAR_  SKLS RPAR_  &kp MDSH_         xxxxxxxxx  HMRS LCRL_  HMRC RCRL_  HMLA xxxx   HMRG xxxx
+				&kp NDSH_	 &kp MDSH_     MTLGLM      MTRGLM	   xxxxxxxxx         xxxxxxxxx  xxxxxxxxx   &m_grvloos  &m_cfxloos  xxxxxxxxx
+													   _________   _________         _________  _________
 			>;
 		};
 		
 		accent_layer {
 			bindings = <
-				&m_CFLX_U_	 &m_CFLX_O_		 &m_CFLX_I_   &m_CFLX_A_   xxxx					xxxx		 &kp  CCED_	  &kp  APST_   &kp  QUOT_  &m_B_J_
-				&m_ACUT_U_	 &m_ACUT_O_		 &m_ACUT_I_	  &m_ACUT_A_   &m_TILD_A_			xxxx		 HMRS ACUT_   HMRC GRAV_   HMLA CFLX_  &m_TILD_N_
-				&m_GRAV_U_	 &m_TILD_O_		 &m_TRMA_I_	  &kp AGRV_    xxxx					xxxx		 &kp  TRMA_	  xxxx		   &m_eszett   &kp TILD_
-														  &m_CFLX_E_   &kp EGRV_			____		 ____
+				&m_CFLX_U_   &m_CFLX_O_   &m_CFLX_I_   &m_CFLX_A_   xxxxxxxxx			xxxxxxxxx   &kp  CCED_	&kp  APST_   &kp  QUOT_   &m_B_J_
+				&m_ACUT_U_   &m_ACUT_O_   &m_ACUT_I_   &m_ACUT_A_   &m_TILD_A_			xxxxxxxxx   HMRS ACUT_	HMRC GRAV_   HMLA CFLX_   &m_TILD_N_
+				&m_GRAV_U_   &m_TILD_O_   &m_TRMA_I_   &kp AGRV_    xxxxxxxxx			xxxxxxxxx   &kp  TRMA_	xxxxxxxxx    &m_eszett    &kp TILD_
+												       &m_CFLX_E_   &kp EGRV_			_________   _________
 			>;
 		};
 		
 		accent_caps_layer {
 			bindings = <
-				&m_cp_cf_u	&m_cp_cf_o		 &m_cp_cf_i   &m_cp_cf_a	 xxxx				xxxx		&kp  CCED_	&kp  APST_	&kp  QUOT_	&m_cp_bj
-				&m_cp_ac_u	&m_cp_ac_o		 &m_cp_ac_i	  &m_cp_ac_a	 &m_cp_tl_a			xxxx		HMRS ACUT_	HMRC GRAV_	HMLA CFLX_	&m_cp_tl_n
-				&m_cp_gv_u	&m_cp_tl_o		 &m_cp_tr_i	  &kp LS(AGRV_)  xxxx				xxxx		&kp  TRMA_	xxxx		&m_cp_sztt	&kp TILD_
-														  &m_cp_cf_e	 &kp LS(EGRV_)		____		____
+				&m_cp_cf_u   &m_cp_cf_o   &m_cp_cf_i   &m_cp_cf_a	  xxxxxxxxx             xxxxxxxxx   &kp  CCED_   &kp  APST_   &kp  QUOT_   &m_cp_bj
+				&m_cp_ac_u   &m_cp_ac_o   &m_cp_ac_i   &m_cp_ac_a	  &m_cp_tl_a            xxxxxxxxx   HMRS ACUT_   HMRC GRAV_   HMLA CFLX_   &m_cp_tl_n
+				&m_cp_gv_u   &m_cp_tl_o   &m_cp_tr_i   &kp LS(AGRV_)  xxxxxxxxx             xxxxxxxxx   &kp  TRMA_   xxxxxxxxx    &m_cp_sztt   &kp TILD_
+													   &m_cp_cf_e	  &kp LS(EGRV_)         _________   _________
 			>;
 		};
 		
 		num_layer {
 			bindings = <
-				xxxx		&kp N7_		&kp N8_		&kp N9_		xxxx				xxxx		EURO_DLLR_	&kp HASH_	&kp PCNT_	&kp PIPE_
-				&kp N0_		&kp N1_		&kp N2_		&kp	N3_		&kp DOT_			xxxx		HMRS PLUS_	HMRC MIN_	HMLA STAR_	HMRG FSLA_
-				xxxx		&kp N4_		&kp N5_		&kp	N6_		&kp COMM_			xxxx		&kp LT_		&kp GT_		&kp EQUL_	&kp BSLA_
-													____		____				&kp ULIN_	____
+				xxxx       &kp N7_   &kp N8_   &kp N9_   xxxxxxxxx          xxxxxxxxx   EURO_DLLR	&kp  HASH_	&kp  PCNT_	&kp  PIPE_
+				&kp N0_    &kp N1_   &kp N2_   &kp N3_   &kp DOT_			xxxxxxxxx   HMRS PLUS_	HMRC MIN_	HMLA STAR_	HMRG FSLA_
+				xxxx       &kp N4_   &kp N5_   &kp N6_   &kp COMM_			xxxxxxxxx   &kp LT_		&kp  GT_	&kp  EQUL_	&kp  BSLA_
+											   _________ _________			&kp ULIN_	_________
 			>;
 		};
 		
 		nav_layer {
 			bindings = <
-				&kp INSERT	&sk RALT	&kp PSCRN	&kp PSBRK	C_S_DEL				xxxx		&kp LC(HOME)	&kp PG_DN	&kp PG_UP	&kp LC(END)
-				HMRG LGUI	HMLA LALT	HMLC LCTRL	HMLS LSHIFT	&kp CAPS			&tog CPWD	&kp LC(LEFT)	&kp DOWN	&kp UP		&kp LC(RIGHT)
-				MTCTRZ		&kp LC(X_)	&kp LC(C_)	MTCTRV		xxxx				xxxx		&kp HOME		&kp LEFT	&kp RIGHT	&kp END
-													____		&kp ULIN_			____		____
+				&kp INSERT	&sk RALT	&kp PSCRN	&kp PSBRK    C_S_DEL			xxxxxxxxx	&kp LC(HOME)  &kp PG_DN	 &kp PG_UP	&kp LC(END)
+				HMRG LGUI	HMLA LALT	HMLC LCTRL	HMLS LSHIFT	 &kp CAPS			&tog CPWD	&kp LC(LEFT)  &kp DOWN	 &kp UP		&kp LC(RIGHT)
+				MTCTRZ		&kp LC(X_)	&kp LC(C_)	MTCTRV       xxxxxxxxx			xxxxxxxxx	&kp HOME      &kp LEFT	 &kp RIGHT	&kp END
+													_________    &kp ULIN_			_________	_________
 			>;
 		};
 		
 		func_layer {
 			bindings = <
-				&bt  BT_CLR    &bt  BT_SEL 0  &bt  BT_SEL 1  &bt  BT_SEL 2  &bt BT_SEL 3			RESET_LEFT    &kp F7  &kp F8  &kp F9  &kp F10
-				HMLG C_BRI_UP  HMLA C_NEXT	  HMLC C_VOL_UP  HMLS C_PP  	&kp LSLCK				&out OUT_BLE  &kp F1  &kp F2  &kp F3  &kp F11
-				&kp  C_BRI_DN  &kp  C_PREV    &kp  C_VOL_DN  &kp  C_MUTE    &kp LNLCK				&out OUT_USB  &kp F4  &kp F5  &kp F6  &kp F12
-															 ____			____					____		  ____
+				&bt  BT_CLR     &bt  BT_SEL 0   &bt  BT_SEL 1   &bt  BT_SEL 2  &bt BT_SEL 3			RESET_LEFT    &kp F7  &kp F8  &kp F9  &kp F10
+				HMLG C_BRI_UP   HMLA C_NEXT     HMLC C_VOL_UP   HMLS C_PP  	   &kp LSLCK			&out OUT_BLE  &kp F1  &kp F2  &kp F3  &kp F11
+				&kp  C_BRI_DN   &kp  C_PREV     &kp  C_VOL_DN   &kp  C_MUTE    &kp LNLCK			&out OUT_USB  &kp F4  &kp F5  &kp F6  &kp F12
+															    _________      _________			_________     _________
 			>;
 		};
 		
 		game_layer {
 			bindings = <
-				&kp Q_		&kp MIN_	&kp Y_		&kp DOT_	&kp R_			&kp K_		&kp C_		&kp H_		&kp W_		&kp J_
-				&kp U_		&kp O_		&kp I_		&kp A_		&kp F_			&kp G_		&kp LEFT	&kp UP		&kp RIGHT	&kp N_
-				&kp Z_		&kp S_		&kp P_		&kp COMM_	&kp X_			&tog GAME	&kp D_		&kp DOWN	&kp L_		&kp B_
-													&kp ENTER	&kp SPACE		&kp TAB 	&kp LALT
+				&kp Q_      &kp MIN_   &kp Y_     &kp DOT_    &kp R_            &kp K_     &kp C_     &kp H_     &kp W_     &kp J_
+				&kp U_      &kp O_     &kp I_     &kp A_      &kp F_            &kp G_     &kp LEFT   &kp UP     &kp RIGHT  &kp N_
+				&kp Z_      &kp S_     &kp P_     &kp COMM_	  &kp X_            &tog GAME  &kp D_     &kp DOWN   &kp L_     &kp B_
+											      &kp ENTER   &kp SPACE         &kp TAB    &kp LALT
 			>;
 		};
 		
 		game_layer_2 {
 			bindings = <
-				&kp LSHIFT	&kp A_		&kp EACT_	&kp I_		&kp O_				&kp Y_		&kp U_		&kp I_		&kp O_		&kp P_
-				&kp LCTRL	&kp B_		&kp U_		&kp P_		&kp E_				&kp H_		&kp J_		&kp K_		&kp L_		&kp N_
-				&kp ESC		&kp AGRV_	&kp Y_		&kp X_		&kp DOT				&tog GAM2	&kp M_		&kp COMM_	&kp DOT_	&kp BSPC
-													&kp ENTER	&kp SPACE			&kp TAB 	&kp LALT
+				&kp LSHIFT  &kp A_     &kp EACT_  &kp I_      &kp O_            &kp Y_     &kp U_     &kp I_     &kp O_     &kp P_
+				&kp LCTRL   &kp B_     &kp U_     &kp P_      &kp E_            &kp H_     &kp J_     &kp K_     &kp L_     &kp N_
+				&kp ESC     &kp AGRV_  &kp Y_     &kp X_      &kp DOT           &tog GAM2  &kp M_     &kp COMM_	 &kp DOT_   &kp BSPC
+												  &kp ENTER   &kp SPACE         &kp TAB    &kp LALT
 			>;
 		};
 		
