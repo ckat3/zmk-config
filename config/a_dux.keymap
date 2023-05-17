@@ -122,10 +122,11 @@
 				bindings = BINDINGS; \
 				)
 				
-		// MACRO_SIMPLE names the macro "m_FIRST##SECOND", eg "m_Q_U_".
-		// it cannot contain parentheses (i think?) or complex sequences. 
+		// MACRO_SIMPLE names the macro "m_FIRST##SECOND", eg "m_Q_U_"
 		#define MACRO_SIMPLE(FIRST, SECOND) \
-			MACRO(FIRST##SECOND, <&macro_tap &kp FIRST>, RELEASE_SHIFT, <&macro_tap &kp SECOND>)
+			MACRO(FIRST##SECOND, <&macro_tap &kp FIRST &kp SECOND>)
+			// MACRO(FIRST##SECOND, <&macro_tap &kp FIRST>, RELEASE_SHIFT, <&macro_tap &kp SECOND>)		
+
 			
 		#define MACRO_SIMPLE_SHIFT(FIRST, SECOND) \
 			MACRO(cp_##FIRST##SECOND, <&macro_tap &kp FIRST &kp SECOND>) //bug
