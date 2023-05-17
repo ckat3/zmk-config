@@ -70,43 +70,42 @@
 				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM_QUICK, BINDINGS) \
 			};
 				
-		// #define HOLDTAP_SLOW(NAME, BINDINGS...) \
-				// DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM_SLOW, BINDINGS) \
-			// };
-		// HOLDTAP_SLOW(htslow, <&kp>, <&kp>) // takes longer to count hold
-				
-		#define HOLDTAP_FLAVOR(NAME, FLAVOR, BINDINGS...) \
-				DEFINE_HOLDTAP(NAME, FLAVOR, _TAP_TERM, BINDINGS) \
+		#define HOLDTAP_BAL(NAME, BINDINGS...) \
+				DEFINE_HOLDTAP(NAME, balanced, _TAP_TERM, BINDINGS) \
 			};
 			
 		#define HRMOD_POS(NAME, POSITIONS) \
 				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM, <&kp>, <&kp>) \
 					hold-trigger-key-positions = <POSITIONS>; \
 			};
-		a
 		
-		HOLDTAP_FLAVOR(lsk, balanced, <&mo>, <&sk>) // hold layer / one-shot modifier
-		HOLDTAP_FLAVOR(lsl, balanced, <&mo>, <&sl>) // hold layer / one-shot layer
+		// #define HOLDTAP_SLOW(NAME, BINDINGS...) \
+				// DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM_SLOW, BINDINGS) \
+			// };
+		// HOLDTAP_SLOW(htslow, <&kp>, <&kp>) // takes longer to count hold
 		
-		HOLDTAP_FLAVOR(ht_spc_cpwd, balanced, <&mo>, <&m_spc_togcpwd>) // hold layer / space then desactivate capsword
+		// HOLDTAP(ht_qu,   <&kp>, <&m_Q_U_>)    // qu              &kp
+		// HOLDTAP(ht_aact, <&kp>, <&m_ACUT_A_>) // á               &kp
+		// HOLDTAP(ht_uact, <&kp>, <&m_ACUT_U_>) // ú               &kp
+		// HOLDTAP(ht_iact, <&kp>, <&m_ACUT_I_>) // í               &kp
+
 		
-		// home-row mods                      // PRESS           HOLD
-		HOLDTAP(ht,      <&kp>, <&kp>)        // &kp             &kp
-		HOLDTAP(htsk,    <&sk>, <&kp>)        // &kp             sticky layer
-		HOLDTAP(ht_qu,   <&kp>, <&m_Q_U_>)    // qu              &kp
-		HOLDTAP(ht_aact, <&kp>, <&m_ACUT_A_>) // á               &kp
-		HOLDTAP(ht_uact, <&kp>, <&m_ACUT_U_>) // ú               &kp
-		HOLDTAP(ht_iact, <&kp>, <&m_ACUT_I_>) // í               &kp
+		// home-row mods               // PRESS           HOLD
+		HOLDTAP(ht,      <&kp>, <&kp>) // &kp             &kp
+		HOLDTAP(htsk,    <&sk>, <&kp>) // &kp             sticky layer
+		HOLDTAP_BAL(lsk, <&mo>, <&sk>) // one-shot mod    hold layer
+		HOLDTAP_BAL(lsl, <&mo>, <&sl>) // one-shot layer  hold layer
+		HOLDTAP_BAL(ht_spc_cpwd, <&mo>, <&m_spc_togcpwd>) // space then desactivate capsword    hold layer
 
 		// hrm for opposite hand only (used for shift)
 		HRMOD_POS(htl, 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33)
 		HRMOD_POS(htr, 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31)
 		
-		// for chars with automatic nbsp on tap
+		// automatic nbsp on tap
 		HOLDTAP(ht_lglm, <&kp>, <&m_nbsp_lglm>)
 		HOLDTAP(ht_rglm, <&kp>, <&m_nbsp_rglm>)
 		
-		// for chars with automatic nbsp on hold
+		// automatic nbsp on hold
 		HOLDTAP_QUICK(ht_coln, <&m_nbsp_coln>, <&kp>)
 		HOLDTAP_QUICK(ht_scln, <&m_nbsp_scln>, <&kp>)
 		HOLDTAP_QUICK(ht_qmrk, <&m_nbsp_qmrk>, <&kp>)
