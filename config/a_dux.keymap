@@ -5,11 +5,11 @@
 
 #include "bepo_bindings.h"
 
-/* SETTINGS */
-#define _MACRO_INTERVAL   3 /* max 5 */
-#define _MACRO_TAP_FOR    3 /* max 5 */
+// SETTINGS
+#define _MACRO_INTERVAL   3  // max 5
+#define _MACRO_TAP_FOR    3  // max 5 
 
-#define _COMBO_TIMEOUT    16 /* max 17, 15 maybe too little */
+#define _COMBO_TIMEOUT    16 // max 16
 
 #define _TAP_TERM_SLOW    300
 #define _TAP_TERM         250
@@ -18,9 +18,9 @@
 
 #define _QUICK_TAP        200
 
-#define _STICKY_TIMEOUT   2000 /* min 1000 */
+#define _STICKY_TIMEOUT   2000 // min 1000
 
-/* LAYERS */
+// LAYERS
 #define BASE 0
 #define CPWD 1
 #define SYM  2
@@ -34,7 +34,7 @@
 
 // combos shouldn't work on game layer, to minimize delay
 #define NOT_GAME  BASE CPWD SYM ACNT ACCP NUM NAV FUNC
-#define NOT_CPWD  BASE      SYM ACNT ACCP NUM NAV FUNC // not capsword nor game
+#define NOT_CPWD  BASE      SYM ACNT ACCP NUM NAV FUNC
 
 &lt {
 	tapping-term-ms = <_TAP_TERM>;
@@ -70,9 +70,10 @@
 				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM_QUICK, BINDINGS) \
 			};
 				
-		#define HOLDTAP_SLOW(NAME, BINDINGS...) \
-				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM_SLOW, BINDINGS) \
-			};
+		// #define HOLDTAP_SLOW(NAME, BINDINGS...) \
+				// DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM_SLOW, BINDINGS) \
+			// };
+		// HOLDTAP_SLOW(htslow, <&kp>, <&kp>) // takes longer to count hold
 				
 		#define HOLDTAP_FLAVOR(NAME, FLAVOR, BINDINGS...) \
 				DEFINE_HOLDTAP(NAME, FLAVOR, _TAP_TERM, BINDINGS) \
@@ -82,25 +83,20 @@
 				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM, <&kp>, <&kp>) \
 					hold-trigger-key-positions = <POSITIONS>; \
 			};
+		a
 		
-		// takes longer to count hold
-		HOLDTAP_SLOW(htslow, <&kp>, <&kp>)
+		HOLDTAP_FLAVOR(lsk, balanced, <&mo>, <&sk>) // hold layer / one-shot modifier
+		HOLDTAP_FLAVOR(lsl, balanced, <&mo>, <&sl>) // hold layer / one-shot layer
 		
-		// layer / one-shot kp
-		HOLDTAP_FLAVOR(lsk, balanced, <&mo>, <&sk>)
-		// layer / one-shot layer
-		HOLDTAP_FLAVOR(lsl, balanced, <&mo>, <&sl>)
+		HOLDTAP_FLAVOR(ht_spc_cpwd, balanced, <&mo>, <&m_spc_togcpwd>) // hold layer / space then desactivate capsword
 		
-		// layer / space then desactivate capsword
-		HOLDTAP_FLAVOR(ht_spc_cpwd, balanced, <&mo>, <&m_spc_togcaps>)
-		
-		// home-row mods                         PRESS         HOLD
-		HOLDTAP(ht,      <&kp>, <&kp>)        // &kp		   &kp
-		HOLDTAP(htsk,    <&sk>, <&kp>)        // sticky layer  &kp
-		HOLDTAP(ht_qu,   <&kp>, <&m_Q_U_>)    // qu            &kp
-		HOLDTAP(ht_aact, <&kp>, <&m_ACUT_A_>) // á             &kp
-		HOLDTAP(ht_uact, <&kp>, <&m_ACUT_U_>) // ú             &kp
-		HOLDTAP(ht_iact, <&kp>, <&m_ACUT_I_>) // í             &kp
+		// home-row mods                      // PRESS           HOLD
+		HOLDTAP(ht,      <&kp>, <&kp>)        // &kp             &kp
+		HOLDTAP(htsk,    <&sk>, <&kp>)        // &kp             sticky layer
+		HOLDTAP(ht_qu,   <&kp>, <&m_Q_U_>)    // qu              &kp
+		HOLDTAP(ht_aact, <&kp>, <&m_ACUT_A_>) // á               &kp
+		HOLDTAP(ht_uact, <&kp>, <&m_ACUT_U_>) // ú               &kp
+		HOLDTAP(ht_iact, <&kp>, <&m_ACUT_I_>) // í               &kp
 
 		// hrm for opposite hand only (used for shift)
 		HRMOD_POS(htl, 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33)
@@ -113,6 +109,8 @@
 		// for chars with automatic nbsp on hold
 		HOLDTAP_QUICK(ht_coln, <&m_nbsp_coln>, <&kp>)
 		HOLDTAP_QUICK(ht_scln, <&m_nbsp_scln>, <&kp>)
+		HOLDTAP_QUICK(ht_qmrk, <&m_nbsp_qmrk>, <&kp>)
+		HOLDTAP_QUICK(ht_excl, <&m_nbsp_excl>, <&kp>)
 	};
 
 	macros {
@@ -206,9 +204,9 @@
 		MACRO(grvloos,      <&macro_tap  &kp GRAV_  &kp SPACE>)
 		
 		// key and turn off capsword
-		MACRO(spc_togcaps,  <&macro_tap  &kp SPACE  &tog CPWD>)
-		MACRO(tab_togcaps,  <&macro_tap  &kp TAB    &tog CPWD>)
-		MACRO(entr_togcaps, <&macro_tap  &kp ENTER  &tog CPWD>)
+		MACRO(spc_togcpwd,  <&macro_tap  &kp SPACE  &tog CPWD>)
+		MACRO(tab_togcpwd,  <&macro_tap  &kp TAB    &tog CPWD>)
+		MACRO(entr_togcpwd, <&macro_tap  &kp ENTER  &tog CPWD>)
 	};
 			  
 	combos {
@@ -278,8 +276,8 @@
 		COMBO_MACRO_LAYER(cp_ae,, 13 30, CPWD)
 		COMBO_MACRO_LAYER(cp_ao,, 13 11, CPWD)
 		COMBO_MACRO_LAYER(cp_oe,, 11 30, CPWD)
-		COMBO_MACRO_LAYER(tab_togcaps,,  12 13, CPWD)
-		COMBO_MACRO_LAYER(entr_togcaps,, 16 17, CPWD)
+		COMBO_MACRO_LAYER(tab_togcpwd,,  12 13, CPWD)
+		COMBO_MACRO_LAYER(entr_togcpwd,, 16 17, CPWD)
 		
 		combo_ctrlz {
 			bindings = <&kp LC(Z_)>;
