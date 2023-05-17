@@ -128,7 +128,7 @@
 			MACRO(FIRST##SECOND, <&macro_tap &kp FIRST>  RELEASE_SHIFT  <&macro_tap &kp SECOND>)
 			
 		#define MACRO_SIMPLE_SHIFT(FIRST, SECOND) \
-			MACRO(cp_##FIRST##SECOND, <&macro_tap &kp FIRST &macro_tap &kp LS(SECOND)>)
+			MACRO(cp_##FIRST##SECOND, <&macro_tap &kp FIRST &kp LS(SECOND)>)
 			
 		#define MACRO_ACCENT(FIRST, SECOND) \
 			MACRO_SIMPLE(FIRST, SECOND) \
