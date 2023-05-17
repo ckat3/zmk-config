@@ -128,7 +128,7 @@
 			MACRO(FIRST##SECOND, <&macro_tap &kp FIRST>  RELEASE_SHIFT  <&macro_tap &kp SECOND>)
 			
 		#define MACRO_SIMPLE_SHIFT(FIRST, SECOND) \
-			MACRO(cp_##FIRST##SECOND, <&macro_tap &kp FIRST &kp LS(SECOND)>)
+			MACRO(cp_##FIRST##SECOND, <&macro_tap &kp FIRST &kp LS(##SECOND)>) //bug
 			
 		#define MACRO_ACCENT(FIRST, SECOND) \
 			MACRO_SIMPLE(FIRST, SECOND) \
@@ -363,22 +363,21 @@
 		#define HMRA       &ht    RALT
 		#define HMLG       &ht    LGUI
 		#define HMRG       &ht    RGUI
-		#define SKLS       &htsk  LSHIFT // for sticky mods in nav layer
-		#define SKLC       &htsk  LCTRL  // "
-		#define SKLA       &htsk  LALT   // "
-		#define SKLG       &htsk  LGUI   // "
+		 // for sticky mods in nav layer:
+		#define SKLS       &htsk  LSHIFT
+		#define SKLC       &htsk  LCTRL
+		#define SKLA       &htsk  LALT
+		#define SKLG       &htsk  LGUI
 		
 		// tap/hold                                // TAP      HOLD
-		#define EURO_DLLR  &mt  EURO_ DLLR_        // $        €
+		#define EURO_DLLR  &mt  EURO_ DLLR_        // $        €		
+		#define NBSP_QMRK    &ht_qmrk  0 QMRK_     // ?        nbsp?
+		#define NBSP_EXCL    &ht_excl  0 EXCL_     // !        nbsp!
+		#define DOT_COLN     &ht_coln  0 DOT_      // .        nbsp:sp
+		#define COMM_SCLN    &ht_scln  0 COMM_     // ,        nbsp;sp
 		
-		#define NBSP_QMRK    &ht_qmrk  0 QMRK_       // ?        nbsp?
-		#define NBSP_EXCL    &ht_excl  0 EXCL_       // !        nbsp!
-		
-		#define DOT_COLN     &ht_coln  0 DOT_        // .        nbsp:sp
-		#define COMM_SCLN    &ht_scln  0 COMM_       // ,        nbsp;sp
-		
-		#define NBSP_LGLM    &ht_lglm  LGLM_ 0       // «nbsp    «
-		#define NBSP_RGLM    &ht_rglm  RGLM_ 0       // nbsp»    »
+		#define NBSP_LGLM    &ht_lglm  LGLM_ 0     // «nbsp    «
+		#define NBSP_RGLM    &ht_rglm  RGLM_ 0     // nbsp»    »
 		
 		#define HT_CTRZ    &ht  LC(Y_)      LC(Z_) // undo     redo
 		#define HT_CTRV    &ht  PASTEPLAIN  LC(V_) // paste    plaintext paste
@@ -386,18 +385,18 @@
 		
 		// thumb keys
 		#define TH_L_MAIN      &lt   NUM E_
-		#define TH_L_MAIN_CW     &lt   NUM LS(E_)      // capsword
+		#define TH_L_MAIN_CW   &lt   NUM LS(E_) // capsword
 		
-		#define TH_L_AUX  &lsl  SYM SYM
+		#define TH_L_AUX       &lsl  SYM SYM
 		
-		#define TH_R_MAIN       &lt   NAV SPACE
-		#define TH_R_MAIN_CW     &ht_spc_cpwd  NAV 0  // capsword
+		#define TH_R_MAIN      &lt NAV SPACE
+		#define TH_R_MAIN_CW   &ht_spc_cpwd  NAV 0  // capsword
 		
-		#define TH_R_AUX  &lsl  ACNT ACNT
+		#define TH_R_AUX       &lsl  ACNT ACNT
 		
 		
-		#define _DEFAULT_THUMBS_  TH_L_MAIN TH_L_AUX TH_R_AUX TH_R_MAIN
-		#define _CAPSWORD_THUMBS_ TH_L_MAIN_CW    ____ ____    TH_R_MAIN_CW
+		#define _DEFAULT_THUMBS_  TH_L_MAIN     TH_L_AUX   TH_R_AUX TH_R_MAIN
+		#define _CAPSWORD_THUMBS_ TH_L_MAIN_CW      ____   ____     TH_R_MAIN_CW
 		
 		
 		
