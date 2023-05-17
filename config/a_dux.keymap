@@ -326,8 +326,8 @@
 		#define RESET_LEFT  &sys_reset
 		
 		// home-row mods
-		#define HMLS       &ht_l  LSHIFT
-		#define HMRS       &ht_r  RSHIFT
+		#define HMLS       &htl   LSHIFT
+		#define HMRS       &htr   RSHIFT
 		#define HMLC       &ht    LCTRL
 		#define HMRC       &ht    RCTRL
 		#define HMLA       &ht    LALT
