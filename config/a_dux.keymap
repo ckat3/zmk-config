@@ -125,10 +125,10 @@
 		// MACRO_SIMPLE names the macro "m_FIRST##SECOND", eg "m_Q_U_".
 		// it cannot contain parentheses (i think?) or complex sequences. 
 		#define MACRO_SIMPLE(FIRST, SECOND) \
-			MACRO(FIRST##SECOND, <&macro_tap &kp FIRST>  RELEASE_SHIFT  <&macro_tap &kp SECOND>)
+			MACRO(FIRST##SECOND, <&macro_tap &kp FIRST>, RELEASE_SHIFT, <&macro_tap &kp SECOND>)
 			
 		#define MACRO_SIMPLE_SHIFT(FIRST, SECOND) \
-			MACRO(cp_##FIRST##SECOND, <&macro_tap &kp FIRST &kp LS( SECOND )>) //bug
+			MACRO(cp_##FIRST##SECOND, <&macro_tap &kp FIRST &kp SECOND>) //bug
 			
 		#define MACRO_ACCENT(FIRST, SECOND) \
 			MACRO_SIMPLE(FIRST, SECOND) \
@@ -220,10 +220,10 @@
 		MACRO(cp_sztt,      <&macro_tap  &kp RA(S_)  &kp LS(S_)>)
 		
 		// :;?!«» with nbsp	
-		MACRO(nbsp_qmrk,    <&macro_tap  &kp LS(SPACE)  &kp LS(QMRK_)>  RELEASE_SHIFT  <&macro_tap &kp SPACE>)
-		MACRO(nbsp_excl,    <&macro_tap  &kp LS(SPACE)  &kp LS(EXCL_)>  RELEASE_SHIFT  <&macro_tap &kp SPACE>)
-		MACRO(nbsp_coln,    <&macro_tap  &kp LS(SPACE)  &kp LS(DOT_)>   RELEASE_SHIFT  <&macro_tap &kp SPACE>)
-		MACRO(nbsp_scln,    <&macro_tap  &kp LS(SPACE)  &kp LS(COMM_)>  RELEASE_SHIFT  <&macro_tap &kp SPACE>)
+		MACRO(nbsp_qmrk,    <&macro_tap  &kp LS(SPACE)  &kp LS(QMRK_)>,  RELEASE_SHIFT,  <&macro_tap &kp SPACE>)
+		MACRO(nbsp_excl,    <&macro_tap  &kp LS(SPACE)  &kp LS(EXCL_)>,  RELEASE_SHIFT,  <&macro_tap &kp SPACE>)
+		MACRO(nbsp_coln,    <&macro_tap  &kp LS(SPACE)  &kp LS(DOT_)>,   RELEASE_SHIFT,  <&macro_tap &kp SPACE>)
+		MACRO(nbsp_scln,    <&macro_tap  &kp LS(SPACE)  &kp LS(COMM_)>,  RELEASE_SHIFT,  <&macro_tap &kp SPACE>)
 		MACRO(nbsp_rglm,    <&macro_tap  &kp LS(SPACE)  &kp RGLM_>)
 		MACRO(nbsp_lglm,    <&macro_tap  &kp LGLM_      &kp LS(SPACE)>)
 		
