@@ -141,68 +141,68 @@
 			
 	
 		// accented letters
-		// MACRO_ACCENT(ACUT_, A_)
-		// MACRO_ACCENT(ACUT_, I_)
-		// MACRO_ACCENT(ACUT_, O_)
-		// MACRO_ACCENT(ACUT_, U_)
+		MACRO_ACCENT(ACUT_, A_)
+		MACRO_ACCENT(ACUT_, I_)
+		MACRO_ACCENT(ACUT_, O_)
+		MACRO_ACCENT(ACUT_, U_)
 		
-		// MACRO_ACCENT(CFLX_, A_)
-		// MACRO_ACCENT(CFLX_, E_)
-		// MACRO_ACCENT(CFLX_, I_)
-		// MACRO_ACCENT(CFLX_, O_)
-		// MACRO_ACCENT(CFLX_, U_)
+		MACRO_ACCENT(CFLX_, A_)
+		MACRO_ACCENT(CFLX_, E_)
+		MACRO_ACCENT(CFLX_, I_)
+		MACRO_ACCENT(CFLX_, O_)
+		MACRO_ACCENT(CFLX_, U_)
 		
-		// MACRO_ACCENT(GRAV_, E_)
-		// MACRO_ACCENT(GRAV_, O_)
-		// MACRO_ACCENT(GRAV_, U_)
+		MACRO_ACCENT(GRAV_, E_)
+		MACRO_ACCENT(GRAV_, O_)
+		MACRO_ACCENT(GRAV_, U_)
 		
-		// MACRO_ACCENT(TILD_, A_)
-		// MACRO_ACCENT(TILD_, O_)
-		// MACRO_ACCENT(TILD_, N_)
+		MACRO_ACCENT(TILD_, A_)
+		MACRO_ACCENT(TILD_, O_)
+		MACRO_ACCENT(TILD_, N_)
 		
-		// MACRO_ACCENT(TRMA_, I_)
+		MACRO_ACCENT(TRMA_, I_)
 		
-		// MACRO_SIMPLE(ACUT_, A_)
-		// MACRO_SIMPLE(ACUT_, I_)
-		// MACRO_SIMPLE(ACUT_, O_)
-		// MACRO_SIMPLE(ACUT_, U_)
+		MACRO_SIMPLE(ACUT_, A_)
+		MACRO_SIMPLE(ACUT_, I_)
+		MACRO_SIMPLE(ACUT_, O_)
+		MACRO_SIMPLE(ACUT_, U_)
 		
-		// MACRO_SIMPLE(CFLX_, A_)
-		// MACRO_SIMPLE(CFLX_, E_)
-		// MACRO_SIMPLE(CFLX_, I_)
-		// MACRO_SIMPLE(CFLX_, O_)
-		// MACRO_SIMPLE(CFLX_, U_)
+		MACRO_SIMPLE(CFLX_, A_)
+		MACRO_SIMPLE(CFLX_, E_)
+		MACRO_SIMPLE(CFLX_, I_)
+		MACRO_SIMPLE(CFLX_, O_)
+		MACRO_SIMPLE(CFLX_, U_)
 		
-		// MACRO_SIMPLE(GRAV_, O_)
-		// MACRO_SIMPLE(GRAV_, U_)
+		MACRO_SIMPLE(GRAV_, O_)
+		MACRO_SIMPLE(GRAV_, U_)
 		
-		// MACRO_SIMPLE(TILD_, A_)
-		// MACRO_SIMPLE(TILD_, O_)
-		// MACRO_SIMPLE(TILD_, N_)
+		MACRO_SIMPLE(TILD_, A_)
+		MACRO_SIMPLE(TILD_, O_)
+		MACRO_SIMPLE(TILD_, N_)
 		
-		// MACRO_SIMPLE(TRMA_, I_)
+		MACRO_SIMPLE(TRMA_, I_)
 		
 		// // caps accented letters		
-		// MACRO(cp_ac_a,      <&macro_tap  &kp ACUT_  &kp LS(A_)>)
-		// MACRO(cp_ac_i,      <&macro_tap  &kp ACUT_  &kp LS(I_)>)
-		// MACRO(cp_ac_o,      <&macro_tap  &kp ACUT_  &kp LS(O_)>)
-		// MACRO(cp_ac_u,      <&macro_tap  &kp ACUT_  &kp LS(U_)>)
-		
-		// MACRO(cp_cf_a,      <&macro_tap  &kp CFLX_  &kp LS(A_)>)
-		// MACRO(cp_cf_e,      <&macro_tap  &kp CFLX_  &kp LS(E_)>)
-		// MACRO(cp_cf_i,      <&macro_tap  &kp CFLX_  &kp LS(I_)>)
-		// MACRO(cp_cf_o,      <&macro_tap  &kp CFLX_  &kp LS(O_)>)
-		// MACRO(cp_cf_u,      <&macro_tap  &kp CFLX_  &kp LS(U_)>)
-		
-		// MACRO(cp_gv_e,      <&macro_tap  &kp GRAV_  &kp LS(E_)>)
-		// MACRO(cp_gv_o,      <&macro_tap  &kp GRAV_  &kp LS(O_)>)
-		// MACRO(cp_gv_u,      <&macro_tap  &kp GRAV_  &kp LS(U_)>)
-		
-		// MACRO(cp_tl_a,      <&macro_tap  &kp TILD_  &kp LS(A_)>)
-		// MACRO(cp_tl_o,      <&macro_tap  &kp TILD_  &kp LS(O_)>)
-		// MACRO(cp_tl_n,      <&macro_tap  &kp TILD_  &kp LS(N_)>)
-		
-		// MACRO(cp_tr_i,      <&macro_tap  &kp TRMA_  &kp LS(I_)>)
+		MACRO(CP_ACUT_A_,      <&macro_tap  &kp ACUT_  &kp LS(A_)>)
+		MACRO(CP_ACUT_I_,      <&macro_tap  &kp ACUT_  &kp LS(I_)>)
+		MACRO(CP_ACUT_O_,      <&macro_tap  &kp ACUT_  &kp LS(O_)>)
+		MACRO(CP_ACUT_U_,      <&macro_tap  &kp ACUT_  &kp LS(U_)>)
+					   _
+		MACRO(CP_CFLX_A_,      <&macro_tap  &kp CFLX_  &kp LS(A_)>)
+		MACRO(CP_CFLX_E_,      <&macro_tap  &kp CFLX_  &kp LS(E_)>)
+		MACRO(CP_CFLX_I_,      <&macro_tap  &kp CFLX_  &kp LS(I_)>)
+		MACRO(CP_CFLX_O_,      <&macro_tap  &kp CFLX_  &kp LS(O_)>)
+		MACRO(CP_CFLX_U_,      <&macro_tap  &kp CFLX_  &kp LS(U_)>)
+					   _
+		MACRO(CP_GRAV_E_,      <&macro_tap  &kp GRAV_  &kp LS(E_)>)
+		MACRO(CP_GRAV_O_,      <&macro_tap  &kp GRAV_  &kp LS(O_)>)
+		MACRO(CP_GRAV_U_,      <&macro_tap  &kp GRAV_  &kp LS(U_)>)
+					   _
+		MACRO(CP_TILD_A_,      <&macro_tap  &kp TILD_  &kp LS(A_)>)
+		MACRO(CP_TILD_O_,      <&macro_tap  &kp TILD_  &kp LS(O_)>)
+		MACRO(CP_TILD_N_,      <&macro_tap  &kp TILD_  &kp LS(N_)>)
+					   _
+		MACRO(CP_TRMA_I_,      <&macro_tap  &kp TRMA_  &kp LS(I_)>)
 		
 		// qu bj (shortcuts for inconvenient sequences)
 		MACRO_SIMPLE(Q_, U_)
