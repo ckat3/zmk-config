@@ -23,7 +23,7 @@
 // LAYERS
 #define BASE 1 
 #define CPWD 2 
-#define SWTC 3 
+#define UTIL 3 
 #define SYM  4 
 #define ACNT 5 
 #define ACCP 6 
@@ -34,9 +34,9 @@
 #define GAM2 11
 
 // combos shouldn't work on game layer, to minimize delay
-#define ALL_LAYERS  BASE CPWD SWTC SYM ACNT ACCP NUM NAV FUNC GAME GAM2
-#define NOT_GAME    BASE CPWD SWTC SYM ACNT ACCP NUM NAV FUNC
-#define NOT_CPWD    BASE      SWTC SYM ACNT ACCP NUM NAV FUNC
+#define ALL_LAYERS  BASE CPWD UTIL SYM ACNT ACCP NUM NAV FUNC GAME GAM2
+#define NOT_GAME    BASE CPWD UTIL SYM ACNT ACCP NUM NAV FUNC
+#define NOT_CPWD    BASE      UTIL SYM ACNT ACCP NUM NAV FUNC
 
 &lt {
 	tapping-term-ms = <_TAP_TERM>;
@@ -133,11 +133,11 @@
 		#define MACRO_SIMPLE_SHIFT(FIRST, SECOND) \
 			MACRO(cp_##FIRST##SECOND, <&macro_tap &kp FIRST &kp SECOND>)
 			
-		// #define MACRO_ACCENT(FIRST, SECOND) \
-			// MACRO_SIMPLE( FIRST, SECOND )
-			// MACRO_SIMPLE_SHIFT(FIRST, SECOND)
 		#define MACRO_ACCENT(FIRST, SECOND) \
-			MACRO(FIRST##SECOND, <&macro_tap &kp FIRST &kp SECOND>)
+			MACRO_SIMPLE( FIRST, SECOND ) \
+			MACRO_SIMPLE_SHIFT(FIRST, SECOND)
+		// #define MACRO_ACCENT(FIRST, SECOND) \
+			// MACRO(FIRST##SECOND, <&macro_tap &kp FIRST &kp SECOND>)
 			
 	
 		// accented letters
@@ -240,6 +240,10 @@
 		MACRO(spc_togcpwd,  <&macro_tap  &kp SPACE  &tog CPWD>)
 		MACRO(tab_togcpwd,  <&macro_tap  &kp TAB    &tog CPWD>)
 		MACRO(entr_togcpwd, <&macro_tap  &kp ENTER  &tog CPWD>)
+		
+		MACRO(cut_all,   <&macro_tap  &kp LC(A_) &kp LS(X_)>)
+		MACRO(copy_all,  <&macro_tap  &kp LC(A_) &kp LS(C_)>)
+		MACRO(paste_all, <&macro_tap  &kp LC(A_) &kp LS(V_)>)
 	};
 			  
 	combos {
@@ -297,8 +301,8 @@
 		COMBO_KP(SPACE,r,         16 17 18)
 		
 		// fake tab
-		COMBO(&kp SPACE &kp SPACE &kp SPACE &kp SPACE, 10 11 12 13)
-		COMBO(&kp SPACE &kp SPACE &kp SPACE &kp SPACE, 15 16 17 18)
+		COMBO(&kp SPACE &kp SPACE &kp SPACE &kp SPACE, 10 11 12 13,       gslqaiogrnqsl) // whatever name)
+		COMBO(&kp SPACE &kp SPACE &kp SPACE &kp SPACE, 15 16 17 18,       rgsaiornqsj)
 		
 		COMBO_KP(ESC,,            10 11)
 		
@@ -360,10 +364,9 @@
 	keymap {
 		compatible = "zmk,keymap";
 		
-		#define ____        &trans
-		#define _________   &trans
-		#define xxxx        &none
-		#define xxxxxxxxx   &none
+		#define trans        &trans
+		#define _____        &none
+		#define _________   &none
 		
 		#define PASTEPLAIN       LC(LG(LA(V_))) // power toys plaintext paste (no &kp bc used in &ht)
 		#define C_S_DEL     &kp  LC(LS(DEL))    // task manager
@@ -411,80 +414,79 @@
 		
 		
 		#define _DEFAULT_THUMBS_  TH_L_MAIN     TH_L_AUX          TH_R_AUX TH_R_MAIN
-		#define _CAPSWORD_THUMBS_ TH_L_MAIN_CW      ____          ____     TH_R_MAIN_CW
+		#define _CAPSWORD_THUMBS_ TH_L_MAIN_CW      _trans_          _trans_     TH_R_MAIN_CW
 		
 		
-		
+		// todo reorder layers according to thumbs
 		base_layer {
 			bindings = <
 				&kp  Q_   HMRA MIN_   &kp  Y_   DOT_COLN   NBSP_QMRK           &kp K_    &kp  C_    &kp  H_    &kp  W_    &kp  J_
 				HMLG U_   HMLA O_     HMLC I_   HMLS A_    &kp F_            &kp G_    HMRS T_    HMRC R_    HMRA S_    HMRG N_
-				&kp  Z_   HMLC EACT_  &kp  P_   COMM_SCLN  &kp X_            &kp V_    &kp  D_    &kp  M_    &kp  L_    &kp  B_
+				&lt UTIL Z_ HMLC EACT_  &kp  P_   COMM_SCLN  &kp X_            &kp V_    &kp  D_    &kp  M_    &kp  L_  &lt UTIL B_
 															     _DEFAULT_THUMBS_
 			>;
 		};
 		
 		caps_word_layer {
 			bindings = <
-			 // 
-				&kp  LS(Q_)	 HMRA MIN_       &kp  LS(Y_)  DOT_COLN     _________          &kp LS(K_)   &kp  LS(C_)  &kp  LS(H_)  &kp  LS(W_)  &kp  LS(J_)
+				&kp  LS(Q_)	 HMRA MIN_       &kp  LS(Y_)  DOT_COLN     _trans_          &kp LS(K_)   &kp  LS(C_)  &kp  LS(H_)  &kp  LS(W_)  &kp  LS(J_)
 				HMLG LS(U_)	 HMLA LS(O_)	 HMLC LS(I_)  HMLS LS(A_)  &kp LS(F_)         &kp LS(G_)   HMRS LS(T_)  HMRC LS(R_)  HMRA LS(S_)  HMRG LS(N_)
 				&kp  LS(Z_)	 HMLC LS(EACT_)	 &kp  LS(P_)  COMM_SCLN    &kp LS(X_)         &kp LS(V_)   &kp  LS(D_)  &kp  LS(M_)  &kp  LS(L_)  &kp  LS(B_)
 														                     _CAPSWORD_THUMBS_
 			>;
 		};
 		
-		switch_layer {
+		utility_layer {
 			bindings = <
-				xxxx xxxxxxxxx    xxxxxxxxx        xxxxxxxxx     xxxx         xxxx   xxxx xxxx xxxx xxxx
-				xxxx xxxxxxxxx    &kp LS(LC(TAB))  &kp LC(TAB)   xxxx         xxxx   xxxx xxxx xxxx xxxx
-				xxxx &kp LG(TAB)  &kp LS(LA(TAB))  &kp LA(TAB)   xxxx         xxxx   xxxx xxxx xxxx xxxx
-			                   xxxx   xxxx         xxxx   xxxx
+				_____ _________    _________        _________     _____         _____   _____ _____ _____ _____
+				_____ _________    &kp LS(LC(TAB))  &kp LC(TAB)   _____         _____   _____ _____ _____ _____
+				_____ &kp LG(TAB)  &kp LS(LA(TAB))  &kp LA(TAB)   _____         _____   _____ _____ _____ _____
+			                   _____   _____         _____   _____
 			>;
 		};
 		
 		sym_layer {
 			bindings = <
-				&kp AE_		 &kp AT_       &kp AMPR_   &kp OE_     NBSP_EXCL           xxxxxxxxx  xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
-				SKLG LBRK_	 SKLA RBRK_    SKLC LPAR_  SKLS RPAR_  &kp MDSH_         xxxxxxxxx  HMRS LCRL_  HMRC RCRL_  HMLA xxxx   HMRG xxxx
-				&kp NDSH_	 &kp MDSH_     NBSP_LGLM     NBSP_RGLM	   xxxxxxxxx         xxxxxxxxx  xxxxxxxxx   &m_grvloos  &m_cfxloos  xxxxxxxxx
-															             _DEFAULT_THUMBS_
+				&kp AE_		 &kp AT_       &kp AMPR_   &kp OE_     NBSP_EXCL           _________  _________   _________   _________   _________
+				SKLG LBRK_	 SKLA RBRK_    SKLC LPAR_  SKLS RPAR_  &kp MDSH_         _________  HMRS LCRL_  HMRC RCRL_  HMLA _____   HMRG _____
+				&kp NDSH_	 &kp MDSH_     NBSP_LGLM     NBSP_RGLM	   _________         _________  _________   &m_grvloos  &m_cfxloos  _________
+									_trans_ 	&kp ULIN_  _trans_             _trans_
 			>;
 		};
 		
 		accent_layer {
 			bindings = <
-				&m_CFLX_U_  &m_CFLX_O_  &m_CFLX_I_  &m_CFLX_A_  xxxxxxxxx			xxxxxxxxx  &kp  CCED_  &kp  APST_  &kp  QUOT_  &m_B_J_
-				&m_ACUT_U_  &m_ACUT_O_  &m_ACUT_I_  &m_ACUT_A_  &m_TILD_A_			xxxxxxxxx  HMRS ACUT_  HMRC GRAV_  HMLA CFLX_  &m_TILD_N_
-				&m_GRAV_U_  &m_TILD_O_  &m_TRMA_I_  &kp AGRV_   xxxxxxxxx			xxxxxxxxx  &kp  TRMA_  xxxxxxxxx   &m_eszett   &kp TILD_
-												    &m_CFLX_E_  &kp EGRV_			____       ____
+				&m_CFLX_U_  &m_CFLX_O_  &m_CFLX_I_  &m_CFLX_A_  _________			_________  &kp  CCED_  &kp  APST_  &kp  QUOT_  &m_B_J_
+				&m_ACUT_U_  &m_ACUT_O_  &m_ACUT_I_  &m_ACUT_A_  &m_TILD_A_			_________  HMRS ACUT_  HMRC GRAV_  HMLA CFLX_  &m_TILD_N_
+				&m_GRAV_U_  &m_TILD_O_  &m_TRMA_I_  &kp AGRV_   _________			_________  &kp  TRMA_  _________   &m_eszett   &kp TILD_
+												    &m_CFLX_E_  &kp EGRV_			_trans_       _trans_
 			>;
 		};
 		
 		accent_caps_layer {
 			bindings = <
-				&m_cp_CFLX_U_  &m_cp_CFLX_O_  &m_cp_CFLX_I_  &m_cp_CFLX_A_  xxxxxxxxx            xxxxxxxxx  &kp  CCED_  &kp  APST_  &kp  QUOT_  &m_cp_bj
-				&m_cp_ACUT_U_  &m_cp_ACUT_O_  &m_cp_ACUT_I_  &m_cp_ACUT_A_  &m_cp_TILD_A_        xxxxxxxxx  HMRS ACUT_  HMRC GRAV_  HMLA CFLX_  &m_cp_tl_n
-				&m_cp_GRAV_U_  &m_cp_TILD_O_  &m_cp_TRMA_I_  &kp LS(AGRV_)  xxxxxxxxx            xxxxxxxxx  &kp  TRMA_  xxxxxxxxx   &m_cp_sztt  &kp TILD_
-												             &m_cp_CFLX_E_  &kp LS(EGRV_)        ____       ____
+				&m_cp_CFLX_U_  &m_cp_CFLX_O_  &m_cp_CFLX_I_  &m_cp_CFLX_A_  _________            _________  &kp  CCED_  &kp  APST_  &kp  QUOT_  &m_cp_bj
+				&m_cp_ACUT_U_  &m_cp_ACUT_O_  &m_cp_ACUT_I_  &m_cp_ACUT_A_  &m_cp_TILD_A_        _________  HMRS ACUT_  HMRC GRAV_  HMLA CFLX_  &m_cp_tl_n
+				&m_cp_GRAV_U_  &m_cp_TILD_O_  &m_cp_TRMA_I_  &kp LS(AGRV_)  _________            _________  &kp  TRMA_  _________   &m_cp_sztt  &kp TILD_
+												             &m_cp_CFLX_E_  &kp LS(EGRV_)        _trans_       _trans_
 			>;
 		};
 		
 		num_layer {
 			bindings = <
-				xxxx     &kp N7_  &kp N8_  &kp N9_  xxxxxxxxx          xxxxxxxxx  EURO_DLLR   &kp  HASH_   &kp  PCNT_   &kp  PIPE_
-				&kp N0_  &kp N1_  &kp N2_  &kp N3_  &kp DOT_		   xxxxxxxxx  HMRS PLUS_  HMRC MIN_    HMLA STAR_   HMRG FSLA_
-				xxxx     &kp N4_  &kp N5_  &kp N6_  &kp COMM_		   xxxxxxxxx  &kp LT_     &kp  GT_	   &kp  EQUL_   &kp  BSLA_
-										   ____ 	     ____          &kp ULIN_  ____
+				_____    &kp N7_  &kp N8_  &kp N9_  _________          _________  EURO_DLLR   &kp  HASH_   &kp  PCNT_   &kp  PIPE_
+				&kp N0_  &kp N1_  &kp N2_  &kp N3_  &kp DOT_		   _________  HMRS PLUS_  HMRC MIN_    HMLA STAR_   HMRG FSLA_
+				_____    &kp N4_  &kp N5_  &kp N6_  &kp COMM_		   _________  &kp LT_     &kp  GT_	   &kp  EQUL_   &kp  BSLA_
+										   _trans_ 	_trans_             &kp ULIN_  _trans_
 			>;
 		};
 		
-		nav_layer {
+		nav_layer { // HMRG LGUI	HMLA LALT	HMLC LCTRL	HMLS LSHIFT	 
 			bindings = <
-				&kp INSERT	&sk RALT	&kp PSCRN	&kp PSBRK    C_S_DEL			xxxxxxxxx	&kp LC(HOME)  &kp PG_DN	 &kp PG_UP	&kp LC(END)
-				HMRG LGUI	HMLA LALT	HMLC LCTRL	HMLS LSHIFT	 &kp CAPS			&tog CPWD	&kp LC(LEFT)  &kp DOWN	 &kp UP		&kp LC(RIGHT)
-				HT_CTRZ		&kp LC(X_)	&kp LC(C_)	HT_CTRV      xxxxxxxxx			xxxxxxxxx	&kp HOME      &kp LEFT	 &kp RIGHT	&kp END
-													____         &kp ULIN_			____        ____
+				&kp INSERT	&sk RALT	&kp PSCRN	 &kp PSBRK     C_S_DEL			_________	&kp LC(HOME)  &kp PG_DN	 &kp PG_UP	&kp LC(END)
+				&kp CAPS	&m_cut_all	&m_copy_all  &m_paste_all  &tog CPWD			&kp LC(LEFT)  &kp DOWN	 &kp UP		&kp LC(RIGHT)
+				HT_CTRZ		&kp LC(X_)	&kp LC(C_)	 HT_CTRV       _____    			_________	&kp HOME      &kp LEFT	 &kp RIGHT	&kp END
+													 _trans_        &kp ULIN_			_trans_        _trans_
 			>;
 		};
 		
@@ -517,10 +519,10 @@
 		
 		/* FOR DEBUGGING:
 			bindings = <
-				xxxx xxxx xxxx xxxx   xxxx         xxxx   xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx   xxxx         xxxx   xxxx xxxx xxxx xxxx
-				xxxx xxxx xxxx xxxx   xxxx         xxxx   xxxx xxxx xxxx xxxx
-			                   xxxx   xxxx         xxxx   xxxx
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+			                   _____   _____         _____   _____
 			>;
 		*/
 	};
