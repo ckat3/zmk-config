@@ -211,10 +211,7 @@
 		// caps bj (shortcuts for inconvenient sequences)
 		MACRO(cp_qu,        <&macro_tap  &kp LS(Q_) &kp LS(U_)>)
 		MACRO(cp_bj,        <&macro_tap  &kp LS(B_) &kp LS(J_)>)
-		MACRO(cp_bj,        <&macro_tap  &kp LS(B_) &kp LS(J_)>)
 		MACRO(cp_tl_n,        <&macro_tap  &kp TILD_ &kp LS(N_)>) 
-		
-		
 		
 		// ãe ão õe		
 		MACRO(ae,           <&macro_tap  &kp TILD_  &kp A_  &kp E_>)
