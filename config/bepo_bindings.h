@@ -77,6 +77,7 @@
 #define STAR_	N0
 #define FSLA_	N9
 #define EQUL_	MINUS
+#define DIFF_	RA(MINUS)
 #define PCNT_	EQUAL
 #define HASH_	LS(DLLR_)
 
