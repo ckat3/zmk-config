@@ -364,7 +364,7 @@
 	keymap {
 		compatible = "zmk,keymap";
 		
-		#define trans        &trans
+		#define _trans_        &trans
 		#define _____        &none
 		#define _________   &none
 		
