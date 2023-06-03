@@ -400,7 +400,7 @@
 		#define NBSP_RGLM    &ht_rglm  RGLM_ 0     // ■»    »
 		
 		#define HT_CTRZ    &ht  LC(Y_)      LC(Z_) // undo     redo
-		#define HT_CTRV    &ht  PASTEPLAIN  LC(V_) // paste    plaintext paste
+		#define HT_CTRV    &ht  &kp PASTEPLAIN  LC(V_) // paste    plaintext paste
 		
 		
 		// thumb keys
