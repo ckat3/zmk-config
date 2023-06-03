@@ -213,11 +213,9 @@
 		MACRO(cp_bj,        <&macro_tap  &kp LS(B_) &kp LS(J_)>)
 		MACRO(cp_qu,        <&macro_tap  &kp LS(Q_) &kp LS(U_)>)
 		MACRO(cp_bj,        <&macro_tap  &kp LS(B_) &kp LS(J_)>)
-		
-		// todo erase by making rendundant
-		MACRO(cp_qu,        <&macro_tap  &kp LS(Q_) &kp LS(U_)>)
-		MACRO(cp_bj,        <&macro_tap  &kp LS(B_) &kp LS(J_)>)
 		MACRO(cp_tl_n,        <&macro_tap  &kp TILD_ &kp LS(N_)>) 
+		
+		
 		
 		// ãe ão õe		
 		MACRO(ae,           <&macro_tap  &kp TILD_  &kp A_  &kp E_>)
@@ -228,7 +226,7 @@
 		MACRO(cp_oe,        <&macro_tap  &kp TILD_  &kp LS(O_)  &kp LS(E_)>)
 		
 		// ß
-		MACRO(eszett,       <&macro_tap  &kp RA(S_)  &kp S_>)
+		MACRO(eszett,       <&macro_tap  &kp RA(S_)  &kp S_>)		
 		MACRO(cp_sztt,      <&macro_tap  &kp RA(S_)  &kp LS(S_)>)
 		
 		// :;?!«» with nbsp	
