@@ -183,26 +183,26 @@
 		MACRO_SIMPLE(TRMA_, I_)
 		
 		// // caps accented letters		
-		MACRO(CP_ACUT_A_,      <&macro_tap  &kp ACUT_  &kp LS(A_)>)
-		MACRO(CP_ACUT_I_,      <&macro_tap  &kp ACUT_  &kp LS(I_)>)
-		MACRO(CP_ACUT_O_,      <&macro_tap  &kp ACUT_  &kp LS(O_)>)
-		MACRO(CP_ACUT_U_,      <&macro_tap  &kp ACUT_  &kp LS(U_)>)
+		MACRO(cp_ACUT_A_,      <&macro_tap  &kp ACUT_  &kp LS(A_)>)
+		MACRO(cp_ACUT_I_,      <&macro_tap  &kp ACUT_  &kp LS(I_)>)
+		MACRO(cp_ACUT_O_,      <&macro_tap  &kp ACUT_  &kp LS(O_)>)
+		MACRO(cp_ACUT_U_,      <&macro_tap  &kp ACUT_  &kp LS(U_)>)
 					   
-		MACRO(CP_CFLX_A_,      <&macro_tap  &kp CFLX_  &kp LS(A_)>)
-		MACRO(CP_CFLX_E_,      <&macro_tap  &kp CFLX_  &kp LS(E_)>)
-		MACRO(CP_CFLX_I_,      <&macro_tap  &kp CFLX_  &kp LS(I_)>)
-		MACRO(CP_CFLX_O_,      <&macro_tap  &kp CFLX_  &kp LS(O_)>)
-		MACRO(CP_CFLX_U_,      <&macro_tap  &kp CFLX_  &kp LS(U_)>)
+		MACRO(cp_CFLX_A_,      <&macro_tap  &kp CFLX_  &kp LS(A_)>)
+		MACRO(cp_CFLX_E_,      <&macro_tap  &kp CFLX_  &kp LS(E_)>)
+		MACRO(cp_CFLX_I_,      <&macro_tap  &kp CFLX_  &kp LS(I_)>)
+		MACRO(cp_CFLX_O_,      <&macro_tap  &kp CFLX_  &kp LS(O_)>)
+		MACRO(cp_CFLX_U_,      <&macro_tap  &kp CFLX_  &kp LS(U_)>)
 					   
-		MACRO(CP_GRAV_E_,      <&macro_tap  &kp GRAV_  &kp LS(E_)>)
-		MACRO(CP_GRAV_O_,      <&macro_tap  &kp GRAV_  &kp LS(O_)>)
-		MACRO(CP_GRAV_U_,      <&macro_tap  &kp GRAV_  &kp LS(U_)>)
+		MACRO(cp_GRAV_E_,      <&macro_tap  &kp GRAV_  &kp LS(E_)>)
+		MACRO(cp_GRAV_O_,      <&macro_tap  &kp GRAV_  &kp LS(O_)>)
+		MACRO(cp_GRAV_U_,      <&macro_tap  &kp GRAV_  &kp LS(U_)>)
 					   
-		MACRO(CP_TILD_A_,      <&macro_tap  &kp TILD_  &kp LS(A_)>)
-		MACRO(CP_TILD_O_,      <&macro_tap  &kp TILD_  &kp LS(O_)>)
-		MACRO(CP_TILD_N_,      <&macro_tap  &kp TILD_  &kp LS(N_)>)
+		MACRO(cp_TILD_A_,      <&macro_tap  &kp TILD_  &kp LS(A_)>)
+		MACRO(cp_TILD_O_,      <&macro_tap  &kp TILD_  &kp LS(O_)>)
+		MACRO(cp_TILD_N_,      <&macro_tap  &kp TILD_  &kp LS(N_)>)
 					   
-		MACRO(CP_TRMA_I_,      <&macro_tap  &kp TRMA_  &kp LS(I_)>)
+		MACRO(cp_TRMA_I_,      <&macro_tap  &kp TRMA_  &kp LS(I_)>)
 		
 		// qu bj (shortcuts for inconvenient sequences)
 		MACRO_SIMPLE(Q_, U_)
