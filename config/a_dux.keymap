@@ -115,7 +115,7 @@
 	};
 
 	macros {
-		#define RELEASE_SHIFT <&macro_release &kp LSHFT &kp RSHFT>
+		// #define RELEASE_SHIFT <&macro_release &kp LSHFT &kp RSHFT>
 		
 		#define MACRO(NAME, BINDINGS...) \
 			ZMK_MACRO(m_##NAME, \
@@ -133,9 +133,9 @@
 		#define MACRO_SIMPLE_SHIFT(FIRST, SECOND) \
 			MACRO(cp_##FIRST##SECOND, <&macro_tap &kp FIRST &kp SECOND>)
 			
-		#define MACRO_ACCENT(FIRST, SECOND) \
-			MACRO_SIMPLE( FIRST, SECOND ) \
-			MACRO_SIMPLE_SHIFT(FIRST, SECOND)
+		// #define MACRO_ACCENT(FIRST, SECOND) \
+		// 	MACRO_SIMPLE( FIRST, SECOND ) \
+		// 	MACRO_SIMPLE_SHIFT(FIRST, SECOND)
 		// #define MACRO_ACCENT(FIRST, SECOND) \
 			// MACRO(FIRST##SECOND, <&macro_tap &kp FIRST &kp SECOND>)
 			
@@ -211,7 +211,7 @@
 		// caps bj (shortcuts for inconvenient sequences)
 		MACRO(cp_qu,        <&macro_tap  &kp LS(Q_) &kp LS(U_)>)
 		MACRO(cp_bj,        <&macro_tap  &kp LS(B_) &kp LS(J_)>)
-		MACRO(cp_tl_n,        <&macro_tap  &kp TILD_ &kp LS(N_)>) 
+		MACRO(cp_tl_n,      <&macro_tap  &kp TILD_ &kp LS(N_)>) 
 		
 		// ãe ão õe		
 		MACRO(ae,           <&macro_tap  &kp TILD_  &kp A_  &kp E_>)
@@ -241,6 +241,7 @@
 		MACRO(spc_togcpwd,  <&macro_tap  &kp SPACE  &tog CPWD>)
 		MACRO(tab_togcpwd,  <&macro_tap  &kp TAB    &tog CPWD>)
 		MACRO(entr_togcpwd, <&macro_tap  &kp ENTER  &tog CPWD>)
+		MACRO(esc_togcpwd,  <&macro_tap  &kp ESC  &tog CPWD>)
 		
 		MACRO(cut_all,   <&macro_tap  &kp LC(A_) &kp LS(X_)>)
 		MACRO(copy_all,  <&macro_tap  &kp LC(A_) &kp LS(C_)>)
@@ -295,8 +296,7 @@
 	              30 31 | 32 33
 	*/
 	
-		COMBO_KP_LAYER(TAB,,      12 13, NOT_CPWD)
-		COMBO_KP_LAYER(ENTER,,    16 17, NOT_CPWD)
+		
 				
 		COMBO_KP(SPACE,l,         11 12 13)
 		COMBO_KP(SPACE,r,         16 17 18)
@@ -305,7 +305,6 @@
 		COMBO(&kp SPACE &kp SPACE &kp SPACE &kp SPACE, 10 11 12 13,       gslqaiogrnqsl) // whatever name)
 		COMBO(&kp SPACE &kp SPACE &kp SPACE &kp SPACE, 15 16 17 18,       rgsaiornqsj)
 		
-		COMBO_KP(ESC,,            10 11)
 		
 		COMBO_KP(BSPC,,           11 12)
 		COMBO_KP(DEL,,            21 22)
@@ -324,8 +323,14 @@
 		COMBO_MACRO_LAYER(cp_ae,, 13 30, CPWD)
 		COMBO_MACRO_LAYER(cp_ao,, 13 11, CPWD)
 		COMBO_MACRO_LAYER(cp_oe,, 11 30, CPWD)
+		
+		COMBO_KP_LAYER(TAB,,      12 13, NOT_CPWD)
+		COMBO_KP_LAYER(ENTER,,    16 17, NOT_CPWD)
+		COMBO_KP_LAYER(ESC,,      10 11, NOT_CPWD)
 		COMBO_MACRO_LAYER(tab_togcpwd,,  12 13, CPWD)
 		COMBO_MACRO_LAYER(entr_togcpwd,, 16 17, CPWD)
+		COMBO_MACRO_LAYER(esc_togcpwd,,  10 11, CPWD)
+		
 		
 		combo_ctrlz {
 			bindings = <&kp LC(Z_)>;
@@ -370,7 +375,7 @@
 		#define _________   &none
 		
 		#define PASTEPLAIN       LC(LG(LA(V_))) // power toys plaintext paste (no &kp bc used in &ht)
-		#define C_S_DEL     &kp  LC(LS(DEL))    // task manager
+		// #define C_S_DEL     &kp  LC(LS(DEL))    // task manager
 		#define RESET_LEFT  &sys_reset
 		
 		// home-row mods
@@ -392,8 +397,8 @@
 		// tap/hold                                // TAP      HOLD
 		#define DLLR_EURO    &mt  	   EURO_ DLLR_ // $        €
 		#define EQUL_DIFF    &mt  	   DIFF_ EQUL_ // =        ≠
-		#define NBSP_QMRK    &ht_qmrk  0 QMRK_     // ?        ■?
-		#define NBSP_EXCL    &ht_excl  0 EXCL_     // !        ■!
+		#define NBSP_QMRK    &ht_qmrk  0 QMRK_     
+		#define NBSP_EXCL    &ht_excl  0 EXCL_    
 		#define DOT_COLN     &ht_coln  0 DOT_      // .        ■:□
 		#define COMM_SCLN    &ht_scln  0 COMM_     // ,        ■;□
 		
@@ -439,7 +444,7 @@
 			>;
 		};
 				
-		num_layer {
+		num_layer { // colocar aqui [], na mão direita eu acho
 			bindings = <
 				_____    &kp N7_  &kp N8_  &kp N9_  _________          _________  DLLR_EURO   &kp  HASH_   &kp  PCNT_   &kp  PIPE_
 				&kp N0_  &kp N1_  &kp N2_  &kp N3_  &kp DOT_		   _________  HMRS PLUS_  HMRC MIN_    HMLA STAR_   HMRG FSLA_
@@ -529,4 +534,3 @@
 			>;
 		*/
 	};
-};
