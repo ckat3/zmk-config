@@ -226,10 +226,10 @@
 		MACRO(cp_sztt,      <&macro_tap  &kp RA(S_)  &kp LS(S_)>)
 		
 		// :;?!«» with nbsp	
-		MACRO(nbsp_qmrk,    <&macro_tap  &kp LS(SPACE)  &kp LS(QMRK_)>,  RELEASE_SHIFT,  <&macro_tap &kp SPACE>)
-		MACRO(nbsp_excl,    <&macro_tap  &kp LS(SPACE)  &kp LS(EXCL_)>,  RELEASE_SHIFT,  <&macro_tap &kp SPACE>)
-		MACRO(nbsp_coln,    <&macro_tap  &kp LS(SPACE)  &kp LS(DOT_)>,   RELEASE_SHIFT,  <&macro_tap &kp SPACE>)
-		MACRO(nbsp_scln,    <&macro_tap  &kp LS(SPACE)  &kp LS(COMM_)>,  RELEASE_SHIFT,  <&macro_tap &kp SPACE>)
+		MACRO(nbsp_qmrk,    <&macro_tap  &kp LS(SPACE)  &kp LS(QMRK_)>,   <&macro_tap &kp SPACE>)
+		MACRO(nbsp_excl,    <&macro_tap  &kp LS(SPACE)  &kp LS(EXCL_)>,   <&macro_tap &kp SPACE>)
+		MACRO(nbsp_coln,    <&macro_tap  &kp LS(SPACE)  &kp LS(DOT_)>,    <&macro_tap &kp SPACE>)
+		MACRO(nbsp_scln,    <&macro_tap  &kp LS(SPACE)  &kp LS(COMM_)>,   <&macro_tap &kp SPACE>)
 		MACRO(nbsp_rglm,    <&macro_tap  &kp LS(SPACE)  &kp RGLM_>)
 		MACRO(nbsp_lglm,    <&macro_tap  &kp LGLM_      &kp LS(SPACE)>)
 		
