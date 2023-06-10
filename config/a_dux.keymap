@@ -130,8 +130,8 @@
 			// MACRO(FIRST##SECOND, <&macro_tap &kp FIRST>, RELEASE_SHIFT, <&macro_tap &kp SECOND>)		
 
 			
-		#define MACRO_SIMPLE_SHIFT(FIRST, SECOND) \
-			MACRO(cp_##FIRST##SECOND, <&macro_tap &kp FIRST &kp SECOND>)
+		// #define MACRO_SIMPLE_SHIFT(FIRST, SECOND) \
+		// 	MACRO(cp_##FIRST##SECOND, <&macro_tap &kp FIRST &kp SECOND>)
 			
 		// #define MACRO_ACCENT(FIRST, SECOND) \
 		// 	MACRO_SIMPLE( FIRST, SECOND ) \
@@ -224,14 +224,7 @@
 		// ß
 		MACRO(eszett,       <&macro_tap  &kp RA(S_)  &kp S_>)		
 		MACRO(cp_sztt,      <&macro_tap  &kp RA(S_)  &kp LS(S_)>)
-		
-		// :;?!«» with nbsp	
-		MACRO(nbsp_qmrk,    <&macro_tap  &kp LS(SPACE)  &kp LS(QMRK_)>,   <&macro_tap &kp SPACE>)
-		MACRO(nbsp_excl,    <&macro_tap  &kp LS(SPACE)  &kp LS(EXCL_)>,   <&macro_tap &kp SPACE>)
-		MACRO(nbsp_coln,    <&macro_tap  &kp LS(SPACE)  &kp LS(DOT_)>,    <&macro_tap &kp SPACE>)
-		MACRO(nbsp_scln,    <&macro_tap  &kp LS(SPACE)  &kp LS(COMM_)>,   <&macro_tap &kp SPACE>)
-		MACRO(nbsp_rglm,    <&macro_tap  &kp LS(SPACE)  &kp RGLM_>)
-		MACRO(nbsp_lglm,    <&macro_tap  &kp LGLM_      &kp LS(SPACE)>)
+
 		
 		// loose ^ and `
 		MACRO(cfxloos,      <&macro_tap  &kp CFLX_  &kp SPACE>)
@@ -406,7 +399,7 @@
 		#define NBSP_RGLM    &ht_rglm  RGLM_ 0     // ■»    »
 		
 		#define HT_CTRZ    &ht  LC(Y_)      LC(Z_) // undo     redo
-		#define HT_CTRV    &ht  &kp PASTEPLAIN  LC(V_) // paste    plaintext paste
+		//#define HT_CTRV    &ht  &kp PASTEPLAIN  LC(V_) // paste    plaintext paste
 		
 		
 		// thumb keys
@@ -428,100 +421,100 @@
 		// todo reorder layers according to thumbs
 		base_layer {
 			bindings = <
-				&kp  Q_   HMRA MIN_   &kp  Y_   DOT_COLN   NBSP_QMRK           &kp K_    &kp  C_    &kp  H_    &kp  W_    &kp  J_
-				HMLG U_   HMLA O_     HMLC I_   HMLS A_    &kp F_            &kp G_    HMRS T_    HMRC R_    HMRA S_    HMRG N_
-				&lt UTIL Z_ HMLC EACT_  &kp  P_   COMM_SCLN  &kp X_            &kp V_    &kp  D_    &kp  M_    &kp  L_  &lt UTIL B_
-															     _DEFAULT_THUMBS_
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+			                   _____   _____         _____   _____
 			>;
 		};
 		
 		caps_word_layer {
 			bindings = <
-				&kp  LS(Q_)	 HMRA MIN_       &kp  LS(Y_)  DOT_COLN     _trans_          &kp LS(K_)   &kp  LS(C_)  &kp  LS(H_)  &kp  LS(W_)  &kp  LS(J_)
-				HMLG LS(U_)	 HMLA LS(O_)	 HMLC LS(I_)  HMLS LS(A_)  &kp LS(F_)         &kp LS(G_)   HMRS LS(T_)  HMRC LS(R_)  HMRA LS(S_)  HMRG LS(N_)
-				&kp  LS(Z_)	 HMLC LS(EACT_)	 &kp  LS(P_)  COMM_SCLN    &kp LS(X_)         &kp LS(V_)   &kp  LS(D_)  &kp  LS(M_)  &kp  LS(L_)  &kp  LS(B_)
-														                     _CAPSWORD_THUMBS_
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+			                   _____   _____         _____   _____
 			>;
 		};
 				
 		num_layer { // colocar aqui [], na mão direita eu acho
 			bindings = <
-				_____    &kp N7_  &kp N8_  &kp N9_  _________          _________  DLLR_EURO   &kp  HASH_   &kp  PCNT_   &kp  PIPE_
-				&kp N0_  &kp N1_  &kp N2_  &kp N3_  &kp DOT_		   _________  HMRS PLUS_  HMRC MIN_    HMLA STAR_   HMRG FSLA_
-				_____    &kp N4_  &kp N5_  &kp N6_  &kp COMM_		   _________  &kp LT_     &kp  GT_	   EQUL_DIFF   &kp  BSLA_
-										   _trans_ 	_trans_             &kp ULIN_  _trans_
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+			                   _____   _____         _____   _____
 			>;
 		};
 		
 		utility_layer {
 			bindings = <
-				_____ _________    _________        _________     _____         _____   _____ _____ _____ _____
-				_____ _________    &kp LS(LC(TAB))  &kp LC(TAB)   _____         _____   _____ _____ _____ _____
-				_____ &kp LG(TAB)  &kp LS(LA(TAB))  &kp LA(TAB)   _____         _____   _____ _____ _____ _____
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
 			                   _____   _____         _____   _____
 			>;
 		};
 		
 		sym_layer {
 			bindings = <
-				&kp AE_		 &kp AT_       &kp AMPR_   &kp OE_     NBSP_EXCL           _________  _________   _________   _________   _________
-				SKLG LBRK_	 SKLA RBRK_    SKLC LPAR_  SKLS RPAR_  &kp MDSH_         _________  HMRS LCRL_  HMRC RCRL_  HMLA _____   HMRG _____
-				&kp NDSH_	 &kp MDSH_     NBSP_LGLM     NBSP_RGLM	   _________         _________  _________   &m_grvloos  &m_cfxloos  _________
-									_trans_ 	&kp ULIN_  _trans_             _trans_
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+			                   _____   _____         _____   _____
 			>;
 		};
 		
 		accent_layer {
 			bindings = <
-				&m_CFLX_U_  &m_CFLX_O_  &m_CFLX_I_  &m_CFLX_A_  _________			_________  &kp  CCED_  &kp  APST_  &kp  QUOT_  &m_B_J_
-				&m_ACUT_U_  &m_ACUT_O_  &m_ACUT_I_  &m_ACUT_A_  &m_TILD_A_			_________  HMRS ACUT_  HMRC GRAV_  HMLA CFLX_  &m_TILD_N_
-				&m_GRAV_U_  &m_TILD_O_  &m_TRMA_I_  &kp AGRV_   _________			_________  &kp  TRMA_  _________   &m_eszett   &kp TILD_
-												    &m_CFLX_E_  &kp EGRV_			_trans_       _trans_
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+			                   _____   _____         _____   _____
 			>;
 		};
 		
 		accent_caps_layer {
 			bindings = <
-				&m_cp_CFLX_U_  &m_cp_CFLX_O_  &m_cp_CFLX_I_  &m_cp_CFLX_A_  _________            _________  &kp  CCED_  &kp  APST_  &kp  QUOT_  &m_cp_bj
-				&m_cp_ACUT_U_  &m_cp_ACUT_O_  &m_cp_ACUT_I_  &m_cp_ACUT_A_  &m_cp_TILD_A_        _________  HMRS ACUT_  HMRC GRAV_  HMLA CFLX_  &m_cp_tl_n
-				&m_cp_GRAV_U_  &m_cp_TILD_O_  &m_cp_TRMA_I_  &kp LS(AGRV_)  _________            _________  &kp  TRMA_  _________   &m_cp_sztt  &kp TILD_
-												             &m_cp_CFLX_E_  &kp LS(EGRV_)        _trans_       _trans_
-			>;                                                                                                        
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+			                   _____   _____         _____   _____
+			>;                                                                                                 
 		};
 		
 		nav_layer { // HMRG LGUI	HMLA LALT	HMLC LCTRL	HMLS LSHIFT	 
 			bindings = <
-				&kp INSERT	&sk RALT	&kp PSCRN	 &kp PSBRK     &none			_________	&kp LC(HOME)  &kp PG_DN	 &kp PG_UP	&kp LC(END)
-				&kp CAPS	&m_cut_all	&m_copy_all  &m_paste_all  &tog CPWD			&kp LC(LEFT)  &kp DOWN	 &kp UP		&kp LC(RIGHT)
-				HT_CTRZ		&kp LC(X_)	&kp LC(C_)	 HT_CTRV       _____    			_________	&kp HOME      &kp LEFT	 &kp RIGHT	&kp END
-													 _trans_        &kp ULIN_			_trans_        _trans_
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+			                   _____   _____         _____   _____
 			>;
 		};
 		
 		func_layer {
 			bindings = <
-				&bt  BT_CLR     &bt  BT_SEL 0   &bt  BT_SEL 1   &bt  BT_SEL 2  &bt BT_SEL 3			RESET_LEFT    &kp F7  &kp F8  &kp F9  &kp F10
-				HMLG C_BRI_UP   HMLA C_NEXT     HMLC C_VOL_UP   HMLS C_PP  	   &kp LSLCK			&out OUT_BLE  &kp F1  &kp F2  &kp F3  &kp F11
-				&kp  C_BRI_DN   &kp  C_PREV     &kp  C_VOL_DN   &kp  C_MUTE    &kp LNLCK			&out OUT_USB  &kp F4  &kp F5  &kp F6  &kp F12
-															                           _DEFAULT_THUMBS_
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+			                   _____   _____         _____   _____
 			>;
 		};
 		
 		game_layer {
 			bindings = <
-				&kp Q_      &kp MIN_   &kp Y_     &kp DOT_    &kp R_            &kp K_     &kp C_     &kp H_     &kp W_     &kp J_
-				&kp U_      &kp O_     &kp I_     &kp A_      &kp F_            &kp G_     &kp LEFT   &kp UP     &kp RIGHT  &kp N_
-				&kp Z_      &kp S_     &kp P_     &kp COMM_	  &kp X_            &tog GAME  &kp D_     &kp DOWN   &kp L_     &kp B_
-											      &kp ENTER   &kp SPACE         &kp TAB    &kp LALT
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+			                   _____   _____         _____   _____
 			>;
 		};
 		
 		game_layer_2 {
 			bindings = <
-				&kp LSHIFT  &kp A_     &kp EACT_  &kp I_      &kp O_            &kp Y_     &kp U_     &kp I_     &kp O_     &kp P_
-				&kp LCTRL   &kp B_     &kp U_     &kp P_      &kp E_            &kp H_     &kp J_     &kp K_     &kp L_     &kp N_
-				&kp ESC     &kp AGRV_  &kp Y_     &kp X_      &kp DOT           &tog GAM2  &kp M_     &kp COMM_	 &kp DOT_   &kp BSPC
-												  &kp ENTER   &kp SPACE         &kp TAB    &kp LALT
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+			                   _____   _____         _____   _____
 			>;
 		};
 		
