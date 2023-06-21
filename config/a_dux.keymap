@@ -447,9 +447,9 @@
 
 		num_layer {
 			bindings = <
-				xxxxx    &kp N7_  &kp N8_  &kp N9_  xxxxxxxxx          xxxxxxxxx   &kp  LBRK_  &kp  RBRK_   &kp  PCNT_   &kp  PIPE_
-				&kp N0_  &kp N1_  &kp N2_  &kp N3_  &kp DOT_		   xxxxxxxxx   HMRS PLUS_  HMRC MIN_    HMLA STAR_   HMRG FSLA_
-				xxxxx    &kp N4_  &kp N5_  &kp N6_  &kp COMM_		   xxxxxxxxx   &kp LT_     &kp  GT_	    EQUL_DIFF    &kp  BSLA_
+				&kp PIPE_  &kp N7_  &kp N8_  &kp N9_  xxxxxxxxx        DLLR_EURO   &kp  LBRK_  &kp  RBRK_   &kp  HASH_   &kp  PCNT_
+				&kp N0_    &kp N1_  &kp N2_  &kp N3_  &kp DOT_		   xxxxxxxxx   HMRS PLUS_  HMRC MIN_    HMLA STAR_   HMRG FSLA_
+				xxxxx      &kp N4_  &kp N5_  &kp N6_  &kp COMM_		   xxxxxxxxx   &kp  LT_    &kp  GT_	    EQUL_DIFF    &kp  BSLA_
 										     _____ 	_________          &kp ULIN_   _________
 			>;
 		};
@@ -465,8 +465,8 @@
 
 		sym_layer {
 			bindings = <
-				&kp AE_		 &kp AT_       xxxxxxxxx   &kp OE_     NBSP_EXCL         xxxxxxxxx   DLLR_EURO    xxxxxxxxx    xxxxxxxxx    xxxxxxxxx
-				SKLG LCRL_	 SKLA RCRL_    SKLC LPAR_  SKLS RPAR_  &kp MDSH_         xxxxxxxxx   HMRS AMPR_   HMRC HASH_   HMLA PCNT_   HMRG PIPE_
+				&kp AE_		 &kp AT_       &kp AMPR_   &kp OE_     NBSP_EXCL         xxxxxxxxx   DLLR_EURO    xxxxxxxxx    xxxxxxxxx    xxxxxxxxx
+				SKLG LCRL_	 SKLA RCRL_    SKLC LPAR_  SKLS RPAR_  &kp MDSH_         xxxxxxxxx   HMRS xxxxx   HMRC xxxxx   HMRA xxxxx   HMRG PIPE_
 				&kp NDSH_	 &kp MDSH_     NBSP_LGLM   NBSP_RGLM   xxxxxxxxx         xxxxxxxxx   xxxxxxxxx    &m_grvloos   &m_cfxloos   xxxxxxxxx
 								                       _________   &kp ULIN_         _________   _________
 			>;
