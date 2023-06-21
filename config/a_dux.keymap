@@ -139,23 +139,10 @@
 			
 		#define MACRO_TAP(NAME, BINDINGS...) \
 			MACRO(NAME, <&macro_tap BINDINGS>)
-		
-		// MACRO(FIRST##SECOND, <&macro_tap &kp FIRST &kp SECOND>)
-
-
-		// #define MACRO_SIMPLE_SHIFT(FIRST, SECOND) \
+					
+		// #define MACRO_SECOND_UPPER(FIRST, SECOND) \
 			// MACRO(cp_##FIRST##SECOND, <&macro_tap &kp FIRST>, <&macro_press &kp LSHFT>, <&macro_tap &kp SECOND>, <&macro_release &kp LSHFT>)
-
-		// #define MACRO_ACCENT(FIRST, SECOND) \
-			// MACRO_SIMPLE_SHIFT(FIRST, SECOND)
-			
-		#define MACRO_SECOND_UPPER(FIRST, SECOND) \
-			MACRO(cp_##FIRST##SECOND, <&macro_tap &kp FIRST>, <&macro_press &kp LSHFT>, <&macro_tap &kp SECOND>, <&macro_release &kp LSHFT>)
-			
-			
-			//MACRO_SIMPLE(FIRST, SECOND) \
-			// MACRO_SIMPLE( FIRST, SECOND )
-			
+						
 		#define MACRO_ACCENT(FIRST, SECOND) \
 			MACRO(FIRST##SECOND, <&macro_tap &kp FIRST &kp SECOND>) \
 			\
@@ -164,68 +151,27 @@
 
 		// accented letters
 		MACRO_ACCENT(ACUT_, A_)
-		MACRO_SECOND_UPPER(ACUT_, I_)
-		MACRO_SECOND_UPPER(ACUT_, O_)
-		MACRO_SECOND_UPPER(ACUT_, U_)
+		MACRO_ACCENT(ACUT_, I_)
+		MACRO_ACCENT(ACUT_, O_)
+		MACRO_ACCENT(ACUT_, U_)
+		
+		MACRO_ACCENT(CFLX_, A_)
+		MACRO_ACCENT(CFLX_, E_)
+		MACRO_ACCENT(CFLX_, I_)
+		MACRO_ACCENT(CFLX_, O_)
+		MACRO_ACCENT(CFLX_, U_)
+		
+		MACRO_ACCENT(GRAV_, E_)
+		MACRO_ACCENT(GRAV_, O_)
+		MACRO_ACCENT(GRAV_, U_)
+		
+		MACRO_ACCENT(TILD_, A_)
+		MACRO_ACCENT(TILD_, O_)
+		MACRO_ACCENT(TILD_, N_)
+		
+		MACRO_ACCENT(TRMA_, I_)
 
-		MACRO_SECOND_UPPER(CFLX_, A_)
-		MACRO_SECOND_UPPER(CFLX_, E_)
-		MACRO_SECOND_UPPER(CFLX_, I_)
-		MACRO_SECOND_UPPER(CFLX_, O_)
-		MACRO_SECOND_UPPER(CFLX_, U_)
-
-		MACRO_SECOND_UPPER(GRAV_, E_)
-		MACRO_SECOND_UPPER(GRAV_, O_)
-		MACRO_SECOND_UPPER(GRAV_, U_)
-
-		MACRO_SECOND_UPPER(TILD_, A_)
-		MACRO_SECOND_UPPER(TILD_, O_)
-		MACRO_SECOND_UPPER(TILD_, N_)
-
-		MACRO_SECOND_UPPER(TRMA_, I_)
-
-		// MACRO_SIMPLE(ACUT_, A_)
-		MACRO_SIMPLE(ACUT_, I_)
-		MACRO_SIMPLE(ACUT_, O_)
-		MACRO_SIMPLE(ACUT_, U_)
-
-		MACRO_SIMPLE(CFLX_, A_)
-		MACRO_SIMPLE(CFLX_, E_)
-		MACRO_SIMPLE(CFLX_, I_)
-		MACRO_SIMPLE(CFLX_, O_)
-		MACRO_SIMPLE(CFLX_, U_)
-
-		MACRO_SIMPLE(GRAV_, O_)
-		MACRO_SIMPLE(GRAV_, U_)
-
-		MACRO_SIMPLE(TILD_, A_)
-		MACRO_SIMPLE(TILD_, O_)
-		MACRO_SIMPLE(TILD_, N_)
-
-		MACRO_SIMPLE(TRMA_, I_)
-
-		// caps accented letters
-		// MACRO_TAP(cp_ACUT_A_,  &kp ACUT_  &kp LS(A_))
-		// MACRO_TAP(cp_ACUT_I_,  &kp ACUT_  &kp LS(I_))
-		// MACRO_TAP(cp_ACUT_O_,  &kp ACUT_  &kp LS(O_))
-		// MACRO_TAP(cp_ACUT_U_,  &kp ACUT_  &kp LS(U_))
-						  
-		// MACRO_TAP(cp_CFLX_A_,  &kp CFLX_  &kp LS(A_))
-		// MACRO_TAP(cp_CFLX_E_,  &kp CFLX_  &kp LS(E_))
-		// MACRO_TAP(cp_CFLX_I_,  &kp CFLX_  &kp LS(I_))
-		// MACRO_TAP(cp_CFLX_O_,  &kp CFLX_  &kp LS(O_))
-		// MACRO_TAP(cp_CFLX_U_,  &kp CFLX_  &kp LS(U_))
-							  
-		// MACRO_TAP(cp_GRAV_E_,  &kp GRAV_  &kp LS(E_))
-		// MACRO_TAP(cp_GRAV_O_,  &kp GRAV_  &kp LS(O_))
-		// MACRO_TAP(cp_GRAV_U_,  &kp GRAV_  &kp LS(U_))
-						  
-		// MACRO_TAP(cp_TILD_A_,  &kp TILD_  &kp LS(A_))
-		// MACRO_TAP(cp_TILD_O_,  &kp TILD_  &kp LS(O_))
-		// MACRO_TAP(cp_TILD_N_,  &kp TILD_  &kp LS(N_))
-					  
-		// MACRO_TAP(cp_TRMA_I_,  &kp TRMA_  &kp LS(I_))
-
+		// TODO use MACRO_ACCENT here
 
 		/* qu  */  MACRO_SIMPLE(Q_, U_)
 		/* bj  */  MACRO_SIMPLE(B_, J_)
