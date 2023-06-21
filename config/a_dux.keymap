@@ -265,9 +265,9 @@
 		MACRO_TAP(esc_cpwd,  &kp ESC    &tog CPWD)
 		
 		// used with security_hold
-		MACRO_TAP(cut_all,    <&macro_tap  &kp LC(A_)>,  <&macro_pause_for_release>,  <&macro_tap  &kp LC(X_)>)
-		MACRO_TAP(copy_all,   <&macro_tap  &kp LC(A_)>,  <&macro_pause_for_release>,  <&macro_tap  &kp LC(C_)>)
-		MACRO_TAP(paste_all,  <&macro_tap  &kp LC(A_)>,  <&macro_pause_for_release>,  <&macro_tap  &kp LC(V_)>)
+		MACRO(cut_all,    <&macro_tap  &kp LC(A_)>,  <&macro_pause_for_release>,  <&macro_tap  &kp LC(X_)>)
+		MACRO(copy_all,   <&macro_tap  &kp LC(A_)>,  <&macro_pause_for_release>,  <&macro_tap  &kp LC(C_)>)
+		MACRO(paste_all,  <&macro_tap  &kp LC(A_)>,  <&macro_pause_for_release>,  <&macro_tap  &kp LC(V_)>)
 		
 		// doesn't work but maybe one day
 		// MACRO(ctrltab,   <&macro_press &kp LCTRL>,           <&macro_tap &kp TAB>,  <&macro_pause_for_release>,  <&macro_release &kp LCTRL>)
@@ -393,24 +393,24 @@
 		#define SKLA    &htsk   LALT
 		#define SKLG    &htsk   LGUI
 
-		// tap/hold  (□ = space, ■ = nbsp)             // TAP      HOLD
-		#define DLLR_EURO   &mt        EURO_ DLLR_     //  $        €
-		#define EQUL_DIFF   &mt        DIFF_ EQUL_     //  =        ≠
-													   
-		#define NBSP_QMRK   &ht_qmrk   0     QMRK_     // (?)       ■?
-		#define NBSP_EXCL   &ht_excl   0     EXCL_     // (!)       ■!
-		#define DOT_COLN    &ht_coln   0     DOT_      // (.)       ■:□
-		#define COMM_SCLN   &ht_scln   0     COMM_     // (,)       ■;□
-									  	     	       
-		#define NBSP_LGLM   &ht_lglm   LGLM_ 0         // «■       («)
-		#define NBSP_RGLM   &ht_rglm   RGLM_ 0         //  ■»      (»)
+		// tap/hold  (□ = space, ■ = nbsp)              // TAP    HOLD
+		#define DLLR_EURO   &htslow    EURO_  DLLR_     //  $     €
+		#define EQUL_DIFF   &htslow    DIFF_  EQUL_     //  =     ≠
+											 		   
+		#define NBSP_QMRK   &ht_qmrk   0      QMRK_     // (?)    ■?
+		#define NBSP_EXCL   &ht_excl   0      EXCL_     // (!)    ■!
+		#define DOT_COLN    &ht_coln   0      DOT_      // (.)    ■:□
+		#define COMM_SCLN   &ht_scln   0      COMM_     // (,)    ■;□
+									  	      	       
+		#define NBSP_LGLM   &ht_lglm   LGLM_  0         // «■     («)
+		#define NBSP_RGLM   &ht_rglm   RGLM_  0         //  ■»    (»)
 
-		#define CUT_ALL     &sechold_cutall   0 LC(A_) // ^A        cut   all	// DANGEROUS STUFF!
-		#define COPY_ALL    &sechold_copyall  0 LC(A_) // ^A        copy  all	//  must hold for
-		#define PASTE_ALL   &sechold_pasteall 0 LC(A_) // ^A        paste all	//  very long time
-												    
-		// #define HT_CTRZ      &ht     LC(Y_)  LC(Z_)  // ^Z       ^Y
-		// #define HT_CTRV      &ht PASTEPLAIN  LC(V_)  // ^V       plaintext paste (powertoys)
+		#define CUT_ALL     &sechold_cutall   0 &none   //         cut   all	// DANGEROUS STUFF!
+		#define COPY_ALL    &sechold_copyall  0 &none   //         copy  all	//  must hold for
+		#define PASTE_ALL   &sechold_pasteall 0 &none   //         paste all	//  very long time
+															      
+		// #define HT_CTRZ      &ht     LC(Y_)  LC(Z_)  // ^Z      ^Y
+		// #define HT_CTRV      &ht PASTEPLAIN  LC(V_)  // ^V      plaintext paste (powertoys)
 
 		// thumb keys
 		#define TH_L_MAIN      &lt   NUM E_
