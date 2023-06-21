@@ -428,77 +428,47 @@
 		// todo reorder layers according to thumbs
 		base_layer {
 			bindings = <
-				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
-				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
-				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
-			                   _____   _____         _____   _____
+				&kp  Q_   HMRA MIN_   &kp  Y_   DOT_COLN   NBSP_QMRK           &kp K_    &kp  C_    &kp  H_    &kp  W_    &kp  J_
+				HMLG U_   HMLA O_     HMLC I_   HMLS A_    &kp F_            &kp G_    HMRS T_    HMRC R_    HMRA S_    HMRG N_
+				&lt UTIL Z_ HMLC EACT_  &kp  P_   COMM_SCLN  &kp X_            &kp V_    &kp  D_    &kp  M_    &kp  L_  &lt UTIL B_
+															     _DEFAULT_THUMBS_
 			>;
-			// bindings = <
-			// 	&kp  Q_   HMRA MIN_   &kp  Y_   DOT_COLN   NBSP_QMRK           &kp K_    &kp  C_    &kp  H_    &kp  W_    &kp  J_
-			// 	HMLG U_   HMLA O_     HMLC I_   HMLS A_    &kp F_            &kp G_    HMRS T_    HMRC R_    HMRA S_    HMRG N_
-			// 	&lt UTIL Z_ HMLC EACT_  &kp  P_   COMM_SCLN  &kp X_            &kp V_    &kp  D_    &kp  M_    &kp  L_  &lt UTIL B_
-			// 												     _DEFAULT_THUMBS_
-			// >;
 		};
 
 		caps_word_layer {
 			bindings = <
-				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
-				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
-				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
-			                   _____   _____         _____   _____
+				&kp  LS(Q_)	 HMRA MIN_       &kp  LS(Y_)  DOT_COLN     _trans_          &kp LS(K_)   &kp  LS(C_)  &kp  LS(H_)  &kp  LS(W_)  &kp  LS(J_)
+				HMLG LS(U_)	 HMLA LS(O_)	 HMLC LS(I_)  HMLS LS(A_)  &kp LS(F_)         &kp LS(G_)   HMRS LS(T_)  HMRC LS(R_)  HMRA LS(S_)  HMRG LS(N_)
+				&kp  LS(Z_)	 HMLC LS(EACT_)	 &kp  LS(P_)  COMM_SCLN    &kp LS(X_)         &kp LS(V_)   &kp  LS(D_)  &kp  LS(M_)  &kp  LS(L_)  &kp  LS(B_)
+														                     _CAPSWORD_THUMBS_
 			>;
-			// bindings = <
-			// 	&kp  LS(Q_)	 HMRA MIN_       &kp  LS(Y_)  DOT_COLN     _trans_          &kp LS(K_)   &kp  LS(C_)  &kp  LS(H_)  &kp  LS(W_)  &kp  LS(J_)
-			// 	HMLG LS(U_)	 HMLA LS(O_)	 HMLC LS(I_)  HMLS LS(A_)  &kp LS(F_)         &kp LS(G_)   HMRS LS(T_)  HMRC LS(R_)  HMRA LS(S_)  HMRG LS(N_)
-			// 	&kp  LS(Z_)	 HMLC LS(EACT_)	 &kp  LS(P_)  COMM_SCLN    &kp LS(X_)         &kp LS(V_)   &kp  LS(D_)  &kp  LS(M_)  &kp  LS(L_)  &kp  LS(B_)
-			// 											                     _CAPSWORD_THUMBS_
-			// >;
 		};
 
 		num_layer { // colocar aqui [], na mão direita eu acho
 			bindings = <
-				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
-				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
-				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
-			                   _____   _____         _____   _____
+				_____    &kp N7_  &kp N8_  &kp N9_  _________          _________  DLLR_EURO   &kp  HASH_   &kp  PCNT_   &kp  PIPE_
+				&kp N0_  &kp N1_  &kp N2_  &kp N3_  &kp DOT_		   _________  HMRS PLUS_  HMRC MIN_    HMLA STAR_   HMRG FSLA_
+				_____    &kp N4_  &kp N5_  &kp N6_  &kp COMM_		   _________  &kp LT_     &kp  GT_	   EQUL_DIFF   &kp  BSLA_
+										   _trans_ 	_trans_             &kp ULIN_  _trans_
 			>;
-			// bindings = <
-			// 	_____    &kp N7_  &kp N8_  &kp N9_  _________          _________  DLLR_EURO   &kp  HASH_   &kp  PCNT_   &kp  PIPE_
-			// 	&kp N0_  &kp N1_  &kp N2_  &kp N3_  &kp DOT_		   _________  HMRS PLUS_  HMRC MIN_    HMLA STAR_   HMRG FSLA_
-			// 	_____    &kp N4_  &kp N5_  &kp N6_  &kp COMM_		   _________  &kp LT_     &kp  GT_	   EQUL_DIFF   &kp  BSLA_
-			// 							   _trans_ 	_trans_             &kp ULIN_  _trans_
-			// >;
 		};
 
 		utility_layer {
 			bindings = <
-				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
-				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
-				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
+				_____ _________    _________        _________     _____         _____   _____ _____ _____ _____
+				_____ _________    &kp LS(LC(TAB))  &kp LC(TAB)   _____         _____   _____ _____ _____ _____
+				_____ &kp LG(TAB)  &kp LS(LA(TAB))  &kp LA(TAB)   _____         _____   _____ _____ _____ _____
 			                   _____   _____         _____   _____
 			>;
-			// bindings = <
-			// 	_____ _________    _________        _________     _____         _____   _____ _____ _____ _____
-			// 	_____ _________    &kp LS(LC(TAB))  &kp LC(TAB)   _____         _____   _____ _____ _____ _____
-			// 	_____ &kp LG(TAB)  &kp LS(LA(TAB))  &kp LA(TAB)   _____         _____   _____ _____ _____ _____
-			//                    _____   _____         _____   _____
-			// >;
 		};
 
 		sym_layer {
 			bindings = <
-				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
-				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
-				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
-			                   _____   _____         _____   _____
+				&kp AE_		 &kp AT_       &kp AMPR_   &kp OE_     NBSP_EXCL           _________  _________   _________   _________   _________
+				SKLG LBRK_	 SKLA RBRK_    SKLC LPAR_  SKLS RPAR_  &kp MDSH_         _________  HMRS LCRL_  HMRC RCRL_  HMLA _____   HMRG _____
+				&kp NDSH_	 &kp MDSH_     NBSP_LGLM     NBSP_RGLM	   _________         _________  _________   &m_grvloos  &m_cfxloos  _________
+									_trans_ 	&kp ULIN_  _trans_             _trans_
 			>;
-			// bindings = <
-			// 	&kp AE_		 &kp AT_       &kp AMPR_   &kp OE_     NBSP_EXCL           _________  _________   _________   _________   _________
-			// 	SKLG LBRK_	 SKLA RBRK_    SKLC LPAR_  SKLS RPAR_  &kp MDSH_         _________  HMRS LCRL_  HMRC RCRL_  HMLA _____   HMRG _____
-			// 	&kp NDSH_	 &kp MDSH_     NBSP_LGLM     NBSP_RGLM	   _________         _________  _________   &m_grvloos  &m_cfxloos  _________
-			// 						_trans_ 	&kp ULIN_  _trans_             _trans_
-			// >;
 		};
 
 		accent_layer {
@@ -516,19 +486,13 @@
 			// >;
 		};
 
-		accent_caps_layer {
+		// accent_caps_layer {
 			bindings = <
-				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
-				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
-				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
-			                   _____   _____         _____   _____
+				&m_cp_CFLX_U_  &m_cp_CFLX_O_  &m_cp_CFLX_I_  &m_cp_CFLX_A_  _________            _________  &kp  CCED_  &kp  APST_  &kp  QUOT_  &m_cp_bj
+				&m_cp_ACUT_U_  &m_cp_ACUT_O_  &m_cp_ACUT_I_  &m_cp_ACUT_A_  &m_cp_TILD_A_        _________  HMRS ACUT_  HMRC GRAV_  HMLA CFLX_  &m_cp_tl_n
+				&m_cp_GRAV_U_  &m_cp_TILD_O_  &m_cp_TRMA_I_  &kp LS(AGRV_)  _________            _________  &kp  TRMA_  _________   &m_cp_sztt  &kp TILD_
+												             &m_cp_CFLX_E_  &kp LS(EGRV_)        _trans_       _trans_
 			>;
-			// bindings = <
-			// 	&m_cp_CFLX_U_  &m_cp_CFLX_O_  &m_cp_CFLX_I_  &m_cp_CFLX_A_  _________            _________  &kp  CCED_  &kp  APST_  &kp  QUOT_  &m_cp_bj
-			// 	&m_cp_ACUT_U_  &m_cp_ACUT_O_  &m_cp_ACUT_I_  &m_cp_ACUT_A_  &m_cp_TILD_A_        _________  HMRS ACUT_  HMRC GRAV_  HMLA CFLX_  &m_cp_tl_n
-			// 	&m_cp_GRAV_U_  &m_cp_TILD_O_  &m_cp_TRMA_I_  &kp LS(AGRV_)  _________            _________  &kp  TRMA_  _________   &m_cp_sztt  &kp TILD_
-			// 									             &m_cp_CFLX_E_  &kp LS(EGRV_)        _trans_       _trans_
-			// >;
 		};
 
 		nav_layer { // HMRG LGUI	HMLA LALT	HMLC LCTRL	HMLS LSHIFT
