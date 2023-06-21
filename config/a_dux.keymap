@@ -91,7 +91,7 @@
 		// HOLDTAP(ht_iact, <&kp>, <&m_ACUT_I_>) // í               &kp
 
 
-		// home-row mods               // PRESS           HOLD
+		// home-row mods                    // PRESS           HOLD
 		HOLDTAP(      ht,     <&kp>, <&kp>) // &kp             &kp
 		HOLDTAP_SLOW( htslow, <&kp>, <&kp>)
 		HOLDTAP(      htsk,   <&sk>, <&kp>) // &kp             sticky layer
@@ -210,7 +210,7 @@
 			   
 		/* QU  */  MACRO(cp_qu,        <&macro_tap  &kp LS(Q_) &kp LS(U_)>)
 		/* BJ  */  MACRO(cp_bj,        <&macro_tap  &kp LS(B_) &kp LS(J_)>)
-		/*  Ñ  */  MACRO(cp_tl_n,      <&macro_tap  &kp TILD_ &kp LS(N_)>)
+		/*  Ñ  */  MACRO(cp_tl_n,      <&macro_tap  &kp TILD_  &kp LS(N_)>)
 			  		
 			  		
 		/* ãe  */  MACRO(ae,           <&macro_tap  &kp TILD_  &kp A_  &kp E_>)
@@ -221,11 +221,11 @@
 		/* ÃO  */  MACRO(cp_ao,        <&macro_tap  &kp TILD_  &kp LS(A_)  &kp LS(O_)>)
 		/* ÕE  */  MACRO(cp_oe,        <&macro_tap  &kp TILD_  &kp LS(O_)  &kp LS(E_)>)
 				
-		/*  ß  */  MACRO(eszett,       <&macro_tap  &kp RA(S_)  &kp S_>)
+		/*  ß  */  MACRO(eszett,       <&macro_tap  &kp RA(S_)  &kp    S_>)
 		/*  ẞ  */  MACRO(cp_sztt,      <&macro_tap  &kp RA(S_)  &kp LS(S_)>)
 
 		/* ■?  */  MACRO(nbsp_qmrk,    <&macro_tap  &kp LS(SPACE)  &kp LS(QMRK_))
-		/* ■!  */  MACRO(nbsp_excl,    <&macro_tap  &kp LS(SPACE)  &kp LS(EXCL_))
+		/* ■!  */  MACRO(nbsp_excl,    <&macro_tap  &kp LS(SPACE)  &kp LS(EXCL_)>)
 		/* ■:□ */  MACRO(nbsp_coln,    <&macro_tap  &kp LS(SPACE)  &kp LS(DOT_)   &kp SPACE>)
 		/* ■;□ */  MACRO(nbsp_scln,    <&macro_tap  &kp LS(SPACE)  &kp LS(COMM_)  &kp SPACE>)
 		/* ■»□ */  MACRO(nbsp_rglm,    <&macro_tap  &kp LS(SPACE)  &kp RGLM_>)
@@ -398,6 +398,7 @@
 		// tap/hold                                  // TAP      HOLD
 		#define DLLR_EURO    &mt        EURO_ DLLR_  //  $        €
 		#define EQUL_DIFF    &mt        DIFF_ EQUL_  //  =        ≠
+		
 		#define NBSP_QMRK    &ht_qmrk   0     QMRK_  // (?)       ■?
 		#define NBSP_EXCL    &ht_excl   0     EXCL_  // (!)       ■!
 		#define DOT_COLN     &ht_coln   0     DOT_   // (.)       ■:□
@@ -406,8 +407,8 @@
 		#define NBSP_LGLM    &ht_lglm   LGLM_ 0      // «■       («)
 		#define NBSP_RGLM    &ht_rglm   RGLM_ 0      // ■»       (»)
 												    
-		#define HT_CTRZ      &ht     LC(Y_)  LC(Z_)  // undo     redo
-		#define HT_CTRV      &ht PASTEPLAIN  LC(V_)  // paste    plaintext paste (powertoys)
+		#define HT_CTRZ      &ht     LC(Y_)  LC(Z_)  // ^Z       ^Y
+		#define HT_CTRV      &ht PASTEPLAIN  LC(V_)  // ^V       plaintext paste (powertoys)
 
 
 		// thumb keys
@@ -442,7 +443,7 @@
 				&kp  LS(Q_)	 HMRA MIN_       &kp  LS(Y_)  DOT_COLN     _________          &kp LS(K_)   &kp  LS(C_)  &kp  LS(H_)  &kp  LS(W_)  &kp  LS(J_)
 				HMLG LS(U_)	 HMLA LS(O_)	 HMLC LS(I_)  HMLS LS(A_)  &kp LS(F_)         &kp LS(G_)   HMRS LS(T_)  HMRC LS(R_)  HMRA LS(S_)  HMRG LS(N_)
 				&kp  LS(Z_)	 HMLC LS(EACT_)	 &kp  LS(P_)  COMM_SCLN    &kp LS(X_)         &kp LS(V_)   &kp  LS(D_)  &kp  LS(M_)  &kp  LS(L_)  &kp  LS(B_)
-														              _CAPSWORD_THUMBS_
+														                     _CAPSWORD_THUMBS_
 			>;
 		};
 
