@@ -443,7 +443,7 @@
 		#define _THUMBS_LEFT_         TH_L_MAIN    TH_L_AUX
 		#define _THUMBS_RIGHT_                                      TH_R_AUX  TH_R_MAIN
 		#define _THUMBS_DEFAULT_          _THUMBS_LEFT_                _THUMBS_RIGHT_
-		
+	
 
 
 		// todo reorder layers according to thumbs
@@ -526,7 +526,7 @@
 			bindings = <
 				&kp xxxxx	CUT_ALL	    COPY_ALL     PASTE_ALL     C_S_DEL				&sk RALT	HMLS LC(HOME)  HMLC PG_DN	HMLA PG_UP   HMRG LC(END)
 				HMLG LC(Y_) HMLA INSERT	HMLC PSCRN	 HMLS PSBRK    &kp CAPS	  			&tog CPWD   &kp  LC(LEFT)  &kp  DOWN	&kp  UP	     &kp  LC(RIGHT)
-				&kp  LC(Z_)	&kp  LC(X_)	&kp  LC(C_)	 &kp  LC(C_)   PASTEPLAIN	        xxxxxxxxx   &kp  HOME      &kp  LEFT	&kp  RIGHT   &kp  END
+				&kp  LC(Z_)	&kp  LC(X_)	&kp  LC(C_)	 &kp  LC(V_)   PASTEPLAIN	        xxxxxxxxx   &kp  HOME      &kp  LEFT	&kp  RIGHT   &kp  END
 				//
 												                           _THUMBS_DEFAULT_
 			>;
