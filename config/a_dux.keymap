@@ -441,8 +441,11 @@
 
 
                                       // --- left hand --- //      // --- right hand --- //
-		#define _DEFAULT_THUMBS_      TH_L_MAIN     TH_L_AUX       TH_R_AUX  TH_R_MAIN
-		#define _CAPSWORD_THUMBS_     TH_L_MAIN_CW     _____       _____     TH_R_MAIN_CW
+		#define _THUMBS_CAPSWORD_     TH_L_MAIN_CW _________       _________  TH_R_MAIN_CW
+		#define _THUMBS_LEFT_         TH_L_MAIN    TH_L_AUX
+		#define _THUMBS_RIGHT_                                      TH_R_AUX  TH_R_MAIN
+		#define _THUMBS_DEFAULT_          _THUMBS_LEFT_                _THUMBS_RIGHT_
+		
 
 
 		// todo reorder layers according to thumbs
@@ -451,7 +454,8 @@
 				&kp  Q_       HMRA MIN_    &kp  Y_   DOT_COLN   NBSP_QMRK         &kp K_    &kp  C_    &kp  H_    &kp  W_    &kp  J_
 				HMLG U_       HMLA O_      HMLC I_   HMLS A_    &kp F_            &kp G_    HMRS T_    HMRC R_    HMRA S_    HMRG N_
 				&lt UTIL Z_   HMLC EACT_   &kp  P_   COMM_SCLN  &kp X_            &kp V_    &kp  D_    &kp  M_    &kp  L_    &lt UTIL B_
-															          _DEFAULT_THUMBS_
+				//
+															          _THUMBS_DEFAULT_
 			>;
 		};
 
@@ -460,7 +464,8 @@
 				&kp  LS(Q_)	 HMRA MIN_       &kp  LS(Y_)  DOT_COLN     _________          &kp LS(K_)   &kp  LS(C_)  &kp  LS(H_)  &kp  LS(W_)  &kp  LS(J_)
 				HMLG LS(U_)	 HMLA LS(O_)	 HMLC LS(I_)  HMLS LS(A_)  &kp LS(F_)         &kp LS(G_)   HMRS LS(T_)  HMRC LS(R_)  HMRA LS(S_)  HMRG LS(N_)
 				&kp  LS(Z_)	 HMLC LS(EACT_)	 &kp  LS(P_)  COMM_SCLN    &kp LS(X_)         &kp LS(V_)   &kp  LS(D_)  &kp  LS(M_)  &kp  LS(L_)  &kp  LS(B_)
-														                     _CAPSWORD_THUMBS_
+				//
+														                     _THUMBS_CAPSWORD_
 			>;
 		};
 
@@ -469,7 +474,8 @@
 				&kp PIPE_  &kp N7_  &kp N8_  &kp N9_   xxxxxxxxx       DLLR_EURO   &kp  LBRK_  &kp  RBRK_   &kp  HASH_   &kp  PCNT_
 				&kp N0_    &kp N1_  &kp N2_  &kp N3_   &kp DOT_		   xxxxxxxxx   HMRS PLUS_  HMRC MIN_    HMLA STAR_   HMRG FSLA_
 				xxxxxxxxx  &kp N4_  &kp N5_  &kp N6_   &kp COMM_	   xxxxxxxxx   &kp  LT_    &kp  GT_	    EQUL_DIFF    &kp  BSLA_
-				                           _________   _________       &kp ULIN_   _________
+				//
+				                                   _THUMBS_LEFT_       &kp ULIN_   _________
 			>;
 		};
 
@@ -478,6 +484,7 @@
 				xxxxxxxxx   xxxxxxxxx     xxxxxxxxx    xxxxxxxxx   xxxxx         xxxxx   xxxxx xxxxx xxxxx xxxxx
 				xxxxxxxxx   xxxxxxxxx     &m_ctshtab   &m_ctrltab  xxxxx         xxxxx   xxxxx xxxxx xxxxx xxxxx
 				xxxxxxxxx   &kp LG(TAB)   &m_altshtab  &m_alttab   xxxxx         xxxxx   xxxxx xxxxx xxxxx xxxxx
+				//
 			                                               xxxxx   xxxxx         xxxxx   xxxxx
 			>;
 				// xxxxxxxxx   xxxxxxxxx     xxxxxxxxx         xxxxxxxxx     xxxxx         xxxxx   xxxxx xxxxx xxxxx xxxxx
@@ -492,7 +499,8 @@
 				&kp AE_		 &kp AT_       &kp AMPR_   &kp OE_     NBSP_EXCL         xxxxxxxxx   DLLR_EURO    xxxxxxxxx    xxxxxxxxx    xxxxxxxxx
 				SKLG LCRL_	 SKLA RCRL_    SKLC LPAR_  SKLS RPAR_  &kp MDSH_         xxxxxxxxx   HMRS xxxxx   HMRC xxxxx   HMRA xxxxx   HMRG PIPE_
 				&kp NDSH_	 &kp MDSH_     NBSP_LGLM   NBSP_RGLM   xxxxxxxxx         xxxxxxxxx   xxxxxxxxx    &m_grvloos   &m_cfxloos   xxxxxxxxx
-								                       _________   &kp ULIN_         _________   _________
+				//
+								                       _________   &kp ULIN_         _THUMBS_RIGHT_
 			>;
 		};
 
@@ -501,7 +509,8 @@
 				&m_CFLX_U_  &m_CFLX_O_  &m_CFLX_I_  &m_CFLX_A_  xxxxxxxxx			xxxxxxxxx  &kp  CCED_  &kp  APST_  &kp  QUOT_  &m_B_J_
 				&m_ACUT_U_  &m_ACUT_O_  &m_ACUT_I_  &m_ACUT_A_  &m_TILD_A_			xxxxxxxxx  HMRS ACUT_  HMRC GRAV_  HMLA CFLX_  &m_TILD_N_
 				&m_GRAV_U_  &m_TILD_O_  &m_TRMA_I_  &kp AGRV_   xxxxxxxxx			xxxxxxxxx  &kp  TRMA_  xxxxxxxxx   &m_eszett   &kp TILD_
-												    &m_CFLX_E_  &kp EGRV_			_________  _________
+				//
+												    &m_CFLX_E_  &kp EGRV_			_THUMBS_RIGHT_
 			>;
 		};
 
@@ -510,16 +519,18 @@
 				&m_cp_CFLX_U_  &m_cp_CFLX_O_  &m_cp_CFLX_I_  &m_cp_CFLX_A_   xxxxxxxxx            xxxxxxxxx   &kp  CCED_  &kp  APST_  &kp  QUOT_  &m_cp_bj
 				&m_cp_ACUT_U_  &m_cp_ACUT_O_  &m_cp_ACUT_I_  &m_cp_ACUT_A_   &m_cp_TILD_A_        xxxxxxxxx   HMRS ACUT_  HMRC GRAV_  HMLA CFLX_  &m_cp_tl_n
 				&m_cp_GRAV_U_  &m_cp_TILD_O_  &m_cp_TRMA_I_  &kp LS(AGRV_)   xxxxxxxxx            xxxxxxxxx   &kp  TRMA_  xxxxxxxxx   &m_cp_sztt  &kp TILD_
-												             &m_cp_CFLX_E_   &kp LS(EGRV_)        _________  _________
+				//
+												             &m_cp_CFLX_E_   &kp LS(EGRV_)        _THUMBS_RIGHT_
 			>;
 		};
 
-		nav_layer { // HMRG LGUI	HMLA LALT	HMLC LCTRL	HMLS LSHIFT
+		nav_layer {
 			bindings = <
 				&kp xxxxx	CUT_ALL	    COPY_ALL     PASTE_ALL     C_S_DEL				&sk RALT	HMLS LC(HOME)  HMLC PG_DN	HMLA PG_UP   HMRG LC(END)
 				HMLG LC(Y_) HMLA INSERT	HMLC PSCRN	 HMLS PSBRK    &kp CAPS	  			&tog CPWD   &kp  LC(LEFT)  &kp  DOWN	&kp  UP	     &kp  LC(RIGHT)
 				&kp  LC(Z_)	&kp  LC(X_)	&kp  LC(C_)	 &kp  LC(C_)   PASTEPLAIN	        xxxxxxxxx   &kp  HOME      &kp  LEFT	&kp  RIGHT   &kp  END
-												       _________    _________			_________   _________
+				//
+												                           _THUMBS_DEFAULT_
 			>;
 		};
 
@@ -528,7 +539,8 @@
 				&bt  BT_CLR     &bt  BT_SEL 0   &bt  BT_SEL 1   &bt  BT_SEL 2  &bt BT_SEL 3			RESET_LEFT    &kp F7  &kp F8  &kp F9  &kp F10
 				HMLG C_BRI_UP   HMLA C_NEXT     HMLC C_VOL_UP   HMLS C_PP  	   &kp LSLCK			&out OUT_BLE  &kp F1  &kp F2  &kp F3  &kp F11
 				&kp  C_BRI_DN   &kp  C_PREV     &kp  C_VOL_DN   &kp  C_MUTE    &kp LNLCK			&out OUT_USB  &kp F4  &kp F5  &kp F6  &kp F12
-															                           _DEFAULT_THUMBS_
+				//
+															                           _THUMBS_DEFAULT_
 			>;
 		};
 
@@ -537,6 +549,7 @@
 				&kp Q_      &kp MIN_   &kp Y_     &kp DOT_    &kp R_            &kp  K_     &kp C_     &kp H_     &kp W_     &kp J_
 				&kp U_      &kp O_     &kp I_     &kp A_      &kp F_            &kp  G_     &kp LEFT   &kp UP     &kp RIGHT  &kp N_
 				&kp Z_      &kp S_     &kp P_     &kp COMM_	  &kp X_            &tog GAME   &kp D_     &kp DOWN   &kp L_     &kp B_
+				//
 											      &kp ENTER   &kp SPACE         &kp  TAB    &kp LALT
 			>;
 		};
@@ -546,6 +559,7 @@
 				&kp LSHIFT  &kp A_     &kp EACT_  &kp I_      &kp O_            &kp  Y_    &kp U_     &kp I_     &kp O_     &kp P_
 				&kp LCTRL   &kp B_     &kp U_     &kp P_      &kp E_            &kp  H_    &kp J_     &kp K_     &kp L_     &kp N_
 				&kp ESC     &kp AGRV_  &kp Y_     &kp X_      &kp DOT           &tog GAM2  &kp M_     &kp COMM_	 &kp DOT_   &kp BSPC
+				//
 												  &kp ENTER   &kp SPACE         &kp  TAB   &kp LALT
 			>;
 		};
