@@ -260,9 +260,9 @@
 		MACRO_TAP(esc_cpwd,  &kp ESC    &tog CPWD)
 		
 		// used with security_hold
-		MACRO_TAP(cut_all,    &kp LC(A_)  &kp X_)
-		MACRO_TAP(copy_all,   &kp LC(A_)  &kp C_)
-		MACRO_TAP(paste_all,  &kp LC(A_)  &kp V_)
+		MACRO_TAP(cut_all,    &kp LC(A_)  &kp LC(X_))
+		MACRO_TAP(copy_all,   &kp LC(A_)  &kp LC(C_))
+		MACRO_TAP(paste_all,  &kp LC(A_)  &kp LC(V_))
 		
 		// doesn't work but maybe one day
 		// MACRO(ctrltab,   <&macro_press &kp LCTRL>,           <&macro_tap &kp TAB>,  <&macro_pause_for_release>,  <&macro_release &kp LCTRL>)
