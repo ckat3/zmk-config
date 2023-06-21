@@ -156,7 +156,7 @@
 
 
 		// accented letters
-		MACRO_ACCENT(ACUT_, A_)
+		MACRO_SIMPLE_SHIFT(ACUT_, A_)
 		MACRO_ACCENT(ACUT_, I_)
 		MACRO_ACCENT(ACUT_, O_)
 		MACRO_ACCENT(ACUT_, U_)
