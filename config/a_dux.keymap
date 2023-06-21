@@ -136,6 +136,9 @@
 		// names the macro "m_FIRST##SECOND", eg "m_Q_U_"
 		#define MACRO_SIMPLE(FIRST, SECOND) \
 			MACRO(FIRST##SECOND, <&macro_tap &kp FIRST>, RELEASE_SHIFT, <&macro_tap &kp SECOND>)
+			
+		#define MACRO_TAP(FIRST, SECOND) \
+			MACRO(FIRST##SECOND, <&macro_tap BINDINGS>)
 		
 		// MACRO(FIRST##SECOND, <&macro_tap &kp FIRST &kp SECOND>)
 
@@ -193,7 +196,7 @@
 		MACRO_SIMPLE(TRMA_, I_)
 
 		// // caps accented letters
-		MACRO(cp_ACUT_A_,   <&macro_tap  &kp ACUT_  &kp LS(A_)>)
+		MACRO_TAP(cp_ACUT_A_,   &kp ACUT_  &kp LS(A_))
 		MACRO(cp_ACUT_I_,   <&macro_tap  &kp ACUT_  &kp LS(I_)>)
 		MACRO(cp_ACUT_O_,   <&macro_tap  &kp ACUT_  &kp LS(O_)>)
 		MACRO(cp_ACUT_U_,   <&macro_tap  &kp ACUT_  &kp LS(U_)>)
@@ -217,30 +220,30 @@
 		/* qu  */  MACRO_SIMPLE(Q_, U_)
 		/* bj  */  MACRO_SIMPLE(B_, J_)
 		
-		/* QU  */  MACRO(cp_qu,        <&macro_tap  &kp LS(Q_) &kp LS(U_)>)
-		/* BJ  */  MACRO(cp_bj,        <&macro_tap  &kp LS(B_) &kp LS(J_)>)
-		/*  Ñ  */  MACRO(cp_tl_n,      <&macro_tap  &kp TILD_  &kp LS(N_)>)
+		/* QU  */  MACRO(cp_qu,      <&macro_tap  &kp LS(Q_) &kp LS(U_)>)
+		/* BJ  */  MACRO(cp_bj,      <&macro_tap  &kp LS(B_) &kp LS(J_)>)
+		/*  Ñ  */  MACRO(cp_tl_n,    <&macro_tap  &kp TILD_  &kp LS(N_)>)
 		
-		/* ãe  */  MACRO(ae,           <&macro_tap  &kp TILD_  &kp A_  &kp E_>)
-		/* ão  */  MACRO(ao,           <&macro_tap  &kp TILD_  &kp A_  &kp O_>)
-		/* õe  */  MACRO(oe,           <&macro_tap  &kp TILD_  &kp O_  &kp E_>)
+		/* ãe  */  MACRO(ae,         <&macro_tap  &kp TILD_  &kp A_  &kp E_>)
+		/* ão  */  MACRO(ao,         <&macro_tap  &kp TILD_  &kp A_  &kp O_>)
+		/* õe  */  MACRO(oe,         <&macro_tap  &kp TILD_  &kp O_  &kp E_>)
 		
-		/* ÃE  */  MACRO(cp_ae,        <&macro_tap  &kp TILD_  &kp LS(A_)  &kp LS(E_)>)
-		/* ÃO  */  MACRO(cp_ao,        <&macro_tap  &kp TILD_  &kp LS(A_)  &kp LS(O_)>)
-		/* ÕE  */  MACRO(cp_oe,        <&macro_tap  &kp TILD_  &kp LS(O_)  &kp LS(E_)>)
+		/* ÃE  */  MACRO(cp_ae,      <&macro_tap  &kp TILD_  &kp LS(A_)  &kp LS(E_)>)
+		/* ÃO  */  MACRO(cp_ao,      <&macro_tap  &kp TILD_  &kp LS(A_)  &kp LS(O_)>)
+		/* ÕE  */  MACRO(cp_oe,      <&macro_tap  &kp TILD_  &kp LS(O_)  &kp LS(E_)>)
 		
-		/*  ß  */  MACRO(eszett,       <&macro_tap  &kp RA(S_)  &kp    S_>)
-		/*  ẞ  */  MACRO(cp_sztt,      <&macro_tap  &kp RA(S_)  &kp LS(S_)>)
+		/*  ß  */  MACRO(eszett,     <&macro_tap  &kp RA(S_)  &kp    S_>)
+		/*  ẞ  */  MACRO(cp_sztt,    <&macro_tap  &kp RA(S_)  &kp LS(S_)>)
 
-		/* ■?  */  MACRO(nbsp_qmrk,    <&macro_tap  &kp LS(SPACE)  &kp LS(QMRK_)>)
-		/* ■!  */  MACRO(nbsp_excl,    <&macro_tap  &kp LS(SPACE)  &kp LS(EXCL_)>)
-		/* ■:□ */  MACRO(nbsp_coln,    <&macro_tap  &kp LS(SPACE)  &kp LS(DOT_)   &kp SPACE>)
-		/* ■;□ */  MACRO(nbsp_scln,    <&macro_tap  &kp LS(SPACE)  &kp LS(COMM_)  &kp SPACE>)
-		/* ■»□ */  MACRO(nbsp_rglm,    <&macro_tap  &kp LS(SPACE)  &kp RGLM_>)
-		/* □«■ */  MACRO(nbsp_lglm,    <&macro_tap  &kp LGLM_      &kp LS(SPACE)>)
+		/* ■?  */  MACRO(nbsp_qmrk,  <&macro_tap  &kp LS(SPACE)  &kp LS(QMRK_)>)
+		/* ■!  */  MACRO(nbsp_excl,  <&macro_tap  &kp LS(SPACE)  &kp LS(EXCL_)>)
+		/* ■:□ */  MACRO(nbsp_coln,  <&macro_tap  &kp LS(SPACE)  &kp LS(DOT_)   &kp SPACE>)
+		/* ■;□ */  MACRO(nbsp_scln,  <&macro_tap  &kp LS(SPACE)  &kp LS(COMM_)  &kp SPACE>)
+		/* ■»□ */  MACRO(nbsp_rglm,  <&macro_tap  &kp LS(SPACE)  &kp RGLM_>)
+		/* □«■ */  MACRO(nbsp_lglm,  <&macro_tap  &kp LGLM_      &kp LS(SPACE)>)
 			   
-		/*  ^  */  MACRO(cfxloos,      <&macro_tap  &kp CFLX_  &kp SPACE>)
-		/*  `  */  MACRO(grvloos,      <&macro_tap  &kp GRAV_  &kp SPACE>)
+		/*  ^  */  MACRO(cfxloos,    <&macro_tap  &kp CFLX_  &kp SPACE>)
+		/*  `  */  MACRO(grvloos,    <&macro_tap  &kp GRAV_  &kp SPACE>)
 
 		// key and turn off capsword
 		MACRO(spc_cpwd,  <&macro_tap  &kp SPACE  &tog CPWD>)
@@ -307,76 +310,43 @@
 		// COMBO(&kp SPACE &kp SPACE &kp SPACE &kp SPACE, 10 11 12 13,       gslqaiogrnqsl) // whatever name. enjoy
 		// COMBO(&kp SPACE &kp SPACE &kp SPACE &kp SPACE, 16 17 18 19,       rgsaiornqsj)
 
-		COMBO_KP(SPACE,l,             11 12 13)
-		COMBO_KP(SPACE,r,             16 17 18)
+		COMBO_KP(SPACE,l,                    11 12 13)
+		COMBO_KP(SPACE,r,                    16 17 18)
 
 		// backspace and del, with and wo ctrl
-		COMBO_KP( BSPC,,              11 12)
-		COMBO_KP( DEL,,               21 22)
-		COMBO(&kp LC(BSPC),           17 18,                                  gslqgrnqsl) // whatever name. enjoy
-		COMBO(&kp LC(DEL),            27 28,                                  rgsrnqsj)
+		COMBO_KP( BSPC,,                     11 12)
+		COMBO_KP( DEL,,                      21 22)
+		COMBO(&kp LC(BSPC),                  17 18, gslqgrnqsl) // whatever name. enjoy
+		COMBO(&kp LC(DEL),                   27 28, rgsrnteqsj)
 
 		// one-shot shift on both thumb keys at once
-		COMBO(&lsk FUNC LSHIFT,       30 31,                                  dljsdqsrt)
-		COMBO(&sk  RSHIFT,            32 33,                                  sqljqrjqsl)
+		COMBO(&lsk FUNC LSHIFT,              30 31, dljsdiqsrt)
+		COMBO(&sk  RSHIFT,                   32 33, sqljqrjqsl)
 								              
-		/* qu */  COMBO_MACRO_LAYER(Q_U_,,      26 27, BASE)
-		/* ãe */  COMBO_MACRO_LAYER(ae,,        13 30, BASE) //
-		/* ão */  COMBO_MACRO_LAYER(ao,,        13 11, BASE) // tilde
-		/* õe */  COMBO_MACRO_LAYER(oe,,        11 30, BASE) //
-								      
-		/* QU */  COMBO_MACRO_LAYER(cp_qu,,     26 27, CPWD)
-		/* ÃE */  COMBO_MACRO_LAYER(cp_ae,,     13 30, CPWD) //
-		/* ÃO */  COMBO_MACRO_LAYER(cp_ao,,     13 11, CPWD) // tilde
-		/* ÕE */  COMBO_MACRO_LAYER(cp_oe,,     11 30, CPWD) //
+		COMBO_MACRO_LAYER(Q_U_,,   26 27, BASE) /* qu */  
+		COMBO_MACRO_LAYER(ae,,     13 30, BASE) /* ãe */  
+		COMBO_MACRO_LAYER(ao,,     13 11, BASE) /* ão */  
+		COMBO_MACRO_LAYER(oe,,     11 30, BASE) /* õe */  
+					                            			
+		COMBO_MACRO_LAYER(cp_qu,,  26 27, CPWD) /* QU */  
+		COMBO_MACRO_LAYER(cp_ae,,  13 30, CPWD) /* ÃE */  
+		COMBO_MACRO_LAYER(cp_ao,,  13 11, CPWD) /* ÃO */  
+		COMBO_MACRO_LAYER(cp_oe,,  11 30, CPWD) /* ÕE */  
 								      
 		// tab, enter, esc            
-		COMBO_KP_LAYER(TAB,,          12 13, NOT_CPWD)
-		COMBO_KP_LAYER(ENTER,,        16 17, NOT_CPWD)
-		COMBO_KP_LAYER(ESC,,          10 11, NOT_CPWD)
+		COMBO_KP_LAYER(TAB,,                 12 13, NOT_CPWD)
+		COMBO_KP_LAYER(ENTER,,               16 17, NOT_CPWD)
+		COMBO_KP_LAYER(ESC,,                 10 11, NOT_CPWD)
 		
-		COMBO_MACRO_LAYER(tab_cpwd,,  12 13, CPWD)
-		COMBO_MACRO_LAYER(entr_cpwd,, 16 17, CPWD)
-		COMBO_MACRO_LAYER(esc_cpwd,,  10 11, CPWD)
-
-
-		combo_ctrlz {
-			bindings = <&kp LC(Z_)>;
-			key-positions = <20 21>;
-			timeout-ms = <_COMBO_TIMEOUT>;
-		};
-
-		COMBO_LAYER(FUNC, &sys_reset, 0 4, aiouaiouaiou)
-		// combo_reset_left {
-			// bindings = <&sys_reset>;
-			// key-positions = <0 4>;
-			// layers = <FUNC>;
-			// timeout-ms = <_COMBO_TIMEOUT>;
-		// };
-
-		COMBO_LAYER(FUNC, &bootloader, 20 24, ayuqaiouaio)
-		// combo_bootloader {
-			// bindings = <&bootloader>;
-			// key-positions = <20 24>;
-			// layers = <FUNC>;
-			// timeout-ms = <_COMBO_TIMEOUT>;
-		// };
-
-		COMBO_LAYER(FUNC, &tog GAME, 4 14, aiouayoaipo)
-		// combo_game_layer {
-			// bindings = <&tog GAME>;
-			// key-positions = <4 14>;
-			// layers = <FUNC>;
-			// timeout-ms = <_COMBO_TIMEOUT>;
-		// };
-
-		COMBO_LAYER(FUNC, &tog GAM2, 14 24, aiopoayaio)
-		// combo_game_2_layer {
-			// bindings = <&tog GAM2>;
-			// key-positions = <14 24>;
-			// layers = <FUNC>;
-			// timeout-ms = <_COMBO_TIMEOUT>;
-		// };
+		COMBO_MACRO_LAYER(tab_cpwd,,         12 13, CPWD)
+		COMBO_MACRO_LAYER(entr_cpwd,,        16 17, CPWD)
+		COMBO_MACRO_LAYER(esc_cpwd,,         10 11, CPWD)
+		
+		COMBO(&kp LC(Z_),                    20 21, rgsriaiaiqsj)
+		COMBO_LAYER(FUNC, &sys_reset,         0  4, aiouaiouaiou)
+		COMBO_LAYER(FUNC, &bootloader,       20 24, ayuqaioueaio)
+		COMBO_LAYER(FUNC, &tog GAME,          4 14, aiouayo,aipo)
+		COMBO_LAYER(FUNC, &tog GAM2,         14 24, aiopoappyaio)
 	};
 
 	keymap {
