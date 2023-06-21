@@ -35,20 +35,20 @@
 #define GAM2 10
 
 // combos shouldn't work on game layer, to minimize delay
-#define ALL_LAYERS  BASE CPWD UTIL SYM ACNT ACCP NUM NAV FUNC GAME GAM2
-#define NOT_GAME    BASE CPWD UTIL SYM ACNT ACCP NUM NAV FUNC
-#define NOT_CPWD    BASE      UTIL SYM ACNT ACCP NUM NAV FUNC
+#define ALL_LAYERS   BASE CPWD UTIL SYM ACNT ACCP NUM NAV FUNC GAME GAM2
+#define NOT_GAME     BASE CPWD UTIL SYM ACNT ACCP NUM NAV FUNC
+#define NOT_CPWD     BASE      UTIL SYM ACNT ACCP NUM NAV FUNC
 
-&lt {
+&lt { // tap for kp, hold for layer
 	tapping-term-ms = <_TAP_TERM>;
 	flavor = "balanced";
 };
 
-&mt {
+&mt { // hold-tap
 	tapping-term-ms = <_TAP_TERM_BLAZIN>;
 };
 
-&sk {
+&sk { // one-shot layer
 	release-after-ms = <_STICKY_TIMEOUT>;
 	quick-release;
 };
@@ -146,76 +146,76 @@
 		#define MACRO_SIMPLE_SHIFT(FIRST, SECOND) \
 			MACRO(cp_##FIRST##SECOND, <&macro_tap &kp FIRST &kp SECOND>)
 
-		// #define MACRO_ACCENT(FIRST, SECOND) \
-		// 	MACRO_SIMPLE( FIRST, SECOND ) \
-		// 	MACRO_SIMPLE_SHIFT(FIRST, SECOND)
+		#define MACRO_ACCENT(FIRST, SECOND) \
+			MACRO_SIMPLE( FIRST, SECOND ) \
+			MACRO_SIMPLE_SHIFT(FIRST, SECOND)
 		// #define MACRO_ACCENT(FIRST, SECOND) \
 			// MACRO(FIRST##SECOND, <&macro_tap &kp FIRST &kp SECOND>)
 
 
 		// accented letters
-		// MACRO_ACCENT(ACUT_, A_)
-		// MACRO_ACCENT(ACUT_, I_)
-		// MACRO_ACCENT(ACUT_, O_)
-		// MACRO_ACCENT(ACUT_, U_)
+		MACRO_ACCENT(ACUT_, A_)
+		MACRO_ACCENT(ACUT_, I_)
+		MACRO_ACCENT(ACUT_, O_)
+		MACRO_ACCENT(ACUT_, U_)
 
-		// MACRO_ACCENT(CFLX_, A_)
-		// MACRO_ACCENT(CFLX_, E_)
-		// MACRO_ACCENT(CFLX_, I_)
-		// MACRO_ACCENT(CFLX_, O_)
-		// MACRO_ACCENT(CFLX_, U_)
+		MACRO_ACCENT(CFLX_, A_)
+		MACRO_ACCENT(CFLX_, E_)
+		MACRO_ACCENT(CFLX_, I_)
+		MACRO_ACCENT(CFLX_, O_)
+		MACRO_ACCENT(CFLX_, U_)
 
-		// MACRO_ACCENT(GRAV_, E_)
-		// MACRO_ACCENT(GRAV_, O_)
-		// MACRO_ACCENT(GRAV_, U_)
+		MACRO_ACCENT(GRAV_, E_)
+		MACRO_ACCENT(GRAV_, O_)
+		MACRO_ACCENT(GRAV_, U_)
 
-		// MACRO_ACCENT(TILD_, A_)
-		// MACRO_ACCENT(TILD_, O_)
-		// MACRO_ACCENT(TILD_, N_)
+		MACRO_ACCENT(TILD_, A_)
+		MACRO_ACCENT(TILD_, O_)
+		MACRO_ACCENT(TILD_, N_)
 
-		// MACRO_ACCENT(TRMA_, I_)
+		MACRO_ACCENT(TRMA_, I_)
 
-		MACRO_SIMPLE(ACUT_, A_)
-		MACRO_SIMPLE(ACUT_, I_)
-		MACRO_SIMPLE(ACUT_, O_)
-		MACRO_SIMPLE(ACUT_, U_)
+		// MACRO_SIMPLE(ACUT_, A_)
+		// MACRO_SIMPLE(ACUT_, I_)
+		// MACRO_SIMPLE(ACUT_, O_)
+		// MACRO_SIMPLE(ACUT_, U_)
 
-		MACRO_SIMPLE(CFLX_, A_)
-		MACRO_SIMPLE(CFLX_, E_)
-		MACRO_SIMPLE(CFLX_, I_)
-		MACRO_SIMPLE(CFLX_, O_)
-		MACRO_SIMPLE(CFLX_, U_)
+		// MACRO_SIMPLE(CFLX_, A_)
+		// MACRO_SIMPLE(CFLX_, E_)
+		// MACRO_SIMPLE(CFLX_, I_)
+		// MACRO_SIMPLE(CFLX_, O_)
+		// MACRO_SIMPLE(CFLX_, U_)
 
-		MACRO_SIMPLE(GRAV_, O_)
-		MACRO_SIMPLE(GRAV_, U_)
+		// MACRO_SIMPLE(GRAV_, O_)
+		// MACRO_SIMPLE(GRAV_, U_)
 
-		MACRO_SIMPLE(TILD_, A_)
-		MACRO_SIMPLE(TILD_, O_)
-		MACRO_SIMPLE(TILD_, N_)
+		// MACRO_SIMPLE(TILD_, A_)
+		// MACRO_SIMPLE(TILD_, O_)
+		// MACRO_SIMPLE(TILD_, N_)
 
-		MACRO_SIMPLE(TRMA_, I_)
+		// MACRO_SIMPLE(TRMA_, I_)
 
-		// // caps accented letters
-		MACRO_TAP(cp_ACUT_A_,  &kp ACUT_  &kp LS(A_))
-		MACRO_TAP(cp_ACUT_I_,  &kp ACUT_  &kp LS(I_))
-		MACRO_TAP(cp_ACUT_O_,  &kp ACUT_  &kp LS(O_))
-		MACRO_TAP(cp_ACUT_U_,  &kp ACUT_  &kp LS(U_))
+		// caps accented letters
+		// MACRO_TAP(cp_ACUT_A_,  &kp ACUT_  &kp LS(A_))
+		// MACRO_TAP(cp_ACUT_I_,  &kp ACUT_  &kp LS(I_))
+		// MACRO_TAP(cp_ACUT_O_,  &kp ACUT_  &kp LS(O_))
+		// MACRO_TAP(cp_ACUT_U_,  &kp ACUT_  &kp LS(U_))
 						  
-		MACRO_TAP(cp_CFLX_A_,  &kp CFLX_  &kp LS(A_))
-		MACRO_TAP(cp_CFLX_E_,  &kp CFLX_  &kp LS(E_))
-		MACRO_TAP(cp_CFLX_I_,  &kp CFLX_  &kp LS(I_))
-		MACRO_TAP(cp_CFLX_O_,  &kp CFLX_  &kp LS(O_))
-		MACRO_TAP(cp_CFLX_U_,  &kp CFLX_  &kp LS(U_))
+		// MACRO_TAP(cp_CFLX_A_,  &kp CFLX_  &kp LS(A_))
+		// MACRO_TAP(cp_CFLX_E_,  &kp CFLX_  &kp LS(E_))
+		// MACRO_TAP(cp_CFLX_I_,  &kp CFLX_  &kp LS(I_))
+		// MACRO_TAP(cp_CFLX_O_,  &kp CFLX_  &kp LS(O_))
+		// MACRO_TAP(cp_CFLX_U_,  &kp CFLX_  &kp LS(U_))
 							  
-		MACRO_TAP(cp_GRAV_E_,  &kp GRAV_  &kp LS(E_))
-		MACRO_TAP(cp_GRAV_O_,  &kp GRAV_  &kp LS(O_))
-		MACRO_TAP(cp_GRAV_U_,  &kp GRAV_  &kp LS(U_))
+		// MACRO_TAP(cp_GRAV_E_,  &kp GRAV_  &kp LS(E_))
+		// MACRO_TAP(cp_GRAV_O_,  &kp GRAV_  &kp LS(O_))
+		// MACRO_TAP(cp_GRAV_U_,  &kp GRAV_  &kp LS(U_))
 						  
-		MACRO_TAP(cp_TILD_A_,  &kp TILD_  &kp LS(A_))
-		MACRO_TAP(cp_TILD_O_,  &kp TILD_  &kp LS(O_))
-		MACRO_TAP(cp_TILD_N_,  &kp TILD_  &kp LS(N_))
+		// MACRO_TAP(cp_TILD_A_,  &kp TILD_  &kp LS(A_))
+		// MACRO_TAP(cp_TILD_O_,  &kp TILD_  &kp LS(O_))
+		// MACRO_TAP(cp_TILD_N_,  &kp TILD_  &kp LS(N_))
 					  
-		MACRO_TAP(cp_TRMA_I_,  &kp TRMA_  &kp LS(I_))
+		// MACRO_TAP(cp_TRMA_I_,  &kp TRMA_  &kp LS(I_))
 
 
 		/* qu  */  MACRO_SIMPLE(Q_, U_)
@@ -223,6 +223,7 @@
 		
 		/* QU  */  MACRO_TAP(cp_qu,      &kp LS(Q_) &kp LS(U_))
 		/* BJ  */  MACRO_TAP(cp_bj,      &kp LS(B_) &kp LS(J_))
+		
 		/*  Ñ  */  MACRO_TAP(cp_tl_n,    &kp TILD_  &kp LS(N_))
 		
 		
