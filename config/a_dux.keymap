@@ -274,11 +274,11 @@
 		// when not defining layers, will default to NOT_GAME
 		// TODO: ok to omit line breaks between defs?
 		// TODO: all combos define layers
-		#define COMBO(BINDINGS, POSITIONS, NAME) \
-			DEFINE_COMBO(NOT_GAME, BINDINGS, POSITIONS, NAME)
+		#define COMBO(BINDINGS, POSITIONS, RANDOM_NAME) \
+			DEFINE_COMBO(NOT_GAME, BINDINGS, POSITIONS, combo_##__COUNTER__)
 
-		#define COMBO_LAYER(LAYERS, BINDINGS, POSITIONS, NAME) \
-			DEFINE_COMBO(LAYERS, BINDINGS, POSITIONS, NAME)
+		#define COMBO_LAYER(LAYERS, BINDINGS, POSITIONS, RANDOM_NAME) \
+			DEFINE_COMBO(LAYERS, BINDINGS, POSITIONS, combo_##__COUNTER__)
 
 		// single key press
 		#define COMBO_KP(KEY, SUFFIX, POSITIONS) \
