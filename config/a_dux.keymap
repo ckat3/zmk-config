@@ -387,19 +387,19 @@
 		#define xxxxxxxxx  &none
 
         // readability also
-		#define PASTEPLAIN   &kp LC(LG(LA(V_))) // power toys plaintext paste (no &kp bc used in &ht)
 		#define C_S_DEL      &kp LC(LS(DEL))    // task manager
-		#define RESET_LEFT   &sys_reset   	     // mnemonic (called on the right it resets both)
+		#define PASTEPLAIN   &kp LC(LG(LA(V_))) // power toys plaintext paste (no &kp bc used in &ht)
+		#define RESET_LEFT   &sys_reset   	    // mnemonic (called on the right it resets both)
 
 		// home-row mods
-		#define HMLS    &htl     LSHIFT
-		#define HMRS    &htr     RSHIFT
+		#define HMLS    &htl     LSHIFT // left shift only works for keys on right hand
+		#define HMRS    &htr     RSHIFT // rite shift only works for keys on lefft hand
 		#define HMLC    &ht      LCTRL
 		#define HMRC    &ht      RCTRL
 		#define HMLA    &ht      LALT
 		#define HMRA    &ht      RALT
-		#define HMLG    &htslow  LGUI
-		#define HMRG    &htslow  RGUI
+		#define HMLG    &htslow  LGUI // i kept holding GUI by accident,
+		#define HMRG    &htslow  RGUI // so i made it slower
 		
 		 // sticky mods in nav layer
 		#define SKLS    &htsk   LSHIFT
@@ -407,26 +407,24 @@
 		#define SKLA    &htsk   LALT
 		#define SKLG    &htsk   LGUI
 
-		// □ = space, ■ = nbsp
-		// tap/hold                                  // TAP      HOLD
-		#define DLLR_EURO    &mt        EURO_ DLLR_  //  $        €
-		#define EQUL_DIFF    &mt        DIFF_ EQUL_  //  =        ≠
-		
-		#define NBSP_QMRK    &ht_qmrk   0     QMRK_  // (?)       ■?
-		#define NBSP_EXCL    &ht_excl   0     EXCL_  // (!)       ■!
-		#define DOT_COLN     &ht_coln   0     DOT_   // (.)       ■:□
-		#define COMM_SCLN    &ht_scln   0     COMM_  // (,)       ■;□
-									  	     	    
-		#define NBSP_LGLM    &ht_lglm   LGLM_ 0      // «■       («)
-		#define NBSP_RGLM    &ht_rglm   RGLM_ 0      // ■»       (»)
+		// tap/hold  (□ = space, ■ = nbsp)             // TAP      HOLD
+		#define DLLR_EURO   &mt        EURO_ DLLR_     //  $        €
+		#define EQUL_DIFF   &mt        DIFF_ EQUL_     //  =        ≠
+													   
+		#define NBSP_QMRK   &ht_qmrk   0     QMRK_     // (?)       ■?
+		#define NBSP_EXCL   &ht_excl   0     EXCL_     // (!)       ■!
+		#define DOT_COLN    &ht_coln   0     DOT_      // (.)       ■:□
+		#define COMM_SCLN   &ht_scln   0     COMM_     // (,)       ■;□
+									  	     	       
+		#define NBSP_LGLM   &ht_lglm   LGLM_ 0         // «■       («)
+		#define NBSP_RGLM   &ht_rglm   RGLM_ 0         //  ■»      (»)
+
+		#define CUT_ALL     &sechold_cutall   0 LC(A_) // ^A        cut   all	// DANGEROUS STUFF!
+		#define COPY_ALL    &sechold_copyall  0 LC(A_) // ^A        copy  all	//  must hold for
+		#define PASTE_ALL   &sechold_pasteall 0 LC(A_) // ^A        paste all	//  very long time
 												    
 		// #define HT_CTRZ      &ht     LC(Y_)  LC(Z_)  // ^Z       ^Y
 		// #define HT_CTRV      &ht PASTEPLAIN  LC(V_)  // ^V       plaintext paste (powertoys)
-
-		// dangerous stuff
-		#define CUT_ALL   &sechold_cutall   0 LC(A_)
-		#define COPY_ALL  &sechold_copyall  0 LC(A_)
-		#define PASTE_ALL &sechold_pasteall 0 LC(A_)
 
 		// thumb keys
 		#define TH_L_MAIN      &lt   NUM E_
