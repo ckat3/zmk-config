@@ -217,12 +217,14 @@
 					  
 		MACRO_TAP(cp_TRMA_I_,  &kp TRMA_  &kp LS(I_))
 
+
 		/* qu  */  MACRO_SIMPLE(Q_, U_)
 		/* bj  */  MACRO_SIMPLE(B_, J_)
 		
 		/* QU  */  MACRO_TAP(cp_qu,      &kp LS(Q_) &kp LS(U_))
 		/* BJ  */  MACRO_TAP(cp_bj,      &kp LS(B_) &kp LS(J_))
 		/*  Ñ  */  MACRO_TAP(cp_tl_n,    &kp TILD_  &kp LS(N_))
+		
 		
 		/* ãe  */  MACRO_TAP(ae,         &kp TILD_  &kp A_  &kp E_)
 		/* ão  */  MACRO_TAP(ao,         &kp TILD_  &kp A_  &kp O_)
@@ -232,8 +234,10 @@
 		/* ÃO  */  MACRO_TAP(cp_ao,      &kp TILD_  &kp LS(A_)  &kp LS(O_))
 		/* ÕE  */  MACRO_TAP(cp_oe,      &kp TILD_  &kp LS(O_)  &kp LS(E_))
 		
+		
 		/*  ß  */  MACRO_TAP(eszett,     &kp RA(S_)  &kp    S_)
 		/*  ẞ  */  MACRO_TAP(cp_sztt,    &kp RA(S_)  &kp LS(S_))
+
 
 		/* ■?  */  MACRO_TAP(nbsp_qmrk,  &kp LS(SPACE)  &kp LS(QMRK_))
 		/* ■!  */  MACRO_TAP(nbsp_excl,  &kp LS(SPACE)  &kp LS(EXCL_))
@@ -242,24 +246,26 @@
 		/* ■»□ */  MACRO_TAP(nbsp_rglm,  &kp LS(SPACE)  &kp RGLM_)
 		/* □«■ */  MACRO_TAP(nbsp_lglm,  &kp LGLM_      &kp LS(SPACE))
 			   
+			   
 		/*  ^  */  MACRO_TAP(cfxloos,    &kp CFLX_  &kp SPACE)
 		/*  `  */  MACRO_TAP(grvloos,    &kp GRAV_  &kp SPACE)
 
 		// key and turn off capsword
-		MACRO(spc_cpwd,  <&macro_tap  &kp SPACE  &tog CPWD)
-		MACRO(tab_cpwd,  <&macro_tap  &kp TAB    &tog CPWD)
-		MACRO(entr_cpwd, <&macro_tap  &kp ENTER  &tog CPWD)
-		MACRO(esc_cpwd,  <&macro_tap  &kp ESC    &tog CPWD)
-						 
-						
+		MACRO_TAP(spc_cpwd,  &kp SPACE  &tog CPWD)
+		MACRO_TAP(tab_cpwd,  &kp TAB    &tog CPWD)
+		MACRO_TAP(entr_cpwd, &kp ENTER  &tog CPWD)
+		MACRO_TAP(esc_cpwd,  &kp ESC    &tog CPWD)
+		
+		// used with security_hold
 		MACRO_TAP(cut_all,   &kp LC(A_) &kp LS(X_))
 		MACRO_TAP(copy_all,  &kp LC(A_) &kp LS(C_))
 		MACRO_TAP(paste_all, &kp LC(A_) &kp LS(V_))
 		
-		MACRO(ctrltab,   <&macro_press &kp LCTRL>,           <&macro_tap &kp TAB>,  <&macro_pause_for_release>,  <&macro_release &kp LCTRL>)
-		MACRO(ctshtab,   <&macro_press &kp LSHFT &kp LCTRL>, <&macro_tap &kp TAB>,  <&macro_pause_for_release>,  <&macro_release &kp LCTRL &kp LSHFT>)
-		MACRO(alttab,    <&macro_press &kp LALT>,            <&macro_tap &kp TAB>,  <&macro_pause_for_release>,  <&macro_release &kp LALT>)
-		MACRO(altshtab,  <&macro_press &kp LSHFT &kp LALT>,  <&macro_tap &kp TAB>,  <&macro_pause_for_release>,  <&macro_release &kp LALT  &kp LSHFT>)
+		// doesn't work but maybe one day
+		// MACRO(ctrltab,   <&macro_press &kp LCTRL>,           <&macro_tap &kp TAB>,  <&macro_pause_for_release>,  <&macro_release &kp LCTRL>)
+		// MACRO(ctshtab,   <&macro_press &kp LSHFT &kp LCTRL>, <&macro_tap &kp TAB>,  <&macro_pause_for_release>,  <&macro_release &kp LCTRL &kp LSHFT>)
+		// MACRO(alttab,    <&macro_press &kp LALT>,            <&macro_tap &kp TAB>,  <&macro_pause_for_release>,  <&macro_release &kp LALT>)
+		// MACRO(altshtab,  <&macro_press &kp LSHFT &kp LALT>,  <&macro_tap &kp TAB>,  <&macro_pause_for_release>,  <&macro_release &kp LALT  &kp LSHFT>)
 	};
 
 	combos {
