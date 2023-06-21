@@ -405,8 +405,8 @@
 		#define NBSP_LGLM    &ht_lglm  LGLM_ 0     // «■    «
 		#define NBSP_RGLM    &ht_rglm  RGLM_ 0     // ■»    »
 
-		#define HT_CTRZ    &ht  LC(Y_)      LC(Z_) // undo     redo
-		#define HT_CTRV    &ht  &kp PASTEPLAIN  LC(V_) // paste    plaintext paste
+		#define HT_CTRZ    &ht  LC(Y_) LC(Z_) // undo     redo
+		#define HT_CTRV    &ht  PASTEPLAIN  LC(V_) // paste    plaintext paste
 
 
 		// thumb keys
@@ -535,7 +535,7 @@
 			bindings = <
 				&kp INSERT	&sk RALT	&kp PSCRN	 &kp PSBRK     C_S_DEL				_________	  &kp LC(HOME)  &kp PG_DN	&kp PG_UP   &kp LC(END)
 				&kp CAPS	&m_cut_all	&m_copy_all  &m_paste_all  &tog CPWD			_________	  &kp LC(LEFT)  &kp DOWN	&kp UP	    &kp LC(RIGHT)
-				HT_CTRZ		&kp LC(X_)	&kp LC(C_)	 HT_CTRV       _____    			_________     &kp HOME      &kp LEFT	&kp RIGHT   &kp END
+				HT_CTRZ		&kp LC(X_)	&kp LC(C_)	 HT_CTRV       _________	        _________     &kp HOME      &kp LEFT	&kp RIGHT   &kp END
 													 _trans_       &kp ULIN_			_trans_        _trans_
 			>;
 		};
