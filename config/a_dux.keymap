@@ -11,6 +11,7 @@
 
 #define _COMBO_TIMEOUT    17 // min 16
 
+#define _TAP_TERM_SLOTH   700
 #define _TAP_TERM_SLOW    300
 #define _TAP_TERM         300 //default 250
 #define _TAP_TERM_QUICK   200
@@ -85,7 +86,9 @@
 				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM_SLOW, BINDINGS) \
 			};
 			
-		#define 
+		#define SECURITY_HOLD(NAME, BINDINGS...) \
+				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM_SLOTH, BINDINGS) \
+			};
 
 		// HOLDTAP(ht_qu,   <&kp>, <&m_Q_U_>)    // qu              &kp
 		// HOLDTAP(ht_aact, <&kp>, <&m_ACUT_A_>) // á               &kp
@@ -100,6 +103,11 @@
 		HOLDTAP_BAL(  lsk,    <&mo>, <&sk>) // one-shot mod    hold layer
 		HOLDTAP_BAL(  lsl,    <&mo>, <&sl>) // one-shot layer  hold layer
 		HOLDTAP_BAL(  htcpwd, <&mo>, <&m_spc_cpwd>) // space then desactivate capsword    hold layer
+
+		// gotta hold these for a long time just to make sure
+		SECURITY_HOLD(sechold_cutall,   <&m_cut_all>,   <&kp>)
+		SECURITY_HOLD(sechold_copyall,  <&m_copy_all>,  <&kp>)
+		SECURITY_HOLD(sechold_pasteall, <&m_paste_all>, <&kp>)
 
 		// hrm for opposite hand only (used for shift)
 		HRMOD_POS(htl, 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33)
@@ -415,6 +423,10 @@
 		// #define HT_CTRZ      &ht     LC(Y_)  LC(Z_)  // ^Z       ^Y
 		// #define HT_CTRV      &ht PASTEPLAIN  LC(V_)  // ^V       plaintext paste (powertoys)
 
+		// dangerous stuff
+		#define CUT_ALL   &sechold_cutall   0 LC(A_)
+		#define COPY_ALL  &sechold_copyall  0 LC(A_)
+		#define PASTE_ALL &sechold_pasteall 0 LC(A_)
 
 		// thumb keys
 		#define TH_L_MAIN      &lt   NUM E_
@@ -506,7 +518,7 @@
 			bindings = <
 				&kp INSERT	&m_cut_all	&m_copy_all  &m_paste_all  C_S_DEL				&sk RALT	&kp LC(HOME)  &kp PG_DN	&kp PG_UP   &kp LC(END)
 				HMLG LC(Y_) HMLA xxxxx	HMLC PSCRN	 HMLS PSBRK    &kp CAPS	  			&tog CPWD   &kp LC(LEFT)  &kp DOWN	&kp UP	    &kp LC(RIGHT)
-				&kp LC(X_)	&kp LC(X_)	&kp LC(C_)	 &kp LC(C_)	   PASTEPLAIN	        xxxxxxxxx   &kp HOME      &kp LEFT	&kp RIGHT   &kp END
+				&kp  LC(Z_)	&kp  LC(X_)	&kp  LC(C_)	 &kp  LC(C_)   PASTEPLAIN	        xxxxxxxxx   &kp HOME      &kp LEFT	&kp RIGHT   &kp END
 													 _________     &kp ULIN_			_________  _________
 			>;
 		};
