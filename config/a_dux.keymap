@@ -137,8 +137,8 @@
 		#define MACRO_SIMPLE(FIRST, SECOND) \
 			MACRO(FIRST##SECOND, <&macro_tap &kp FIRST>, RELEASE_SHIFT, <&macro_tap &kp SECOND>)
 			
-		#define MACRO_TAP(FIRST, SECOND) \
-			MACRO(FIRST##SECOND, <&macro_tap BINDINGS>)
+		#define MACRO_TAP(NAME, BINDINGS...) \
+			MACRO(NAME, <&macro_tap BINDINGS>)
 		
 		// MACRO(FIRST##SECOND, <&macro_tap &kp FIRST &kp SECOND>)
 
@@ -451,17 +451,12 @@
 
 		utility_layer {
 			bindings = <
-				xxxxxxxxx   xxxxxxxxx     xxxxxxxxx    xxxxxxxxx     xxxxx         xxxxx    xxxxx xxxxx xxxxx xxxxx
-				xxxxxxxxx   xxxxxxxxx     &m_ctshtab   &m_ctrltab    xxxxx         xxxxx    xxxxx xxxxx xxxxx xxxxx
-				xxxxxxxxx   &kp LG(TAB)   &m_altshtab  &m_alttab     xxxxx         xxxxx    xxxxx xxxxx xxxxx xxxxx
+				xxxxxxxxx   xxxxxxxxx    xxxxxxxxx        xxxxxxxxx      xxxxx         xxxxx    xxxxx xxxxx xxxxx xxxxx
+				xxxxxxxxx   xxxxxxxxx    &kp LS(LC(TAB))  &kp LC(TAB)    xxxxx         xxxxx    xxxxx xxxxx xxxxx xxxxx
+				xxxxxxxxx   &kp LG(TAB)  &kp LS(LA(TAB))  &kp LA(TAB)    xxxxx         xxxxx    xxxxx xxxxx xxxxx xxxxx
 				//
-			                                                 xxxxx   xxxxx         xxxxx   xxxxx
+			                                                    xxxxx    xxxxx         xxxxx   xxxxx
 			>;
-				// xxxxxxxxx   xxxxxxxxx     xxxxxxxxx         xxxxxxxxx     xxxxx         xxxxx   xxxxx xxxxx xxxxx xxxxx
-				// xxxxxxxxx   xxxxxxxxx     &kp LS(LC(TAB))   &kp LC(TAB)   xxxxx         xxxxx   xxxxx xxxxx xxxxx xxxxx
-				// xxxxxxxxx   &kp LG(TAB)   &kp LS(LA(TAB))   &kp LA(TAB)   xxxxx         xxxxx   xxxxx xxxxx xxxxx xxxxx
-			                                                      // xxxxx   xxxxx         xxxxx   xxxxx
-			// >;
 		};
 
 		sym_layer {
