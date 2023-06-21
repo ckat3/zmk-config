@@ -221,7 +221,6 @@
 		/* BJ  */  MACRO(cp_bj,        <&macro_tap  &kp LS(B_) &kp LS(J_)>)
 		/*  Ñ  */  MACRO(cp_tl_n,      <&macro_tap  &kp TILD_  &kp LS(N_)>)
 		
-		
 		/* ãe  */  MACRO(ae,           <&macro_tap  &kp TILD_  &kp A_  &kp E_>)
 		/* ão  */  MACRO(ao,           <&macro_tap  &kp TILD_  &kp A_  &kp O_>)
 		/* õe  */  MACRO(oe,           <&macro_tap  &kp TILD_  &kp O_  &kp E_>)
@@ -314,23 +313,22 @@
 		// backspace and del, with and wo ctrl
 		COMBO_KP( BSPC,,              11 12)
 		COMBO_KP( DEL,,               21 22)
-		COMBO(&kp LC(BSPC),           17 18,                                  gslqgrnqsl)
+		COMBO(&kp LC(BSPC),           17 18,                                  gslqgrnqsl) // whatever name. enjoy
 		COMBO(&kp LC(DEL),            27 28,                                  rgsrnqsj)
 
 		// one-shot shift on both thumb keys at once
 		COMBO(&lsk FUNC LSHIFT,       30 31,                                  dljsdqsrt)
 		COMBO(&sk  RSHIFT,            32 33,                                  sqljqrjqsl)
+								              
+		/* qu */  COMBO_MACRO_LAYER(Q_U_,,      26 27, BASE)
+		/* ãe */  COMBO_MACRO_LAYER(ae,,        13 30, BASE) //
+		/* ão */  COMBO_MACRO_LAYER(ao,,        13 11, BASE) // tilde
+		/* õe */  COMBO_MACRO_LAYER(oe,,        11 30, BASE) //
 								      
-		// letter combos              
-		COMBO_MACRO_LAYER(Q_U_,,      26 27, BASE)
-		COMBO_MACRO_LAYER(ae,,        13 30, BASE) //
-		COMBO_MACRO_LAYER(ao,,        13 11, BASE) // tilde
-		COMBO_MACRO_LAYER(oe,,        11 30, BASE) //
-								      
-		COMBO_MACRO_LAYER(cp_qu,,     26 27, CPWD)
-		COMBO_MACRO_LAYER(cp_ae,,     13 30, CPWD) //
-		COMBO_MACRO_LAYER(cp_ao,,     13 11, CPWD) // tilde
-		COMBO_MACRO_LAYER(cp_oe,,     11 30, CPWD) //
+		/* QU */  COMBO_MACRO_LAYER(cp_qu,,     26 27, CPWD)
+		/* ÃE */  COMBO_MACRO_LAYER(cp_ae,,     13 30, CPWD) //
+		/* ÃO */  COMBO_MACRO_LAYER(cp_ao,,     13 11, CPWD) // tilde
+		/* ÕE */  COMBO_MACRO_LAYER(cp_oe,,     11 30, CPWD) //
 								      
 		// tab, enter, esc            
 		COMBO_KP_LAYER(TAB,,          12 13, NOT_CPWD)
@@ -348,33 +346,37 @@
 			timeout-ms = <_COMBO_TIMEOUT>;
 		};
 
-		combo_reset_left {
-			bindings = <&sys_reset>;
-			key-positions = <0 4>;
-			layers = <FUNC>;
-			timeout-ms = <_COMBO_TIMEOUT>;
-		};
+		COMBO_LAYER(FUNC, &sys_reset, 0 4, aiouaiouaiou)
+		// combo_reset_left {
+			// bindings = <&sys_reset>;
+			// key-positions = <0 4>;
+			// layers = <FUNC>;
+			// timeout-ms = <_COMBO_TIMEOUT>;
+		// };
 
-		combo_bootloader {
-			bindings = <&bootloader>;
-			key-positions = <20 24>;
-			layers = <FUNC>;
-			timeout-ms = <_COMBO_TIMEOUT>;
-		};
+		COMBO_LAYER(FUNC, &bootloader, 20 24, ayuqaiouaio)
+		// combo_bootloader {
+			// bindings = <&bootloader>;
+			// key-positions = <20 24>;
+			// layers = <FUNC>;
+			// timeout-ms = <_COMBO_TIMEOUT>;
+		// };
 
-		combo_game_layer {
-			bindings = <&tog GAME>;
-			key-positions = <4 14>;
-			layers = <FUNC>;
-			timeout-ms = <_COMBO_TIMEOUT>;
-		};
+		COMBO_LAYER(FUNC, &tog GAME, 4 14, aiouayoaipo)
+		// combo_game_layer {
+			// bindings = <&tog GAME>;
+			// key-positions = <4 14>;
+			// layers = <FUNC>;
+			// timeout-ms = <_COMBO_TIMEOUT>;
+		// };
 
-		combo_game_2_layer {
-			bindings = <&tog GAME>;
-			key-positions = <14 24>;
-			layers = <FUNC>;
-			timeout-ms = <_COMBO_TIMEOUT>;
-		};
+		COMBO_LAYER(FUNC, &tog GAM2, 14 24, aiopoayaio)
+		// combo_game_2_layer {
+			// bindings = <&tog GAM2>;
+			// key-positions = <14 24>;
+			// layers = <FUNC>;
+			// timeout-ms = <_COMBO_TIMEOUT>;
+		// };
 	};
 
 	keymap {
