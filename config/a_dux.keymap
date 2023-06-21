@@ -21,17 +21,17 @@
 #define _STICKY_TIMEOUT   2000 // min 1000
 
 // LAYERS
-#define BASE 1
-#define CPWD 2
-#define NUM  3
-#define UTIL 4
-#define SYM  5
-#define ACNT 6
-#define ACCP 7
-#define NAV  8
-#define FUNC 9
-#define GAME 10
-#define GAM2 11
+#define BASE 0 
+#define CPWD 1 
+#define NUM  2 
+#define UTIL 3 
+#define SYM  4 
+#define ACNT 5 
+#define ACCP 6 
+#define NAV  7 
+#define FUNC 8 
+#define GAME 9 
+#define GAM2 10
 
 // combos shouldn't work on game layer, to minimize delay
 #define ALL_LAYERS  BASE CPWD UTIL SYM ACNT ACCP NUM NAV FUNC GAME GAM2
