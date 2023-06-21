@@ -548,17 +548,11 @@
 
 		func_layer {
 			bindings = <
-				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
-				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
-				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
-			                   _____   _____         _____   _____
+				&bt  BT_CLR     &bt  BT_SEL 0   &bt  BT_SEL 1   &bt  BT_SEL 2  &bt BT_SEL 3			RESET_LEFT    &kp F7  &kp F8  &kp F9  &kp F10
+				HMLG C_BRI_UP   HMLA C_NEXT     HMLC C_VOL_UP   HMLS C_PP  	   &kp LSLCK			&out OUT_BLE  &kp F1  &kp F2  &kp F3  &kp F11
+				&kp  C_BRI_DN   &kp  C_PREV     &kp  C_VOL_DN   &kp  C_MUTE    &kp LNLCK			&out OUT_USB  &kp F4  &kp F5  &kp F6  &kp F12
+															                           _DEFAULT_THUMBS_
 			>;
-			// bindings = <
-			// 	&bt  BT_CLR     &bt  BT_SEL 0   &bt  BT_SEL 1   &bt  BT_SEL 2  &bt BT_SEL 3			RESET_LEFT    &kp F7  &kp F8  &kp F9  &kp F10
-			// 	HMLG C_BRI_UP   HMLA C_NEXT     HMLC C_VOL_UP   HMLS C_PP  	   &kp LSLCK			&out OUT_BLE  &kp F1  &kp F2  &kp F3  &kp F11
-			// 	&kp  C_BRI_DN   &kp  C_PREV     &kp  C_VOL_DN   &kp  C_MUTE    &kp LNLCK			&out OUT_USB  &kp F4  &kp F5  &kp F6  &kp F12
-			// 												                           _DEFAULT_THUMBS_
-			// >;
 		};
 
 		game_layer {
