@@ -144,11 +144,12 @@
 
 
 		#define MACRO_SIMPLE_SHIFT(FIRST, SECOND) \
-			MACRO(cp_##FIRST##SECOND, <&macro_tap &kp FIRST>, <&macro_press &kp LSHFT>, <&macro_tap &kp SECOND>, RELEASE_SHIFT)
+			MACRO(cp_##FIRST##SECOND, <&macro_tap &kp FIRST>, <&macro_press &kp LSHFT>, <&macro_tap &kp SECOND>, <&macro_release &kp LSHFT>)
 
 		#define MACRO_ACCENT(FIRST, SECOND) \
-			MACRO_SIMPLE( FIRST, SECOND ) \
 			MACRO_SIMPLE_SHIFT(FIRST, SECOND)
+			
+			// MACRO_SIMPLE( FIRST, SECOND )
 			
 		// #define MACRO_ACCENT(FIRST, SECOND) \
 			// MACRO(FIRST##SECOND, <&macro_tap &kp FIRST &kp SECOND>)
