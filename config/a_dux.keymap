@@ -505,7 +505,7 @@
 			// >;
 		};
 
-		accent_layer {
+		//accent_layer {
 			bindings = <
 				xxxxx xxxxx xxxxx xxxxx   xxxxx         xxxxx   xxxxx xxxxx xxxxx xxxxx
 				xxxxx xxxxx xxxxx xxxxx   xxxxx         xxxxx   xxxxx xxxxx xxxxx xxxxx
