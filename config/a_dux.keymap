@@ -204,37 +204,34 @@
 						   
 		MACRO(cp_TRMA_I_,   <&macro_tap  &kp TRMA_  &kp LS(I_)>)
 
+		/* qu  */  MACRO_SIMPLE(Q_, U_)
+		/* bj  */  MACRO_SIMPLE(B_, J_)
+		
+		/* QU  */  MACRO(cp_qu,        <&macro_tap  &kp LS(Q_) &kp LS(U_)>)
+		/* BJ  */  MACRO(cp_bj,        <&macro_tap  &kp LS(B_) &kp LS(J_)>)
+		/*  Ñ  */  MACRO(cp_tl_n,      <&macro_tap  &kp TILD_  &kp LS(N_)>)
+		
+		
+		/* ãe  */  MACRO(ae,           <&macro_tap  &kp TILD_  &kp A_  &kp E_>)
+		/* ão  */  MACRO(ao,           <&macro_tap  &kp TILD_  &kp A_  &kp O_>)
+		/* õe  */  MACRO(oe,           <&macro_tap  &kp TILD_  &kp O_  &kp E_>)
+		
+		/* ÃE  */  MACRO(cp_ae,        <&macro_tap  &kp TILD_  &kp LS(A_)  &kp LS(E_)>)
+		/* ÃO  */  MACRO(cp_ao,        <&macro_tap  &kp TILD_  &kp LS(A_)  &kp LS(O_)>)
+		/* ÕE  */  MACRO(cp_oe,        <&macro_tap  &kp TILD_  &kp LS(O_)  &kp LS(E_)>)
+		
+		/*  ß  */  MACRO(eszett,       <&macro_tap  &kp RA(S_)  &kp    S_>)
+		/*  ẞ  */  MACRO(cp_sztt,      <&macro_tap  &kp RA(S_)  &kp LS(S_)>)
 
-
-		MACRO_SIMPLE(Q_, U_)
-		MACRO_SIMPLE(B_, J_)
-		
-		MACRO(cp_qu,        <&macro_tap  &kp LS(Q_) &kp LS(U_)>)
-		MACRO(cp_bj,        <&macro_tap  &kp LS(B_) &kp LS(J_)>)
-		MACRO(cp_tl_n,      <&macro_tap  &kp TILD_  &kp LS(N_)>)
-		
-		
-		MACRO(ae,           <&macro_tap  &kp TILD_  &kp A_  &kp E_>)
-		MACRO(ao,           <&macro_tap  &kp TILD_  &kp A_  &kp O_>)
-		MACRO(oe,           <&macro_tap  &kp TILD_  &kp O_  &kp E_>)
-		
-		MACRO(cp_ae,        <&macro_tap  &kp TILD_  &kp LS(A_)  &kp LS(E_)>)
-		MACRO(cp_ao,        <&macro_tap  &kp TILD_  &kp LS(A_)  &kp LS(O_)>)
-		MACRO(cp_oe,        <&macro_tap  &kp TILD_  &kp LS(O_)  &kp LS(E_)>)
-		
-		MACRO(eszett,       <&macro_tap  &kp RA(S_)  &kp    S_>)
-		MACRO(cp_sztt,      <&macro_tap  &kp RA(S_)  &kp LS(S_)>)
-
-		MACRO(nbsp_qmrk,    <&macro_tap  &kp LS(SPACE)  &kp LS(QMRK_)>)
-		MACRO(nbsp_excl,    <&macro_tap  &kp LS(SPACE)  &kp LS(EXCL_)>)
-		MACRO(nbsp_coln,    <&macro_tap  &kp LS(SPACE)  &kp LS(DOT_)   &kp SPACE>)
-		MACRO(nbsp_scln,    <&macro_tap  &kp LS(SPACE)  &kp LS(COMM_)  &kp SPACE>)
-		MACRO(nbsp_rglm,    <&macro_tap  &kp LS(SPACE)  &kp RGLM_>)
-		MACRO(nbsp_lglm,    <&macro_tap  &kp LGLM_      &kp LS(SPACE)>)
+		/* ■?  */  MACRO(nbsp_qmrk,    <&macro_tap  &kp LS(SPACE)  &kp LS(QMRK_)>)
+		/* ■!  */  MACRO(nbsp_excl,    <&macro_tap  &kp LS(SPACE)  &kp LS(EXCL_)>)
+		/* ■:□ */  MACRO(nbsp_coln,    <&macro_tap  &kp LS(SPACE)  &kp LS(DOT_)   &kp SPACE>)
+		/* ■;□ */  MACRO(nbsp_scln,    <&macro_tap  &kp LS(SPACE)  &kp LS(COMM_)  &kp SPACE>)
+		/* ■»□ */  MACRO(nbsp_rglm,    <&macro_tap  &kp LS(SPACE)  &kp RGLM_>)
+		/* □«■ */  MACRO(nbsp_lglm,    <&macro_tap  &kp LGLM_      &kp LS(SPACE)>)
 			   
-		MACRO(cfxloos,      <&macro_tap  &kp CFLX_  &kp SPACE>)
-		MACRO(grvloos,      <&macro_tap  &kp GRAV_  &kp SPACE>)
-
+		/*  ^  */  MACRO(cfxloos,      <&macro_tap  &kp CFLX_  &kp SPACE>)
+		/*  `  */  MACRO(grvloos,      <&macro_tap  &kp GRAV_  &kp SPACE>)
 
 		// key and turn off capsword
 		MACRO(spc_cpwd,     <&macro_tap  &kp SPACE  &tog CPWD>)
