@@ -516,10 +516,10 @@
 
 		nav_layer { // HMRG LGUI	HMLA LALT	HMLC LCTRL	HMLS LSHIFT
 			bindings = <
-				&kp INSERT	&m_cut_all	&m_copy_all  &m_paste_all  C_S_DEL				&sk RALT	&kp LC(HOME)  &kp PG_DN	&kp PG_UP   &kp LC(END)
-				HMLG LC(Y_) HMLA xxxxx	HMLC PSCRN	 HMLS PSBRK    &kp CAPS	  			&tog CPWD   &kp LC(LEFT)  &kp DOWN	&kp UP	    &kp LC(RIGHT)
-				&kp  LC(Z_)	&kp  LC(X_)	&kp  LC(C_)	 &kp  LC(C_)   PASTEPLAIN	        xxxxxxxxx   &kp HOME      &kp LEFT	&kp RIGHT   &kp END
-													 _________     &kp ULIN_			_________  _________
+				&kp xxxxx	CUT_ALL	    COPY_ALL     PASTE_ALL     C_S_DEL				&sk RALT	HMLS LC(HOME)  HMLC PG_DN	HMLA PG_UP   HMRG LC(END)
+				HMLG LC(Y_) HMLA INSERT	HMLC PSCRN	 HMLS PSBRK    &kp CAPS	  			&tog CPWD   &kp  LC(LEFT)  &kp  DOWN	&kp  UP	     &kp  LC(RIGHT)
+				&kp  LC(Z_)	&kp  LC(X_)	&kp  LC(C_)	 &kp  LC(C_)   PASTEPLAIN	        xxxxxxxxx   &kp  HOME      &kp  LEFT	&kp  RIGHT   &kp  END
+												       _________    _________			_________   _________
 			>;
 		};
 
