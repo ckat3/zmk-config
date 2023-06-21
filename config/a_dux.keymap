@@ -533,17 +533,11 @@
 
 		nav_layer { // HMRG LGUI	HMLA LALT	HMLC LCTRL	HMLS LSHIFT
 			bindings = <
-				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
-				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
-				_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
-			                   _____   _____         _____   _____
+				&kp INSERT	&sk RALT	&kp PSCRN	 &kp PSBRK     C_S_DEL			_________	&kp LC(HOME)  &kp PG_DN	 &kp PG_UP	&kp LC(END)
+				&kp CAPS	&m_cut_all	&m_copy_all  &m_paste_all  &tog CPWD			&kp LC(LEFT)  &kp DOWN	 &kp UP		&kp LC(RIGHT)
+				HT_CTRZ		&kp LC(X_)	&kp LC(C_)	 HT_CTRV       _____    			_________	&kp HOME      &kp LEFT	 &kp RIGHT	&kp END
+													 _trans_        &kp ULIN_			_trans_        _trans_
 			>;
-			// bindings = <
-			// 	&kp INSERT	&sk RALT	&kp PSCRN	 &kp PSBRK     C_S_DEL			_________	&kp LC(HOME)  &kp PG_DN	 &kp PG_UP	&kp LC(END)
-			// 	&kp CAPS	&m_cut_all	&m_copy_all  &m_paste_all  &tog CPWD			&kp LC(LEFT)  &kp DOWN	 &kp UP		&kp LC(RIGHT)
-			// 	HT_CTRZ		&kp LC(X_)	&kp LC(C_)	 HT_CTRV       _____    			_________	&kp HOME      &kp LEFT	 &kp RIGHT	&kp END
-			// 										 _trans_        &kp ULIN_			_trans_        _trans_
-			// >;
 		};
 
 		func_layer {
