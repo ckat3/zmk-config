@@ -143,11 +143,15 @@
 		// MACRO(FIRST##SECOND, <&macro_tap &kp FIRST &kp SECOND>)
 
 
-		#define MACRO_SIMPLE_SHIFT(FIRST, SECOND) \
-			MACRO(cp_##FIRST##SECOND, <&macro_tap &kp FIRST>, <&macro_press &kp LSHFT>, <&macro_tap &kp SECOND>, <&macro_release &kp LSHFT>)
+		// #define MACRO_SIMPLE_SHIFT(FIRST, SECOND) \
+			// MACRO(cp_##FIRST##SECOND, <&macro_tap &kp FIRST>, <&macro_press &kp LSHFT>, <&macro_tap &kp SECOND>, <&macro_release &kp LSHFT>)
 
+		// #define MACRO_ACCENT(FIRST, SECOND) \
+			// MACRO_SIMPLE_SHIFT(FIRST, SECOND)
+			
 		#define MACRO_ACCENT(FIRST, SECOND) \
-			MACRO_SIMPLE_SHIFT(FIRST, SECOND)
+			MACRO_SIMPLE(FIRST, SECOND) \
+			MACRO_TAP(cp_##FIRST##SECOND,  &kp FIRST  &kp LS(SECOND))
 			
 			// MACRO_SIMPLE( FIRST, SECOND )
 			
@@ -157,7 +161,7 @@
 
 		// accented letters
 		// MACRO_SIMPLE_SHIFT(ACUT_, A_)
-		// MACRO_ACCENT(ACUT_, I_)
+		MACRO_ACCENT(ACUT_, I_)
 		// MACRO_ACCENT(ACUT_, O_)
 		// MACRO_ACCENT(ACUT_, U_)
 
