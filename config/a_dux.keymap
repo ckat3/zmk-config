@@ -28,7 +28,7 @@
 #define SYM  4 
 #define ACNT 5 
 #define ACCP 6 
-#define NAV  7 
+#define NAV  7
 #define FUNC 8 
 #define GAME 9 
 #define GAM2 10
@@ -84,6 +84,8 @@
 		#define HOLDTAP_SLOW(NAME, BINDINGS...) \
 				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM_SLOW, BINDINGS) \
 			};
+			
+		#define 
 
 		// HOLDTAP(ht_qu,   <&kp>, <&m_Q_U_>)    // qu              &kp
 		// HOLDTAP(ht_aact, <&kp>, <&m_ACUT_A_>) // á               &kp
@@ -234,15 +236,20 @@
 		/*  `  */  MACRO(grvloos,      <&macro_tap  &kp GRAV_  &kp SPACE>)
 
 		// key and turn off capsword
-		MACRO(spc_cpwd,     <&macro_tap  &kp SPACE  &tog CPWD>)
-		MACRO(tab_cpwd,     <&macro_tap  &kp TAB    &tog CPWD>)
-		MACRO(entr_cpwd,    <&macro_tap  &kp ENTER  &tog CPWD>)
-		MACRO(esc_cpwd,     <&macro_tap  &kp ESC    &tog CPWD>)
-						    
-							
-		MACRO(cut_all,      <&macro_tap  &kp LC(A_) &kp LS(X_)>)
-		MACRO(copy_all,     <&macro_tap  &kp LC(A_) &kp LS(C_)>)
-		MACRO(paste_all,    <&macro_tap  &kp LC(A_) &kp LS(V_)>)
+		MACRO(spc_cpwd,  <&macro_tap  &kp SPACE  &tog CPWD>)
+		MACRO(tab_cpwd,  <&macro_tap  &kp TAB    &tog CPWD>)
+		MACRO(entr_cpwd, <&macro_tap  &kp ENTER  &tog CPWD>)
+		MACRO(esc_cpwd,  <&macro_tap  &kp ESC    &tog CPWD>)
+						 
+						
+		MACRO(cut_all,   <&macro_tap  &kp LC(A_) &kp LS(X_)>)
+		MACRO(copy_all,  <&macro_tap  &kp LC(A_) &kp LS(C_)>)
+		MACRO(paste_all, <&macro_tap  &kp LC(A_) &kp LS(V_)>)
+		
+		MACRO(ctrltab,   <&macro_press &kp LCTRL>,           <&macro_tap &kp TAB>,  <&macro_pause_for_release>,  <&macro_release &kp LCTRL>)
+		MACRO(ctshtab,   <&macro_press &kp LSHFT &kp LCTRL>, <&macro_tap &kp TAB>,  <&macro_pause_for_release>,  <&macro_release &kp LCTRL &kp LSHFT>)
+		MACRO(alttab,    <&macro_press &kp LALT>,            <&macro_tap &kp TAB>,  <&macro_pause_for_release>,  <&macro_release &kp LALT>)
+		MACRO(altshtab,  <&macro_press &kp LSHFT &kp LALT>,  <&macro_tap &kp TAB>,  <&macro_pause_for_release>,  <&macro_release &kp LALT  &kp LSHFT>)
 	};
 
 	combos {
@@ -372,8 +379,8 @@
 		#define xxxxxxxxx  &none
 
         // readability also
-		#define PASTEPLAIN        LC(LG(LA(V_))) // power toys plaintext paste (no &kp bc used in &ht)
-		#define C_S_DEL      &kp  LC(LS(DEL))    // task manager
+		#define PASTEPLAIN   &kp LC(LG(LA(V_))) // power toys plaintext paste (no &kp bc used in &ht)
+		#define C_S_DEL      &kp LC(LS(DEL))    // task manager
 		#define RESET_LEFT   &sys_reset   	     // mnemonic (called on the right it resets both)
 
 		// home-row mods
@@ -405,8 +412,8 @@
 		#define NBSP_LGLM    &ht_lglm   LGLM_ 0      // «■       («)
 		#define NBSP_RGLM    &ht_rglm   RGLM_ 0      // ■»       (»)
 												    
-		#define HT_CTRZ      &ht     LC(Y_)  LC(Z_)  // ^Z       ^Y
-		#define HT_CTRV      &ht PASTEPLAIN  LC(V_)  // ^V       plaintext paste (powertoys)
+		// #define HT_CTRZ      &ht     LC(Y_)  LC(Z_)  // ^Z       ^Y
+		// #define HT_CTRV      &ht PASTEPLAIN  LC(V_)  // ^V       plaintext paste (powertoys)
 
 
 		// thumb keys
@@ -447,20 +454,25 @@
 
 		num_layer {
 			bindings = <
-				&kp PIPE_  &kp N7_  &kp N8_  &kp N9_  xxxxxxxxx        DLLR_EURO   &kp  LBRK_  &kp  RBRK_   &kp  HASH_   &kp  PCNT_
-				&kp N0_    &kp N1_  &kp N2_  &kp N3_  &kp DOT_		   xxxxxxxxx   HMRS PLUS_  HMRC MIN_    HMLA STAR_   HMRG FSLA_
-				xxxxx      &kp N4_  &kp N5_  &kp N6_  &kp COMM_		   xxxxxxxxx   &kp  LT_    &kp  GT_	    EQUL_DIFF    &kp  BSLA_
-										     _____ 	_________          &kp ULIN_   _________
+				&kp PIPE_  &kp N7_  &kp N8_  &kp N9_   xxxxxxxxx       DLLR_EURO   &kp  LBRK_  &kp  RBRK_   &kp  HASH_   &kp  PCNT_
+				&kp N0_    &kp N1_  &kp N2_  &kp N3_   &kp DOT_		   xxxxxxxxx   HMRS PLUS_  HMRC MIN_    HMLA STAR_   HMRG FSLA_
+				xxxxxxxxx  &kp N4_  &kp N5_  &kp N6_   &kp COMM_	   xxxxxxxxx   &kp  LT_    &kp  GT_	    EQUL_DIFF    &kp  BSLA_
+				                           _________   _________       &kp ULIN_   _________
 			>;
 		};
 
 		utility_layer {
 			bindings = <
-				xxxxxxxxx   xxxxxxxxx     xxxxxxxxx         xxxxxxxxx     xxxxx         xxxxx   xxxxx xxxxx xxxxx xxxxx
-				xxxxxxxxx   xxxxxxxxx     &kp LS(LC(TAB))   &kp LC(TAB)   xxxxx         xxxxx   xxxxx xxxxx xxxxx xxxxx
-				xxxxxxxxx   &kp LG(TAB)   &kp LS(LA(TAB))   &kp LA(TAB)   xxxxx         xxxxx   xxxxx xxxxx xxxxx xxxxx
-			                                                      xxxxx   xxxxx         xxxxx   xxxxx
+				xxxxxxxxx   xxxxxxxxx     xxxxxxxxx    xxxxxxxxx   xxxxx         xxxxx   xxxxx xxxxx xxxxx xxxxx
+				xxxxxxxxx   xxxxxxxxx     &m_ctshtab   &m_ctrltab  xxxxx         xxxxx   xxxxx xxxxx xxxxx xxxxx
+				xxxxxxxxx   &kp LG(TAB)   &m_altshtab  &m_alttab   xxxxx         xxxxx   xxxxx xxxxx xxxxx xxxxx
+			                                               xxxxx   xxxxx         xxxxx   xxxxx
 			>;
+				// xxxxxxxxx   xxxxxxxxx     xxxxxxxxx         xxxxxxxxx     xxxxx         xxxxx   xxxxx xxxxx xxxxx xxxxx
+				// xxxxxxxxx   xxxxxxxxx     &kp LS(LC(TAB))   &kp LC(TAB)   xxxxx         xxxxx   xxxxx xxxxx xxxxx xxxxx
+				// xxxxxxxxx   &kp LG(TAB)   &kp LS(LA(TAB))   &kp LA(TAB)   xxxxx         xxxxx   xxxxx xxxxx xxxxx xxxxx
+			                                                      // xxxxx   xxxxx         xxxxx   xxxxx
+			// >;
 		};
 
 		sym_layer {
@@ -492,9 +504,9 @@
 
 		nav_layer { // HMRG LGUI	HMLA LALT	HMLC LCTRL	HMLS LSHIFT
 			bindings = <
-				&kp INSERT	&sk RALT	&kp PSCRN	 &kp PSBRK     C_S_DEL				xxxxxxxxx   &kp LC(HOME)  &kp PG_DN	&kp PG_UP   &kp LC(END)
-				&kp CAPS	&m_cut_all	&m_copy_all  &m_paste_all  &tog CPWD			xxxxxxxxx   &kp LC(LEFT)  &kp DOWN	&kp UP	    &kp LC(RIGHT)
-				HT_CTRZ		&kp LC(X_)	&kp LC(C_)	 HT_CTRV       xxxxxxxxx	        xxxxxxxxx   &kp HOME      &kp LEFT	&kp RIGHT   &kp END
+				&kp INSERT	&m_cut_all	&m_copy_all  &m_paste_all  C_S_DEL				&sk RALT	&kp LC(HOME)  &kp PG_DN	&kp PG_UP   &kp LC(END)
+				HMLG LC(Y_) HMLA xxxxx	HMLC PSCRN	 HMLS PSBRK    &kp CAPS	  			&tog CPWD   &kp LC(LEFT)  &kp DOWN	&kp UP	    &kp LC(RIGHT)
+				&kp LC(X_)	&kp LC(X_)	&kp LC(C_)	 &kp LC(C_)	   PASTEPLAIN	        xxxxxxxxx   &kp HOME      &kp LEFT	&kp RIGHT   &kp END
 													 _________     &kp ULIN_			_________  _________
 			>;
 		};
