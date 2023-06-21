@@ -158,7 +158,8 @@
 			
 		#define MACRO_ACCENT(FIRST, SECOND) \
 			MACRO(FIRST##SECOND, <&macro_tap &kp FIRST &kp SECOND>) \
-			MACRO_SECOND_UPPER(FIRST, SECOND)
+			\
+			MACRO(cp_##FIRST##SECOND, <&macro_tap &kp FIRST>, <&macro_press &kp LSHFT>, <&macro_tap &kp SECOND>, <&macro_release &kp LSHFT>)
 
 
 		// accented letters
