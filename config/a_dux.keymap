@@ -95,14 +95,13 @@
 		// HOLDTAP(ht_uact, <&kp>, <&m_ACUT_U_>) // ú               &kp
 		// HOLDTAP(ht_iact, <&kp>, <&m_ACUT_I_>) // í               &kp
 
-
 		// home-row mods                    // PRESS           HOLD
-		HOLDTAP(      ht,     <&kp>, <&kp>) // &kp             &kp
-		HOLDTAP_SLOW( htslow, <&kp>, <&kp>)
-		HOLDTAP(      htsk,   <&sk>, <&kp>) // &kp             sticky layer
-		HOLDTAP_BAL(  lsk,    <&mo>, <&sk>) // one-shot mod    hold layer
-		HOLDTAP_BAL(  lsl,    <&mo>, <&sl>) // one-shot layer  hold layer
-		HOLDTAP_BAL(  htcpwd, <&mo>, <&m_spc_cpwd>) // space then desactivate capsword    hold layer
+		HOLDTAP(     ht,     <&kp>, <&kp>) // &kp             &kp
+		HOLDTAP_SLOW(htslow, <&kp>, <&kp>)
+		HOLDTAP(     htsk,   <&sk>, <&kp>) // &kp             sticky layer
+		HOLDTAP_BAL( lsk,    <&mo>, <&sk>) // one-shot mod    hold layer
+		HOLDTAP_BAL( lsl,    <&mo>, <&sl>) // one-shot layer  hold layer
+		HOLDTAP_BAL( htcpwd, <&mo>, <&m_spc_cpwd>) // space then desactivate capsword    hold layer
 
 		// gotta hold these for a long time just to make sure
 		SECURITY_HOLD(sechold_cutall,   <&m_cut_all>,   <&kp>)
@@ -125,7 +124,7 @@
 	};
 
 	macros {
-		// #define RELEASE_SHIFT <&macro_release &kp LSHFT &kp RSHFT>
+		#define RELEASE_SHIFT <&macro_release &kp LSHFT &kp RSHFT>
 
 		#define MACRO(NAME, BINDINGS...) \
 			ZMK_MACRO(m_##NAME, \
@@ -134,10 +133,11 @@
 				bindings = BINDINGS; \
 				)
 
-		// MACRO_SIMPLE names the macro "m_FIRST##SECOND", eg "m_Q_U_"
+		// names the macro "m_FIRST##SECOND", eg "m_Q_U_"
 		#define MACRO_SIMPLE(FIRST, SECOND) \
-			MACRO(FIRST##SECOND, <&macro_tap &kp FIRST &kp SECOND>)
-			// MACRO(FIRST##SECOND, <&macro_tap &kp FIRST>, RELEASE_SHIFT, <&macro_tap &kp SECOND>)
+			MACRO(FIRST##SECOND, <&macro_tap &kp FIRST>, RELEASE_SHIFT, <&macro_tap &kp SECOND>)
+		
+		// MACRO(FIRST##SECOND, <&macro_tap &kp FIRST &kp SECOND>)
 
 
 		#define MACRO_SIMPLE_SHIFT(FIRST, SECOND) \
