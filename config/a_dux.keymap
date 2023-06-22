@@ -9,7 +9,8 @@
 #define _MACRO_INTERVAL   3  // max 5
 #define _MACRO_TAP_FOR    3  // max 5
 
-#define _COMBO_TIMEOUT    17 // min 16
+#define _COMBO_TIMEOUT      17 // min 16
+#define _COMBO_TIMEOUT_SLOW 50 // min 16
 
 #define _TAP_TERM_SLOTH   700
 #define _TAP_TERM_SLOW    300
@@ -105,6 +106,8 @@
 		HOLDTAP_BAL( lsk,    <&mo>, <&sk>) // one-shot mod    hold layer
 		HOLDTAP_BAL( lsl,    <&mo>, <&sl>) // one-shot layer  hold layer
 		HOLDTAP_BAL( htcpwd, <&mo>, <&m_spc_cpwd>) // space then desactivate capsword    hold layer
+		
+		HOLDTAP(util,    <&m_util_alt>, <&kp>) // &kp             hold layer    (inherits tap-preferred from HOLDTAP)
 
 		// gotta hold these for a long time just to make sure
 		SECURITY_HOLD(sechold_cutall,   <&m_cut_all>,   <&kp>)
@@ -229,6 +232,10 @@
 		MACRO(copy_all,   <&macro_tap  &kp LC(A_)>,  <&macro_pause_for_release>,  <&macro_tap  &kp LC(C_)>)
 		MACRO(paste_all,  <&macro_tap  &kp LC(A_)>,  <&macro_pause_for_release>,  <&macro_tap  &kp LC(V_)>)
 		
+		MACRO(util_alt,   <&macro_press  &kp LALT &mo UTIL>,  <&macro_pause_for_release>,  <&macro_release  &kp LALT &mo UTIL>)
+		
+		
+		
 		// doesn't work but maybe one day
 		// MACRO(ctrltab,   <&macro_press &kp LCTRL>,           <&macro_tap &kp TAB>,  <&macro_pause_for_release>,  <&macro_release &kp LCTRL>)
 		// MACRO(ctshtab,   <&macro_press &kp LSHFT &kp LCTRL>, <&macro_tap &kp TAB>,  <&macro_pause_for_release>,  <&macro_release &kp LCTRL &kp LSHFT>)
@@ -239,36 +246,44 @@
 	combos {
 		compatible = "zmk,combos";
 
-		#define DEFINE_COMBO(LAYERS, BINDINGS, POSITIONS, NAME) \
+		#define DEFINE_COMBO(LAYERS, BINDINGS, POSITIONS, NAME, TIMEOUT) \
 			combo_##NAME { \
 				layers = <LAYERS>; \
 				bindings = <BINDINGS>; \
 				key-positions = <POSITIONS>; \
-				timeout-ms = <_COMBO_TIMEOUT>; \
+				timeout-ms = <TIMEOUT>; \
 			};
+			
 
 		// when not defining layers, will default to NOT_GAME
 		// TODO: ok to omit line breaks between defs?
 		// TODO: all combos define layers
 		#define COMBO(BINDINGS, POSITIONS, RANDOM_NAME) \
-			DEFINE_COMBO(NOT_GAME, BINDINGS, POSITIONS, RANDOM_NAME)
+			DEFINE_COMBO(NOT_GAME, BINDINGS, POSITIONS, RANDOM_NAME, _COMBO_TIMEOUT)
 
 		#define COMBO_LAYER(LAYERS, BINDINGS, POSITIONS, RANDOM_NAME) \
-			DEFINE_COMBO(LAYERS, BINDINGS, POSITIONS, RANDOM_NAME)
+			DEFINE_COMBO(LAYERS, BINDINGS, POSITIONS, RANDOM_NAME, _COMBO_TIMEOUT)
+
 
 		// single key press
 		#define COMBO_KP(KEY, SUFFIX, POSITIONS) \
-			DEFINE_COMBO(NOT_GAME, &kp KEY, POSITIONS, KEY##SUFFIX)
+			DEFINE_COMBO(NOT_GAME, &kp KEY, POSITIONS, KEY##SUFFIX, _COMBO_TIMEOUT)
 
 		#define COMBO_KP_LAYER(KEY, SUFFIX, POSITIONS, LAYERS) \
-			DEFINE_COMBO(LAYERS, &kp KEY, POSITIONS, KEY##SUFFIX)
+			DEFINE_COMBO(LAYERS, &kp KEY, POSITIONS, KEY##SUFFIX, _COMBO_TIMEOUT)
 
-		// macrco
+
+		// macro
 		#define COMBO_MACRO(MACRO, POSITIONS) \
-			DEFINE_COMBO(NOT_GAME, &m_##MACRO, POSITIONS, MACRO)
+			DEFINE_COMBO(NOT_GAME, &m_##MACRO, POSITIONS, MACRO, _COMBO_TIMEOUT)
 
+		// macro layer
 		#define COMBO_MACRO_LAYER(MACRO, SUFFIX, POSITIONS, LAYERS) \
-			DEFINE_COMBO(LAYERS, &m_##MACRO, POSITIONS, MACRO##SUFFIX)
+			DEFINE_COMBO(LAYERS, &m_##MACRO, POSITIONS, MACRO##SUFFIX, _COMBO_TIMEOUT)
+
+		// macro layer sloooowwww
+		#define COMBO_MACRO_LAYER_SLOW(MACRO, SUFFIX, POSITIONS, LAYERS) \
+			DEFINE_COMBO(LAYERS, &m_##MACRO, POSITIONS, MACRO##SUFFIX, _COMBO_TIMEOUT_SLOW)
 
 
 	/*
@@ -315,6 +330,9 @@
 		COMBO_MACRO_LAYER(tab_cpwd,,         12 13, CPWD)
 		COMBO_MACRO_LAYER(entr_cpwd,,        16 17, CPWD)
 		COMBO_MACRO_LAYER(esc_cpwd,,         10 11, CPWD)
+		
+		COMBO_KP_LAYER_SLOW(util_ctrl,, 20, BASE)
+		COMBO_KP_LAYER_SLOW(util_alt,,  20, BASE)
 		
 		COMBO(&kp LC(Z_),                    20 21, rgsriaiaiqsj)
 		COMBO_LAYER(FUNC, &sys_reset,         0  4, aiouaiouaiou)
@@ -396,9 +414,9 @@
 		// todo reorder layers according to thumbs
 		base_layer {
 			bindings = <
-				&kp  Q_      HMRA MIN_   &kp  Y_  DOT_COLN   NBSP_QMRK         &kp K_   &kp  C_   &kp  H_   &kp  W_   &kp  J_
-				HMLG U_      HMLA O_     HMLC I_  HMLS A_    &kp F_            &kp G_   HMRS T_   HMRC R_   HMRA S_   HMRG N_
-				&ltt UTIL Z_ HMLC EACT_  &kp  P_  COMM_SCLN  &kp X_            &kp V_   &kp  D_   &kp  M_   &kp  L_   &ltt UTIL B_
+				&kp  Q_    HMRA MIN_   &kp  Y_  DOT_COLN   NBSP_QMRK         &kp K_   &kp  C_   &kp  H_   &kp  W_   &kp  J_
+				HMLG U_    HMLA O_     HMLC I_  HMLS A_    &kp F_            &kp G_   HMRS T_   HMRC R_   HMRA S_   HMRG N_
+				&m_util_alt    HMLC EACT_  &kp  P_  COMM_SCLN  &kp X_            &kp V_   &kp  D_   &kp  M_   &kp  L_   &kp  B_
 				//
 															       _THUMBS_DEFAULT_
 			>;
@@ -430,7 +448,7 @@
 				xxxxxxxxx   xxxxxxxxx    &kp LS(LC(TAB))  &kp LC(TAB)    xxxxx         xxxxx    xxxxx xxxxx xxxxx xxxxx
 				xxxxxxxxx   &kp LG(TAB)  &kp LS(LA(TAB))  &kp LA(TAB)    xxxxx         xxxxx    xxxxx xxxxx xxxxx xxxxx
 				//
-			                                                    xxxxx    xxxxx         xxxxx   xxxxx
+			                                              &kp TAB   &kp LS(TAB)        xxxxx   xxxxx
 			>;
 		};
 
