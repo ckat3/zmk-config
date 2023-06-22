@@ -107,7 +107,7 @@
 		HOLDTAP_BAL( lsl,    <&mo>, <&sl>) // one-shot layer  hold layer
 		HOLDTAP_BAL( htcpwd, <&mo>, <&m_spc_cpwd>) // space then desactivate capsword    hold layer
 		
-		HOLDTAP(utlalt,  <&m_util_alt>,  <&kp>) // &kp             hold layer    (inherits tap-preferred from HOLDTAP)
+		HOLDTAP(utlalt, <&m_util_alt>,  <&kp>) // &kp             hold layer    (inherits tap-preferred from HOLDTAP)
 		HOLDTAP(utlctr, <&m_util_ctrl>, <&kp>) // &kp             hold layer    (inherits tap-preferred from HOLDTAP)
 
 		// gotta hold these for a long time just to make sure
@@ -333,7 +333,7 @@
 		COMBO_MACRO_LAYER(entr_cpwd,,        16 17, CPWD)
 		COMBO_MACRO_LAYER(esc_cpwd,,         10 11, CPWD)
 		
-		COMBO_MACRO_LAYER_SLOW(util_ctrl,, 20, BASE)
+		COMBO_MACRO_LAYER_SLOW(util_alt,, 20, BASE)
 		COMBO_MACRO_LAYER_SLOW(util_alt,,  21, BASE)
 		
 		COMBO(&kp LC(Z_),                    20 21, rgsriaiaiqsj)
@@ -418,7 +418,7 @@
 			bindings = <
 				&kp    Q_  HMRA   MIN_   &kp  Y_  DOT_COLN   NBSP_QMRK         &kp K_   &kp  C_   &kp  H_   &kp  W_   &kp  J_
 				HMLG   U_  HMLA   O_     HMLC I_  HMLS A_    &kp F_            &kp G_   HMRS T_   HMRC R_   HMRA S_   HMRG N_
-				utlctr Z_  utlalt EACT_  &kp  P_  COMM_SCLN  &kp X_            &kp V_   &kp  D_   &kp  M_   &kp  L_   &kp  B_
+				&utlctr Z_  &utlalt EACT_  &kp  P_  COMM_SCLN  &kp X_            &kp V_   &kp  D_   &kp  M_   &kp  L_   &kp  B_
 				//
 															       _THUMBS_DEFAULT_
 			>;
