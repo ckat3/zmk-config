@@ -334,7 +334,7 @@
 		COMBO_MACRO_LAYER(esc_cpwd,,         10 11, CPWD)
 		
 		COMBO_MACRO_LAYER_SLOW(util_alt,,   20, BASE)
-		COMBO_MACRO_LAYER_SLOW(util_ctrl,,  21, BASE)
+		COMBO_MACRO_LAYER_SLOW(util_ctr,,  21, BASE)
 		
 		COMBO(&kp LC(Z_),                    20 21, rgsriaiaiqsj)
 		COMBO_LAYER(FUNC, &sys_reset,         0  4, aiouaiouaiou)
