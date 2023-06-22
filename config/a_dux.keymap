@@ -326,7 +326,7 @@
 								      
 		// tab, enter, esc            
 		COMBO_KP_LAYER(TAB,,                 12 13, NOT_CPWD)
-		COMBO_KP_LAYER(ENTER,,               16 17, NOT_CPWD)
+		COMBO_KP_LAYER(ENTER,,               16 17, NOT_CPWD)z
 		COMBO_KP_LAYER(ESC,,                 10 11, NOT_CPWD)
 		
 		COMBO_MACRO_LAYER(tab_cpwd,,         12 13, CPWD)
@@ -418,7 +418,7 @@
 			bindings = <
 				&kp    Q_  HMRA   MIN_   &kp  Y_  DOT_COLN   NBSP_QMRK         &kp K_   &kp  C_   &kp  H_   &kp  W_   &kp  J_
 				HMLG   U_  HMLA   O_     HMLC I_  HMLS A_    &kp F_            &kp G_   HMRS T_   HMRC R_   HMRA S_   HMRG N_
-				&utlctr Z_  &utlalt EACT_  &kp  P_  COMM_SCLN  &kp X_            &kp V_   &kp  D_   &kp  M_   &kp  L_   &kp  B_
+				&utlctr 0 Z_  &utlalt 0 EACT_  &kp  P_  COMM_SCLN  &kp X_            &kp V_   &kp  D_   &kp  M_   &kp  L_   &kp  B_
 				//
 															       _THUMBS_DEFAULT_
 			>;
