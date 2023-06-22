@@ -421,7 +421,7 @@
 				//
 															       _THUMBS_DEFAULT_
 			>;
-		}
+		};
 
 		caps_word_layer {
 			bindings = <
