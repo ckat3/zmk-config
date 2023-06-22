@@ -144,10 +144,10 @@
 			// MACRO(cp_##FIRST##SECOND, <&macro_tap &kp FIRST>, <&macro_press &kp LSHFT>, <&macro_tap UPPERCASE>, <&macro_release &kp LSHFT>)
 						
 						
-		// #define MACRO_ACCENT_COMPLEX(NAME, FIRST, UPPERCASE...) \
-			// MACRO(NAME, <&macro_tap &kp FIRST UPPERCASE>) \
-			// \
-			// MACRO(cp_##NAME, <&macro_tap &kp FIRST>, <&macro_press &kp LSHFT>, <&macro_tap UPPERCASE>, <&macro_release &kp LSHFT>)
+		#define MACRO_ACCENT_COMPLEX(NAME, FIRST, UPPERCASE...) \
+			MACRO(NAME, <&macro_tap &kp FIRST UPPERCASE>) \
+			\
+			MACRO(cp_##NAME, <&macro_tap &kp FIRST>, <&macro_press &kp LSHFT>, <&macro_tap UPPERCASE>, <&macro_release &kp LSHFT>)
 			
 		#define MACRO_ACCENT(FIRST, SECOND) \
 			MACRO(FIRST##SECOND, <&macro_tap &kp FIRST>, RELEASE_SHIFT, <&macro_tap &kp SECOND>) \
