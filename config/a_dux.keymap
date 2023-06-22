@@ -140,17 +140,22 @@
 		#define MACRO_TAP(NAME, BINDINGS...) \
 			MACRO(NAME, <&macro_tap BINDINGS>)
 					
-		#define MACRO_LAST_UPPER(FIRST, UPPERCASE...) \
-			MACRO(cp_##FIRST##SECOND, <&macro_tap &kp FIRST>, <&macro_press &kp LSHFT>, <&macro_tap UPPERCASE>, <&macro_release &kp LSHFT>)
+		// #define MACRO_LAST_UPPER(FIRST, UPPERCASE...) \
+			// MACRO(cp_##FIRST##SECOND, <&macro_tap &kp FIRST>, <&macro_press &kp LSHFT>, <&macro_tap UPPERCASE>, <&macro_release &kp LSHFT>)
 						
 						
-		#define MACRO_ACCENT_COMPLEX(NAME, FIRST, UPPERCASE...) \
-			MACRO(NAME, <&macro_tap &kp FIRST UPPERCASE>) \
-			\
-			MACRO(cp_##NAME, <&macro_tap &kp FIRST>, <&macro_press &kp LSHFT>, <&macro_tap UPPERCASE>, <&macro_release &kp LSHFT>)
+		// #define MACRO_ACCENT_COMPLEX(NAME, FIRST, UPPERCASE...) \
+			// MACRO(NAME, <&macro_tap &kp FIRST UPPERCASE>) \
+			// \
+			// MACRO(cp_##NAME, <&macro_tap &kp FIRST>, <&macro_press &kp LSHFT>, <&macro_tap UPPERCASE>, <&macro_release &kp LSHFT>)
 			
 		#define MACRO_ACCENT(FIRST, SECOND) \
-			#define MACRO_ACCENT_COMPLEX(FIRST##SECOND, FIRST, &kp SECOND)
+			MACRO(FIRST##SECOND, <&macro_tap &kp FIRST>, RELEASE_SHIFT, <&macro_tap &kp SECOND>) \
+			\
+			MACRO(cp_##FIRST##SECOND, <&macro_tap &kp FIRST>, <&macro_press &kp LSHFT>, <&macro_tap &kp SECOND>, <&macro_release &kp LSHFT>)
+
+			
+			// #define MACRO_ACCENT_COMPLEX(FIRST##SECOND, FIRST, &kp SECOND)
 
 		// accented letters. also defines a caps version (eg &m_cp_ACUT_A_)
 		MACRO_ACCENT(ACUT_, A_)
