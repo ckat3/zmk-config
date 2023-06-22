@@ -232,7 +232,8 @@
 		MACRO(copy_all,   <&macro_tap  &kp LC(A_)>,  <&macro_pause_for_release>,  <&macro_tap  &kp LC(C_)>)
 		MACRO(paste_all,  <&macro_tap  &kp LC(A_)>,  <&macro_pause_for_release>,  <&macro_tap  &kp LC(V_)>)
 		
-		MACRO(util_alt,   <&macro_press  &kp LALT &mo UTIL>,  <&macro_pause_for_release>,  <&macro_release  &kp LALT &mo UTIL>)
+		MACRO(util_alt,   <&macro_press  &kp LALT  &mo UTIL>,  <&macro_pause_for_release>,  <&macro_release  &kp LALT  &mo UTIL>)
+		MACRO(util_alt,   <&macro_press  &kp LCTRL &mo UTIL>,  <&macro_pause_for_release>,  <&macro_release  &kp LCTRL &mo UTIL>)
 		
 		
 		
@@ -262,7 +263,7 @@
 			DEFINE_COMBO(NOT_GAME, BINDINGS, POSITIONS, RANDOM_NAME, _COMBO_TIMEOUT)
 
 		#define COMBO_LAYER(LAYERS, BINDINGS, POSITIONS, RANDOM_NAME) \
-			DEFINE_COMBO(LAYERS, BINDINGS, POSITIONS, RANDOM_NAME, _COMBO_TIMEOUT)
+			DEFINE_COMBO(LAYERS,   BINDINGS, POSITIONS, RANDOM_NAME, _COMBO_TIMEOUT)
 
 
 		// single key press
@@ -270,7 +271,7 @@
 			DEFINE_COMBO(NOT_GAME, &kp KEY, POSITIONS, KEY##SUFFIX, _COMBO_TIMEOUT)
 
 		#define COMBO_KP_LAYER(KEY, SUFFIX, POSITIONS, LAYERS) \
-			DEFINE_COMBO(LAYERS, &kp KEY, POSITIONS, KEY##SUFFIX, _COMBO_TIMEOUT)
+			DEFINE_COMBO(LAYERS,   &kp KEY, POSITIONS, KEY##SUFFIX, _COMBO_TIMEOUT)
 
 
 		// macro
@@ -279,11 +280,11 @@
 
 		// macro layer
 		#define COMBO_MACRO_LAYER(MACRO, SUFFIX, POSITIONS, LAYERS) \
-			DEFINE_COMBO(LAYERS, &m_##MACRO, POSITIONS, MACRO##SUFFIX, _COMBO_TIMEOUT)
+			DEFINE_COMBO(LAYERS,   &m_##MACRO, POSITIONS, MACRO##SUFFIX, _COMBO_TIMEOUT)
 
 		// macro layer sloooowwww
 		#define COMBO_MACRO_LAYER_SLOW(MACRO, SUFFIX, POSITIONS, LAYERS) \
-			DEFINE_COMBO(LAYERS, &m_##MACRO, POSITIONS, MACRO##SUFFIX, _COMBO_TIMEOUT_SLOW)
+			DEFINE_COMBO(LAYERS,   &m_##MACRO, POSITIONS, MACRO##SUFFIX, _COMBO_TIMEOUT_SLOW)
 
 
 	/*
