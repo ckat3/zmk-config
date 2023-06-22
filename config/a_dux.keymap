@@ -233,7 +233,7 @@
 		MACRO(paste_all,  <&macro_tap  &kp LC(A_)>,  <&macro_pause_for_release>,  <&macro_tap  &kp LC(V_)>)
 		
 		MACRO(util_alt,   <&macro_press  &kp LALT  &mo UTIL>,  <&macro_pause_for_release>,  <&macro_release  &kp LALT  &mo UTIL>)
-		MACRO(util_alt,   <&macro_press  &kp LCTRL &mo UTIL>,  <&macro_pause_for_release>,  <&macro_release  &kp LCTRL &mo UTIL>)
+		MACRO(util_ctrl,   <&macro_press  &kp LCTRL &mo UTIL>,  <&macro_pause_for_release>,  <&z  &kp LCTRL &mo UTIL>)
 		
 		
 		
