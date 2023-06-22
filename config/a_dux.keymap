@@ -150,7 +150,7 @@
 			// MACRO(cp_##NAME, <&macro_tap &kp FIRST>, <&macro_press &kp LSHFT>, <&macro_tap UPPERCASE>, <&macro_release &kp LSHFT>)
 			
 		#define MACRO_ACCENT(FIRST, SECOND) \
-			MACRO(FIRST##SECOND, <&macro_tap &kp FIRST>, RELEASE_SHIFT, <&macro_tap &kp SECOND>) \
+			MACRO(FIRST##SECOND, <&macro_tap &kp FIRST>, <&macro_release &kp LSHFT &kp RSHFT>, <&macro_tap &kp SECOND>) \
 			\
 			MACRO(cp_##FIRST##SECOND, <&macro_tap &kp FIRST>, <&macro_press &kp LSHFT>, <&macro_tap &kp SECOND>, <&macro_release &kp LSHFT>)
 
