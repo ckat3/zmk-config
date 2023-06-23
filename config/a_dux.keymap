@@ -391,8 +391,8 @@
 		#define COPY_ALL    &sechold_copyall  0 &none   //         copy  all	//  must hold for
 		#define PASTE_ALL   &sechold_pasteall 0 &none   //         paste all	//  very long time
 		
-		#define UTCTRL &utlctr 0 &kp
-		#define UTALT  &utlalt 0 &kp
+		#define UTCTRL &utlctr 0
+		#define UTALT  &utlalt 0
 															      
 		// #define HT_CTRZ      &ht     LC(Y_)  LC(Z_)  // ^Z      ^Y
 		// #define HT_CTRV      &ht PASTEPLAIN  LC(V_)  // ^V      plaintext paste (powertoys)
