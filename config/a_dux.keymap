@@ -6,15 +6,15 @@
 #include "bepo_bindings.h"
 
 // SETTINGS
-#define _MACRO_INTERVAL   3  // max 5
-#define _MACRO_TAP_FOR    3  // max 5
+#define _MACRO_INTERVAL   3  // max 3
+#define _MACRO_TAP_FOR    3  // max 3
 
 #define _COMBO_TIMEOUT      17 // min 16
 #define _COMBO_TIMEOUT_SLOW 50 // min 16
 
-#define _TAP_TERM_SLOTH   700
+#define _TAP_TERM_SLOTH   1200 // for dangerous xcv-all
 #define _TAP_TERM_SLOW    300
-#define _TAP_TERM         300 //default 250
+#define _TAP_TERM         300  //default 250
 #define _TAP_TERM_QUICK   200
 #define _TAP_TERM_BLAZIN  120
 
@@ -233,8 +233,9 @@
 		MACRO(copy_all,   <&macro_tap  &kp LC(A_)>,  <&macro_pause_for_release>,  <&macro_tap  &kp LC(C_)>)
 		MACRO(paste_all,  <&macro_tap  &kp LC(A_)>,  <&macro_pause_for_release>,  <&macro_tap  &kp LC(V_)>)
 		
-		MACRO(util_alt,   <&macro_press  &kp LALT   &mo UTIL>,  <&macro_pause_for_release>,  <&macro_release  &kp LALT   &mo UTIL>)
-		MACRO(util_ctrl,  <&macro_press  &kp LCTRL  &mo UTIL>,  <&macro_pause_for_release>,  <&macro_release  &kp LCTRL  &mo UTIL>)
+		MACRO(util_alt,  <&macro_press    &tog UTIL  &kp LALT >,  <&macro_pause_for_release>,  <&macro_release  &tog UTIL  &kp LALT >)
+		MACRO(util_ctrl, <&macro_press    &tog UTIL  &kp LCTRL>,  <&macro_pause_for_release>,  <&macro_release  &tog UTIL  &kp LCTRL>)
+		MACRO(rls_mods,  <&macro_release  &kp LCTRL  &kp LALT>)
 		
 		
 		
@@ -283,7 +284,7 @@
 		#define COMBO_MACRO_LAYER(MACRO, SUFFIX, POSITIONS, LAYERS) \
 			DEFINE_COMBO(LAYERS,   &m_##MACRO, POSITIONS, MACRO##SUFFIX, _COMBO_TIMEOUT)
 
-		// macro layer sloooowwww
+		// macro layer sloooowwww - for dangerous macros (xcv all)
 		#define COMBO_MACRO_LAYER_SLOW(MACRO, SUFFIX, POSITIONS, LAYERS) \
 			DEFINE_COMBO(LAYERS,   &m_##MACRO, POSITIONS, MACRO##SUFFIX, _COMBO_TIMEOUT_SLOW)
 
@@ -389,6 +390,9 @@
 		#define CUT_ALL     &sechold_cutall   0 &none   //         cut   all	// DANGEROUS STUFF!
 		#define COPY_ALL    &sechold_copyall  0 &none   //         copy  all	//  must hold for
 		#define PASTE_ALL   &sechold_pasteall 0 &none   //         paste all	//  very long time
+		
+		#define UTCTRL &utlctr 0 
+		#define UTALT ZZZZZZZZZ &utlalt 0 
 															      
 		// #define HT_CTRZ      &ht     LC(Y_)  LC(Z_)  // ^Z      ^Y
 		// #define HT_CTRV      &ht PASTEPLAIN  LC(V_)  // ^V      plaintext paste (powertoys)
@@ -418,7 +422,7 @@
 			bindings = <
 				&kp    Q_  HMRA   MIN_   &kp  Y_  DOT_COLN   NBSP_QMRK         &kp K_   &kp  C_   &kp  H_   &kp  W_   &kp  J_
 				HMLG   U_  HMLA   O_     HMLC I_  HMLS A_    &kp F_            &kp G_   HMRS T_   HMRC R_   HMRA S_   HMRG N_
-				&utlctr 0 Z_  &utlalt 0 EACT_  &kp  P_  COMM_SCLN  &kp X_            &kp V_   &kp  D_   &kp  M_   &kp  L_   &kp  B_
+				UTCTRL Z_  UTALT EACT_  &kp  P_  COMM_SCLN  &kp X_            &kp V_   &kp  D_   &kp  M_   &kp  L_   &kp  B_
 				//
 															       _THUMBS_DEFAULT_
 			>;
@@ -496,9 +500,9 @@
 
 		func_layer {
 			bindings = <
-				&bt  BT_CLR     &bt  BT_SEL 0   &bt  BT_SEL 1   &bt  BT_SEL 2  &bt BT_SEL 3         RESET_LEFT    &kp F7  &kp F8  &kp F9  &kp F10
-				HMLG C_BRI_UP   HMLA C_NEXT     HMLC C_VOL_UP   HMLS C_PP  	   &kp LSLCK            &out OUT_BLE  &kp F1  &kp F2  &kp F3  &kp F11
-				&kp  C_BRI_DN   &kp  C_PREV     &kp  C_VOL_DN   &kp  C_MUTE    &kp LNLCK            &out OUT_USB  &kp F4  &kp F5  &kp F6  &kp F12
+				&bt  BT_CLR     &bt  BT_SEL 0   &bt  BT_SEL 1   &bt  BT_SEL 2  &bt BT_SEL 3         RESET_LEFT    &kp F7  &kp F8  &kp F9  &kp F12
+				HMLG C_BRI_UP   HMLA C_NEXT     HMLC C_VOL_UP   HMLS C_PP  	   &kp LSLCK            &out OUT_BLE  &kp F1  &kp F2  &kp F3  &kp F10
+				&kp  C_BRI_DN   &kp  C_PREV     &kp  C_VOL_DN   &kp  C_MUTE    &kp LNLCK            &out OUT_USB  &kp F4  &kp F5  &kp F6  &kp F11
 				//
 															                           _THUMBS_DEFAULT_
 			>;
