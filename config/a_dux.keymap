@@ -327,17 +327,17 @@
 								      
 		// tab, enter, esc            
 		COMBO_KP_LAYER(TAB,,                 12 13, NOT_CPWD)
-		COMBO_KP_LAYER(ENTER,,               16 17, NOT_CPWD)z
+		COMBO_KP_LAYER(ENTER,,               16 17, NOT_CPWD)
 		COMBO_KP_LAYER(ESC,,                 10 11, NOT_CPWD)
 		
 		COMBO_MACRO_LAYER(tab_cpwd,,         12 13, CPWD)
 		COMBO_MACRO_LAYER(entr_cpwd,,        16 17, CPWD)
 		COMBO_MACRO_LAYER(esc_cpwd,,         10 11, CPWD)
 		
-		COMBO_MACRO_LAYER_SLOW(util_alt,,   20, BASE)
-		COMBO_MACRO_LAYER_SLOW(util_ctr,,  21, BASE)
+		// COMBO_MACRO_LAYER_SLOW(util_alt,,       20, BASE)
+		// COMBO_MACRO_LAYER_SLOW(util_ctr,,       21, BASE)
 		
-		COMBO(&kp LC(Z_),                    20 21, rgsriaiaiqsj)
+		COMBO(            &kp LC(Z_),        20 21, rgsriaiaiqsj)
 		COMBO_LAYER(FUNC, &sys_reset,         0  4, aiouaiouaiou)
 		COMBO_LAYER(FUNC, &bootloader,       20 24, ayuqaioueaio)
 		COMBO_LAYER(FUNC, &tog GAME,          4 14, aiouayopaipo)
