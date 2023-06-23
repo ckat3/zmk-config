@@ -391,8 +391,8 @@
 		#define COPY_ALL    &sechold_copyall  0 &none   //         copy  all	//  must hold for
 		#define PASTE_ALL   &sechold_pasteall 0 &none   //         paste all	//  very long time
 		
-		#define UTCTRL &utlctr 0 
-		#define UTALT ZZZZZZZZZ &utlalt 0 
+		#define UTCTRL &utlctr 0 &kp
+		#define UTALT  &utlalt 0 &kp
 															      
 		// #define HT_CTRZ      &ht     LC(Y_)  LC(Z_)  // ^Z      ^Y
 		// #define HT_CTRV      &ht PASTEPLAIN  LC(V_)  // ^V      plaintext paste (powertoys)
@@ -422,7 +422,7 @@
 			bindings = <
 				&kp    Q_  HMRA   MIN_   &kp  Y_  DOT_COLN   NBSP_QMRK         &kp K_   &kp  C_   &kp  H_   &kp  W_   &kp  J_
 				HMLG   U_  HMLA   O_     HMLC I_  HMLS A_    &kp F_            &kp G_   HMRS T_   HMRC R_   HMRA S_   HMRG N_
-				UTCTRL Z_  UTALT EACT_  &kp  P_  COMM_SCLN  &kp X_            &kp V_   &kp  D_   &kp  M_   &kp  L_   &kp  B_
+				UTCTRL Z_  UTALT  EACT_  &kp  P_  COMM_SCLN  &kp X_            &kp V_   &kp  D_   &kp  M_   &kp  L_   &kp  B_
 				//
 															       _THUMBS_DEFAULT_
 			>;
