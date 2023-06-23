@@ -233,9 +233,9 @@
 		MACRO(copy_all,   <&macro_tap  &kp LC(A_)>,  <&macro_pause_for_release>,  <&macro_tap  &kp LC(C_)>)
 		MACRO(paste_all,  <&macro_tap  &kp LC(A_)>,  <&macro_pause_for_release>,  <&macro_tap  &kp LC(V_)>)
 		
-		MACRO(util_alt,  <&macro_press    &tog UTIL  &kp LALT >,  <&macro_pause_for_release>,  <&macro_release  &tog UTIL  &kp LALT >)
-		MACRO(util_ctrl, <&macro_press    &tog UTIL  &kp LCTRL>,  <&macro_pause_for_release>,  <&macro_release  &tog UTIL  &kp LCTRL>)
-		MACRO(rls_mods,  <&macro_release  &kp LCTRL  &kp LALT>)
+		MACRO(util_alt,  <&macro_tap  &tog UTIL>,  <&macro_press  &kp LALT>,   <&macro_pause_for_release>,  <&macro_release  &kp LALT>,   <&macro_tap  &tog UTIL>)
+		MACRO(util_ctrl, <&macro_tap  &tog UTIL>,  <&macro_press  &kp LCTRL>,  <&macro_pause_for_release>,  <&macro_release  &kp LCTRL>,  <&macro_tap  &tog UTIL>)
+		// MACRO(rls_mods,  <&macro_release  &kp LCTRL  &kp LALT>) /* todo turn into a behavior */
 		
 		
 		
