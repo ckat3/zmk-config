@@ -141,10 +141,10 @@
 
 		// names the macro "m_FIRST##SECOND", eg "m_Q_U_"
 		#define MACRO_SIMPLE(FIRST, SECOND) \
-			MACRO(FIRST##SECOND, <&macro_tap &kp FIRST>, RELEASE_SHIFT, <&macro_tap &kp SECOND>)
+			MACRO(FIRST##SECOND, <&macro_tap &kp A>)
 			
 		#define MACRO_TAP(NAME, BINDINGS...) \
-			MACRO(NAME, <&macro_tap BINDINGS>)
+			MACRO(NAME, <&macro_tap &kp A>)
 					
 		// #define MACRO_LAST_UPPER(FIRST, UPPERCASE...) \
 			// MACRO(cp_##FIRST##SECOND, <&macro_tap &kp FIRST>, <&macro_press &kp LSHFT>, <&macro_tap UPPERCASE>, <&macro_release &kp LSHFT>)
@@ -157,9 +157,9 @@
 			
 		// why does this bug out if i use RELEASE_SHIFT but MACRO_SIMLE doesn't?
 		#define MACRO_ACCENT(FIRST, SECOND) \
-			MACRO(FIRST##SECOND, <&macro_tap &kp FIRST>, <&macro_release &kp LSHFT &kp RSHFT>, <&macro_tap &kp SECOND>) \
+			MACRO(FIRST##SECOND, <&macro_tap &kp A>) \
 			\
-			MACRO(cp_##FIRST##SECOND, <&macro_tap &kp FIRST>, <&macro_press &kp LSHFT>, <&macro_tap &kp SECOND>, <&macro_release &kp LSHFT>)
+			MACRO(cp_##FIRST##SECOND, <&macro_tap &kp A>)
 
 
 		// accented letters. also defines a caps version (eg &m_cp_ACUT_A_)
@@ -248,10 +248,8 @@
 
 		#define DEFINE_COMBO(LAYERS, BINDINGS, POSITIONS, NAME, TIMEOUT) \
 			combo_##NAME { \
-				layers = <LAYERS>; \
-				bindings = <BINDINGS>; \
+				bindings = <&macro_tap &kp A>; \
 				key-positions = <POSITIONS>; \
-				timeout-ms = <TIMEOUT>; \
 			};
 			
 
@@ -367,18 +365,19 @@
 		#define SKLA    &htsk   LALT
 		#define SKLG    &htsk   LGUI
 
-		// tap/hold  (□ = space, ■ = nbsp)              // TAP    HOLD
-		#define DLLR_EURO   &htslow    EURO_  DLLR_     //  $     €
-		#define EQUL_DIFF   &htslow    DIFF_  EQUL_     //  =     ≠
+		// tap/hold  (□ = space, ■ = nbsp)              
+		// TAP    HOLD
+		/*  $     €    */ #define DLLR_EURO   &htslow    EURO_  DLLR_     
+		/*  =     ≠    */ #define EQUL_DIFF   &htslow    DIFF_  EQUL_     
 											 		   
-		#define NBSP_QMRK   &ht_qmrk   0      QMRK_     // (?)    ■?
-		#define IEXCL_IQMRK &htslow RA(EXCL_) RA(QMRK_) //  ¿     ¡
-		#define NBSP_EXCL   &ht_excl   0      EXCL_     // (!)    ■!
-		#define DOT_COLN    &ht_coln   0      DOT_      // (.)    ■:□
-		#define COMM_SCLN   &ht_scln   0      COMM_     // (,)    ■;□
+		/* (?)    ■?   */ #define NBSP_QMRK   &ht_qmrk   0      QMRK_     
+		/*  ¿     ¡    */ #define IEXCL_IQMRK &htslow RA(EXCL_) RA(QMRK_) 
+		/* (!)    ■!   */ #define NBSP_EXCL   &ht_excl   0      EXCL_     
+		/* (.)    ■:□  */ #define DOT_COLN    &ht_coln   0      DOT_      
+		/* (,)    ■;□  */ #define COMM_SCLN   &ht_scln   0      COMM_     
 									  	      	       
-		#define NBSP_LGLM   &ht_lglm   LGLM_  0         // «■     («)
-		#define NBSP_RGLM   &ht_rglm   RGLM_  0         //  ■»    (»)
+		/* «■     («)  */ #define NBSP_LGLM   &ht_lglm   LGLM_  0         
+		/*  ■»    (»)  */ #define NBSP_RGLM   &ht_rglm   RGLM_  0         
 
 		#define CUT_ALL     &sechold_cutall   0 &none   //         cut   all	// DANGEROUS STUFF!
 		#define COPY_ALL    &sechold_copyall  0 &none   //         copy  all	//  must hold for
