@@ -29,7 +29,7 @@
 #define UTIL 3 
 #define SYM  4 
 #define ACNT 5 
-#define ACCP 6 
+#define ACCW 6 
 #define NAV  7
 #define FUNC 8 
 #define GAME 9 
@@ -105,9 +105,10 @@
 		
 		
 		//deactivates capsword, then...                       // PRESS           HOLD
-		HT_BAL(ht_cw_nav_spc, <&m_mo_cw_nav>, <&m_cw_spc>)    // space           hold NAV
-		HT_BAL(lsl_cw_sym,    <&m_mo_cw_sym>, <&m_sk_cw_sym>) // one-shot SYM    hold SYM
-
+		HT_BAL(ht_cw_nav_spc, <&m_mo_cw_nav>,  <&m_cw_spc>)    // space           hold NAV
+		HT_BAL(lsl_cw_sym,    <&m_mo_cw_sym>,  <&m_sk_cw_sym>) // one-shot SYM    hold SYM
+		
+		
 		// gotta hold these for a long time just to make sure
 		SECURITY_HOLD(sechold_cutall,   <&m_cut_all>,   <&kp>)
 		SECURITY_HOLD(sechold_copyall,  <&m_copy_all>,  <&kp>)
@@ -237,6 +238,7 @@
 		// utility layer, for tabbing through things
 		MACRO(util_alt,    <&macro_tap      &tog UTIL>,            <&macro_press  &kp LALT>,   <&macro_pause_for_release>,  <&macro_release  &kp LALT>,   <&macro_tap  &tog UTIL>)
 		MACRO(util_ctrl,   <&macro_tap      &tog UTIL>,            <&macro_press  &kp LCTRL>,  <&macro_pause_for_release>,  <&macro_release  &kp LCTRL>,  <&macro_tap  &tog UTIL>)
+		
 		MACRO(util_guitab, <&macro_release  &kp LALT  &kp LCTRL>,  <&macro_tap    &kp TAB>)
 		
 	};
@@ -396,8 +398,8 @@
 		#define TH_L_MAIN      &lt   NUM E_
 		#define TH_L_MAIN_CW   &lt   NUM LS(E_)
 
-		#define TH_L_AUX       &lsl  SYM SYM
-		#define TH_L_AUX_CW    &lsl_cw_sym 0 0
+		#define TH_L_AUX       &lsl  SYM  SYM
+		#define TH_L_AUX_CW    &ls   ACCW ACCW
 
 		#define TH_R_MAIN      &lt   NAV SPACE
 		#define TH_R_MAIN_CW   &mo_cw_nav 0 0
@@ -448,10 +450,10 @@
 		utility_layer {
 			bindings = <
 				_________   _________    _________        _________      _____         _____    _________   _________    _________        _________
-				_________   _________    _________        _________      _____         _____    _________   _________    _________        _________
+				_________   _________    _________        &m_util_guitab _____         _____    _________   _________    _________        _________
 				_________   _________    _________        _________      _____         _____    _________   _________    _________        _________
 				//
-			                                              &kp TAB   &kp LS(TAB)        xxxxx   xxxxx
+			                                              &kp TAB   &kp LS(TAB)        xxxxx    xxxxx
 			>;
 		};
 
