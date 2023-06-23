@@ -294,11 +294,6 @@
 	                   30 31 | 32 33
 	*/
 
-
-		// fake tab
-		// COMBO(&kp SPACE &kp SPACE &kp SPACE &kp SPACE, 10 11 12 13,       gslqaiogrnqsl) // whatever name. enjoy
-		// COMBO(&kp SPACE &kp SPACE &kp SPACE &kp SPACE, 16 17 18 19,       rgsaiornqsj)
-
 		COMBO_KP(SPACE,l,          11 12 13)
 		COMBO_KP(SPACE,r,          16 17 18)
 
@@ -339,6 +334,7 @@
 		COMBO_LAYER(FUNC, &bootloader,  20 24, ayuqaioueaio)
 		COMBO_LAYER(FUNC, &tog GAME,     4 14, aiouayopaipo)
 		COMBO_LAYER(FUNC, &tog GAM2,    14 24, aiopoappyaio)
+		
 	};
 
 	keymap {
@@ -398,14 +394,14 @@
 		#define TH_L_MAIN      &lt   NUM E_
 		#define TH_L_MAIN_CW   &lt   NUM LS(E_)
 
-		#define TH_L_AUX       &lsl  SYM  SYM
-		#define TH_L_AUX_CW    &ls   ACCW ACCW
+		#define TH_L_AUX       &lsl    SYM  SYM
+		#define TH_L_AUX_CW    &lsl_cw_sym 0 0
 
-		#define TH_R_MAIN      &lt   NAV SPACE
-		#define TH_R_MAIN_CW   &mo_cw_nav 0 0
+		#define TH_R_MAIN      &lt    NAV SPACE
+		#define TH_R_MAIN_CW   &ht_cw_nav_spc 0 0
 
 		#define TH_R_AUX       &lsl  ACNT ACNT
-		#define TH_R_AUX_CW    &lsl_cw_acnt 0 0
+		#define TH_R_AUX_CW    &lsl  ACCW ACCW
 
 
                                       // --- left hand --- //         // --- right hand --- //
