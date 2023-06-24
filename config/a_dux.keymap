@@ -141,7 +141,9 @@
 		#define M_TAP       &macro_tap
 		#define M_TAP_KP    &macro_tap &kp
 		#define M_HOLD      &macro_press
+		#define M_HOLD_KP   &macro_press &kp
 		#define M_REL       &macro_release
+		#define M_REL_KP    &macro_release &kp
 		#define M_WAIT_REL <&macro_pause_for_release>
 		
 		// MACRO MACROS
@@ -162,8 +164,8 @@
 		// #define MACRO_LAST_UPPER(FIRST, UPPERCASE) \
 			// MACRO(cw_##FIRST##SECOND, <&macro_tap FIRST>, <&macro_press &kp LSHFT>, <&macro_tap UPPERCASE>, <&macro_release &kp LSHFT>)
 					
-		#define MACRO_LAST_UP(NAME, FIRST, UPPERCASE) \
-			MACRO(NAME, <&macro_tap FIRST>, <&macro_press &kp LSHFT>, <&macro_tap UPPERCASE>, <&macro_release &kp LSHFT>)
+		#define MACRO_LAST_UPPER(NAME, FIRST, UPPERCASE) \
+			MACRO(NAME, <M_TAP  FIRST>, <M_HOLD_KP  LSHFT>, <M_TAP  UPPERCASE>, <M_REL_KP  LSHFT>)
 							
 						
 		// #define MACRO_ACCENT_COMPLEX(NAME, FIRST, UPPERCASE...) \
@@ -212,9 +214,9 @@
 		/* ãe  */  MACRO_TAP(ae,         &kp TILD_  &kp A_  &kp E_)
 		/* ão  */  MACRO_TAP(ao,         &kp TILD_  &kp A_  &kp O_)
 		/* õe  */  MACRO_TAP(oe,         &kp TILD_  &kp O_  &kp E_)
-		/* ÃE  */  MACRO_LAST_UP(cw_ae,      &kp TILD_,  &kp A_  &kp E_)
-		/* ÃO  */  MACRO_TAP(cw_ao,      &kp TILD_  &kp LS(A_)  &kp LS(O_))
-		/* ÕE  */  MACRO_TAP(cw_oe,      &kp TILD_  &kp LS(O_)  &kp LS(E_))
+		/* ÃE  */  MACRO_LAST_UPPER(cw_ae,      &kp TILD_,  &kp A_  &kp E_)
+		/* ÃO  */  MACRO_LAST_UPPER(cw_ao,      &kp TILD_,  &kp A_  &kp O_)
+		/* ÕE  */  MACRO_LAST_UPPER(cw_oe,      &kp TILD_,  &kp O_  &kp E_)
 				
 		/*  ß  */  MACRO_TAP(eszett,     &kp RA(S_)  &kp    S_)
 		/*  ẞ  */  MACRO_TAP(cw_sztt,    &kp RA(S_)  &kp LS(S_))
