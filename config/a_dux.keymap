@@ -161,19 +161,14 @@
 		#define MACRO_TAP(NAME, BINDINGS...) \
 			MACRO(NAME, <&macro_tap BINDINGS>)
 					
-		// #define MACRO_LAST_UPPER(FIRST, UPPERCASE) \
-			// MACRO(cw_##FIRST##SECOND, <&macro_tap FIRST>, <&macro_press &kp LSHFT>, <&macro_tap UPPERCASE>, <&macro_release &kp LSHFT>)
 					
-		#define MACRO_LAST_UPPER(NAME, FIRST, UPPERCASE) \
-			MACRO(NAME, <M_TAP  FIRST>, <M_HOLD_KP  LSHFT>, <M_TAP  UPPERCASE>, <M_REL_KP  LSHFT>)
+		#define MACRO_ACCENT_DOUBLE(NAME, ACCENT, UPPERCASE) \
+			MACRO(NAME,       <M_TAP  &kp ACCENT UPPERCASE>) \
+			\
+			MACRO(cw_##NAME,  <M_TAP_KP  ACCENT>,  <M_HOLD_KP  LSHFT>,  <M_TAP  UPPERCASE>,  <M_REL_KP  LSHFT>)
 							
 						
-		// #define MACRO_ACCENT_COMPLEX(NAME, FIRST, UPPERCASE...) \
-			// MACRO(NAME, <&macro_tap &kp FIRST>, <&macro_tap UPPERCASE>) \ //need this redundant macro_tap?
-			// \
-			// MACRO(cw_##NAME, <&macro_tap &kp FIRST>, <&macro_press &kp LSHFT>, <&macro_tap UPPERCASE>, <&macro_release &kp LSHFT>)
-			
-		// why does this bug out if i use RELEASE_SHIFT but MACRO_SIMLE doesn't?
+		// why does this bug out if i use RELEASE_SHIFT but MACRO_SIMPLE doesn't?
 		#define MACRO_ACCENT(FIRST, SECOND) \
 			MACRO(FIRST##SECOND, <&macro_tap &kp FIRST>, <&macro_release &kp LSHFT &kp RSHFT>, <&macro_tap &kp SECOND>) \
 			\
@@ -211,12 +206,12 @@
 		/* QU  */  MACRO_TAP(cw_qu,      &kp LS(Q_) &kp LS(U_))
 		/* BJ  */  MACRO_TAP(cw_bj,      &kp LS(B_) &kp LS(J_))
 				
-		/* ãe  */  MACRO_TAP(ae,         &kp TILD_  &kp A_  &kp E_)
-		/* ão  */  MACRO_TAP(ao,         &kp TILD_  &kp A_  &kp O_)
-		/* õe  */  MACRO_TAP(oe,         &kp TILD_  &kp O_  &kp E_)
-		/* ÃE  */  MACRO_LAST_UPPER(cw_ae,      &kp TILD_,  &kp A_  &kp E_)
-		/* ÃO  */  MACRO_LAST_UPPER(cw_ao,      &kp TILD_,  &kp A_  &kp O_)
-		/* ÕE  */  MACRO_LAST_UPPER(cw_oe,      &kp TILD_,  &kp O_  &kp E_)
+		/* ãe  */  MACRO_ACCENT_DOUBLE(ae,         TILD_,  &kp A_  &kp E_)
+		/* ão  */  MACRO_ACCENT_DOUBLE(ao,         TILD_,  &kp A_  &kp O_)
+		/* õe  */  MACRO_ACCENT_DOUBLE(oe,         TILD_,  &kp O_  &kp E_)
+		/* ÃE    MACRO_LAST_UPPER(cw_ae,      &kp TILD_,  &kp A_  &kp E_)                  */
+		/* ÃO    MACRO_LAST_UPPER(cw_ao,      &kp TILD_,  &kp A_  &kp O_)                  */
+		/* ÕE    MACRO_LAST_UPPER(cw_oe,      &kp TILD_,  &kp O_  &kp E_)                  */
 				
 		/*  ß  */  MACRO_TAP(eszett,     &kp RA(S_)  &kp    S_)
 		/*  ẞ  */  MACRO_TAP(cw_sztt,    &kp RA(S_)  &kp LS(S_))
