@@ -293,18 +293,18 @@
 		// TODO: ok to omit line breaks between defs?
 		// TODO: all combos define layers?
 		#define COMBO(BINDINGS, POSITIONS, RANDOM_NAME) \
-			DEFINE_COMBO(RANDOM_NAME,        _L_NOT_GAME,  POSITIONS,  _COMBO_TIMEOUT,       <BINDINGS>)
+			DEFINE_COMBO(RANDOM_NAME,        _L_NOT_GAME,  POSITIONS,  _COMBO_TIMEOUT,      <BINDINGS>)
 
 		#define COMBO_LAYER(LAYERS, BINDINGS, POSITIONS, RANDOM_NAME) \
 			DEFINE_COMBO(RANDOM_NAME,        LAYERS,      POSITIONS,  _COMBO_TIMEOUT,       <BINDINGS>)
 
 
 		#define COMBO_KP(KEY, SUFFIX, POSITIONS) \
-			DEFINE_COMBO(KEY##SUFFIX,        _L_NOT_GAME,  POSITIONS,  _COMBO_TIMEOUT,       <&kp KEY>)
+			DEFINE_COMBO(KEY##SUFFIX,        _L_NOT_GAME,  POSITIONS,  _COMBO_TIMEOUT,      <&kp KEY>)
 			
 			
 		#define COMBO_KP_CTRL(KEY, SUFFIX, POSITIONS) \
-			DEFINE_COMBO(ctrl_##KEY##SUFFIX, _L_NOT_GAME,  POSITIONS,  _COMBO_TIMEOUT,       <&kp KEY>)
+			DEFINE_COMBO(ctrl_##KEY##SUFFIX, _L_NOT_GAME,  POSITIONS,  _COMBO_TIMEOUT,      <&kp KEY>)
 
 
 		#define COMBO_KP_LAYER(KEY, SUFFIX, POSITIONS, LAYERS) \
@@ -312,7 +312,7 @@
 
 
 		#define COMBO_MACRO(MACRO, POSITIONS) \
-			DEFINE_COMBO(MACRO,              _L_NOT_GAME,  POSITIONS,  _COMBO_TIMEOUT,       <&m_##MACRO>)
+			DEFINE_COMBO(MACRO,              _L_NOT_GAME,  POSITIONS,  _COMBO_TIMEOUT,      <&m_##MACRO>)
 
 
 		#define COMBO_MACRO_LAYER(MACRO, SUFFIX, POSITIONS, LAYERS) \
@@ -343,7 +343,7 @@
 
 		// one-shot shift on both thumb keys at once
 		COMBO(&lsk _L_FUNC LSHIFT,              30 31, dljsdiqsrt)
-		COMBO(&sk  RSHIFT,                   32 33, sqljqrjqsl)
+		COMBO(&sk          RSHIFT,              32 33, sqljqrjqsl)
 						
 		// TODO maybe merge these?
 		COMBO_MACRO_LAYER(Q_U_,,          26 27, _L_BASE) /* qu */  
@@ -367,10 +367,10 @@
 		
 		COMBO(&kp LC(Z_),        20 21, rgsriaiaiqsj)
 		
-		COMBO_LAYER(L_FUNC, &sys_reset,         0  4, aiouaiouaiou)
-		COMBO_LAYER(L_FUNC, &bootloader,       20 24, ayuqaioueaio)
-		COMBO_LAYER(L_FUNC, &tog _L_GAME,          4 14, aiouayopaipo)
-		COMBO_LAYER(L_FUNC, &tog _L_GAM2,         14 24, aiopoappyaio)
+		COMBO_LAYER(_L_FUNC, &sys_reset,         0  4, aiouaiouaiou)
+		COMBO_LAYER(_L_FUNC, &bootloader,       20 24, ayuqaioueaio)
+		COMBO_LAYER(_L_FUNC, &tog _L_GAME,          4 14, aiouayopaipo)
+		COMBO_LAYER(_L_FUNC, &tog _L_GAM2,         14 24, aiopoappyaio)
 	};
 
 	keymap {
