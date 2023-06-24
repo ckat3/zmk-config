@@ -135,8 +135,17 @@
 	};
 
 	macros {
+		// convenience
 		#define RELEASE_SHIFT <&macro_release &kp LSHFT &kp RSHFT>
-
+	
+		#define ALL_MODS    &kp LSHFT &kp LCTRL &kp LALT &kp LGUI
+		#define M_TAP       &macro_tap
+		#define M_TAP_KP    &macro_tap &kp
+		#define M_HOLD      &macro_press
+		#define M_REL       &macro_release
+		#define M_WAIT_REL <&macro_pause_for_release>
+		
+		// macro macros
 		#define MACRO(NAME, BINDINGS...) \
 			ZMK_MACRO(m_##NAME, \
 				tap-ms   = <_MACRO_TAP_FOR>; \
@@ -232,13 +241,6 @@
 		MACRO_TAP(cw_entr, &kp ENTER  &tog CPWD)
 		MACRO_TAP(cw_esc,  &kp ESC    &tog CPWD)
 		
-		#define ALL_MODS    &kp LSHFT &kp LCTRL &kp LALT &kp LGUI
-		#define M_TAP       &macro_tap
-		#define M_TAP_KP    &macro_tap &kp
-		#define M_HOLD      &macro_press
-		#define M_REL       &macro_release
-		#define M_WAIT_REL <&macro_pause_for_release>
-		
 		MACRO(mo_cw_NAV,   <M_TAP &to NAV>,  M_WAIT_REL,  <M_TAP &to BASE>)
 		MACRO(mo_cw_SYM,   <M_TAP &to NAV>,  M_WAIT_REL,  <M_TAP &to BASE>)
 		MACRO(mo_cw_ACNT,  <M_TAP &to NAV>,  M_WAIT_REL,  <M_TAP &to BASE>)
@@ -259,7 +261,7 @@
 		// MACRO(util_guitab, <&macro_release  &kp LALT  &kp LCTRL>,  <&macro_tap  &kp LG(TAB) &mo UTIL>)
 		
 		// badass version
-		MACRO(util_layer, <M_TAP  &to UTIL>,  <M_HOLD ALL_MODS>,  M_WAIT_REL,  <M_REL ALL_MODS>,  <M_TAP  &to BASE>)
+		MACRO(util_layer, <M_TAP  &to UTIL>,  <M_HOLD  ALL_MODS>,  M_WAIT_REL,  <M_REL  ALL_MODS>,  <M_TAP  &to BASE>)
 								  
 		MACRO(util_ctab,  <M_REL  &kp LSHFT             &kp LALT  &kp LGUI>,   <M_TAP_KP  TAB>,   <M_HOLD  &kp LSHFT             &kp LALT  &kp LGUI>)
 		MACRO(util_cstab, <M_REL                        &kp LALT  &kp LGUI>,   <M_TAP_KP  TAB>,   <M_HOLD                        &kp LALT  &kp LGUI>)
