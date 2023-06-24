@@ -294,36 +294,21 @@
 		// when not defining layers, will default to _L_NOT_GAME
 		// !! TODO !!: ok to omit line breaks between defs?
 		// !! TODO !!: all combos define layers?
-		#define COMBO(BINDINGS, POSITIONS, RANDOM_NAME) \
-			DEFINE_COMBO(RANDOM_NAME,        _L_NOT_GAME,  POSITIONS,  _COMBO_TIMEOUT,      <BINDINGS>)
+		#define COMBO(LAYERS, BINDINGS, POSITIONS, RANDOM_NAME) \
+			DEFINE_COMBO(RANDOM_NAME,        LAYERS,   POSITIONS,  _COMBO_TIMEOUT,      <BINDINGS>)
 
-		#define COMBO_LAYER(LAYERS, BINDINGS, POSITIONS, RANDOM_NAME) \
-			DEFINE_COMBO(RANDOM_NAME,        LAYERS,      POSITIONS,  _COMBO_TIMEOUT,       <BINDINGS>)
-
-
-		#define COMBO_KP(KEY, SUFFIX, POSITIONS) \
-			DEFINE_COMBO(KEY##SUFFIX,        _L_NOT_GAME,  POSITIONS,  _COMBO_TIMEOUT,      <&kp KEY>)
+		#define COMBO_KP(LAYERS, KEY, SUFFIX, POSITIONS) \
+			DEFINE_COMBO(KEY##SUFFIX,        LAYERS,  POSITIONS,  _COMBO_TIMEOUT,       <&kp KEY>)
 			
-			
-		#define COMBO_KP_CTRL(KEY, SUFFIX, POSITIONS) \
-			DEFINE_COMBO(ctrl_##KEY##SUFFIX, _L_NOT_GAME,  POSITIONS,  _COMBO_TIMEOUT,   <&sk LCTRL &kp KEY>)
+		#define COMBO_KP_CTRL(LAYERS, KEY, SUFFIX, POSITIONS) \
+			DEFINE_COMBO(ctrl_##KEY##SUFFIX, LAYERS,  POSITIONS,  _COMBO_TIMEOUT,       <&sk LCTRL &kp KEY>)
 
-
-		#define COMBO_KP_LAYER(KEY, SUFFIX, POSITIONS, LAYERS) \
-			DEFINE_COMBO(KEY##SUFFIX,        LAYERS,      POSITIONS,  _COMBO_TIMEOUT,       <&kp KEY>)
-
-
-		#define COMBO_MACRO(MACRO, POSITIONS) \
-			DEFINE_COMBO(MACRO,              _L_NOT_GAME,  POSITIONS,  _COMBO_TIMEOUT,      <&m_##MACRO>)
-
-
-		#define COMBO_MACRO_LAYER(MACRO, SUFFIX, POSITIONS, LAYERS) \
-			DEFINE_COMBO(MACRO##SUFFIX,      LAYERS,      POSITIONS,  _COMBO_TIMEOUT,       <&m_##MACRO>)
-
+		#define COMBO_MACRO(LAYERS, MACRO, SUFFIX, POSITIONS) \
+			DEFINE_COMBO(MACRO##SUFFIX,      LAYERS,  POSITIONS,  _COMBO_TIMEOUT,       <&m_##MACRO>)
 
 		// SECURITY HOLD - for dangerous macros (xcv all)
-		#define COMBO_MACRO_LAYER_SLOW(MACRO, SUFFIX, POSITIONS, LAYERS) \
-			DEFINE_COMBO(MACRO##SUFFIX,      LAYERS,      POSITIONS,  _COMBO_TIMEOUT_SLOW,  <&m_##MACRO>)
+		#define COMBO_MACRO_LAYER_SLOW(LAYERS, MACRO, SUFFIX, POSITIONS) \
+			DEFINE_COMBO(MACRO##SUFFIX,      LAYERS,  POSITIONS,  _COMBO_TIMEOUT_SLOW,  <&m_##MACRO>)
 
 
 	/*
@@ -334,44 +319,44 @@
 	                   30 31 | 32 33
 	*/
 
-		COMBO_KP(SPACE,l,                   11 12 13)
-		COMBO_KP(SPACE,r,                   16 17 18)
+		COMBO_KP(_L_NOT_GAME,  SPACE,l,                   11 12 13)
+		COMBO_KP(_L_NOT_GAME,  SPACE,r,                   16 17 18)
 
 		// backspace and del, with and wo ctrl
-		COMBO_KP(     BSPC,,                11 12)
-		COMBO_KP_CTRL(BSPC,                 17 18)
-		COMBO_KP(     DEL,,                 21 22)
-		COMBO_KP_CTRL(DEL,,                 27 28)		
-		COMBO_KP_CTRL(Z_,,                  20 21)
+		COMBO_KP(     _L_NOT_GAME,  BSPC,,                11 12)
+		COMBO_KP_CTRL(_L_NOT_GAME,  BSPC,,                17 18)
+		COMBO_KP(     _L_NOT_GAME,  DEL,,                 21 22)
+		COMBO_KP_CTRL(_L_NOT_GAME,  DEL,,                 27 28)		
+		COMBO_KP_CTRL(_L_NOT_GAME,  Z_,,                  20 21)
 
 		// one-shot shift on both thumb keys at once
-		COMBO(&lsk _L_FUNC LSHIFT,          30 31, dljsdiqsrt)
-		COMBO(&sk          RSHIFT,          32 33, sqljqrjqsl)
+		COMBO(_L_NOT_GAME,  &lsk _L_FUNC LSHIFT,          30 31, dljsdiqsrt)
+		COMBO(_L_NOT_GAME,  &sk          RSHIFT,          32 33, sqljqrjqsl)
 										   
 		// !! TODO !!  merge these?         
-		COMBO_MACRO_LAYER(Q_U_,,            26 27, _L_BASE) /* qu */  
-		COMBO_MACRO_LAYER(TILD_A_E_,,       13 30, _L_BASE) /* ãe */  
-		COMBO_MACRO_LAYER(TILD_A_O_,,       13 11, _L_BASE) /* ão */  
-		COMBO_MACRO_LAYER(TILD_O_E_,,       11 30, _L_BASE) /* õe */  
-					                              			
-		COMBO_MACRO_LAYER(cw_Q_U_,,         26 27, _L_CPWD) /* QU */  
-		COMBO_MACRO_LAYER(cw_TILD_A_E_,,    13 30, _L_CPWD) /* ÃE */  
-		COMBO_MACRO_LAYER(cw_TILD_A_O_,,    13 11, _L_CPWD) /* ÃO */  
-		COMBO_MACRO_LAYER(cw_TILD_O_E_,,    11 30, _L_CPWD) /* ÕE */  
+		COMBO_MACRO(_L_BASE,  Q_U_,,            26 27) /* qu */  
+		COMBO_MACRO(_L_BASE,  TILD_A_E_,,       13 30) /* ãe */  
+		COMBO_MACRO(_L_BASE,  TILD_A_O_,,       13 11) /* ão */  
+		COMBO_MACRO(_L_BASE,  TILD_O_E_,,       11 30) /* õe */  
+					                              		
+		COMBO_MACRO(_L_CPWD,  cw_Q_U_,,         26 27) /* QU */  
+		COMBO_MACRO(_L_CPWD,  cw_TILD_A_E_,,    13 30) /* ÃE */  
+		COMBO_MACRO(_L_CPWD,  cw_TILD_A_O_,,    13 11) /* ÃO */  
+		COMBO_MACRO(_L_CPWD,  cw_TILD_O_E_,,    11 30) /* ÕE */  
 								      
 		// tab, enter, esc            
-		COMBO_KP_LAYER(TAB,,                12 13, _L_NOT_CPWD)
-		COMBO_KP_LAYER(ENTER,,              16 17, _L_NOT_CPWD)
-		COMBO_KP_LAYER(ESC,,                10 11, _L_NOT_CPWD)
+		COMBO_KP(_L_NOT_CPWD,  TAB,,                12 13)
+		COMBO_KP(_L_NOT_CPWD,  ENTER,,              16 17)
+		COMBO_KP(_L_NOT_CPWD,  ESC,,                10 11)
 		
-		COMBO_MACRO_LAYER(cw_tab,,          12 13, _L_CPWD)
-		COMBO_MACRO_LAYER(cw_entr,,         16 17, _L_CPWD)
-		COMBO_MACRO_LAYER(cw_esc,,          10 11, _L_CPWD)
+		COMBO_MACRO(_L_CPWD,  cw_tab,,          12 13)
+		COMBO_MACRO(_L_CPWD,  cw_entr,,         16 17)
+		COMBO_MACRO(_L_CPWD,  cw_esc,,          10 11)
 		
-		COMBO_LAYER(_L_FUNC, &sys_reset,     0  4, aiouaiouaiou)
-		COMBO_LAYER(_L_FUNC, &bootloader,   20 24, ayuqaioueaio)
-		COMBO_LAYER(_L_FUNC, &tog _L_GAME,   4 14, aiouayopaipo)
-		COMBO_LAYER(_L_FUNC, &tog _L_GAM2,  14 24, aiopoappyaio)
+		COMBO(_L_FUNC, &sys_reset,     0  4, aiouaiouaiou)
+		COMBO(_L_FUNC, &bootloader,   20 24, ayuqaioueaio)
+		COMBO(_L_FUNC, &tog _L_GAME,   4 14, aiouayopaipo)
+		COMBO(_L_FUNC, &tog _L_GAM2,  14 24, aiopoappyaio)
 	};
 
 	keymap {
