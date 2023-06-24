@@ -248,8 +248,10 @@
 
 		#define DEFINE_COMBO(LAYERS, BINDINGS, POSITIONS, NAME, TIMEOUT) \
 			combo_##NAME { \
-				bindings = <&macro_tap &kp A>; \
+				layers = <LAYERS>; \
+				bindings = <BINDINGS>; \
 				key-positions = <POSITIONS>; \
+				timeout-ms = <TIMEOUT>; \
 			};
 			
 
@@ -292,6 +294,9 @@
 	                   30 31 | 32 33
 	*/
 
+		// fake tab
+		// COMBO(&kp SPACE &kp SPACE &kp SPACE &kp SPACE, 10 11 12 13,       gslqaiogrnqsl) // whatever name. enjoy
+		// COMBO(&kp SPACE &kp SPACE &kp SPACE &kp SPACE, 16 17 18 19,       rgsaiornqsj)																	   
 		COMBO_KP(SPACE,l,          11 12 13)
 		COMBO_KP(SPACE,r,          16 17 18)
 
