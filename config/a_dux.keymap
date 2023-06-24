@@ -138,7 +138,7 @@
 		// convenience
 		#define RELEASE_SHIFT <&macro_release &kp LSHFT &kp RSHFT>
 	
-		#define ALL_MODS    &kp LSHFT &kp LCTRL &kp LALT &kp LGUI
+		#define ALL_MODS    &kp LSHFT &kp LALT &kp LCTRL // notepad++ bugs if ctrl is not last
 		#define M_TAP       &macro_tap
 		#define M_TAP_KP    &macro_tap &kp
 		#define M_HOLD      &macro_press
@@ -263,11 +263,11 @@
 		// badass version
 		MACRO(util_layer, <M_TAP  &to UTIL>,  <M_HOLD  ALL_MODS>,  M_WAIT_REL,  <M_REL  ALL_MODS>,  <M_TAP  &to BASE>)
 								  
-		MACRO(util_ctab,  <M_REL  &kp LSHFT             &kp LALT  &kp LGUI>,   <M_TAP_KP  TAB>,   <M_HOLD  &kp LSHFT             &kp LALT  &kp LGUI>)
-		MACRO(util_cstab, <M_REL                        &kp LALT  &kp LGUI>,   <M_TAP_KP  TAB>,   <M_HOLD                        &kp LALT  &kp LGUI>)
-		MACRO(util_atab,  <M_REL  &kp LSHFT  &kp LCTRL            &kp LGUI>,   <M_TAP_KP  TAB>,   <M_HOLD  &kp LSHFT  &kp LCTRL            &kp LGUI>)
-		MACRO(util_astab, <M_REL             &kp LCTRL            &kp LGUI>,   <M_TAP_KP  TAB>,   <M_HOLD             &kp LCTRL            &kp LGUI>)
-		MACRO(util_gtab,  <M_REL  &kp LSHFT  &kp LCTRL  &kp LALT          >,   <M_TAP_KP  TAB>,   <M_HOLD  &kp LSHFT  &kp LCTRL  &kp LALT          >)
+		MACRO(util_ctab,  <M_REL  &kp LSHFT             &kp LALT>,   <M_TAP_KP  TAB>,       <M_HOLD  ALL_MODS>)
+		MACRO(util_cstab, <M_REL                        &kp LALT>,   <M_TAP_KP  TAB>,       <M_HOLD  ALL_MODS>)
+		MACRO(util_atab,  <M_REL  &kp LSHFT  &kp LCTRL          >,   <M_TAP_KP  TAB>,       <M_HOLD  ALL_MODS>)
+		MACRO(util_astab, <M_REL             &kp LCTRL          >,   <M_TAP_KP  TAB>,       <M_HOLD  ALL_MODS>)
+		MACRO(util_gtab,  <M_REL  ALL_MODS>,                         <M_TAP_KP  LG(TAB)>,   <M_HOLD  ALL_MODS>)
 		
 	};
 
