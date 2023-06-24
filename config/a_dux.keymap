@@ -324,11 +324,11 @@
 		COMBO_KP(_L_NOT_GAME,  SPACE,r,                   16 17 18)
 
 		// backspace and del, with and wo ctrl
-		COMBO_KP(     _L_NOT_GAME,  BSPC,,                11 12)
-		COMBO_KP_CTRL(_L_NOT_GAME,  BSPC,,                17 18)
-		COMBO_KP(     _L_NOT_GAME,  DEL,,                 21 22)
-		COMBO_KP_CTRL(_L_NOT_GAME,  DEL,,                 27 28)		
-		COMBO_KP_CTRL(_L_NOT_GAME,  Z_,,                  20 21)
+		COMBO_KP(     _L_NOT_GAME,  BSPC,a,                11 12)
+		COMBO_KP_CTRL(_L_NOT_GAME,  BSPC,u,                17 18)
+		COMBO_KP(     _L_NOT_GAME,  DEL,aa,                 21 22)
+		COMBO_KP_CTRL(_L_NOT_GAME,  DEL,uu,                 27 28)		
+		COMBO_KP_CTRL(_L_NOT_GAME,  Z_,aaa,                  20 21)
 
 		// one-shot shift on both thumb keys at once
 		COMBO(_L_NOT_GAME,  &lsk _L_FUNC LSHIFT,          30 31, dljsdiqsrt)
