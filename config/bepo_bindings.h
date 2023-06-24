@@ -52,7 +52,7 @@
 
 #define COMM_	G
 #define DOT_	V
-#define SEMI_	LS(COMM_)
+#define SCLN_	LS(COMM_)
 #define COLN_	LS(DOT_)
 
 #define APST_	RA(COMM_)
@@ -60,6 +60,8 @@
 #define QUOT_	N1
 #define QMRK_	LS(APSC_)
 #define EXCL_	LS(CFLX_)
+#define IQMR_	RA(APSC_)
+#define IEXC_	RA(CFLX_)
 #define DLLR_	GRAVE
 #define AMPR_	RA(P_)
 #define MDSH_	RA(N8)
