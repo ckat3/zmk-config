@@ -137,6 +137,7 @@
 		// convenience
 	
 		#define ALL_MODS    &kp LSHFT &kp LALT &kp LCTRL // notepad++ bugs if ctrl is not last
+		
 		#define M_TAP       &macro_tap
 		#define M_TAP_KP    &macro_tap &kp
 		#define M_HOLD      &macro_press
@@ -145,7 +146,8 @@
 		#define M_REL_KP    &macro_release &kp
 		#define M_WAIT_REL <&macro_pause_for_release>
 		
-		#define RELEASE_SHIFT <M_REL_KP LSHFT>, <M_REL_KP RSHFT>
+		#define M_HOLD_SHIFT <M_HOLD_KP LSHFT>
+		#define M_REL_SHIFT  <M_REL_KP LSHFT>, <M_REL_KP RSHFT>
 		
 		// MACRO MACROS
 		#define MACRO(NAME, BINDINGS...) \
@@ -157,7 +159,7 @@
 
 		// names the macro "m_FIRST##SECOND", eg "m_Q_U_"
 		#define MACRO_SIMPLE(FIRST, SECOND) \
-			MACRO(FIRST##SECOND, <M_TAP_KP FIRST>, RELEASE_SHIFT, <M_TAP_KP SECOND>)
+			MACRO(FIRST##SECOND, <M_TAP_KP FIRST>, M_REL_SHIFT, <M_TAP_KP SECOND>)
 			
 			
 		#define MACRO_TAP(NAME, BINDINGS...) \
@@ -165,16 +167,16 @@
 					
 					
 		#define MACRO_ACCENT_DOUBLE(NAME, ACCENT, UPPERCASE) \
-			MACRO(NAME,       <M_TAP  &kp ACCENT UPPERCASE>) \
+			MACRO(NAME,       <M_TAP_KP  ACCENT>,                 <M_TAP  UPPERCASE>) \
 			\
-			MACRO(cw_##NAME,  <M_TAP_KP  ACCENT>,  <M_HOLD_KP  LSHFT>,  <M_TAP  UPPERCASE>,  <M_REL_KP  LSHFT>)
+			MACRO(cw_##NAME,  <M_TAP_KP  ACCENT>,  M_HOLD_SHIFT,  <M_TAP  UPPERCASE>,  M_REL_SHIFT)
 				
 				
-		// why does this bug out if i use RELEASE_SHIFT but MACRO_SIMPLE doesn't?
+		// why does this bug out if i use M_REL_SHIFT but MACRO_SIMPLE doesn't?
 		#define MACRO_ACCENT(FIRST, SECOND) \
-			MACRO(FIRST##SECOND, <M_TAP_KP FIRST>, <M_REL &kp LSHFT &kp RSHFT>, <M_TAP_KP SECOND>) \
+			MACRO(FIRST##SECOND,      <M_TAP_KP FIRST>, M_REL_SHIFT,  <M_TAP_KP SECOND>) \
 			\
-			MACRO(cw_##FIRST##SECOND, <M_TAP_KP FIRST>, <M_REL &kp LSHFT>, <M_TAP_KP SECOND>, <M_REL_KP LSHFT>)
+			MACRO(cw_##FIRST##SECOND, <M_TAP_KP FIRST>, M_HOLD_SHIFT, <M_TAP_KP SECOND>, M_REL_SHIFT)
 
 
 		// ACCENTED LETTERS
