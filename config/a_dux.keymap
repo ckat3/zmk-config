@@ -109,8 +109,8 @@
 		HOLDTAP_BAL(ht_cw_nav_spc, <&m_mo_cw_nav>,  <&m_cw_spc>)    // space           hold NAV
 		HOLDTAP_BAL(lsl_cw_sym,    <&m_mo_cw_sym>,  <&m_sk_cw_sym>) // one-shot SYM    hold SYM
 		
-		HOLDTAP(util_alt,  <&m_util_alt>,  <&kp>) // &kp             hold layer    (inherits tap-preferred from HOLDTAP)
-		HOLDTAP(util_ctrl, <&m_util_ctrl>, <&kp>) // &kp             hold layer    (inherits tap-preferred from HOLDTAP)
+		HOLDTAP(util_alt,  <&m_util_layer>,  <&kp>) // &kp             hold layer    (inherits tap-preferred from HOLDTAP)
+		HOLDTAP(util_ctrl, <&m_util_layer>, <&kp>) // &kp             hold layer    (inherits tap-preferred from HOLDTAP)
 
 
 		// gotta hold these for a long time just to make sure
@@ -155,7 +155,7 @@
 						
 						
 		// #define MACRO_ACCENT_COMPLEX(NAME, FIRST, UPPERCASE...) \
-			// MACRO(NAME, <&macro_tap &kp FIRST UPPERCASE>) \
+			// MACRO(NAME, <&macro_tap &kp FIRST>, <&macro_tap UPPERCASE>) \ //need this redundant macro_tap?
 			// \
 			// MACRO(cw_##NAME, <&macro_tap &kp FIRST>, <&macro_press &kp LSHFT>, <&macro_tap UPPERCASE>, <&macro_release &kp LSHFT>)
 			
@@ -246,8 +246,15 @@
 		// MACRO(rls_mods,  <&macro_release  &kp LCTRL  &kp LALT>) /* todo turn into a behavior */
 		
 		// if this works, it will drop the mods that give sense to util layer
-		MACRO(util_guitab, <&macro_release  &kp LALT  &kp LCTRL>,  <&macro_tap    &kp TAB &mo UTIL>)
+		// MACRO(util_guitab, <&macro_release  &kp LALT  &kp LCTRL>,  <&macro_tap  &kp LG(TAB) &mo UTIL>)
 		
+		MACRO(util_layer, <&macro_tap &tog UTIL>, <&macro_press  &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>, <&macro_pause_for_release>, <&macro_release  &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>, <&macro_tap &tog UTIL>)
+		
+		MACRO(util_ctab,  <&macro_release  &kp LSHFT           &kp LALT &kp LGUI>, <&macro_tap &kp TAB>, <&macro_pause_for_release>, <&macro_press  &kp LSHFT           &kp LALT         >)
+		MACRO(util_cstab, <&macro_release                      &kp LALT &kp LGUI>, <&macro_tap &kp TAB>, <&macro_pause_for_release>, <&macro_press                      &kp LALT         >)
+		MACRO(util_atab,  <&macro_release  &kp LSHFT &kp LCTRL          &kp LGUI>, <&macro_tap &kp TAB>, <&macro_pause_for_release>, <&macro_press  &kp LSHFT &kp LCTRL                  >)
+		MACRO(util_astab, <&macro_release            &kp LCTRL          &kp LGUI>, <&macro_tap &kp TAB>, <&macro_pause_for_release>, <&macro_press            &kp LCTRL                  >)
+		MACRO(util_gtab,  <&macro_release  &kp LSHFT &kp LCTRL &kp LALT         >, <&macro_tap &kp TAB>, <&macro_pause_for_release>, <&macro_press                               &kp LGUI>)
 		
 	};
 
@@ -457,11 +464,12 @@
 
 		utility_layer {
 			bindings = <
-				_________   _________    _________        _________      _____         _____    _________   _________    _________        _________
-				_________   _________    _________        &m_util_guitab _____         _____    _________   _________    _________        _________
-				_________   _________    _________        _________      _____         _____    _________   _________    _________        _________
+				_________   _________    _________    _________  _____         _____    _________   _________    _________        _________
+				_________   _________    &m_util_cstab    &m_util_ctab       _____         _____    _________   _________    _________        _________
+				_________   _________    &m_util_astab  &m_util_atab         _____         _____    _________   _________    _________        _________
+		
 				//
-			                                              &kp TAB   &kp LS(TAB)        xxxxx   xxxxx
+			                                                   _____  &m_util_gtab         xxxxx   xxxxx
 			>;
 		};
 
