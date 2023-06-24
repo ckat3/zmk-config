@@ -110,9 +110,8 @@
 		HOLDTAP_BAL(ht_cw_nav_spc, <&m_mo_cw_nav>,  <&m_spc_cpwd>)    // space           hold NAV
 		HOLDTAP_BAL(lsl_cw_sym,    <&m_mo_cw_sym>,  <&m_sk_cw_sym>) // one-shot SYM    hold SYM
 		
-		HOLDTAP(utlalt, <&m_util_alt>,  <&kp>) // &kp             hold layer    (inherits tap-preferred from HOLDTAP)
-		HOLDTAP(utlctr, <&m_util_ctrl>, <&kp>) // &kp             hold layer    (inherits tap-preferred from HOLDTAP)
-
+		HOLDTAP(util_alt,  <&m_util_alt>,  <&kp>) // &kp             hold layer    (inherits tap-preferred from HOLDTAP)
+		HOLDTAP(util_ctrl, <&m_util_ctrl>, <&kp>) // &kp             hold layer    (inherits tap-preferred from HOLDTAP)
 
 
 		// gotta hold these for a long time just to make sure
@@ -401,8 +400,8 @@
 		#define COPY_ALL    &sechold_copyall  0 &none   //         copy  all	//  must hold for
 		#define PASTE_ALL   &sechold_pasteall 0 &none   //         paste all	//  very long time
 		
-		#define UTCTRL &utlctr 0
-		#define UTALT  &utlalt 0
+		#define UTCTRL &util_ctrl 0
+		#define UTALT  &util_alt  0
 															      
 		// #define HT_CTRZ      &ht     LC(Y_)  LC(Z_)  // ^Z      ^Y
 		// #define HT_CTRV      &ht PASTEPLAIN  LC(V_)  // ^V      plaintext paste (powertoys)
