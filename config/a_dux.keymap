@@ -97,7 +97,7 @@
 		#define SECURITY_HOLD(NAME, BINDINGS...) \
 				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM_SLOWEST, _ALL_POSITIONS, BINDINGS)
 
-		// home-row mods              // TAP           HOLD
+		// HOME-ROW MODS              // TAP           HOLD
 		HT(     ht,     <&kp>, <&kp>) // &kp             &kp
 		HT(     htsk,   <&sk>, <&kp>) // &kp             sticky layer
 		HT(     ltt,    <&mo>, <&kp>) // &kp             hold layer    (inherits tap-preferred from HT)
@@ -110,6 +110,7 @@
 		HRMOD_POS(htl, _POSITIONS_RH)
 		HRMOD_POS(htr, _POSITIONS_LH)
 		
+		// OTHER HOLDTAPS ------------------
 		// gotta hold these for a long time just to make sure
 		SECURITY_HOLD(sechold_cutall,   <&m_cut_all>,   <&kp>)
 		SECURITY_HOLD(sechold_copyall,  <&m_copy_all>,  <&kp>)
@@ -119,9 +120,9 @@
 		HT_BAL( ht_cw_L_NAV_spc, <&m_mo_cw_L_NAV>,  <&m_cw_spc>)      // space           hold _L_NAV
 		HT_BAL(lsl_cw_L_SYM,     <&m_mo_cw_L_SYM>,  <&m_sk_cw_L_SYM>) // one-shot _L_SYM  hold _L_SYM
 		
-		
 		HT(util_layer, <&m_util_layer>, <&kp>) // &kp             hold layer    (inherits tap-preferred from HT)
 
+		// NBSP STUFF (for french) ------------------
 		// automatic nbsp on tap
 		HT(ht_lglm, <&kp>, <&m_nbsp_lglm>)
 		HT(ht_rglm, <&kp>, <&m_nbsp_rglm>)
@@ -134,8 +135,7 @@
 	};
 
 	macros {
-		// convenience
-	
+		// convenience	
 		#define _ALL_MODS    &kp LSHFT &kp LALT &kp LCTRL // notepad++ bugs if ctrl is not last
 		
 		#define M_TAP       &macro_tap
@@ -192,11 +192,12 @@
 		#define MACRO_ACCENT(ACCENT, LETTER) \
 			MACRO_ACCENT_NAMED(ACCENT##LETTER, ACCENT, LETTER)
 
-
+		// !! TODO !!
 		// MACRO_ACCENT_NAMED(sztt,     SZTTMOD_,   S_)
 		/*  ß  */  MACRO_TAP(sztt,       &kp RA(S_)  &kp    S_)
 		/*  ẞ  */  MACRO_TAP(cw_sztt,    &kp RA(S_)  &kp LS(S_))
 		
+		// INCONVENIENT DIGRAMS ------------------
 		// also defines a caps version (eg &m_cw_Q_U_)
 		MACRO_DOUBLE(Q_, U_)
 		MACRO_DOUBLE(B_, J_)
@@ -290,8 +291,8 @@
 			
 
 		// when not defining layers, will default to _L_NOT_GAME
-		// TODO: ok to omit line breaks between defs?
-		// TODO: all combos define layers?
+		// !! TODO !!: ok to omit line breaks between defs?
+		// !! TODO !!: all combos define layers?
 		#define COMBO(BINDINGS, POSITIONS, RANDOM_NAME) \
 			DEFINE_COMBO(RANDOM_NAME,        _L_NOT_GAME,  POSITIONS,  _COMBO_TIMEOUT,      <BINDINGS>)
 
@@ -304,7 +305,7 @@
 			
 			
 		#define COMBO_KP_CTRL(KEY, SUFFIX, POSITIONS) \
-			DEFINE_COMBO(ctrl_##KEY##SUFFIX, _L_NOT_GAME,  POSITIONS,  _COMBO_TIMEOUT,      <&kp KEY>)
+			DEFINE_COMBO(ctrl_##KEY##SUFFIX, _L_NOT_GAME,  POSITIONS,  _COMBO_TIMEOUT,      <&kp LC(##KEY )>)
 
 
 		#define COMBO_KP_LAYER(KEY, SUFFIX, POSITIONS, LAYERS) \
@@ -332,45 +333,45 @@
 	                   30 31 | 32 33
 	*/
 
-		COMBO_KP(SPACE,l,                    11 12 13)
-		COMBO_KP(SPACE,r,                    16 17 18)
+		COMBO_KP(SPACE,l,                   11 12 13)
+		COMBO_KP(SPACE,r,                   16 17 18)
 
 		// backspace and del, with and wo ctrl
-		COMBO_KP( BSPC,,                     11 12)
-		COMBO_KP( DEL,,                      21 22)
-		COMBO(&kp LC(BSPC),                  17 18, gslqgrnqsl) // whatever name. enjoy
-		COMBO(&kp LC(DEL),                   27 28, rgsrnteqsj)
+		COMBO_KP( BSPC,,                    11 12)
+		COMBO_KP( DEL,,                     21 22)
+		COMBO_KP_CTRL(BSPC,                 17 18)
+		COMBO_KP_CTRL(DEL,                  27 28)
 
 		// one-shot shift on both thumb keys at once
-		COMBO(&lsk _L_FUNC LSHIFT,              30 31, dljsdiqsrt)
-		COMBO(&sk          RSHIFT,              32 33, sqljqrjqsl)
-						
-		// TODO maybe merge these?
-		COMBO_MACRO_LAYER(Q_U_,,          26 27, _L_BASE) /* qu */  
-		COMBO_MACRO_LAYER(TILD_A_E_,,     13 30, _L_BASE) /* ãe */  
-		COMBO_MACRO_LAYER(TILD_A_O_,,     13 11, _L_BASE) /* ão */  
-		COMBO_MACRO_LAYER(TILD_O_E_,,     11 30, _L_BASE) /* õe */  
-					                            			
-		COMBO_MACRO_LAYER(cw_Q_U_,,       26 27, _L_CPWD) /* QU */  
-		COMBO_MACRO_LAYER(cw_TILD_A_E_,,  13 30, _L_CPWD) /* ÃE */  
-		COMBO_MACRO_LAYER(cw_TILD_A_O_,,  13 11, _L_CPWD) /* ÃO */  
-		COMBO_MACRO_LAYER(cw_TILD_O_E_,,  11 30, _L_CPWD) /* ÕE */  
+		COMBO(&lsk _L_FUNC LSHIFT,          30 31, dljsdiqsrt)
+		COMBO(&sk          RSHIFT,          32 33, sqljqrjqsl)
+										   
+		// !! TODO !!  merge these?         
+		COMBO_MACRO_LAYER(Q_U_,,            26 27, _L_BASE) /* qu */  
+		COMBO_MACRO_LAYER(TILD_A_E_,,       13 30, _L_BASE) /* ãe */  
+		COMBO_MACRO_LAYER(TILD_A_O_,,       13 11, _L_BASE) /* ão */  
+		COMBO_MACRO_LAYER(TILD_O_E_,,       11 30, _L_BASE) /* õe */  
+					                              			
+		COMBO_MACRO_LAYER(cw_Q_U_,,         26 27, _L_CPWD) /* QU */  
+		COMBO_MACRO_LAYER(cw_TILD_A_E_,,    13 30, _L_CPWD) /* ÃE */  
+		COMBO_MACRO_LAYER(cw_TILD_A_O_,,    13 11, _L_CPWD) /* ÃO */  
+		COMBO_MACRO_LAYER(cw_TILD_O_E_,,    11 30, _L_CPWD) /* ÕE */  
 								      
 		// tab, enter, esc            
-		COMBO_KP_LAYER(TAB,,                 12 13, _L_NOT_CPWD)
-		COMBO_KP_LAYER(ENTER,,               16 17, _L_NOT_CPWD)
-		COMBO_KP_LAYER(ESC,,                 10 11, _L_NOT_CPWD)
+		COMBO_KP_LAYER(TAB,,                12 13, _L_NOT_CPWD)
+		COMBO_KP_LAYER(ENTER,,              16 17, _L_NOT_CPWD)
+		COMBO_KP_LAYER(ESC,,                10 11, _L_NOT_CPWD)
 		
-		COMBO_MACRO_LAYER(cw_tab,,         12 13, _L_CPWD)
-		COMBO_MACRO_LAYER(cw_entr,,        16 17, _L_CPWD)
-		COMBO_MACRO_LAYER(cw_esc,,         10 11, _L_CPWD)
+		COMBO_MACRO_LAYER(cw_tab,,          12 13, _L_CPWD)
+		COMBO_MACRO_LAYER(cw_entr,,         16 17, _L_CPWD)
+		COMBO_MACRO_LAYER(cw_esc,,          10 11, _L_CPWD)
 		
-		COMBO(&kp LC(Z_),        20 21, rgsriaiaiqsj)
+		COMBO_KP_CTRL(Z_,                   20 21)
 		
-		COMBO_LAYER(_L_FUNC, &sys_reset,         0  4, aiouaiouaiou)
-		COMBO_LAYER(_L_FUNC, &bootloader,       20 24, ayuqaioueaio)
-		COMBO_LAYER(_L_FUNC, &tog _L_GAME,          4 14, aiouayopaipo)
-		COMBO_LAYER(_L_FUNC, &tog _L_GAM2,         14 24, aiopoappyaio)
+		COMBO_LAYER(_L_FUNC, &sys_reset,     0  4, aiouaiouaiou)
+		COMBO_LAYER(_L_FUNC, &bootloader,   20 24, ayuqaioueaio)
+		COMBO_LAYER(_L_FUNC, &tog _L_GAME,   4 14, aiouayopaipo)
+		COMBO_LAYER(_L_FUNC, &tog _L_GAM2,  14 24, aiopoappyaio)
 	};
 
 	keymap {
@@ -430,17 +431,17 @@
 		// #define HT_CTRV      &ht PASTEPLAIN  LC(V_)  // ^V      plaintext paste (powertoys)
 
 		// THUMB KEYS ------------------
-		#define TH_L_MAIN      &lt  _L_NUM E_
-		#define TH_L_MAIN_CW   &lt  _L_NUM LS(E_) // capsword
+		#define TH_L_MAIN      &lt  _L_NUM  E_
+		#define TH_L_MAIN_CW   &lt  _L_NUM  LS(E_) // capsword
 
-		#define TH_L_AUX       &lsl    _L_SYM _L_SYM
+		#define TH_L_AUX       &lsl   _L_SYM  _L_SYM
 		#define TH_L_AUX_CW    &lsl_cw_L_SYM 0 0
 
-		#define TH_R_MAIN      &lt    _L_NAV SPC
+		#define TH_R_MAIN      &lt   _L_NAV SPC
 		#define TH_R_MAIN_CW   &ht_cw_L_NAV_spc 0 0
 
-		#define TH_R_AUX       &lsl  _L_ACNT _L_ACNT
-		#define TH_R_AUX_CW    &lsl  _L_ACCW _L_ACCW
+		#define TH_R_AUX       &lsl  _L_ACNT  _L_ACNT
+		#define TH_R_AUX_CW    &lsl  _L_ACCW  _L_ACCW
 
                                       // ---- left hand ---- //      // ---- right hand ---- //
 		#define _THUMBS_LEFT_         TH_L_MAIN     TH_L_AUX
@@ -450,7 +451,7 @@
 	
 
 
-		// todo reorder layers according to thumbs
+		// !! TODO !! reorder layers according to thumbs
 		base_layer {
 			bindings = <
 				&kp    Q_  HMRA   MIN_   &kp  Y_  DOT_COLN   NBSP_QMRK         &kp K_   &kp  C_   &kp  H_   &kp  W_   &kp  J_
@@ -461,7 +462,7 @@
 			>;
 		};
 
-		caps_word_layer { // todo cancel shift when using caps word mods
+		caps_word_layer { // !! TODO !! cancel shift when using caps word mods
 			bindings = <
 				&kp  LS(Q_)	 _________       &kp  LS(Y_)  _________      _________          &kp LS(K_)    &kp  LS(C_)  &kp  LS(H_)  &kp  LS(W_)  &kp  LS(J_)
 				HMLG LS(U_)	 HMLA LS(O_)	 HMLC LS(I_)  HMLS LS(A_)    &kp LS(F_)         &kp LS(G_)    HMRS LS(T_)  HMRC LS(R_)  HMRA LS(S_)  HMRG LS(N_)
