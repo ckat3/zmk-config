@@ -105,9 +105,8 @@
 		HOLDTAP(     ltt,    <&mo>, <&kp>) // &kp             hold layer    (inherits tap-preferred from HOLDTAP)
 		HOLDTAP_BAL( lsk,    <&mo>, <&sk>) // one-shot mod    hold layer
 		HOLDTAP_BAL( lsl,    <&mo>, <&sl>) // one-shot layer  hold layer
-		HOLDTAP_BAL( htcpwd, <&mo>, <&m_spc_cpwd>) // space then desactivate capsword    hold layer
 		//deactivates capsword, then...                       // PRESS           HOLD
-		HOLDTAP_BAL(ht_cw_nav_spc, <&m_mo_cw_nav>,  <&m_spc_cpwd>)    // space           hold NAV
+		HOLDTAP_BAL(ht_cw_nav_spc, <&m_mo_cw_nav>,  <&m_cw_spc>)    // space           hold NAV
 		HOLDTAP_BAL(lsl_cw_sym,    <&m_mo_cw_sym>,  <&m_sk_cw_sym>) // one-shot SYM    hold SYM
 		
 		HOLDTAP(util_alt,  <&m_util_alt>,  <&kp>) // &kp             hold layer    (inherits tap-preferred from HOLDTAP)
@@ -152,24 +151,24 @@
 			MACRO(NAME, <&macro_tap BINDINGS>)
 					
 		// #define MACRO_LAST_UPPER(FIRST, UPPERCASE...) \
-			// MACRO(cp_##FIRST##SECOND, <&macro_tap &kp FIRST>, <&macro_press &kp LSHFT>, <&macro_tap UPPERCASE>, <&macro_release &kp LSHFT>)
+			// MACRO(cw_##FIRST##SECOND, <&macro_tap &kp FIRST>, <&macro_press &kp LSHFT>, <&macro_tap UPPERCASE>, <&macro_release &kp LSHFT>)
 						
 						
 		// #define MACRO_ACCENT_COMPLEX(NAME, FIRST, UPPERCASE...) \
 			// MACRO(NAME, <&macro_tap &kp FIRST UPPERCASE>) \
 			// \
-			// MACRO(cp_##NAME, <&macro_tap &kp FIRST>, <&macro_press &kp LSHFT>, <&macro_tap UPPERCASE>, <&macro_release &kp LSHFT>)
+			// MACRO(cw_##NAME, <&macro_tap &kp FIRST>, <&macro_press &kp LSHFT>, <&macro_tap UPPERCASE>, <&macro_release &kp LSHFT>)
 			
 		// why does this bug out if i use RELEASE_SHIFT but MACRO_SIMLE doesn't?
 		#define MACRO_ACCENT(FIRST, SECOND) \
 			MACRO(FIRST##SECOND, <&macro_tap &kp FIRST>, <&macro_release &kp LSHFT &kp RSHFT>, <&macro_tap &kp SECOND>) \
 			\
-			MACRO(cp_##FIRST##SECOND, <&macro_tap &kp FIRST>, <&macro_press &kp LSHFT>, <&macro_tap &kp SECOND>, <&macro_release &kp LSHFT>)
+			MACRO(cw_##FIRST##SECOND, <&macro_tap &kp FIRST>, <&macro_press &kp LSHFT>, <&macro_tap &kp SECOND>, <&macro_release &kp LSHFT>)
 
 			
 			// #define MACRO_ACCENT_COMPLEX(FIRST##SECOND, FIRST, &kp SECOND)
 
-		// accented letters. also defines a caps version (eg &m_cp_ACUT_A_)
+		// accented letters. also defines a caps version (eg &m_cw_ACUT_A_)
 		MACRO_ACCENT(ACUT_, A_)
 		MACRO_ACCENT(ACUT_, I_)
 		MACRO_ACCENT(ACUT_, O_)
@@ -196,23 +195,23 @@
 		/* qu  */  MACRO_SIMPLE(Q_, U_)
 		/* bj  */  MACRO_SIMPLE(B_, J_)
 		
-		/* QU  */  MACRO_TAP(cp_qu,      &kp LS(Q_) &kp LS(U_))
-		/* BJ  */  MACRO_TAP(cp_bj,      &kp LS(B_) &kp LS(J_))
+		/* QU  */  MACRO_TAP(cw_qu,      &kp LS(Q_) &kp LS(U_))
+		/* BJ  */  MACRO_TAP(cw_bj,      &kp LS(B_) &kp LS(J_))
 		
-		/*  Ñ  */  MACRO_TAP(cp_tl_n,    &kp TILD_  &kp LS(N_))
+		/*  Ñ  */  MACRO_TAP(cw_tl_n,    &kp TILD_  &kp LS(N_))
 		
 		
 		/* ãe  */  MACRO_TAP(ae,         &kp TILD_  &kp A_  &kp E_)
 		/* ão  */  MACRO_TAP(ao,         &kp TILD_  &kp A_  &kp O_)
 		/* õe  */  MACRO_TAP(oe,         &kp TILD_  &kp O_  &kp E_)
 		
-		/* ÃE  */  MACRO_TAP(cp_ae,      &kp TILD_  &kp LS(A_)  &kp LS(E_))
-		/* ÃO  */  MACRO_TAP(cp_ao,      &kp TILD_  &kp LS(A_)  &kp LS(O_))
-		/* ÕE  */  MACRO_TAP(cp_oe,      &kp TILD_  &kp LS(O_)  &kp LS(E_))
+		/* ÃE  */  MACRO_TAP(cw_ae,      &kp TILD_  &kp LS(A_)  &kp LS(E_))
+		/* ÃO  */  MACRO_TAP(cw_ao,      &kp TILD_  &kp LS(A_)  &kp LS(O_))
+		/* ÕE  */  MACRO_TAP(cw_oe,      &kp TILD_  &kp LS(O_)  &kp LS(E_))
 		
 		
 		/*  ß  */  MACRO_TAP(eszett,     &kp RA(S_)  &kp    S_)
-		/*  ẞ  */  MACRO_TAP(cp_sztt,    &kp RA(S_)  &kp LS(S_))
+		/*  ẞ  */  MACRO_TAP(cw_sztt,    &kp RA(S_)  &kp LS(S_))
 
 
 		/* ■?  */  MACRO_TAP(nbsp_qmrk,  &kp LS(SPACE)  &kp LS(QMRK_))
@@ -227,10 +226,10 @@
 		/*  `  */  MACRO_TAP(grvloos,    &kp GRAV_  &kp SPACE)
 
 		// key and turn off capsword
-		MACRO_TAP(spc_cpwd,  &kp SPACE  &tog CPWD)
-		MACRO_TAP(tab_cpwd,  &kp TAB    &tog CPWD)
-		MACRO_TAP(entr_cpwd, &kp ENTER  &tog CPWD)
-		MACRO_TAP(esc_cpwd,  &kp ESC    &tog CPWD)
+		MACRO_TAP(cw_spc,  &kp SPACE  &tog CPWD)
+		MACRO_TAP(cw_tab,  &kp TAB    &tog CPWD)
+		MACRO_TAP(cw_entr, &kp ENTER  &tog CPWD)
+		MACRO_TAP(cw_esc,  &kp ESC    &tog CPWD)
 		
 		MACRO(mo_cw_nav,   <&macro_tap  &tog CPWD>,  <&macro_press  &mo NAV>,   <&macro_pause_for_release>,  <&macro_release &mo NAV>)
 		MACRO(mo_cw_sym,   <&macro_tap  &tog CPWD>,  <&macro_press  &mo SYM>,   <&macro_pause_for_release>,  <&macro_release &mo SYM>)
@@ -323,19 +322,19 @@
 		COMBO_MACRO_LAYER(ao,,     13 11, BASE) /* ão */  
 		COMBO_MACRO_LAYER(oe,,     11 30, BASE) /* õe */  
 					                            			
-		COMBO_MACRO_LAYER(cp_qu,,  26 27, CPWD) /* QU */  
-		COMBO_MACRO_LAYER(cp_ae,,  13 30, CPWD) /* ÃE */  
-		COMBO_MACRO_LAYER(cp_ao,,  13 11, CPWD) /* ÃO */  
-		COMBO_MACRO_LAYER(cp_oe,,  11 30, CPWD) /* ÕE */  
+		COMBO_MACRO_LAYER(cw_qu,,  26 27, CPWD) /* QU */  
+		COMBO_MACRO_LAYER(cw_ae,,  13 30, CPWD) /* ÃE */  
+		COMBO_MACRO_LAYER(cw_ao,,  13 11, CPWD) /* ÃO */  
+		COMBO_MACRO_LAYER(cw_oe,,  11 30, CPWD) /* ÕE */  
 								      
 		// tab, enter, esc            
 		COMBO_KP_LAYER(TAB,,                 12 13, NOT_CPWD)
 		COMBO_KP_LAYER(ENTER,,               16 17, NOT_CPWD)
 		COMBO_KP_LAYER(ESC,,                 10 11, NOT_CPWD)
 		
-		COMBO_MACRO_LAYER(tab_cpwd,,         12 13, CPWD)
-		COMBO_MACRO_LAYER(entr_cpwd,,        16 17, CPWD)
-		COMBO_MACRO_LAYER(esc_cpwd,,         10 11, CPWD)
+		COMBO_MACRO_LAYER(cw_tab,,         12 13, CPWD)
+		COMBO_MACRO_LAYER(cw_entr,,        16 17, CPWD)
+		COMBO_MACRO_LAYER(cw_esc,,         10 11, CPWD)
 		
 		// COMBO_MACRO_LAYER_SLOW(util_alt,,       20, BASE)
 		// COMBO_MACRO_LAYER_SLOW(util_ctr,,       21, BASE)
@@ -485,11 +484,11 @@
 
 		accent_caps_layer {
 			bindings = <
-				&m_cp_CFLX_U_  &m_cp_CFLX_O_  &m_cp_CFLX_I_  &m_cp_CFLX_A_    xxxxxxxxx             xxxxxxxxx    &kp  CCED_  &kp  APST_  &kp  QUOT_  &m_cp_bj
-				&m_cp_ACUT_U_  &m_cp_ACUT_O_  &m_cp_ACUT_I_  &m_cp_ACUT_A_    &m_cp_TILD_A_         xxxxxxxxx    HMRS ACUT_  HMRC GRAV_  HMLA CFLX_  &m_cp_tl_n
-				&m_cp_GRAV_U_  &m_cp_TILD_O_  &m_cp_TRMA_I_  &kp LS(AGRV_)    xxxxxxxxx             xxxxxxxxx    &kp  TRMA_  xxxxxxxxx   &m_cp_sztt  &kp TILD_
+				&m_cw_CFLX_U_  &m_cw_CFLX_O_  &m_cw_CFLX_I_  &m_cw_CFLX_A_    xxxxxxxxx             xxxxxxxxx    &kp  CCED_  &kp  APST_  &kp  QUOT_  &m_cw_bj
+				&m_cw_ACUT_U_  &m_cw_ACUT_O_  &m_cw_ACUT_I_  &m_cw_ACUT_A_    &m_cw_TILD_A_         xxxxxxxxx    HMRS ACUT_  HMRC GRAV_  HMLA CFLX_  &m_cw_tl_n
+				&m_cw_GRAV_U_  &m_cw_TILD_O_  &m_cw_TRMA_I_  &kp LS(AGRV_)    xxxxxxxxx             xxxxxxxxx    &kp  TRMA_  xxxxxxxxx   &m_cw_sztt  &kp TILD_
 				//
-												             &m_cp_CFLX_E_    &kp LS(EGRV_)        _THUMBS_RIGHT_
+												             &m_cw_CFLX_E_    &kp LS(EGRV_)        _THUMBS_RIGHT_
 			>;
 		};
 
