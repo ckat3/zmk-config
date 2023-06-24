@@ -106,8 +106,8 @@
 		HOLDTAP_BAL( lsk,    <&mo>, <&sk>) // one-shot mod    hold layer
 		HOLDTAP_BAL( lsl,    <&mo>, <&sl>) // one-shot layer  hold layer
 		//deactivates capsword, then...                       // PRESS           HOLD
-		HOLDTAP_BAL(ht_cw_NAV_spc, <&m_mo_cw_NAV>,  <&m_cw_spc>)    // space           hold NAV
-		HOLDTAP_BAL(lsl_cw_SYM,    <&m_mo_cw_SYM>,  <&m_sk_cw_SYM>) // one-shot SYM    hold SYM
+		HOLDTAP_BAL( ht_cw_NAV_spc, <&m_mo_cw_NAV>,  <&m_cw_spc>)    // space           hold NAV
+		HOLDTAP_BAL(lsl_cw_SYM,     <&m_mo_cw_SYM>,  <&m_sk_cw_SYM>) // one-shot SYM    hold SYM
 		
 		// HOLDTAP(util_alt,   <&m_util_alt>,  <&kp>)  // &kp             hold layer    (inherits tap-preferred from HOLDTAP)
 		// HOLDTAP(util_ctrl,  <&m_util_ctrl>, <&kp>)  // &kp             hold layer    (inherits tap-preferred from HOLDTAP)
@@ -239,12 +239,12 @@
 		#define M_REL       &macro_release
 		#define M_WAIT_REL <&macro_pause_for_release>
 		
-		MACRO(mo_cw_NAV,   <M_TAP  &tog CPWD>,  <M_HOLD  &mo NAV>,   M_WAIT_REL,  <M_REL &mo NAV>)
-		MACRO(mo_cw_SYM,   <M_TAP  &tog CPWD>,  <M_HOLD  &mo SYM>,   M_WAIT_REL,  <M_REL &mo SYM>)
-		MACRO(mo_cw_ACNT,  <M_TAP  &tog CPWD>,  <M_HOLD  &mo ACNT>,  M_WAIT_REL,  <M_REL &mo ACNT>)
+		MACRO(mo_cw_NAV,   <M_TAP &to NAV>,  M_WAIT_REL,  <M_TAP &to BASE>)
+		MACRO(mo_cw_SYM,   <M_TAP &to NAV>,  M_WAIT_REL,  <M_TAP &to BASE>)
+		MACRO(mo_cw_ACNT,  <M_TAP &to NAV>,  M_WAIT_REL,  <M_TAP &to BASE>)
 		
-		MACRO(sk_cw_SYM,   <M_TAP  &tog CPWD  &sk SYM>)
-		MACRO(sk_cw_ACNT,  <M_TAP  &tog CPWD  &sk ACNT>)
+		MACRO(sk_cw_SYM,   <M_TAP  &to BASE  &sk SYM>)
+		MACRO(sk_cw_ACNT,  <M_TAP  &to BASE  &sk ACNT>)
 		
 		// used with security_hold
 		MACRO(cut_all,    <M_TAP_KP  LC(A_)>,  M_WAIT_REL,  <M_TAP_KP  LC(X_)>)
