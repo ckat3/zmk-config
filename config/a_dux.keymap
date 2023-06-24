@@ -247,12 +247,6 @@
 		// MACRO(rls_mods,  <&macro_release  &kp LCTRL  &kp LALT>) /* todo turn into a behavior */
 		
 		
-		
-		// doesn't work but maybe one day
-		// MACRO(ctrltab,   <&macro_press &kp LCTRL>,           <&macro_tap &kp TAB>,  <&macro_pause_for_release>,  <&macro_release &kp LCTRL>)
-		// MACRO(ctshtab,   <&macro_press &kp LSHFT &kp LCTRL>, <&macro_tap &kp TAB>,  <&macro_pause_for_release>,  <&macro_release &kp LCTRL &kp LSHFT>)
-		// MACRO(alttab,    <&macro_press &kp LALT>,            <&macro_tap &kp TAB>,  <&macro_pause_for_release>,  <&macro_release &kp LALT>)
-		// MACRO(altshtab,  <&macro_press &kp LSHFT &kp LALT>,  <&macro_tap &kp TAB>,  <&macro_pause_for_release>,  <&macro_release &kp LALT  &kp LSHFT>)
 	};
 
 	combos {
@@ -421,7 +415,7 @@
 
 
                                       // --- left hand --- //      // --- right hand --- //
-		#define _THUMBS_CAPSWORD_     TH_L_MAIN_CW _________       TH_R_AUX_CW  TH_R_MAIN_CW
+		#define _THUMBS_CAPSWORD_     TH_L_MAIN_CW TH_L_AUX_CW       TH_R_AUX_CW  TH_R_MAIN_CW
 		#define _THUMBS_LEFT_         TH_L_MAIN    TH_L_AUX
 		#define _THUMBS_RIGHT_                                      TH_R_AUX  TH_R_MAIN
 		#define _THUMBS_DEFAULT_          _THUMBS_LEFT_                _THUMBS_RIGHT_
@@ -433,13 +427,13 @@
 			bindings = <
 				&kp    Q_  HMRA   MIN_   &kp  Y_  DOT_COLN   NBSP_QMRK         &kp K_   &kp  C_   &kp  H_   &kp  W_   &kp  J_
 				HMLG   U_  HMLA   O_     HMLC I_  HMLS A_    &kp F_            &kp G_   HMRS T_   HMRC R_   HMRA S_   HMRG N_
-				UTCTRL Z_  UTALT  EACT_  &kp  P_  COMM_SCLN  &kp X_            &kp V_   &kp  D_   &kp  M_   &kp  L_   &kp  B_
+				UTALT  Z_  UTCTRL EACT_  &kp  P_  COMM_SCLN  &kp X_            &kp V_   &kp  D_   &kp  M_   &kp  L_   &kp  B_
 				//
 															       _THUMBS_DEFAULT_
 			>;
 		};
 
-		caps_word_layer {
+		caps_word_layer { // todo cancel shift when using caps word mods
 			bindings = <
 				&kp  LS(Q_)	 HMRA MIN_       &kp  LS(Y_)  DOT_COLN       _________          &kp LS(K_)    &kp  LS(C_)  &kp  LS(H_)  &kp  LS(W_)  &kp  LS(J_)
 				HMLG LS(U_)	 HMLA LS(O_)	 HMLC LS(I_)  HMLS LS(A_)    &kp LS(F_)         &kp LS(G_)    HMRS LS(T_)  HMRC LS(R_)  HMRA LS(S_)  HMRG LS(N_)
