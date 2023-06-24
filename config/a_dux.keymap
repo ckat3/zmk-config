@@ -29,16 +29,16 @@
 #define UTIL 3 
 #define SYM  4 
 #define ACNT 5 
-#define ACCP 6 
+#define ACCW 6 
 #define NAV  7
 #define FUNC 8 
 #define GAME 9 
 #define GAM2 10
 
 // combos shouldn't work on game layer, to minimize delay
-#define ALL_LAYERS   BASE CPWD UTIL SYM ACNT ACCP NUM NAV FUNC GAME GAM2
-#define NOT_GAME     BASE CPWD UTIL SYM ACNT ACCP NUM NAV FUNC
-#define NOT_CPWD     BASE      UTIL SYM ACNT ACCP NUM NAV FUNC
+#define ALL_LAYERS   BASE CPWD UTIL SYM ACNT ACCW NUM NAV FUNC GAME GAM2
+#define NOT_GAME     BASE CPWD UTIL SYM ACNT ACCW NUM NAV FUNC
+#define NOT_CPWD     BASE      UTIL SYM ACNT ACCW NUM NAV FUNC
 
 &lt { // tap for kp, hold for layer
 	tapping-term-ms = <_TAP_TERM>;
