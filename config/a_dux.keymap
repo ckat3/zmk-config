@@ -239,7 +239,7 @@
 		MACRO(util_alt,    <&macro_tap      &tog UTIL>,            <&macro_press  &kp LALT>,   <&macro_pause_for_release>,  <&macro_release  &kp LALT>,   <&macro_tap  &tog UTIL>)
 		MACRO(util_ctrl,   <&macro_tap      &tog UTIL>,            <&macro_press  &kp LCTRL>,  <&macro_pause_for_release>,  <&macro_release  &kp LCTRL>,  <&macro_tap  &tog UTIL>)
 		
-		MACRO(util_guitab, <&macro_release  &kp LALT  &kp LCTRL>,  <&macro_tap    &kp TAB>)
+		//MACRO(util_guitab, <&macro_release  &kp LALT  &kp LCTRL>,  <&macro_tap    &kp TAB>)
 		
 	};
 
@@ -450,7 +450,7 @@
 		utility_layer {
 			bindings = <
 				_________   _________    _________        _________      _____         _____    _________   _________    _________        _________
-				_________   _________    _________        &m_util_guitab _____         _____    _________   _________    _________        _________
+				_________   _________    _________        _________      _____         _____    _________   _________    _________        _________
 				_________   _________    _________        _________      _____         _____    _________   _________    _________        _________
 				//
 			                                              &kp TAB   &kp LS(TAB)        xxxxx    xxxxx
