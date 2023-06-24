@@ -107,7 +107,7 @@
 		HOLDTAP_BAL( lsl,    <&mo>, <&sl>) // one-shot layer  hold layer
 		HOLDTAP_BAL( htcpwd, <&mo>, <&m_spc_cpwd>) // space then desactivate capsword    hold layer
 		//deactivates capsword, then...                       // PRESS           HOLD
-		HOLDTAP_BAL(ht_cw_nav_spc, <&m_mo_cw_nav>,  <&m_cw_spc>)    // space           hold NAV
+		HOLDTAP_BAL(ht_cw_nav_spc, <&m_mo_cw_nav>,  <&m_spc_cpwd>)    // space           hold NAV
 		HOLDTAP_BAL(lsl_cw_sym,    <&m_mo_cw_sym>,  <&m_sk_cw_sym>) // one-shot SYM    hold SYM
 		
 		HOLDTAP(utlalt, <&m_util_alt>,  <&kp>) // &kp             hold layer    (inherits tap-preferred from HOLDTAP)
@@ -412,9 +412,10 @@
 		#define TH_L_MAIN_CW   &lt   NUM LS(E_) // capsword
 
 		#define TH_L_AUX       &lsl  SYM SYM
+		#define TH_L_AUX_CW    &lsl_cw_sym 0 0
 
 		#define TH_R_MAIN      &lt      NAV SPACE
-		#define TH_R_MAIN_CW   &htcpwd  NAV 0  // capsword
+		#define TH_R_MAIN_CW   &ht_cw_nav_spc 0 0
 
 		#define TH_R_AUX       &lsl  ACNT ACNT
 		#define TH_R_AUX_CW    &lsl  ACCW ACCW
