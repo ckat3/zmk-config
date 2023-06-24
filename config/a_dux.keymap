@@ -72,15 +72,15 @@
 				compatible = "zmk,behavior-hold-tap"; \
 				quick-tap-ms = <_QUICK_TAP>;
 
-		#define HOLDTAP(NAME, BINDINGS...) \
+		#define HT(NAME, BINDINGS...) \
 				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM, BINDINGS) \
 			};
 
-		#define HOLDTAP_QUICK(NAME, BINDINGS...) \
+		#define HT_FAST(NAME, BINDINGS...) \
 				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM_FAST, BINDINGS) \
 			};
 
-		#define HOLDTAP_BAL(NAME, BINDINGS...) \
+		#define HT_BAL(NAME, BINDINGS...) \
 				DEFINE_HOLDTAP(NAME, balanced, _TAP_TERM, BINDINGS) \
 			};
 
@@ -89,7 +89,7 @@
 					hold-trigger-key-positions = <POSITIONS>; \
 			};
 
-		#define HOLDTAP_SLOW(NAME, BINDINGS...) \
+		#define HT_SLOW(NAME, BINDINGS...) \
 				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM_SLOW, BINDINGS) \
 			};
 			
@@ -98,13 +98,13 @@
 			};
 
 		// home-row mods                    // PRESS           HOLD
-		HOLDTAP(     ht,     <&kp>, <&kp>) // &kp             &kp
-		HOLDTAP(     htsk,   <&sk>, <&kp>) // &kp             sticky layer
-		HOLDTAP(     ltt,    <&mo>, <&kp>) // &kp             hold layer    (inherits tap-preferred from HOLDTAP)
-		HOLDTAP_BAL( lsk,    <&mo>, <&sk>) // one-shot mod    hold layer
-		HOLDTAP_BAL( lsl,    <&mo>, <&sl>) // one-shot layer  hold layer
+		HT(     ht,     <&kp>, <&kp>) // &kp             &kp
+		HT(     htsk,   <&sk>, <&kp>) // &kp             sticky layer
+		HT(     ltt,    <&mo>, <&kp>) // &kp             hold layer    (inherits tap-preferred from HT)
+		HT_BAL( lsk,    <&mo>, <&sk>) // one-shot mod    hold layer
+		HT_BAL( lsl,    <&mo>, <&sl>) // one-shot layer  hold layer
 		
-		HOLDTAP_SLOW(htslow, <&kp>, <&kp>) // !! UNUSED !!
+		HT_SLOW(htslow, <&kp>, <&kp>) // !! UNUSED !!
 
 		// hrm for opposite hand only (used for shift)
 		HRMOD_POS(htl, 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33)
@@ -117,21 +117,21 @@
 		SECURITY_HOLD(sechold_pasteall, <&m_paste_all>, <&kp>)
 		
 		//deactivates capsword, then...                       // PRESS           HOLD
-		HOLDTAP_BAL( ht_cw_L_NAV_spc, <&m_mo_cw_L_NAV>,  <&m_cw_spc>)    // space           hold L_NAV
-		HOLDTAP_BAL(lsl_cw_L_SYM,     <&m_mo_cw_L_SYM>,  <&m_sk_cw_L_SYM>) // one-shot L_SYM    hold L_SYM
+		HT_BAL( ht_cw_L_NAV_spc, <&m_mo_cw_L_NAV>,  <&m_cw_spc>)    // space           hold L_NAV
+		HT_BAL(lsl_cw_L_SYM,     <&m_mo_cw_L_SYM>,  <&m_sk_cw_L_SYM>) // one-shot L_SYM    hold L_SYM
 		
 		
-		HOLDTAP(util_layer, <&m_util_layer>, <&kp>) // &kp             hold layer    (inherits tap-preferred from HOLDTAP)
+		HT(util_layer, <&m_util_layer>, <&kp>) // &kp             hold layer    (inherits tap-preferred from HT)
 
 		// automatic nbsp on tap
-		HOLDTAP(ht_lglm, <&kp>, <&m_nbsp_lglm>)
-		HOLDTAP(ht_rglm, <&kp>, <&m_nbsp_rglm>)
+		HT(ht_lglm, <&kp>, <&m_nbsp_lglm>)
+		HT(ht_rglm, <&kp>, <&m_nbsp_rglm>)
 
 		// automatic nbsp on hold
-		HOLDTAP_QUICK(ht_coln, <&m_nbsp_coln>, <&kp>)
-		HOLDTAP_QUICK(ht_scln, <&m_nbsp_scln>, <&kp>)
-		HOLDTAP_QUICK(ht_qmrk, <&m_nbsp_qmrk>, <&kp>)
-		HOLDTAP_QUICK(ht_excl, <&m_nbsp_excl>, <&kp>)
+		HT_FAST(ht_coln, <&m_nbsp_coln>, <&kp>)
+		HT_FAST(ht_scln, <&m_nbsp_scln>, <&kp>)
+		HT_FAST(ht_qmrk, <&m_nbsp_qmrk>, <&kp>)
+		HT_FAST(ht_excl, <&m_nbsp_excl>, <&kp>)
 	};
 
 	macros {
