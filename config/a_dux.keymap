@@ -407,10 +407,11 @@
 		#define TH_R_MAIN_CW   &htcpwd  NAV 0  // capsword
 
 		#define TH_R_AUX       &lsl  ACNT ACNT
+		#define TH_R_AUX_CW    &lsl  ACCW ACCW
 
 
                                       // --- left hand --- //      // --- right hand --- //
-		#define _THUMBS_CAPSWORD_     TH_L_MAIN_CW _________       _________  TH_R_MAIN_CW
+		#define _THUMBS_CAPSWORD_     TH_L_MAIN_CW _________       TH_R_AUX_CW  TH_R_MAIN_CW
 		#define _THUMBS_LEFT_         TH_L_MAIN    TH_L_AUX
 		#define _THUMBS_RIGHT_                                      TH_R_AUX  TH_R_MAIN
 		#define _THUMBS_DEFAULT_          _THUMBS_LEFT_                _THUMBS_RIGHT_
