@@ -248,13 +248,13 @@
 		// if this works, it will drop the mods that give sense to util layer
 		// MACRO(util_guitab, <&macro_release  &kp LALT  &kp LCTRL>,  <&macro_tap  &kp LG(TAB) &mo UTIL>)
 		
-		MACRO(util_layer, <&macro_tap &tog UTIL>, <&macro_press  &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>, <&macro_pause_for_release>, <&macro_release  &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>, <&macro_tap &tog UTIL>)
+		MACRO(util_layer, <&macro_press  &mo UTIL &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>, <&macro_pause_for_release>, <&macro_release  &kp LSHFT &kp LCTRL &kp LALT &kp LGUI &mo UTIL>)
 		
-		MACRO(util_ctab,  <&macro_release  &kp LSHFT           &kp LALT &kp LGUI>, <&macro_tap &kp TAB>, <&macro_pause_for_release>, <&macro_press  &kp LSHFT           &kp LALT         >)
-		MACRO(util_cstab, <&macro_release                      &kp LALT &kp LGUI>, <&macro_tap &kp TAB>, <&macro_pause_for_release>, <&macro_press                      &kp LALT         >)
-		MACRO(util_atab,  <&macro_release  &kp LSHFT &kp LCTRL          &kp LGUI>, <&macro_tap &kp TAB>, <&macro_pause_for_release>, <&macro_press  &kp LSHFT &kp LCTRL                  >)
-		MACRO(util_astab, <&macro_release            &kp LCTRL          &kp LGUI>, <&macro_tap &kp TAB>, <&macro_pause_for_release>, <&macro_press            &kp LCTRL                  >)
-		MACRO(util_gtab,  <&macro_release  &kp LSHFT &kp LCTRL &kp LALT         >, <&macro_tap &kp TAB>, <&macro_pause_for_release>, <&macro_press                               &kp LGUI>)
+		MACRO(util_ctab,  <&macro_release  &kp LSHFT           &kp LALT &kp LGUI>, <&macro_tap &kp TAB>, <&macro_press  &kp LSHFT           &kp LALT &kp LGUI>)
+		MACRO(util_cstab, <&macro_release                      &kp LALT &kp LGUI>, <&macro_tap &kp TAB>, <&macro_press                      &kp LALT &kp LGUI>)
+		MACRO(util_atab,  <&macro_release  &kp LSHFT &kp LCTRL          &kp LGUI>, <&macro_tap &kp TAB>, <&macro_press  &kp LSHFT &kp LCTRL          &kp LGUI>)
+		MACRO(util_astab, <&macro_release            &kp LCTRL          &kp LGUI>, <&macro_tap &kp TAB>, <&macro_press            &kp LCTRL          &kp LGUI>)
+		MACRO(util_gtab,  <&macro_release  &kp LSHFT &kp LCTRL &kp LALT         >, <&macro_tap &kp TAB>, <&macro_press  &kp LSHFT &kp LCTRL &kp LALT         >)
 		
 	};
 
