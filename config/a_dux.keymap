@@ -62,54 +62,50 @@
 
 / {
 	behaviors {
-		#define DEFINE_HOLDTAP(NAME, FLAVOR, DELAY, BINDINGS...) \
+		#define ALL_POSITIONS 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33
+		
+		#define DEFINE_HOLDTAP(NAME, FLAVOR, DELAY, POSITIONS, BINDINGS...) \
 			NAME: ht_##NAME { \
 				label = #NAME; \
 				flavor = #FLAVOR; \
 				tapping-term-ms = <DELAY>; \
+				quick-tap-ms = <_QUICK_TAP>; \
 				bindings = BINDINGS; \
+				hold-trigger-key-positions = <POSITIONS>; \
 				#binding-cells = <2>; \
 				compatible = "zmk,behavior-hold-tap"; \
-				quick-tap-ms = <_QUICK_TAP>;
+			};
 
 		#define HT(NAME, BINDINGS...) \
-				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM, BINDINGS) \
-			};
+				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM, ALL_POSITIONS, BINDINGS)
 
 		#define HT_FAST(NAME, BINDINGS...) \
-				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM_FAST, BINDINGS) \
-			};
+				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM_FAST, ALL_POSITIONS, BINDINGS)
 
 		#define HT_BAL(NAME, BINDINGS...) \
-				DEFINE_HOLDTAP(NAME, balanced, _TAP_TERM, BINDINGS) \
-			};
+				DEFINE_HOLDTAP(NAME, balanced, _TAP_TERM, ALL_POSITIONS, BINDINGS)
 
 		#define HRMOD_POS(NAME, POSITIONS) \
-				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM, <&kp>, <&kp>) \
-					hold-trigger-key-positions = <POSITIONS>; \
-			};
+				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM, POSITIONS, <&kp>, <&kp>)
 
 		#define HT_SLOW(NAME, BINDINGS...) \
-				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM_SLOW, BINDINGS) \
-			};
+				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM_SLOW, ALL_POSITIONS, BINDINGS)
 			
 		#define SECURITY_HOLD(NAME, BINDINGS...) \
-				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM_SLOWEST, BINDINGS) \
-			};
+				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM_SLOWEST, ALL_POSITIONS, BINDINGS)
 
-		// home-row mods                    // PRESS           HOLD
+		// home-row mods              // TAP           HOLD
 		HT(     ht,     <&kp>, <&kp>) // &kp             &kp
 		HT(     htsk,   <&sk>, <&kp>) // &kp             sticky layer
 		HT(     ltt,    <&mo>, <&kp>) // &kp             hold layer    (inherits tap-preferred from HT)
 		HT_BAL( lsk,    <&mo>, <&sk>) // one-shot mod    hold layer
 		HT_BAL( lsl,    <&mo>, <&sl>) // one-shot layer  hold layer
 		
-		HT_SLOW(htslow, <&kp>, <&kp>) // !! UNUSED !!
+		HT_SLOW(htslow, <&kp>, <&kp>) // !! UNUSED !! (same timeout as default)
 
 		// hrm for opposite hand only (used for shift)
 		HRMOD_POS(htl, 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33)
 		HRMOD_POS(htr, 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31)
-		
 		
 		// gotta hold these for a long time just to make sure
 		SECURITY_HOLD(sechold_cutall,   <&m_cut_all>,   <&kp>)
