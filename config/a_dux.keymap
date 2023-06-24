@@ -16,7 +16,7 @@
 // holdtap: how long must hold to not be tap
 #define _TAP_TERM_SLOWEST    1200 // for dangerous xcv-all
 #define _TAP_TERM_SLOW       300
-#define _TAP_TERM            300  //tested: 250
+#define _TAP_TERM            250  //tested: 250
 #define _TAP_TERM_FAST       200
 #define _TAP_TERM_FASTER     120
 						    
@@ -174,11 +174,6 @@
 			MACRO(NAME, <M_TAP BINDINGS>)
 					
 					
-					
-		#define MACRO_ACCENT_DOUBLE(ACCENT, FIRST, SECOND) \
-			MACRO(ACCENT##FIRST##SECOND,      <M_TAP_KP ACCENT>,               <M_TAP_KP FIRST>, M_REL_SHIFT, <M_TAP_KP SECOND>) \
-			\
-			MACRO(cw_##ACCENT##FIRST##SECOND, <M_TAP_KP ACCENT>, M_HOLD_SHIFT, <M_TAP_KP FIRST>,              <M_TAP_KP SECOND>,  M_REL_SHIFT)
 				
 				
 				
@@ -191,6 +186,13 @@
 				
 		#define MACRO_ACCENT(ACCENT, LETTER) \
 			MACRO_ACCENT_NAMED(ACCENT##LETTER, ACCENT, LETTER)
+			
+				
+		#define MACRO_ACCENT(ACCENT, FIRST, SECOND) \
+			MACRO(ACCENT##FIRST##SECOND,      <M_TAP_KP ACCENT>,               <M_TAP_KP FIRST>, M_REL_SHIFT, <M_TAP_KP SECOND>) \
+			\
+			MACRO(cw_##ACCENT##FIRST##SECOND, <M_TAP_KP ACCENT>, M_HOLD_SHIFT, <M_TAP_KP FIRST>,              <M_TAP_KP SECOND>,  M_REL_SHIFT)
+				
 
 		// !! TODO !!
 		// MACRO_ACCENT_NAMED(sztt,     SZTTMOD_,   S_)
@@ -222,13 +224,12 @@
 		
 		MACRO_ACCENT(TILD_, A_)
 		MACRO_ACCENT(TILD_, O_)
-		MACRO_ACCENT(TILD_, N_)
+		MACRO_ACCENT(TILD_, N_)				
+		MACRO_ACCENT(TILD_, A_, E_)
+		MACRO_ACCENT(TILD_, A_, O_)
+		MACRO_ACCENT(TILD_, O_, E_)
 		
 		MACRO_ACCENT(TRMA_, I_)
-				
-		MACRO_ACCENT_DOUBLE(TILD_,  A_,  E_)
-		MACRO_ACCENT_DOUBLE(TILD_,  A_,  O_)
-		MACRO_ACCENT_DOUBLE(TILD_,  O_,  E_)
 
 
 		// NBSP STUFF (for french) ------------------
