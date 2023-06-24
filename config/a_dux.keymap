@@ -110,6 +110,8 @@
 		HOLDTAP(utlalt, <&m_util_alt>,  <&kp>) // &kp             hold layer    (inherits tap-preferred from HOLDTAP)
 		HOLDTAP(utlctr, <&m_util_ctrl>, <&kp>) // &kp             hold layer    (inherits tap-preferred from HOLDTAP)
 
+
+
 		// gotta hold these for a long time just to make sure
 		SECURITY_HOLD(sechold_cutall,   <&m_cut_all>,   <&kp>)
 		SECURITY_HOLD(sechold_copyall,  <&m_copy_all>,  <&kp>)
@@ -228,6 +230,11 @@
 		MACRO_TAP(entr_cpwd, &kp ENTER  &tog CPWD)
 		MACRO_TAP(esc_cpwd,  &kp ESC    &tog CPWD)
 		
+		MACRO(mo_cw_nav,   <&macro_tap  &tog CPWD>,  <&macro_press  &mo NAV>,   <&macro_pause_for_release>,  <&macro_release &mo NAV>)
+		MACRO(mo_cw_sym,   <&macro_tap  &tog CPWD>,  <&macro_press  &mo SYM>,   <&macro_pause_for_release>,  <&macro_release &mo SYM>)
+		MACRO(mo_cw_acnt,  <&macro_tap  &tog CPWD>,  <&macro_press  &mo ACNT>,  <&macro_pause_for_release>,  <&macro_release &mo ACNT>)
+		MACRO(sk_cw_sym,   <&macro_tap  &tog CPWD  &sk SYM>)
+		MACRO(sk_cw_acnt,  <&macro_tap  &tog CPWD  &sk ACNT>)
 		// used with security_hold
 		MACRO(cut_all,    <&macro_tap  &kp LC(A_)>,  <&macro_pause_for_release>,  <&macro_tap  &kp LC(X_)>)
 		MACRO(copy_all,   <&macro_tap  &kp LC(A_)>,  <&macro_pause_for_release>,  <&macro_tap  &kp LC(C_)>)
