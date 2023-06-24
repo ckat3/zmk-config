@@ -245,6 +245,9 @@
 		MACRO(util_ctrl, <&macro_tap  &tog UTIL>,  <&macro_press  &kp LCTRL>,  <&macro_pause_for_release>,  <&macro_release  &kp LCTRL>,  <&macro_tap  &tog UTIL>)
 		// MACRO(rls_mods,  <&macro_release  &kp LCTRL  &kp LALT>) /* todo turn into a behavior */
 		
+		// if this works, it will drop the mods that give sense to util layer
+		MACRO(util_guitab, <&macro_release  &kp LALT  &kp LCTRL>,  <&macro_tap    &kp TAB &mo UTIL>)
+		
 		
 	};
 
@@ -454,9 +457,9 @@
 
 		utility_layer {
 			bindings = <
-				xxxxxxxxx   xxxxxxxxx    xxxxxxxxx        xxxxxxxxx      xxxxx         xxxxx    xxxxx xxxxx xxxxx xxxxx
-				xxxxxxxxx   xxxxxxxxx    &kp LS(LC(TAB))  &kp LC(TAB)    xxxxx         xxxxx    xxxxx xxxxx xxxxx xxxxx
-				xxxxxxxxx   &kp LG(TAB)  &kp LS(LA(TAB))  &kp LA(TAB)    xxxxx         xxxxx    xxxxx xxxxx xxxxx xxxxx
+				_________   _________    _________        _________      _____         _____    _________   _________    _________        _________
+				_________   _________    _________        &m_util_guitab _____         _____    _________   _________    _________        _________
+				_________   _________    _________        _________      _____         _____    _________   _________    _________        _________
 				//
 			                                              &kp TAB   &kp LS(TAB)        xxxxx   xxxxx
 			>;
