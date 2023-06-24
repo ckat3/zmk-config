@@ -253,9 +253,9 @@
 		MACRO_TAP(cw_esc,  &kp ESC    &tog _L_CPWD)
 		
 		//layer and turn off caps word
-		MACRO(mo_cw_L_NAV,   <M_TAP &to _L_NAV>,  M_WAIT_REL,  <M_TAP &to _L_BASE>)
-		MACRO(mo_cw_L_SYM,   <M_TAP &to _L_NAV>,  M_WAIT_REL,  <M_TAP &to _L_BASE>)
-		MACRO(mo_cw_L_ACNT,  <M_TAP &to _L_NAV>,  M_WAIT_REL,  <M_TAP &to _L_BASE>)
+		MACRO(mo_cw_L_NAV,   <M_TAP &to _L_NAV>,   M_WAIT_REL,  <M_TAP &to _L_BASE>)
+		MACRO(mo_cw_L_SYM,   <M_TAP &to _L_SYM>,   M_WAIT_REL,  <M_TAP &to _L_BASE>)
+		MACRO(mo_cw_L_ACNT,  <M_TAP &to _L_ACNT>,  M_WAIT_REL,  <M_TAP &to _L_BASE>)
 		
 		MACRO(sk_cw_L_SYM,   <M_TAP &to _L_BASE  &sk _L_SYM>)
 		MACRO(sk_cw_L_ACNT,  <M_TAP &to _L_BASE  &sk _L_ACNT>)
@@ -304,8 +304,8 @@
 			DEFINE_COMBO(KEY##SUFFIX,        _L_NOT_GAME,  POSITIONS,  _COMBO_TIMEOUT,      <&kp KEY>)
 			
 			
-		#define COMBO_KP_CTRL(KEY, SUFFIX, POSITIONS) \
-			DEFINE_COMBO(ctrl_##KEY##SUFFIX, _L_NOT_GAME,  POSITIONS,  _COMBO_TIMEOUT,      <&kp LC(##KEY )>)
+		// #define COMBO_KP_CTRL(KEY, SUFFIX, POSITIONS) \
+			// DEFINE_COMBO(ctrl_##KEY##SUFFIX, _L_NOT_GAME,  POSITIONS,  _COMBO_TIMEOUT,      <&kp LC(##KEY )>)
 
 
 		#define COMBO_KP_LAYER(KEY, SUFFIX, POSITIONS, LAYERS) \
@@ -339,8 +339,8 @@
 		// backspace and del, with and wo ctrl
 		COMBO_KP( BSPC,,                    11 12)
 		COMBO_KP( DEL,,                     21 22)
-		COMBO_KP_CTRL(BSPC,                 17 18)
-		COMBO_KP_CTRL(DEL,                  27 28)
+		COMBO(&kp LC(BSPC),                 17 18, gslqgrnqsl) // whatever name. enjoy
+		COMBO(&kp LC(DEL),                  27 28, rgsrnteqsj)
 
 		// one-shot shift on both thumb keys at once
 		COMBO(&lsk _L_FUNC LSHIFT,          30 31, dljsdiqsrt)
@@ -366,7 +366,7 @@
 		COMBO_MACRO_LAYER(cw_entr,,         16 17, _L_CPWD)
 		COMBO_MACRO_LAYER(cw_esc,,          10 11, _L_CPWD)
 		
-		COMBO_KP_CTRL(Z_,                   20 21)
+		COMBO(&kp LC(Z_),                   20 21, rgsriaiaiqsj)
 		
 		COMBO_LAYER(_L_FUNC, &sys_reset,     0  4, aiouaiouaiou)
 		COMBO_LAYER(_L_FUNC, &bootloader,   20 24, ayuqaioueaio)
