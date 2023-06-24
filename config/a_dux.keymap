@@ -2,19 +2,26 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
+
 #include "bepo_bindings.h"
+
 // SETTINGS
 #define _MACRO_INTERVAL   3  // max 3
 #define _MACRO_TAP_FOR    3  // max 3
+
 #define _COMBO_TIMEOUT      17 // min 16
 #define _COMBO_TIMEOUT_SLOW 50 // min 16
+
 #define _TAP_TERM_SLOTH   1200 // for dangerous xcv-all
 #define _TAP_TERM_SLOW    300
 #define _TAP_TERM         300  //default 250
 #define _TAP_TERM_QUICK   200
 #define _TAP_TERM_BLAZIN  120
+
 #define _QUICK_TAP        200
+
 #define _STICKY_TIMEOUT   2000 // min 1000
+
 // LAYERS
 #define BASE 0 
 #define CPWD 1 
@@ -27,23 +34,28 @@
 #define FUNC 8 
 #define GAME 9 
 #define GAM2 10
+
 // combos shouldn't work on game layer, to minimize delay
 #define ALL_LAYERS   BASE CPWD UTIL SYM ACNT ACCP NUM NAV FUNC GAME GAM2
 #define NOT_GAME     BASE CPWD UTIL SYM ACNT ACCP NUM NAV FUNC
 #define NOT_CPWD     BASE      UTIL SYM ACNT ACCP NUM NAV FUNC
+
 &lt { // tap for kp, hold for layer
 	tapping-term-ms = <_TAP_TERM>;
 	flavor = "balanced";
 	quick-tap-ms = <_QUICK_TAP>;
 };
+
 &mt { // hold-tap
 	tapping-term-ms = <_TAP_TERM_BLAZIN>;
 	quick-tap-ms = <_QUICK_TAP>;
 };
+
 &sk { // one-shot layer
 	release-after-ms = <_STICKY_TIMEOUT>;
 	quick-release;
 };
+
 / {
 	behaviors {
 		#define DEFINE_HOLDTAP(FLAVOR, NAME, DELAY, BINDINGS...) \
@@ -55,19 +67,24 @@
 				#binding-cells = <2>; \
 				compatible = "zmk,behavior-hold-tap"; \
 				quick-tap-ms = <_QUICK_TAP>;
+
 		#define HT(NAME, BINDINGS...) \
 				DEFINE_HOLDTAP(tap-preferred, NAME, _TAP_TERM, BINDINGS) \
 			};
+
 		#define HT_QUICK(NAME, BINDINGS...) \
 				DEFINE_HOLDTAP(tap-preferred, NAME, _TAP_TERM_QUICK, BINDINGS) \
 			};
+
 		#define HT_BAL(NAME, BINDINGS...) \
 				DEFINE_HOLDTAP(balanced, NAME, _TAP_TERM, BINDINGS) \
 			};
+
 		#define HRMOD_POS(NAME, POSITIONS) \
 				DEFINE_HOLDTAP(tap-preferred, NAME, _TAP_TERM, <&kp>, <&kp>) \
 					hold-trigger-key-positions = <POSITIONS>; \
 			};
+
 		#define HT_SLOW(NAME, BINDINGS...) \
 				DEFINE_HOLDTAP(tap-preferred, NAME, _TAP_TERM_SLOW, BINDINGS) \
 			};
@@ -75,6 +92,7 @@
 		#define SECURITY_HOLD(NAME, BINDINGS...) \
 				DEFINE_HOLDTAP(tap-preferred, NAME, _TAP_TERM_SLOTH, BINDINGS) \
 			};
+
 		// home-row mods                     // PRESS           HOLD
 		HT(     ht,     <&kp>, <&kp>)        // &kp             &kp
 		HT_SLOW(htslow, <&kp>, <&kp>)       
@@ -95,20 +113,25 @@
 		SECURITY_HOLD(sechold_cutall,   <&m_cut_all>,   <&kp>)
 		SECURITY_HOLD(sechold_copyall,  <&m_copy_all>,  <&kp>)
 		SECURITY_HOLD(sechold_pasteall, <&m_paste_all>, <&kp>)
+
 		// hrm for opposite hand only (used for shift)
 		HRMOD_POS(htl, 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33)
 		HRMOD_POS(htr, 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31)
+
 		// automatic nbsp on tap
 		HT(ht_lglm, <&kp>, <&m_nbsp_lglm>)
 		HT(ht_rglm, <&kp>, <&m_nbsp_rglm>)
+
 		// automatic nbsp on hold
 		HT_QUICK(ht_coln, <&m_nbsp_coln>, <&kp>)
 		HT_QUICK(ht_scln, <&m_nbsp_scln>, <&kp>)
 		HT_QUICK(ht_qmrk, <&m_nbsp_qmrk>, <&kp>)
 		HT_QUICK(ht_excl, <&m_nbsp_excl>, <&kp>)
 	};
+
 	macros {
 		#define RELEASE_SHIFT <&macro_release &kp LSHFT &kp RSHFT>
+
 		#define MACRO(NAME, BINDINGS...) \
 			ZMK_MACRO(m_##NAME, \
 				tap-ms   = <_MACRO_TAP_FOR>; \
@@ -119,30 +142,19 @@
 		// names the macro "m_FIRST##SECOND", eg "m_Q_U_"
 		#define MACRO_SIMPLE(FIRST, SECOND) \
 			MACRO(FIRST##SECOND, <&macro_tap &kp A>)
-
+			
 		#define MACRO_TAP(NAME, BINDINGS...) \
 			MACRO(NAME, <&macro_tap &kp A>)
-
+					
 		// #define MACRO_LAST_UPPER(FIRST, UPPERCASE...) \
 			// MACRO(cp_##FIRST##SECOND, <&macro_tap &kp FIRST>, <&macro_press &kp LSHFT>, <&macro_tap UPPERCASE>, <&macro_release &kp LSHFT>)
-
-    
-        
-          
-    
-
-        
-        Expand All
-    
-    @@ -157,9 +157,9 @@
-  
 						
 						
 		// #define MACRO_ACCENT_COMPLEX(NAME, FIRST, UPPERCASE...) \
 			// MACRO(NAME, <&macro_tap &kp FIRST UPPERCASE>) \
 			// \
 			// MACRO(cp_##NAME, <&macro_tap &kp FIRST>, <&macro_press &kp LSHFT>, <&macro_tap UPPERCASE>, <&macro_release &kp LSHFT>)
-
+			
 		// why does this bug out if i use RELEASE_SHIFT but MACRO_SIMLE doesn't?
 		#define MACRO_ACCENT(FIRST, SECOND) \
 			MACRO(FIRST##SECOND, <&macro_tap &kp A>) \
@@ -151,23 +163,6 @@
 
 
 		// accented letters. also defines a caps version (eg &m_cp_ACUT_A_)
-
-    
-          
-            
-    
-
-          
-          Expand Down
-          
-            
-    
-
-          
-          Expand Up
-    
-    @@ -248,10 +248,8 @@
-  
 		MACRO_ACCENT(ACUT_, A_)
 		MACRO_ACCENT(ACUT_, I_)
 		MACRO_ACCENT(ACUT_, O_)
@@ -188,6 +183,8 @@
 		MACRO_ACCENT(TILD_, N_)
 		
 		MACRO_ACCENT(TRMA_, I_)
+
+
 		// TODO use MACRO_ACCENT here
 		/* qu  */  MACRO_SIMPLE(Q_, U_)
 		/* bj  */  MACRO_SIMPLE(B_, J_)
@@ -207,6 +204,7 @@
 		
 		/*  ß  */  MACRO_TAP(eszett,     &kp RA(S_)  &kp    S_)
 		/*  ẞ  */  MACRO_TAP(cp_sztt,    &kp RA(S_)  &kp LS(S_))
+
 		/* ■?  */  MACRO_TAP(nbsp_qmrk,  &kp LS(SPACE)  &kp LS(QMRK_))
 		/* ■!  */  MACRO_TAP(nbsp_excl,  &kp LS(SPACE)  &kp LS(EXCL_))
 		/* ■:□ */  MACRO_TAP(nbsp_coln,  &kp LS(SPACE)  &kp LS(DOT_)   &kp SPACE)
@@ -216,6 +214,8 @@
 			   
 		/*  ^  */  MACRO_TAP(cfxloos,    &kp CFLX_  &kp SPACE)
 		/*  `  */  MACRO_TAP(grvloos,    &kp GRAV_  &kp SPACE)
+
+
 		// key and turn off capsword
 		MACRO_TAP(cw_spc,  &kp SPACE  &tog CPWD)
 		MACRO_TAP(cw_tab,  &kp TAB    &tog CPWD)
@@ -227,6 +227,8 @@
 		MACRO(mo_cw_acnt,  <&macro_tap  &tog CPWD>,  <&macro_press  &mo ACNT>,  <&macro_pause_for_release>,  <&macro_release &mo ACNT>)
 		MACRO(sk_cw_sym,   <&macro_tap  &tog CPWD  &sk SYM>)
 		MACRO(sk_cw_acnt,  <&macro_tap  &tog CPWD  &sk ACNT>)
+
+
 		// used with security_hold
 		MACRO(cut_all,    <&macro_tap  &kp LC(A_)>,  <&macro_pause_for_release>,  <&macro_tap  &kp LC(X_)>)
 		MACRO(copy_all,   <&macro_tap  &kp LC(A_)>,  <&macro_pause_for_release>,  <&macro_tap  &kp LC(C_)>)
@@ -240,6 +242,7 @@
 		MACRO(util_guitab, <&macro_release  &kp LALT  &kp LCTRL>,  <&macro_tap    &kp TAB>)
 		
 	};
+
 	combos {
 		compatible = "zmk,combos";
 
@@ -248,46 +251,39 @@
 				bindings = <&macro_tap &kp A>; \
 				key-positions = <POSITIONS>; \
 			};
+			
 
-
-
-    
-          
-            
-    
-
-          
-          Expand Down
-          
-            
-    
-
-          
-          Expand Up
-    
-    @@ -367,18 +365,19 @@
-  
 		// when not defining layers, will default to NOT_GAME
 		// TODO: ok to omit line breaks between defs?
 		// TODO: all combos define layers
 		#define COMBO(BINDINGS, POSITIONS, RANDOM_NAME) \
 			DEFINE_COMBO(NOT_GAME, BINDINGS, POSITIONS, RANDOM_NAME, _COMBO_TIMEOUT)
+
 		#define COMBO_LAYER(LAYERS, BINDINGS, POSITIONS, RANDOM_NAME) \
 			DEFINE_COMBO(LAYERS,   BINDINGS, POSITIONS, RANDOM_NAME, _COMBO_TIMEOUT)
+
+
 		// single key press
 		#define COMBO_KP(KEY, SUFFIX, POSITIONS) \
 			DEFINE_COMBO(NOT_GAME, &kp KEY, POSITIONS, KEY##SUFFIX, _COMBO_TIMEOUT)
+
 		#define COMBO_KP_LAYER(KEY, SUFFIX, POSITIONS, LAYERS) \
 			DEFINE_COMBO(LAYERS,   &kp KEY, POSITIONS, KEY##SUFFIX, _COMBO_TIMEOUT)
+
+
 		// macro
 		#define COMBO_MACRO(MACRO, POSITIONS) \
 			DEFINE_COMBO(NOT_GAME, &m_##MACRO, POSITIONS, MACRO, _COMBO_TIMEOUT)
+
 		// macro layer
 		#define COMBO_MACRO_LAYER(MACRO, SUFFIX, POSITIONS, LAYERS) \
 			DEFINE_COMBO(LAYERS,   &m_##MACRO, POSITIONS, MACRO##SUFFIX, _COMBO_TIMEOUT)
+
 		// macro layer sloooowwww - for dangerous macros (xcv all)
 		#define COMBO_MACRO_LAYER_SLOW(MACRO, SUFFIX, POSITIONS, LAYERS) \
 			DEFINE_COMBO(LAYERS,   &m_##MACRO, POSITIONS, MACRO##SUFFIX, _COMBO_TIMEOUT_SLOW)
+
+
 	/*
 	    0   1   2   3      4 | 5      6   7   8   9
 	    10  11  12  13    14 | 15    16  17  18  19
@@ -295,13 +291,16 @@
 							 |
 	                   30 31 | 32 33
 	*/
+
 		COMBO_KP(SPACE,l,          11 12 13)
 		COMBO_KP(SPACE,r,          16 17 18)
+
 		// backspace and del, with and wo ctrl
 		COMBO_KP( BSPC,,           11 12)
 		COMBO_KP( DEL,,            21 22)
 		COMBO(&kp LC(BSPC),        17 18, gslqgrnqsl) // whatever name. enjoy
 		COMBO(&kp LC(DEL),         27 28, rgsrnteqsj)
+
 		// one-shot shift on both thumb keys at once
 		COMBO(&lsk FUNC LSHIFT,    30 31, dljsdiqsrt)
 		COMBO(&sk  RSHIFT,         32 33, sqljqrjqsl)
@@ -335,17 +334,21 @@
 		COMBO_LAYER(FUNC, &tog GAM2,    14 24, aiopoappyaio)
 		
 	};
+
 	keymap {
 		compatible = "zmk,keymap";
+
         // readability
 		#define _____      &trans
 		#define xxxxx      &none
 		#define _________  &trans
 		#define xxxxxxxxx  &none
+
         // readability also
 		#define C_S_DEL      &kp LC(LS(DEL))    // task manager
 		#define PASTEPLAIN   &kp LC(LG(LA(V_))) // power toys plaintext paste (no &kp bc used in &ht)
 		#define RESET_LEFT   &sys_reset   	    // mnemonic (called on the right it resets both)
+
 		// home-row mods
 		#define HMLS    &htl     LSHIFT // left shift only works for keys on right hand
 		#define HMRS    &htr     RSHIFT // rite shift only works for keys on lefft hand
@@ -366,29 +369,18 @@
 		// TAP    HOLD
 		/*  $     €    */ #define DLLR_EURO   &htslow    EURO_  DLLR_     
 		/*  =     ≠    */ #define EQUL_DIFF   &htslow    DIFF_  EQUL_     
-
+											 		   
 		/* (?)    ■?   */ #define NBSP_QMRK   &ht_qmrk   0      QMRK_     
 		/*  ¿     ¡    */ #define IEXCL_IQMRK &htslow RA(EXCL_) RA(QMRK_) 
 		/* (!)    ■!   */ #define NBSP_EXCL   &ht_excl   0      EXCL_     
 		/* (.)    ■:□  */ #define DOT_COLN    &ht_coln   0      DOT_      
 		/* (,)    ■;□  */ #define COMM_SCLN   &ht_scln   0      COMM_     
-
+									  	      	       
 		/* «■     («)  */ #define NBSP_LGLM   &ht_lglm   LGLM_  0         
 		/*  ■»    (»)  */ #define NBSP_RGLM   &ht_rglm   RGLM_  0         
 
 		#define CUT_ALL     &sechold_cutall   0 &none   //         cut   all	// DANGEROUS STUFF!
 		#define COPY_ALL    &sechold_copyall  0 &none   //         copy  all	//  must hold for
-
-    
-          
-            
-    
-
-          
-          Expand Down
-    
-    
-  
 		#define PASTE_ALL   &sechold_pasteall 0 &none   //         paste all	//  very long time
 		
 		#define UTCTRL &util_ctrl 0
@@ -396,21 +388,29 @@
 															      
 		// #define HT_CTRZ      &ht     LC(Y_)  LC(Z_)  // ^Z      ^Y
 		// #define HT_CTRV      &ht PASTEPLAIN  LC(V_)  // ^V      plaintext paste (powertoys)
+
 		// thumb keys
 		#define TH_L_MAIN      &lt   NUM E_
 		#define TH_L_MAIN_CW   &lt   NUM LS(E_)
+
 		#define TH_L_AUX       &lsl    SYM  SYM
 		#define TH_L_AUX_CW    &lsl_cw_sym 0 0
+
 		#define TH_R_MAIN      &lt    NAV SPACE
 		#define TH_R_MAIN_CW   &ht_cw_nav_spc 0 0
+
 		#define TH_R_AUX       &lsl  ACNT ACNT
 		#define TH_R_AUX_CW    &lsl  ACCW ACCW
+
+
                                       // --- left hand --- //         // --- right hand --- //
 		#define _THUMBS_LEFT_         TH_L_MAIN     TH_L_AUX        
 		#define _THUMBS_RIGHT_                                          TH_R_AUX      TH_R_MAIN
 		#define _THUMBS_CAPSWORD_     TH_L_MAIN_CW  TH_L_AUX_CW         TH_R_AUX_CW  TH_R_MAIN_CW
 		#define _THUMBS_DEFAULT_            _THUMBS_LEFT_                    _THUMBS_RIGHT_
 	 
+
+
 		// todo reorder layers according to thumbs
 		base_layer {
 			bindings = <
@@ -421,6 +421,7 @@
 															       _THUMBS_DEFAULT_
 			>;
 		};
+
 		caps_word_layer {
 			bindings = <
 				&kp  LS(Q_)	 HMRA MIN_       &kp  LS(Y_)  DOT_COLN       _________          &kp LS(K_)    &kp  LS(C_)  &kp  LS(H_)  &kp  LS(W_)  &kp  LS(J_)
@@ -430,6 +431,7 @@
 														                     _THUMBS_CAPSWORD_
 			>;
 		};
+
 		num_layer {
 			bindings = <
 				&kp PIPE_  &kp N7_  &kp N8_  &kp N9_    xxxxxxxxx         DLLR_EURO    &kp  LBRK_  &kp  RBRK_   &kp  HASH_   &kp  PCNT_
@@ -439,6 +441,7 @@
 				                                    _THUMBS_LEFT_         &kp ULIN_    _________
 			>;
 		};
+
 		utility_layer {
 			bindings = <
 				_________   _________    _________        _________      _____         _____    _________   _________    _________        _________
@@ -448,6 +451,7 @@
 			                                              &kp TAB   &kp LS(TAB)        xxxxx    xxxxx
 			>;
 		};
+
 		sym_layer {
 			bindings = <
 				&kp AE_		 &kp AT_       &kp AMPR_   &kp OE_       NBSP_EXCL         xxxxx    DLLR_EURO    xxxxxxxxx    xxxxxxxxx    xxxxxxxxx
@@ -457,6 +461,7 @@
 								                       _________     &kp ULIN_        _THUMBS_RIGHT_
 			>;
 		};
+
 		accent_layer {
 			bindings = <
 				&m_CFLX_U_  &m_CFLX_O_  &m_CFLX_I_  &m_CFLX_A_    IEXCL_IQMRK        xxxxxxxxx    &kp  CCED_  &kp  APST_  &kp  QUOT_  &m_B_J_
@@ -466,6 +471,7 @@
 												    &m_CFLX_E_    &kp EGRV_         _THUMBS_RIGHT_
 			>;
 		};
+
 		accent_caps_layer {
 			bindings = <
 				&m_cp_CFLX_U_  &m_cp_CFLX_O_  &m_cp_CFLX_I_  &m_cp_CFLX_A_    xxxxxxxxx             xxxxxxxxx    &kp  CCED_  &kp  APST_  &kp  QUOT_  &m_cp_bj
@@ -475,6 +481,7 @@
 												             &m_cp_CFLX_E_    &kp LS(EGRV_)        _THUMBS_RIGHT_
 			>;
 		};
+
 		nav_layer {
 			bindings = <
 				&kp xxxxx	CUT_ALL	    COPY_ALL     PASTE_ALL     C_S_DEL            &sk  RALT    HMLS LC(HOME)   HMLC PG_DN   HMLA PG_UP   HMRG LC(END)
@@ -484,6 +491,7 @@
 												                           _THUMBS_DEFAULT_
 			>;
 		};
+
 		func_layer {
 			bindings = <
 				&bt  BT_CLR     &bt  BT_SEL 0   &bt  BT_SEL 1   &bt  BT_SEL 2  &bt BT_SEL 3         RESET_LEFT    &kp F7  &kp F8  &kp F9  &kp F12
@@ -493,6 +501,7 @@
 															                           _THUMBS_DEFAULT_
 			>;
 		};
+
 		game_layer {
 			bindings = <
 				&kp Q_      &kp MIN_   &kp Y_     &kp DOT_     &kp R_            &kp  K_      &kp C_     &kp H_     &kp W_     &kp J_
@@ -502,6 +511,7 @@
 											      &kp ENTER    &kp SPACE         &kp  TAB     &kp LALT
 			>;
 		};
+
 		game_layer_2 {
 			bindings = <
 				&kp LSHIFT  &kp A_     &kp EACT_  &kp I_      &kp O_            &kp  Y_      &kp U_     &kp I_     &kp O_     &kp P_
@@ -511,6 +521,7 @@
 												  &kp ENTER   &kp SPACE         &kp  TAB   &kp LALT
 			>;
 		};
+
 		/* FOR DEBUGGING:
 			bindings = <
 				xxxxx xxxxx xxxxx xxxxx   xxxxx         xxxxx   xxxxx xxxxx xxxxx xxxxx
