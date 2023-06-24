@@ -62,7 +62,10 @@
 
 / {
 	behaviors {
-		#define ALL_POSITIONS 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33
+		#define _POSITIONS_LH   0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31
+		#define _POSITIONS_RH   5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33
+		#define _ALL_POSITIONS  _POSITIONS_LH  _POSITIONS_RH
+		// #define _ALL_POSITIONS 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33
 		
 		#define DEFINE_HOLDTAP(NAME, FLAVOR, DELAY, POSITIONS, BINDINGS...) \
 			NAME: ht_##NAME { \
@@ -77,22 +80,22 @@
 			};
 
 		#define HT(NAME, BINDINGS...) \
-				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM, ALL_POSITIONS, BINDINGS)
+				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM, _ALL_POSITIONS, BINDINGS)
 
 		#define HT_FAST(NAME, BINDINGS...) \
-				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM_FAST, ALL_POSITIONS, BINDINGS)
+				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM_FAST, _ALL_POSITIONS, BINDINGS)
 
 		#define HT_BAL(NAME, BINDINGS...) \
-				DEFINE_HOLDTAP(NAME, balanced, _TAP_TERM, ALL_POSITIONS, BINDINGS)
+				DEFINE_HOLDTAP(NAME, balanced, _TAP_TERM, _ALL_POSITIONS, BINDINGS)
 
 		#define HRMOD_POS(NAME, POSITIONS) \
 				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM, POSITIONS, <&kp>, <&kp>)
 
 		#define HT_SLOW(NAME, BINDINGS...) \
-				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM_SLOW, ALL_POSITIONS, BINDINGS)
+				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM_SLOW, _ALL_POSITIONS, BINDINGS)
 			
 		#define SECURITY_HOLD(NAME, BINDINGS...) \
-				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM_SLOWEST, ALL_POSITIONS, BINDINGS)
+				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM_SLOWEST, _ALL_POSITIONS, BINDINGS)
 
 		// home-row mods              // TAP           HOLD
 		HT(     ht,     <&kp>, <&kp>) // &kp             &kp
@@ -102,10 +105,10 @@
 		HT_BAL( lsl,    <&mo>, <&sl>) // one-shot layer  hold layer
 		
 		HT_SLOW(htslow, <&kp>, <&kp>) // !! UNUSED !! (same timeout as default)
-
+		
 		// hrm for opposite hand only (used for shift)
-		HRMOD_POS(htl, 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33)
-		HRMOD_POS(htr, 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31)
+		HRMOD_POS(htl, _POSITIONS_RH)
+		HRMOD_POS(htr, _POSITIONS_LH)
 		
 		// gotta hold these for a long time just to make sure
 		SECURITY_HOLD(sechold_cutall,   <&m_cut_all>,   <&kp>)
