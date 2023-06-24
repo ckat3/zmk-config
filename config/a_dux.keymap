@@ -368,8 +368,9 @@
 		// #define _________  &trans   //
 		#define xxxxx      &none
 		#define xxxxxxxxx  &none
-		#define __to_do__   &none
-		#define xINACSBLx   &none
+		#define __to_do__  &none
+		#define _todo_     &none
+		#define xINACSBLx  &none
 		
 		#define C_S_DEL      &kp LC(LS(ESC))    // task manager
 		#define PASTEPLAIN   &kp LC(LG(LA(V_))) // power toys plaintext paste
@@ -555,7 +556,7 @@
 				HMLG C_BRI_UP   HMLA C_NEXT     HMLC C_VOL_UP   HMLS C_PP  	   &kp LSLCK            &out OUT_BLE  &kp F1  &kp F2  &kp F3  &kp F10
 				&kp  C_BRI_DN   &kp  C_PREV     &kp  C_VOL_DN   &kp  C_MUTE    &kp LNLCK            &out OUT_USB  &kp F4  &kp F5  &kp F6  &kp F11
 				//
-															    xINACSBLx       xINACSBLx           __to_do__    __to_do__
+															    xINACSBLx      xINACSBLx            __to_do__     __to_do__
 			>;
 		};
 		
@@ -566,21 +567,21 @@
 
 		game_layer {
 			bindings = <
-				&kp Q_      &kp MIN_   &kp Y_     &kp DOT_     &kp R_            &kp  K_      &kp C_     &kp H_     &kp W_     &kp J_
-				&kp U_      &kp O_     &kp I_     &kp A_       &kp F_            &kp  G_      &kp LEFT   &kp UP     &kp RIGHT  &kp N_
-				&kp Z_      &kp S_     &kp P_     &kp COMM_    &kp X_            &tog _L_GAME    &kp D_     &kp DOWN   &kp L_     &kp B_
+				&kp Q_      &kp MIN_   &kp Y_     &kp DOT_     &kp R_            &kp  K_       &kp C_     &kp H_     &kp W_     &kp J_
+				&kp U_      &kp O_     &kp I_     &kp A_       &kp F_            &kp  G_       &kp LEFT   &kp UP     &kp RIGHT  &kp N_
+				&kp Z_      &kp S_     &kp P_     &kp COMM_    &kp X_            &tog _L_GAME  &kp D_     &kp DOWN   &kp L_     &kp B_
 				//
-											      &kp ENTER    &kp SPACE         &kp  TAB     &kp LALT
+											      &kp ENTER    &kp SPACE         &kp  TAB      &kp LALT
 			>;
 		};
 
 		game_layer_2 {
 			bindings = <
-				&kp LSHIFT  &kp A_     &kp EACT_  &kp I_      &kp O_            &kp  Y_      &kp U_     &kp I_     &kp O_     &kp P_
-				&kp LCTRL   &kp B_     &kp U_     &kp P_      &kp E_            &kp  H_      &kp J_     &kp K_     &kp L_     &kp N_
-				&kp ESC     &kp AGRV_  &kp Y_     &kp X_      &kp DOT           &tog _L_GAM2    &kp M_     &kp COMM_	 &kp DOT_   &kp BSPC
+				&kp LSHIFT  &kp A_     &kp EACT_  &kp I_      &kp O_            &kp  Y_       &kp U_     &kp I_     &kp O_     &kp P_
+				&kp LCTRL   &kp B_     &kp U_     &kp P_      &kp E_            &kp  H_       &kp J_     &kp K_     &kp L_     &kp N_
+				&kp ESC     &kp AGRV_  &kp Y_     &kp X_      &kp DOT           &tog _L_GAM2  &kp M_     &kp COMM_  &kp DOT_   &kp BSPC
 				//
-												  &kp ENTER   &kp SPACE         &kp  TAB   &kp LALT
+												  &kp ENTER   &kp SPACE         &kp  TAB      &kp LALT
 			>;
 		};
 		
