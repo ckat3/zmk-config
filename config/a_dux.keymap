@@ -120,7 +120,7 @@
 		HT_BAL( ht_cw_L_NAV_spc, <&m_mo_cw_L_NAV>,  <&m_cw_spc>)      // space           hold _L_NAV
 		HT_BAL(lsl_cw_L_SYM,     <&m_mo_cw_L_SYM>,  <&m_sk_cw_L_SYM>) // one-shot _L_SYM  hold _L_SYM
 		
-		HT(util_layer, <&m_util_layer>, <&kp>) // &kp             hold layer    (inherits tap-preferred from HT)
+		HT_SLOW(ltt_L_UTIL, <&m_mo_L_UTIL>, <&kp>) // &kp             hold layer    (inherits tap-preferred from HT)
 
 		// NBSP STUFF (for french) ------------------
 		// automatic nbsp on tap
@@ -184,11 +184,11 @@
 				
 				
 				
-		#define MACRO_ACCENT(ACCENT, LETTER) \
+		#define MACRO_ACCENT_1(ACCENT, LETTER) \
 			MACRO_ACCENT_NAMED(ACCENT##LETTER, ACCENT, LETTER)
 			
 				
-		#define MACRO_ACCENT(ACCENT, FIRST, SECOND) \
+		#define MACRO_ACCENT_2(ACCENT, FIRST, SECOND) \
 			MACRO(ACCENT##FIRST##SECOND,      <M_TAP_KP ACCENT>,               <M_TAP_KP FIRST>, M_REL_SHIFT, <M_TAP_KP SECOND>) \
 			\
 			MACRO(cw_##ACCENT##FIRST##SECOND, <M_TAP_KP ACCENT>, M_HOLD_SHIFT, <M_TAP_KP FIRST>,              <M_TAP_KP SECOND>,  M_REL_SHIFT)
@@ -207,29 +207,29 @@
 		
 		// ACCENTED LETTERS ------------------
 		// also defines a caps version (eg &m_cw_ACUT_A_)
-		MACRO_ACCENT(ACUT_, A_)
-		MACRO_ACCENT(ACUT_, I_)
-		MACRO_ACCENT(ACUT_, O_)
-		MACRO_ACCENT(ACUT_, U_)
+		MACRO_ACCENT_1(ACUT_, A_)
+		MACRO_ACCENT_1(ACUT_, I_)
+		MACRO_ACCENT_1(ACUT_, O_)
+		MACRO_ACCENT_1(ACUT_, U_)
 		
-		MACRO_ACCENT(CFLX_, A_)
-		MACRO_ACCENT(CFLX_, E_)
-		MACRO_ACCENT(CFLX_, I_)
-		MACRO_ACCENT(CFLX_, O_)
-		MACRO_ACCENT(CFLX_, U_)
+		MACRO_ACCENT_1(CFLX_, A_)
+		MACRO_ACCENT_1(CFLX_, E_)
+		MACRO_ACCENT_1(CFLX_, I_)
+		MACRO_ACCENT_1(CFLX_, O_)
+		MACRO_ACCENT_1(CFLX_, U_)
 		
-		MACRO_ACCENT(GRAV_, E_)
-		MACRO_ACCENT(GRAV_, O_)
-		MACRO_ACCENT(GRAV_, U_)
+		MACRO_ACCENT_1(GRAV_, E_)
+		MACRO_ACCENT_1(GRAV_, O_)
+		MACRO_ACCENT_1(GRAV_, U_)
 		
-		MACRO_ACCENT(TILD_, A_)
-		MACRO_ACCENT(TILD_, O_)
-		MACRO_ACCENT(TILD_, N_)				
-		MACRO_ACCENT(TILD_, A_, E_)
-		MACRO_ACCENT(TILD_, A_, O_)
-		MACRO_ACCENT(TILD_, O_, E_)
+		MACRO_ACCENT_1(TILD_, A_)
+		MACRO_ACCENT_1(TILD_, O_)
+		MACRO_ACCENT_1(TILD_, N_)				
+		MACRO_ACCENT_2(TILD_, A_, E_)
+		MACRO_ACCENT_2(TILD_, A_, O_)
+		MACRO_ACCENT_2(TILD_, O_, E_)
 		
-		MACRO_ACCENT(TRMA_, I_)
+		MACRO_ACCENT_1(TRMA_, I_)
 
 
 		// NBSP STUFF (for french) ------------------
@@ -269,13 +269,13 @@
 		
 		
 		// UTIL LAYER ------------------
-		MACRO(util_layer, <M_TAP  &to _L_UTIL>,  <M_HOLD  _ALL_MODS>,  M_WAIT_REL,  <M_REL  _ALL_MODS>,  <M_TAP  &to _L_BASE>)
+		MACRO(mo_L_UTIL, <M_TAP  &to _L_UTIL>,  <M_HOLD  _ALL_MODS>,  M_WAIT_REL,  <M_REL  _ALL_MODS>,  <M_TAP  &to _L_BASE>)
 								  
-		MACRO(util_ctab,  <M_REL  &kp LSHFT             &kp LALT>,   <M_TAP_KP  TAB>,       <M_HOLD  _ALL_MODS>)
-		MACRO(util_cstab, <M_REL                        &kp LALT>,   <M_TAP_KP  TAB>,       <M_HOLD  _ALL_MODS>)
-		MACRO(util_atab,  <M_REL  &kp LSHFT  &kp LCTRL          >,   <M_TAP_KP  TAB>,       <M_HOLD  _ALL_MODS>)
-		MACRO(util_astab, <M_REL             &kp LCTRL          >,   <M_TAP_KP  TAB>,       <M_HOLD  _ALL_MODS>)
-		MACRO(util_gtab,  <M_REL  _ALL_MODS>,                        <M_TAP_KP  LG(TAB)>,   <M_HOLD  _ALL_MODS>)
+		MACRO(L_UTIL_ctab,  <M_REL  &kp LSHFT             &kp LALT>,   <M_TAP_KP  TAB>,       <M_HOLD  _ALL_MODS>)
+		MACRO(L_UTIL_cstab, <M_REL                        &kp LALT>,   <M_TAP_KP  TAB>,       <M_HOLD  _ALL_MODS>)
+		MACRO(L_UTIL_atab,  <M_REL  &kp LSHFT  &kp LCTRL          >,   <M_TAP_KP  TAB>,       <M_HOLD  _ALL_MODS>)
+		MACRO(L_UTIL_astab, <M_REL             &kp LCTRL          >,   <M_TAP_KP  TAB>,       <M_HOLD  _ALL_MODS>)
+		MACRO(L_UTIL_gtab,  <M_REL  _ALL_MODS>,                        <M_TAP_KP  LG(TAB)>,   <M_HOLD  _ALL_MODS>)
 		
 	};
 
@@ -427,7 +427,7 @@
 		#define PASTE_ALL   &sechold_pasteall 0 &none   // &none   paste all
 		
 		// UTIL LAYER ------------------
-		#define UTLAYR &util_layer 0
+		#define UTLAYR &ltt_L_UTIL 0
 										
 		// #define HT_CTRV      &ht PASTEPLAIN  LC(V_)  // ^V      plaintext paste (powertoys)
 
@@ -486,11 +486,11 @@
 		utility_layer {
 			bindings = <
 				xxxxxxxxx   xxxxxxxxx    xxxxxxxxx      xxxxxxxxx       xxxxx             xxxxx    xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
-				xxxxxxxxx   xxxxxxxxx    &m_util_astab  &m_util_atab    xxxxx             xxxxx    xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
-				xxxxxxxxx   xxxxxxxxx    &m_util_cstab  &m_util_ctab    xxxxx             xxxxx    xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
+				xxxxxxxxx   xxxxxxxxx    &m_L_UTIL_astab  &m_L_UTIL_atab    xxxxx             xxxxx    xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
+				xxxxxxxxx   xxxxxxxxx    &m_L_UTIL_cstab  &m_L_UTIL_ctab    xxxxx             xxxxx    xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
 		
 				//
-			                                            xxxxxxxxx       &m_util_gtab      xxxxx    xxxxx
+			                                            xxxxxxxxx       &m_L_UTIL_gtab      xxxxx    xxxxx
 			>;
 		};
 
