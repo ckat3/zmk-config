@@ -447,12 +447,12 @@
 
 		// -------------------
 		// BASE LAYER
-		// -------------------
+		// -------------------UTLAYR U_
 		
 		base_layer {
 			bindings = <
 				&kp    Q_  HMRA  MIN_   &kp  Y_  DOT_COLN   NBSP_QMRK         &kp K_   &kp  C_   &kp  H_   &kp  W_   &kp  J_
-				UTLAYR U_  HMLA  O_     HMLC I_  HMLS A_    &kp F_            &kp G_   HMRS T_   HMRC R_   HMRA S_   &kp  N_
+				&kp    U_  HMLA  O_     HMLC I_  HMLS A_    &kp F_            &kp G_   HMRS T_   HMRC R_   HMRA S_   &kp  N_
 				HMLG   Z_  HMLC  EACT_  &kp  P_  COMM_SCLN  &kp X_            &kp V_   &kp  D_   &kp  M_   &kp  L_   HMRG B_
 				//
 															       _THUMBS_DEFAULT_
