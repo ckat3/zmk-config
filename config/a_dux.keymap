@@ -109,8 +109,8 @@
 		HOLDTAP_BAL(ht_cw_nav_spc, <&m_mo_cw_nav>,  <&m_cw_spc>)    // space           hold NAV
 		HOLDTAP_BAL(lsl_cw_sym,    <&m_mo_cw_sym>,  <&m_sk_cw_sym>) // one-shot SYM    hold SYM
 		
-		HOLDTAP(util_alt,   <&m_util_alt>,  <&kp>)  // &kp             hold layer    (inherits tap-preferred from HOLDTAP)
-		HOLDTAP(util_ctrl,  <&m_util_ctrl>, <&kp>)  // &kp             hold layer    (inherits tap-preferred from HOLDTAP)
+		// HOLDTAP(util_alt,   <&m_util_alt>,  <&kp>)  // &kp             hold layer    (inherits tap-preferred from HOLDTAP)
+		// HOLDTAP(util_ctrl,  <&m_util_ctrl>, <&kp>)  // &kp             hold layer    (inherits tap-preferred from HOLDTAP)
 		HOLDTAP(util_layer, <&m_util_layer>, <&kp>) // &kp             hold layer    (inherits tap-preferred from HOLDTAP)
 
 
@@ -242,14 +242,14 @@
 		MACRO(copy_all,   <&macro_tap  &kp LC(A_)>,  <&macro_pause_for_release>,  <&macro_tap  &kp LC(C_)>)
 		MACRO(paste_all,  <&macro_tap  &kp LC(A_)>,  <&macro_pause_for_release>,  <&macro_tap  &kp LC(V_)>)
 		
-		MACRO(util_alt,  <&macro_tap  &tog UTIL>,  <&macro_press  &kp LALT>,   <&macro_pause_for_release>,  <&macro_release  &kp LALT>,   <&macro_tap  &tog UTIL>)
-		MACRO(util_ctrl, <&macro_tap  &tog UTIL>,  <&macro_press  &kp LCTRL>,  <&macro_pause_for_release>,  <&macro_release  &kp LCTRL>,  <&macro_tap  &tog UTIL>)
+		// MACRO(util_alt,  <&macro_tap  &tog UTIL>,  <&macro_press  &kp LALT>,   <&macro_pause_for_release>,  <&macro_release  &kp LALT>,   <&macro_tap  &tog UTIL>)
+		// MACRO(util_ctrl, <&macro_tap  &tog UTIL>,  <&macro_press  &kp LCTRL>,  <&macro_pause_for_release>,  <&macro_release  &kp LCTRL>,  <&macro_tap  &tog UTIL>)
 		// MACRO(rls_mods,  <&macro_release  &kp LCTRL  &kp LALT>) /* todo turn into a behavior */
 		
 		// if this works, it will drop the mods that give sense to util layer
-		MACRO(util_guitab, <&macro_release  &kp LALT  &kp LCTRL>,  <&macro_tap  &kp LG(TAB) &mo UTIL>)
+		// MACRO(util_guitab, <&macro_release  &kp LALT  &kp LCTRL>,  <&macro_tap  &kp LG(TAB) &mo UTIL>)
 		
-		// badass experimental version
+		// badass version
 		MACRO(util_layer, <&macro_press  &mo UTIL &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>, <&macro_pause_for_release>, <&macro_release  &kp LSHFT &kp LCTRL &kp LALT &kp LGUI &mo UTIL>)
 		MACRO(util_ctab,  <&macro_release  &kp LSHFT           &kp LALT &kp LGUI>, <&macro_tap &kp TAB>, <&macro_press  &kp LSHFT           &kp LALT &kp LGUI>)
 		MACRO(util_cstab, <&macro_release                      &kp LALT &kp LGUI>, <&macro_tap &kp TAB>, <&macro_press                      &kp LALT &kp LGUI>)
@@ -436,9 +436,9 @@
 		// todo reorder layers according to thumbs
 		base_layer {
 			bindings = <
-				UTLAYR Q_  HMRA   MIN_   &kp  Y_  DOT_COLN   NBSP_QMRK         &kp K_   &kp  C_   &kp  H_   &kp  W_   &kp  J_
-				HMLG   U_  HMLA   O_     HMLC I_  HMLS A_    &kp F_            &kp G_   HMRS T_   HMRC R_   HMRA S_   HMRG N_
-				UTALT  Z_  UTCTRL EACT_  &kp  P_  COMM_SCLN  &kp X_            &kp V_   &kp  D_   &kp  M_   &kp  L_   &kp  B_
+				&kp    Q_  HMRA   MIN_   &kp  Y_  DOT_COLN   NBSP_QMRK         &kp K_   &kp  C_   &kp  H_   &kp  W_   &kp  J_
+				UTLAYR U_  HMLA   O_     HMLC I_  HMLS A_    &kp F_            &kp G_   HMRS T_   HMRC R_   HMRA S_   &kp  N_
+				HMLG   Z_  HMLC   EACT_  &kp  P_  COMM_SCLN  &kp X_            &kp V_   &kp  D_   &kp  M_   &kp  L_   HMRG B_
 				//
 															       _THUMBS_DEFAULT_
 			>;
@@ -466,12 +466,12 @@
 
 		utility_layer {
 			bindings = <
-				_________   _________    &m_util_astab  &m_util_atab     &m_util_gtab           _____    _________   _________    _________        _________
-				_________   _________    &m_util_cstab  &m_util_ctab     _________              _____    _________   _________    _________        _________
-				_________   _________    _________      &m_util_guitab   _________              _____    _________   _________    _________        _________
+				_________   _________    _________      _________       _________           _____    _________   _________   _________   _________
+				_________   _________    &m_util_astab  &m_util_atab    _________           _____    _________   _________   _________   _________
+				_________   _________    &m_util_astab  &m_util_gtab    _________           _____    _________   _________   _________   _________
 		
 				//
-			                                              &kp LS(TAB)    &kp TAB       xxxxx    xxxxx
+			                                            &m_util_cstab   &m_util_ctab        xxxxx    xxxxx
 			>;
 		};
 
