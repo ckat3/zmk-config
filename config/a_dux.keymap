@@ -162,25 +162,45 @@
 			MACRO(FIRST##SECOND, <M_TAP_KP FIRST>, M_REL_SHIFT, <M_TAP_KP SECOND>)
 			
 			
+		#define MACRO_DOUBLE(FIRST, SECOND) \
+			MACRO(FIRST##SECOND,                      <M_TAP_KP FIRST>, M_REL_SHIFT, <M_TAP_KP SECOND>) \
+			\
+			MACRO(cw_##FIRST##SECOND,  M_HOLD_SHIFT,  <M_TAP_KP FIRST>,              <M_TAP_KP SECOND>,  M_REL_SHIFT)
+			
+			
+			
 		#define MACRO_TAP(NAME, BINDINGS...) \
 			MACRO(NAME, <M_TAP BINDINGS>)
 					
 					
-		#define MACRO_ACCENT_DOUBLE(NAME, ACCENT, UPPERCASE) \
-			MACRO(NAME,       <M_TAP_KP  ACCENT>,                 <M_TAP  UPPERCASE>) \
+					
+		#define MACRO_ACCENT_DOUBLE(ACCENT, FIRST, SECOND) \
+			MACRO(ACCENT##FIRST##SECOND,      <M_TAP_KP ACCENT>,               <M_TAP_KP FIRST>, M_REL_SHIFT, <M_TAP_KP SECOND>) \
 			\
-			MACRO(cw_##NAME,  <M_TAP_KP  ACCENT>,  M_HOLD_SHIFT,  <M_TAP  UPPERCASE>,  M_REL_SHIFT)
+			MACRO(cw_##ACCENT##FIRST##SECOND, <M_TAP_KP ACCENT>, M_HOLD_SHIFT, <M_TAP_KP FIRST>,              <M_TAP_KP SECOND>,  M_REL_SHIFT)
 				
 				
-		// why does this bug out if i use M_REL_SHIFT but MACRO_SIMPLE doesn't?
-		#define MACRO_ACCENT(FIRST, SECOND) \
-			MACRO(FIRST##SECOND,      <M_TAP_KP FIRST>, M_REL_SHIFT,  <M_TAP_KP SECOND>) \
+				
+		#define MACRO_ACCENT_NAMED(NAME, ACCENT, LETTER) \
+			MACRO(NAME,      <M_TAP_KP ACCENT>, M_REL_SHIFT,  <M_TAP_KP LETTER>) \
 			\
-			MACRO(cw_##FIRST##SECOND, <M_TAP_KP FIRST>, M_HOLD_SHIFT, <M_TAP_KP SECOND>, M_REL_SHIFT)
+			MACRO(cw_##NAME, <M_TAP_KP ACCENT>, M_HOLD_SHIFT, <M_TAP_KP LETTER>, M_REL_SHIFT)
+				
+				
+				
+		#define MACRO_ACCENT(ACCENT, LETTER) \
+			MACRO_ACCENT_NAMED(ACCENT##LETTER, ACCENT, LETTER)
 
 
-		// ACCENTED LETTERS
+		// MACRO_ACCENT_NAMED(sztt,     SZTTMOD_,   S_)
+		/*  ß  */  MACRO_TAP(sztt,       &kp RA(S_)  &kp    S_)
+		/*  ẞ  */  MACRO_TAP(cw_sztt,    &kp RA(S_)  &kp LS(S_))
+		
 		// also defines a caps version (eg &m_cw_ACUT_A_)
+		MACRO_DOUBLE(Q_, U_)
+		MACRO_DOUBLE(B_, J_)
+		
+		// ACCENTED LETTERS
 		MACRO_ACCENT(ACUT_, A_)
 		MACRO_ACCENT(ACUT_, I_)
 		MACRO_ACCENT(ACUT_, O_)
@@ -201,24 +221,10 @@
 		MACRO_ACCENT(TILD_, N_)
 		
 		MACRO_ACCENT(TRMA_, I_)
-
-		// TODO use MACRO_ACCENT here
-		/* qu  */  MACRO_SIMPLE(Q_, U_)
-		/* bj  */  MACRO_SIMPLE(B_, J_)
-		/* QU  */  MACRO_TAP(cw_qu,      &kp LS(Q_) &kp LS(U_))
-		/* BJ  */  MACRO_TAP(cw_bj,      &kp LS(B_) &kp LS(J_))
 				
-		/* ãe  */  MACRO_ACCENT_DOUBLE(ae,         TILD_,  &kp A_  &kp E_)
-		/* ão  */  MACRO_ACCENT_DOUBLE(ao,         TILD_,  &kp A_  &kp O_)
-		/* õe  */  MACRO_ACCENT_DOUBLE(oe,         TILD_,  &kp O_  &kp E_)
-		/* ÃE    MACRO_LAST_UPPER(cw_ae,      &kp TILD_,  &kp A_  &kp E_)                  */
-		/* ÃO    MACRO_LAST_UPPER(cw_ao,      &kp TILD_,  &kp A_  &kp O_)                  */
-		/* ÕE    MACRO_LAST_UPPER(cw_oe,      &kp TILD_,  &kp O_  &kp E_)                  */
-				
-		/*  ß  */  MACRO_TAP(eszett,     &kp RA(S_)  &kp    S_)
-		/*  ẞ  */  MACRO_TAP(cw_sztt,    &kp RA(S_)  &kp LS(S_))
-
-		/*  Ñ  */  MACRO_TAP(cw_tl_n,    &kp TILD_  &kp LS(N_))
+		MACRO_ACCENT_DOUBLE(TILD_,  A_,  E_)
+		MACRO_ACCENT_DOUBLE(TILD_,  A_,  O_)
+		MACRO_ACCENT_DOUBLE(TILD_,  O_,  E_)
 
 
 		// nbsp stuff (for french)
@@ -245,8 +251,9 @@
 		MACRO(mo_cw_L_NAV,   <M_TAP &to L_NAV>,  M_WAIT_REL,  <M_TAP &to L_BASE>)
 		MACRO(mo_cw_L_SYM,   <M_TAP &to L_NAV>,  M_WAIT_REL,  <M_TAP &to L_BASE>)
 		MACRO(mo_cw_L_ACNT,  <M_TAP &to L_NAV>,  M_WAIT_REL,  <M_TAP &to L_BASE>)
-		MACRO(sk_cw_L_SYM,   <M_TAP  &to L_BASE  &sk L_SYM>)
-		MACRO(sk_cw_L_ACNT,  <M_TAP  &to L_BASE  &sk L_ACNT>)
+		
+		MACRO(sk_cw_L_SYM,   <M_TAP &to L_BASE  &sk L_SYM>)
+		MACRO(sk_cw_L_ACNT,  <M_TAP &to L_BASE  &sk L_ACNT>)
 		
 		
 		// used with security_hold
@@ -329,16 +336,17 @@
 		// one-shot shift on both thumb keys at once
 		COMBO(&lsk L_FUNC LSHIFT,              30 31, dljsdiqsrt)
 		COMBO(&sk  RSHIFT,                   32 33, sqljqrjqsl)
-								              
-		COMBO_MACRO_LAYER(Q_U_,,   26 27, L_BASE) /* qu */  
-		COMBO_MACRO_LAYER(ae,,     13 30, L_BASE) /* ãe */  
-		COMBO_MACRO_LAYER(ao,,     13 11, L_BASE) /* ão */  
-		COMBO_MACRO_LAYER(oe,,     11 30, L_BASE) /* õe */  
+						
+		// TODO maybe merge these?
+		COMBO_MACRO_LAYER(Q_U_,,          26 27, L_BASE) /* qu */  
+		COMBO_MACRO_LAYER(TILD_A_E_,,     13 30, L_BASE) /* ãe */  
+		COMBO_MACRO_LAYER(TILD_A_O_,,     13 11, L_BASE) /* ão */  
+		COMBO_MACRO_LAYER(TILD_O_E_,,     11 30, L_BASE) /* õe */  
 					                            			
-		COMBO_MACRO_LAYER(cw_qu,,  26 27, L_CPWD) /* QU */  
-		COMBO_MACRO_LAYER(cw_ae,,  13 30, L_CPWD) /* ÃE */  
-		COMBO_MACRO_LAYER(cw_ao,,  13 11, L_CPWD) /* ÃO */  
-		COMBO_MACRO_LAYER(cw_oe,,  11 30, L_CPWD) /* ÕE */  
+		COMBO_MACRO_LAYER(cw_Q_U_,,       26 27, L_CPWD) /* QU */  
+		COMBO_MACRO_LAYER(cw_TILD_A_E_,,  13 30, L_CPWD) /* ÃE */  
+		COMBO_MACRO_LAYER(cw_TILD_A_O_,,  13 11, L_CPWD) /* ÃO */  
+		COMBO_MACRO_LAYER(cw_TILD_O_E_,,  11 30, L_CPWD) /* ÕE */  
 								      
 		// tab, enter, esc            
 		COMBO_KP_LAYER(TAB,,                 12 13, L_NOT_CPWD)
@@ -485,7 +493,7 @@
 			bindings = <
 				&m_CFLX_U_  &m_CFLX_O_  &m_CFLX_I_  &m_CFLX_A_    IEXCL_IQMRK        xxxxxxxxx    &kp  CCED_  &kp  APST_  &kp  QUOT_  &m_B_J_
 				&m_ACUT_U_  &m_ACUT_O_  &m_ACUT_I_  &m_ACUT_A_    &m_TILD_A_         xxxxxxxxx    HMRS ACUT_  HMRC GRAV_  HMLA CFLX_  &m_TILD_N_
-				&m_GRAV_U_  &m_TILD_O_  &m_TRMA_I_  &kp AGRV_     xxxxxxxxx          xxxxxxxxx    &kp  TRMA_  xxxxxxxxx   &m_eszett   &kp TILD_
+				&m_GRAV_U_  &m_TILD_O_  &m_TRMA_I_  &kp AGRV_     xxxxxxxxx          xxxxxxxxx    &kp  TRMA_  xxxxxxxxx   &m_sztt     &kp TILD_
 				//
 												    &m_CFLX_E_    &kp EGRV_         _THUMBS_RIGHT_
 			>;
@@ -493,8 +501,8 @@
 
 		accent_caps_layer {
 			bindings = <
-				&m_cw_CFLX_U_  &m_cw_CFLX_O_  &m_cw_CFLX_I_  &m_cw_CFLX_A_    xxxxxxxxx             xxxxxxxxx    &kp  CCED_  &kp  APST_  &kp  QUOT_  &m_cw_bj
-				&m_cw_ACUT_U_  &m_cw_ACUT_O_  &m_cw_ACUT_I_  &m_cw_ACUT_A_    &m_cw_TILD_A_         xxxxxxxxx    HMRS ACUT_  HMRC GRAV_  HMLA CFLX_  &m_cw_tl_n
+				&m_cw_CFLX_U_  &m_cw_CFLX_O_  &m_cw_CFLX_I_  &m_cw_CFLX_A_    xxxxxxxxx             xxxxxxxxx    &kp  CCED_  &kp  APST_  &kp  QUOT_  &m_cw_B_J_
+				&m_cw_ACUT_U_  &m_cw_ACUT_O_  &m_cw_ACUT_I_  &m_cw_ACUT_A_    &m_cw_TILD_A_         xxxxxxxxx    HMRS ACUT_  HMRC GRAV_  HMLA CFLX_  &m_cw_TILD_N_
 				&m_cw_GRAV_U_  &m_cw_TILD_O_  &m_cw_TRMA_I_  &kp LS(AGRV_)    xxxxxxxxx             xxxxxxxxx    &kp  TRMA_  xxxxxxxxx   &m_cw_sztt  &kp TILD_
 				//
 												             &m_cw_CFLX_E_    &kp LS(EGRV_)        _THUMBS_RIGHT_

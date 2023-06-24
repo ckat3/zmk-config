@@ -42,7 +42,7 @@
 #define EACT_	W
 #define EGRV_	T
 #define CCED_	BACKSLASH
-#define SZETT_	RA(S_)
+#define SZTTMOD_	RA(S_)
 
 #define ACUT_	RA(EACT_)
 #define GRAV_	RA(EGRV_)
