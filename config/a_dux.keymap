@@ -269,14 +269,13 @@
 
 
 		// UTIL LAYER ------------------
-		// TODO doesn't quite work yet. could try mo instead of tog util and to base?
-		MACRO(mo_L_UTIL, <M_TAP  &tog _L_UTIL>,  <M_HOLD  _ALL_MODS>,  M_WAIT_REL,  <M_TAP  &tog _L_UTIL  &to _L_BASE>,  <M_REL  _ALL_MODS>)
+		MACRO(mo_L_UTIL, <M_TAP  &tog _L_UTIL>,  <M_HOLD  &kp LCTRL  &kp LALT>,  M_WAIT_REL,  <M_TAP  &tog _L_UTIL  &to _L_BASE>,  <M_REL  &kp LCTRL  &kp LALT>)
 
-		MACRO(utl_ctab,  <M_REL  &kp LSHFT             &kp LALT>,   <M_TAP_KP     TAB>,   <M_HOLD  &kp LSHFT>)
-		MACRO(utl_cstab, <M_REL                        &kp LALT>,   <M_TAP_KP     TAB>)
-		MACRO(utl_atab,  <M_REL  &kp LSHFT  &kp LCTRL          >,   <M_TAP_KP     TAB>,   <M_HOLD  &kp LSHFT>)
-		MACRO(utl_astab, <M_REL             &kp LCTRL          >,   <M_TAP_KP     TAB>)
-		MACRO(utl_gtab,  <M_REL  &kp LSHFT  &kp LCTRL  &kp LALT>,   <M_TAP_KP  LG(TAB)>,  <M_HOLD  _ALL_MODS>)
+		MACRO(utl_ctab,  <M_REL             &kp LALT>,   <M_TAP_KP     TAB >)
+		MACRO(utl_cstab, <M_REL             &kp LALT>,   <M_TAP_KP  LS(TAB)>)
+		MACRO(utl_atab,  <M_REL  &kp LCTRL          >,   <M_TAP_KP     TAB >)
+		MACRO(utl_astab, <M_REL  &kp LCTRL          >,   <M_TAP_KP  LS(TAB)>)
+		MACRO(utl_gtab,  <M_REL  &kp LCTRL  &kp LALT>,   <M_TAP_KP  LG(TAB)>,  <M_HOLD  &kp LCTRL  &kp LALT>)
 
 	};
 
@@ -450,8 +449,8 @@
 
 		base_layer {
 			bindings = <
-				UTLAYR Q_    HMLC  MIN_       &kp  Y_      DOT_COLN       NBSP_QMRK         &kp K_         &kp  C_      &kp  H_      &kp  W_      &kp  J_
-				&kp    U_    HMLA  O_         HMLC I_      HMLS A_        &kp F_            &kp G_         HMRS T_      HMRC R_      HMRA S_      &kp  N_
+				&kp    Q_    HMLC  MIN_       &kp  Y_      DOT_COLN       NBSP_QMRK         &kp K_         &kp  C_      &kp  H_      &kp  W_      &kp  J_
+				UTLAYR U_    HMLA  O_         HMLC I_      HMLS A_        &kp F_            &kp G_         HMRS T_      HMRC R_      HMRA S_      &kp  N_
 				HMLG   Z_    HMRA  EACT_      &kp  P_      COMM_SCLN      &kp X_            &kp V_         &kp  D_      &kp  M_      &kp  L_      HMRG B_
 				//
 															                   _THUMBS_DEFAULT_
@@ -566,8 +565,8 @@
 
 		game_layer {
 			bindings = <
-				&kp Q_      &kp MIN_   &kp Y_     &kp DOT_     &kp R_            &kp  K_       &kp C_     &kp H_     &kp W_     &kp J_
-				&kp U_      &kp O_     &kp I_     &kp A_       &kp F_            &kp  G_       &kp LEFT   &kp UP     &kp RIGHT  &kp N_
+				&kp Q_      &kp MIN_   &kp Y_     &kp DOT_     &kp R_            &kp   K_      &kp C_     &kp H_     &kp W_     &kp J_
+				&kp U_      &kp O_     &kp I_     &kp A_       &kp F_            &kp   G_      &kp LEFT   &kp UP     &kp RIGHT  &kp N_
 				&kp Z_      &kp S_     &kp P_     &kp COMM_    &kp X_            &tog _L_GAME  &kp D_     &kp DOWN   &kp L_     &kp B_
 				//
 											      &kp ENTER    &kp SPACE         &kp  TAB      &kp LALT
@@ -576,8 +575,8 @@
 
 		game_layer_2 {
 			bindings = <
-				&kp LSHIFT  &kp A_     &kp EACT_  &kp I_      &kp O_            &kp  Y_       &kp U_     &kp I_     &kp O_     &kp P_
-				&kp LCTRL   &kp B_     &kp U_     &kp P_      &kp E_            &kp  H_       &kp J_     &kp K_     &kp L_     &kp N_
+				&kp LSHIFT  &kp A_     &kp EACT_  &kp I_      &kp O_            &kp   Y_      &kp U_     &kp I_     &kp O_     &kp P_
+				&kp LCTRL   &kp B_     &kp U_     &kp P_      &kp E_            &kp   H_      &kp J_     &kp K_     &kp L_     &kp N_
 				&kp ESC     &kp AGRV_  &kp Y_     &kp X_      &kp DOT           &tog _L_GAM2  &kp M_     &kp COMM_  &kp DOT_   &kp BSPC
 				//
 												  &kp ENTER   &kp SPACE         &kp  TAB      &kp LALT
