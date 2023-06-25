@@ -97,9 +97,9 @@
 		#define SECURITY_HOLD(NAME, BINDINGS...) \
 				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM_SLOWEST, _ALL_POSITIONS, BINDINGS)
 
-		// HOME-ROW MODS              // TAP           HOLD
+		// HOME-ROW MODS              // TAP             HOLD
 		HT(     ht,     <&kp>, <&kp>) // &kp             &kp
-		HT(     htsk,   <&sk>, <&kp>) // &kp             sticky layer
+		HT(     htsk,   <&kp>, <&sk>) // sticky layer    &kp
 		HT(     ltt,    <&mo>, <&kp>) // &kp             hold layer    (inherits tap-preferred from HT)
 		HT_BAL( lsk,    <&mo>, <&sk>) // one-shot mod    hold layer
 		HT_BAL( lsl,    <&mo>, <&sl>) // one-shot layer  hold layer
@@ -368,11 +368,11 @@
 		// #define _________  &trans   //
 		#define xxxxx         &none
 		#define xxxxxxxxx     &none
-		#define __to_do__     &none
-		#define _todo_        &none
+		#define _________     &none
+		#define _____        &none
 		#define inaccessible  &none
 
-		#define C_S_DEL      &kp LC(LS(ESC))    // task manager
+		#define C_S_ESC          LC(LS(ESC))    // task manager
 		#define PASTEPLAIN   &kp LC(LG(LA(V_))) // power toys plaintext paste
 		#define RESET_RIGHT  &sys_reset   	    // mnemonic (bc when called on the left it resets both)
 
@@ -448,13 +448,13 @@
 
 		// -------------------
 		// BASE LAYER
-		// -------------------UTLAYR U_
+		// -------------------
 
 		base_layer {
 			bindings = <
-				&kp    Q_  HMRA  MIN_   &kp  Y_  DOT_COLN   NBSP_QMRK         &kp K_   &kp  C_   &kp  H_   &kp  W_   &kp  J_
+				UTLAYR Q_  HMLC  MIN_   &kp  Y_  DOT_COLN   NBSP_QMRK         &kp K_   &kp  C_   &kp  H_   &kp  W_   &kp  J_
 				&kp    U_  HMLA  O_     HMLC I_  HMLS A_    &kp F_            &kp G_   HMRS T_   HMRC R_   HMRA S_   &kp  N_
-				HMLG   Z_  HMLC  EACT_  &kp  P_  COMM_SCLN  &kp X_            &kp V_   &kp  D_   &kp  M_   &kp  L_   HMRG B_
+				HMLG   Z_  HMRA  EACT_  &kp  P_  COMM_SCLN  &kp X_            &kp V_   &kp  D_   &kp  M_   &kp  L_   HMRG B_
 				//
 															       _THUMBS_DEFAULT_
 			>;
@@ -477,22 +477,22 @@
 
 		num_layer {
 			bindings = <
-				&kp PIPE_  &kp N7_  &kp N8_  &kp N9_    DLLR_EURO         __to_do__    &kp  LBRK_  &kp  RBRK_   &kp  HASH_   &kp  PCNT_
-				&kp N0_    &kp N1_  &kp N2_  &kp N3_    &kp DOT_          __to_do__    HMRS PLUS_  HMRC MIN_    HMLA STAR_   HMRG FSLA_
-				&kp SPC    &kp N4_  &kp N5_  &kp N6_    &kp COMM_         __to_do__    &kp  LT_    &kp  GT_	    EQUL_DIFF    &kp  BSLA_
+				&kp MIN_     &kp N7_      &kp N8_     &kp N9_       EXCL_QMRK         DLLR_EURO       &kp  LBRK_   &kp  RBRK_   &kp  HASH_   &kp  PCNT_
+				&kp N0_      &kp N1_      &kp N2_     &kp N3_       &kp COLN_         &kp DOT_        HMRS PLUS_   HMRC MIN_    HMLA STAR_   HMRG FSLA_
+				&kp SPC      &kp N4_      &kp N5_     &kp N6_       &kp SCLN_         &kp COMM_       &kp  LT_     &kp  GT_     EQUL_DIFF    &kp  BSLA_
 				//
-				                        inaccessible    inaccessible      &kp ULIN_    &kp SPC
+				                                 inaccessible    inaccessible         &kp ULIN_       &kp SPC
 			>;
 		};
 
 		sym_layer {
 			bindings = <
-				&kp  AE_	 &kp  AT_      &kp  AMPR_  &kp  OE_      NBSP_EXCL         __to_do__    DLLR_EURO    __to_do__    __to_do__    __to_do__
-				SKLG LCRL_	 SKLA RCRL_    SKLC LPAR_  SKLS RPAR_    &kp MDSH_         __to_do__    HMRS _todo_  HMRC _todo_  HMRA _todo_  HMRG _todo_
-				&kp  NDSH_	 &kp  MDSH_    NBSP_LGLM   NBSP_RGLM     &kp ESC           __to_do__    __to_do__    &m_grvloos   &m_cfxloos   __to_do__
+				&kp  PIPE_   &kp  AT_     &kp  AMPR_  &kp  OE_      NBSP_EXCL         _________       &kp  LBRK_   &kp  RBRK_   _________    DLLR_EURO
+				SKLG LCRL_   SKLA RCRL_   SKLC LPAR_  SKLS RPAR_    &kp MDSH_         _________       HMRS _____   HMRC _____   HMRA _____   HMRG _____
+				&kp  NDSH_   &kp  MDSH_   NBSP_LGLM   NBSP_RGLM     &kp ESC           &kp  AE_        _________    &m_grvloos   &m_cfxloos   _________
 				//
-								                       &sk LCTRL     &sk LSHFT         &kp NBSP_    &kp SPC
-													              // double tap
+								                      &sk  LCTRL    &sk LSHFT         &kp NBSP_       &kp  SPC
+													             // double tap
 			>;
 		};
 
@@ -503,32 +503,32 @@
 
 		nav_layer {
 			bindings = <
-				&kp  TAB     CUT_ALL      COPY_ALL     PASTE_ALL       C_S_DEL            &sk  RALT        HMLS LC(HOME)   HMLC PG_DN   HMLA PG_UP   HMRG LC(END)
-				HMLG LC(Y_)  HMLA INSERT  HMLC PSCRN   HMLS PSBRK      &kp CAPS           &tog _L_CPWD     &kp  LC(LEFT)   &kp  DOWN	&kp  UP	     &kp  LC(RIGHT)
-				&kp  LC(Z_)  &kp  LC(X_)  &kp  LC(C_)  &kp  LC(V_)     PASTEPLAIN         __to_do__        &kp  HOME       &kp  LEFT	&kp  RIGHT   &kp  END
+				&kp  ESC     &kp  INSERT   &kp  PSCRN     &kp  PSBRK      &kp C_S_ESC         _________       HMLS LC(HOME)   HMLC PG_DN   HMLA PG_UP   HMRG LC(END)
+				&kp  LC(Y_)  HMLA _____    HMLC LS(TAB)   HMLS TAB        &kp CAPS           &tog _L_CPWD     &kp  LC(LEFT)   &kp  DOWN    &kp  UP	    &kp  LC(RIGHT)
+				HMLG LC(Z_)  HMRA LC(X_)   &kp  LC(C_)    &kp  LC(V_)     PASTEPLAIN          _________       &kp     HOME    &kp  LEFT    &kp  RIGHT   &kp     END
 				//
-												       &kp  LA(TAB)    &kp LC(TAB)        inaccessible     inaccessible
+												          &kp  LA(TAB)    &kp LC(TAB)        inaccessible     inaccessible
 			>;
 		};
 
 		accent_layer {
 			bindings = <
-				&m_CFLX_U_  &m_CFLX_O_  &m_CFLX_I_  &m_CFLX_A_    IEXCL_IQMRK        __to_do__    &kp  CCED_  &kp  APST_  &kp  QUOT_  &m_B_J_
-				&m_ACUT_U_  &m_ACUT_O_  &m_ACUT_I_  &m_ACUT_A_    &m_TILD_A_         __to_do__    HMRS ACUT_  HMRC GRAV_  HMLA CFLX_  &m_TILD_N_
-				&m_GRAV_U_  &m_TILD_O_  &m_TRMA_I_  &kp AGRV_     __to_do__          __to_do__    &kp  TRMA_  __to_do__   &m_sztt     &kp TILD_
+				&m_CFLX_U_  &m_CFLX_O_  &m_CFLX_I_  &m_CFLX_A_    IEXCL_IQMRK        _________    &kp  CCED_  &kp  APST_  &kp  QUOT_  &m_B_J_
+				&m_ACUT_U_  &m_ACUT_O_  &m_ACUT_I_  &m_ACUT_A_    &m_TILD_A_         _________    HMRS ACUT_  HMRC GRAV_  HMLA CFLX_  &m_TILD_N_
+				&m_GRAV_U_  &m_TILD_O_  &m_TRMA_I_  &kp AGRV_     _________          _________    &kp  TRMA_  _________   &m_sztt     &kp TILD_
 				//
-												    &m_CFLX_E_    &kp EGRV_          __to_do__    __to_do__
+												    &m_CFLX_E_    &kp EGRV_          &sk LSHFT    &sk  LCTRL
 													                              // double tap
 			>;
 		};
 
 		accent_caps_layer {
 			bindings = <
-				&m_cw_CFLX_U_  &m_cw_CFLX_O_  &m_cw_CFLX_I_  &m_cw_CFLX_A_    __to_do__             __to_do__    &kp  CCED_  &kp  APST_  &kp  QUOT_  &m_cw_B_J_
-				&m_cw_ACUT_U_  &m_cw_ACUT_O_  &m_cw_ACUT_I_  &m_cw_ACUT_A_    &m_cw_TILD_A_         __to_do__    HMRS ACUT_  HMRC GRAV_  HMLA CFLX_  &m_cw_TILD_N_
-				&m_cw_GRAV_U_  &m_cw_TILD_O_  &m_cw_TRMA_I_  &kp LS(AGRV_)    __to_do__             __to_do__    &kp  TRMA_  __to_do__   &m_cw_sztt  &kp TILD_
+				&m_cw_CFLX_U_  &m_cw_CFLX_O_  &m_cw_CFLX_I_  &m_cw_CFLX_A_    _________             _________    &kp  CCED_  &kp  APST_  &kp  QUOT_  &m_cw_B_J_
+				&m_cw_ACUT_U_  &m_cw_ACUT_O_  &m_cw_ACUT_I_  &m_cw_ACUT_A_    &m_cw_TILD_A_         _________    HMRS ACUT_  HMRC GRAV_  HMLA CFLX_  &m_cw_TILD_N_
+				&m_cw_GRAV_U_  &m_cw_TILD_O_  &m_cw_TRMA_I_  &kp LS(AGRV_)    _________             _________    &kp  TRMA_  _________   &m_cw_sztt  &kp TILD_
 				//
-												             &m_cw_CFLX_E_    &kp LS(EGRV_)         __to_do__    __to_do__
+												             &m_cw_CFLX_E_    &kp LS(EGRV_)         _________    _________
 													                                             // double tap
 			>;
 		};
@@ -557,7 +557,7 @@
 				HMLG C_BRI_UP   HMLA C_NEXT     HMLC C_VOL_UP   HMLS C_PP  	   &kp LSLCK            &out OUT_BLE  &kp F1  &kp F2  &kp F3  &kp F10
 				&kp  C_BRI_DN   &kp  C_PREV     &kp  C_VOL_DN   &kp  C_MUTE    &kp LNLCK            &out OUT_USB  &kp F4  &kp F5  &kp F6  &kp F11
 				//
-															    inaccessible   inaccessible         __to_do__     __to_do__
+															    inaccessible   inaccessible         _________     _________
 			>;
 		};
 
