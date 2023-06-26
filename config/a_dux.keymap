@@ -99,7 +99,7 @@
 
 		// HOME-ROW MODS              // TAP             HOLD
 		HT(     ht,     <&kp>, <&kp>) // &kp             &kp
-		HT(     htsk,   <&kp>, <&sk>) // sticky layer    &kp
+		HT(     htsk,   <&sk>, <&kp>) 
 		HT(     ltt,    <&mo>, <&kp>) // &kp             hold layer    (inherits tap-preferred from HT)
 		HT_BAL( lsk,    <&mo>, <&sk>) // one-shot mod    hold layer
 		HT_BAL( lsl,    <&mo>, <&sl>) // one-shot layer  hold layer
