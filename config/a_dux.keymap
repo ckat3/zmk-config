@@ -275,12 +275,12 @@
 		MACRO(utl_cstab, <M_REL  &kp LALT >,  <M_TAP_KP  LS(TAB)>)
 		MACRO( utl_atab, <M_REL  &kp LCTRL>,  <M_TAP_KP     TAB >)
 		MACRO(utl_astab, <M_REL  &kp LCTRL>,  <M_TAP_KP  LS(TAB)>)
-		MACRO(  utl_tab, <M_REL  CTRL_ALT >,  <M_TAP_KP     TAB >,    <M_HOLD  CTRL_ALT>)
-		MACRO( utl_stab, <M_REL  CTRL_ALT >,  <M_TAP_KP  LS(TAB)>,    <M_HOLD  CTRL_ALT>)
-		MACRO( utl_gtab, <M_REL  CTRL_ALT >,  <M_TAP_KP  LG(TAB)>,    <M_HOLD  CTRL_ALT>)
+		MACRO(  utl_tab, <M_REL  CTRL_ALT >,  <M_TAP_KP     TAB >,       <M_HOLD  CTRL_ALT>)
+		MACRO( utl_stab, <M_REL  CTRL_ALT >,  <M_TAP_KP  LS(TAB)>,       <M_HOLD  CTRL_ALT>)
+		MACRO( utl_gtab, <M_REL  CTRL_ALT >,  <M_TAP_KP  LG(TAB)>,       <M_HOLD  CTRL_ALT>)
 		
-		MACRO( utl_back, <M_REL  CTRL_ALT >,  <M_TAP_KP  K_FORWARD>,  <M_HOLD  CTRL_ALT>)
-		MACRO( utl_frwd, <M_REL  CTRL_ALT >,  <M_TAP_KP  K_BACK>,     <M_HOLD  CTRL_ALT>)
+		MACRO( utl_back, <M_REL  CTRL_ALT >,  <M_TAP_KP  C_AC_BACK>,     <M_HOLD  CTRL_ALT>)
+		MACRO( utl_frwd, <M_REL  CTRL_ALT >,  <M_TAP_KP  C_AC_FORWARD>,  <M_HOLD  CTRL_ALT>)
 
 	};
 
