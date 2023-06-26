@@ -27,15 +27,15 @@
 
 // LAYERS
 #define _L_BASE 0
-#define _L_CPWD 1
-#define _L_NUM  2
-#define _L_SYM  3
-#define _L_NAV  4
-#define _L_ACNT 5
-#define _L_ACCW 6
-#define _L_UTIL 7
-#define _L_FUNC 8
-#define _L_GAME 9
+#define _L_CPWD 1 
+#define _L_NUM  2 
+#define _L_SYM  3 
+#define _L_UTIL 4 
+#define _L_NAV  5 
+#define _L_ACNT 6 
+#define _L_ACCW 7 
+#define _L_FUNC 8 
+#define _L_GAME 9 
 #define _L_GAM2 10
 
 // combos shouldn't work on game layer, to minimize delay
@@ -47,12 +47,12 @@
 &lt { // tap for kp, hold for layer
 	tapping-term-ms = <_TAP_TERM>;
 	flavor = "balanced";
-	quick-tap-ms = <_QUICK_TAP>;
+	quick-tap-ms    = <_QUICK_TAP>;
 };
 
 &mt { // hold-tap
 	tapping-term-ms = <_TAP_TERM_FASTER>;
-	quick-tap-ms = <_QUICK_TAP>;
+	quick-tap-ms    = <_QUICK_TAP>;
 };
 
 &sk { // one-shot layer
@@ -135,9 +135,7 @@
 	};
 
 	macros {
-		// convenience
-		#define _ALL_MODS     &kp LSHFT &kp LALT &kp LCTRL // notepad++ bugs if ctrl is not last
-						     
+		// convenience						     
 		#define M_TAP         &macro_tap
 		#define M_TAP_KP      &macro_tap &kp
 		#define M_HOLD        &macro_press
@@ -187,7 +185,7 @@
 
 
 		#define MACRO_ACCENT_2(ACCENT, FIRST, SECOND) \
-			MACRO(ACCENT##FIRST##SECOND,      <M_TAP_KP ACCENT>,               <M_TAP_KP FIRST>, M_REL_SHIFT, <M_TAP_KP SECOND>) \
+			MACRO(     ACCENT##FIRST##SECOND, <M_TAP_KP ACCENT>,               <M_TAP_KP FIRST>, M_REL_SHIFT, <M_TAP_KP SECOND>) \
 			\
 			MACRO(cw_##ACCENT##FIRST##SECOND, <M_TAP_KP ACCENT>, M_HOLD_SHIFT, <M_TAP_KP FIRST>,              <M_TAP_KP SECOND>,  M_REL_SHIFT)
 
@@ -269,13 +267,20 @@
 
 
 		// UTIL LAYER ------------------
-		MACRO(mo_L_UTIL, <M_TAP  &tog _L_UTIL>,  <M_HOLD  &kp LCTRL  &kp LALT>,  M_WAIT_REL,  <M_TAP  &tog _L_UTIL  &to _L_BASE>,  <M_REL  &kp LCTRL  &kp LALT>)
+		#define CTRL_ALT   &kp LALT &kp LCTRL
+		
+		MACRO(mo_L_UTIL, <M_TAP  &tog _L_UTIL>,  <M_HOLD  CTRL_ALT>,  M_WAIT_REL,  <M_TAP  &tog _L_UTIL  &to _L_BASE>,  <M_REL  CTRL_ALT>)
 
-		MACRO(utl_ctab,  <M_REL             &kp LALT>,   <M_TAP_KP     TAB >)
-		MACRO(utl_cstab, <M_REL             &kp LALT>,   <M_TAP_KP  LS(TAB)>)
-		MACRO(utl_atab,  <M_REL  &kp LCTRL          >,   <M_TAP_KP     TAB >)
-		MACRO(utl_astab, <M_REL  &kp LCTRL          >,   <M_TAP_KP  LS(TAB)>)
-		MACRO(utl_gtab,  <M_REL  &kp LCTRL  &kp LALT>,   <M_TAP_KP  LG(TAB)>,  <M_HOLD  &kp LCTRL  &kp LALT>)
+		MACRO( utl_ctab, <M_REL  &kp LALT >,  <M_TAP_KP     TAB >)
+		MACRO(utl_cstab, <M_REL  &kp LALT >,  <M_TAP_KP  LS(TAB)>)
+		MACRO( utl_atab, <M_REL  &kp LCTRL>,  <M_TAP_KP     TAB >)
+		MACRO(utl_astab, <M_REL  &kp LCTRL>,  <M_TAP_KP  LS(TAB)>)
+		MACRO(  utl_tab, <M_REL  CTRL_ALT >,  <M_TAP_KP     TAB >,    <M_HOLD  CTRL_ALT>)
+		MACRO( utl_stab, <M_REL  CTRL_ALT >,  <M_TAP_KP  LS(TAB)>,    <M_HOLD  CTRL_ALT>)
+		MACRO( utl_gtab, <M_REL  CTRL_ALT >,  <M_TAP_KP  LG(TAB)>,    <M_HOLD  CTRL_ALT>)
+		
+		MACRO( utl_back, <M_REL  CTRL_ALT >,  <M_TAP_KP  K_FORWARD>,  <M_HOLD  CTRL_ALT>)
+		MACRO( utl_frwd, <M_REL  CTRL_ALT >,  <M_TAP_KP  K_BACK>,     <M_HOLD  CTRL_ALT>)
 
 	};
 
@@ -363,11 +368,11 @@
 		compatible = "zmk,keymap";
 
         // READABILITY ------------------
-		#define xxxxx         &none
-		#define xxxxxxxxx     &none
-		#define _________     &none
-		#define _____        &none
-		#define inaccessible  &none
+		#define _________     &none // could still be filled
+		#define _____         &none // 
+		#define xxxxxxxxx     &none // probably won't use
+		#define xxxxx         &none //
+		#define inaccessible  &none // physically impossible
 
 		#define C_S_ESC          LC(LS(ESC))    // task manager
 		#define PASTEPLAIN   &kp LC(LG(LA(V_))) // power toys plaintext paste
@@ -414,24 +419,24 @@
 		#define PASTE_ALL   &sechold_pasteall 0 &none   // &none   paste all
 
 		// UTIL LAYER ------------------
-		#define UTLAYR &ltt_L_UTIL 0
+		#define UTLAYR  &ltt_L_UTIL 0
 
 		// #define HT_CTRV      &ht PASTEPLAIN  LC(V_)  // ^V      plaintext paste (powertoys)
 
 
 
 		// THUMB KEYS ------------------
-		#define LT_NUM_E      &lt  _L_NUM  E_
-		#define LT_NUM_E_CW   &lt  _L_NUM  LS(E_)
+		#define LT_NUM_E       &lt    _L_NUM  E_
+		#define LT_NUM_E_CW    &lt    _L_NUM  LS(E_)
 
-		#define LSL_SYM      &lsl   _L_SYM  _L_SYM
-		#define LSL_SYM_CW   &lsl_cw_L_SYM 0 0
+		#define LSL_SYM        &lsl   _L_SYM  _L_SYM
+		#define LSL_SYM_CW     &lsl_cw_L_SYM 0 0
 
-		#define LT_NAV_SPC      &lt   _L_NAV SPC
-		#define LT_NAV_SPC_CW   &ht_cw_L_NAV_spc 0 0
+		#define LT_NAV_SPC     &lt   _L_NAV SPC
+		#define LT_NAV_SPC_CW  &ht_cw_L_NAV_spc 0 0
 
-		#define LSL_ACNT     &lsl   _L_ACNT  _L_ACNT
-		#define LSL_ACCW     &lsl   _L_ACCW  _L_ACCW
+		#define LSL_ACNT       &lsl  _L_ACNT  _L_ACNT
+		#define LSL_ACCW       &lsl  _L_ACCW  _L_ACCW
 
 
                                       // ---- left hand ---- //      // ---- right hand ---- //
@@ -493,6 +498,16 @@
 			>;
 		};
 
+		utility_layer {
+			bindings = <
+				xxxxxxxxx   xxxxxxxxx    &m_utl_back   &m_utl_frwd    xxxxx             xxxxx    xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
+				xxxxxxxxx   xxxxxxxxx    &m_utl_astab  &m_utl_atab    &m_utl_gtab       xxxxx    xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
+				xxxxxxxxx   xxxxxxxxx    &m_utl_cstab  &m_utl_ctab    xxxxx             xxxxx    xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
+				//
+			                                           &m_utl_stab    &m_utl_tab        xxxxx    xxxxx
+			>;
+		};
+
 
 		// -------------------
 		// RH AUX LAYERS
@@ -504,7 +519,7 @@
 				&kp  LC(Y_)  HMLA _____    HMLC LS(TAB)   HMLS TAB        &kp CAPS           &tog _L_CPWD     &kp  LC(LEFT)   &kp  DOWN    &kp  UP	    &kp  LC(RIGHT)
 				HMLG LC(Z_)  HMRA LC(X_)   &kp  LC(C_)    &kp  LC(V_)     PASTEPLAIN          _________       &kp     HOME    &kp  LEFT    &kp  RIGHT   &kp     END
 				//
-												          &kp  LA(TAB)    &kp LC(TAB)        inaccessible     inaccessible
+												          _________       _________          inaccessible     inaccessible
 			>;
 		};
 
@@ -532,22 +547,9 @@
 
 
 		// -------------------
-		// FUNCTION LAYERS
+		// FUNCTION LAYER
 		// -------------------
-
-		utility_layer {
-			bindings = <
-				xxxxxxxxx   xxxxxxxxx    xxxxxxxxx     xxxxxxxxx      xxxxx             xxxxx    xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
-				xxxxxxxxx   xxxxxxxxx    &m_utl_astab  &m_utl_atab    xxxxx             xxxxx    xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
-				xxxxxxxxx   xxxxxxxxx    &m_utl_cstab  &m_utl_ctab    xxxxx             xxxxx    xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
-				//
-			                                           xxxxxxxxx      &m_utl_gtab       xxxxx    xxxxx
-			>;
-		};
-
-
-
-
+		
 		func_layer {
 			bindings = <
 				&bt  BT_CLR     &bt  BT_SEL 0   &bt  BT_SEL 1   &bt  BT_SEL 2  &bt BT_SEL 3         RESET_RIGHT   &kp F7  &kp F8  &kp F9  &kp F12
