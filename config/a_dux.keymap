@@ -149,7 +149,6 @@
 				bindings = BINDINGS; \
 				)
 		
-		# todo
 		#define MACRO_TWO_KP(NAME, ONE, TWO) \
 			NAME: NAME { \
 				compatible = "zmk,behavior-macro-two-param"; \
