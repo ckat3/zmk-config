@@ -34,7 +34,7 @@
 #define _L_NAV  5 
 #define _L_ACNT 6 
 #define _L_ACCW 7 
-#define _L_FUNC 8 
+#define _L_FUNC 8
 #define _L_GAME 9 
 #define _L_GAM2 10
 
