@@ -69,14 +69,16 @@
 
 		#define DEFINE_HOLDTAP(NAME, FLAVOR, DELAY, POSITIONS, BINDINGS...) \
 			NAME: ht_##NAME { \
-				label = #NAME; \
-				flavor = #FLAVOR; \
+				label           = #NAME; \
+				flavor          = #FLAVOR; \
 				tapping-term-ms = <DELAY>; \
-				quick-tap-ms = <_QUICK_TAP>; \
-				bindings = BINDINGS; \
+				quick-tap-ms    = <_QUICK_TAP>; \
+				bindings        = BINDINGS; \
+				 \
+				#binding-cells  = <2>; \
+				compatible      = "zmk,behavior-hold-tap"; \
+				 \
 				hold-trigger-key-positions = <POSITIONS>; \
-				#binding-cells = <2>; \
-				compatible = "zmk,behavior-hold-tap"; \
 			};
 
 		#define HT(NAME, BINDINGS...) \
@@ -500,9 +502,9 @@
 
 		utility_layer {
 			bindings = <
-xxxxxxxxx   xxxxxxxxx    &m_utl_back   &m_utl_frwd    xxxxx             xxxxx    xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
-xxxxxxxxx   xxxxxxxxx    &m_utl_astab  &m_utl_atab    &m_utl_gtab       xxxxx    xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
-xxxxxxxxx   xxxxxxxxx    &m_utl_cstab  &m_utl_ctab    xxxxx             xxxxx    xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
+				xxxxxxxxx   xxxxxxxxx    &m_utl_back   &m_utl_frwd    xxxxx             xxxxx    xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
+				xxxxxxxxx   xxxxxxxxx    &m_utl_astab  &m_utl_atab    &m_utl_gtab       xxxxx    xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
+				xxxxxxxxx   xxxxxxxxx    &m_utl_cstab  &m_utl_ctab    xxxxx             xxxxx    xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
 				//
 			                                           &m_utl_stab    &m_utl_tab        xxxxx    xxxxx
 			>;
