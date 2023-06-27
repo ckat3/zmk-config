@@ -109,11 +109,6 @@
 		HRMOD_POS(htr, _POSITIONS_LH)
 
 		// OTHER HOLDTAPS ------------------
-		// gotta hold these for a long time just to make sure
-		SECURITY_HOLD(sechold_cutall,   <&m_cut_all>,   <&kp>)
-		SECURITY_HOLD(sechold_copyall,  <&m_copy_all>,  <&kp>)
-		SECURITY_HOLD(sechold_pasteall, <&m_paste_all>, <&kp>)
-
 		//deactivates capsword, then...                               // PRESS            HOLD
 		HT_BAL( ht_cw_L_NAV_spc, <&m_mo_cw_L_NAV>,  <&m_cw_spc>)      // space            hold _L_NAV
 		HT_BAL(lsl_cw_L_SYM,     <&m_mo_cw_L_SYM>,  <&m_sk_cw_L_SYM>) // one-shot _L_SYM  hold _L_SYM
@@ -316,9 +311,6 @@
 		#define COMBO_MACRO(LAYERS, MACRO, SUFFIX, POSITIONS) \
 			DEFINE_COMBO(MACRO##SUFFIX,      LAYERS,  POSITIONS,  _COMBO_TIMEOUT,       <&m_##MACRO>)
 
-		// SECURITY HOLD - for dangerous macros (xcv all)
-		#define COMBO_MACRO_LAYER_SLOW(LAYERS, MACRO, SUFFIX, POSITIONS) \
-			DEFINE_COMBO(MACRO##SUFFIX,      LAYERS,  POSITIONS,  _COMBO_TIMEOUT_SLOW,  <&m_##MACRO>)
 
 
 	/*
@@ -523,9 +515,9 @@
 			>;
 		};
 
-		#define MACRO_ROW_3(ONE, TWO, THREE)                    &m_##ONE &m_##TWO &m_##THREE
-		#define MACRO_ROW_4(ONE, TWO, THREE, FOUR)       MACRO_ROW_3(ONE,     TWO,     THREE) &m_##FOUR
-		#define MACRO_ROW_5(ONE, TWO, THREE, FOUR, FIVE) MACRO_ROW_4(ONE,     TWO,     THREE,      FOUR)  &m_##FIVE 
+		#define MACRO_ROW_3(ONE, TWO, THREE)                      &m_##ONE &m_##TWO &m_##THREE
+		#define MACRO_ROW_4(ONE, TWO, THREE, FOUR)         MACRO_ROW_3(ONE,     TWO,     THREE) &m_##FOUR
+		#define MACRO_ROW_5(ONE, TWO, THREE, FOUR, FIVE)   MACRO_ROW_4(ONE,     TWO,     THREE,      FOUR)  &m_##FIVE 
 		
 		accent_layer {
 			bindings = <
