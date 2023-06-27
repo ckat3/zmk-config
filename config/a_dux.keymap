@@ -531,9 +531,9 @@
 
 		accent_caps_layer {
 			bindings = <
- MACRO_ROW_4(cw, CFLX_U_,   CFLX_O_,    CFLX_I_,       CFLX_A_)  _________      _________    &kp  CCED_  &kp  APST_  &kp  QUOT_  &m_cw_B_J_
- MACRO_ROW_5(cw, ACUT_U_,   ACUT_O_,    ACUT_I_,       ACUT_A_,   TILD_A_)      _________    HMRS ACUT_  HMRC GRAV_  HMLA CFLX_  &m_cw_TILD_N_
- MACRO_ROW_3(cw, GRAV_U_,   TILD_O_,    TRMA_I_)  &kp LS(AGRV_)  _________      _________    &kp  TRMA_  _________   &m_cw_sztt  &kp TILD_
+ MACRO_ROW_4(cw_, CFLX_U_,   CFLX_O_,    CFLX_I_,       CFLX_A_)  _________      _________    &kp  CCED_  &kp  APST_  &kp  QUOT_  &m_cw_B_J_
+ MACRO_ROW_5(cw_, ACUT_U_,   ACUT_O_,    ACUT_I_,       ACUT_A_,   TILD_A_)      _________    HMRS ACUT_  HMRC GRAV_  HMLA CFLX_  &m_cw_TILD_N_
+ MACRO_ROW_3(cw_, GRAV_U_,   TILD_O_,    TRMA_I_)  &kp LS(AGRV_)  _________      _________    &kp  TRMA_  _________   &m_cw_sztt  &kp TILD_
 				//
 											       &m_cw_CFLX_E_  &kp LS(EGRV_)  _________    _________
 													                          // double tap
