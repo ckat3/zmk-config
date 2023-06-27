@@ -360,7 +360,9 @@
 		#define xxxxxxxxx     &none // probably won't use
 		#define xxxxx         &none //
 		#define inaccessible  &none // physically impossible
-
+		
+		#define KP &kp
+		
 		#define C_S_ESC          LC(LS(ESC))    // task manager
 		#define PASTEPLAIN   &kp LC(LG(LA(V_))) // power toys plaintext paste
 		#define RESET_RIGHT  &sys_reset   	    // mnemonic (bc when called on the left it resets both)
@@ -442,6 +444,7 @@
 		base_layer {
 			bindings = <
 			label = "_L_BASE";
+        // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
 				&kp    Q_    HMLC  MIN_       &kp  Y_      DOT_COLN       NBSP_QMRK         &kp K_         &kp  C_      &kp  H_      &kp  W_      &kp  J_
 				UTLAYR U_    HMLA  O_         HMLC I_      HMLS A_        &kp F_            &kp G_         HMRS T_      HMRC R_      HMRA S_      &kp  N_
 				HMLG   Z_    HMRA  EACT_      &kp  P_      COMM_SCLN      &kp X_            &kp V_         &kp  D_      &kp  M_      &kp  L_      HMRG B_
@@ -531,11 +534,16 @@
 		accent_caps_layer {
 			label = "_L_ACCW"
 			bindings = <
-				&m_cw_CFLX_U_  &m_cw_CFLX_O_  &m_cw_CFLX_I_  &m_cw_CFLX_A_    _________             _________    &kp  CCED_  &kp  APST_  &kp  QUOT_  &m_cw_B_J_
-				&m_cw_ACUT_U_  &m_cw_ACUT_O_  &m_cw_ACUT_I_  &m_cw_ACUT_A_    &m_cw_TILD_A_         _________    HMRS ACUT_  HMRC GRAV_  HMLA CFLX_  &m_cw_TILD_N_
-				&m_cw_GRAV_U_  &m_cw_TILD_O_  &m_cw_TRMA_I_  &kp LS(AGRV_)    _________             _________    &kp  TRMA_  _________   &m_cw_sztt  &kp TILD_
+			//╭────────────────┬────────────────┬────────────────┬────────────────┬────────────────╮   ╭────────────────┬────────────────┬────────────────┬────────────────┬────────────────╮
+				&m_cw_CFLX_U_    &m_cw_CFLX_O_    &m_cw_CFLX_I_    &m_cw_CFLX_A_    _________            _________        &kp  CCED_       &kp  APST_       &kp  QUOT_       &m_cw_B_J_
+			//├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤   ├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤
+				&m_cw_ACUT_U_    &m_cw_ACUT_O_    &m_cw_ACUT_I_    &m_cw_ACUT_A_     &m_cw_TILD_A_       _________        HMRS ACUT_       HMRC GRAV_       HMLA CFLX_       &m_cw_TILD_N_
+			//├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤   ├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤
+				&m_cw_GRAV_U_    &m_cw_TILD_O_    &m_cw_TRMA_I_    &kp LS(AGRV_)    _________            _________        &kp  TRMA_       _________        &m_cw_sztt       &kp TILD_
+			//├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤   ├────────────────┼────────────────┼────────────────┼────────────────┼────────────────┤
+                                                                   &m_cw_CFLX_E_    ___                  ___              ___
+                //                                               ╰────────────────┴─────────────╯      ╰─double tap─────┴─────────────╯
 				//
-												             &m_cw_CFLX_E_    &kp LS(EGRV_)         _________    _________
 													                                             // double tap
 			>;
 		};
