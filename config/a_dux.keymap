@@ -500,9 +500,9 @@
 
 		utility_layer {
 			bindings = <
-				xxxxxxxxx   xxxxxxxxx    &m_utl_back   &m_utl_frwd    xxxxx             xxxxx    xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
-				xxxxxxxxx   xxxxxxxxx    &m_utl_astab  &m_utl_atab    &m_utl_gtab       xxxxx    xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
-				xxxxxxxxx   xxxxxxxxx    &m_utl_cstab  &m_utl_ctab    xxxxx             xxxxx    xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
+xxxxxxxxx   xxxxxxxxx    &m_utl_back   &m_utl_frwd    xxxxx             xxxxx    xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
+xxxxxxxxx   xxxxxxxxx    &m_utl_astab  &m_utl_atab    &m_utl_gtab       xxxxx    xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
+xxxxxxxxx   xxxxxxxxx    &m_utl_cstab  &m_utl_ctab    xxxxx             xxxxx    xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
 				//
 			                                           &m_utl_stab    &m_utl_tab        xxxxx    xxxxx
 			>;
