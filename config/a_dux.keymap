@@ -523,9 +523,9 @@
 			>;
 		};
 
-		#define MACRO_ROW_3(ONE, TWO, THREE)             &m_##ONE &m_##TWO &m_##THREE
-		#define MACRO_ROW_4(ONE, TWO, THREE, FOUR)       MACRO_ROW_3(ONE, TWO, THREE) &m_##FOUR
-		#define MACRO_ROW_5(ONE, TWO, THREE, FOUR, FIVE) MACRO_ROW_4 &m_##FIVE 
+		#define MACRO_ROW_3(ONE, TWO, THREE)                    &m_##ONE &m_##TWO &m_##THREE
+		#define MACRO_ROW_4(ONE, TWO, THREE, FOUR)       MACRO_ROW_3(ONE,     TWO,     THREE) &m_##FOUR
+		#define MACRO_ROW_5(ONE, TWO, THREE, FOUR, FIVE) MACRO_ROW_4(ONE,     TWO,     THREE,      FOUR)  &m_##FIVE 
 		
 		accent_layer {
 			bindings = <
