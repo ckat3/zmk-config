@@ -464,6 +464,7 @@
 		};
 
 
+
 		// -------------------
 		// LH AUX LAYERS
 		// -------------------
@@ -480,9 +481,9 @@
 
 		sym_layer {
 			bindings = <
-				&kp  PIPE_   &kp  AT_     &kp  AMPR_  &kp  OE_      NBSP_EXCL         _________       &kp  LBRK_   &kp  RBRK_   _________    DLLR_EURO
+				&kp  PIPE_   &kp  AMPR_   &kp  AT_    &kp  OE_      NBSP_EXCL         _________       &kp  LBRK_   &kp  RBRK_   _________    DLLR_EURO
 				SKLG LCRL_   SKLA RCRL_   SKLC LPAR_  SKLS RPAR_    &kp MDSH_         _________       HMRS _____   HMRC _____   HMRA _____   HMRG _____
-				&kp  NDSH_   &kp  MDSH_   NBSP_LGLM   NBSP_RGLM     &kp ESC           &kp  AE_        _________    &m_grvloos   &m_cfxloos   _________
+				&kp  NDSH_   &kp  MDSH_   NBSP_LGLM   NBSP_RGLM     &kp ESC           &kp  AE_        _________    &m_cfxloos   &m_grvloos   _________
 				//
 								                      &sk  LCTRL    &sk LSHFT         &kp NBSP_       &kp  SPC
 													             // double tap
@@ -495,9 +496,10 @@
 				xxxxxxxxx   xxxxxxxxx    &m_utl_astab  &m_utl_atab    &m_utl_gtab       xxxxx    xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
 				xxxxxxxxx   xxxxxxxxx    &m_utl_cstab  &m_utl_ctab    xxxxx             xxxxx    xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
 				//
-			                                           &m_utl_stab    &m_utl_tab        xxxxx    xxxxx
+			                                           &m_utl_tab    &m_utl_stab        xxxxx    xxxxx
 			>;
 		};
+		
 
 
 		// -------------------
@@ -506,7 +508,7 @@
 
 		nav_layer {
 			bindings = <
-				&kp  ESC     &kp  INSERT   &kp  PSCRN     &kp  PSBRK      &kp C_S_ESC         _________       HMLS LC(HOME)   HMLC PG_DN   HMLA PG_UP   HMRG LC(END)
+				&kp  ESC     &kp  _____    &kp  _____     &kp  _____      &kp C_S_ESC         _________       HMLS LC(HOME)   HMLC PG_DN   HMLA PG_UP   HMRG LC(END)
 				&kp  LC(Y_)  HMLA INSERT   HMLC PSCRN     HMLS PSBRK      &kp CAPS           &tog _L_CPWD     &kp  LC(LEFT)   &kp  DOWN    &kp  UP	    &kp  LC(RIGHT)
 				HMLG LC(Z_)  HMRA LC(X_)   &kp  LC(C_)    &kp  LC(V_)     PASTEPLAIN          _________       &kp     HOME    &kp  LEFT    &kp  RIGHT   &kp     END
 				//
@@ -541,19 +543,21 @@
 		};
 
 
+
 		// -------------------
 		// FUNCTION LAYER
 		// -------------------
 
 		func_layer {
 			bindings = <
-				&bt  BT_CLR     &bt  BT_SEL 0   &bt  BT_SEL 1   &bt  BT_SEL 2  &bt BT_SEL 3         RESET_RIGHT   &kp F7  &kp F8  &kp F9  &kp F12
+				&bt  BT_SEL 3   &bt  BT_SEL 0   &bt  BT_SEL 1   &bt  BT_SEL 2  &bt BT_CLR           RESET_RIGHT   &kp F7  &kp F8  &kp F9  &kp F12
 				HMLG C_BRI_UP   HMLA C_NEXT     HMLC C_VOL_UP   HMLS C_PP  	   &kp LSLCK            &out OUT_BLE  &kp F1  &kp F2  &kp F3  &kp F10
 				&kp  C_BRI_DN   &kp  C_PREV     &kp  C_VOL_DN   &kp  C_MUTE    &kp LNLCK            &out OUT_USB  &kp F4  &kp F5  &kp F6  &kp F11
 				//
-															    inaccessible   inaccessible         _________     _________
+															    inaccessible   inaccessible         &kp LSHIFT    &kp LCTRL
 			>;
 		};
+
 
 
 		// -------------------
@@ -564,7 +568,7 @@
 			bindings = <
 				&kp Q_      &kp MIN_   &kp Y_     &kp DOT_     &kp R_            &kp   K_      &kp C_     &kp H_     &kp W_     &kp J_
 				&kp U_      &kp O_     &kp I_     &kp A_       &kp F_            &kp   G_      &kp LEFT   &kp UP     &kp RIGHT  &kp N_
-				&kp Z_      &kp S_     &kp P_     &kp COMM_    &kp X_            &tog _L_GAME  &kp D_     &kp DOWN   &kp L_     &kp B_
+				&kp ESC     &kp S_     &kp P_     &kp COMM_    &kp X_            &tog _L_GAME  &kp D_     &kp DOWN   &kp L_     &kp B_
 				//
 											      &kp ENTER    &kp SPACE         &kp  TAB      &kp LALT
 			>;
@@ -579,6 +583,7 @@
 												  &kp ENTER   &kp SPACE         &kp  TAB      &kp LALT
 			>;
 		};
+
 
 
 		// -------------------
