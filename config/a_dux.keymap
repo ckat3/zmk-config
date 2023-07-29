@@ -110,21 +110,21 @@
 
 		// OTHER HOLDTAPS ------------------
 		//deactivates capsword, then...                               // PRESS            HOLD
-		HT_BAL( ht_cw_L_NAV_spc, <&m_mo_cw_L_NAV>,  <&m_cw_spc>)      // space            hold _L_NAV
+		HT_BAL( ht_cw_L_NAV_SPC, <&m_mo_cw_L_NAV>,  <&m_cw_SPC>)      // space            hold _L_NAV
 		HT_BAL(lsl_cw_L_SYM,     <&m_mo_cw_L_SYM>,  <&m_sk_cw_L_SYM>) // one-shot _L_SYM  hold _L_SYM
 
 		HT_SLOW(ltt_L_UTIL,      <&m_mo_L_UTIL>,    <&kp>)            // &kp              hold _L_UTIL    (inherits tap-preferred from HT)
 
 		// NBSP STUFF (for french) ------------------
 		// automatic nbsp on tap
-		HT(ht_lglm, <&kp>, <&m_nbsp_lglm>)
-		HT(ht_rglm, <&kp>, <&m_nbsp_rglm>)
+		HT(ht_LGLM, <&kp>, <&m_nbsp_LGLM>)
+		HT(ht_RGLM, <&kp>, <&m_nbsp_RGLM>)
 
 		// automatic nbsp on hold
-		HT_FAST(ht_coln, <&m_nbsp_coln>, <&kp>)
-		HT_FAST(ht_scln, <&m_nbsp_scln>, <&kp>)
-		HT_FAST(ht_qmrk, <&m_nbsp_qmrk>, <&kp>)
-		HT_FAST(ht_excl, <&m_nbsp_excl>, <&kp>)
+		HT_FAST(ht_COLN, <&m_nbsp_COLN>, <&kp>)
+		HT_FAST(ht_SCLN, <&m_nbsp_SCLN>, <&kp>)
+		HT_FAST(ht_QMRK, <&m_nbsp_QMRK>, <&kp>)
+		HT_FAST(ht_EXCL, <&m_nbsp_EXCL>, <&kp>)
 	};
 
 	macros {
@@ -138,7 +138,7 @@
 		#define M_WAIT_REL   <&macro_pause_for_release>
 
 		#define M_HOLD_SHIFT <M_HOLD_KP LSHFT>
-		#define M_REL_SHIFT  <M_REL_KP LSHFT>, <M_REL_KP RSHFT>
+		#define M_REL_SHIFT  <M_REL_KP  LSHFT>, <M_REL_KP RSHFT>
 
 		// BASE MACRO -----------------------------
 		// all macro names will be prefixed by m_
@@ -196,9 +196,9 @@
 
 
 		// TODO
-		// MACRO_ACCENT_NAMED(sztt,     SZTTMOD_,   S_)
-		/*  ß  */  MACRO_TAP(sztt,       &kp RA(S_)  &kp    S_)
-		/*  ẞ  */  MACRO_TAP(cw_sztt,    &kp RA(S_)  &kp LS(S_))
+		// MACRO_ACCENT_NAMED(SZTT,     SZTTMOD_,   S_)
+		MACRO_TAP(   SZTT,    &kp RA(S_)  &kp    S_)
+		MACRO_TAP(cw_SZTT,    &kp RA(S_)  &kp LS(S_))
 
 
 		// INCONVENIENT DIGRAMS ------------------
@@ -235,25 +235,26 @@
 
 
 		// NBSP STUFF (for french) ------------------
-		/* ■?  */  MACRO_TAP(nbsp_qmrk,  &kp NBSP_  &kp QMRK_)
-		/* ■!  */  MACRO_TAP(nbsp_excl,  &kp NBSP_  &kp EXCL_)
-		/* ■:□ */  MACRO_TAP(nbsp_coln,  &kp NBSP_  &kp COLN_  &kp SPACE)
-		/* ■;□ */  MACRO_TAP(nbsp_scln,  &kp NBSP_  &kp SCLN_  &kp SPACE)
-		/* ■»□ */  MACRO_TAP(nbsp_rglm,  &kp NBSP_  &kp RGLM_)
-		/* □«■ */  MACRO_TAP(nbsp_lglm,  &kp LGLM_  &kp NBSP_)
+		MACRO_TAP(nbsp_QMRK,  &kp NBSP_  &kp QMRK_)
+		MACRO_TAP(nbsp_EXCL,  &kp NBSP_  &kp EXCL_)
+		MACRO_TAP(nbsp_COLN,  &kp NBSP_  &kp COLN_  &kp SPACE)
+		MACRO_TAP(nbsp_SCLN,  &kp NBSP_  &kp SCLN_  &kp SPACE)
+		MACRO_TAP(nbsp_RGLM,  &kp NBSP_  &kp RGLM_)
+		MACRO_TAP(nbsp_LGLM,  &kp LGLM_  &kp NBSP_)
 
 
 		// LOOSE ACCENTS ------------------
-		/*  ^  */  MACRO_TAP(cfxloos,    &kp CFLX_  &kp SPACE)
-		/*  `  */  MACRO_TAP(grvloos,    &kp GRAV_  &kp SPACE)
+		MACRO_TAP(CFXloos,    &kp CFLX_  &kp SPACE)
+		MACRO_TAP(GRVloos,    &kp GRAV_  &kp SPACE)
+		MACRO_TAP(TLDloos,    &kp TILD_  &kp SPACE)
 
 
 		// CAPSWORD ------------------
 		// key and turn off capsword
-		MACRO_TAP(cw_spc,  &kp SPACE  &tog _L_CPWD)
-		MACRO_TAP(cw_tab,  &kp TAB    &tog _L_CPWD)
-		MACRO_TAP(cw_entr, &kp ENTER  &tog _L_CPWD)
-		MACRO_TAP(cw_esc,  &kp ESC    &tog _L_CPWD)
+		MACRO_TAP(cw_SPC,  &kp SPACE  &tog _L_CPWD)
+		MACRO_TAP(cw_TAB,  &kp TAB    &tog _L_CPWD)
+		MACRO_TAP(cw_ENTR, &kp ENTER  &tog _L_CPWD)
+		MACRO_TAP(cw_ESC,  &kp ESC    &tog _L_CPWD)
 
 		// hold layer and turn off caps word
 		MACRO(mo_cw_L_NAV,   <M_TAP &to _L_NAV>,   M_WAIT_REL,  <M_TAP &to _L_BASE>)
@@ -270,16 +271,16 @@
 
 		MACRO(mo_L_UTIL, <M_TAP  &tog _L_UTIL>,  <M_HOLD  CTRL_ALT>,  M_WAIT_REL,  <M_TAP  &tog _L_UTIL  &to _L_BASE>,  <M_REL  CTRL_ALT>)
 
-		MACRO( utl_ctab, <M_REL  &kp LALT >,  <M_TAP_KP     TAB >)
-		MACRO(utl_cstab, <M_REL  &kp LALT >,  <M_TAP_KP  LS(TAB)>)
-		MACRO( utl_atab, <M_REL  &kp LCTRL>,  <M_TAP_KP     TAB >)
-		MACRO(utl_astab, <M_REL  &kp LCTRL>,  <M_TAP_KP  LS(TAB)>)
-		MACRO(  utl_tab, <M_REL  CTRL_ALT >,  <M_TAP_KP     TAB >,       <M_HOLD  CTRL_ALT>)
-		MACRO( utl_stab, <M_REL  CTRL_ALT >,  <M_TAP_KP  LS(TAB)>,       <M_HOLD  CTRL_ALT>)
-		MACRO( utl_gtab, <M_REL  CTRL_ALT >,  <M_TAP_KP  LG(TAB)>,       <M_HOLD  CTRL_ALT>)
+		MACRO( utl_CTAB, <M_REL  &kp LALT >,  <M_TAP_KP     TAB >)
+		MACRO(utl_CSTAB, <M_REL  &kp LALT >,  <M_TAP_KP  LS(TAB)>)
+		MACRO( utl_ATAB, <M_REL  &kp LCTRL>,  <M_TAP_KP     TAB >)
+		MACRO(utl_ASTAB, <M_REL  &kp LCTRL>,  <M_TAP_KP  LS(TAB)>)
+		MACRO(  utl_TAB, <M_REL  CTRL_ALT >,  <M_TAP_KP     TAB >,       <M_HOLD  CTRL_ALT>)
+		MACRO( utl_STAB, <M_REL  CTRL_ALT >,  <M_TAP_KP  LS(TAB)>,       <M_HOLD  CTRL_ALT>)
+		MACRO( utl_GTAB, <M_REL  CTRL_ALT >,  <M_TAP_KP  LG(TAB)>,       <M_HOLD  CTRL_ALT>)
 
-		MACRO( utl_back, <M_REL  CTRL_ALT >,  <M_TAP_KP  C_AC_BACK>,     <M_HOLD  CTRL_ALT>)
-		MACRO( utl_frwd, <M_REL  CTRL_ALT >,  <M_TAP_KP  C_AC_FORWARD>,  <M_HOLD  CTRL_ALT>)
+		MACRO( utl_BACK, <M_REL  CTRL_ALT >,  <M_TAP_KP  C_AC_BACK>,     <M_HOLD  CTRL_ALT>)
+		MACRO( utl_FRWD, <M_REL  CTRL_ALT >,  <M_TAP_KP  C_AC_FORWARD>,  <M_HOLD  CTRL_ALT>)
 
 	};
 
@@ -288,10 +289,10 @@
 
 		#define DEFINE_COMBO(NAME, LAYERS, POSITIONS, TIMEOUT, BINDINGS...) \
 			combo_##NAME { \
-				layers = <LAYERS>; \
+				layers        = <LAYERS>; \
 				key-positions = <POSITIONS>; \
-				timeout-ms = <TIMEOUT>; \
-				bindings = BINDINGS; \
+				timeout-ms    = <TIMEOUT>; \
+				bindings      =  BINDINGS; \
 			};
 
 
@@ -299,16 +300,17 @@
 		// TODO: ok to omit line breaks between defs?
 		// TODO: all combos define layers?
 		#define COMBO(LAYERS, BINDINGS, POSITIONS, RANDOM_NAME) \
-			DEFINE_COMBO(RANDOM_NAME,        LAYERS,   POSITIONS,  _COMBO_TIMEOUT,      <BINDINGS>)
+			DEFINE_COMBO(RANDOM_NAME,    LAYERS,  POSITIONS,  _COMBO_TIMEOUT,  <BINDINGS>)
 
 		#define COMBO_KP(LAYERS, KEY, SUFFIX, POSITIONS) \
-			DEFINE_COMBO(KEY##SUFFIX,        LAYERS,  POSITIONS,  _COMBO_TIMEOUT,       <&kp KEY>)
+			DEFINE_COMBO(  KEY##SUFFIX,  LAYERS,  POSITIONS,  _COMBO_TIMEOUT,  <&kp KEY>)
+			
+		#define COMBO_MACRO(LAYERS, MACRO, SUFFIX, POSITIONS) \
+			DEFINE_COMBO(MACRO##SUFFIX,  LAYERS,  POSITIONS,  _COMBO_TIMEOUT,  <&m_##MACRO>)
 
 		// #define COMBO_KP_CTRL(LAYERS, KEY, SUFFIX, POSITIONS) \
 			// DEFINE_COMBO(ctrl_##KEY##SUFFIX, LAYERS,  POSITIONS,  _COMBO_TIMEOUT,       <&sk LCTRL>, <&kp KEY>)
 
-		#define COMBO_MACRO(LAYERS, MACRO, SUFFIX, POSITIONS) \
-			DEFINE_COMBO(MACRO##SUFFIX,      LAYERS,  POSITIONS,  _COMBO_TIMEOUT,       <&m_##MACRO>)
 
 
 
@@ -325,14 +327,14 @@
 
 		// backspace and del, with and wo ctrl
 		COMBO_KP(_L_NOT_GAME,         BSPC,,                11 12)
-		COMBO(   _L_NOT_GAME,  &kp LC(BSPC),                17 18, dljsdiooooisrt)
+		COMBO(   _L_NOT_GAME,  &kp LC(BSPC),                17 18, rnd_name_dljsdiooooisrt)
 		COMBO_KP(_L_NOT_GAME,         DEL,,                 21 22)
-		COMBO(   _L_NOT_GAME,  &kp LC(DEL),                 27 28, dljsdaioaort)
-		COMBO(   _L_NOT_GAME,  &kp LC(Z_),                  20 21, dljoiadiqsrt)
+		COMBO(   _L_NOT_GAME,  &kp LC(DEL),                 27 28, rnd_name_dljsdaioaort)
+		COMBO(   _L_NOT_GAME,  &kp LC(Z_),                  20 21, rnd_name_dljoiadiqsrt)
 
 		// one-shot shift on both thumb keys at once
-		COMBO(_L_NOT_GAME,  &lsk _L_FUNC LSHIFT,          30 31, dljsdiqsrt)
-		COMBO(_L_NOT_GAME,  &sk          RSHIFT,          32 33, sqljqrjqsl)
+		COMBO(_L_NOT_GAME,  &lsk _L_FUNC LSHIFT,          30 31, rnd_name_dljsdiqsrt)
+		COMBO(_L_NOT_GAME,  &sk          RSHIFT,          32 33, rnd_name_sqljqrjqsl)
 
 		// TODO  merge these?
 		COMBO_MACRO(_L_BASE,  Q_U_,,            26 27) /* qu */
@@ -350,14 +352,14 @@
 		COMBO_KP(_L_NOT_CPWD,  ENTER,,              16 17)
 		COMBO_KP(_L_NOT_CPWD,  ESC,,                10 11)
 
-		COMBO_MACRO(_L_CPWD,  cw_tab,,          12 13)
-		COMBO_MACRO(_L_CPWD,  cw_entr,,         16 17)
-		COMBO_MACRO(_L_CPWD,  cw_esc,,          10 11)
+		COMBO_MACRO(_L_CPWD,  cw_TAB,,          12 13)
+		COMBO_MACRO(_L_CPWD,  cw_ENTR,,         16 17)
+		COMBO_MACRO(_L_CPWD,  cw_ESC,,          10 11)
 
-		COMBO(_L_FUNC, &sys_reset,     0  4, aiouaiouaiou)
-		COMBO(_L_FUNC, &bootloader,   20 24, ayuqaioueaio)
-		COMBO(_L_FUNC, &tog _L_GAME,   4 14, aiouayopaipo)
-		COMBO(_L_FUNC, &tog _L_GAM2,  14 24, aiopoappyaio)
+		COMBO(_L_FUNC, &sys_reset,     0  4, rnd_name_aiouaiouaiou)
+		COMBO(_L_FUNC, &bootloader,   20 24, rnd_name_ayuqaioueaio)
+		COMBO(_L_FUNC, &tog _L_GAME,   4 14, rnd_name_aiouayopaipo)
+		COMBO(_L_FUNC, &tog _L_GAM2,  14 24, rnd_name_aiopoappyaio)
 	};
 
 	keymap {
@@ -400,13 +402,13 @@
 		#define IEXCL_IQMRK &htslow    IEXC_  IQMR_     //  ¿     ¡
 		#define EXCL_QMRK   &htslow    EXCL_  QMRK_     //  ?     !
 
-		#define NBSP_QMRK   &ht_qmrk   0      QMRK_     // ■?    (?)
-		#define NBSP_EXCL   &ht_excl   0      EXCL_     // ■!    (!)
-		#define DOT_COLN    &ht_coln   0      DOT_      // ■:□   (.)
-		#define COMM_SCLN   &ht_scln   0      COMM_     // ■;□   (,)
+		#define NBSP_QMRK   &ht_QMRK   0      QMRK_     // ■?    (?)
+		#define NBSP_EXCL   &ht_EXCL   0      EXCL_     // ■!    (!)
+		#define DOT_COLN    &ht_COLN   0      DOT_      // ■:□   (.)
+		#define COMM_SCLN   &ht_SCLN   0      COMM_     // ■;□   (,)
 
-		#define NBSP_LGLM   &ht_lglm   LGLM_  0         // («)   «■
-		#define NBSP_RGLM   &ht_rglm   RGLM_  0         // (»)    ■»
+		#define NBSP_LGLM   &ht_LGLM   LGLM_  0         // («)   «■
+		#define NBSP_RGLM   &ht_RGLM   RGLM_  0         // (»)    ■»
 
 
 		// UTIL LAYER ------------------
@@ -482,21 +484,21 @@
 		sym_layer {
 			bindings = <
 				&kp  PIPE_   &kp  AMPR_   &kp  AT_    &kp  OE_      NBSP_EXCL         _________       &kp  LBRK_   &kp  RBRK_   _________    DLLR_EURO
-				SKLG LCRL_   SKLA RCRL_   SKLC LPAR_  SKLS RPAR_    &kp MDSH_         _________       HMRS _____   HMRC _____   HMRA _____   HMRG _____
-				&kp  NDSH_   &kp  MDSH_   NBSP_LGLM   NBSP_RGLM     &kp ESC           &kp  AE_        _________    &m_cfxloos   &m_grvloos   _________
+				SKLG LCRL_   SKLA RCRL_   SKLC LPAR_  SKLS RPAR_    &kp MDSH_         _________       _________    &m_CFXloos   &m_GRVloos   &m_TLDloos
+				&kp  NDSH_   &kp  MDSH_   NBSP_LGLM   NBSP_RGLM     &kp ESC           &kp  AE_        HMRS _____   HMRC _____   HMRA _____   HMRG _____
 				//
 								                      &sk  LCTRL    &sk LSHFT         &kp NBSP_       &kp  SPC
-													             // double tap
+													             // double tap //
 			>;
 		};
 
 		utility_layer {
 			bindings = <
-				xxxxxxxxx   xxxxxxxxx    &m_utl_back   &m_utl_frwd    xxxxx             xxxxx    xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
-				xxxxxxxxx   xxxxxxxxx    &m_utl_astab  &m_utl_atab    &m_utl_gtab       xxxxx    xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
-				xxxxxxxxx   xxxxxxxxx    &m_utl_cstab  &m_utl_ctab    xxxxx             xxxxx    xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
+				xxxxxxxxx   xxxxxxxxx    &m_utl_BACK   &m_utl_FRWD    xxxxx             xxxxx    xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
+				xxxxxxxxx   xxxxxxxxx    &m_utl_ASTAB  &m_utl_ATAB    &m_utl_GTAB       xxxxx    xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
+				xxxxxxxxx   &kp LA(F4)   &m_utl_CSTAB  &m_utl_CTAB    xxxxx             xxxxx    xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
 				//
-			                                           &m_utl_tab    &m_utl_stab        xxxxx    xxxxx
+			                                           &m_utl_STAB    &m_utl_TAB        xxxxx    xxxxx
 			>;
 		};
 		
@@ -510,7 +512,7 @@
 			bindings = <
 				&kp  ESC     &kp  _____    &kp  _____     &kp  _____      &kp C_S_ESC         _________       HMLS LC(HOME)   HMLC PG_DN   HMLA PG_UP   HMRG LC(END)
 				&kp  LC(Y_)  HMLA INSERT   HMLC PSCRN     HMLS PSBRK      &kp CAPS           &tog _L_CPWD     &kp  LC(LEFT)   &kp  DOWN    &kp  UP	    &kp  LC(RIGHT)
-				HMLG LC(Z_)  HMRA LC(X_)   &kp  LC(C_)    &kp  LC(V_)     PASTEPLAIN          _________       &kp     HOME    &kp  LEFT    &kp  RIGHT   &kp     END
+				HMLG LC(Z_)  HMRA LC(X_)   &kp  LC(C_)    &kp  LC(V_)     PASTEPLAIN          _________       &kp  HOME       &kp  LEFT    &kp  RIGHT   &kp  END
 				//
 												          _________       _________          inaccessible     inaccessible
 			>;
@@ -522,23 +524,23 @@
 
 		accent_layer {
 			bindings = <
- MACRO_ROW_4(,  CFLX_U_,  CFLX_O_,  CFLX_I_,  CFLX_A_) IEXCL_IQMRK        _________    &kp  CCED_  &kp  APST_  &kp  QUOT_  &m_B_J_
- MACRO_ROW_5(,  ACUT_U_,  ACUT_O_,  ACUT_I_,  ACUT_A_,  TILD_A_)          _________    HMRS ACUT_  HMRC GRAV_  HMLA CFLX_  &m_TILD_N_
- MACRO_ROW_3(,  GRAV_U_,  TILD_O_,  TRMA_I_) &kp AGRV_     _________          _________    &kp  TRMA_  _________   &m_sztt     &kp TILD_
+ MACRO_ROW_4(,  CFLX_U_,  CFLX_O_,  CFLX_I_,  CFLX_A_)  IEXCL_IQMRK        _________    &kp  CCED_  &kp  APST_  &kp  QUOT_   &m_B_J_
+ MACRO_ROW_5(,  ACUT_U_,  ACUT_O_,  ACUT_I_,  ACUT_A_,  TILD_A_)           _________    HMRS ACUT_  HMRC CFLX_  HMLA GRAV_   &m_TILD_N_
+ MACRO_ROW_3(,  GRAV_U_,  TILD_O_,  TRMA_I_) &kp AGRV_  _________          _________    &kp  TRMA_  _________     &m_SZTT   &kp TILD_
 				//
 												    &m_CFLX_E_    &kp EGRV_          &sk LSHFT    &sk  LCTRL
-													                              // double tap
+													                              // double tap //
 			>;
 		};
 
 		accent_caps_layer {
 			bindings = <
- MACRO_ROW_4(cw_, CFLX_U_,   CFLX_O_,    CFLX_I_,       CFLX_A_)  _________      _________    &kp  CCED_  &kp  APST_  &kp  QUOT_  &m_cw_B_J_
- MACRO_ROW_5(cw_, ACUT_U_,   ACUT_O_,    ACUT_I_,       ACUT_A_,   TILD_A_)      _________    HMRS ACUT_  HMRC GRAV_  HMLA CFLX_  &m_cw_TILD_N_
- MACRO_ROW_3(cw_, GRAV_U_,   TILD_O_,    TRMA_I_)  &kp LS(AGRV_)  _________      _________    &kp  TRMA_  _________   &m_cw_sztt  &kp TILD_
+ MACRO_ROW_4(cw_, CFLX_U_,   CFLX_O_,    CFLX_I_,      CFLX_A_)  _________       _________    &kp  CCED_  &kp  APST_  &kp   QUOT_  &m_cw_B_J_
+ MACRO_ROW_5(cw_, ACUT_U_,   ACUT_O_,    ACUT_I_,      ACUT_A_,   TILD_A_)       _________    HMRS ACUT_  HMRC CFLX_  HMLA  GRAV_  &m_cw_TILD_N_
+ MACRO_ROW_3(cw_, GRAV_U_,   TILD_O_,    TRMA_I_)  &kp LS(AGRV_)  _________      _________    &kp  TRMA_  _________   &m_cw_SZTT   &kp   TILD_
 				//
 											       &m_cw_CFLX_E_  &kp LS(EGRV_)  _________    _________
-													                          // double tap
+													                          // double tap //
 			>;
 		};
 
