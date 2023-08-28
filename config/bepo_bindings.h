@@ -90,8 +90,8 @@
 #define RPAR_	N5
 #define LBRK_	RA(LPAR_)
 #define RBRK_	RA(RPAR_)
-#define LCRL_	RA(Y_)
-#define RCRL_	RA(X_)
+#define LCUR_	RA(Y_)
+#define RCUR_	RA(X_)
 #define LGLM_	N2
 #define RGLM_	N3
 
