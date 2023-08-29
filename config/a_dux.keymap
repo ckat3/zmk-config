@@ -110,7 +110,7 @@
 
 		// OTHER HOLDTAPS ------------------
 		//deactivates capsword, then...                               // PRESS            HOLD
-		HT_BAL( ht_cw_L_NAV_SPC, <&m_mo_cw_L_NAV>,  <&m_cw_SPC>)      // space            hold _L_NAV
+		HT_BAL( ht_cw_L_NAV_SPC,  <&m_mo_cw_L_NAV>,  <&m_cw_SPC>)      // space            hold _L_NAV
 		HT_BAL(lsl_cw_L_SYM,     <&m_mo_cw_L_SYM>,  <&m_sk_cw_L_SYM>) // one-shot _L_SYM  hold _L_SYM
 
 		HT_SLOW(ltt_L_UTIL,      <&m_mo_L_UTIL>,    <&kp>)            // &kp              hold _L_UTIL    (inherits tap-preferred from HT)
@@ -427,7 +427,7 @@
 		#define LSL_SYM_CW     &lsl_cw_L_SYM 0 0
 
 		#define LT_NAV_SPC     &lt   _L_NAV SPC
-		#define LT_NAV_SPC_CW  &ht_cw_L_NAV_spc 0 0
+		#define LT_NAV_SPC_CW  &ht_cw_L_NAV_SPC 0 0
 
 		#define LSL_ACNT       &lsl  _L_ACNT  _L_ACNT
 		#define LSL_ACCW       &lsl  _L_ACCW  _L_ACCW
