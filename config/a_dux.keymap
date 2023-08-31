@@ -284,10 +284,12 @@
 		MACRO(utl_SATAB,  <M_REL SHIFT_CTRL>,  <M_TAP_KP  LS(TAB)>)
 		MACRO( utl_CTAB,  <M_REL SHIFT_ALT >,  <M_TAP_KP     TAB >)
 		MACRO(utl_SCTAB,  <M_REL SHIFT_ALT >,  <M_TAP_KP  LS(TAB)>)
-										       
-
-
+		
+		MACRO( utl_SPC,  <M_REL SUPER>,        <M_TAP_KP  SPACE>,         <M_HOLD SUPER>)	
+		
 	};
+	
+	
 
 	combos {
 		compatible = "zmk,combos";
@@ -424,22 +426,13 @@
 		#define LT_NUM_E_CW    &lt    _L_NUM  LS(E_)
 
 		#define LSL_SYM        &lsl   _L_SYM  _L_SYM
-		#define LSL_SYM_CW     &lsl_cw_L_SYM 0 0
-
-		#define LT_NAV_SPC     &lt   _L_NAV SPC
-		#define LT_NAV_SPC_CW  &ht_cw_L_NAV_SPC 0 0
+		#define LSL_SYM_CW     &lsl_cw_L_SYM  0 0
 
 		#define LSL_ACNT       &lsl  _L_ACNT  _L_ACNT
 		#define LSL_ACCW       &lsl  _L_ACCW  _L_ACCW
 
-
-                                      // ---- left hand ---- //      // ---- right hand ---- //
-		#define _THUMBS_LEFT_         LT_NUM_E       LSL_SYM
-		#define _THUMBS_RIGHT_                                        LSL_ACNT    LT_NAV_SPC
-		#define _THUMBS_CAPSWORD_     LT_NUM_E_CW    LSL_SYM_CW       LSL_ACCW    LT_NAV_SPC_CW
-
-		#define _THUMBS_DEFAULT_           _THUMBS_LEFT_                  _THUMBS_RIGHT_
-
+		#define LT_NAV_SPC     &lt   _L_NAV SPC
+		#define LT_NAV_SPC_CW  &ht_cw_L_NAV_SPC 0 0
 
 
 		// -------------------
@@ -452,7 +445,7 @@
 				UTLAYR U_    HMLA  O_         HMLC I_      HMLS A_        &kp F_            &kp G_         HMRS T_      HMRC R_      HMRA S_      &kp  N_
 				HMLG   Z_    HMRA  EACT_      &kp  P_      COMM_SCLN      &kp X_            &kp V_         &kp  D_      &kp  M_      &kp  L_      HMRG B_
 				//
-															                   _THUMBS_DEFAULT_
+													       LT_NUM_E      LSL_SYM            LSL_ACNT       LT_NAV_SPC
 			>;
 		};
 
@@ -462,7 +455,7 @@
 				HMLG LS(U_)	 HMLA  LS(O_)	  HMLC LS(I_)  HMLS LS(A_)    &kp LS(F_)         &kp LS(G_)    HMRS LS(T_)  HMRC LS(R_)  HMRA LS(S_)  HMRG LS(N_)
 				&kp  LS(Z_)	 HMLC  LS(EACT_)  &kp  LS(P_)  &kp  COMM_     &kp LS(X_)         &kp LS(V_)    &kp  LS(D_)  &kp  LS(M_)  &kp  LS(L_)  &kp  LS(B_)
 				//
-														                     _THUMBS_CAPSWORD_
+														   LT_NUM_E_CW    LSL_SYM_CW         LSL_ACCW      LT_NAV_SPC_CW
 			>;
 		};
 
@@ -495,11 +488,11 @@
 
 		utility_layer {
 			bindings = <
-				_________   _________   &m_utl_BACK   &m_utl_FRWD          _____       _____    _________   _________  _________  _________
-				_________   _________   &m_utl_SATAB  &m_utl_ATAB    &m_utl_GTAB       _____    _________   _________  _________  _________
-				_________   &kp LA(F4)  &m_utl_SCTAB  &m_utl_CTAB          _____       _____    _________   _________  _________  _________
+				_________   _________    &m_utl_BACK   &m_utl_FRWD     _____           _____    _________   _________  _________  _________
+				_________   &m_utl_GTAB  &m_utl_SATAB  &m_utl_ATAB     _____           _____    _________   _________  _________  _________
+				_________   &kp LA(F4)   &m_utl_SCTAB  &m_utl_CTAB     _____           _____    _________   _________  _________  _________
 				//
-			                                           &m_utl_STAB     &kp SPACE       _____    _____
+			                                           &m_utl_STAB     &m_utl_SPC      _____    _____
 			>;
 		};
 		
