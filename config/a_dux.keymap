@@ -96,13 +96,18 @@
 				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM_SLOW, _ALL_POSITIONS, BINDINGS)
 
 		// HOME-ROW MODS              // TAP             HOLD
-		HT(     ht,     <&kp>, <&kp>) // &kp             &kp
-		HT(     htsk,   <&sk>, <&kp>)
-		HT(     ltt,    <&mo>, <&kp>) // &kp             hold layer    (inherits tap-preferred from HT)
+		HT(     ht,     <&kp>, <&kp>) // key             key  
+		HT(     htsk,   <&sk>, <&kp>) // hold layer      key  
+		HT(     ltt,    <&mo>, <&kp>) // key             hold layer   (inherits tap-preferred from HT)
 		HT_BAL( lsk,    <&mo>, <&sk>) // one-shot mod    hold layer
 		HT_BAL( lsl,    <&mo>, <&sl>) // one-shot layer  hold layer
 
-		HT_SLOW(htslow, <&kp>, <&kp>)
+		HT_SLOW(htslow, <&kp>, <&kp>) // key             key          (takes longer to register hold)
+		
+		HT(     ht_CFX, <&kp>, <&m_CFX_loose>) // key    ^
+		HT(     ht_GRV, <&kp>, <&m_GRV_loose>) // key    `
+		HT(     ht_TLD, <&kp>, <&m_TLD_loose>) // key    ~
+		
 
 		// hrm for opposite hand only (used for shift)
 		HRMOD_POS(htl, _POSITIONS_RH)
@@ -110,7 +115,7 @@
 
 		// OTHER HOLDTAPS ------------------
 		//deactivates capsword, then...                               // PRESS            HOLD
-		HT_BAL( ht_cw_L_NAV_SPC,  <&m_mo_cw_L_NAV>,  <&m_cw_SPC>)      // space            hold _L_NAV
+		HT_BAL( ht_cw_L_NAV_SPC, <&m_mo_cw_L_NAV>,  <&m_cw_SPC>)      // space            hold _L_NAV
 		HT_BAL(lsl_cw_L_SYM,     <&m_mo_cw_L_SYM>,  <&m_sk_cw_L_SYM>) // one-shot _L_SYM  hold _L_SYM
 
 		HT_SLOW(ltt_L_UTIL,      <&m_mo_L_UTIL>,    <&kp>)            // &kp              hold _L_UTIL    (inherits tap-preferred from HT)
@@ -244,9 +249,9 @@
 
 
 		// LOOSE ACCENTS ------------------
-		MACRO_TAP(CFXloos,    &kp CFLX_  &kp SPACE)
-		MACRO_TAP(GRVloos,    &kp GRAV_  &kp SPACE)
-		MACRO_TAP(TLDloos,    &kp TILD_  &kp SPACE)
+		MACRO_TAP(CFX_loose,  &kp CFLX_  &kp SPACE)
+		MACRO_TAP(GRV_loose,  &kp GRAV_  &kp SPACE)
+		MACRO_TAP(TLD_loose,  &kp TILD_  &kp SPACE)
 
 
 		// CAPSWORD ------------------
@@ -399,8 +404,13 @@
 		#define SKLC    &htsk   LCTRL
 		#define SKLA    &htsk   LALT
 		#define SKLG    &htsk   LGUI
-
-
+		
+		#define RS_CFXloose   &ht_CFX   LSHIFT  0
+		#define RC_GRVloose   &ht_GRV   LCTRL   0
+	 // #define RA_           &ht_      LALT    0
+		#define RG_TLDloose   &ht_TLD   LGUI    0
+		
+		
 		// HOLDTAP SYMBOLS ------------------
 		// □ = space, ■ = nbsp, () = explicited later   // HOLD  TAP
 		#define DLLR_EURO   &htslow    EURO_  DLLR_     //  €     $
@@ -445,17 +455,17 @@
 				UTLAYR U_    HMLA  O_         HMLC I_      HMLS A_        &kp F_            &kp G_         HMRS T_      HMRC R_      HMRA S_      &kp  N_
 				HMLG   Z_    HMRA  EACT_      &kp  P_      COMM_SCLN      &kp X_            &kp V_         &kp  D_      &kp  M_      &kp  L_      HMRG B_
 				//
-													       LT_NUM_E      LSL_SYM            LSL_ACNT       LT_NAV_SPC
+													       LT_NUM_E       LSL_SYM           LSL_ACNT       LT_NAV_SPC
 			>;
 		};
 
 		caps_word_layer { // TODO leave layer when using home row mods
 			bindings = <
-				&kp  LS(Q_)	 HMRA  MIN_       &kp  LS(Y_)  &kp  DOT_      EXCL_QMRK          &kp LS(K_)    &kp  LS(C_)  &kp  LS(H_)  &kp  LS(W_)  &kp  LS(J_)
-				HMLG LS(U_)	 HMLA  LS(O_)	  HMLC LS(I_)  HMLS LS(A_)    &kp LS(F_)         &kp LS(G_)    HMRS LS(T_)  HMRC LS(R_)  HMRA LS(S_)  HMRG LS(N_)
-				&kp  LS(Z_)	 HMLC  LS(EACT_)  &kp  LS(P_)  &kp  COMM_     &kp LS(X_)         &kp LS(V_)    &kp  LS(D_)  &kp  LS(M_)  &kp  LS(L_)  &kp  LS(B_)
+				&kp  LS(Q_)	 &kp  MIN_       &kp  LS(Y_)  &kp  DOT_       EXCL_QMRK          &kp LS(K_)     &kp  LS(C_)  &kp  LS(H_)  &kp  LS(W_)  &kp  LS(J_)
+				HMLG LS(U_)	 HMLA LS(O_)	 HMLC LS(I_)  HMLS LS(A_)     &kp LS(F_)         &kp LS(G_)     HMRS LS(T_)  HMRC LS(R_)  HMRA LS(S_)  HMRG LS(N_)
+				&kp  LS(Z_)	 HMRA LS(EACT_)  &kp  LS(P_)  &kp  COMM_      &kp LS(X_)         &kp LS(V_)     &kp  LS(D_)  &kp  LS(M_)  HMLA LS(L_)  &kp  LS(B_)
 				//
-														   LT_NUM_E_CW    LSL_SYM_CW         LSL_ACCW      LT_NAV_SPC_CW
+														  LT_NUM_E_CW     LSL_SYM_CW         LSL_ACCW     LT_NAV_SPC_CW
 			>;
 		};
 
@@ -467,24 +477,29 @@
 
 		num_layer {
 			bindings = <
-				&kp MIN_     &kp N7_      &kp N8_     &kp N9_       EXCL_QMRK         DLLR_EURO       &kp  LBRK_   &kp  RBRK_   &kp  HASH_   &kp  PCNT_
+				&kp PIPE_    &kp N7_      &kp N8_     &kp N9_       EXCL_QMRK         DLLR_EURO       &kp  LBRK_   &kp  RBRK_   &kp  HASH_   &kp  PCNT_
 				&kp N0_      &kp N1_      &kp N2_     &kp N3_       &kp DOT_          &kp COLN_       HMRS PLUS_   HMRC MIN_    HMLA STAR_   HMRG FSLA_
-				&kp SPC      &kp N4_      &kp N5_     &kp N6_       &kp COMM_         &kp SCLN_       &kp  LT_     &kp  GT_     EQUL_DIFF    &kp  BSLA_
+				&kp ULIN_    &kp N4_      &kp N5_     &kp N6_       &kp COMM_         &kp SCLN_       &kp  LT_     &kp  GT_     EQUL_DIFF    &kp  BSLA_
 				//
-				                                    impossible     impossible         &kp ULIN_       &kp SPC
+				                                    impossible      impossible        &kp ULIN_       &kp SPC
 			>;
 		};
 
 		sym_layer {
 			bindings = <
-				&kp  PIPE_   &kp  AMPR_   &kp  AT_    &kp  OE_      NBSP_EXCL         _________       &kp  LBRK_   &kp  RBRK_   _________    DLLR_EURO
-				SKLG LCUR_   SKLA RCUR_   SKLC LPAR_  SKLS RPAR_    &kp MDSH_         _________       _________    &m_CFXloos   &m_GRVloos   &m_TLDloos
-				&kp  NDSH_   &kp  MDSH_   NBSP_LGLM   NBSP_RGLM     _________         &kp AE_         HMRS _____   HMRC _____   HMRA _____   HMRG _____
-				//
+				&kp  PIPE_   &kp  AMPR_   &kp  AT_    &kp  OE_      NBSP_EXCL         _________       &kp  LBRK_    &kp  RBRK_     _________    DLLR_EURO
+				SKLG LCUR_   SKLA RCUR_   SKLC LPAR_  SKLS RPAR_    &kp MDSH_         _________       RS_CFXloose   RC_GRVloose    &kp  RALT    RG_TLDloose
+				&kp  NDSH_   &kp  MDSH_   NBSP_LGLM   NBSP_RGLM     _________         &kp AE_         _________     _________      _________    &kp  BSLA_
+				//u
 								                      _________     &kp ESC           &kp NBSP_       &kp  SPC
 													            // double tap //
 			>;
 		};
+		
+		#define RS_CFX  &ht_CFX   LSHIFT  0
+		#define RC_GRV  &ht_GRV   LCTRL   0
+	 // #define RA_     &ht_      LALT    0
+		#define RG_TLD  &ht_TLD   LGUI    0
 
 		utility_layer {
 			bindings = <
@@ -492,7 +507,7 @@
 				_________   &m_utl_GTAB  &m_utl_SATAB  &m_utl_ATAB     _____           _____    _________   _________  _________  _________
 				_________   &kp LA(F4)   &m_utl_SCTAB  &m_utl_CTAB     _____           _____    _________   _________  _________  _________
 				//
-			                                           &m_utl_STAB     &m_utl_SPC      _____    _____
+			                                           &m_utl_STAB   &m_utl_SPC        _____    _____
 			>;
 		};
 		
@@ -506,9 +521,9 @@
 			bindings = <
 				_________     _________     _________     &kp  LG(V_)     &kp C_S_ESC         _________       HMLS LC(HOME)   HMLC PG_DN   HMLA PG_UP   HMRG LC(END)
 				&kp  LC(Y_)  HMLA INSERT   HMLC PSCRN     HMLS PSBRK      &kp CAPS           &tog _L_CPWD     &kp  LC(LEFT)   &kp  DOWN    &kp  UP	    &kp  LC(RIGHT)
-				HMLG LC(Z_)  HMRA LC(X_)   &kp  LC(C_)    &kp  LC(V_)     PASTEPLAIN           _________      &kp  HOME       &kp  LEFT    &kp  RIGHT   &kp  END
+				HMLG LC(Z_)  HMRA LC(X_)   &kp  LC(C_)    &kp  LC(V_)     PASTEPLAIN          _________       &kp  HOME       &kp  LEFT    &kp  RIGHT   &kp  END
 				//
-												          _________       _________           impossible      impossible
+												            _________     _________           impossible    impossible
 			>;
 		};
 
@@ -518,23 +533,23 @@
 		
 		accent_layer {
 			bindings = <
- MACRO_ROW_4(,  CFLX_U_,  CFLX_O_,  CFLX_I_,  CFLX_A_)  IEXCL_IQMRK        _________    &kp  CCED_  &kp  APST_  &kp  QUOT_   &m_B_J_
- MACRO_ROW_5(,  ACUT_U_,  ACUT_O_,  ACUT_I_,  ACUT_A_,  TILD_A_)           _________    HMRS ACUT_  HMRC CFLX_  HMLA GRAV_   &m_TILD_N_
- MACRO_ROW_3(,  GRAV_U_,  TILD_O_,  TRMA_I_) &kp AGRV_  _________          _________    &kp  TRMA_  _________     &m_SZTT   &kp TILD_
+ MACRO_ROW_4(,  CFLX_U_,   CFLX_O_,   CFLX_I_,   CFLX_A_)      IEXCL_IQMRK          _________     &kp  CCED_  &kp  APST_  &kp  QUOT_   &m_B_J_
+ MACRO_ROW_5(,  ACUT_U_,   ACUT_O_,   ACUT_I_,   ACUT_A_,      TILD_A_)             _________     HMRS CFLX_  HMRC GRAV_  HMLA ACUT_   &m_TILD_N_
+ MACRO_ROW_3(,  GRAV_U_,   TILD_O_,   TRMA_I_)   &kp AGRV_     _________            _________     &kp  TRMA_  _________     &m_SZTT   &kp TILD_
 				//
-												    &m_CFLX_E_    &kp EGRV_          _________    _________
+												    &m_CFLX_E_   &kp EGRV_          _________     _________
 													                             // double tap //
 			>;
 		};
 
 		accent_caps_layer {
 			bindings = <
- MACRO_ROW_4(cw_, CFLX_U_,   CFLX_O_,    CFLX_I_,      CFLX_A_)  _________       _________    &kp  LS(CCED_)  &kp  APST_  &kp   QUOT_  &m_cw_B_J_
- MACRO_ROW_5(cw_, ACUT_U_,   ACUT_O_,    ACUT_I_,      ACUT_A_,   TILD_A_)       _________    HMRS    ACUT_   HMRC CFLX_  HMLA  GRAV_  &m_cw_TILD_N_
- MACRO_ROW_3(cw_, GRAV_U_,   TILD_O_,    TRMA_I_)  &kp LS(AGRV_)  _________      _________    &kp     TRMA_   _________   &m_cw_SZTT   &kp   TILD_
-				//
-											    &m_cw_CFLX_E_  &kp LS(EGRV_)     _________    _________
-													                         // double tap //
+ MACRO_ROW_4(cw_, CFLX_U_,   CFLX_O_,   CFLX_I_,   CFLX_A_)       _________         _________     &kp  LS(CCED_)  &kp  APST_  &kp   QUOT_  &m_cw_B_J_
+ MACRO_ROW_5(cw_, ACUT_U_,   ACUT_O_,   ACUT_I_,   ACUT_A_,       TILD_A_)          _________     HMRS    ACUT_   HMRC CFLX_  HMLA  GRAV_  &m_cw_TILD_N_
+ MACRO_ROW_3(cw_, GRAV_U_,   TILD_O_,   TRMA_I_)   &kp LS(AGRV_)  _________         _________     &kp     TRMA_   _________   &m_cw_SZTT   &kp   TILD_
+				//                                                                                
+											       &m_cw_CFLX_E_  &kp LS(EGRV_)     _________     _________
+													                          // double tap //
 			>;
 		};
 
@@ -546,11 +561,11 @@
 
 		func_layer {
 			bindings = <
-				&bt  BT_SEL 3   &bt  BT_SEL 0   &bt  BT_SEL 1   &bt  BT_SEL 2  &bt BT_CLR           RESET_RIGHT   &kp F7  &kp F8  &kp F9  &kp F12
-				HMLG C_BRI_UP   HMLA C_NEXT     HMLC C_VOL_UP   HMLS C_PP  	   &kp LSLCK            &out OUT_BLE  &kp F1  &kp F2  &kp F3  &kp F10
-				&kp  C_BRI_DN   &kp  C_PREV     &kp  C_VOL_DN   &kp  C_MUTE    &kp LNLCK            &out OUT_USB  &kp F4  &kp F5  &kp F6  &kp F11
+				&bt  BT_SEL 3   &bt  BT_SEL 0   &bt  BT_SEL 1   &bt  BT_SEL 2     &bt BT_CLR           RESET_RIGHT      &kp F7  &kp F8  &kp F9  &kp F12
+				HMLG C_BRI_UP   HMLA C_NEXT     HMLC C_VOL_UP   HMLS C_PP  	      &kp LSLCK            &out OUT_BLE     &kp F1  &kp F2  &kp F3  &kp F10
+				&kp  C_BRI_DN   &kp  C_PREV     &kp  C_VOL_DN   &kp  C_MUTE       &kp LNLCK            &out OUT_USB     &kp F4  &kp F5  &kp F6  &kp F11
 				//
-															    impossible     impossible           &kp LSHIFT    &kp LALT
+															      impossible      impossible           &kp LSHIFT       &kp LALT
 			>;
 		};
 
@@ -562,21 +577,21 @@
 
 		game_layer {
 			bindings = <
-				&kp Q_      &kp MIN_   &kp Y_     &kp DOT_     &kp R_            &kp   K_      &kp C_     &kp H_     &kp W_     &kp J_
-				&kp U_      &kp O_     &kp I_     &kp A_       &kp F_            &kp   G_      &kp LEFT   &kp UP     &kp RIGHT  &kp N_
-				&kp ESC     &kp S_     &kp P_     &kp COMM_    &kp X_            &tog _L_GAME  &kp D_     &kp DOWN   &kp L_     &kp B_
-				//
-											      &kp ENTER    &kp SPACE         &kp  TAB      &kp LALT
+				&kp Q_      &kp MIN_   &kp Y_     &kp DOT_      &kp R_            &kp   K_         &kp C_     &kp H_     &kp W_     &kp J_
+				&kp U_      &kp O_     &kp I_     &kp A_        &kp F_            &kp   G_         &kp LEFT   &kp UP     &kp RIGHT  &kp N_
+				&kp ESC     &kp S_     &kp P_     &kp COMM_     &kp X_            &tog _L_GAME     &kp D_     &kp DOWN   &kp L_     &kp B_
+				//                                              
+											      &kp ENTER     &kp SPACE          &kp  TAB         &kp LALT
 			>;
 		};
 
 		game_layer_2 {
 			bindings = <
-				&kp LSHIFT  &kp A_     &kp EACT_  &kp I_      &kp O_            &kp   Y_      &kp U_     &kp I_     &kp O_     &kp P_
-				&kp LCTRL   &kp B_     &kp U_     &kp P_      &kp E_            &kp   H_      &kp J_     &kp K_     &kp L_     &kp N_
-				&kp ESC     &kp AGRV_  &kp Y_     &kp X_      &kp DOT           &tog _L_GAM2  &kp M_     &kp COMM_  &kp DOT_   &kp BSPC
-				//
-												  &kp ENTER   &kp SPACE         &kp  TAB      &kp LALT
+				&kp LSHIFT  &kp A_     &kp EACT_  &kp I_        &kp O_                  &kp Y_     &kp U_     &kp I_     &kp O_     &kp P_
+				&kp LCTRL   &kp B_     &kp U_     &kp P_        &kp E_                  &kp H_     &kp J_     &kp K_     &kp L_     &kp N_
+				&kp ESC     &kp AGRV_  &kp Y_     &kp X_        &kp DOT           &tog _L_GAM2     &kp M_     &kp COMM_  &kp DOT_   &kp BSPC
+				//                                              
+												  &kp ENTER     &kp SPACE             &kp  TAB     &kp LALT
 			>;
 		};
 
