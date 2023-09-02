@@ -247,8 +247,8 @@
 	 // 
 	 // NBSP STUFF (for french) ------------------
 	 // 
-		MACRO_TAP( nbsp_QMRK,  &kp NBSP_  &kp QMRK )
-		MACRO_TAP( nbsp_EXCL,  &kp NBSP_  &kp EXCL )
+		MACRO_TAP( nbsp_QMRK,  &kp NBSP_  &kp QMRK_ )
+		MACRO_TAP( nbsp_EXCL,  &kp NBSP_  &kp EXCL_ )
 		MACRO_TAP( nbsp_COLN,  &kp NBSP_  &kp COLN_  &kp SPACE )
 		MACRO_TAP( nbsp_SCLN,  &kp NBSP_  &kp SCLN_  &kp SPACE )
 		MACRO_TAP( nbsp_RGLM,  &kp NBSP_  &kp RGLM_ )
