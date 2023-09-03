@@ -273,13 +273,13 @@
 		MACRO_TAP( cw_ESC,  &kp ESC    &tog _l_CPWD )
 
 	 // hold layer -> capsword off
-	 MACRO( mo_cw_l_NAV,   <M_TAP &to _l_NAV>,   <M_WAIT_REL>,  <M_TAP &to _l_BASE> )
-	 MACRO( mo_cw_l_SYM,   <M_TAP &to _l_SYM>,   <M_WAIT_REL>,  <M_TAP &to _l_BASE> )
-	 MACRO( mo_cw_l_ACNT,  <M_TAP &to _l_ACNT>,  <M_WAIT_REL>,  <M_TAP &to _l_BASE> )
+		MACRO( mo_cw_l_NAV,   <M_TAP &to _l_NAV>,   <M_WAIT_REL>,  <M_TAP &to _l_BASE> )
+		MACRO( mo_cw_l_SYM,   <M_TAP &to _l_SYM>,   <M_WAIT_REL>,  <M_TAP &to _l_BASE> )
+		MACRO( mo_cw_l_ACNT,  <M_TAP &to _l_ACNT>,  <M_WAIT_REL>,  <M_TAP &to _l_BASE> )
 
 	 // one-shot layer -> capsword off
-	 MACRO( sk_cw_l_SYM,   <M_TAP &to _l_BASE  &sk _l_SYM>  )
-	 MACRO( sk_cw_l_ACNT,  <M_TAP &to _l_BASE  &sk _l_ACNT> )
+		MACRO( sk_cw_l_SYM,   <M_TAP &to _l_BASE  &sk _l_SYM>  )
+		MACRO( sk_cw_l_ACNT,  <M_TAP &to _l_BASE  &sk _l_ACNT> )
 
 
 	 // 
@@ -294,22 +294,22 @@
 		#define HOLD_CTRL   M_REL   &kp LSHIFT             &kp LALT 
 		#define HOLD_ALT    M_REL   &kp LSHIFT  &kp LCTRL
 
-		MACRO( mo_l_UTIL,  <M_TAP &tog _l_UTIL>,  <ALL_MODS>,  <M_WAIT_REL>,  <M_TAP &tog _l_UTIL &to _l_BASE>,  <NO_MODS> )
+		MACRO( mo_l_UTIL,  <M_TAP &tog _l_UTIL>,  <ALL_MODS>,  <M_WAIT_REL>,  <NO_MODS>,  <M_TAP &tog _l_UTIL &to _l_BASE>,  <NO_MODS> )
 
-		MACRO(  utl_BACK,    <NO_MODS>,     <M_KP  C_AC_BACK   >,     <ALL_MODS> )
-		MACRO(  utl_FRWD,    <NO_MODS>,     <M_KP  C_AC_FORWARD>,     <ALL_MODS> )
-		MACRO( utl_ULIN,     <NO_MODS>,     <M_KP  ULIN_>,            <ALL_MODS> )
-		MACRO( utl_UNDO,   <HOLD_CTRL>,     <M_KP  Z_>,               <ALL_MODS> )	
-		MACRO( utl_REDO,   <HOLD_CTRL>,     <M_KP  Y_>,               <ALL_MODS> )	
-																	  	 				  
-		MACRO(   utl_TAB,    <NO_MODS>,     <M_KP     TAB >,          <ALL_MODS> )
-		MACRO(  utl_STAB,    <NO_MODS>,     <M_KP  LS(TAB)>,          <ALL_MODS> )
-		MACRO(  utl_GTAB,    <NO_MODS>,     <M_KP  LG(TAB)>,          <ALL_MODS> )	
+		MACRO(  utl_BACK,    <NO_MODS>,  <M_KP  C_AC_BACK   >,  <ALL_MODS> )
+		MACRO(  utl_FRWD,    <NO_MODS>,  <M_KP  C_AC_FORWARD>,  <ALL_MODS> )
+		MACRO( utl_ULIN,     <NO_MODS>,  <M_KP  ULIN_>,         <ALL_MODS> )
+		MACRO( utl_UNDO,     <NO_MODS>,  <M_KP  LC(Z_)>,        <ALL_MODS> )	
+		MACRO( utl_REDO,     <NO_MODS>,  <M_KP  LC(Y_)>,        <ALL_MODS> )	
+																 				  
+		MACRO(   utl_TAB,    <NO_MODS>,  <M_KP     TAB >,       <ALL_MODS> )
+		MACRO(  utl_STAB,    <NO_MODS>,  <M_KP  LS(TAB)>,       <ALL_MODS> )
+		MACRO(  utl_GTAB,    <NO_MODS>,  <M_KP  LG(TAB)>,       <ALL_MODS> )	
 			 
-		MACRO(  utl_ATAB,   <HOLD_ALT>,     <M_KP     TAB > ) // these will not hold all mods back,
-		MACRO( utl_SATAB,   <HOLD_ALT>,     <M_KP  LS(TAB)> ) // so that we can do alt-tab etc
-		MACRO(  utl_CTAB,  <HOLD_CTRL>,     <M_KP     TAB > ) // several times in a row without
-		MACRO( utl_SCTAB,  <HOLD_CTRL>,     <M_KP  LS(TAB)> ) // dropping the little window
+		MACRO(  utl_ATAB,   <HOLD_ALT>,  <M_KP     TAB > ) // these will not hold all mods back,
+		MACRO( utl_SATAB,   <HOLD_ALT>,  <M_KP  LS(TAB)> ) // so that we can do alt-tab etc
+		MACRO(  utl_CTAB,  <HOLD_CTRL>,  <M_KP     TAB > ) // several times in a row without
+		MACRO( utl_SCTAB,  <HOLD_CTRL>,  <M_KP  LS(TAB)> ) // dropping the little window
 			   
 		
 	};
@@ -506,7 +506,7 @@
 				&kp  NDSH_   &kp  MDSH_   NBSP_LGLM   NBSP_RGLM       _________           &kp AE_         _________     _________      _________    &kp  BSLA_
 				//u
 								                            _________   &kp ESC           &kp NBSP_   &kp  SPC
-													            // double tap //
+													     // double tap //
 			>;
 		};
 		
@@ -515,7 +515,7 @@
 			bindings = <
 				impossible   &trans       &m_utl_BACK   &m_utl_FRWD      &trans              &trans     &trans  &trans  &trans  &trans
 				impossible   &m_utl_GTAB  &m_utl_SATAB  &m_utl_ATAB      &m_utl_REDO         &trans     &trans  &trans  &trans  &trans
-				impossible   &kp LA(F4)   &m_utl_SCTAB  &m_utl_CTAB      &m_utl_UNDO         &trans     &trans  &trans  &trans  &trans
+				impossible   &trans       &m_utl_SCTAB  &m_utl_CTAB      &m_utl_UNDO         &trans     &trans  &trans  &trans  &trans
 				//
 			                                               &m_utl_STAB   &m_utl_ULIN         _____   &kp SPC
 			>;
