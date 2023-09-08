@@ -495,12 +495,6 @@
 	 // LH AUX LAYERS
 	 // -------------------
 
-	 // sticky mods on hold
-		#define SKLS        &htsk     LSHIFT
-		#define SKLC        &htsk     LCTRL
-		#define SKLA        &htsk     LALT
-		#define SKLG        &htsk     LGUI
-
 	 // mod on hold, loose accent on tap
 		#define HMRS_CFX__   &ht_CFX   LSHIFT  0
 		#define HMRC_GRV__   &ht_GRV   LCTRL   0
@@ -521,8 +515,8 @@
 		sym_layer {
 			bindings = <
 				&kp  PIPE_   &kp  AT_     _________   &kp  OE_        NBSP_EXCL           _________       &kp  LBRK_    &kp  RBRK_     &kp  AMPR_   DLLR_EURO
-				SKLG LCUR_   SKLA RCUR_   SKLC LPAR_  SKLS RPAR_      _________           _________       HMRS_CFX__    HMRC_GRV__     &kp  RALT    HMRG_TLD__
-				&kp  NDSH_   &kp  MDSH_   NBSP_LGLM   NBSP_RGLM       _________           &kp AE_         _________     _________      _________    &kp  BSLA_
+				HMLG LCUR_   HMLA RCUR_   HMLC LPAR_  HMLS RPAR_      _________           _________       HMRS_CFX__    HMRC_GRV__     HMRA RALT   HMRG_TLD__
+				&kp  NDSH_   HMRA MDSH_   NBSP_LGLM   NBSP_RGLM       _________           &kp AE_         _________     _________      HMLA LALT   &kp  BSLA_
 				//u
 								                            _________   &kp ESC           &kp NBSP_   &kp  SPC
 													     // double tap //
