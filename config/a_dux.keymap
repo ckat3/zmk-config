@@ -514,8 +514,8 @@
 
 		sym_layer {
 			bindings = <
-				&kp  PIPE_   &kp  AMPR_   &kp  AT_    &kp  OE_        NBSP_EXCL           _________       &kp  LBRK_    &kp  RBRK_     _________    DLLR_EURO
-				SKLG LCUR_   SKLA RCUR_   SKLC LPAR_  SKLS RPAR_      &kp MDSH_           _________       HMRS_CFX__    HMRC_GRV__     &kp  RALT    HMRG_TLD__
+				&kp  PIPE_   &kp  AT_     _________   &kp  OE_        NBSP_EXCL           _________       &kp  LBRK_    &kp  RBRK_     &kp  AMPR_   DLLR_EURO
+				SKLG LCUR_   SKLA RCUR_   SKLC LPAR_  SKLS RPAR_      _________           _________       HMRS_CFX__    HMRC_GRV__     &kp  RALT    HMRG_TLD__
 				&kp  NDSH_   &kp  MDSH_   NBSP_LGLM   NBSP_RGLM       _________           &kp AE_         _________     _________      _________    &kp  BSLA_
 				//u
 								                            _________   &kp ESC           &kp NBSP_   &kp  SPC
@@ -540,16 +540,18 @@
 	 // RH AUX LAYERS
 	 // -------------------
 
+		#define HMLS_CPWD    &htl  LSHIFT  &tog _l_CAPS
+		
 		#define TASKMAN      &kp LC(LS(ESC))    // ctrl shift esc
 		#define PASTEPLAIN   &kp LC(LG(LA(V_))) // plaintext paste (power toys)
 
 		nav_layer {
 			bindings = <
-				_________     _________     _________    &kp  LG(V_)      TASKMAN            _________        HMLS LC(HOME)   HMLC PG_DN   HMLA PG_UP   HMRG LC(END)
-				&kp  LC(Y_)  HMLA INSERT   HMLC PSCRN    HMLS PSBRK       &kp CAPS           &tog _l_CAPS     &kp  LC(LEFT)   &kp  DOWN    &kp  UP	    &kp  LC(RIGHT)
-				HMLG LC(Z_)  HMRA LC(X_)   &kp  LC(C_)   &kp  LC(V_)      PASTEPLAIN         _________        &kp  HOME       &kp  LEFT    &kp  RIGHT   &kp  END
+				_________    _________    _________     &kp  LG(V_)      TASKMAN            _________        HMLS LC(HOME)   HMLC PG_DN   HMLA PG_UP   HMRG LC(END)
+				&kp  LC(Y_)  HMLA INSERT  HMLC PSCRN    HMLS_CPWD        &kp CAPS           _________        &kp  LC(LEFT)   &kp  DOWN    &kp  UP	    &kp  LC(RIGHT)
+				HMLG LC(Z_)  HMRA LC(X_)  &kp  LC(C_)   &kp  LC(V_)      PASTEPLAIN         _________        &kp  HOME       &kp  LEFT    &kp  RIGHT   &kp  END
 				//
-												               _________   _________         impossible   impossible
+												             &kp PSBRK   _________          impossible   impossible
 			>;
 		};
 
