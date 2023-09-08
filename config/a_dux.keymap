@@ -26,7 +26,7 @@
 
 // LAYERS
 #define _l_BASE 0
-#define _l_CPWD 1
+#define _l_CAPS 1
 #define _l_NUM  2
 #define _l_SYM  3
 #define _l_UTIL 4
@@ -38,8 +38,8 @@
 #define _l_GAM2 10
 
 // combos shouldn't work on game layer, to minimize delay
-#define _l_ALL_LAYERS   _l_BASE  _l_CPWD  _l_UTIL  _l_SYM  _l_ACNT  _l_ACCW  _l_NUM  _l_NAV  _l_FUNC  _l_GAME  _l_GAM2
-#define _l_NOT_GAME     _l_BASE  _l_CPWD  _l_UTIL  _l_SYM  _l_ACNT  _l_ACCW  _l_NUM  _l_NAV  _l_FUNC
+#define _l_ALL_LAYERS   _l_BASE  _l_CAPS  _l_UTIL  _l_SYM  _l_ACNT  _l_ACCW  _l_NUM  _l_NAV  _l_FUNC  _l_GAME  _l_GAM2
+#define _l_NOT_GAME     _l_BASE  _l_CAPS  _l_UTIL  _l_SYM  _l_ACNT  _l_ACCW  _l_NUM  _l_NAV  _l_FUNC
 #define _l_NOT_CPWD     _l_BASE           _l_UTIL  _l_SYM  _l_ACNT  _l_ACCW  _l_NUM  _l_NAV  _l_FUNC
 
 
@@ -58,6 +58,8 @@
 	release-after-ms = <_STICKY_TIMEOUT>;
 	quick-release;
 };
+
+
 
 / {
 	behaviors {
@@ -96,28 +98,28 @@
 				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM_SLOW, _ALL_POSITIONS, BINDINGS)
 
 	 // HOME-ROW MODS                            // TAP             HOLD
-		HT(      ht,     <&kp>, <&kp> )          //                   
+		HT(      ht,     <&kp>, <&kp> )          //
 		HT_SLOW( htslow, <&kp>, <&kp> )
-		HT(      htsk,   <&sk>, <&kp> )          // sticky layer        
+		HT(      htsk,   <&sk>, <&kp> )          // sticky layer
 		HT(      ltt,    <&mo>, <&kp> )          //                 sticky layer   (inherits tap-preferred from HT)
 		HT_BAL(  lsk,    <&mo>, <&sk> )          // one-shot mod    sticky layer
 		HT_BAL(  lsl,    <&mo>, <&sl> )          // one-shot layer  sticky layer
-									             
+
 
 	 // loose accents on tap
 		HT( ht_CFX, <&kp>, <&m_CFX_loose> )
 		HT( ht_GRV, <&kp>, <&m_GRV_loose> )
 		HT( ht_TLD, <&kp>, <&m_TLD_loose> )
-		
+
 
 	 // hrm for opposite hand only (used for shift)
 		HRMOD_POS( htl, _POSITIONS_RH )
 		HRMOD_POS( htr, _POSITIONS_LH )
 
 	 // OTHER HOLDTAPS : deactivates capsword, then…                    // TAP              HOLD
-		HT_BAL(  ht_cw_l_NAV_SPC, <&m_mo_cw_l_NAV>,  <&m_cw_SPC> )      // space            hold _l_NAV
-		HT_BAL( lsl_cw_l_SYM,     <&m_mo_cw_l_SYM>,  <&m_sk_cw_l_SYM> ) // one-shot _l_SYM  hold _l_SYM
-		HT_SLOW( ltt_l_UTIL,      <&m_mo_l_UTIL>,    <&kp> )            //                  hold _l_UTIL    (inherits tap-preferred from HT)
+		HT_BAL(  ht_cw_l_NAV_SPC, <&m_to_cw_l_NAV>,  <&m_cw_SPC> )      // space            hold _l_NAV
+		HT_BAL( lsl_cw_l_SYM,     <&m_to_cw_l_SYM>,  <&m_sk_cw_l_SYM> ) // one-shot _l_SYM  hold _l_SYM
+		HT_SLOW( ltt_l_UTIL,      <&m_to_l_UTIL>,    <&kp> )            //                  hold _l_UTIL    (inherits tap-preferred from HT)
 
 	 // NBSP STUFF (for french) ------------------
 	 // automatic nbsp on tap
@@ -131,16 +133,18 @@
 		HT_FAST( ht_EXCL, <&m_nbsp_EXCL>, <&kp> )
 	};
 
+
+
 	macros {
 		// syntactic sugar
 		#define M_TAP         &macro_tap
 		#define M_HOLD        &macro_press
 		#define M_REL         &macro_release
-		
+
 		#define M_KP          &macro_tap &kp
 		#define M_KP_HOLD     &macro_press &kp
 		#define M_KP_REL      &macro_release &kp
-		
+
 		#define M_WAIT_REL    &macro_pause_for_release
 
 		#define M_HOLD_SHIFT  <M_KP_HOLD LSHFT>
@@ -199,54 +203,54 @@
 
 
 
-	 // 
+	 //
 	 // TODO
-	 // 
+	 //
 	 // MACRO_ACCENT_NAMED(SZTT,     SZTTMOD_,   S_)
 		MACRO_TAP(    SZTT,  &kp RA(S_)  &kp    S_)
 		MACRO_TAP( cw_SZTT,  &kp RA(S_)  &kp LS(S_))
 
 
-	 // 
+	 //
 	 // INCONVENIENT DIGRAMS ------------------
 	 // also defines a caps version (eg &m_cw_Q_U_)
-	 // 
+	 //
 		MACRO_DIGRAM(Q_, U_)
 		MACRO_DIGRAM(B_, J_)
 
 
-	 // 
+	 //
 	 // ACCENTED LETTERS ------------------
 	 // also defines a caps version (eg &m_cw_ACUT_A_)
-	 // 
+	 //
 		MACRO_ACCENT_SINGLE( ACUT_, A_ )
 		MACRO_ACCENT_SINGLE( ACUT_, I_ )
 		MACRO_ACCENT_SINGLE( ACUT_, O_ )
 		MACRO_ACCENT_SINGLE( ACUT_, U_ )
-								  
+
 		MACRO_ACCENT_SINGLE( CFLX_, A_ )
 		MACRO_ACCENT_SINGLE( CFLX_, E_ )
 		MACRO_ACCENT_SINGLE( CFLX_, I_ )
 		MACRO_ACCENT_SINGLE( CFLX_, O_ )
 		MACRO_ACCENT_SINGLE( CFLX_, U_ )
-								  
+
 		MACRO_ACCENT_SINGLE( GRAV_, E_ )
 		MACRO_ACCENT_SINGLE( GRAV_, O_ )
 		MACRO_ACCENT_SINGLE( GRAV_, U_ )
-								  
+
 		MACRO_ACCENT_SINGLE( TILD_, A_ )
 		MACRO_ACCENT_SINGLE( TILD_, O_ )
 		MACRO_ACCENT_SINGLE( TILD_, N_ )
 		MACRO_ACCENT_DOUBLE( TILD_, A_, E_ )
 		MACRO_ACCENT_DOUBLE( TILD_, A_, O_ )
 		MACRO_ACCENT_DOUBLE( TILD_, O_, E_ )
-					    
+
 		MACRO_ACCENT_SINGLE( TRMA_, I_ )
 
 
-	 // 
+	 //
 	 // NBSP STUFF (for french) ------------------
-	 // 
+	 //
 		MACRO_TAP( nbsp_QMRK,  &kp NBSP_  &kp QMRK_ )
 		MACRO_TAP( nbsp_EXCL,  &kp NBSP_  &kp EXCL_ )
 		MACRO_TAP( nbsp_COLN,  &kp NBSP_  &kp COLN_  &kp SPACE )
@@ -255,93 +259,94 @@
 		MACRO_TAP( nbsp_LGLM,  &kp LGLM_  &kp NBSP_ )
 
 
-	 // 
+	 //
 	 // LOOSE ACCENTS ------------------
-	 // 
+	 //
 		MACRO_TAP( CFX_loose,  &kp CFLX_  &kp SPACE )
 		MACRO_TAP( GRV_loose,  &kp GRAV_  &kp SPACE )
 		MACRO_TAP( TLD_loose,  &kp TILD_  &kp SPACE )
 
-		
-	 // 
+
+	 //
 	 // CAPSWORD ------------------
-	 // 
+	 //
 	 // key -> capsword off
-		MACRO_TAP( cw_SPC,  &kp SPACE  &tog _l_CPWD )
-		MACRO_TAP( cw_TAB,  &kp TAB    &tog _l_CPWD )
-		MACRO_TAP( cw_ENTR, &kp ENTER  &tog _l_CPWD )
-		MACRO_TAP( cw_ESC,  &kp ESC    &tog _l_CPWD )
+		MACRO_TAP( cw_SPC,  &kp SPACE  &tog _l_CAPS )
+		MACRO_TAP( cw_TAB,  &kp TAB    &tog _l_CAPS )
+		MACRO_TAP( cw_ENTR, &kp ENTER  &tog _l_CAPS )
+		MACRO_TAP( cw_ESC,  &kp ESC    &tog _l_CAPS )
 
 	 // hold layer -> capsword off
-		MACRO( mo_cw_l_NAV,   <M_TAP &to _l_NAV>,   <M_WAIT_REL>,  <M_TAP &to _l_BASE> )
-		MACRO( mo_cw_l_SYM,   <M_TAP &to _l_SYM>,   <M_WAIT_REL>,  <M_TAP &to _l_BASE> )
-		MACRO( mo_cw_l_ACNT,  <M_TAP &to _l_ACNT>,  <M_WAIT_REL>,  <M_TAP &to _l_BASE> )
+		MACRO( to_cw_l_NAV,   <M_TAP &to _l_NAV>,   <M_WAIT_REL>,  <M_TAP &to _l_BASE> )
+		MACRO( to_cw_l_SYM,   <M_TAP &to _l_SYM>,   <M_WAIT_REL>,  <M_TAP &to _l_BASE> )
+		MACRO( to_cw_l_ACNT,  <M_TAP &to _l_ACNT>,  <M_WAIT_REL>,  <M_TAP &to _l_BASE> )
 
 	 // one-shot layer -> capsword off
 		MACRO( sk_cw_l_SYM,   <M_TAP &to _l_BASE  &sk _l_SYM>  )
 		MACRO( sk_cw_l_ACNT,  <M_TAP &to _l_BASE  &sk _l_ACNT> )
 
+	 // new sentence
+		MACRO_TAP(     SPC_upper,            &kp SPACE  &sk _l_CAPS )
+		MACRO_TAP( DOT_SPC_upper,  &kp DOT_  &kp SPACE  &sk _l_CAPS )
 
-	 // 
-	 // UTIL LAYER ------------------
+
 	 //
+	 // UTIL LAYER ------------------
 	 // upon entering this layer, shift + control + alt are held.
 	 // each key releases some mods, then holds them all again.
 	 // this allows us e.g. to alt-tab without letting go of alt.
-	 // 
+	 //
 		#define  ALL_MODS   M_HOLD  &kp LSHIFT  &kp LCTRL  &kp LALT
 		#define   NO_MODS   M_REL   &kp LSHIFT  &kp LCTRL  &kp LALT
-		#define HOLD_CTRL   M_REL   &kp LSHIFT             &kp LALT 
+		#define HOLD_CTRL   M_REL   &kp LSHIFT             &kp LALT
 		#define HOLD_ALT    M_REL   &kp LSHIFT  &kp LCTRL
 
-		MACRO( mo_l_UTIL,  <M_TAP &tog _l_UTIL>,  <ALL_MODS>,  <M_WAIT_REL>,  <NO_MODS>,  <M_TAP &tog _l_UTIL &to _l_BASE>,  <NO_MODS> )
+		MACRO( to_l_UTIL,  <M_TAP &tog _l_UTIL>,  <ALL_MODS>,  <M_WAIT_REL>,  <NO_MODS>,  <M_TAP &tog _l_UTIL &to _l_BASE>,  <NO_MODS> )
 
 		MACRO(  utl_BACK,    <NO_MODS>,  <M_KP  C_AC_BACK   >,  <ALL_MODS> )
 		MACRO(  utl_FRWD,    <NO_MODS>,  <M_KP  C_AC_FORWARD>,  <ALL_MODS> )
 		MACRO( utl_ULIN,     <NO_MODS>,  <M_KP  ULIN_>,         <ALL_MODS> )
-		MACRO( utl_UNDO,     <NO_MODS>,  <M_KP  LC(Z_)>,        <ALL_MODS> )	
-		MACRO( utl_REDO,     <NO_MODS>,  <M_KP  LC(Y_)>,        <ALL_MODS> )	
-																 				  
+		MACRO( utl_UNDO,     <NO_MODS>,  <M_KP  LC(Z_)>,        <ALL_MODS> )
+		MACRO( utl_REDO,     <NO_MODS>,  <M_KP  LC(Y_)>,        <ALL_MODS> )
+
 		MACRO(   utl_TAB,    <NO_MODS>,  <M_KP     TAB >,       <ALL_MODS> )
 		MACRO(  utl_STAB,    <NO_MODS>,  <M_KP  LS(TAB)>,       <ALL_MODS> )
-		MACRO(  utl_GTAB,    <NO_MODS>,  <M_KP  LG(TAB)>,       <ALL_MODS> )	
-			 
+		MACRO(  utl_GTAB,    <NO_MODS>,  <M_KP  LG(TAB)>,       <ALL_MODS> )
+
 		MACRO(  utl_ATAB,   <HOLD_ALT>,  <M_KP     TAB > ) // these will not hold all mods back,
-		MACRO( utl_SATAB,   <HOLD_ALT>,  <M_KP  LS(TAB)> ) // so that we can do alt-tab etc
-		MACRO(  utl_CTAB,  <HOLD_CTRL>,  <M_KP     TAB > ) // several times in a row without
-		MACRO( utl_SCTAB,  <HOLD_CTRL>,  <M_KP  LS(TAB)> ) // dropping the little window
-			   
-		
+		MACRO( utl_SATAB,   <HOLD_ALT>,  <M_KP  LS(TAB)> ) //  so that we can do alt-tab etc
+		MACRO(  utl_CTAB,  <HOLD_CTRL>,  <M_KP     TAB > ) //  several times in a row without
+		MACRO( utl_SCTAB,  <HOLD_CTRL>,  <M_KP  LS(TAB)> ) //  dropping the little window
+
+
 	};
-	
-	
+
+
 
 	combos {
 		compatible = "zmk,combos";
 
-		#define DEFINE_COMBO(NAME, LAYERS, POSITIONS, TIMEOUT, BINDINGS...) \
+		#define DEFINE_COMBO(LAYERS, NAME, POSITIONS, BINDINGS...) \
 			combo_##NAME { \
 				layers        = <LAYERS>; \
 				key-positions = <POSITIONS>; \
-				timeout-ms    = <TIMEOUT>; \
-				bindings      =  BINDINGS; \
+				timeout-ms    = <_COMBO_TIMEOUT>; \
+				bindings      = <BINDINGS>; \
 			};
 
 
 		// when not defining layers, will default to _l_NOT_GAME
 		// TODO: ok to omit line breaks between defs?
 		// TODO: all combos define layers?
-		#define COMBO(LAYERS, BINDINGS, POSITIONS, RANDOM_NAME) \
-			DEFINE_COMBO(RANDOM_NAME,    LAYERS,  POSITIONS,  _COMBO_TIMEOUT,  <BINDINGS>)
+		#define COMBO(       LAYERS,        BINDINGS,   POSITIONS,   GIBBERISH_NAME) \
+			DEFINE_COMBO(    LAYERS,  GIBBERISH_NAME,   POSITIONS,   BINDINGS)
 
-		#define COMBO_KP(LAYERS, KEY, SUFFIX, POSITIONS) \
-			DEFINE_COMBO(  KEY##SUFFIX,  LAYERS,  POSITIONS,  _COMBO_TIMEOUT,  <&kp KEY>)
-			
-		#define COMBO_MACRO(LAYERS, MACRO, SUFFIX, POSITIONS) \
-			DEFINE_COMBO(MACRO##SUFFIX,  LAYERS,  POSITIONS,  _COMBO_TIMEOUT,  <&m_##MACRO>)
+		// suffix must be added if there's more than one combo for the same key or macro
+		#define COMBO_KP(    LAYERS,     KEY, SUFFIX,   POSITIONS) \
+			DEFINE_COMBO(    LAYERS,     KEY##SUFFIX,   POSITIONS,   &kp KEY)
 
-		// #define COMBO_KP_CTRL(LAYERS, KEY, SUFFIX, POSITIONS) \
-			// DEFINE_COMBO(ctrl_##KEY##SUFFIX, LAYERS,  POSITIONS,  _COMBO_TIMEOUT,       <&sk LCTRL>, <&kp KEY>)
+		#define COMBO_MACRO( LAYERS,   MACRO, SUFFIX,   POSITIONS) \
+			DEFINE_COMBO(    LAYERS,   MACRO##SUFFIX,   POSITIONS,   &m_##MACRO)
 
 
 	/*
@@ -352,46 +357,54 @@
 	                   30 31 | 32 33
 	*/
 
-		COMBO_KP(_l_NOT_GAME,  SPACE,l,           11 12 13)
-		COMBO_KP(_l_NOT_GAME,  SPACE,r,           16 17 18)
-		COMBO_KP(_l_NOT_GAME,  SPACE,l2,          22 23) // TODO which is better?
+		// one-shot caps
+		COMBO(   _l_NOT_GAME,  &sk _l_CAPS,       11 12 13)
+		COMBO(   _l_NOT_GAME,  &sk _l_CAPS,       16 17 18)
+		COMBO(   _l_NOT_GAME,  &m_SPC_upper,      21 22 23)
+		COMBO(   _l_NOT_GAME,  &m_DOT_SPC_upper,  21 22 23)
 
-		// backspace and del, with and wo ctrl
-		COMBO_KP(_l_NOT_GAME,         BSPC,,      11 12)
-		COMBO(   _l_NOT_GAME,  &kp LC(BSPC),      17 18, rnd_name_dljsdiooooisrt)
-		COMBO_KP(_l_NOT_GAME,         DEL,,       21 22)
-		COMBO(   _l_NOT_GAME,  &kp LC(DEL),       27 28, rnd_name_dljsdaioaort)
-		COMBO(   _l_NOT_GAME,  &kp LC(Z_),        20 21, rnd_name_dljoiadiqsrt)
+		// lh
+		COMBO_KP(_l_NOT_GAME,      BSPC,,         11 12)
+		COMBO_KP(_l_NOT_GAME,      DEL,,          21 22)
+		COMBO(   _l_NOT_GAME,  &kp LC(Z_),        20 21, gibberishName_dljoiadiqsrt)
+		COMBO_KP(_l_NOT_GAME,      SPACE,,        22 23)
+
+		// rh
+		COMBO(   _l_NOT_GAME,  &kp LC(BSPC),      17 18, gibberishName_dljsdiooooisrt)
+		COMBO(   _l_NOT_GAME,  &kp LC(DEL),       27 28, gibberishName_dljsdaioaort)
 
 		// one-shot shift on both thumb keys at once
-		COMBO(_l_NOT_GAME,  &lsk _l_FUNC LSHIFT,  30 31, rnd_name_dljsdiqsrt)
-		COMBO(_l_NOT_GAME,  &sk          RSHIFT,  32 33, rnd_name_sqljqrjqsl)
+		// TODO remove?
+		COMBO(_l_NOT_GAME,  &lsk _l_FUNC LSHIFT,  30 31, gibberishName_dljsdiqsrt)
+		COMBO(_l_NOT_GAME,  &sk          RSHIFT,  32 33, gibberishName_sqljqrjqsl)
 
 		// TODO  merge these?
 		COMBO_MACRO(_l_BASE,  Q_U_,,              26 27) /* qu */
 		COMBO_MACRO(_l_BASE,  TILD_A_E_,,         13 30) /* ãe */
 		COMBO_MACRO(_l_BASE,  TILD_A_O_,,         13 11) /* ão */
 		COMBO_MACRO(_l_BASE,  TILD_O_E_,,         11 30) /* õe */
-												  
-		COMBO_MACRO(_l_CPWD,  cw_Q_U_,,           26 27) /* QU */
-		COMBO_MACRO(_l_CPWD,  cw_TILD_A_E_,,      13 30) /* ÃE */
-		COMBO_MACRO(_l_CPWD,  cw_TILD_A_O_,,      13 11) /* ÃO */
-		COMBO_MACRO(_l_CPWD,  cw_TILD_O_E_,,      11 30) /* ÕE */
-												  
-		// tab, enter, esc                        
+
+		COMBO_MACRO(_l_CAPS,  cw_Q_U_,,           26 27) /* QU */
+		COMBO_MACRO(_l_CAPS,  cw_TILD_A_E_,,      13 30) /* ÃE */
+		COMBO_MACRO(_l_CAPS,  cw_TILD_A_O_,,      13 11) /* ÃO */
+		COMBO_MACRO(_l_CAPS,  cw_TILD_O_E_,,      11 30) /* ÕE */
+
+		// tab, enter, esc
 		COMBO_KP(_l_NOT_CPWD,  TAB,,              12 13)
 		COMBO_KP(_l_NOT_CPWD,  ENTER,,            16 17)
 		COMBO_KP(_l_NOT_CPWD,  ESC,,              10 11)
-												  
-		COMBO_MACRO(_l_CPWD,  cw_TAB,,            12 13)
-		COMBO_MACRO(_l_CPWD,  cw_ENTR,,           16 17)
-		COMBO_MACRO(_l_CPWD,  cw_ESC,,            10 11)
 
-		COMBO(_l_FUNC, &sys_reset,                 0  4, rnd_name_aiouaiouaiou)
-		COMBO(_l_FUNC, &bootloader,               20 24, rnd_name_ayuqaioueaio)
-		COMBO(_l_FUNC, &tog _l_GAME,               4 14, rnd_name_aiouayopaipo)
-		COMBO(_l_FUNC, &tog _l_GAM2,              14 24, rnd_name_aiopoappyaio)
+		COMBO_MACRO(_l_CAPS,  cw_TAB,,            12 13)
+		COMBO_MACRO(_l_CAPS,  cw_ENTR,,           16 17)
+		COMBO_MACRO(_l_CAPS,  cw_ESC,,            10 11)
+
+		COMBO(_l_FUNC, &sys_reset,                 0  4, gibberishName_aiouaiouaiou)
+		COMBO(_l_FUNC, &bootloader,               20 24, gibberishName_ayuqaioueaio)
+		COMBO(_l_FUNC, &tog _l_GAME,               4 14, gibberishName_aiouayopaipo)
+		COMBO(_l_FUNC, &tog _l_GAM2,              14 24, gibberishName_aiopoappyaio)
 	};
+
+
 
 	keymap {
 		compatible = "zmk,keymap";
@@ -400,7 +413,7 @@
 		#define impossible  &none // physically impossible
 		#define _________   &none
 		#define _____       &none
-		
+
 
 	 // HOME-ROW MODS ------------------
 		#define HMLS   &htl     LSHIFT // left shift only works for keys on right hand
@@ -411,20 +424,20 @@
 		#define HMRA   &ht      RALT
 		#define HMLG   &htslow  LGUI // i kept holding GUI by accident,
 		#define HMRG   &htslow  RGUI // so i made it slower
-		
-		
+
+
 	 // HOLDTAP SYMBOLS ------------------
 	 // □ = space, ■ = nbsp, () = explicited later       // HOLD  TAP
 		#define DLLR_EURO    &htslow    EURO_  DLLR_     //  €     $
 		#define EQUL_DIFF    &htslow    DIFF_  EQUL_     //  ≠     =
 		#define IEXCL_IQMRK  &htslow    IEXC_  IQMR_     //  ¿     ¡
 		#define EXCL_QMRK    &htslow    EXCL_  QMRK_     //  ?     !
-						     
+
 		#define NBSP_QMRK    &ht_QMRK   0      QMRK_     // ■?    (?)
 		#define NBSP_EXCL    &ht_EXCL   0      EXCL_     // ■!    (!)
 		#define DOT_COLN     &ht_COLN   0      DOT_      // ■:□   (.)
 		#define COMM_SCLN    &ht_SCLN   0      COMM_     // ■;□   (,)
-						     
+
 		#define NBSP_LGLM    &ht_LGLM   LGLM_  0         // («)   «■
 		#define NBSP_RGLM    &ht_RGLM   RGLM_  0         // (»)    ■»
 
@@ -446,7 +459,7 @@
 	 // -------------------
 	 // BASE LAYER
 	 // -------------------
-		
+
 	 // UTIL layer on hold
 		#define UTLAYR  &ltt_l_UTIL 0
 
@@ -455,7 +468,7 @@
 				&kp    Q_   &kp  MIN_   &kp  Y_   DOT_COLN       NBSP_QMRK             &kp K_       &kp  C_   &kp  H_   &kp  W_   &kp  J_
 				UTLAYR U_   HMLA O_     HMLC I_   HMLS A_        &kp F_                &kp G_       HMRS T_   HMRC R_   HMRA S_   &kp  N_
 				HMLG   Z_   HMRA EACT_  &kp  P_   COMM_SCLN      &kp X_                &kp V_       &kp  D_   &kp  M_   HMLA L_   HMRG B_
-				//                                                                 
+				//
 													   LT_NUM_E    LSL_SYM            LSL_ACNT   LT_NAV_SPC
 			>;
 		};
@@ -465,7 +478,7 @@
 				&kp  LS(Q_)   &kp  MIN_       &kp  LS(Y_)   &kp  DOT_         EXCL_QMRK           &kp LS(K_)       &kp  LS(C_)   &kp  LS(H_)   &kp  LS(W_)   &kp  LS(J_)
 				HMLG LS(U_)   HMLA LS(O_)	  HMLC LS(I_)   HMLS LS(A_)       &kp LS(F_)          &kp LS(G_)       HMRS LS(T_)   HMRC LS(R_)   HMRA LS(S_)   HMRG LS(N_)
 				&kp  LS(Z_)   HMRA LS(EACT_)  &kp  LS(P_)   &kp  COMM_        &kp LS(X_)          &kp LS(V_)       &kp  LS(D_)   &kp  LS(M_)   HMLA LS(L_)   &kp  LS(B_)
-				//                                                                             
+				//
 														        LT_NUM_E_CW   LSL_SYM_CW          LSL_ACCW   LT_NAV_SPC_CW
 			>;
 		};
@@ -475,13 +488,13 @@
 	 // -------------------
 	 // LH AUX LAYERS
 	 // -------------------
-	 
+
 	 // sticky mods on hold
 		#define SKLS        &htsk     LSHIFT
 		#define SKLC        &htsk     LCTRL
-		#define SKLA        &htsk     LALT 
-		#define SKLG        &htsk     LGUI 
-		
+		#define SKLA        &htsk     LALT
+		#define SKLG        &htsk     LGUI
+
 	 // mod on hold, loose accent on tap
 		#define HMRS_CFX__   &ht_CFX   LSHIFT  0
 		#define HMRC_GRV__   &ht_GRV   LCTRL   0
@@ -497,8 +510,8 @@
 				                                        impossible   impossible         &kp ULIN_   &kp SPC
 			>;
 		};
-		
-		
+
+
 		sym_layer {
 			bindings = <
 				&kp  PIPE_   &kp  AMPR_   &kp  AT_    &kp  OE_        NBSP_EXCL           _________       &kp  LBRK_    &kp  RBRK_     _________    DLLR_EURO
@@ -509,8 +522,8 @@
 													     // double tap //
 			>;
 		};
-		
-		
+
+
 		utility_layer {
 			bindings = <
 				impossible   &trans       &m_utl_BACK   &m_utl_FRWD      &trans              &trans     &trans  &trans  &trans  &trans
@@ -520,22 +533,22 @@
 			                                               &m_utl_STAB   &m_utl_ULIN         _____   &kp SPC
 			>;
 		};
-		
+
 
 
 	 // -------------------
 	 // RH AUX LAYERS
 	 // -------------------
-		
+
 		#define TASKMAN      &kp LC(LS(ESC))    // ctrl shift esc
 		#define PASTEPLAIN   &kp LC(LG(LA(V_))) // plaintext paste (power toys)
-		
+
 		nav_layer {
 			bindings = <
 				_________     _________     _________    &kp  LG(V_)      TASKMAN            _________        HMLS LC(HOME)   HMLC PG_DN   HMLA PG_UP   HMRG LC(END)
-				&kp  LC(Y_)  HMLA INSERT   HMLC PSCRN    HMLS PSBRK       &kp CAPS           &tog _l_CPWD     &kp  LC(LEFT)   &kp  DOWN    &kp  UP	    &kp  LC(RIGHT)
+				&kp  LC(Y_)  HMLA INSERT   HMLC PSCRN    HMLS PSBRK       &kp CAPS           &tog _l_CAPS     &kp  LC(LEFT)   &kp  DOWN    &kp  UP	    &kp  LC(RIGHT)
 				HMLG LC(Z_)  HMRA LC(X_)   &kp  LC(C_)   &kp  LC(V_)      PASTEPLAIN         _________        &kp  HOME       &kp  LEFT    &kp  RIGHT   &kp  END
-				//                                                                        
+				//
 												               _________   _________         impossible   impossible
 			>;
 		};
@@ -544,7 +557,7 @@
 		#define MACRO_ROW_3(PREFIX, ONE, TWO, THREE)               &m_##PREFIX##ONE &m_##PREFIX##TWO &m_##PREFIX##THREE
 		#define MACRO_ROW_4(PREFIX, ONE, TWO, THREE, FOUR)         MACRO_ROW_3(PREFIX, ONE, TWO, THREE) &m_##PREFIX##FOUR
 		#define MACRO_ROW_5(PREFIX, ONE, TWO, THREE, FOUR, FIVE)   MACRO_ROW_4(PREFIX, ONE, TWO, THREE, FOUR) &m_##PREFIX##FIVE
-		
+
 		accent_layer {
 			bindings = <
  MACRO_ROW_4(,    CFLX_U_,   CFLX_O_,   CFLX_I_,   CFLX_A_ )     IEXCL_IQMRK          _________     &kp  CCED_  &kp  APST_  &kp  QUOT_   &m_B_J_
@@ -561,7 +574,7 @@
  MACRO_ROW_4(cw_, CFLX_U_,   CFLX_O_,   CFLX_I_,   CFLX_A_ )      _________         _________     &kp LS(CCED_)  &kp  APST_  &kp   QUOT_  &m_cw_B_J_
  MACRO_ROW_5(cw_, ACUT_U_,   ACUT_O_,   ACUT_I_,   ACUT_A_,       TILD_A_ )         _________     HMRS   ACUT_   HMRC CFLX_  HMLA  GRAV_  &m_cw_TILD_N_
  MACRO_ROW_3(cw_, GRAV_U_,   TILD_O_,   TRMA_I_)   &kp LS(AGRV_)  _________         _________     &kp    TRMA_   _________   &m_cw_SZTT   &kp   TILD_
-				//                                                                                
+				//
 											      &m_cw_CFLX_E_   &kp LS(EGRV_)     _________   _________
 													                             // double tap //
 			>;
@@ -572,13 +585,13 @@
 	 // -------------------
 	 // FUNCTION LAYER
 	 // -------------------
-		
+
 		func_layer {
 			bindings = <
 				&bt  BT_SEL 3   &bt  BT_SEL 0   &bt  BT_SEL 1   &bt  BT_SEL 2      &bt BT_CLR         &sys_reset     &kp F7  &kp F8  &kp F9  &kp F12
 				HMLG C_BRI_UP   HMLA C_NEXT     HMLC C_VOL_UP   HMLS C_PP  	       &kp LSLCK          &out OUT_BLE   &kp F1  &kp F2  &kp F3  &kp F10
 				&kp  C_BRI_DN   &kp  C_PREV     &kp  C_VOL_DN   &kp  C_MUTE        &kp LNLCK          &out OUT_USB   &kp F4  &kp F5  &kp F6  &kp F11
-				//                                                                                    
+				//
 															          impossible   impossible         &kp LSHIFT   &kp LALT
 			>;
 		};
@@ -594,7 +607,7 @@
 				&kp Q_    &kp MIN_   &kp Y_   &kp DOT_       &kp R_            &kp   K_          &kp C_     &kp H_     &kp W_     &kp J_
 				&kp U_    &kp O_     &kp I_   &kp A_         &kp F_            &kp   G_          &kp LEFT   &kp UP     &kp RIGHT  &kp N_
 				&kp ESC   &kp S_     &kp P_   &kp COMM_      &kp X_            &tog _l_GAME      &kp D_     &kp DOWN   &kp L_     &kp B_
-				//                                              
+				//
 											     &kp ENTER   &kp SPACE         &kp TAB   &kp LALT
 			>;
 		};
@@ -604,7 +617,7 @@
 				&kp LSHIFT   &kp A_      &kp EACT_   &kp I_      &kp O_                  &kp Y_     &kp U_   &kp I_      &kp O_     &kp P_
 				&kp LCTRL    &kp B_      &kp U_      &kp P_      &kp E_                  &kp H_     &kp J_   &kp K_      &kp L_     &kp N_
 				&kp ESC      &kp AGRV_   &kp Y_      &kp X_      &kp DOT           &tog _l_GAM2     &kp M_   &kp COMM_   &kp DOT_   &kp BSPC
-				//                                              
+				//
 												     &kp ENTER   &kp SPACE         &kp TAB   &kp LALT
 			>;
 		};
