@@ -358,10 +358,10 @@
 	*/
 
 		// one-shot caps
-		COMBO(   _l_NOT_GAME,  &sk _l_CAPS,       11 12 13)
-		COMBO(   _l_NOT_GAME,  &sk _l_CAPS,       16 17 18)
-		COMBO(   _l_NOT_GAME,  &m_SPC_upper,      21 22 23)
-		COMBO(   _l_NOT_GAME,  &m_DOT_SPC_upper,  21 22 23)
+		COMBO(   _l_NOT_GAME,  &sk _l_CAPS,       11 12 13, gibberishName_dljauiqsrt)
+		COMBO(   _l_NOT_GAME,  &sk _l_CAPS,       16 17 18, gibberishName_dljoiadiuaisrt)
+		COMBO(   _l_NOT_GAME,  &m_SPC_upper,      21 22 23, gibberishName_diaoadiqsrt)
+		COMBO(   _l_NOT_GAME,  &m_DOT_SPC_upper,  21 22 23, gibberishName_dljoopoadiqsrt)
 
 		// lh
 		COMBO_KP(_l_NOT_GAME,      BSPC,,         11 12)
