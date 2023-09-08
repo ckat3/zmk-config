@@ -101,13 +101,14 @@
 		#define HT_SLOW(NAME, BINDINGS...) \
 				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM_SLOW, _ALL_POSITIONS, BINDINGS)
 
-	 // HOME-ROW MODS                             // HOLD           TAP             
-		HT(      ht,     <&kp>,  <&kp> )          // kp             kp
-		HT_SLOW( htslow, <&kp>,  <&kp> )
-		HT(      httog,  <&kp>,  <&sl> )          // kp             one-shot layer
-		HT_BAL(  lsl,    <&mo>,  <&sl> )          // layer          one-shot layer  
-		HT_BAL(  lsk,    <&mo>,  <&sk> )          // layer          one-shot mod    
-		HT(      ltt,    <&mo>,  <&kp> )          // layer          kp               (inherits tap-preferred from HT)
+	 // HOME-ROW MODS                       // HOLD           TAP             
+		HT(      ht,     <&kp>,  <&kp> )    // kp             kp
+		HT_SLOW( htslow, <&kp>,  <&kp> )    // kp (slow)      kp (slow)
+		HT(      httog,  <&kp>,  <&tog> )   // kp             one-shot layer
+		HT(      htsl,   <&kp>,  <&sl> )    // kp             one-shot layer
+		HT_BAL(  lsl,    <&mo>,  <&sl> )    // layer          one-shot layer  
+		HT_BAL(  lsk,    <&mo>,  <&sk> )    // layer          one-shot mod    
+		HT(      ltt,    <&mo>,  <&kp> )    // layer          kp               (inherits tap-preferred from HT)
 
 
 	 // hrm for opposite hand only (used for shift)
@@ -115,10 +116,10 @@
 		HRMOD_POS( htr, _POSITIONS_LH )
 
 
-	 // OTHER HOLDTAPS : deactivates capsword, then…                     // HOLD           TAP    
-		HT_BAL(  ht_cw_l_NAV_SPC, <&m_tog_cw_l_NAV>,  <&m_cw_SPC> )      // hold _l_NAV    space            
-		HT_BAL( lsl_cw_l_SYM,     <&m_tog_cw_l_SYM>,  <&m_sk_cw_l_SYM> ) // hold _l_SYM    one-shot _l_SYM  
-		HT_SLOW( ltt_l_UTIL,      <&m_mo_l_UTIL>,     <&kp> )            // hold _l_UTIL   kp     (inherits tap-preferred from HT)
+	 // OTHER HOLDTAPS : deactivates capsword, then…                    // HOLD           TAP    
+		HT_BAL(  ht_cw_l_NAV_SPC, <&m_mo_cw_l_NAV>,  <&m_cw_SPC> )      // hold _l_NAV    space            
+		HT_BAL( lsl_cw_l_SYM,     <&m_mo_cw_l_SYM>,  <&m_sl_cw_l_SYM> ) // hold _l_SYM    one-shot _l_SYM  
+		HT_SLOW(   ltt_l_UTIL,    <&m_mo_l_UTIL>,    <&kp> )            // hold _l_UTIL   kp     (inherits tap-preferred from HT)
 
 
 	 // loose accents on tap
@@ -277,23 +278,23 @@
 	 // CAPSWORD ------------------
 	 //
 	 // key -> capsword off
-		MACRO_TAP( cw_SPC,  &kp SPACE  &tog _l_CAPS )
-		MACRO_TAP( cw_TAB,  &kp TAB    &tog _l_CAPS )
-		MACRO_TAP( cw_ENTR, &kp ENTER  &tog _l_CAPS )
-		MACRO_TAP( cw_ESC,  &kp ESC    &tog _l_CAPS )
+		MACRO_TAP( cw_SPC,  &kp SPACE  &to _l_BASE )
+		MACRO_TAP( cw_TAB,  &kp TAB    &to _l_BASE )
+		MACRO_TAP( cw_ENTR, &kp ENTER  &to _l_BASE )
+		MACRO_TAP( cw_ESC,  &kp ESC    &to _l_BASE )
 
-	 // hold layer -> capsword off
-		MACRO( tog_cw_l_NAV,   <M_TAP &tog _l_NAV>,   <M_WAIT_REL>,  <M_TAP &tog _l_NAV> )
-		MACRO( tog_cw_l_SYM,   <M_TAP &tog _l_SYM>,   <M_WAIT_REL>,  <M_TAP &tog _l_SYM> )
-		MACRO( tog_cw_l_ACNT,  <M_TAP &tog _l_ACNT>,  <M_WAIT_REL>,  <M_TAP &tog _l_ACNT> )
-
-	 // one-shot layer -> capsword off
-		MACRO( sk_cw_l_SYM,   <M_TAP &to _l_BASE  &sk _l_SYM>  )
-		MACRO( sk_cw_l_ACNT,  <M_TAP &to _l_BASE  &sk _l_ACNT> )
+	 // capsword off + hold layer
+		MACRO( mo_cw_l_NAV,   <M_TAP  &to _l_BASE  &tog _l_NAV>,   <M_WAIT_REL>,  <M_TAP  &tog _l_NAV> )
+		MACRO( mo_cw_l_SYM,   <M_TAP  &to _l_BASE  &tog _l_SYM>,   <M_WAIT_REL>,  <M_TAP  &tog _l_SYM> )
+		// TODO caps accent
+		
+	 // capsword off + one-shot layer
+		MACRO( sl_cw_l_SYM,    <M_TAP  &to _l_BASE  &sl _l_SYM>  )
+		MACRO( sl_cw_l_ACNT,   <M_TAP  &to _l_BASE  &sl _l_ACNT> )
 
 	 // new sentence
-		MACRO_TAP(     SPC_upper,            &kp SPACE  &sk _l_CAPS )
-		MACRO_TAP( DOT_SPC_upper,  &kp DOT_  &kp SPACE  &sk _l_CAPS )
+		MACRO_TAP(     SPC_upper,            &kp SPACE  &sl _l_CAPS )
+		MACRO_TAP( DOT_SPC_upper,  &kp DOT_  &kp SPACE  &sl _l_CAPS )
 
 
 	 //
@@ -540,7 +541,7 @@
 	 // RH AUX LAYERS
 	 // -------------------
 
-		#define HMLS_CPWD    &htsl  LSHIFT  _l_CAPS
+		#define HMLS_CPWD    &httog  LSHIFT  _l_CAPS
 		
 		#define TASKMAN      &kp LC(LS(ESC))    // ctrl shift esc
 		#define PASTEPLAIN   &kp LC(LG(LA(V_))) // plaintext paste (power toys)
