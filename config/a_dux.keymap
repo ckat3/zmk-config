@@ -97,30 +97,33 @@
 		#define HT_SLOW(NAME, BINDINGS...) \
 				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM_SLOW, _ALL_POSITIONS, BINDINGS)
 
-	 // HOME-ROW MODS                            // TAP             HOLD
-		HT(      ht,     <&kp>, <&kp> )          //
-		HT_SLOW( htslow, <&kp>, <&kp> )
-		HT(      htsk,   <&sk>, <&kp> )          // sticky layer
-		HT(      ltt,    <&mo>, <&kp> )          //                 sticky layer   (inherits tap-preferred from HT)
-		HT_BAL(  lsk,    <&mo>, <&sk> )          // one-shot mod    sticky layer
-		HT_BAL(  lsl,    <&mo>, <&sl> )          // one-shot layer  sticky layer
-
-
-	 // loose accents on tap
-		HT( ht_CFX, <&kp>, <&m_CFX_loose> )
-		HT( ht_GRV, <&kp>, <&m_GRV_loose> )
-		HT( ht_TLD, <&kp>, <&m_TLD_loose> )
+	 // HOME-ROW MODS                             // HOLD           TAP             
+		HT(      ht,     <&kp>,  <&kp> )          // kp             kp
+		HT_SLOW( htslow, <&kp>,  <&kp> )
+		HT(      htsk,   <&sk>,  <&kp> )          // kp             sticky layer
+		HT(      httog,  <&kp>,  <&tog> )         // kp             toggle layer
+		HT(      ltt,    <&mo>,  <&kp> )          // sticky layer   kp               (inherits tap-preferred from HT)
+		HT_BAL(  lsk,    <&mo>,  <&sk> )          // sticky layer   one-shot mod    
+		HT_BAL(  lsl,    <&mo>,  <&sl> )          // sticky layer   one-shot layer  
 
 
 	 // hrm for opposite hand only (used for shift)
 		HRMOD_POS( htl, _POSITIONS_RH )
 		HRMOD_POS( htr, _POSITIONS_LH )
 
-	 // OTHER HOLDTAPS : deactivates capsword, then…                    // TAP              HOLD
-		HT_BAL(  ht_cw_l_NAV_SPC, <&m_to_cw_l_NAV>,  <&m_cw_SPC> )      // space            hold _l_NAV
-		HT_BAL( lsl_cw_l_SYM,     <&m_to_cw_l_SYM>,  <&m_sk_cw_l_SYM> ) // one-shot _l_SYM  hold _l_SYM
-		HT_SLOW( ltt_l_UTIL,      <&m_to_l_UTIL>,    <&kp> )            //                  hold _l_UTIL    (inherits tap-preferred from HT)
 
+	 // OTHER HOLDTAPS : deactivates capsword, then…                    // HOLD           TAP    
+		HT_BAL(  ht_cw_l_NAV_SPC, <&m_to_cw_l_NAV>,  <&m_cw_SPC> )      // hold _l_NAV    space            
+		HT_BAL( lsl_cw_l_SYM,     <&m_to_cw_l_SYM>,  <&m_sk_cw_l_SYM> ) // hold _l_SYM    one-shot _l_SYM  
+		HT_SLOW( ltt_l_UTIL,      <&m_to_l_UTIL>,    <&kp> )            // hold _l_UTIL   kp                (inherits tap-preferred from HT)
+
+
+	 // loose accents on tap
+		HT( ht_CFX, <&kp>, <&m_CFX_loose> )
+		HT( ht_GRV, <&kp>, <&m_GRV_loose> )
+		HT( ht_TLD, <&kp>, <&m_TLD_loose> )
+		
+		
 	 // NBSP STUFF (for french) ------------------
 	 // automatic nbsp on tap
 		HT( ht_LGLM, <&kp>, <&m_nbsp_LGLM> )
@@ -473,7 +476,7 @@
 			>;
 		};
 
-		caps_word_layer { // TODO leave layer when using home row mods
+		caps_layer { // TODO leave layer when using home row mods
 			bindings = <
 				&kp  LS(Q_)   &kp  MIN_       &kp  LS(Y_)   &kp  DOT_         EXCL_QMRK           &kp LS(K_)       &kp  LS(C_)   &kp  LS(H_)   &kp  LS(W_)   &kp  LS(J_)
 				HMLG LS(U_)   HMLA LS(O_)	  HMLC LS(I_)   HMLS LS(A_)       &kp LS(F_)          &kp LS(G_)       HMRS LS(T_)   HMRC LS(R_)   HMRA LS(S_)   HMRG LS(N_)
@@ -540,7 +543,7 @@
 	 // RH AUX LAYERS
 	 // -------------------
 
-		#define HMLS_CPWD    &htl  LSHIFT  &tog _l_CAPS
+		#define HMLS_CPWD    &httog  LSHIFT  _l_CAPS
 		
 		#define TASKMAN      &kp LC(LS(ESC))    // ctrl shift esc
 		#define PASTEPLAIN   &kp LC(LG(LA(V_))) // plaintext paste (power toys)
