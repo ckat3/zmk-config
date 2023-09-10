@@ -26,20 +26,24 @@
 // LAYERS
 #define _l_BASE 0
 #define _l_CAPS 1
-#define _l_NUM  2
-#define _l_SYM  3
-#define _l_UTIL 4
-#define _l_NAV  5
-#define _l_ACNT 6
-#define _l_ACCP 7
-#define _l_FUNC 8
-#define _l_GAME 9
-#define _l_GAM2 10
+#define _l_OSCP 2
+#define _l_NUM  3
+#define _l_SYM  4
+#define _l_UTIL 5
+#define _l_NAV  6
+#define _l_NAVC 7
+#define _l_ACNT 8
+#define _l_ACCP 9
+#define _l_FUNC 10
+#define _l_GAME 11
+#define _l_GAM2 12
 
 // combos shouldn't work on game layer, to minimize delay
-#define _l_ALL_LAYERS   _l_BASE  _l_CAPS  _l_NUM  _l_SYM  _l_UTIL  _l_NAV  _l_ACNT  _l_ACCP  _l_FUNC  _l_GAME  _l_GAM2
-#define _l_NOT_GAME     _l_BASE  _l_CAPS  _l_NUM  _l_SYM  _l_UTIL  _l_NAV  _l_ACNT  _l_ACCP  _l_FUNC
-#define _l_NOT_CAPS     _l_BASE           _l_NUM  _l_SYM  _l_UTIL  _l_NAV  _l_ACNT  _l_ACCP  _l_FUNC
+#define _l_ALL_LAYERS   _l_BASE  _l_CAPS  _l_OSCP  _l_NUM  _l_SYM  _l_UTIL  _l_NAV  _l_NAVC  _l_ACNT  _l_ACCP  _l_FUNC  _l_GAME  _l_GAM2
+#define _l_NOT_GAME     _l_BASE  _l_CAPS  _l_OSCP  _l_NUM  _l_SYM  _l_UTIL  _l_NAV  _l_NAVC  _l_ACNT  _l_ACCP  _l_FUNC
+#define _l_NOT_CAPS     _l_BASE                    _l_NUM  _l_SYM  _l_UTIL  _l_NAV  _l_NAVC  _l_ACNT  _l_ACCP  _l_FUNC
+#define _l_JUST_CAPS             _l_CAPS  _l_OSCP
+#define _l_JUST_CPWD             _l_CAPS 
 
 
 &lt { // tap for kp, hold for layer
@@ -116,9 +120,9 @@
 
 
 	 // OTHER HOLDTAPS : deactivates capsword, then…                    // HOLD           TAP    
-		HT_BAL(  ht_cw_l_NAV_SPC, <&m_mo_cw_l_NAV>,  <&m_cw_SPC> )      // hold _l_NAV    &m_cw_SPC         balanced
-		HT_BAL( lsl_cw_l_SYM,     <&m_mo_cw_l_SYM>,  <&m_sl_cw_l_SYM> ) // hold _l_SYM    &m_sl_cw_l_SYM    balanced
-		HT_SLOW(   ltt_l_UTIL,    <&m_mo_l_UTIL>,    <&kp> )            // hold _l_UTIL   kp                tap-preferred (from HT)
+		HT_BAL(  ht_cw_l_NAV_SPC, <&m_mo_cw_l_NAV>,  <&m_cw_SPC> )      // hold _l_NAV       SPC -> to base   balanced
+		HT_BAL( lsl_cw_l_SYM,     <&m_mo_cw_l_SYM>,  <&m_sl_cw_l_SYM> ) // hold _l_SYM    sl SYM -> to base   balanced
+		HT_SLOW(   ltt_l_UTIL,    <&m_mo_l_UTIL>,    <&kp> )            // hold _l_UTIL   kp                  tap-preferred (from HT)
 
 
 	 // loose accents on tap
@@ -182,14 +186,12 @@
 
 
 		// MACRO_DIGRAM : tap a key, release shift if held, tap another
-		//               (so can eg hold shift and do &m_Q_U_ to get Qu
-		//                also defines a capsword version
+		//                (so can eg hold shift and do &m_Q_U_ to get Qu)
+		//                also defines a capsword version which holds shift during both
 		#define MACRO_DIGRAM(FIRST, SECOND) \
 			MACRO(FIRST##SECOND,                      <M_KP FIRST>, M_REL_SHIFT, <M_KP SECOND>) \
 			\
 			MACRO(cw_##FIRST##SECOND,  M_HOLD_SHIFT,  <M_KP FIRST>,              <M_KP SECOND>,  M_REL_SHIFT)
-
-
 
 		// TODO : this was meant for the eszett, but if it doesn't work i might as well merge it with ACCENT_1.
 		#define MACRO_ACCENT_NAMED(NAME, ACCENT, LETTER) \
@@ -283,17 +285,18 @@
 		MACRO_TAP( cw_ESC,  &kp ESC    &to _l_BASE )
 
 	 // capsword off + hold layer
-		// MACRO( mo_cw_l_NAV,   <M_TAP  &to _l_BASE  &tog _l_NAV>,   <M_WAIT_REL>,  <M_TAP  &tog _l_NAV> )
-		MACRO( mo_cw_l_SYM,   <M_TAP  &to _l_BASE  &tog _l_SYM>,   <M_WAIT_REL>,  <M_TAP  &tog _l_SYM> )
-		// TODO caps accent
+		MACRO( mo_cw_l_NUM,   <M_TAP  &to _l_BASE  &tog _l_NUMC  &tog _l_NUMC>,   <M_WAIT_REL>,  <M_TAP  &to _l_BASE> )
+		MACRO( mo_cw_l_NAV,   <M_TAP  &to _l_BASE  &tog _l_NAV   &tog _l_NAVC>,   <M_WAIT_REL>,  <M_TAP  &to _l_BASE> )
+		MACRO( mo_cw_l_SYM,   <M_TAP  &to _l_BASE  &tog _l_SYM>,                  <M_WAIT_REL>,  <M_TAP  &to _l_BASE> )
 		
 	 // capsword off + one-shot layer
 		MACRO( sl_cw_l_SYM,    <M_TAP  &to _l_BASE  &sl _l_SYM>  )
 		MACRO( sl_cw_l_ACNT,   <M_TAP  &to _l_BASE  &sl _l_ACNT> )
 
 	 // new sentence
-		MACRO_TAP(     SPC_upper,            &kp SPACE  &sl _l_CAPS )
-		MACRO_TAP( DOT_SPC_upper,  &kp DOT_  &kp SPACE  &sl _l_CAPS )
+	    MACRO_TAP(   oneshotCAPS,                       &sl _l_CAPS  &sl _l_OSCP )
+		MACRO_TAP(     SPC_upper,            &kp SPACE  &sl _l_CAPS              )
+		MACRO_TAP( DOT_SPC_upper,  &kp DOT_  &kp SPACE  &sl _l_CAPS              )
 
 
 	 //
@@ -364,8 +367,8 @@
 	*/
 
 		// one-shot caps
-		COMBO(   _l_NOT_GAME,  &sl _l_CAPS,       11 12 13, gibberishName_dljauiqsrt)
-		COMBO(   _l_NOT_GAME,  &sl _l_CAPS,       16 17 18, gibberishName_dljoiadiuaisrt)
+		COMBO(   _l_NOT_GAME,  &m_oneshotCAPS,    11 12 13, gibberishName_dljauiqsrt)
+		COMBO(   _l_NOT_GAME,  &m_oneshotCAPS,    16 17 18, gibberishName_dljoiadiuaisrt)
 		COMBO(   _l_NOT_GAME,  &m_SPC_upper,      21 22 23, gibberishName_diaoadiqsrt)
 		COMBO(   _l_NOT_GAME,  &m_DOT_SPC_upper,  21 22 23, gibberishName_dljoopoadiqsrt)
 
@@ -390,19 +393,19 @@
 		COMBO_MACRO(_l_BASE,   TILD_A_O_,,        13 11) /* ão */
 		COMBO_MACRO(_l_BASE,   TILD_O_E_,,        11 30) /* õe */
 							  
-		COMBO_MACRO(_l_CAPS,   cw_Q_U_,,          26 27) /* QU */
-		COMBO_MACRO(_l_CAPS,   cw_TILD_A_E_,,     13 30) /* ÃE */
-		COMBO_MACRO(_l_CAPS,   cw_TILD_A_O_,,     13 11) /* ÃO */
-		COMBO_MACRO(_l_CAPS,   cw_TILD_O_E_,,     11 30) /* ÕE */
+		COMBO_MACRO(_l_JUST_CPWD,  cw_Q_U_,,          26 27) /* QU */
+		COMBO_MACRO(_l_JUST_CAPS,  cw_TILD_A_E_,,     13 30) /* ÃE */
+		COMBO_MACRO(_l_JUST_CAPS,  cw_TILD_A_O_,,     13 11) /* ÃO */
+		COMBO_MACRO(_l_JUST_CAPS,  cw_TILD_O_E_,,     11 30) /* ÕE */
 
 		// tab, enter, esc
 		COMBO_KP(_l_NOT_CAPS,  TAB,,              12 13)
 		COMBO_KP(_l_NOT_CAPS,  ENTER,,            16 17)
 		COMBO_KP(_l_NOT_CAPS,  ESC,,              10 11)
 
-		COMBO_MACRO(_l_CAPS,   cw_TAB,,           12 13)
-		COMBO_MACRO(_l_CAPS,   cw_ENTR,,          16 17)
-		COMBO_MACRO(_l_CAPS,   cw_ESC,,           10 11)
+		COMBO_MACRO(_l_JUST_CAPS,   cw_TAB,,           12 13)
+		COMBO_MACRO(_l_JUST_CAPS,   cw_ENTR,,          16 17)
+		COMBO_MACRO(_l_JUST_CAPS,   cw_ESC,,           10 11)
 
 		COMBO(_l_FUNC, &sys_reset,                 0  4,    gibberishName_aiouaiouaiou)
 		COMBO(_l_FUNC, &bootloader,               20 24,    gibberishName_ayuqaioueaio)
@@ -459,7 +462,7 @@
 		#define lsl_ACCP       &lsl  _l_ACCP  _l_ACCP
 
 		#define lt_NAV_SPC     &lt   _l_NAV SPC
-		// #define lt_NAV_SPC_cw  &ht_cw_l_NAV_SPC 0 0
+		#define lt_NAV_SPC_cw  &ht_cw_l_NAV_SPC 0 0
 
 
 	 // -------------------
@@ -485,11 +488,20 @@
 				HMLG LS(U_)   HMLA LS(O_)	  HMLC LS(I_)   HMLS LS(A_)       &kp LS(F_)          &kp LS(G_)       HMRS LS(T_)   HMRC LS(R_)   HMRA LS(S_)   HMRG LS(N_)
 				&kp  LS(Z_)   HMRA LS(EACT_)  &kp  LS(P_)   &kp  COMM_        &kp LS(X_)          &kp LS(V_)       &kp  LS(D_)   &kp  LS(M_)   HMLA LS(L_)   &kp  LS(B_)
 				//
-														        lt_NUM_E_cw   lsl_SYM_cw          lsl_ACCP   lt_NAV_SPC
-														     //   --- leave CAPS ---               --- don't leave ---
+														        lt_NUM_E_cw   lsl_SYM_cw          lsl_ACCP   lt_NAV_SPC_cw
+														     //  --- both leave CAPS ---     doesn't leave   leaves
 			>;
 		};
-
+		
+		// just doesn't do the QU combo
+		oneshotcaps {
+			bindings = <
+				&trans &trans &trans &trans &trans   &trans         &trans   &trans &trans &trans &trans
+				&trans &trans &trans &trans &trans   &trans         &trans   &trans &trans &trans &trans
+				&trans &trans &trans &trans &trans   &trans         &trans   &trans &trans &trans &trans
+								            &trans   &trans         &trans   &trans
+			>;
+		};
 
 
 	 // -------------------
@@ -553,6 +565,16 @@
 				HMLG LC(Z_)  HMRA LC(X_)  &kp  LC(C_)   &kp  LC(V_)      PASTEPLAIN         _________        &kp  HOME       &kp  LEFT    &kp  RIGHT   &kp  END
 				//
 												             &kp PSBRK   _________          impossible   impossible
+			>;
+		};
+		
+		// doesn't have cpwd toggle since it will be deactivated upon exiting the layer
+		navcaps_layer {
+			bindings = <
+				&trans &trans &trans &trans &trans      &trans         &trans   &trans &trans &trans &trans
+				&trans &trans &trans &trans &kp LSHIFT  &trans         &trans   &trans &trans &trans &trans
+				&trans &trans &trans &trans &trans      &trans         &trans   &trans &trans &trans &trans
+								            &trans      &trans         &trans   &trans
 			>;
 		};
 
