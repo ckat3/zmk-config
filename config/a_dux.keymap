@@ -119,10 +119,10 @@
 		HRMOD_POS( htr, _POSITIONS_LH )
 
 
-	 // OTHER HOLDTAPS : deactivates capsword, then…                    // HOLD           TAP    
-		HT_BAL(  ht_cw_l_NAV_SPC, <&m_mo_cw_l_NAV>,  <&m_cw_SPC> )      // hold _l_NAV       SPC -> to base   balanced
-		HT_BAL( lsl_cw_l_SYM,     <&m_mo_cw_l_SYM>,  <&m_sl_cw_l_SYM> ) // hold _l_SYM    sl SYM -> to base   balanced
-		HT_SLOW(   ltt_l_UTIL,    <&m_mo_l_UTIL>,    <&kp> )            // hold _l_UTIL   kp                  tap-preferred (from HT)
+	 // OTHER HOLDTAPS : deactivates capsword, then…                    // HOLD                       TAP    
+		HT_BAL(  ht_cw_l_NAV_SPC, <&m_mo_cw_l_NAV>,  <&m_cw_SPC> )      // hold _l_NAV -> to base     SPC    -> to base   balanced
+		HT_BAL( lsl_cw_l_SYM,       <&mo>,           <&m_sl_cw_l_SYM> ) // hold layer                 sl SYM -> to base   balanced
+		HT_SLOW(   ltt_l_UTIL,    <&m_mo_l_UTIL>,    <&kp> )            // hold _l_UTIL               kp                  tap-preferred (from HT)
 
 
 	 // loose accents on tap
@@ -285,13 +285,11 @@
 		MACRO_TAP( cw_ESC,  &kp ESC    &to _l_BASE )
 
 	 // capsword off + hold layer
-		MACRO( mo_cw_l_NUM,   <M_TAP  &to _l_BASE  &tog _l_NUMC  &tog _l_NUMC>,   <M_WAIT_REL>,  <M_TAP  &to _l_BASE> )
-		MACRO( mo_cw_l_NAV,   <M_TAP  &to _l_BASE  &tog _l_NAV   &tog _l_NAVC>,   <M_WAIT_REL>,  <M_TAP  &to _l_BASE> )
-		MACRO( mo_cw_l_SYM,   <M_TAP  &to _l_BASE  &tog _l_SYM>,                  <M_WAIT_REL>,  <M_TAP  &to _l_BASE> )
+		MACRO( mo_cw_l_NAV,   < M_TAP  &to _l_BASE  &tog _l_NAV  &tog _l_NAVC >,   <M_WAIT_REL>,  < M_TAP  &to _l_BASE > )
 		
 	 // capsword off + one-shot layer
-		MACRO( sl_cw_l_SYM,    <M_TAP  &to _l_BASE  &sl _l_SYM>  )
-		MACRO( sl_cw_l_ACNT,   <M_TAP  &to _l_BASE  &sl _l_ACNT> )
+		MACRO( sl_cw_l_SYM,   < M_TAP  &to _l_BASE  &sl _l_SYM  > )
+		MACRO( sl_cw_l_ACNT,  < M_TAP  &to _l_BASE  &sl _l_ACNT > )
 
 	 // new sentence
 	    MACRO_TAP(   oneshotCAPS,                       &sl _l_CAPS  &sl _l_OSCP )
@@ -456,7 +454,7 @@
 		#define lt_NUM_E_cw    &lt    _l_NUM  LS(E_)
 
 		#define lsl_SYM        &lsl   _l_SYM  _l_SYM
-		#define lsl_SYM_cw     &lsl_cw_l_SYM  0 0
+		#define lsl_SYM_cw     &lsl_cw_l_SYM  _l_SYM 0
 
 		#define lsl_ACNT       &lsl  _l_ACNT  _l_ACNT
 		#define lsl_ACCP       &lsl  _l_ACCP  _l_ACCP
