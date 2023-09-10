@@ -6,23 +6,22 @@
 #include "bepo_bindings.h"
 
 // SETTINGS
-#define _MACRO_INTERVAL      3    // tested: 3. how long to wait between key presses
-#define _MACRO_TAP_FOR       3    // tested: 3. how long to tap for in macros
+#define _STICKY_TIMEOUT      2000
 
-// combo: maximum interval between keys to form combo
-#define _COMBO_TIMEOUT       18   // tested: 16, 18
-#define _COMBO_TIMEOUT_SLOW  50   // tested: 50
+#define _MACRO_INTERVAL      3    // delay between key presses
+#define _MACRO_TAP_FOR       3    // how long to hold tapped key
 
-// holdtap: how long must hold to not be tap
-#define _TAP_TERM_SLOW       300
-#define _TAP_TERM            280  //tested: 250, 280
-#define _TAP_TERM_FAST       200
-#define _TAP_TERM_FASTER     120
+#define _COMBO_TIMEOUT       18   // maximum interval between keys to form combo
+#define _COMBO_TIMEOUT_SLOW  50
 
-// holdtap: how fast must press twice for second to start repeating tap
-#define _QUICK_TAP           200
+// holdtap settings
+#define _HT_TAPLIMIT_SLOW       300  // how long must hold to not be tap
+#define _HT_TAPLIMIT            260  // (280 is good3
+#define _HT_TAPLIMIT_FAST       200  // 
+#define _HT_TAPLIMIT_FASTER     120  // 
 
-#define _STICKY_TIMEOUT      2000 // tested: 1000+
+#define _HT_QUICK_TAP           200  // how fast must press twice for second to start repeating tap
+
 
 // LAYERS
 #define _l_BASE 0
@@ -38,20 +37,20 @@
 #define _l_GAM2 10
 
 // combos shouldn't work on game layer, to minimize delay
-#define _l_ALL_LAYERS   _l_BASE  _l_CAPS  _l_UTIL  _l_SYM  _l_ACNT  _l_ACCW  _l_NUM  _l_NAV  _l_FUNC  _l_GAME  _l_GAM2
-#define _l_NOT_GAME     _l_BASE  _l_CAPS  _l_UTIL  _l_SYM  _l_ACNT  _l_ACCW  _l_NUM  _l_NAV  _l_FUNC
-#define _l_NOT_CPWD     _l_BASE           _l_UTIL  _l_SYM  _l_ACNT  _l_ACCW  _l_NUM  _l_NAV  _l_FUNC
+#define _l_ALL_LAYERS   _l_BASE  _l_CAPS  _l_NUM  _l_SYM  _l_UTIL  _l_NAV  _l_ACNT  _l_ACCW  _l_FUNC  _l_GAME  _l_GAM2
+#define _l_NOT_GAME     _l_BASE  _l_CAPS  _l_NUM  _l_SYM  _l_UTIL  _l_NAV  _l_ACNT  _l_ACCW  _l_FUNC
+#define _l_NOT_CAPS     _l_BASE           _l_NUM  _l_SYM  _l_UTIL  _l_NAV  _l_ACNT  _l_ACCW  _l_FUNC
 
 
 &lt { // tap for kp, hold for layer
 	flavor          = "balanced";
-	tapping-term-ms = <_TAP_TERM>;
-	quick-tap-ms    = <_QUICK_TAP>;
+	tapping-term-ms = <_HT_TAPLIMIT>;
+	quick-tap-ms    = <_HT_QUICK_TAP>;
 };
 
 &mt { // hold-tap
-	tapping-term-ms = <_TAP_TERM_FASTER>;
-	quick-tap-ms    = <_QUICK_TAP>;
+	tapping-term-ms = <_HT_TAPLIMIT_FASTER>;
+	quick-tap-ms    = <_HT_QUICK_TAP>;
 };
 
 &sk { // one-shot layer
@@ -77,7 +76,7 @@
 				label           = #NAME; \
 				flavor          = #FLAVOR; \
 				tapping-term-ms = <DELAY>; \
-				quick-tap-ms    = <_QUICK_TAP>; \
+				quick-tap-ms    = <_HT_QUICK_TAP>; \
 				bindings        = BINDINGS; \
 				 \
 				#binding-cells  = <2>; \
@@ -87,19 +86,19 @@
 			};
 
 		#define HT(NAME, BINDINGS...) \
-				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM, _ALL_POSITIONS, BINDINGS)
+				DEFINE_HOLDTAP(NAME, tap-preferred, _HT_TAPLIMIT, _ALL_POSITIONS, BINDINGS)
 
 		#define HT_FAST(NAME, BINDINGS...) \
-				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM_FAST, _ALL_POSITIONS, BINDINGS)
+				DEFINE_HOLDTAP(NAME, tap-preferred, _HT_TAPLIMIT_FAST, _ALL_POSITIONS, BINDINGS)
 
 		#define HT_BAL(NAME, BINDINGS...) \
-				DEFINE_HOLDTAP(NAME, balanced, _TAP_TERM, _ALL_POSITIONS, BINDINGS)
+				DEFINE_HOLDTAP(NAME, balanced, _HT_TAPLIMIT, _ALL_POSITIONS, BINDINGS)
 
 		#define HRMOD_POS(NAME, POSITIONS) \
-				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM, POSITIONS, <&kp>, <&kp>)
+				DEFINE_HOLDTAP(NAME, tap-preferred, _HT_TAPLIMIT, POSITIONS, <&kp>, <&kp>)
 
 		#define HT_SLOW(NAME, BINDINGS...) \
-				DEFINE_HOLDTAP(NAME, tap-preferred, _TAP_TERM_SLOW, _ALL_POSITIONS, BINDINGS)
+				DEFINE_HOLDTAP(NAME, tap-preferred, _HT_TAPLIMIT_SLOW, _ALL_POSITIONS, BINDINGS)
 
 	 // HOME-ROW MODS                       // HOLD           TAP             
 		HT(      ht,     <&kp>,  <&kp> )    // kp             kp
@@ -315,7 +314,7 @@
 		MACRO( utl_ULIN,     <NO_MODS>,  <M_KP  ULIN_>,         <ALL_MODS> )
 		MACRO( utl_UNDO,     <NO_MODS>,  <M_KP  LC(Z_)>,        <ALL_MODS> )
 		MACRO( utl_REDO,     <NO_MODS>,  <M_KP  LC(Y_)>,        <ALL_MODS> )
-		MACRO( utl_LAF4,     <NO_MODS>,  <M_KP  LA(F4)>,       <ALL_MODS> )
+		MACRO( utl_LAF4,     <NO_MODS>,  <M_KP  LA(F4)>,        <ALL_MODS> )
 
 		MACRO(  utl_STAB,    <NO_MODS>,  <M_KP  LS(TAB)>,       <ALL_MODS> )
 		MACRO(  utl_GTAB,    <NO_MODS>,  <M_KP  LG(TAB)>,       <ALL_MODS> )
@@ -337,8 +336,8 @@
 			combo_##NAME { \
 				layers        = <LAYERS>; \
 				key-positions = <POSITIONS>; \
-				timeout-ms    = <_COMBO_TIMEOUT>; \
 				bindings      = <BINDINGS>; \
+				timeout-ms    = <_COMBO_TIMEOUT>; \
 			};
 
 
@@ -372,18 +371,18 @@
 
 		// lh
 		COMBO_KP(_l_NOT_GAME,      BSPC,,         11 12)
+		COMBO(   _l_NOT_GAME,  &kp LC(Z_),        20 21,    gibberishName_dljoiadiqsrt)
 		COMBO_KP(_l_NOT_GAME,      DEL,,          21 22)
-		COMBO(   _l_NOT_GAME,  &kp LC(Z_),        20 21, gibberishName_dljoiadiqsrt)
 		COMBO_KP(_l_NOT_GAME,      SPACE,,        22 23)
 
 		// rh
-		COMBO(   _l_NOT_GAME,  &kp LC(BSPC),      17 18, gibberishName_dljsdiooooisrt)
-		COMBO(   _l_NOT_GAME,  &kp LC(DEL),       27 28, gibberishName_dljsdaioaort)
+		COMBO(   _l_NOT_GAME,  &kp LC(BSPC),      17 18,    gibberishName_dljsdiooooisrt)
+		COMBO(   _l_NOT_GAME,  &kp LC(DEL),       27 28,    gibberishName_dljsdaioaort)
 
 		// one-shot shift on both thumb keys at once
 		// TODO remove?
-		COMBO(_l_NOT_GAME,  &lsk _l_FUNC LSHIFT,  30 31, gibberishName_dljsdiqsrt)
-		COMBO(_l_NOT_GAME,  &sk          RSHIFT,  32 33, gibberishName_sqljqrjqsl)
+		COMBO(_l_NOT_GAME,  &lsk _l_FUNC LSHIFT,  30 31,    gibberishName_dljsdiqsrt)
+		COMBO(_l_NOT_GAME,   &sk         RSHIFT,  32 33,    gibberishName_sqljqrjqsl)
 
 		// TODO  merge these?
 		COMBO_MACRO(_l_BASE,   Q_U_,,             26 27) /* qu */
@@ -397,18 +396,18 @@
 		COMBO_MACRO(_l_CAPS,   cw_TILD_O_E_,,     11 30) /* ÕE */
 
 		// tab, enter, esc
-		COMBO_KP(_l_NOT_CPWD,  TAB,,              12 13)
-		COMBO_KP(_l_NOT_CPWD,  ENTER,,            16 17)
-		COMBO_KP(_l_NOT_CPWD,  ESC,,              10 11)
+		COMBO_KP(_l_NOT_CAPS,  TAB,,              12 13)
+		COMBO_KP(_l_NOT_CAPS,  ENTER,,            16 17)
+		COMBO_KP(_l_NOT_CAPS,  ESC,,              10 11)
 
 		COMBO_MACRO(_l_CAPS,   cw_TAB,,           12 13)
 		COMBO_MACRO(_l_CAPS,   cw_ENTR,,          16 17)
 		COMBO_MACRO(_l_CAPS,   cw_ESC,,           10 11)
 
-		COMBO(_l_FUNC, &sys_reset,                 0  4, gibberishName_aiouaiouaiou)
-		COMBO(_l_FUNC, &bootloader,               20 24, gibberishName_ayuqaioueaio)
-		COMBO(_l_FUNC, &tog _l_GAME,               4 14, gibberishName_aiouayopaipo)
-		COMBO(_l_FUNC, &tog _l_GAM2,              14 24, gibberishName_aiopoappyaio)
+		COMBO(_l_FUNC, &sys_reset,                 0  4,    gibberishName_aiouaiouaiou)
+		COMBO(_l_FUNC, &bootloader,               20 24,    gibberishName_ayuqaioueaio)
+		COMBO(_l_FUNC, &tog _l_GAME,               4 14,    gibberishName_aiouayopaipo)
+		COMBO(_l_FUNC, &tog _l_GAM2,              14 24,    gibberishName_aiopoappyaio)
 	};
 
 
