@@ -16,7 +16,7 @@
 
 // holdtap settings
 #define _HT_TAPLIMIT_SLOW       300  // how long must hold to not be tap
-#define _HT_TAPLIMIT            260  // (280 is good3
+#define _HT_TAPLIMIT            260  // (280 is good)
 #define _HT_TAPLIMIT_FAST       200  // 
 #define _HT_TAPLIMIT_FASTER     120  // 
 
@@ -31,15 +31,15 @@
 #define _l_UTIL 4
 #define _l_NAV  5
 #define _l_ACNT 6
-#define _l_ACCW 7
+#define _l_ACCP 7
 #define _l_FUNC 8
 #define _l_GAME 9
 #define _l_GAM2 10
 
 // combos shouldn't work on game layer, to minimize delay
-#define _l_ALL_LAYERS   _l_BASE  _l_CAPS  _l_NUM  _l_SYM  _l_UTIL  _l_NAV  _l_ACNT  _l_ACCW  _l_FUNC  _l_GAME  _l_GAM2
-#define _l_NOT_GAME     _l_BASE  _l_CAPS  _l_NUM  _l_SYM  _l_UTIL  _l_NAV  _l_ACNT  _l_ACCW  _l_FUNC
-#define _l_NOT_CAPS     _l_BASE           _l_NUM  _l_SYM  _l_UTIL  _l_NAV  _l_ACNT  _l_ACCW  _l_FUNC
+#define _l_ALL_LAYERS   _l_BASE  _l_CAPS  _l_NUM  _l_SYM  _l_UTIL  _l_NAV  _l_ACNT  _l_ACCP  _l_FUNC  _l_GAME  _l_GAM2
+#define _l_NOT_GAME     _l_BASE  _l_CAPS  _l_NUM  _l_SYM  _l_UTIL  _l_NAV  _l_ACNT  _l_ACCP  _l_FUNC
+#define _l_NOT_CAPS     _l_BASE           _l_NUM  _l_SYM  _l_UTIL  _l_NAV  _l_ACNT  _l_ACCP  _l_FUNC
 
 
 &lt { // tap for kp, hold for layer
@@ -101,13 +101,13 @@
 				DEFINE_HOLDTAP(NAME, tap-preferred, _HT_TAPLIMIT_SLOW, _ALL_POSITIONS, BINDINGS)
 
 	 // HOME-ROW MODS                       // HOLD           TAP             
-		HT(      ht,     <&kp>,  <&kp> )    // kp             kp
-		HT_SLOW( htslow, <&kp>,  <&kp> )    // kp (slow)      kp (slow)
-		HT(      httog,  <&kp>,  <&tog> )   // kp             one-shot layer
-		HT(      htsl,   <&kp>,  <&sl> )    // kp             one-shot layer
-		HT_BAL(  lsl,    <&mo>,  <&sl> )    // layer          one-shot layer  
-		HT_BAL(  lsk,    <&mo>,  <&sk> )    // layer          one-shot mod    
-		HT(      ltt,    <&mo>,  <&kp> )    // layer          kp               (inherits tap-preferred from HT)
+		HT(      ht,     <&kp>,  <&kp> )    // kp             kp                tap-preferred
+		HT_SLOW( htslow, <&kp>,  <&kp> )    // kp (slow)      kp (slow)         tap-preferred (from HT)
+		HT(      httog,  <&kp>,  <&tog> )   // kp             one-shot layer    tap-preferred (from HT)
+		HT(      htsl,   <&kp>,  <&sl> )    // kp             one-shot layer    tap-preferred (from HT)
+		HT_BAL(  lsl,    <&mo>,  <&sl> )    // layer          one-shot layer    balanced
+		HT_BAL(  lsk,    <&mo>,  <&sk> )    // layer          one-shot mod      balanced
+		HT(      ltt,    <&mo>,  <&kp> )    // layer          kp                tap-preferred (from HT)
 
 
 	 // hrm for opposite hand only (used for shift)
@@ -116,9 +116,9 @@
 
 
 	 // OTHER HOLDTAPS : deactivates capsword, then…                    // HOLD           TAP    
-		HT_BAL(  ht_cw_l_NAV_SPC, <&m_mo_cw_l_NAV>,  <&m_cw_SPC> )      // hold _l_NAV    space            
-		HT_BAL( lsl_cw_l_SYM,     <&m_mo_cw_l_SYM>,  <&m_sl_cw_l_SYM> ) // hold _l_SYM    one-shot _l_SYM  
-		HT_SLOW(   ltt_l_UTIL,    <&m_mo_l_UTIL>,    <&kp> )            // hold _l_UTIL   kp     (inherits tap-preferred from HT)
+		HT_BAL(  ht_cw_l_NAV_SPC, <&m_mo_cw_l_NAV>,  <&m_cw_SPC> )      // hold _l_NAV    &m_cw_SPC         balanced
+		HT_BAL( lsl_cw_l_SYM,     <&m_mo_cw_l_SYM>,  <&m_sl_cw_l_SYM> ) // hold _l_SYM    &m_sl_cw_l_SYM    balanced
+		HT_SLOW(   ltt_l_UTIL,    <&m_mo_l_UTIL>,    <&kp> )            // hold _l_UTIL   kp                tap-preferred (from HT)
 
 
 	 // loose accents on tap
@@ -283,7 +283,7 @@
 		MACRO_TAP( cw_ESC,  &kp ESC    &to _l_BASE )
 
 	 // capsword off + hold layer
-		MACRO( mo_cw_l_NAV,   <M_TAP  &to _l_BASE  &tog _l_NAV>,   <M_WAIT_REL>,  <M_TAP  &tog _l_NAV> )
+		// MACRO( mo_cw_l_NAV,   <M_TAP  &to _l_BASE  &tog _l_NAV>,   <M_WAIT_REL>,  <M_TAP  &tog _l_NAV> )
 		MACRO( mo_cw_l_SYM,   <M_TAP  &to _l_BASE  &tog _l_SYM>,   <M_WAIT_REL>,  <M_TAP  &tog _l_SYM> )
 		// TODO caps accent
 		
@@ -456,10 +456,10 @@
 		#define lsl_SYM_cw     &lsl_cw_l_SYM  0 0
 
 		#define lsl_ACNT       &lsl  _l_ACNT  _l_ACNT
-		#define lsl_ACCW       &lsl  _l_ACCW  _l_ACCW
+		#define lsl_ACCP       &lsl  _l_ACCP  _l_ACCP
 
 		#define lt_NAV_SPC     &lt   _l_NAV SPC
-		#define lt_NAV_SPC_cw  &ht_cw_l_NAV_SPC 0 0
+		// #define lt_NAV_SPC_cw  &ht_cw_l_NAV_SPC 0 0
 
 
 	 // -------------------
@@ -485,7 +485,8 @@
 				HMLG LS(U_)   HMLA LS(O_)	  HMLC LS(I_)   HMLS LS(A_)       &kp LS(F_)          &kp LS(G_)       HMRS LS(T_)   HMRC LS(R_)   HMRA LS(S_)   HMRG LS(N_)
 				&kp  LS(Z_)   HMRA LS(EACT_)  &kp  LS(P_)   &kp  COMM_        &kp LS(X_)          &kp LS(V_)       &kp  LS(D_)   &kp  LS(M_)   HMLA LS(L_)   &kp  LS(B_)
 				//
-														        lt_NUM_E_cw   lsl_SYM_cw          lsl_ACCW   lt_NAV_SPC_cw
+														        lt_NUM_E_cw   lsl_SYM_cw          lsl_ACCP   lt_NAV_SPC
+														     //   --- leave CAPS ---               --- don't leave ---
 			>;
 		};
 
