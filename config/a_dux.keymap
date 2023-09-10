@@ -315,6 +315,7 @@
 		MACRO( utl_ULIN,     <NO_MODS>,  <M_KP  ULIN_>,         <ALL_MODS> )
 		MACRO( utl_UNDO,     <NO_MODS>,  <M_KP  LC(Z_)>,        <ALL_MODS> )
 		MACRO( utl_REDO,     <NO_MODS>,  <M_KP  LC(Y_)>,        <ALL_MODS> )
+		MACRO( utl_LAF4,     <NO_MODS>,  <M_KP  LC(Y_)>,        <ALL_MODS> )
 
 		MACRO(   utl_TAB,    <NO_MODS>,  <M_KP     TAB >,       <ALL_MODS> )
 		MACRO(  utl_STAB,    <NO_MODS>,  <M_KP  LS(TAB)>,       <ALL_MODS> )
@@ -386,24 +387,24 @@
 		COMBO(_l_NOT_GAME,  &sk          RSHIFT,  32 33, gibberishName_sqljqrjqsl)
 
 		// TODO  merge these?
-		COMBO_MACRO(_l_BASE,  Q_U_,,              26 27) /* qu */
-		COMBO_MACRO(_l_BASE,  TILD_A_E_,,         13 30) /* ãe */
-		COMBO_MACRO(_l_BASE,  TILD_A_O_,,         13 11) /* ão */
-		COMBO_MACRO(_l_BASE,  TILD_O_E_,,         11 30) /* õe */
-
-		COMBO_MACRO(_l_CAPS,  cw_Q_U_,,           26 27) /* QU */
-		COMBO_MACRO(_l_CAPS,  cw_TILD_A_E_,,      13 30) /* ÃE */
-		COMBO_MACRO(_l_CAPS,  cw_TILD_A_O_,,      13 11) /* ÃO */
-		COMBO_MACRO(_l_CAPS,  cw_TILD_O_E_,,      11 30) /* ÕE */
+		COMBO_MACRO(_l_BASE,   Q_U_,,             26 27) /* qu */
+		COMBO_MACRO(_l_BASE,   TILD_A_E_,,        13 30) /* ãe */
+		COMBO_MACRO(_l_BASE,   TILD_A_O_,,        13 11) /* ão */
+		COMBO_MACRO(_l_BASE,   TILD_O_E_,,        11 30) /* õe */
+							  
+		COMBO_MACRO(_l_CAPS,   cw_Q_U_,,          26 27) /* QU */
+		COMBO_MACRO(_l_CAPS,   cw_TILD_A_E_,,     13 30) /* ÃE */
+		COMBO_MACRO(_l_CAPS,   cw_TILD_A_O_,,     13 11) /* ÃO */
+		COMBO_MACRO(_l_CAPS,   cw_TILD_O_E_,,     11 30) /* ÕE */
 
 		// tab, enter, esc
 		COMBO_KP(_l_NOT_CPWD,  TAB,,              12 13)
 		COMBO_KP(_l_NOT_CPWD,  ENTER,,            16 17)
 		COMBO_KP(_l_NOT_CPWD,  ESC,,              10 11)
 
-		COMBO_MACRO(_l_CAPS,  cw_TAB,,            12 13)
-		COMBO_MACRO(_l_CAPS,  cw_ENTR,,           16 17)
-		COMBO_MACRO(_l_CAPS,  cw_ESC,,            10 11)
+		COMBO_MACRO(_l_CAPS,   cw_TAB,,           12 13)
+		COMBO_MACRO(_l_CAPS,   cw_ENTR,,          16 17)
+		COMBO_MACRO(_l_CAPS,   cw_ESC,,           10 11)
 
 		COMBO(_l_FUNC, &sys_reset,                 0  4, gibberishName_aiouaiouaiou)
 		COMBO(_l_FUNC, &bootloader,               20 24, gibberishName_ayuqaioueaio)
@@ -505,8 +506,8 @@
 		num_layer {
 			bindings = <
 				&kp  PIPE_    &kp N7_      &kp N8_     &kp N9_        EXCL_QMRK         DLLR_EURO        &kp  LBRK_   &kp  RBRK_   &kp  HASH_   &kp  PCNT_
-				&kp  N0_      &kp N1_      &kp N2_     &kp N3_        &kp DOT_          &kp COLN_        HMRS PLUS_   HMRC MIN_    HMLA STAR_   HMRG FSLA_
-				HMLC ULIN_    &kp N4_      &kp N5_     &kp N6_        &kp COMM_         &kp SCLN_        &kp  LT_     &kp  GT_     EQUL_DIFF    &kp  BSLA_
+				&kp  N0_      &kp N1_      &kp N2_     &kp N3_        &kp SCLN_         &kp COLN_        HMRS PLUS_   HMRC MIN_    HMLA STAR_   HMRG FSLA_
+				HMLC ULIN_    &kp N4_      &kp N5_     &kp N6_        &kp COMM_         &kp DOT_         &kp  LT_     &kp  GT_     EQUL_DIFF    &kp  BSLA_
 				//
 				                                        impossible   impossible         &kp ULIN_   &kp SPC
 			>;
@@ -515,7 +516,7 @@
 
 		sym_layer {
 			bindings = <
-				&kp  PIPE_   &kp  AT_     _________   &kp  OE_        NBSP_EXCL           _________       &kp  LBRK_    &kp  RBRK_     &kp  AMPR_   DLLR_EURO
+				&kp  PIPE_   &kp  AT_     _________   &kp  OE_        NBSP_EXCL           _________       &kp  LBRK_    &kp  RBRK_     &kp  AMPR_  DLLR_EURO
 				HMLG LCUR_   HMLA RCUR_   HMLC LPAR_  HMLS RPAR_      _________           _________       HMRS_CFX__    HMRC_GRV__     HMRA RALT   HMRG_TLD__
 				&kp  NDSH_   HMRA MDSH_   NBSP_LGLM   NBSP_RGLM       _________           &kp AE_         _________     _________      HMLA LALT   &kp  BSLA_
 				//u
