@@ -214,7 +214,7 @@
 	 // TODO
 	 //
 	 // MACRO_ACCENT_NAMED(SZTT,     SZTTMOD_,   S_)
-		MACRO_TAP(    SZTT,  &kp RA(S_)  &kp    S_)
+		MACRO_TAP(    SZTT,  &kp RA(S_)  &kp    S_ )
 		MACRO_TAP( cw_SZTT,  &kp RA(S_)  &kp LS(S_))
 
 
@@ -315,7 +315,7 @@
 		MACRO( utl_ULIN,     <NO_MODS>,  <M_KP  ULIN_>,         <ALL_MODS> )
 		MACRO( utl_UNDO,     <NO_MODS>,  <M_KP  LC(Z_)>,        <ALL_MODS> )
 		MACRO( utl_REDO,     <NO_MODS>,  <M_KP  LC(Y_)>,        <ALL_MODS> )
-		MACRO( utl_LAF4,     <NO_MODS>,  <M_KP  LA(F4_)>,       <ALL_MODS> )
+		MACRO( utl_LAF4,     <NO_MODS>,  <M_KP  LA(F4)>,       <ALL_MODS> )
 
 		MACRO(  utl_STAB,    <NO_MODS>,  <M_KP  LS(TAB)>,       <ALL_MODS> )
 		MACRO(  utl_GTAB,    <NO_MODS>,  <M_KP  LG(TAB)>,       <ALL_MODS> )
