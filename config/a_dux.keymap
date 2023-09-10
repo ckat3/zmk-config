@@ -315,9 +315,8 @@
 		MACRO( utl_ULIN,     <NO_MODS>,  <M_KP  ULIN_>,         <ALL_MODS> )
 		MACRO( utl_UNDO,     <NO_MODS>,  <M_KP  LC(Z_)>,        <ALL_MODS> )
 		MACRO( utl_REDO,     <NO_MODS>,  <M_KP  LC(Y_)>,        <ALL_MODS> )
-		MACRO( utl_LAF4,     <NO_MODS>,  <M_KP  LC(Y_)>,        <ALL_MODS> )
+		MACRO( utl_LAF4,     <NO_MODS>,  <M_KP  LA(F4_)>,       <ALL_MODS> )
 
-		MACRO(   utl_TAB,    <NO_MODS>,  <M_KP     TAB >,       <ALL_MODS> )
 		MACRO(  utl_STAB,    <NO_MODS>,  <M_KP  LS(TAB)>,       <ALL_MODS> )
 		MACRO(  utl_GTAB,    <NO_MODS>,  <M_KP  LG(TAB)>,       <ALL_MODS> )
 
@@ -528,7 +527,7 @@
 
 		utility_layer {
 			bindings = <
-				impossible   &trans       &m_utl_BACK   &m_utl_FRWD      &trans              &trans     &trans  &trans  &trans  &trans
+				impossible   &trans       &m_utl_BACK   &m_utl_FRWD      &m_utl_LAF4         &trans     &trans  &trans  &trans  &trans
 				impossible   &m_utl_GTAB  &m_utl_SATAB  &m_utl_ATAB      &m_utl_REDO         &trans     &trans  &trans  &trans  &trans
 				impossible   &trans       &m_utl_SCTAB  &m_utl_CTAB      &m_utl_UNDO         &trans     &trans  &trans  &trans  &trans
 				//
