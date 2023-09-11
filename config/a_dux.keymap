@@ -8,8 +8,8 @@
 // SETTINGS
 #define _STICKY_TIMEOUT      2000
 
-#define _MACRO_INTERVAL      3    // delay between key presses
-#define _MACRO_TAP_FOR       3    // how long to hold tapped key
+#define _MACRO_INTERVAL      1    // delay between key presses (3 is good)
+#define _MACRO_TAP_FOR       1    // how long to hold tapped key (3 is good)
 
 #define _COMBO_TIMEOUT       18   // maximum interval between keys to form combo
 #define _COMBO_TIMEOUT_SLOW  50
@@ -105,24 +105,28 @@
 				DEFINE_HOLDTAP(NAME, tap-preferred, _HT_TAPLIMIT_SLOW, _ALL_POSITIONS, BINDINGS)
 
 	 // HOME-ROW MODS                       // HOLD           TAP             
-		HT(      ht,     <&kp>,  <&kp> )    // kp             kp                tap-preferred
-		HT_SLOW( htslow, <&kp>,  <&kp> )    // kp (slow)      kp (slow)         tap-preferred (from HT)
-		HT(      httog,  <&kp>,  <&tog> )   // kp             one-shot layer    tap-preferred (from HT)
-		HT(      htsl,   <&kp>,  <&sl> )    // kp             one-shot layer    tap-preferred (from HT)
-		HT_BAL(  lsl,    <&mo>,  <&sl> )    // layer          one-shot layer    balanced
-		HT_BAL(  lsk,    <&mo>,  <&sk> )    // layer          one-shot mod      balanced
-		HT(      ltt,    <&mo>,  <&kp> )    // layer          kp                tap-preferred (from HT)
+		HT(      ht,     <&kp>,  <&kp> )    // kp             kp                (tap-preferred)
+		HT_SLOW( htslow, <&kp>,  <&kp> )    // kp (slow)      kp (slow)         (tap-preferred)
+		HT(      httog,  <&kp>,  <&tog> )   // kp             one-shot layer    (tap-preferred)
+		HT(      htsl,   <&kp>,  <&sl> )    // kp             one-shot layer    (tap-preferred)
+		HT_BAL(  lsl,    <&mo>,  <&sl> )    // layer          one-shot layer    (balanced)
+		HT_BAL(  lsk,    <&mo>,  <&sk> )    // layer          one-shot mod      (balanced)
+		HT(      ltt,    <&mo>,  <&kp> )    // layer          kp                (tap-preferred)
 
 
 	 // hrm for opposite hand only (used for shift)
 		HRMOD_POS( htl, _POSITIONS_RH )
 		HRMOD_POS( htr, _POSITIONS_LH )
+		
+		
 
 
-	 // OTHER HOLDTAPS : deactivates capsword, then…                    // HOLD                       TAP    
-		HT_BAL(  ht_cw_l_NAV_SPC, <&m_mo_cw_l_NAV>,  <&m_cw_SPC> )      // hold _l_NAV -> to base     SPC    -> to base   balanced
-		HT_BAL( lsl_cw_l_SYM,       <&mo>,           <&m_sl_cw_l_SYM> ) // hold layer                 sl SYM -> to base   balanced
-		HT_SLOW(   ltt_l_UTIL,    <&m_mo_l_UTIL>,    <&kp> )            // hold _l_UTIL               kp                  tap-preferred (from HT)
+	 // OTHER HOLDTAPS                                                  // HOLD                       TAP
+		HT_SLOW(   ltt_l_UTIL,    <&m_mo_l_UTIL>,    <&kp> )            // hold _l_UTIL               kp                   (tap-preferred)
+	 
+	 // capsword thumbs
+		HT(      ht_cw_l_NAV_SPC, <&m_mo_cw_l_NAV>,  <&m_cw_SPC> )      // hold _l_NAV -> to base     SPC    -> to base    (tap-preferred)
+		HT(     lsl_cw_l_SYM,     <  &mo  >,         <&m_sl_cw_l_SYM> ) // hold layer                 sl SYM -> to base    (tap-preferred)
 
 
 	 // loose accents on tap
@@ -188,33 +192,31 @@
 		// MACRO_DIGRAM : tap a key, release shift if held, tap another
 		//                (so can eg hold shift and do &m_Q_U_ to get Qu)
 		//                also defines a capsword version which holds shift during both
+		// TODO rename "cw_" prefix (to up_ or cp_)
 		#define MACRO_DIGRAM(FIRST, SECOND) \
-			MACRO(FIRST##SECOND,                      <M_KP FIRST>, M_REL_SHIFT, <M_KP SECOND>) \
+			MACRO(FIRST##SECOND,                     <M_KP FIRST>, M_REL_SHIFT, <M_KP SECOND>) \
 			\
-			MACRO(cw_##FIRST##SECOND,  M_HOLD_SHIFT,  <M_KP FIRST>,              <M_KP SECOND>,  M_REL_SHIFT)
-
-		// TODO : this was meant for the eszett, but if it doesn't work i might as well merge it with ACCENT_1.
-		#define MACRO_ACCENT_NAMED(NAME, ACCENT, LETTER) \
-			MACRO(NAME,      <M_KP ACCENT>, M_REL_SHIFT,  <M_KP LETTER>) \
+			MACRO(up_##FIRST##SECOND,  M_HOLD_SHIFT, <M_KP FIRST>, M_REL_SHIFT, <M_KP SECOND>) \
 			\
-			MACRO(cw_##NAME, <M_KP ACCENT>, M_HOLD_SHIFT, <M_KP LETTER>, M_REL_SHIFT)
+			MACRO(cw_##FIRST##SECOND,  M_HOLD_SHIFT, <M_KP FIRST>,              <M_KP SECOND>,  M_REL_SHIFT)
 
 
 		#define MACRO_ACCENT_SINGLE(ACCENT, LETTER) \
-			MACRO_ACCENT_NAMED(ACCENT##LETTER, ACCENT, LETTER)
+			MACRO(ACCENT##LETTER,      <M_KP ACCENT>, M_REL_SHIFT,  <M_KP LETTER>) \
+			\
+			MACRO(cw_##ACCENT##LETTER, <M_KP ACCENT>, M_HOLD_SHIFT, <M_KP LETTER>, M_REL_SHIFT)
 
 
-		#define MACRO_ACCENT_DOUBLE(ACCENT, FIRST, SECOND) \
+		#define MACRO_ACCENT_DIGRAM(ACCENT, FIRST, SECOND) \
 			MACRO(     ACCENT##FIRST##SECOND, <M_KP ACCENT>,               <M_KP FIRST>, M_REL_SHIFT, <M_KP SECOND>) \
+			\
+			MACRO(up_##ACCENT##FIRST##SECOND, <M_KP ACCENT>, M_HOLD_SHIFT, <M_KP FIRST>, M_REL_SHIFT, <M_KP SECOND>) \
 			\
 			MACRO(cw_##ACCENT##FIRST##SECOND, <M_KP ACCENT>, M_HOLD_SHIFT, <M_KP FIRST>,              <M_KP SECOND>,  M_REL_SHIFT)
 
 
 
-	 //
-	 // TODO
-	 //
-	 // MACRO_ACCENT_NAMED(SZTT,     SZTTMOD_,   S_)
+
 		MACRO_TAP(    SZTT,  &kp RA(S_)  &kp    S_ )
 		MACRO_TAP( cw_SZTT,  &kp RA(S_)  &kp LS(S_))
 
@@ -222,6 +224,7 @@
 	 //
 	 // INCONVENIENT DIGRAMS ------------------
 	 // also defines a caps version (eg &m_cw_Q_U_)
+	 //    and an uppercase version (eg &m_up_Q_U_)
 	 //
 		MACRO_DIGRAM(Q_, U_)
 		MACRO_DIGRAM(B_, J_)
@@ -230,6 +233,7 @@
 	 //
 	 // ACCENTED LETTERS ------------------
 	 // also defines a caps version (eg &m_cw_ACUT_A_)
+	 //    and an uppercase version (eg &m_up_ACUT_A_)
 	 //
 		MACRO_ACCENT_SINGLE( ACUT_, A_ )
 		MACRO_ACCENT_SINGLE( ACUT_, I_ )
@@ -249,9 +253,9 @@
 		MACRO_ACCENT_SINGLE( TILD_, A_ )
 		MACRO_ACCENT_SINGLE( TILD_, O_ )
 		MACRO_ACCENT_SINGLE( TILD_, N_ )
-		MACRO_ACCENT_DOUBLE( TILD_, A_, E_ )
-		MACRO_ACCENT_DOUBLE( TILD_, A_, O_ )
-		MACRO_ACCENT_DOUBLE( TILD_, O_, E_ )
+		MACRO_ACCENT_DIGRAM( TILD_, A_, E_ )
+		MACRO_ACCENT_DIGRAM( TILD_, A_, O_ )
+		MACRO_ACCENT_DIGRAM( TILD_, O_, E_ )
 
 		MACRO_ACCENT_SINGLE( TRMA_, I_ )
 
@@ -285,7 +289,8 @@
 		MACRO_TAP( cw_ESC,  &kp ESC    &to _l_BASE )
 
 	 // capsword off + hold layer
-		MACRO( mo_cw_l_NAV,   < M_TAP  &to _l_BASE  &tog _l_NAV  &tog _l_NAVC >,   <M_WAIT_REL>,  < M_TAP  &to _l_BASE > )
+		// MACRO( mo_cw_l_NAV,   < M_HOLD  &mo _l_NAV   &mo _l_NAVC >,  <M_WAIT_REL>,  < M_REL  &mo _l_NAV  &mo _l_NAVC >,  < M_TAP  &to _l_BASE > )
+		MACRO( mo_cw_l_NAV,   < M_TAP  &to _l_NAV >,  <M_WAIT_REL>,  < M_TAP  &to _l_BASE > )
 		
 	 // capsword off + one-shot layer
 		MACRO( sl_cw_l_SYM,   < M_TAP  &to _l_BASE  &sl _l_SYM  > )
@@ -324,7 +329,6 @@
 		MACRO( utl_SATAB,   <HOLD_ALT>,  <M_KP  LS(TAB)> ) //  so that we can do alt-tab etc
 		MACRO(  utl_CTAB,  <HOLD_CTRL>,  <M_KP     TAB > ) //  several times in a row without
 		MACRO( utl_SCTAB,  <HOLD_CTRL>,  <M_KP  LS(TAB)> ) //  dropping the little window
-
 
 	};
 
@@ -390,7 +394,12 @@
 		COMBO_MACRO(  _l_BASE,      TILD_A_E_,,        13 30 ) /* ãe */
 		COMBO_MACRO(  _l_BASE,      TILD_A_O_,,        13 11 ) /* ão */
 		COMBO_MACRO(  _l_BASE,      TILD_O_E_,,        11 30 ) /* õe */
-					 								   	 
+		
+		COMBO_MACRO(  _l_OSCP,      up_Q_U_,,          26 27 ) /* Qu */
+		COMBO_MACRO(  _l_OSCP,      up_TILD_A_E_,,     13 30 ) /* Ãe */
+		COMBO_MACRO(  _l_OSCP,      up_TILD_A_O_,,     13 11 ) /* Ão */
+		COMBO_MACRO(  _l_OSCP,      up_TILD_O_E_,,     11 30 ) /* Õe */
+					 								   	
 		COMBO_MACRO( _ll_CPWD,      cw_Q_U_,,          26 27 ) /* QU */
 		COMBO_MACRO( _ll_CAPS,      cw_TILD_A_E_,,     13 30 ) /* ÃE */
 		COMBO_MACRO( _ll_CAPS,      cw_TILD_A_O_,,     13 11 ) /* ÃO */
