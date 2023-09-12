@@ -214,8 +214,7 @@
 
 
 
-		MACRO_TAP(    SZTT,  &kp RA(S_)  &kp    S_ )
-		MACRO_TAP( cw_SZTT,  &kp RA(S_)  &kp LS(S_))
+
 
 
 	 //
@@ -260,42 +259,47 @@
 	 //
 	 // NBSP STUFF (for french) ------------------
 	 //
-		MACRO_TAP( nbsp_QMRK,  &kp NBSP_  &kp QMRK_ )
-		MACRO_TAP( nbsp_EXCL,  &kp NBSP_  &kp EXCL_ )
-		MACRO_TAP( nbsp_COLN,  &kp NBSP_  &kp COLN_  &kp SPACE )
-		MACRO_TAP( nbsp_SCLN,  &kp NBSP_  &kp SCLN_  &kp SPACE )
-		MACRO_TAP( nbsp_RGLM,  &kp NBSP_  &kp RGLM_ )
-		MACRO_TAP( nbsp_LGLM,  &kp LGLM_  &kp NBSP_ )
+		MACRO_TAP( nbsp_QMRK,   &kp NBSP_  &kp QMRK_  &to _l_BASE ) // goes back to _l_BASE if _l_CAPS was on
+		MACRO_TAP( nbsp_EXCL,   &kp NBSP_  &kp EXCL_              )
+		MACRO_TAP( nbsp_COLN,   &kp NBSP_  &kp COLN_  &kp SPACE   )
+		MACRO_TAP( nbsp_SCLN,   &kp NBSP_  &kp SCLN_  &kp SPACE   )
+		MACRO_TAP( nbsp_RGLM,   &kp NBSP_  &kp RGLM_              )
+		MACRO_TAP( nbsp_LGLM,   &kp LGLM_  &kp NBSP_              )
 
 
 	 //
 	 // LOOSE ACCENTS ------------------
 	 //
-		MACRO_TAP( CFX_loose,  &kp CFLX_  &kp SPACE )
-		MACRO_TAP( GRV_loose,  &kp GRAV_  &kp SPACE )
-		MACRO_TAP( TLD_loose,  &kp TILD_  &kp SPACE )
+		MACRO_TAP( CFX_loose,   &kp CFLX_  &kp SPACE )
+		MACRO_TAP( GRV_loose,   &kp GRAV_  &kp SPACE )
+		MACRO_TAP( TLD_loose,   &kp TILD_  &kp SPACE )
 
+	 //
+	 // ESZETT ------------------
+	 //
+		MACRO_TAP(    SZTT,   &kp RA(S_)  &kp    S_ )
+		MACRO_TAP( cw_SZTT,   &kp RA(S_)  &kp LS(S_))
 
 	 //
 	 // CAPSWORD ------------------
 	 //
 	 // key -> capsword off
-		MACRO_TAP( cw_SPC,  &kp SPACE  &to _l_BASE )
-		MACRO_TAP( cw_TAB,  &kp TAB    &to _l_BASE )
-		MACRO_TAP( cw_ENTR, &kp ENTER  &to _l_BASE )
-		MACRO_TAP( cw_ESC,  &kp ESC    &to _l_BASE )
+		MACRO_TAP( cw_SPC,   &kp SPACE  &to _l_BASE )
+		MACRO_TAP( cw_TAB,   &kp TAB    &to _l_BASE )
+		MACRO_TAP( cw_ENTR,  &kp ENTER  &to _l_BASE )
+		MACRO_TAP( cw_ESC,   &kp ESC    &to _l_BASE )
 
 	 // capsword off + hold layer
 		MACRO( mo_cw_l_NAV,   < M_TAP  &to _l_NAV >,  <M_WAIT_REL>,  < M_TAP  &to _l_BASE > )
 		
 	 // capsword off + one-shot layer
-		MACRO( sl_cw_l_SYM,   < M_TAP  &to _l_BASE  &sl _l_SYM  > )
-		MACRO( sl_cw_l_ACNT,  < M_TAP  &to _l_BASE  &sl _l_ACNT > )
+		MACRO( sl_cw_l_SYM,    < M_TAP  &to _l_BASE  &sl _l_SYM  > )
+		MACRO( sl_cw_l_ACNT,   < M_TAP  &to _l_BASE  &sl _l_ACNT > )
 
 	 // new sentence
-	    MACRO_TAP(   oneshotCAPS,                       &sl _l_OSCP )
-		MACRO_TAP(     SPC_upper,            &kp SPACE  &sl _l_OSCP         )
-		MACRO_TAP( DOT_SPC_upper,  &kp DOT_  &kp SPACE  &sl _l_OSCP         )
+	    MACRO_TAP(   oneshotCAPS,                        &sl _l_OSCP )
+		MACRO_TAP(     SPC_upper,             &kp SPACE  &sl _l_OSCP )
+		MACRO_TAP( DOT_SPC_upper,   &kp DOT_  &kp SPACE  &sl _l_OSCP )
 
 
 	 //
@@ -486,8 +490,8 @@
 
 		caps_layer { // TODO leave layer when using home row mods
 			bindings = <
-				&kp  LS(Q_)   &kp  MIN_       &kp  LS(Y_)   &kp  DOT_         EXCL_QMRK           &kp LS(K_)       &kp  LS(C_)   &kp  LS(H_)   &kp  LS(W_)   &kp  LS(J_)
-				HMLG LS(U_)   HMLA LS(O_)	  HMLC LS(I_)   HMLS LS(A_)       &kp LS(F_)          &kp LS(G_)       HMRS LS(T_)   HMRC LS(R_)   HMRA LS(S_)   HMRG LS(N_)
+				&kp  LS(Q_)   &kp  MIN_       &kp  LS(Y_)   &kp  DOT_         NBSP_QMRK           &kp LS(K_)       &kp  LS(C_)   &kp  LS(H_)   &kp  LS(W_)   &kp  LS(J_)
+				HMLG LS(U_)   HMLA LS(&trans)	  HMLC LS(I_)   HMLS LS(A_)       &kp LS(F_)          &kp LS(G_)       HMRS LS(T_)   HMRC LS(R_)   HMRA LS(S_)   HMRG LS(N_)
 				&kp  LS(Z_)   HMRA LS(EACT_)  &kp  LS(P_)   &kp  COMM_        &kp LS(X_)          &kp LS(V_)       &kp  LS(D_)   &kp  LS(M_)   HMLA LS(L_)   &kp  LS(B_)
 				//
 														    lt_NUM_E_cw   lsl_SYM_cw                 lsl_ACCP   lt_NAV_SPC_cw
@@ -502,7 +506,7 @@
 				&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
 				&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
 				                     &trans  &trans             &trans  &trans
-				// &kp  LS(Q_)   &kp  MIN_       &kp  LS(Y_)   &kp  DOT_         EXCL_QMRK           &kp LS(K_)       &kp  LS(C_)   &kp  LS(H_)   &kp  LS(W_)   &kp  LS(J_)
+				// &kp  LS(Q_)   &kp  MIN_       &kp  LS(Y_)   &kp  DOT_         NBSP_QMRK           &kp LS(K_)       &kp  LS(C_)   &kp  LS(H_)   &kp  LS(W_)   &kp  LS(J_)
 				// HMLG LS(U_)   HMLA LS(O_)	  HMLC LS(I_)   HMLS LS(A_)       &kp LS(F_)          &kp LS(G_)       HMRS LS(T_)   HMRC LS(R_)   HMRA LS(S_)   HMRG LS(N_)
 				// &kp  LS(Z_)   HMRA LS(EACT_)  &kp  LS(P_)   &kp  COMM_        &kp LS(X_)          &kp LS(V_)       &kp  LS(D_)   &kp  LS(M_)   HMLA LS(L_)   &kp  LS(B_)
 				
