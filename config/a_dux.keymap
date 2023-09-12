@@ -488,24 +488,27 @@
 			>;
 		};
 
-		caps_layer { // TODO leave layer when using home row mods
-			bindings = <
-				&kp  LS(Q_)   &kp  MIN_       &kp  LS(Y_)   &kp  DOT_         NBSP_QMRK           &kp LS(K_)       &kp  LS(C_)   &kp  LS(H_)   &kp  LS(W_)   &kp  LS(J_)
-				HMLG LS(U_)   HMLA LS(&trans)	  HMLC LS(I_)   HMLS LS(A_)       &kp LS(F_)          &kp LS(G_)       HMRS LS(T_)   HMRC LS(R_)   HMRA LS(S_)   HMRG LS(N_)
-				&kp  LS(Z_)   HMRA LS(EACT_)  &kp  LS(P_)   &kp  COMM_        &kp LS(X_)          &kp LS(V_)       &kp  LS(D_)   &kp  LS(M_)   HMLA LS(L_)   &kp  LS(B_)
-				//
+#define CPLAYER &kp  LS(Q_)   &kp  MIN_       &kp  LS(Y_)   &kp  DOT_         NBSP_QMRK           &kp LS(K_)       &kp  LS(C_)   &kp  LS(H_)   &kp  LS(W_)   &kp  LS(J_)\
+				HMLG LS(U_)   HMLA LS(U_)	  HMLC LS(I_)   HMLS LS(A_)       &kp LS(F_)          &kp LS(G_)       HMRS LS(T_)   HMRC LS(R_)   HMRA LS(S_)   HMRG LS(N_)\
+				&kp  LS(Z_)   HMRA LS(EACT_)  &kp  LS(P_)   &kp  COMM_        &kp LS(X_)          &kp LS(V_)       &kp  LS(D_)   &kp  LS(M_)   HMLA LS(L_)   &kp  LS(B_)\
+				\/\/\
 														    lt_NUM_E_cw   lsl_SYM_cw                 lsl_ACCP   lt_NAV_SPC_cw
 														     //  --- both leave CAPS ---     doesn't leave   leaves
+															 
+		caps_layer { // TODO leave layer when using home row mods
+			bindings = <
+				CPLAYER
 			>;
 		};
 		
 		// just doesn't do the QU combo
 		oneshotcaps {
 			bindings = <
-				&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
-				&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
-				&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
-				                     &trans  &trans             &trans  &trans
+				CPLAYER
+				// &trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
+				// &trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
+				// &trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
+				                     // &trans  &trans             &trans  &trans
 				// &kp  LS(Q_)   &kp  MIN_       &kp  LS(Y_)   &kp  DOT_         NBSP_QMRK           &kp LS(K_)       &kp  LS(C_)   &kp  LS(H_)   &kp  LS(W_)   &kp  LS(J_)
 				// HMLG LS(U_)   HMLA LS(O_)	  HMLC LS(I_)   HMLS LS(A_)       &kp LS(F_)          &kp LS(G_)       HMRS LS(T_)   HMRC LS(R_)   HMRA LS(S_)   HMRG LS(N_)
 				// &kp  LS(Z_)   HMRA LS(EACT_)  &kp  LS(P_)   &kp  COMM_        &kp LS(X_)          &kp LS(V_)       &kp  LS(D_)   &kp  LS(M_)   HMLA LS(L_)   &kp  LS(B_)
