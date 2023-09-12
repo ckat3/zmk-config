@@ -481,7 +481,6 @@
 	 // mod on hold, loose accent on tap
 		#define HMRS_CFX__   &ht_CFX   LSHIFT  0
 		#define HMRC_GRV__   &ht_GRV   LCTRL   0
-	 // #define HMRA_xxx__   &ht_xxx   LALT    0
 		#define HMRG_TLD__   &ht_TLD   LGUI    0
 
 		num_layer {
@@ -501,8 +500,8 @@
 				HMLG LCUR_   HMLA RCUR_   HMLC LPAR_   HMLS RPAR_      &kp SCLN_             &kp  COLN_     HMRS_CFX__   HMRC_GRV__   &kp RALT     HMRG_TLD__
 			    &kp  NDSH_   HMRA MDSH_   NBSP_LGLM    NBSP_RGLM       &kp COMM_             &kp  DOT_      _________    _________    &kp LALT     &kp BSLA_
 			//
-								                                ______   &kp ESC             &kp NBSP_   &trans
-													       // double tap //
+								                              ______   &kp ENTER             &kp NBSP_   &trans
+													                // double tap //
 			>;
 		};
 
