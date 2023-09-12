@@ -428,7 +428,7 @@
 	 // READABILITY ------------------
 		#define impossible  &none // physically impossible
 		#define _________   &none
-		#define _____       &none
+		#define ______       &none
 
 
 	 // HOME-ROW MODS ------------------
@@ -491,8 +491,8 @@
 #define CAPSDEF &kp    LS(Q_)   &kp  MIN_       &kp  LS(Y_)   &kp  DOT_         NBSP_QMRK           &kp LS(K_)       &kp  LS(C_)   &kp  LS(H_)   &kp  LS(W_)   &kp  LS(J_)\
 				UTLAYR LS(U_)   HMLA LS(U_)	    HMLC LS(I_)   HMLS LS(A_)       &kp LS(F_)          &kp LS(G_)       HMRS LS(T_)   HMRC LS(R_)   HMRA LS(S_)   HMRG LS(N_)\
 				&kp    LS(Z_)   HMRA LS(EACT_)  &kp  LS(P_)   &kp  COMM_        &kp LS(X_)          &kp LS(V_)       &kp  LS(D_)   &kp  LS(M_)   HMLA LS(L_)   &kp  LS(B_)\
-														      lt_NUM_E_cw   lsl_SYM_cw                 lsl_ACCP   lt_NAV_SPC_cw
-														     //  --- both leave CAPS ---     doesn't leave   leaves
+														      lt_NUM_E_cw   lsl_SYM_cw                  lsl_ACCP   lt_NAV_SPC_cw
+														     //  --- both leave CAPS ---             doesn't leave     leaves
 															 
 		caps_layer { // TODO leave layer when using home row mods
 			bindings = <
@@ -504,16 +504,6 @@
 		oneshotcaps {
 			bindings = <
 				CAPSDEF
-				// &trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
-				// &trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
-				// &trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
-				                     // &trans  &trans             &trans  &trans
-				// &kp  LS(Q_)   &kp  MIN_       &kp  LS(Y_)   &kp  DOT_         NBSP_QMRK           &kp LS(K_)       &kp  LS(C_)   &kp  LS(H_)   &kp  LS(W_)   &kp  LS(J_)
-				// HMLG LS(U_)   HMLA LS(O_)	  HMLC LS(I_)   HMLS LS(A_)       &kp LS(F_)          &kp LS(G_)       HMRS LS(T_)   HMRC LS(R_)   HMRA LS(S_)   HMRG LS(N_)
-				// &kp  LS(Z_)   HMRA LS(EACT_)  &kp  LS(P_)   &kp  COMM_        &kp LS(X_)          &kp LS(V_)       &kp  LS(D_)   &kp  LS(M_)   HMLA LS(L_)   &kp  LS(B_)
-				
-														        // lt_NUM_E_cw   lsl_SYM_cw          lsl_ACCP   lt_NAV_SPC_cw
-														     //  --- both leave CAPS ---     doesn't leave   leaves
 			>;
 		};
 
@@ -541,11 +531,11 @@
 
 		sym_layer {
 			bindings = <
-				&kp  PIPE_   &kp  AT_     &kp  AE_    &kp  OE_        NBSP_EXCL           _________       &kp  LBRK_   &kp  RBRK_   &kp  AMPR_  DLLR_EURO
-				HMLG LCUR_   HMLA RCUR_   HMLC LPAR_  HMLS RPAR_      &kp  SCLN_          &kp  COLN_      HMRS_CFX__   HMRC_GRV__   &kp  RALT   HMRG_TLD__
-				&kp  NDSH_   HMRA MDSH_   NBSP_LGLM   NBSP_RGLM       &kp  COMM_          &kp  DOT_       _________    _________    &kp  LALT   &kp  BSLA_
+				&kp  PIPE_   &kp  AT_     &kp  AE_    &kp  OE_       NBSP_EXCL           _________      &kp  LBRK_   &kp  RBRK_   &kp  AMPR_  DLLR_EURO
+				HMLG LCUR_   HMLA RCUR_   HMLC LPAR_  HMLS RPAR_     &kp  SCLN_          &kp  COLN_     HMRS_CFX__   HMRC_GRV__   &kp  RALT   HMRG_TLD__
+				&kp  NDSH_   HMRA MDSH_   NBSP_LGLM   NBSP_RGLM      &kp  COMM_          &kp  DOT_      _________    _________    &kp  LALT   &kp  BSLA_
 				//u
-								                      _________   &kp ESC                       &kp NBSP_   &kp  SPC
+								                      _________   &kp ESC                     &kp NBSP_   &kp  SPC
 													                // double tap //
 			>;
 		};
@@ -557,7 +547,7 @@
 				impossible   &m_utl_GTAB  &m_utl_SATAB  &m_utl_ATAB      &m_utl_REDO         &trans     &trans  &trans  &trans  &trans
 				impossible   &trans       &m_utl_SCTAB  &m_utl_CTAB      &m_utl_UNDO         &trans     &trans  &trans  &trans  &trans
 				//
-			                                            &m_utl_STAB   &m_utl_ULIN              _____   &kp SPC
+			                                            &m_utl_STAB   &m_utl_ULIN          _________   &kp SPC
 			>;
 		};
 
@@ -654,15 +644,22 @@
 
 
 	 // -------------------
-	 // DEBUGGING LAYER
+	 // DEBUGGING LAYERS
 	 // -------------------
 	 /*
 	 	bindings = <
-	 		_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
-	 		_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
-	 		_____ _____ _____ _____   _____         _____   _____ _____ _____ _____
-	 	                   _____   _____         _____   _____
+	 		______ ______ ______ ______    ______         ______    ______ ______ ______ _____
+	 		______ ______ ______ ______    ______         ______    ______ ______ ______ _____
+	 		______ ______ ______ ______    ______         ______    ______ ______ ______ _____
+	 	                         ______   ______           ______   ______
 	 	>;
+		
+	 	bindings = <
+			______ &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
+			&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
+			&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
+			                     &trans  &trans             &trans  &trans
+		>;
 	 */
 	};
 };
