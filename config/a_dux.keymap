@@ -189,19 +189,18 @@
 		// MACRO_DIGRAM : tap a key, release shift if held, tap another
 		//                (so can eg hold shift and do &m_Q_U_ to get Qu)
 		//                also defines a capsword version which holds shift during both
-		// TODO rename "cw_" prefix (to up_ or cp_)
 		#define MACRO_DIGRAM(FIRST, SECOND) \
 			MACRO(FIRST##SECOND,                     <M_KP FIRST>, M_REL_SHIFT, <M_KP SECOND>) \
 			\
 			MACRO(up_##FIRST##SECOND,  M_HOLD_SHIFT, <M_KP FIRST>, M_REL_SHIFT, <M_KP SECOND>) \
 			\
-			MACRO(cw_##FIRST##SECOND,  M_HOLD_SHIFT, <M_KP FIRST>,              <M_KP SECOND>,  M_REL_SHIFT)
+			MACRO(cp_##FIRST##SECOND,  M_HOLD_SHIFT, <M_KP FIRST>,              <M_KP SECOND>,  M_REL_SHIFT)
 
 
 		#define MACRO_ACCENT_SINGLE(ACCENT, LETTER) \
 			MACRO(ACCENT##LETTER,      <M_KP ACCENT>, M_REL_SHIFT,  <M_KP LETTER>) \
 			\
-			MACRO(cw_##ACCENT##LETTER, <M_KP ACCENT>, M_HOLD_SHIFT, <M_KP LETTER>, M_REL_SHIFT)
+			MACRO(cp_##ACCENT##LETTER, <M_KP ACCENT>, M_HOLD_SHIFT, <M_KP LETTER>, M_REL_SHIFT)
 
 
 		#define MACRO_ACCENT_DIGRAM(ACCENT, FIRST, SECOND) \
@@ -209,7 +208,7 @@
 			\
 			MACRO(up_##ACCENT##FIRST##SECOND, <M_KP ACCENT>, M_HOLD_SHIFT, <M_KP FIRST>, M_REL_SHIFT, <M_KP SECOND>) \
 			\
-			MACRO(cw_##ACCENT##FIRST##SECOND, <M_KP ACCENT>, M_HOLD_SHIFT, <M_KP FIRST>,              <M_KP SECOND>,  M_REL_SHIFT)
+			MACRO(cp_##ACCENT##FIRST##SECOND, <M_KP ACCENT>, M_HOLD_SHIFT, <M_KP FIRST>,              <M_KP SECOND>,  M_REL_SHIFT)
 
 
 
@@ -219,7 +218,7 @@
 
 	 //
 	 // INCONVENIENT DIGRAMS ------------------
-	 // also defines a caps version (eg &m_cw_Q_U_)
+	 // also defines a caps version (eg &m_cp_Q_U_)
 	 //    and an uppercase version (eg &m_up_Q_U_)
 	 //
 		MACRO_DIGRAM(Q_, U_)
@@ -228,7 +227,7 @@
 
 	 //
 	 // ACCENTED LETTERS ------------------
-	 // also defines a caps version (eg &m_cw_ACUT_A_)
+	 // also defines a caps version (eg &m_cp_ACUT_A_)
 	 //    and an uppercase version (eg &m_up_ACUT_A_)
 	 //
 		MACRO_ACCENT_SINGLE( ACUT_, A_ )
@@ -278,7 +277,7 @@
 	 // ESZETT ------------------
 	 //
 		MACRO_TAP(    SZTT,   &kp RA(S_)  &kp    S_ )
-		MACRO_TAP( cw_SZTT,   &kp RA(S_)  &kp LS(S_))
+		MACRO_TAP( cp_SZTT,   &kp RA(S_)  &kp LS(S_))
 
 	 //
 	 // CAPSWORD ------------------
@@ -298,8 +297,8 @@
 
 	 // new sentence
 	    MACRO_TAP(   oneshotCAPS,                        &sl _l_OSCP )
-		MACRO_TAP(     SPC_upper,             &kp SPACE  &sl _l_OSCP )
-		MACRO_TAP( DOT_SPC_upper,   &kp DOT_  &kp SPACE  &sl _l_OSCP )
+		MACRO_TAP(     SPC_oscp,             &kp SPACE  &sl _l_OSCP )
+		MACRO_TAP( DOT_SPC_oscp,   &kp DOT_  &kp SPACE  &sl _l_OSCP )
 
 
 	 //
@@ -368,50 +367,47 @@
 	                30  31   |   32  33
 	*/
 
-		// one-shot caps
-		COMBO(   _ll_DEFAULT,   &m_oneshotCAPS,     11 12 13 ,    gibberishName_dljauiqsrt)
-		COMBO(   _ll_DEFAULT,   &m_oneshotCAPS,     16 17 18 ,    gibberishName_dljoiadiuaisrt)
-		COMBO(   _ll_DEFAULT,   &m_SPC_upper,        1  2  3 ,    gibberishName_diaoadiqsrt)
-		COMBO(   _ll_DEFAULT,   &m_DOT_SPC_upper,   21 22 23 ,    gibberishName_dljoopoadiqsrt)
 												     
-		// lh                                        
-		COMBO_KP(_ll_DEFAULT,       BSPC,,             11 12 )
-		COMBO(   _ll_DEFAULT,   &kp LC(Z_),            20 21 ,    gibberishName_dljoiadiqsrt)
-		COMBO_KP(_ll_DEFAULT,       DEL,,              21 22 )
-		COMBO_KP(_ll_DEFAULT,       SPACE,,            22 23 )
-											  	          
-		// rh                                               
-		COMBO(   _ll_DEFAULT,   &kp LC(BSPC),          17 18 ,    gibberishName_dljsdiooooisrt)
-		COMBO(   _ll_DEFAULT,   &kp LC(DEL),           27 28 ,    gibberishName_dljsdaioaort)
-
-		// one-shot shift on both thumb keys at once
-		// TODO remove?
-		COMBO(   _ll_DEFAULT,  &lsk _l_FUNC  LSHIFT,   30 31 ,    gibberishName_dljsdiqsrt)
-		COMBO(   _ll_DEFAULT,   &sk          RSHIFT,   32 33 ,    gibberishName_sqljqrjqsl)
-												  
-		// TODO  merge these?                     
-		COMBO_MACRO( _l_BASE,      Q_U_,,             26 27 ) /* qu */
-		COMBO_MACRO( _l_BASE,      TILD_A_E_,,        13 30 ) /* ãe */
-		COMBO_MACRO( _l_BASE,      TILD_A_O_,,        13 11 ) /* ão */
-		COMBO_MACRO( _l_BASE,      TILD_O_E_,,        11 30 ) /* õe */
+		// left hand                                       
 		
-		COMBO_MACRO( _l_OSCP,      up_Q_U_,,          26 27 ) /* Qu */
-		COMBO_MACRO( _l_OSCP,      up_TILD_A_E_,,     13 30 ) /* Ãe */
-		COMBO_MACRO( _l_OSCP,      up_TILD_A_O_,,     13 11 ) /* Ão */
-		COMBO_MACRO( _l_OSCP,      up_TILD_O_E_,,     11 30 ) /* Õe */
-					 								   	
-		COMBO_MACRO( _l_CAPS,      cw_Q_U_,,          26 27 ) /* QU */
-		COMBO_MACRO( _l_CAPS,      cw_TILD_A_E_,,     13 30 ) /* ÃE */
-		COMBO_MACRO( _l_CAPS,      cw_TILD_A_O_,,     13 11 ) /* ÃO */
-		COMBO_MACRO( _l_CAPS,      cw_TILD_O_E_,,     11 30 ) /* ÕE */
-												      
-		// tab, enter, esc                            
-		COMBO_KP(    _ll_NOTCAPS,   TAB,,              12 13 )
-		COMBO_KP(    _ll_NOTCAPS,   ENTER,,            16 17 )
-		COMBO_KP(    _ll_NOTCAPS,   ESC,,              10 11 )									 				  
-		COMBO_MACRO( _ll_CAPS,      cw_TAB,,           12 13 )
-		COMBO_MACRO( _ll_CAPS,      cw_ENTR,,          16 17 )
-		COMBO_MACRO( _ll_CAPS,      cw_ESC,,           10 11 )
+		COMBO_KP( _ll_DEFAULT,       BSPC,,               11 12 )		
+		COMBO(    _ll_DEFAULT,   &kp LC(Z_),              20 21 ,    gibberishName_dljoiadiqsrt)
+		COMBO_KP( _ll_DEFAULT,       DEL,,                21 22 )
+		COMBO_KP( _ll_DEFAULT,       SPACE,,              22 23 )	
+		COMBO(    _ll_DEFAULT,    &m_DOT_SPC_oscp,      1  2  3 ,    gibberishName_diaoadiqsrt)
+		COMBO(    _ll_DEFAULT,    &m_oneshotCAPS,      11 12 13 ,    gibberishName_dljauiqsrt)	
+		COMBO(    _ll_DEFAULT,    &m_SPC_oscp,         21 22 23 ,    gibberishName_dljoopoadiqsrt)
+		COMBO(    _ll_DEFAULT,  &lsl _l_FUNC _l_FUNC,     30 31 ,    gibberishName_dljsdiqsrt)
+											  	          
+		// right hand                                        
+		COMBO(    _ll_DEFAULT,   &kp LC(BSPC),            17 18 ,    gibberishName_dljsdiooooisrt)
+		COMBO(    _ll_DEFAULT,   &kp LC(DEL),             27 28 ,    gibberishName_dljsdaioaort)
+		COMBO(    _ll_DEFAULT,    &m_oneshotCAPS,      16 17 18 ,    gibberishName_dljoiadiuaisrt)										
+		COMBO(    _ll_DEFAULT,    &m_DOT_SPC_oscp,        32 33 ,    gibberishName_sqljqrjqsl) // TODO: which m_DOT_SPC_oscp is better?  
+		
+		// TODO  merge these?                     
+		COMBO_MACRO(  _l_BASE,       Q_U_,,               26 27 )  /* qu */
+		COMBO_MACRO(  _l_BASE,       TILD_A_E_,,          13 30 )  /* ãe */
+		COMBO_MACRO(  _l_BASE,       TILD_A_O_,,          13 11 )  /* ão */
+		COMBO_MACRO(  _l_BASE,       TILD_O_E_,,          11 30 )  /* õe */
+					  							  	 	    
+		COMBO_MACRO(  _l_OSCP,    up_Q_U_,,               26 27 )  /* Qu */
+		COMBO_MACRO(  _l_OSCP,    up_TILD_A_E_,,          13 30 )  /* Ãe */
+		COMBO_MACRO(  _l_OSCP,    up_TILD_A_O_,,          13 11 )  /* Ão */
+		COMBO_MACRO(  _l_OSCP,    up_TILD_O_E_,,          11 30 )  /* Õe */
+					  							  	  	     
+		COMBO_MACRO(  _l_CAPS,    cp_Q_U_,,               26 27 )  /* QU */
+		COMBO_MACRO(  _l_CAPS,    cp_TILD_A_E_,,          13 30 )  /* ÃE */
+		COMBO_MACRO(  _l_CAPS,    cp_TILD_A_O_,,          13 11 )  /* ÃO */
+		COMBO_MACRO(  _l_CAPS,    cp_TILD_O_E_,,          11 30 )  /* ÕE */
+												         
+		// tab, enter, esc                               
+		COMBO_KP(    _ll_NOTCAPS,      TAB,,              12 13 )
+		COMBO_KP(    _ll_NOTCAPS,      ENTER,,            16 17 )
+		COMBO_KP(    _ll_NOTCAPS,      ESC,,              10 11 )									 				  
+		COMBO_MACRO( _ll_CAPS,      cw_TAB,,              12 13 )
+		COMBO_MACRO( _ll_CAPS,      cw_ENTR,,             16 17 )
+		COMBO_MACRO( _ll_CAPS,      cw_ESC,,              10 11 )
 									 				 	 
 		// function layer
 		COMBO( _l_FUNC,   &sys_reset,      0  4 ,   gibberishName_aiouaiouaiou)
@@ -428,7 +424,7 @@
 	 // READABILITY ------------------
 		#define impossible  &none // physically impossible
 		#define _________   &none
-		#define ______       &none
+		#define ______      &none
 
 
 	 // HOME-ROW MODS ------------------
@@ -520,11 +516,11 @@
 
 		num_layer {
 			bindings = <
-				&kp  PIPE_    &kp N7_      &kp N8_     &kp N9_        EXCL_QMRK         DLLR_EURO        &kp  LBRK_   &kp  RBRK_   &kp  HASH_   &kp  PCNT_
-				&kp  N0_      &kp N1_      &kp N2_     &kp N3_        &kp SCLN_         &kp COLN_        HMRS PLUS_   HMRC MIN_    HMLA STAR_   HMRG FSLA_
-				HMLC ULIN_    &kp N4_      &kp N5_     &kp N6_        &kp COMM_         &kp DOT_         &kp  LT_     &kp  GT_     EQUL_DIFF    &kp  BSLA_
+				&kp  PIPE_    &kp N7_      &kp N8_     &kp N9_     EXCL_QMRK         DLLR_EURO     &kp  LBRK_   &kp  RBRK_   &kp  HASH_   &kp  PCNT_
+				&kp  N0_      &kp N1_      &kp N2_     &kp N3_     &kp SCLN_         &kp COLN_     HMRS PLUS_   HMRC MIN_    HMLA STAR_   HMRG FSLA_
+				HMLC ULIN_    &kp N4_      &kp N5_     &kp N6_     &kp COMM_         &kp DOT_      &kp  LT_     &kp  GT_     EQUL_DIFF    &kp  BSLA_
 				//
-				                                       impossible   impossible                  &kp ULIN_   &kp SPC
+				                                       impossible   impossible             &kp ULIN_   &trans
 			>;
 		};
 
@@ -535,8 +531,8 @@
 				HMLG LCUR_   HMLA RCUR_   HMLC LPAR_  HMLS RPAR_     &kp  SCLN_          &kp  COLN_     HMRS_CFX__   HMRC_GRV__   &kp  RALT   HMRG_TLD__
 				&kp  NDSH_   HMRA MDSH_   NBSP_LGLM   NBSP_RGLM      &kp  COMM_          &kp  DOT_      _________    _________    &kp  LALT   &kp  BSLA_
 				//u
-								                      _________   &kp ESC                     &kp NBSP_   &kp  SPC
-													                // double tap //
+								                      _________   &kp ESC                       &kp NBSP_   &trans
+													          // double tap //
 			>;
 		};
 
@@ -547,7 +543,7 @@
 				impossible   &m_utl_GTAB  &m_utl_SATAB  &m_utl_ATAB      &m_utl_REDO         &trans     &trans  &trans  &trans  &trans
 				impossible   &trans       &m_utl_SCTAB  &m_utl_CTAB      &m_utl_UNDO         &trans     &trans  &trans  &trans  &trans
 				//
-			                                            &m_utl_STAB   &m_utl_ULIN          _________   &kp SPC
+			                                            &m_utl_STAB   &m_utl_ULIN          _________   &trans
 			>;
 		};
 
@@ -583,19 +579,19 @@
  MACRO_ROW_5(,    ACUT_U_,   ACUT_O_,   ACUT_I_,   ACUT_A_,      TILD_A_ )            _________     HMRS CFLX_  HMRC GRAV_  HMLA ACUT_   &m_TILD_N_
  MACRO_ROW_3(,    GRAV_U_,   TILD_O_,   TRMA_I_ )  &kp AGRV_     _________            _________     &kp  TRMA_  _________     &m_SZTT   &kp TILD_
 				//
-												   &m_CFLX_E_   &kp EGRV_                _________   _________
-													                                 // double tap //
+												   &m_CFLX_E_   &kp EGRV_                   _________   &trans
+													                                     // double tap //
 			>;
 		};
 
 		accent_caps_layer {
 			bindings = <
- MACRO_ROW_4(cw_, CFLX_U_,   CFLX_O_,   CFLX_I_,   CFLX_A_ )      _________         _________     &kp LS(CCED_)  &kp  APST_  &kp   QUOT_  &m_cw_B_J_
- MACRO_ROW_5(cw_, ACUT_U_,   ACUT_O_,   ACUT_I_,   ACUT_A_,       TILD_A_ )         _________     HMRS   ACUT_   HMRC CFLX_  HMLA  GRAV_  &m_cw_TILD_N_
- MACRO_ROW_3(cw_, GRAV_U_,   TILD_O_,   TRMA_I_)   &kp LS(AGRV_)  _________         _________     &kp    TRMA_   _________   &m_cw_SZTT   &kp   TILD_
+ MACRO_ROW_4(cp_, CFLX_U_,   CFLX_O_,   CFLX_I_,   CFLX_A_ )      _________         _________     &kp LS(CCED_)  &kp  APST_  &kp   QUOT_  &m_cp_B_J_
+ MACRO_ROW_5(cp_, ACUT_U_,   ACUT_O_,   ACUT_I_,   ACUT_A_,       TILD_A_ )         _________     HMRS   ACUT_   HMRC CFLX_  HMLA  GRAV_  &m_cp_TILD_N_
+ MACRO_ROW_3(cp_, GRAV_U_,   TILD_O_,   TRMA_I_)   &kp LS(AGRV_)  _________         _________     &kp    TRMA_   _________   &m_cp_SZTT   &kp   TILD_
 				//
-											       &m_cw_CFLX_E_   &kp LS(EGRV_)         _________   _________
-													                                 // double tap //
+											       &m_cp_CFLX_E_   &kp LS(EGRV_)            _________   &trans
+													                                     // double tap //
 			>;
 		};
 
