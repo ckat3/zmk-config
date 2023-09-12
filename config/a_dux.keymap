@@ -24,23 +24,23 @@
 
 
 // LAYERS
-#define _l_BASE 0
-#define _l_CAPS 1
-#define _l_OSCP 2
-#define _l_NUM  3
-#define _l_SYM  4
-#define _l_UTIL 5
-#define _l_NAV  6
-#define _l_ACNT 7
-#define _l_ACCP 8
-#define _l_FUNC 9
-#define _l_GAME 10
-#define _l_GAM2 11
+#define l_BASE 0
+#define l_CAPS 1
+#define l_OSCP 2
+#define l_NUM  3
+#define l_SYM  4
+#define l_UTIL 5
+#define l_NAV  6
+#define l_ACNT 7
+#define l_ACCP 8
+#define l_FUNC 9
+#define l_GAME 10
+#define l_GAM2 11
 
 // combos shouldn't work on game layer, to minimize delay
-#define _ll_DEFAULT     _l_BASE  _l_CAPS  _l_OSCP  _l_NUM  _l_SYM  _l_UTIL  _l_NAV  _l_ACNT  _l_ACCP  _l_FUNC
-#define _ll_NOTCAPS     _l_BASE                    _l_NUM  _l_SYM  _l_UTIL  _l_NAV  _l_ACNT  _l_ACCP  _l_FUNC
-#define _ll_CAPS                 _l_CAPS  _l_OSCP
+#define ll_DEFAULT     l_BASE  l_CAPS  l_OSCP  l_NUM  l_SYM  l_UTIL  l_NAV  l_ACNT  l_ACCP  l_FUNC
+#define ll_NOTCAPS     l_BASE                    l_NUM  l_SYM  l_UTIL  l_NAV  l_ACNT  l_ACCP  l_FUNC
+#define ll_CAPS                 l_CAPS  l_OSCP
 
 
 &lt { // tap for kp, hold for layer
@@ -104,7 +104,7 @@
 	 // HOME-ROW MODS                       // HOLD           TAP             
 		HT(      ht,     <&kp>,  <&kp> )    // kp             kp                (tap-preferred)
 		HT_SLOW( htslow, <&kp>,  <&kp> )    // kp (slow)      kp (slow)         (tap-preferred)
-		HT(      httog,  <&kp>,  <&tog> )   // kp             one-shot layer    (tap-preferred)
+		HT(      httog,  <&kp>,  <&tog>)    // kp             one-shot layer    (tap-preferred)
 		HT(      htsl,   <&kp>,  <&sl> )    // kp             one-shot layer    (tap-preferred)
 		HT_BAL(  lsl,    <&mo>,  <&sl> )    // layer          one-shot layer    (balanced)
 		HT_BAL(  lsk,    <&mo>,  <&sk> )    // layer          one-shot mod      (balanced)
@@ -122,14 +122,14 @@
 		HT_SLOW(   ltt_l_UTIL,    <&m_mo_l_UTIL>,    <&kp> )            // mo UTIL            kp                (slow, tap-preferred)
 	 // capsword thumbs - TODO should be BAL like the base layer thumbs?
 	 // there was strange behavior before but now it should be fixed
-		HT(  ht_cw_l_NAV_SPC, <&m_mo_cw_l_NAV>,  <&m_cw_SPC> )          // mo NAV -> BASE     SPC    -> BASE    (was balanced)
-		HT( lsl_cw_l_SYM,     <  &mo  >,         <&m_sl_cw_l_SYM> )     // mo layer           sl SYM -> BASE    (was balanced)
+		HT(  ht_cw_l_NAV_SPC, <&m_cw_mo_NAV>,  <&m_cw_SPC> )          // mo NAV -> BASE     SPC    -> BASE    (was balanced)
+		HT(   lcw_sl_SYM,          <&mo>,      <&m_cw_sl_SYM> )     // mo layer           sl SYM -> BASE    (was balanced)
 
 
 	 // loose accents on tap
-		HT( ht_CFX, <&kp>, <&m_CFX_loose> )
-		HT( ht_GRV, <&kp>, <&m_GRV_loose> )
-		HT( ht_TLD, <&kp>, <&m_TLD_loose> )
+		HT( ht_CFX, <&kp>, <&m_loose_CFX> )
+		HT( ht_GRV, <&kp>, <&m_loose_GRV> )
+		HT( ht_TLD, <&kp>, <&m_loose_TLD> )
 		
 		
 	 // NBSP STUFF (for french) ------------------
@@ -207,25 +207,16 @@
 			MACRO(cp_##ACCENT##FIRST##SECOND, <M_KP ACCENT>, M_HOLD_SHIFT, <M_KP FIRST>,              <M_KP SECOND>,  M_REL_SHIFT)
 
 
-
-
-
-
-
-	 //
 	 // INCONVENIENT DIGRAMS ------------------
 	 // also defines a caps version (eg &m_cp_Q_U_)
 	 //    and an uppercase version (eg &m_up_Q_U_)
-	 //
-		MACRO_DIGRAM(Q_, U_)
-		MACRO_DIGRAM(B_, J_)
+		MACRO_DIGRAM( Q_, U_ )
+		MACRO_DIGRAM( B_, J_ )
 
 
-	 //
 	 // ACCENTED LETTERS ------------------
 	 // also defines a caps version (eg &m_cp_ACUT_A_)
 	 //    and an uppercase version (eg &m_up_ACUT_A_)
-	 //
 		MACRO_ACCENT_SINGLE( ACUT_, A_ )
 		MACRO_ACCENT_SINGLE( ACUT_, I_ )
 		MACRO_ACCENT_SINGLE( ACUT_, O_ )
@@ -251,79 +242,64 @@
 		MACRO_ACCENT_SINGLE( TRMA_, I_ )
 
 
-	 //
-	 // NBSP STUFF (for french) ------------------
-	 //
-		MACRO(    nbsp_QMRK,   < M_TAP  &kp NBSP_  &kp QMRK_  &to _l_BASE >) // goes back to _l_BASE if _l_CAPS was on
-		MACRO(    nbsp_EXCL,   < M_TAP  &kp NBSP_  &kp EXCL_              >)
-		MACRO(    nbsp_COLN,   < M_TAP  &kp NBSP_  &kp COLN_  &kp SPACE   >)
-		MACRO(    nbsp_SCLN,   < M_TAP  &kp NBSP_  &kp SCLN_  &kp SPACE   >)
-		MACRO(    nbsp_RGLM,   < M_TAP  &kp NBSP_  &kp RGLM_              >)
-		MACRO(    nbsp_LGLM,   < M_TAP  &kp LGLM_  &kp NBSP_              >)
+	 // NBSP STUFF (for french) ----
+		MACRO(       nbsp_QMRK ,  <M_TAP  &kp NBSP_  &kp QMRK_  &to l_BASE >) // goes back to l_BASE if l_CAPS was on
+		MACRO(       nbsp_EXCL ,  <M_TAP  &kp NBSP_  &kp EXCL_              >)
+		MACRO(       nbsp_COLN ,  <M_TAP  &kp NBSP_  &kp COLN_  &kp SPACE   >)
+		MACRO(       nbsp_SCLN ,  <M_TAP  &kp NBSP_  &kp SCLN_  &kp SPACE   >)
+		MACRO(       nbsp_RGLM ,  <M_TAP  &kp NBSP_  &kp RGLM_              >)
+		MACRO(       nbsp_LGLM ,  <M_TAP  &kp LGLM_  &kp NBSP_              >)
 
+	 // LOOSE ACCENTS --------------
+		MACRO(      loose_CFX  ,  <M_TAP  &kp CFLX_  &kp SPACE >)
+		MACRO(      loose_GRV  ,  <M_TAP  &kp GRAV_  &kp SPACE >)
+		MACRO(      loose_TLD  ,  <M_TAP  &kp TILD_  &kp SPACE >)
 
-	 //
-	 // LOOSE ACCENTS ------------------
-	 //
-		MACRO(    CFX_loose,   < M_TAP  &kp CFLX_  &kp SPACE >)
-		MACRO(    GRV_loose,   < M_TAP  &kp GRAV_  &kp SPACE >)
-		MACRO(    TLD_loose,   < M_TAP  &kp TILD_  &kp SPACE >)
+	 // ESZETT ---------------------
+		MACRO(            SZTT ,  <M_TAP  &kp RA(S_)  &kp    S_  >)
+		MACRO(         cp_SZTT ,  <M_TAP  &kp RA(S_)  &kp LS(S_) >)
 
-	 //
-	 // ESZETT ------------------
-	 //
-		MACRO(        SZTT,    < M_TAP  &kp RA(S_)  &kp    S_  >)
-		MACRO(     cp_SZTT,    < M_TAP  &kp RA(S_)  &kp LS(S_) >)
-
-	 //
-	 // CAPSWORD ------------------
-	 //
-	 // key -> capsword off
-		MACRO(      cw_SPC,    < M_TAP  &kp SPACE  &to _l_BASE >)
-		MACRO(      cw_TAB,    < M_TAP  &kp TAB    &to _l_BASE >)
-		MACRO(      cw_ENTR,   < M_TAP  &kp ENTER  &to _l_BASE >)
-		MACRO(      cw_ESC,    < M_TAP  &kp ESC    &to _l_BASE >)
-
-	 // capsword off + hold layer
-		MACRO( mo_cw_l_NAV,    < M_TAP  &to _l_NAV >,  <M_WAIT_REL>,  < M_TAP  &to _l_BASE >)
-		
+	 // CAPSWORD -------------------
+	    MACRO(         sl_CAPS ,  <M_TAP                         &sl l_OSCP >)
+		MACRO(     SPC_sl_CAPS ,  <M_TAP             &kp SPACE   &sl l_OSCP >)
+		MACRO( DOT_SPC_sl_CAPS ,  <M_TAP  &kp DOT_   &kp SPACE   &sl l_OSCP >)
+	 // key -> capsword off     
+		MACRO(         cw_SPC  ,  <M_TAP  &kp SPACE  &to l_BASE >)
+		MACRO(         cw_TAB  ,  <M_TAP  &kp TAB    &to l_BASE >)
+		MACRO(         cw_ENTER,  <M_TAP  &kp ENTER  &to l_BASE >)
+		MACRO(         cw_ESC  ,  <M_TAP  &kp ESC    &to l_BASE >)
 	 // capsword off + one-shot layer
-		MACRO( sl_cw_l_SYM,    < M_TAP  &to _l_BASE  &sl _l_SYM  >)
-		MACRO( sl_cw_l_ACNT,   < M_TAP  &to _l_BASE  &sl _l_ACNT >)
-
-	 // new sentence
-	    MACRO(   oneshotCAPS,  < M_TAP                       &sl _l_OSCP >)
-		MACRO(     SPC_oscp,   < M_TAP            &kp SPACE  &sl _l_OSCP >)
-		MACRO( DOT_SPC_oscp,   < M_TAP  &kp DOT_  &kp SPACE  &sl _l_OSCP >)
+		MACRO(      cw_sl_SYM  ,  <M_TAP             &to l_BASE  &sl l_SYM  >)
+		MACRO(      cw_sl_ACNT ,  <M_TAP             &to l_BASE  &sl l_ACNT >)
+	 // capsword off + hold layer
+		MACRO(      cw_mo_NAV  ,  <M_TAP  &to l_NAV >,  <M_WAIT_REL>,  <M_TAP  &to l_BASE >)
 
 
-	 //
 	 // UTIL LAYER ------------------
 	 // upon entering this layer, shift + control + alt are held.
 	 // each key releases some mods, then holds them all again.
 	 // this allows us e.g. to alt-tab without letting go of alt.
-	 //
 		#define  ALL_MODS   M_HOLD  &kp LSHIFT  &kp LCTRL  &kp LALT
 		#define   NO_MODS   M_REL   &kp LSHIFT  &kp LCTRL  &kp LALT  &kp RSHIFT  &kp RCTRL  &kp RALT // release rh mods just in case
 		#define HOLD_CTRL   M_REL   &kp LSHIFT             &kp LALT  &kp RSHIFT  &kp RCTRL  &kp RALT
 		#define HOLD_ALT    M_REL   &kp LSHIFT  &kp LCTRL            &kp RSHIFT  &kp RCTRL  &kp RALT
 
-		MACRO( mo_l_UTIL,  < M_TAP &to _l_UTIL >,  <ALL_MODS>,  <M_WAIT_REL>,  <NO_MODS>,  < M_TAP &to _l_BASE > )
+		MACRO( mo_l_UTIL,  <M_TAP  &to l_UTIL >,  <ALL_MODS>,  <M_WAIT_REL>,  <NO_MODS>,  <M_TAP  &to l_BASE > )
 		
-		MACRO(  utl_BACK,  <NO_MODS>,  <M_KP  C_AC_BACK   >,  <ALL_MODS> )
-		MACRO(  utl_FRWD,  <NO_MODS>,  <M_KP  C_AC_FORWARD>,  <ALL_MODS> )
-		MACRO(  utl_ULIN,  <NO_MODS>,  <M_KP  ULIN_>,         <ALL_MODS> )
-		MACRO(  utl_UNDO,  <NO_MODS>,  <M_KP  LC(Z_)>,        <ALL_MODS> )
-		MACRO(  utl_REDO,  <NO_MODS>,  <M_KP  LC(Y_)>,        <ALL_MODS> )
-		MACRO(  utl_LAF4,  <NO_MODS>,  <M_KP  LA(F4)>,        <ALL_MODS> )
+		MACRO(  utl_BACK,  <NO_MODS>  ,  <M_KP  C_AC_BACK >    , <ALL_MODS> )
+		MACRO(  utl_FRWD,  <NO_MODS>  ,  <M_KP  C_AC_FORWARD > , <ALL_MODS> )
+		MACRO(  utl_ULIN,  <NO_MODS>  ,  <M_KP  ULIN_  > ,       <ALL_MODS> )
+		MACRO(  utl_UNDO,  <NO_MODS>  ,  <M_KP  LC(Z_) > ,       <ALL_MODS> )
+		MACRO(  utl_REDO,  <NO_MODS>  ,  <M_KP  LC(Y_) > ,       <ALL_MODS> )
+		MACRO(  utl_LAF4,  <NO_MODS>  ,  <M_KP  LA(F4) > ,       <ALL_MODS> )
+									  
+		MACRO(  utl_STAB,  <NO_MODS>  ,  <M_KP  LS(TAB) > ,      <ALL_MODS> )
+		MACRO(  utl_GTAB,  <NO_MODS>  ,  <M_KP  LG(TAB) > ,      <ALL_MODS> )
 
-		MACRO(  utl_STAB,    <NO_MODS>,  <M_KP  LS(TAB)>,     <ALL_MODS> )
-		MACRO(  utl_GTAB,    <NO_MODS>,  <M_KP  LG(TAB)>,     <ALL_MODS> )
-
-		MACRO(  utl_ATAB,   <HOLD_ALT>,  <M_KP     TAB > ) // these will not hold all mods back,
-		MACRO( utl_SATAB,   <HOLD_ALT>,  <M_KP  LS(TAB)> ) //  so that we can do alt-tab etc
-		MACRO(  utl_CTAB,  <HOLD_CTRL>,  <M_KP     TAB > ) //  several times in a row without
-		MACRO( utl_SCTAB,  <HOLD_CTRL>,  <M_KP  LS(TAB)> ) //  dropping the little window
+		MACRO(  utl_ATAB,  <HOLD_ALT> ,  <M_KP     TAB  > ) // these will not hold all mods back,
+		MACRO( utl_SATAB,  <HOLD_ALT> ,  <M_KP  LS(TAB) > ) //  so that we can do alt-tab etc
+		MACRO(  utl_CTAB,  <HOLD_CTRL>,  <M_KP     TAB  > ) //  several times in a row without
+		MACRO( utl_SCTAB,  <HOLD_CTRL>,  <M_KP  LS(TAB) > ) //  dropping the little window
 
 	};
 
@@ -341,7 +317,7 @@
 			};
 
 
-		// when not defining layers, will default to _ll_DEFAULT
+		// when not defining layers, will default to ll_DEFAULT
 		// TODO: ok to omit line breaks between defs?
 		// TODO: all combos define layers?
 		#define COMBO(       LAYERS,        BINDINGS,   POSITIONS,   GIBBERISH_NAME) \
@@ -365,51 +341,50 @@
 
 												     
 		// left hand                                       
-		
-		COMBO_KP( _ll_DEFAULT,       BSPC,,               11 12 )		
-		COMBO(    _ll_DEFAULT,   &kp LC(Z_),              20 21 ,    gibberishName_dljoiadiqsrt)
-		COMBO_KP( _ll_DEFAULT,       DEL,,                21 22 )
-		COMBO_KP( _ll_DEFAULT,       SPACE,,              22 23 )	
-		COMBO(    _ll_DEFAULT,    &m_DOT_SPC_oscp,      1  2  3 ,    gibberishName_diaoadiqsrt)
-		COMBO(    _ll_DEFAULT,    &m_oneshotCAPS,      11 12 13 ,    gibberishName_dljauiqsrt)	
-		COMBO(    _ll_DEFAULT,    &m_SPC_oscp,         21 22 23 ,    gibberishName_dljoopoadiqsrt)
-		COMBO(    _ll_DEFAULT,  &lsl _l_FUNC _l_FUNC,     30 31 ,    gibberishName_dljsdiqsrt)
+		COMBO_KP( ll_DEFAULT,          BSPC       ,,     11 12 )		
+		COMBO(    ll_DEFAULT,   &kp LC(Z_)         ,     20 21 ,  gibberishName_dljoiadiqsrt)
+		COMBO_KP( ll_DEFAULT,          DEL        ,,     21 22 )
+		COMBO_KP( ll_DEFAULT,          SPACE      ,,     22 23 )	
+		COMBO(    ll_DEFAULT,       &m_SPC_sl_CAPS ,   1  2  3 ,  gibberishName_diaoadiqsrt)
+		COMBO(    ll_DEFAULT,           &m_sl_CAPS ,  11 12 13 ,  gibberishName_dljauiqsrt)	
+		COMBO(    ll_DEFAULT,   &m_DOT_SPC_sl_CAPS ,  21 22 23 ,  gibberishName_dljoopoadiqsrt)
+		COMBO(    ll_DEFAULT,   &lsl l_FUNC l_FUNC ,     30 31 ,  gibberishName_dljsdiqsrt)
 											  	          
 		// right hand                                        
-		COMBO(    _ll_DEFAULT,   &kp LC(BSPC),            17 18 ,    gibberishName_dljsdiooooisrt)
-		COMBO(    _ll_DEFAULT,   &kp LC(DEL),             27 28 ,    gibberishName_dljsdaioaort)
-		COMBO(    _ll_DEFAULT,    &m_oneshotCAPS,      16 17 18 ,    gibberishName_dljoiadiuaisrt)										
-		COMBO(    _ll_DEFAULT,    &m_DOT_SPC_oscp,        32 33 ,    gibberishName_sqljqrjqsl) // TODO: which m_DOT_SPC_oscp is better?  
+		COMBO(    ll_DEFAULT,     &kp LC(BSPC)     ,     17 18 ,  gibberishName_dljsdiooooisrt)
+		COMBO(    ll_DEFAULT,     &kp LC(DEL)      ,     27 28 ,  gibberishName_dljsdaioaort)
+		COMBO(    ll_DEFAULT,      &m_sl_CAPS      ,  16 17 18 ,  gibberishName_dljoiadiuaisrt)										
+		COMBO(    ll_DEFAULT,  &m_SPC_sl_CAPS      ,     32 33 ,  gibberishName_sqljqrjqsl) // TODO: which m_SPC_sl_CAPS is better?  
 		
 		// TODO  merge these?                     
-		COMBO_MACRO(  _l_BASE,       Q_U_,,               26 27 )  /* qu */
-		COMBO_MACRO(  _l_BASE,       TILD_A_E_,,          13 30 )  /* ãe */
-		COMBO_MACRO(  _l_BASE,       TILD_A_O_,,          13 11 )  /* ão */
-		COMBO_MACRO(  _l_BASE,       TILD_O_E_,,          11 30 )  /* õe */
-					  							  	 	    
-		COMBO_MACRO(  _l_OSCP,    up_Q_U_,,               26 27 )  /* Qu */
-		COMBO_MACRO(  _l_OSCP,    up_TILD_A_E_,,          13 30 )  /* Ãe */
-		COMBO_MACRO(  _l_OSCP,    up_TILD_A_O_,,          13 11 )  /* Ão */
-		COMBO_MACRO(  _l_OSCP,    up_TILD_O_E_,,          11 30 )  /* Õe */
-					  							  	  	     
-		COMBO_MACRO(  _l_CAPS,    cp_Q_U_,,               26 27 )  /* QU */
-		COMBO_MACRO(  _l_CAPS,    cp_TILD_A_E_,,          13 30 )  /* ÃE */
-		COMBO_MACRO(  _l_CAPS,    cp_TILD_A_O_,,          13 11 )  /* ÃO */
-		COMBO_MACRO(  _l_CAPS,    cp_TILD_O_E_,,          11 30 )  /* ÕE */
-												         
+		COMBO_MACRO(  l_BASE,         Q_U_        ,,     26 27 )  /* qu */
+		COMBO_MACRO(  l_BASE,    TILD_A_E_        ,,     13 30 )  /* ãe */
+		COMBO_MACRO(  l_BASE,    TILD_A_O_        ,,     13 11 )  /* ão */
+		COMBO_MACRO(  l_BASE,    TILD_O_E_        ,,     11 30 )  /* õe */
+					  			  			  	     
+		COMBO_MACRO(  l_OSCP,      up_Q_U_        ,,     26 27 )  /* Qu */
+		COMBO_MACRO(  l_OSCP, up_TILD_A_E_        ,,     13 30 )  /* Ãe */
+		COMBO_MACRO(  l_OSCP, up_TILD_A_O_        ,,     13 11 )  /* Ão */
+		COMBO_MACRO(  l_OSCP, up_TILD_O_E_        ,,     11 30 )  /* Õe */
+					  			  			 	 	      
+		COMBO_MACRO(  l_CAPS,      cp_Q_U_,,             26 27 )  /* QU */
+		COMBO_MACRO(  l_CAPS, cp_TILD_A_E_        ,,     13 30 )  /* ÃE */
+		COMBO_MACRO(  l_CAPS, cp_TILD_A_O_        ,,     13 11 )  /* ÃO */
+		COMBO_MACRO(  l_CAPS, cp_TILD_O_E_        ,,     11 30 )  /* ÕE */
+											     	    
 		// tab, enter, esc                               
-		COMBO_KP(    _ll_NOTCAPS,      TAB,,              12 13 )
-		COMBO_KP(    _ll_NOTCAPS,      ENTER,,            16 17 )
-		COMBO_KP(    _ll_NOTCAPS,      ESC,,              10 11 )									 				  
-		COMBO_MACRO( _ll_CAPS,      cw_TAB,,              12 13 )
-		COMBO_MACRO( _ll_CAPS,      cw_ENTR,,             16 17 )
-		COMBO_MACRO( _ll_CAPS,      cw_ESC,,              10 11 )
+		COMBO_KP(    ll_NOTCAPS,      TAB         ,,     12 13 )
+		COMBO_KP(    ll_NOTCAPS,      ENTER       ,,     16 17 )
+		COMBO_KP(    ll_NOTCAPS,      ESC         ,,     10 11 )									 				  
+		COMBO_MACRO( ll_CAPS,      cw_TAB         ,,     12 13 )
+		COMBO_MACRO( ll_CAPS,      cw_ENTER       ,,     16 17 )
+		COMBO_MACRO( ll_CAPS,      cw_ESC         ,,     10 11 )
 									 				 	 
 		// function layer
-		COMBO( _l_FUNC,   &sys_reset,      0  4 ,   gibberishName_aiouaiouaiou)
-		COMBO( _l_FUNC,   &bootloader,    20 24 ,   gibberishName_ayuqaioueaio)
-		COMBO( _l_FUNC,   &tog _l_GAME,    4 14 ,   gibberishName_aiouayopaipo)
-		COMBO( _l_FUNC,   &tog _l_GAM2,   14 24 ,   gibberishName_aiopoappyaio)
+		COMBO(        l_FUNC,   &sys_reset         ,      0  4 ,  gibberishName_aiouaiouaiou)
+		COMBO(        l_FUNC,   &bootloader        ,     20 24 ,  gibberishName_ayuqaioueaio)
+		COMBO(        l_FUNC,   &tog l_GAME        ,      4 14 ,  gibberishName_aiouayopaipo)
+		COMBO(        l_FUNC,   &tog l_GAM2        ,     14 24 ,  gibberishName_aiopoappyaio)
 	};
 
 
@@ -451,16 +426,16 @@
 
 
 	 // THUMB KEYS ------------------
-		#define lt_NUM_E       &lt    _l_NUM  E_
-		#define lt_NUM_E_cw    &lt    _l_NUM  LS(E_)
+		#define lt_NUM_E       &lt    l_NUM  E_
+		#define lt_NUM_E_cw    &lt    l_NUM  LS(E_)
 
-		#define lsl_SYM        &lsl   _l_SYM  _l_SYM
-		#define lsl_SYM_cw     &lsl_cw_l_SYM  _l_SYM 0
+		#define lsl_SYM        &lsl   l_SYM  l_SYM
+		#define lsl_SYM_cw     &lcw_sl_SYM  l_SYM 0
 
-		#define lsl_ACNT       &lsl  _l_ACNT  _l_ACNT
-		#define lsl_ACCP       &lsl  _l_ACCP  _l_ACCP
+		#define lsl_ACNT       &lsl  l_ACNT  l_ACNT
+		#define lsl_ACCP       &lsl  l_ACCP  l_ACCP
 
-		#define lt_NAV_SPC     &lt   _l_NAV SPC
+		#define lt_NAV_SPC     &lt   l_NAV SPC
 		#define lt_NAV_SPC_cw  &ht_cw_l_NAV_SPC 0 0
 
 
@@ -491,7 +466,7 @@
 				CAPSDEF
 			>;
 		};		
-		oneshotcaps { // just doesn't do the QU combo
+		sl_CAPS { // just doesn't do the QU combo
 			bindings = <
 				CAPSDEF
 			>;
@@ -547,8 +522,7 @@
 	 // RH AUX LAYERS
 	 // -------------------
 
-		#define HMLS_CPWD    &httog  LSHIFT  _l_CAPS
-		
+		#define HMLS_CPWD    &httog  LSHIFT  l_CAPS
 		#define TASKMAN      &kp LC(LS(ESC))    // ctrl shift esc
 		#define PASTEPLAIN   &kp LC(LG(LA(V_))) // plaintext paste (power toys)
 
@@ -615,7 +589,7 @@
 			bindings = <
 				&kp Q_    &kp MIN_  &kp Y_   &kp DOT_       &kp R_            &kp   K_          &kp C_    &kp H_    &kp W_     &kp J_
 				&kp U_    &kp O_    &kp I_   &kp A_         &kp F_            &kp   G_          &kp LEFT  &kp UP    &kp RIGHT  &kp N_
-				&kp ESC   &kp S_    &kp P_   &kp COMM_      &kp X_            &tog _l_GAME      &kp D_    &kp DOWN  &kp L_     &kp B_
+				&kp ESC   &kp S_    &kp P_   &kp COMM_      &kp X_            &tog l_GAME      &kp D_    &kp DOWN  &kp L_     &kp B_
 			//
 											 &kp ENTER   &kp SPACE            &kp TAB   &kp LALT
 			>;
@@ -625,7 +599,7 @@
 			bindings = <
 				&kp LSHIFT  &kp A_     &kp EACT_  &kp I_      &kp O_                  &kp Y_     &kp U_   &kp I_     &kp O_    &kp P_
 				&kp LCTRL   &kp B_     &kp U_     &kp P_      &kp E_                  &kp H_     &kp J_   &kp K_     &kp L_    &kp N_
-				&kp ESC     &kp AGRV_  &kp Y_     &kp X_      &kp DOT           &tog _l_GAM2     &kp M_   &kp COMM_  &kp DOT_  &kp BSPC
+				&kp ESC     &kp AGRV_  &kp Y_     &kp X_      &kp DOT           &tog l_GAM2     &kp M_   &kp COMM_  &kp DOT_  &kp BSPC
 			//
 											    &kp ENTER   &kp SPACE                &kp TAB   &kp LALT
 			>;
