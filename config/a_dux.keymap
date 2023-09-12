@@ -293,7 +293,7 @@
 		MACRO( sl_cw_l_ACNT,  < M_TAP  &to _l_BASE  &sl _l_ACNT > )
 
 	 // new sentence
-	    MACRO_TAP(   oneshotCAPS,                       &sl _l_CAPS _l_OSCP )
+	    MACRO_TAP(   oneshotCAPS,                       &sl _l_OSCP )
 		MACRO_TAP(     SPC_upper,            &kp SPACE  &sl _l_OSCP         )
 		MACRO_TAP( DOT_SPC_upper,  &kp DOT_  &kp SPACE  &sl _l_OSCP         )
 
