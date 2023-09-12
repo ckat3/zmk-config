@@ -31,19 +31,16 @@
 #define _l_SYM  4
 #define _l_UTIL 5
 #define _l_NAV  6
-#define _l_NAVC 7
-#define _l_ACNT 8
-#define _l_ACCP 9
-#define _l_FUNC 10
-#define _l_GAME 11
-#define _l_GAM2 12
+#define _l_ACNT 7
+#define _l_ACCP 8
+#define _l_FUNC 9
+#define _l_GAME 10
+#define _l_GAM2 11
 
 // combos shouldn't work on game layer, to minimize delay
-#define _l_ALL_LAYERS   _l_BASE  _l_CAPS  _l_OSCP  _l_NUM  _l_SYM  _l_UTIL  _l_NAV  _l_NAVC  _l_ACNT  _l_ACCP  _l_FUNC  _l_GAME  _l_GAM2
-#define _ll_NOTGAME     _l_BASE  _l_CAPS  _l_OSCP  _l_NUM  _l_SYM  _l_UTIL  _l_NAV  _l_NAVC  _l_ACNT  _l_ACCP  _l_FUNC
-#define _ll_NOTCAPS     _l_BASE                    _l_NUM  _l_SYM  _l_UTIL  _l_NAV  _l_NAVC  _l_ACNT  _l_ACCP  _l_FUNC
-#define _ll_CAPS        _l_CAPS  _l_OSCP
-#define _ll_CPWD        _l_CAPS 
+#define _l_ALL_LAYERS   _l_BASE  _l_CAPS  _l_OSCP  _l_NUM  _l_SYM  _l_UTIL  _l_NAV  _l_ACNT  _l_ACCP  _l_FUNC  _l_GAME  _l_GAM2
+#define _ll_NOTGAME     _l_BASE  _l_CAPS  _l_OSCP  _l_NUM  _l_SYM  _l_UTIL  _l_NAV  _l_ACNT  _l_ACCP  _l_FUNC
+#define _ll_NOTCAPS     _l_BASE                    _l_NUM  _l_SYM  _l_UTIL  _l_NAV  _l_ACNT  _l_ACCP  _l_FUNC
 
 
 &lt { // tap for kp, hold for layer
@@ -123,10 +120,10 @@
 
 	 // OTHER HOLDTAPS                                                  // HOLD                       TAP
 		HT_SLOW(   ltt_l_UTIL,    <&m_mo_l_UTIL>,    <&kp> )            // hold _l_UTIL               kp                   (tap-preferred)
-	 
-	 // capsword thumbs
-		HT(      ht_cw_l_NAV_SPC, <&m_mo_cw_l_NAV>,  <&m_cw_SPC> )      // hold _l_NAV -> to base     SPC    -> to base    (tap-preferred)
-		HT(     lsl_cw_l_SYM,     <  &mo  >,         <&m_sl_cw_l_SYM> ) // hold layer                 sl SYM -> to base    (tap-preferred)
+	 // capsword thumbs - TODO should be BAL like the base layer thumbs?
+	 // there was strange behavior before but now it should be fixed
+		HT_BAL(  ht_cw_l_NAV_SPC, <&m_mo_cw_l_NAV>,  <&m_cw_SPC> )      // hold _l_NAV -> to base     SPC    -> to base    (tap-preferred)
+		HT_BAL( lsl_cw_l_SYM,     <  &mo  >,         <&m_sl_cw_l_SYM> ) // hold layer                 sl SYM -> to base    (tap-preferred)
 
 
 	 // loose accents on tap
@@ -289,7 +286,6 @@
 		MACRO_TAP( cw_ESC,  &kp ESC    &to _l_BASE )
 
 	 // capsword off + hold layer
-		// MACRO( mo_cw_l_NAV,   < M_HOLD  &mo _l_NAV   &mo _l_NAVC >,  <M_WAIT_REL>,  < M_REL  &mo _l_NAV  &mo _l_NAVC >,  < M_TAP  &to _l_BASE > )
 		MACRO( mo_cw_l_NAV,   < M_TAP  &to _l_NAV >,  <M_WAIT_REL>,  < M_TAP  &to _l_BASE > )
 		
 	 // capsword off + one-shot layer
@@ -297,9 +293,9 @@
 		MACRO( sl_cw_l_ACNT,  < M_TAP  &to _l_BASE  &sl _l_ACNT > )
 
 	 // new sentence
-	    MACRO_TAP(   oneshotCAPS,                       &sl _l_CAPS  &sl _l_OSCP )
-		MACRO_TAP(     SPC_upper,            &kp SPACE  &sl _l_CAPS              )
-		MACRO_TAP( DOT_SPC_upper,  &kp DOT_  &kp SPACE  &sl _l_CAPS              )
+	    MACRO_TAP(   oneshotCAPS,                       &sl _l_OSCP )
+		MACRO_TAP(     SPC_upper,            &kp SPACE  &sl _l_OSCP )
+		MACRO_TAP( DOT_SPC_upper,  &kp DOT_  &kp SPACE  &sl _l_OSCP )
 
 
 	 //
@@ -390,20 +386,20 @@
 		COMBO(   _ll_NOTGAME,   &sk          RSHIFT,   32 33 ,    gibberishName_sqljqrjqsl)
 												  
 		// TODO  merge these?                     
-		COMBO_MACRO(  _l_BASE,      Q_U_,,             26 27 ) /* qu */
-		COMBO_MACRO(  _l_BASE,      TILD_A_E_,,        13 30 ) /* ãe */
-		COMBO_MACRO(  _l_BASE,      TILD_A_O_,,        13 11 ) /* ão */
-		COMBO_MACRO(  _l_BASE,      TILD_O_E_,,        11 30 ) /* õe */
+		COMBO_MACRO( _l_BASE,      Q_U_,,             26 27 ) /* qu */
+		COMBO_MACRO( _l_BASE,      TILD_A_E_,,        13 30 ) /* ãe */
+		COMBO_MACRO( _l_BASE,      TILD_A_O_,,        13 11 ) /* ão */
+		COMBO_MACRO( _l_BASE,      TILD_O_E_,,        11 30 ) /* õe */
 		
-		COMBO_MACRO(  _l_OSCP,      up_Q_U_,,          26 27 ) /* Qu */
-		COMBO_MACRO(  _l_OSCP,      up_TILD_A_E_,,     13 30 ) /* Ãe */
-		COMBO_MACRO(  _l_OSCP,      up_TILD_A_O_,,     13 11 ) /* Ão */
-		COMBO_MACRO(  _l_OSCP,      up_TILD_O_E_,,     11 30 ) /* Õe */
+		COMBO_MACRO( _l_OSCP,      up_Q_U_,,          26 27 ) /* Qu */
+		COMBO_MACRO( _l_OSCP,      up_TILD_A_E_,,     13 30 ) /* Ãe */
+		COMBO_MACRO( _l_OSCP,      up_TILD_A_O_,,     13 11 ) /* Ão */
+		COMBO_MACRO( _l_OSCP,      up_TILD_O_E_,,     11 30 ) /* Õe */
 					 								   	
-		COMBO_MACRO( _ll_CPWD,      cw_Q_U_,,          26 27 ) /* QU */
-		COMBO_MACRO( _ll_CAPS,      cw_TILD_A_E_,,     13 30 ) /* ÃE */
-		COMBO_MACRO( _ll_CAPS,      cw_TILD_A_O_,,     13 11 ) /* ÃO */
-		COMBO_MACRO( _ll_CAPS,      cw_TILD_O_E_,,     11 30 ) /* ÕE */
+		COMBO_MACRO( _l_CAPS,      cw_Q_U_,,          26 27 ) /* QU */
+		COMBO_MACRO( _l_CAPS,      cw_TILD_A_E_,,     13 30 ) /* ÃE */
+		COMBO_MACRO( _l_CAPS,      cw_TILD_A_O_,,     13 11 ) /* ÃO */
+		COMBO_MACRO( _l_CAPS,      cw_TILD_O_E_,,     11 30 ) /* ÕE */
 												      
 		// tab, enter, esc                            
 		COMBO_KP(    _ll_NOTCAPS,   TAB,,              12 13 )
@@ -503,10 +499,12 @@
 		// just doesn't do the QU combo
 		oneshotcaps {
 			bindings = <
-				&trans &trans &trans &trans &trans   &trans         &trans   &trans &trans &trans &trans
-				&trans &trans &trans &trans &trans   &trans         &trans   &trans &trans &trans &trans
-				&trans &trans &trans &trans &trans   &trans         &trans   &trans &trans &trans &trans
-								            &trans   &trans         &trans   &trans
+				&kp  LS(Q_)   &kp  MIN_       &kp  LS(Y_)   &kp  DOT_         EXCL_QMRK           &kp LS(K_)       &kp  LS(C_)   &kp  LS(H_)   &kp  LS(W_)   &kp  LS(J_)
+				HMLG LS(U_)   HMLA LS(O_)	  HMLC LS(I_)   HMLS LS(A_)       &kp LS(F_)          &kp LS(G_)       HMRS LS(T_)   HMRC LS(R_)   HMRA LS(S_)   HMRG LS(N_)
+				&kp  LS(Z_)   HMRA LS(EACT_)  &kp  LS(P_)   &kp  COMM_        &kp LS(X_)          &kp LS(V_)       &kp  LS(D_)   &kp  LS(M_)   HMLA LS(L_)   &kp  LS(B_)
+				//
+														        lt_NUM_E_cw   lsl_SYM_cw          lsl_ACCP   lt_NAV_SPC_cw
+														     //  --- both leave CAPS ---     doesn't leave   leaves
 			>;
 		};
 
@@ -574,21 +572,11 @@
 												             &kp PSBRK   _________          impossible   impossible
 			>;
 		};
-		
-		// doesn't have cpwd toggle since it will be deactivated upon exiting the layer
-		navcaps_layer {
-			bindings = <
-				&trans &trans &trans &trans &trans      &trans         &trans   &trans &trans &trans &trans
-				&trans &trans &trans &trans &kp LSHIFT  &trans         &trans   &trans &trans &trans &trans
-				&trans &trans &trans &trans &trans      &trans         &trans   &trans &trans &trans &trans
-								            &trans      &trans         &trans   &trans
-			>;
-		};
 
 	 // questionable syntactic sugar to define several parameters beginning with &m_
 		#define MACRO_ROW_3(PREFIX, ONE, TWO, THREE)               &m_##PREFIX##ONE &m_##PREFIX##TWO &m_##PREFIX##THREE
-		#define MACRO_ROW_4(PREFIX, ONE, TWO, THREE, FOUR)         MACRO_ROW_3(PREFIX, ONE, TWO, THREE) &m_##PREFIX##FOUR
-		#define MACRO_ROW_5(PREFIX, ONE, TWO, THREE, FOUR, FIVE)   MACRO_ROW_4(PREFIX, ONE, TWO, THREE, FOUR) &m_##PREFIX##FIVE
+		#define MACRO_ROW_4(PREFIX, ONE, TWO, THREE, FOUR)         &m_##PREFIX##ONE &m_##PREFIX##TWO &m_##PREFIX##THREE &m_##PREFIX##FOUR
+		#define MACRO_ROW_5(PREFIX, ONE, TWO, THREE, FOUR, FIVE)   &m_##PREFIX##ONE &m_##PREFIX##TWO &m_##PREFIX##THREE &m_##PREFIX##FOUR &m_##PREFIX##FIVE
 
 		accent_layer {
 			bindings = <
