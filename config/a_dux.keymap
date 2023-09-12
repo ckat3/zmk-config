@@ -342,7 +342,7 @@
 												     
 		// left hand                                       
 		COMBO_KP( ll_DEFAULT,          BSPC       ,,     11 12 )		
-		COMBO(    ll_DEFAULT,   &kp LC(Z_)         ,     20 21 ,  gibberishName_dljoiadiqsrt)
+		COMBO(    ll_DEFAULT,      &kp LC(Z_)      ,     20 21 ,  gibberishName_dljoiadiqsrt)
 		COMBO_KP( ll_DEFAULT,          DEL        ,,     21 22 )
 		COMBO_KP( ll_DEFAULT,          SPACE      ,,     22 23 )	
 		COMBO(    ll_DEFAULT,       &m_SPC_sl_CAPS ,   1  2  3 ,  gibberishName_diaoadiqsrt)
@@ -351,8 +351,8 @@
 		COMBO(    ll_DEFAULT,   &lsl l_FUNC l_FUNC ,     30 31 ,  gibberishName_dljsdiqsrt)
 											  	          
 		// right hand                                        
-		COMBO(    ll_DEFAULT,     &kp LC(BSPC)     ,     17 18 ,  gibberishName_dljsdiooooisrt)
-		COMBO(    ll_DEFAULT,     &kp LC(DEL)      ,     27 28 ,  gibberishName_dljsdaioaort)
+		COMBO(    ll_DEFAULT,        &kp LC(BSPC)  ,     17 18 ,  gibberishName_dljsdiooooisrt)
+		COMBO(    ll_DEFAULT,        &kp LC(DEL)   ,     27 28 ,  gibberishName_dljsdaioaort)
 		COMBO(    ll_DEFAULT,      &m_sl_CAPS      ,  16 17 18 ,  gibberishName_dljoiadiuaisrt)										
 		COMBO(    ll_DEFAULT,  &m_SPC_sl_CAPS      ,     32 33 ,  gibberishName_sqljqrjqsl) // TODO: which m_SPC_sl_CAPS is better?  
 		
@@ -487,7 +487,7 @@
 			bindings = <
 				&kp  PIPE_  &kp N7_   &kp N8_   &kp N9_     EXCL_QMRK      DLLR_EURO       &kp LBRK_   &kp  RBRK_   &kp  HASH_   &kp  PCNT_
 				&kp  N0_    &kp N1_   &kp N2_   &kp N3_     &kp SCLN_       &kp COLN_     HMRS PLUS_   HMRC  MIN_   HMLA STAR_   HMRG FSLA_
-				HMLC ULIN_  &kp N4_   &kp N5_   &kp N6_     &kp  OMM_       &kp  DOT_      &kp   LT_   &kp    GT_   EQUL_DIFF    &kp  BSLA_
+				HMLC ULIN_  &kp N4_   &kp N5_   &kp N6_     &kp COMM_       &kp  DOT_      &kp   LT_   &kp    GT_   EQUL_DIFF    &kp  BSLA_
 			//
 				                                              impossible   impossible      &kp ULIN_   &trans
 			>;
@@ -501,7 +501,7 @@
 				&kp  NDSH_   HMRA MDSH_   NBSP_LGLM   NBSP_RGLM       &kp  COMM_          &kp  DOT_     _________    _________    &kp  LALT   &kp  BSLA_
 			//
 								                                ______   &kp ESC          &kp NBSP_   &trans
-													              // double tap //
+													       // double tap //
 			>;
 		};
 
