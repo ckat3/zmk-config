@@ -85,19 +85,19 @@
 				hold-trigger-key-positions = <POSITIONS>; \
 			};
 
-		#define HT(NAME, BINDINGS...) \
+		#define HT(             NAME,                                                       BINDINGS... ) \
 				DEFINE_HOLDTAP (NAME,  tap-preferred,  _HT_TAPLIMIT,       _ALL_POSITIONS,  BINDINGS)
 
-		#define HT_FAST(NAME, BINDINGS...) \
+		#define HT_FAST(        NAME,                                                       BINDINGS... ) \
 				DEFINE_HOLDTAP( NAME,  tap-preferred,  _HT_TAPLIMIT_FAST,  _ALL_POSITIONS,  BINDINGS)
 				
-		#define HT_SLOW(NAME, BINDINGS...) \
+		#define HT_SLOW(        NAME,                                                       BINDINGS... ) \
 				DEFINE_HOLDTAP( NAME,  tap-preferred,  _HT_TAPLIMIT_SLOW,  _ALL_POSITIONS,  BINDINGS)
 
-		#define HT_BAL(NAME, BINDINGS...) \
+		#define HT_BAL(         NAME,                                                       BINDINGS... ) \
 				DEFINE_HOLDTAP( NAME,       balanced,  _HT_TAPLIMIT,       _ALL_POSITIONS,  BINDINGS)
 
-		#define HRMOD_POS (NAME, POSITIONS, BINDINGS... ) \
+		#define HRMOD_POS(      NAME,                                      POSITIONS,       BINDINGS... ) \
 				DEFINE_HOLDTAP( NAME,  tap-preferred,  _HT_TAPLIMIT,       POSITIONS,       BINDINGS)
 
 
