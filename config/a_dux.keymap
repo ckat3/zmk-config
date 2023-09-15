@@ -558,10 +558,10 @@
 		nav_layer {
 			bindings = <
 				&kp  LSLCK    &kp  NSLCK    &to  l_NUM    &kp  LG(V_)         TASKMAN            _________      HMLS LC(HOME)   HMLC PG_DN    HMLA PG_UP    HMRG LC(END)
-				&kp  LC(Y_)   HMLA INSERT   HMLC PSCRN    HMLS PSBRK         &kp CAPS            _________      &kp  LC(LEFT)   &kp  DOWN     &kp  UP       &kp  LC(RIGHT)
+				&kp  LC(Y_)   HMLA INSERT   HMLC PSCRN    HMLS PSBRK        _________            _________      &kp  LC(LEFT)   &kp  DOWN     &kp  UP       &kp  LC(RIGHT)
 				HMLG LC(Z_)   HMRA LC(X_)   &kp  LC(C_)   &kp  LC(V_)      PASTEPLAIN            _________      &kp  HOME       &kp  LEFT     &kp  RIGHT    &kp  END
 			//  					                                        				                  double tap:
-												                 &tog l_CAPS   ______            impossible   impossible
+												               &tog l_CAPS   &kp CAPS            impossible   impossible
 			>;
 		};
 
