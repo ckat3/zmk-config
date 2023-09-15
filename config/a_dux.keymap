@@ -104,7 +104,6 @@
 	 // HOME-ROW MODS                       // HOLD           TAP             
 		HT(      ht,     <&kp>,  <&kp> )    // kp             kp                (tap-preferred)
 		HT_SLOW( htslow, <&kp>,  <&kp> )    // kp (slow)      kp (slow)         (tap-preferred)
-		HT(      httog,  <&kp>,  <&tog>)    // kp             one-shot layer    (tap-preferred)
 		HT(      htsl,   <&kp>,  <&sl> )    // kp             one-shot layer    (tap-preferred)
 		HT_BAL(  mosl,   <&mo>,  <&sl> )    // layer          one-shot layer    (balanced)
 		HT(      mokp,   <&mo>,  <&kp> )    // layer          kp                (tap-preferred)
@@ -552,7 +551,6 @@
 	 // -------------------
 	 // RH AUX LAYERS
 	 // -------------------
-		#define HMLS_CPWD    &httog  LSHIFT  l_CAPS
 		#define TASKMAN      &kp LC(LS(ESC))    // ctrl shift esc
 		#define PASTEPLAIN   &kp LC(LG(LA(V_))) // plaintext paste (power toys)
 	 // -------------------		
@@ -560,10 +558,10 @@
 		nav_layer {
 			bindings = <
 				&kp  LSLCK    &kp  NSLCK    &to  l_NUM    &kp  LG(V_)         TASKMAN            _________      HMLS LC(HOME)   HMLC PG_DN    HMLA PG_UP    HMRG LC(END)
-				&kp  LC(Y_)   HMLA INSERT   HMLC PSCRN    HMLS_CPWD          &kp CAPS            _________      &kp  LC(LEFT)   &kp  DOWN     &kp  UP       &kp  LC(RIGHT)
+				&kp  LC(Y_)   HMLA INSERT   HMLC PSCRN    HMLS PSBRK         &kp CAPS            _________      &kp  LC(LEFT)   &kp  DOWN     &kp  UP       &kp  LC(RIGHT)
 				HMLG LC(Z_)   HMRA LC(X_)   &kp  LC(C_)   &kp  LC(V_)      PASTEPLAIN            _________      &kp  HOME       &kp  LEFT     &kp  RIGHT    &kp  END
 			//  					                                        				                  double tap:
-												                   &kp PSBRK   ______            impossible   impossible
+												                 &tog l_CAPS   ______            impossible   impossible
 			>;
 		};
 
