@@ -338,7 +338,7 @@
 		#define COMBO_KP(    LAYERS,     KEY, SUFFIX,   POSITIONS) \
 			DEFINE_COMBO(    LAYERS,     KEY##SUFFIX,   POSITIONS,   &kp KEY)
 
-		#define COMBO_MACRO( LAYERS,   MACRO, SUFFIX,   POSITIONS) \
+		#define COMBO_M( LAYERS,   MACRO, SUFFIX,   POSITIONS) \
 			DEFINE_COMBO(    LAYERS,   MACRO##SUFFIX,   POSITIONS,   &m_##MACRO)
 
 
@@ -352,50 +352,60 @@
 
 												     
 		// left hand                                       
-		COMBO_KP( ll_DEFAULT,          BSPC       ,,     11 12 )		
-		COMBO(    ll_DEFAULT,      &kp LC(Z_)      ,     20 21 ,  gibberishName_dljoiadiqsrt)
+		COMBO_KP( ll_NOTCAPS,          ESC        ,,     10 11 )
+		COMBO_M(  ll_CAPS,          cw_ESC        ,,     10 11 )
+		
+		COMBO_KP( ll_DEFAULT,          BSPC       ,,     11 12 )
 		COMBO_KP( ll_DEFAULT,          DEL        ,,     21 22 )
+		
+		COMBO_KP( ll_NOTCAPS,          TAB        ,,     12 13 )									 				  
+		COMBO_M(  ll_CAPS,          cw_TAB        ,,     12 13 )
 		COMBO_KP( ll_DEFAULT,          SPACE      ,,     22 23 )	
-		COMBO(    ll_DEFAULT,       &m_SPC_sl_CAPS ,   1  2  3 ,  gibberishName_diaoadiqsrt)
-		COMBO(    ll_DEFAULT,           &m_sl_CAPS ,  11 12 13 ,  gibberishName_dljauiqsrt)	
-		COMBO(    ll_DEFAULT,   &m_DOT_SPC_sl_CAPS ,  21 22 23 ,  gibberishName_dljoopoadiqsrt)
-		COMBO(    ll_DEFAULT,   &mosl l_FUNC l_FUNC ,     30 31 ,  gibberishName_dljsdiqsrt)
-											  	          
+		
+		COMBO(    ll_DEFAULT,       &m_sl_CAPS     ,  11 12 13 ,  gibberishai)	
+		COMBO_KP( ll_DEFAULT,          ENTER,l     ,     13 14 )
+		
+		COMBO(    ll_DEFAULT,       &m_SPC_sl_CAPS ,   1  2  3 ,  gibberisha)
+		COMBO(    ll_DEFAULT,   &m_DOT_SPC_sl_CAPS ,  21 22 23 ,  gibberishapo)
+		
+		COMBO(    ll_DEFAULT,      &kp LC(Z_)      ,     20 21 ,  gibberish)
+		
+		COMBO(    ll_DEFAULT,    &mosl l_FUNC l_FUNC,    30 31 ,  gibberishaioy)
+											
+											
 		// right hand                                        
-		COMBO(    ll_DEFAULT,        &kp LC(BSPC)  ,     17 18 ,  gibberishName_dljsdiooooisrt)
-		COMBO(    ll_DEFAULT,        &kp LC(DEL)   ,     27 28 ,  gibberishName_dljsdaioaort)
-		COMBO(    ll_DEFAULT,      &m_sl_CAPS      ,  16 17 18 ,  gibberishName_dljoiadiuaisrt)										
-		COMBO(    ll_DEFAULT,  &m_SPC_sl_CAPS      ,     32 33 ,  gibberishName_sqljqrjqsl) // TODO: which m_SPC_sl_CAPS is better?  
+		COMBO_KP( ll_NOTCAPS,          ENTER,r     ,     16 17 )
+		COMBO_M(  ll_CAPS,          cw_ENTER      ,,     16 17 )	
+		
+		COMBO(    ll_DEFAULT,      &kp LC(BSPC)    ,     17 18 ,  gibberishapoip)		
+		COMBO(    ll_DEFAULT,      &kp LC(DEL)     ,     27 28 ,  gibberishaioipp)
+		
+		COMBO(    ll_DEFAULT,       &m_sl_CAPS     ,  16 17 18 ,  gibberishaioaipo)										
+		COMBO(    ll_DEFAULT,   &m_SPC_sl_CAPS     ,     32 33 ,  gibberishapopiaio) // TODO: which m_SPC_sl_CAPS is better?  
+		
 		
 		// TODO  merge these?                     
-		COMBO_MACRO(  l_BASE,         Q_U_        ,,     26 27 )  /* qu */
-		COMBO_MACRO(  l_BASE,    TILD_A_E_        ,,     13 30 )  /* ãe */
-		COMBO_MACRO(  l_BASE,    TILD_A_O_        ,,     13 11 )  /* ão */
-		COMBO_MACRO(  l_BASE,    TILD_O_E_        ,,     11 30 )  /* õe */
-					  			  			  	     
-		COMBO_MACRO(  l_OSCP,      up_Q_U_        ,,     26 27 )  /* Qu */
-		COMBO_MACRO(  l_OSCP, up_TILD_A_E_        ,,     13 30 )  /* Ãe */
-		COMBO_MACRO(  l_OSCP, up_TILD_A_O_        ,,     13 11 )  /* Ão */
-		COMBO_MACRO(  l_OSCP, up_TILD_O_E_        ,,     11 30 )  /* Õe */
-					  			  			 	 	      
-		COMBO_MACRO(  l_CAPS,      cp_Q_U_,,             26 27 )  /* QU */
-		COMBO_MACRO(  l_CAPS, cp_TILD_A_E_        ,,     13 30 )  /* ÃE */
-		COMBO_MACRO(  l_CAPS, cp_TILD_A_O_        ,,     13 11 )  /* ÃO */
-		COMBO_MACRO(  l_CAPS, cp_TILD_O_E_        ,,     11 30 )  /* ÕE */
+		COMBO_M(  l_BASE,              Q_U_       ,,     26 27 )  /* qu */
+		COMBO_M(  l_BASE,         TILD_A_E_       ,,     13 30 )  /* ãe */
+		COMBO_M(  l_BASE,         TILD_A_O_       ,,     13 11 )  /* ão */
+		COMBO_M(  l_BASE,         TILD_O_E_       ,,     11 30 )  /* õe */
+					  		     	  			 	     
+		COMBO_M(  l_OSCP,           up_Q_U_       ,,     26 27 )  /* Qu */
+		COMBO_M(  l_OSCP,      up_TILD_A_E_       ,,     13 30 )  /* Ãe */
+		COMBO_M(  l_OSCP,      up_TILD_A_O_       ,,     13 11 )  /* Ão */
+		COMBO_M(  l_OSCP,      up_TILD_O_E_       ,,     11 30 )  /* Õe */
+					  		     	  				 	      
+		COMBO_M(  l_CAPS,           cp_Q_U_,,            26 27 )  /* QU */
+		COMBO_M(  l_CAPS,      cp_TILD_A_E_       ,,     13 30 )  /* ÃE */
+		COMBO_M(  l_CAPS,      cp_TILD_A_O_       ,,     13 11 )  /* ÃO */
+		COMBO_M(  l_CAPS,      cp_TILD_O_E_       ,,     11 30 )  /* ÕE */
 											     	    
-		// tab, enter, esc                               
-		COMBO_KP(    ll_NOTCAPS,      TAB         ,,     12 13 )
-		COMBO_KP(    ll_NOTCAPS,      ENTER       ,,     16 17 )
-		COMBO_KP(    ll_NOTCAPS,      ESC         ,,     10 11 )									 				  
-		COMBO_MACRO( ll_CAPS,      cw_TAB         ,,     12 13 )
-		COMBO_MACRO( ll_CAPS,      cw_ENTER       ,,     16 17 )
-		COMBO_MACRO( ll_CAPS,      cw_ESC         ,,     10 11 )
 									 				 	 
 		// function layer
-		COMBO(        l_FUNC,   &sys_reset         ,      0  4 ,  gibberishName_aiouaiouaiou)
-		COMBO(        l_FUNC,   &bootloader        ,     20 24 ,  gibberishName_ayuqaioueaio)
-		COMBO(        l_FUNC,   &tog l_GAME        ,      4 14 ,  gibberishName_aiouayopaipo)
-		COMBO(        l_FUNC,   &tog l_GAM2        ,     14 24 ,  gibberishName_aiopoappyaio)
+		COMBO(    l_FUNC,         &sys_reset       ,      0  4 ,  gibberishaiouaioua)
+		COMBO(    l_FUNC,         &tog l_GAME      ,      4 14 ,  gibberishaiouayopaip)
+		COMBO(    l_FUNC,         &tog l_GAM2      ,     14 24 ,  gibberishaiopoappyaio)
+		COMBO(    l_FUNC,         &bootloader      ,     20 24 ,  gibberishayuqaiouea)
 	};
 
 
@@ -419,6 +429,16 @@
 		#define HMLG   &ht   LGUI
 		#define HMRG   &ht   RGUI
 
+	 // HOME-ROW MODS with shift on key
+		#define HMLS_cw(X)   &htls_cw 0 LS(X)
+		#define HMRS_cw(X)   &htrs_cw 0 LS(X)
+		#define HMLC_cw(X)   &htlc_cw 0 LS(X)
+		#define HMRC_cw(X)   &htrc_cw 0 LS(X)
+		#define HMLA_cw(X)   &htla_cw 0 LS(X)
+		#define HMRA_cw(X)   &htra_cw 0 LS(X)
+		#define HMLG_cw(X)   &htlg_cw 0 LS(X)
+		#define HMRG_cw(X)   &htrg_cw 0 LS(X)
+	 // -------------------		
 
 	 // HOLDTAP SYMBOLS ------------------
 	 // □ = space, ■ = nbsp, () = explicited later       // HOLD  TAP
@@ -437,17 +457,17 @@
 
 
 	 // THUMB KEYS ------------------
-		#define lt_NUM_E        &lt   l_NUM      E_
-		#define lt_NUM_E_cw     &lt   l_NUM   LS(E_)
+		#define lt_NUM_E           &lt   l_NUM      E_
+		#define lt_NUM_E_cw        &lt   l_NUM   LS(E_)
 
-		#define mosl_SYM         &mosl  l_SYM   l_SYM
-		#define mosl_SYM_cw      &mo_slcw_l_SYM   l_SYM 0
+		#define mosl_SYM          &mosl  l_SYM   l_SYM
+		#define mosl_SYM_cw     &mo_slcw_l_SYM   l_SYM 0
 
-		#define mosl_ACNT        &mosl  l_ACNT  l_ACNT
-		#define mosl_ACCP        &mosl  l_ACCP  l_ACCP
+		#define mosl_ACNT         &mosl  l_ACNT  l_ACNT
+		#define mosl_ACCP         &mosl  l_ACCP  l_ACCP
 
-		#define lt_NAV_SPC     &lt    l_NAV SPC
-		#define lt_NAV_SPC_cw  &cw_mokp_l_NAV_SPC 0 0
+		#define lt_NAV_SPC        &lt    l_NAV SPC
+		#define lt_NAV_SPC_cw   &cw_mokp_l_NAV_SPC 0 0
 
 
 	 // -------------------
@@ -458,29 +478,18 @@
 
 		base_layer {
 			bindings = <
-			//  ....,.....   ....,.....   ....,.....   ....,.....     ....,.....             ...,.....    ....,.....   ....,.....   ....,.....   ....,.....
-				&kp    Q_    &kp  MIN_    &kp  Y_      DOT_COLN        NBSP_QMRK             &kp K_        &kp  C_      &kp  H_      &kp  W_      &kp  J_
-				UTLAYR U_    HMLA O_      HMLC I_      HMLS A_            &kp F_             &kp G_        HMRS T_      HMRC R_      HMRA S_      &kp  N_
-				HMLG   Z_    HMRA EACT_   &kp  P_      COMM_SCLN          &kp X_             &kp V_        &kp  D_      &kp  M_      HMLA L_      HMRG B_
+				&kp    Q_   &kp  MIN_   &kp  Y_   DOT_COLN       NBSP_QMRK            &kp K_      &kp  C_   &kp  H_   &kp  W_   &kp  J_
+				UTLAYR U_   HMLA O_     HMLC I_   HMLS A_           &kp F_            &kp G_      HMRS T_   HMRC R_   HMRA S_   &kp  N_
+				HMLG   Z_   HMRA EACT_  &kp  P_   COMM_SCLN         &kp X_            &kp V_      &kp  D_   &kp  M_   HMLA L_   HMRG B_
 			//  
-												              lt_NUM_E   mosl_SYM             mosl_ACNT   lt_NAV_SPC
+												        lt_NUM_E   mosl_SYM          mosl_ACNT   lt_NAV_SPC
 			>;
 		};
 		
 		
 	 // -------------------
 	 // CAPS LAYER
-	 // -------------------		
-		#define HMLS_cw(X)   &htls_cw 0 LS(X)
-		#define HMRS_cw(X)   &htrs_cw 0 LS(X)
-		#define HMLC_cw(X)   &htlc_cw 0 LS(X)
-		#define HMRC_cw(X)   &htrc_cw 0 LS(X)
-		#define HMLA_cw(X)   &htla_cw 0 LS(X)
-		#define HMRA_cw(X)   &htra_cw 0 LS(X)
-		#define HMLG_cw(X)   &htlg_cw 0 LS(X)
-		#define HMRG_cw(X)   &htrg_cw 0 LS(X)
-	 // -------------------		
-
+	 // -------------------
 #define CAPSDEF &kp    LS(Q_)   &kp  MIN_       &kp  LS(Y_)   DOT_COLN           NBSP_QMRK          &kp LS(K_)       &kp  LS(C_)   &kp  LS(H_)   &kp  LS(W_)   &kp  LS(J_)\
 				UTLAYR LS(U_)   HMLA_cw(O_)	    HMLC_cw(I_)   HMLS_cw(A_)       &kp LS(F_)          &kp LS(G_)       HMRS_cw(T_)   HMRC_cw(R_)   HMRA_cw(S_)   &kp  LS(N_)\
 				  HMLG_cw(Z_)   HMRA_cw(EACT_)  &kp  LS(P_)   COMM_SCLN         &kp LS(X_)          &kp LS(V_)       &kp  LS(D_)   &kp  LS(M_)   HMLA_cw(L_)   HMRG_cw(B_)
@@ -510,22 +519,21 @@
 
 		num_layer {
 			bindings = <
-				&kp  PIPE_   &kp  N7_     &kp  N8_     &kp  N9_        EXCL_QMRK             DLLR_EURO      &kp  LBRK_   &kp  RBRK_   &kp  HASH_   &kp  PCNT_
-				&kp  N0_     &kp  N1_     &kp  N2_     &kp  N3_        &kp SCLN_             &kp COLN_      HMRS PLUS_   HMRC MIN_    HMLA STAR_   HMRG FSLA_
-				HMLC ULIN_   &kp  N4_     &kp  N5_     &kp  N6_        &kp COMM_             &kp DOT_       &kp  LT_     &kp  GT_     EQUL_DIFF    &kp  BSLA_
-			//  									     double tap:
-				                                         impossible   impossible             &kp ULIN_   &trans
+				&kp  PIPE_   &kp  N7_   &kp  N8_   &kp  N9_      EXCL_QMRK             DLLR_EURO       &kp  LBRK_   &kp  RBRK_   &kp  HASH_   &kp  PCNT_
+				&kp  N0_     &kp  N1_   &kp  N2_   &kp  N3_      &kp SCLN_             &kp COLN_       HMRS PLUS_   HMRC MIN_    HMLA STAR_   HMRG FSLA_
+				HMLC ULIN_   &kp  N4_   &kp  N5_   &kp  N6_      &kp COMM_             &kp DOT_        &kp  LT_     &kp  GT_     EQUL_DIFF    &kp  BSLA_
+			//  								  if locked:
+				                                  &to l_BASE    impossible             &kp ULIN_   &trans
 			>;
 		};
 
 		sym_layer {
 			bindings = <
-			//  ....,.....   ....,.....   ....,.....   ....,.....     ....,.....             ....,.....     ....,.....   ....,.....   ....,.....   ....,.....
-				&kp  PIPE_   &kp  AT_     &kp  AE_     &kp  OE_        NBSP_EXCL             _________      &kp  LBRK_   &kp RBRK_    &kp  AMPR_   DLLR_EURO
-				HMLG LCUR_   HMLA RCUR_   HMLC LPAR_   HMLS RPAR_      &kp SCLN_             &kp  COLN_     HMRS_CFX__   HMRC_GRV__   &kp RALT     HMRG_TLD__
-			    &kp  NDSH_   HMRA MDSH_   NBSP_LGLM    NBSP_RGLM       &kp COMM_             &kp  DOT_      _________    _________    &kp LALT     &kp BSLA_
-			//  									                   double tap:
-								                              ______   &kp ENTER             &kp NBSP_   &trans
+				&kp  PIPE_   &kp  AT_     &kp  AE_     &kp  OE_        NBSP_EXCL            _________       &kp  LBRK_   &kp RBRK_    &kp AMPR_   DLLR_EURO
+				HMLG LCUR_   HMLA RCUR_   HMLC LPAR_   HMLS RPAR_      &kp SCLN_            &kp COLN_       HMRS_CFX__   HMRC_GRV__   &kp RALT    HMRG_TLD__
+			    &kp  NDSH_   HMRA MDSH_   NBSP_LGLM    NBSP_RGLM       &kp COMM_            &kp DOT_        _________    _________    &kp LALT    &kp BSLA_
+			//  									                    double tap:
+								                                 ______   ______            &kp ULIN_   &trans
 			>;
 		};
 
@@ -551,7 +559,7 @@
 
 		nav_layer {
 			bindings = <
-				_________     _________     _________     &kp  LG(V_)         TASKMAN            _________      HMLS LC(HOME)   HMLC PG_DN    HMLA PG_UP    HMRG LC(END)
+				&kp  LSLCK    &kp  NSLCK    &to  l_NUM    &kp  LG(V_)         TASKMAN            _________      HMLS LC(HOME)   HMLC PG_DN    HMLA PG_UP    HMRG LC(END)
 				&kp  LC(Y_)   HMLA INSERT   HMLC PSCRN    HMLS_CPWD          &kp CAPS            _________      &kp  LC(LEFT)   &kp  DOWN     &kp  UP       &kp  LC(RIGHT)
 				HMLG LC(Z_)   HMRA LC(X_)   &kp  LC(C_)   &kp  LC(V_)      PASTEPLAIN            _________      &kp  HOME       &kp  LEFT     &kp  RIGHT    &kp  END
 			//  					                                        				                  double tap:
@@ -577,7 +585,7 @@
 		accent_caps_layer {
 			bindings = <
  MACRO_ROW_4(cp_, CFLX_U_,   CFLX_O_,   CFLX_I_,   CFLX_A_ )         _________            _________       &kp  LS(CCED_)  &kp  APST_  &kp  QUOT_  &m_cp_B_J_
- MACRO_ROW_5(cp_, ACUT_U_,   ACUT_O_,   ACUT_I_,   ACUT_A_,            TILD_A_ )          _________       HMRS ACUT_      HMRC CFLX_  HMLA GRAV_  &m_cp_TILD_N_
+ MACRO_ROW_5(cp_, ACUT_U_,   ACUT_O_,   ACUT_I_,   ACUT_A_,           TILD_A_ )           _________       HMRS ACUT_      HMRC CFLX_  HMLA GRAV_  &m_cp_TILD_N_
  MACRO_ROW_3(cp_, GRAV_U_,   TILD_O_,   TRMA_I_)   &kp LS(AGRV_)     _________            _________       &kp  TRMA_      _________  &m_cp_SZTT   &kp   TILD_
 			//  									                                    double tap:
 											      &m_cp_CFLX_E_   &kp LS(EGRV_)           ______   &trans
