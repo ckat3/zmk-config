@@ -29,17 +29,17 @@
 #define l_OSCP 2
 #define l_NUM  3
 #define l_SYM  4
-#define l_UTIL 5
-#define l_NAV  6
-#define l_ACNT 7
-#define l_ACCP 8
+#define l_NAV  5
+#define l_ACNT 6
+#define l_ACCP 7 
+#define l_UTIL 8
 #define l_FUNC 9
 #define l_GAME 10
 #define l_GAM2 11
 
 // combos shouldn't work on game layer, to minimize delay
-#define ll_DEFAULT     l_BASE  l_CAPS  l_OSCP  l_NUM  l_SYM  l_UTIL  l_NAV  l_ACNT  l_ACCP  l_FUNC
-#define ll_NOTCAPS     l_BASE                  l_NUM  l_SYM  l_UTIL  l_NAV  l_ACNT  l_ACCP  l_FUNC
+#define ll_DEFAULT     l_BASE  l_CAPS  l_OSCP  l_NUM  l_SYM  l_NAV  l_ACNT  l_ACCP  l_UTIL  l_FUNC
+#define ll_NOTCAPS     l_BASE                  l_NUM  l_SYM  l_NAV  l_ACNT  l_ACCP  l_UTIL  l_FUNC
 #define ll_CAPS                l_CAPS  l_OSCP
 
 
@@ -302,7 +302,7 @@
 		MACRO(  utl_BACK,  <NO_MODS>  ,  <M_KP  C_AC_BACK >    , <ALL_MODS> )
 		MACRO(  utl_FRWD,  <NO_MODS>  ,  <M_KP  C_AC_FORWARD > , <ALL_MODS> )
 		MACRO(  utl_ULIN,  <NO_MODS>  ,  <M_KP  ULIN_  > ,       <ALL_MODS> )
-		MACRO(  utl_UNDO,  <NO_MODS>  ,  <M_KP  LC(Z_) > ,       <ALL_MODS> )
+		MACRO(  utl_DESK,  <NO_MODS>  ,  <M_KP  LG(D_) > ,       <ALL_MODS> )
 		MACRO(  utl_REDO,  <NO_MODS>  ,  <M_KP  LC(Y_) > ,       <ALL_MODS> )
 		MACRO(  utl_LAF4,  <NO_MODS>  ,  <M_KP  LA(F4) > ,       <ALL_MODS> )
 									  
@@ -536,16 +536,6 @@
 			>;
 		};
 
-		utility_layer {
-			bindings = <
-				impossible  &trans       &m_utl_BACK   &m_utl_FRWD      &m_utl_LAF4         &trans      &trans  &trans  &trans  &trans
-				impossible  &m_utl_GTAB  &m_utl_SATAB  &m_utl_ATAB      &m_utl_REDO         &trans      &trans  &trans  &trans  &trans
-				impossible  &trans       &m_utl_SCTAB  &m_utl_CTAB      &m_utl_UNDO         &trans      &trans  &trans  &trans  &trans
-			//
-			                                              &m_utl_STAB   &m_utl_ULIN         ______   &trans
-			>;
-		};
-
 
 
 	 // -------------------
@@ -596,6 +586,16 @@
 	 // FUNCTION LAYER
 	 // -------------------
 
+		utility_layer {
+			bindings = <
+				impossible  &trans       &m_utl_BACK   &m_utl_FRWD      &m_utl_LAF4         &trans      &trans  &trans  &trans  &trans
+				impossible  &m_utl_GTAB  &m_utl_SATAB  &m_utl_ATAB      &m_utl_REDO         &trans      &trans  &trans  &trans  &trans
+				impossible  &trans       &m_utl_SCTAB  &m_utl_CTAB      &m_utl_DESK         &trans      &trans  &trans  &trans  &trans
+			//
+			                                              &m_utl_STAB   &m_utl_ULIN         ______   &trans
+			>;
+		};
+		
 		func_layer {
 			bindings = <
 				&bt  BT_SEL 3   &bt  BT_SEL 0  &bt  BT_SEL 1   &bt  BT_SEL 2        &bt BT_CLR         &sys_reset         &kp F7  &kp F8  &kp F9  &kp F12
