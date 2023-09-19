@@ -43,6 +43,9 @@
 #define ll_CAPS                l_CAPS  l_OSCP
 
 
+#define SUPR(x) &kp    LS(LC(LA(x)))
+#define HYPR(x) &kp LG(LS(LC(LA(x))))
+
 &lt { // tap for kp, hold for layer
 	flavor          = "tap-preferred"; //"balanced";
 	tapping-term-ms = <_HT_TAPLIMIT>;
@@ -351,6 +354,8 @@
 
 												     
 		// left hand                                       
+		COMBO(    ll_DEFAULT,      &kp LG(V_)      ,      2  3 ,  gibrish) // clipboard history
+		
 		COMBO_KP( ll_NOTCAPS,          ESC        ,,     10 11 )
 		COMBO_M(  ll_CAPS,          cw_ESC        ,,     10 11 )
 		
@@ -401,10 +406,14 @@
 											     	    
 									 				 	 
 		// function layer
-		COMBO(    l_FUNC,         &sys_reset       ,      0  4 ,  gibberishaiouaioua)
-		COMBO(    l_FUNC,         &tog l_GAME      ,      4 14 ,  gibberishaiouayopaip)
-		COMBO(    l_FUNC,         &tog l_GAM2      ,     14 24 ,  gibberishaiopoappyaio)
+		COMBO(    l_FUNC,         &sys_reset       ,      0  4 ,  gibberishaiouaioua)	
+		COMBO(    l_FUNC,         &kp  SUPR(B_)    ,     10 11 ,  gibberishinha) // dcr toggle (controlled by autohotkey + controlmymonitor)
 		COMBO(    l_FUNC,         &bootloader      ,     20 24 ,  gibberishayuqaiouea)
+		COMBO(    l_FUNC,         &kp  C_NEXT      ,     12 13 ,  gibberishon)
+		COMBO(    l_FUNC,         &kp  C_PREV      ,     22 23 ,  gibberishaille)
+		
+		COMBO(    l_FUNC,         &tog l_GAME      ,      4 14 ,  gibberishaiouayopaip)
+		COMBO(    l_FUNC,         &tog l_GAM2      ,     14 24 ,  gibberishaiopoappyaio)		
 	};
 
 
@@ -477,9 +486,9 @@
 
 		base_layer {
 			bindings = <
-				&kp    Q_   &kp  MIN_   &kp  Y_   DOT_COLN       NBSP_QMRK            &kp K_      &kp  C_   &kp  H_   &kp  W_   &kp  J_
-				UTLAYR U_   HMLA O_     HMLC I_   HMLS A_           &kp F_            &kp G_      HMRS T_   HMRC R_   HMRA S_   &kp  N_
-				HMLG   Z_   HMRA EACT_  &kp  P_   COMM_SCLN         &kp X_            &kp V_      &kp  D_   &kp  M_   HMLA L_   HMRG B_
+				&kp    Q_   &kp  MIN_   &kp  Y_   DOT_COLN       NBSP_QMRK           &kp K_      &kp  C_   &kp  H_   &kp  W_   &kp  J_
+				UTLAYR U_   HMLA O_     HMLC I_   HMLS A_           &kp F_           &kp G_      HMRS T_   HMRC R_   HMRA S_   &kp  N_
+				HMLG   Z_   HMRA EACT_  &kp  P_   COMM_SCLN         &kp X_           &kp V_      &kp  D_   &kp  M_   HMLA L_   HMRG B_
 			//  
 												        lt_NUM_E   mosl_SYM          mosl_ACNT   lt_NAV_SPC
 			>;
@@ -588,21 +597,23 @@
 
 		utility_layer {
 			bindings = <
-				impossible  &trans       &m_utl_BACK   &m_utl_FRWD      &m_utl_LAF4         &trans      &trans  &trans  &trans  &trans
-				impossible  &m_utl_GTAB  &m_utl_SATAB  &m_utl_ATAB      &m_utl_REDO         &trans      &trans  &trans  &trans  &trans
-				impossible  &trans       &m_utl_SCTAB  &m_utl_CTAB      &m_utl_DESK         &trans      &trans  &trans  &trans  &trans
+				impossible  &trans       &m_utl_BACK   &m_utl_FRWD      &m_utl_LAF4         &kp K_      &kp C_   &kp H_   &kp W_  &kp  J_
+				impossible  &m_utl_GTAB  &m_utl_SATAB  &m_utl_ATAB      &m_utl_REDO         &kp G_      &kp T_   &kp R_   &kp S_  &kp  N_
+				impossible  &trans       &m_utl_SCTAB  &m_utl_CTAB      &m_utl_DESK         &kp V_      &kp D_   &kp M_   &kp L_  &kp  B_
 			//
-			                                              &m_utl_STAB   &m_utl_ULIN         ______   &trans
+			                                              &m_utl_STAB   &m_utl_ULIN         ______   &kp SPC
 			>;
 		};
 		
-		func_layer {
+		#define M2BRI_UP   &kp SUPR(N_) // external display brightness
+		#define M2BRI_DN   &kp SUPR(B_) //   (controlled by autohotkey + controlmymonitor)
+		func_layer {                                                                            
 			bindings = <
-				&bt  BT_SEL 3   &bt  BT_SEL 0  &bt  BT_SEL 1   &bt  BT_SEL 2        &bt BT_CLR         &sys_reset         &kp F7  &kp F8  &kp F9  &kp F12
-				HMLG C_BRI_UP   HMLA C_NEXT    HMLC C_VOL_UP   HMLS C_PP  	        &kp  LSLCK         &out OUT_BLE       &kp F1  &kp F2  &kp F3  &kp F10
-				&kp  C_BRI_DN   &kp  C_PREV    &kp  C_VOL_DN   &kp  C_MUTE          &kp  LNLCK         &out OUT_USB       &kp F4  &kp F5  &kp F6  &kp F11
+				&bt  BT_SEL 3   &bt  BT_SEL 0   &bt  BT_SEL 1   &bt  BT_SEL 2        &bt BT_CLR         &sys_reset         &kp F7  &kp F8  &kp F9  &kp F12
+				HMLG C_BRI_UP   HMLA M2BRI_UP   HMLC C_VOL_UP   HMLS C_PP  	         &kp  LSLCK         &out OUT_BLE       &kp F1  &kp F2  &kp F3  &kp F10
+				&kp  C_BRI_DN   &kp  M2BRI_DN   &kp  C_VOL_DN   &kp  C_MUTE          &kp  LNLCK         &out OUT_USB       &kp F4  &kp F5  &kp F6  &kp F11
 			//
-															         impossible     impossible         &kp LSHIFT   &kp LALT
+															          impossible     impossible         &kp LSHIFT   &kp LALT
 			>;
 		};
 
