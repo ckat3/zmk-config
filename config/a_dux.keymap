@@ -426,7 +426,7 @@
 		
 		COMBO(    l_FUNC,         &kp  TOG_DCR     ,     10 11 ,  gibberishinha)	
 		COMBO(    l_FUNC,         &kp  TOG_DISPLAY ,     20 21 ,  gibberishinho)
-		COMBO(    l_FUNC,         &kp  DISPLAY_OFF ,  20 21 22 ,  gibberishaco)
+		COMBO(    l_FUNC,         &kp  DISPLAY_OFF ,  20 21 22 ,  gibberishaca)
 		COMBO(    l_FUNC,         &kp  TOG_THEME   ,  21 22 23 ,  gibberishaco)
 		
 		COMBO(    l_FUNC,         &tog l_GAME      ,      4 14 ,  gibberishaiouayopaip)
