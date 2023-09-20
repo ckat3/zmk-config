@@ -42,9 +42,18 @@
 #define ll_NOTCAPS     l_BASE                  l_NUM  l_SYM  l_NAV  l_ACNT  l_ACCP  l_UTIL  l_FUNC
 #define ll_CAPS                l_CAPS  l_OSCP
 
+// special mods
+#define SUPR(x)  &kp    LS(LC(LA(x)))
+#define HYPR(x)  &kp LG(LS(LC(LA(x))))
 
-#define SUPR(x) &kp    LS(LC(LA(x)))
-#define HYPR(x) &kp LG(LS(LC(LA(x))))
+// (autohotkey)
+#define TOG_DISPLAY  SUPR(O_) // toggles extend/external display
+#define TOG_THEME    SUPR(É_) // toggles dark/light theme
+// (ahk + controlmymonitor)
+#define M2_BRI_U     SUPR(U_) // + brightness external display
+#define M2_BRI_D     SUPR(Z_) // - brightness external display
+#define TOG_DCR      SUPR(Q_) // toggles DCR on/off on external display
+
 
 &lt { // tap for kp, hold for layer
 	flavor          = "tap-preferred"; //"balanced";
@@ -407,10 +416,12 @@
 									 				 	 
 		// function layer
 		COMBO(    l_FUNC,         &sys_reset       ,      0  4 ,  gibberishaiouaioua)	
-		COMBO(    l_FUNC,         &kp  SUPR(B_)    ,     10 11 ,  gibberishinha) // dcr toggle (controlled by autohotkey + controlmymonitor)
+		COMBO(    l_FUNC,         &kp  TOG_DCR     ,     10 11 ,  gibberishinha)	
+		COMBO(    l_FUNC,         &kp  TOG_DISPLAY ,     20 21 ,  gibberishinho)
 		COMBO(    l_FUNC,         &bootloader      ,     20 24 ,  gibberishayuqaiouea)
 		COMBO(    l_FUNC,         &kp  C_NEXT      ,     12 13 ,  gibberishon)
 		COMBO(    l_FUNC,         &kp  C_PREV      ,     22 23 ,  gibberishaille)
+		COMBO(    l_FUNC,         &kp  TOG_THEME   ,  21 22 23 ,  gibberishaco)
 		
 		COMBO(    l_FUNC,         &tog l_GAME      ,      4 14 ,  gibberishaiouayopaip)
 		COMBO(    l_FUNC,         &tog l_GAM2      ,     14 24 ,  gibberishaiopoappyaio)		
@@ -604,14 +615,12 @@
 			                                              &m_utl_STAB   &m_utl_ULIN         ______   &kp SPC
 			>;
 		};
-		
-		#define M2BRI_UP   &kp SUPR(N_) // external display brightness
-		#define M2BRI_DN   &kp SUPR(B_) //   (controlled by autohotkey + controlmymonitor)
+
 		func_layer {                                                                            
 			bindings = <
 				&bt  BT_SEL 3   &bt  BT_SEL 0   &bt  BT_SEL 1   &bt  BT_SEL 2        &bt BT_CLR         &sys_reset         &kp F7  &kp F8  &kp F9  &kp F12
-				HMLG C_BRI_UP   HMLA M2BRI_UP   HMLC C_VOL_UP   HMLS C_PP  	         &kp  LSLCK         &out OUT_BLE       &kp F1  &kp F2  &kp F3  &kp F10
-				&kp  C_BRI_DN   &kp  M2BRI_DN   &kp  C_VOL_DN   &kp  C_MUTE          &kp  LNLCK         &out OUT_USB       &kp F4  &kp F5  &kp F6  &kp F11
+				HMLG C_BRI_UP   HMLA M2_BRI_U   HMLC C_VOL_UP   HMLS C_PP  	         &kp  LSLCK         &out OUT_BLE       &kp F1  &kp F2  &kp F3  &kp F10
+				&kp  C_BRI_DN   &kp  M2_BRI_D   &kp  C_VOL_DN   &kp  C_MUTE          &kp  LNLCK         &out OUT_USB       &kp F4  &kp F5  &kp F6  &kp F11
 			//
 															          impossible     impossible         &kp LSHIFT   &kp LALT
 			>;
