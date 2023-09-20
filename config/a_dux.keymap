@@ -5,6 +5,11 @@
 
 #include "bepo_bindings.h"
 
+// special mods
+#define SUPR(x)     LS(LC(LA(x)))
+#define HYPR(x)  LG(LS(LC(LA(x))))
+
+
 // SETTINGS
 #define _STICKY_TIMEOUT      2000
 
@@ -22,6 +27,13 @@
 
 #define _HT_QUICK_TAP           200  // how fast must press twice for second to start repeating tap
 
+// AUTOHOTKEY
+#define TOG_DISPLAY  SUPR(O_)    // toggles extend/external display
+#define TOG_THEME    SUPR(EACT_) // toggles dark/light theme
+// (ahk + controlmymonitor)
+#define TOG_DCR      SUPR(Q_)   // toggles DCR on/off on external display
+#define M2_BRI_U     SUPR(U_)   // + brightness external display
+#define M2_BRI_D     SUPR(Z_)   // - brightness external display
 
 // LAYERS
 #define l_BASE 0
@@ -42,17 +54,7 @@
 #define ll_NOTCAPS     l_BASE                  l_NUM  l_SYM  l_NAV  l_ACNT  l_ACCP  l_UTIL  l_FUNC
 #define ll_CAPS                l_CAPS  l_OSCP
 
-// special mods
-#define SUPR(x)     LS(LC(LA(x)))
-#define HYPR(x)  LG(LS(LC(LA(x))))
 
-// (autohotkey)
-#define TOG_DISPLAY  SUPR(O_) // toggles extend/external display
-#define TOG_THEME    SUPR(EACT_) // toggles dark/light theme
-// (ahk + controlmymonitor)
-#define M2_BRI_U     SUPR(U_) // + brightness external display
-#define M2_BRI_D     SUPR(Z_) // - brightness external display
-#define TOG_DCR      SUPR(Q_) // toggles DCR on/off on external display
 
 
 &lt { // tap for kp, hold for layer
@@ -137,7 +139,7 @@
 
 
 	 // OTHER HOLDTAPS                                           // HOLD               TAP
-		HRMOD_POS(   mokp_l_UTIL,  _POSITIONS_LH  <&m_mo_l_UTIL>,    <&kp> )     // mo UTIL            kp                (slow for lh, tap-preferred)
+		HRMOD_POS(   mokp_l_UTIL,  _POSITIONS_LH,  <&m_mo_l_UTIL>,    <&kp> )     // mo UTIL            kp                (slow for lh, tap-preferred)
 	 // capsword thumbs - TODO should be BAL like the base layer thumbs?
 		HT(  cw_mokp_l_NAV_SPC, <&m_cw_mo_NAV>,  <&m_cw_SPC> )     // mo NAV -> BASE     SPC    -> BASE    (was balanced)
 		HT(  mo_slcw_l_SYM,          <&mo>,      <&m_cw_sl_SYM> )  // mo                 sl SYM -> BASE    (was balanced)
