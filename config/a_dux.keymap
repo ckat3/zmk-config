@@ -11,7 +11,7 @@
 #define _MACRO_INTERVAL      1    // delay between key presses (3 is good)
 #define _MACRO_TAP_FOR       1    // how long to hold tapped key (3 is good)
 
-#define _COMBO_TIMEOUT       18   // maximum interval between keys to form combo
+#define _COMBO_TIMEOUT       15   // (18 is good, trying less) maximum interval between keys to form combo
 #define _COMBO_TIMEOUT_SLOW  50
 
 // holdtap settings
@@ -48,7 +48,7 @@
 
 // (autohotkey)
 #define TOG_DISPLAY  SUPR(O_) // toggles extend/external display
-#define TOG_THEME    SUPR(É_) // toggles dark/light theme
+#define TOG_THEME    SUPR(EACT_) // toggles dark/light theme
 // (ahk + controlmymonitor)
 #define M2_BRI_U     SUPR(U_) // + brightness external display
 #define M2_BRI_D     SUPR(Z_) // - brightness external display
