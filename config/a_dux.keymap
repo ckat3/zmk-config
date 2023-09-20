@@ -27,12 +27,12 @@
 #define _HT_QUICK_TAP        200  // how fast must press twice for second to start repeating tap
 
 // AUTOHOTKEY
-#define DISPLAY_OFF  SUPR(J_)  // turns screen off
-#define M2_BRI_U     SUPR(N_)  // + brightness external display
-#define M2_BRI_D     SUPR(B_)  // - brightness external display
-#define TOG_DISPLAY  SUPR(L_)  // toggles extend/external display
-#define TOG_DCR      SUPR(S_)  // toggles DCR on/off on external display (ahk + controlmymonitor)
-#define TOG_THEME    SUPR(W_)  // toggles dark/light theme
+#define DISPLAY_OFF  SUPR(Q_)  // turns screen off
+#define M2_BRI_U     SUPR(U_)  // + brightness external display
+#define M2_BRI_D     SUPR(Z_)  // - brightness external display
+#define TOG_DISPLAY  SUPR(Y_)  // toggles extend/external display
+#define TOG_DCR      SUPR(I_)  // toggles DCR on/off on external display (ahk + controlmymonitor)
+#define TOG_THEME    SUPR(P_)  // toggles dark/light theme
 
 // LAYERS
 #define l_BASE 0
@@ -626,9 +626,9 @@
 
 		utility_layer {
 			bindings = <                                                                    // autohotkey controls these for mouse movement
-				impossible  &trans       &m_utl_BACK   &m_utl_FRWD      &m_utl_LAF4         &kp K_      &kp C_   &kp H_   &kp W_  &kp  J_
-				impossible  &m_utl_GTAB  &m_utl_SATAB  &m_utl_ATAB      &m_utl_REDO         &kp G_      &kp T_   &kp R_   &kp S_  &kp  N_
-				impossible  &trans       &m_utl_SCTAB  &m_utl_CTAB      &m_utl_DESK         &kp V_      &kp D_   &kp M_   &kp L_  &kp  B_
+				impossible  &trans       &m_utl_BACK   &m_utl_FRWD      &m_utl_LAF4         &kp K_      &kp C_   &kp H_   &kp W_  &kp  J_ // mmb, slow mvmt
+				impossible  &m_utl_GTAB  &m_utl_SATAB  &m_utl_ATAB      &m_utl_REDO         &kp G_      &kp T_   &kp R_   &kp S_  &kp  N_ // lmb, fast mvmt
+				impossible  &trans       &m_utl_SCTAB  &m_utl_CTAB      &m_utl_DESK         &kp V_      &kp D_   &kp M_   &kp L_  &kp  B_ // rmb, avrg mvmt
 			//
 			                                              &m_utl_STAB   &m_utl_ULIN         &kp A_   &kp E_
 			>;
