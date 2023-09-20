@@ -50,8 +50,8 @@
 #define l_GAM2 12
 
 // combos shouldn't work on game layer, to minimize delay
-#define ll_DEFAULT     l_BASE  l_CAPS  l_OSCP  l_NUM  l_SYM  l_NAV  l_MNAV  l_ACNT  l_ACCP  l_UTIL
-#define ll_NOTCAPS     l_BASE                  l_NUM  l_SYM  l_NAV  l_MNAV  l_ACNT  l_ACCP  l_UTIL
+#define ll_DEFAULT     l_BASE  l_CAPS  l_OSCP  l_NUM  l_SYM  l_NAV  l_MNAV  l_ACNT  l_ACCP
+#define ll_NOTCAPS     l_BASE                  l_NUM  l_SYM  l_NAV  l_MNAV  l_ACNT  l_ACCP
 #define ll_CAPS                l_CAPS  l_OSCP
 
 
