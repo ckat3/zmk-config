@@ -381,7 +381,7 @@
 		COMBO(    ll_DEFAULT,       &m_sl_CAPS     ,  11 12 13 ,  gibberishai)	
 		COMBO_KP( ll_DEFAULT,          ENTER,l     ,     13 14 )
 		
-		COMBO(    ll_DEFAULT,       &m_SPC_sl_CAPS ,   1  2  3 ,  gibberisha)
+		COMBO(    ll_DEFAULT,       &m_SPC_sl_CAPS ,  20 21 22 ,  gibberisha)
 		COMBO(    ll_DEFAULT,   &m_DOT_SPC_sl_CAPS ,  21 22 23 ,  gibberishapo)
 		
 		COMBO(    ll_DEFAULT,      &kp LC(Z_)      ,     20 21 ,  gibberish)
@@ -424,10 +424,10 @@
 		COMBO(    l_FUNC,         &kp  C_NEXT      ,     12 13 ,  gibberishon)
 		COMBO(    l_FUNC,         &kp  C_PREV      ,     22 23 ,  gibberishaille)
 		
-		COMBO(    l_FUNC,         &kp  TOG_DCR     ,     10 11 ,  gibberishinha)	
+		COMBO(    l_FUNC,         &kp  TOG_DCR     ,     10 11 ,  gibberishinha)
+		COMBO(    l_FUNC,         &kp  DISPLAY_OFF ,  16 17 18 ,  gibberishaca)	
 		COMBO(    l_FUNC,         &kp  TOG_DISPLAY ,     20 21 ,  gibberishinho)
-		COMBO(    l_FUNC,         &kp  DISPLAY_OFF ,  20 21 22 ,  gibberishaca)
-		COMBO(    l_FUNC,         &kp  TOG_THEME   ,  21 22 23 ,  gibberishaco)
+		COMBO(    l_FUNC,         &kp  TOG_THEME   ,     21 22 ,  gibberishaco)
 		
 		COMBO(    l_FUNC,         &tog l_GAME      ,      4 14 ,  gibberishaiouayopaip)
 		COMBO(    l_FUNC,         &tog l_GAM2      ,     14 24 ,  gibberishaiopoappyaio)		
