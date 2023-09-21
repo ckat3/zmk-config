@@ -319,6 +319,7 @@
 		MACRO(  utl_ULIN,  <NO_MODS>  ,  <M_KP  ULIN_  > ,       <ALL_MODS> )
 		MACRO(  utl_DESK,  <NO_MODS>  ,  <M_KP  LG(D_) > ,       <ALL_MODS> )
 		MACRO(  utl_REDO,  <NO_MODS>  ,  <M_KP  LC(Y_) > ,       <ALL_MODS> )
+		MACRO(  utl_SAVE,  <NO_MODS>  ,  <M_KP  LC(S_) > ,       <ALL_MODS> )
 		MACRO(  utl_LAF4,  <NO_MODS>  ,  <M_KP  LA(F4) > ,       <ALL_MODS> )
 									  
 		MACRO(  utl_STAB,  <NO_MODS>  ,  <M_KP  LS(TAB) > ,      <ALL_MODS> )
@@ -380,7 +381,7 @@
 		COMBO_KP( ll_DEFAULT,          SPACE      ,,     22 23 )	
 		
 		COMBO(    ll_DEFAULT,       &m_sl_CAPS     ,  11 12 13 ,  gibberishai)	
-		COMBO_KP( ll_DEFAULT,          ENTER,l     ,     13 14 )
+		COMBO_KP( ll_DEFAULT,          ENTER,l     ,     10 13 )
 		
 		COMBO(    ll_DEFAULT,       &m_SPC_sl_CAPS ,  20 21 22 ,  gibberisha)
 		COMBO(    ll_DEFAULT,   &m_DOT_SPC_sl_CAPS ,  21 22 23 ,  gibberishapo)
@@ -550,7 +551,7 @@
 			bindings = <
 				&kp  PIPE_   &kp  N7_   &kp  N8_   &kp  N9_      EXCL_QMRK             DLLR_EURO       &kp  LBRK_   &kp  RBRK_   &kp  HASH_   &kp  PCNT_
 				&kp  N0_     &kp  N1_   &kp  N2_   &kp  N3_      &kp SCLN_             &kp COLN_       HMRS PLUS_   HMRC MIN_    HMLA STAR_   HMRG FSLA_
-				HMLC ULIN_   &kp  N4_   MNAV N5_   &kp  N6_      &kp COMM_             &kp DOT_        &kp  LT_     &kp  GT_     EQUL_DIFF    &kp  BSLA_
+				HMLC ENTER   &kp  N4_   MNAV N5_   &kp  N6_      &kp COMM_             &kp DOT_        &kp  LT_     &kp  GT_     EQUL_DIFF    &kp  BSLA_
 			//  								  if locked:
 				                                  &to l_BASE    impossible             &kp ULIN_   &trans
 			>;
@@ -628,7 +629,7 @@
 
 		utility_layer {
 			bindings = <                                                                    // autohotkey controls these for mouse movement
-				impossible  &trans       &m_utl_BACK   &m_utl_FRWD      &m_utl_LAF4         &kp K_      &kp C_   &kp H_   &kp W_  &kp  J_ // mmb, slow mvmt
+				impossible  &m_utl_SAVE  &m_utl_BACK   &m_utl_FRWD      &m_utl_LAF4         &kp K_      &kp C_   &kp H_   &kp W_  &kp  J_ // mmb, slow mvmt
 				impossible  &m_utl_GTAB  &m_utl_SATAB  &m_utl_ATAB      &m_utl_REDO         &kp G_      &kp T_   &kp R_   &kp S_  &kp  N_ // lmb, fast mvmt
 				impossible  &trans       &m_utl_SCTAB  &m_utl_CTAB      &m_utl_DESK         &kp V_      &kp D_   &kp M_   &kp L_  &kp  B_ // rmb, avrg mvmt
 			//
