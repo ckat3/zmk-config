@@ -128,7 +128,7 @@
 		HTPOS( htl,  _POS_RH,  <&kp>, <&kp> )
 		HTPOS( htr,  _POS_LH,  <&kp>, <&kp> )
 		
-		                                                               // HOLD           TAP
+		                                                     // HOLD           TAP
 		HTPOS( htls_cw,  _POS_RH,  <&m_cp_hmls>,  <&kp> )    // lshift         kp 
 		HTPOS( htrs_cw,  _POS_LH,  <&m_cp_hmrs>,  <&kp> )    // rshift         kp 
 		HT(    htlc_cw,            <&m_cp_hmlc>,  <&kp> )    // lctrl          kp 
@@ -261,7 +261,8 @@
 
 
 	 // NBSP STUFF (for french) ----
-		MACRO(       nbsp_QMRK ,  <M_TAP  &kp NBSP_  &kp QMRK_  &to l_BASE >) // goes back to l_BASE if l_CAPS was on
+		MACRO(       nbsp_QMRK ,  <M_TAP  &kp NBSP_  &kp QMRK_             >) // &to l_BASE >) // goes back to l_BASE if l_CAPS was on (TODO needed?)
+		MACRO(    cp_nbsp_QMRK ,  <M_TAP  &kp NBSP_  &kp QMRK_             >) 
 		MACRO(       nbsp_EXCL ,  <M_TAP  &kp NBSP_  &kp EXCL_             >)
 		MACRO(       nbsp_COLN ,  <M_TAP  &kp NBSP_  &kp COLN_  &kp SPACE  >)
 		MACRO(       nbsp_SCLN ,  <M_TAP  &kp NBSP_  &kp SCLN_  &kp SPACE  >)
@@ -277,17 +278,17 @@
 		MACRO(            SZTT ,  <M_TAP  &kp RA(S_)  &kp    S_  >)
 		MACRO(         cp_SZTT ,  <M_TAP  &kp RA(S_)  &kp LS(S_) >)
 
-	 // CAPSWORD -------------------
-	    MACRO(         sl_CAPS ,  <M_TAP                          &sl l_OSCP >)
-		MACRO(     SPC_sl_CAPS ,  <M_TAP              &kp SPACE   &sl l_OSCP >)
-		MACRO( DOT_SPC_sl_CAPS ,  <M_TAP  &kp DOT_    &kp SPACE   &sl l_OSCP >)
+	 // CAPS -----------------------
+	    MACRO(         sl_OSCP ,  <M_TAP                          &sl l_OSCP >)
+		MACRO(     SPC_sl_OSCP ,  <M_TAP              &kp SPACE   &sl l_OSCP >)
+		MACRO( DOT_SPC_sl_OSCP ,  <M_TAP  &kp DOT_    &kp SPACE   &sl l_OSCP >)
 	 // key -> capsword off                           
 		MACRO(         cw_SPC  ,  <M_TAP  &kp SPACE   &to l_BASE >)
 		MACRO(         cw_TAB  ,  <M_TAP  &kp TAB     &to l_BASE >)
 		MACRO(         cw_ENTER,  <M_TAP  &kp ENTER   &to l_BASE >)
 		MACRO(         cw_ESC  ,  <M_TAP  &kp ESC     &to l_BASE >)
 	 // capsword off + one-shot SYM
-		MACRO(      cw_sl_SYM  ,  <M_TAP  &sl l_SYM  &tog l_CAPS >)
+		MACRO(      cw_sl_SYM  ,  <M_TAP  &sl l_SYM  &tog l_CPWD >)
 	 // capsword off + hold NAV
 		MACRO(      cw_mo_NAV  ,  <M_TAP  &to l_NAV >,  <M_WAIT_REL>,  <M_TAP  &to l_BASE >)
 		
@@ -371,20 +372,20 @@
 		COMBO(    ll_DEFAULT,      &kp LG(V_)      ,      2  3 ,  gibrish) // clipboard history
 		
 		COMBO_KP( ll_NOTCAPS,          ESC        ,,     10 11 )
-		COMBO_M(  ll_CAPS,          cw_ESC        ,,     10 11 )
+		COMBO_M(   l_CPWD,          cw_ESC        ,,     10 11 )
 		
 		COMBO_KP( ll_DEFAULT,          BSPC       ,,     11 12 )
 		COMBO_KP( ll_DEFAULT,          DEL        ,,     21 22 )
 		
 		COMBO_KP( ll_NOTCAPS,          TAB        ,,     12 13 )									 				  
-		COMBO_M(  ll_CAPS,          cw_TAB        ,,     12 13 )
+		COMBO_M(   l_CPWD,          cw_TAB        ,,     12 13 )
 		COMBO_KP( ll_DEFAULT,          SPACE      ,,     22 23 )	
 		
-		COMBO(    ll_DEFAULT,       &m_sl_CAPS     ,  11 12 13 ,  gibberishai)	
+		COMBO(    ll_DEFAULT,       &m_sl_OSCP     ,  11 12 13 ,  gibberishai)	
 		COMBO_KP( ll_DEFAULT,          ENTER,l     ,     10 13 )
 		
-		COMBO(    ll_DEFAULT,       &m_SPC_sl_CAPS ,  20 21 22 ,  gibberisha)
-		COMBO(    ll_DEFAULT,   &m_DOT_SPC_sl_CAPS ,  21 22 23 ,  gibberishapo)
+		COMBO(    ll_DEFAULT,       &m_SPC_sl_OSCP ,  20 21 22 ,  gibberisha)
+		COMBO(    ll_DEFAULT,   &m_DOT_SPC_sl_OSCP ,  21 22 23 ,  gibberishapo)
 		
 		COMBO(    ll_DEFAULT,      &kp LC(Z_)      ,     20 21 ,  gibberish)
 		
@@ -393,13 +394,13 @@
 											
 		// right hand                                        
 		COMBO_KP( ll_NOTCAPS,          ENTER,r     ,     16 17 )
-		COMBO_M(  ll_CAPS,          cw_ENTER      ,,     16 17 )	
+		COMBO_M(   l_CPWD,          cw_ENTER      ,,     16 17 )	
 		
 		COMBO(    ll_DEFAULT,      &kp LC(BSPC)    ,     17 18 ,  gibberishapoip)		
 		COMBO(    ll_DEFAULT,      &kp LC(DEL)     ,     27 28 ,  gibberishaioipp)
 		
-		COMBO(    ll_DEFAULT,       &m_sl_CAPS     ,  16 17 18 ,  gibberishaioaipo)										
-		COMBO(    ll_DEFAULT,   &m_SPC_sl_CAPS     ,     32 33 ,  gibberishapopiaio) // TODO: which m_SPC_sl_CAPS is better?  
+		COMBO(    ll_DEFAULT,       &m_sl_OSCP     ,  16 17 18 ,  gibberishaioaipo)										
+		COMBO(    ll_DEFAULT,   &m_SPC_sl_OSCP     ,     32 33 ,  gibberishapopiaio) // TODO: which m_SPC_sl_OSCP is better?  
 		
 		
 		// TODO  merge these?                     
@@ -413,10 +414,10 @@
 		COMBO_M(  l_OSCP,      up_TILD_A_O_       ,,     13 11 )  /* Ão */
 		COMBO_M(  l_OSCP,      up_TILD_O_E_       ,,     11 30 )  /* Õe */
 					  		     	  				 	      
-		COMBO_M(  l_CAPS,           cp_Q_U_,,            26 27 )  /* QU */
-		COMBO_M(  l_CAPS,      cp_TILD_A_E_       ,,     13 30 )  /* ÃE */
-		COMBO_M(  l_CAPS,      cp_TILD_A_O_       ,,     13 11 )  /* ÃO */
-		COMBO_M(  l_CAPS,      cp_TILD_O_E_       ,,     11 30 )  /* ÕE */
+		COMBO_M(  l_CAPS l_CPWD,       cp_Q_U_,,     26 27 )  /* QU */
+		COMBO_M(  l_CAPS l_CPWD,  cp_TILD_A_E_,,     13 30 )  /* ÃE */
+		COMBO_M(  l_CAPS l_CPWD,  cp_TILD_A_O_,,     13 11 )  /* ÃO */
+		COMBO_M(  l_CAPS l_CPWD,  cp_TILD_O_E_,,     11 30 )  /* ÕE */
 											     	    
 									 				 	 
 		// function layer
