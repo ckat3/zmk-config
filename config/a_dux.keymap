@@ -57,7 +57,6 @@
 
 
 
-
 &lt { // tap for kp, hold for layer
 	flavor          = "tap-preferred"; //"balanced";
 	tapping-term-ms = <_HT_TAPLIMIT>;
@@ -583,7 +582,7 @@
 				&kp  LC(Y_)   HMLA INSERT   HMLC PSCRN    HMLS PSBRK         &kp CAPS            _________      &kp  LC(LEFT)   &kp  DOWN     &kp  UP       &kp  LC(RIGHT)
 				HMLG LC(Z_)   HMRA LC(X_)   &kp  LC(C_)   &kp  LC(V_)      PASTEPLAIN            _________      &kp  HOME       &kp  LEFT     &kp  RIGHT    &kp  END
 			//  					                                        				                  double tap:
-												            &tog l_CPWD   &tog l_CAPS            impossible   impossible
+												              &to l_CPWD   &to l_CAPS            impossible   impossible
 			>;
 		};
 		
