@@ -307,28 +307,31 @@
 	 // upon entering this layer, shift + control + alt are held.
 	 // each key releases some mods, then holds them all again.
 	 // this allows us e.g. to alt-tab without letting go of alt.
-		#define  ALL_MODS   M_HOLD  &kp LSHIFT  &kp LCTRL  &kp LALT
-		#define   NO_MODS   M_REL   &kp LSHIFT  &kp LCTRL  &kp LALT  &kp RSHIFT  &kp RCTRL  &kp RALT // release rh mods just in case
-		#define HOLD_CTRL   M_REL   &kp LSHIFT             &kp LALT  &kp RSHIFT  &kp RCTRL  &kp RALT
-		#define HOLD_ALT    M_REL   &kp LSHIFT  &kp LCTRL            &kp RSHIFT  &kp RCTRL  &kp RALT
-
-		MACRO( mo_l_UTIL,  <M_TAP  &to l_UTIL >,  <ALL_MODS>,  <M_WAIT_REL>,  <NO_MODS>,  <M_TAP  &to l_BASE > )
+	 
+		#define RH_MODS               &kp RSHIFT  &kp RCTRL  &kp RALT  &kp RGUI
 		
-		MACRO(  utl_BACK,  <NO_MODS>  ,  <M_KP  C_AC_BACK >    , <ALL_MODS> )
-		MACRO(  utl_FRWD,  <NO_MODS>  ,  <M_KP  C_AC_FORWARD > , <ALL_MODS> )
-		MACRO(  utl_ULIN,  <NO_MODS>  ,  <M_KP  ULIN_  > ,       <ALL_MODS> )
-		MACRO(  utl_DESK,  <NO_MODS>  ,  <M_KP  LG(D_) > ,       <ALL_MODS> )
-		MACRO(  utl_REDO,  <NO_MODS>  ,  <M_KP  LC(Y_) > ,       <ALL_MODS> )
-		MACRO(  utl_SAVE,  <NO_MODS>  ,  <M_KP  LC(S_) > ,       <ALL_MODS> )
-		MACRO(  utl_LAF4,  <NO_MODS>  ,  <M_KP  LA(F4) > ,       <ALL_MODS> )
-									  
-		MACRO(  utl_STAB,  <NO_MODS>  ,  <M_KP  LS(TAB) > ,      <ALL_MODS> )
-		MACRO(  utl_GTAB,  <NO_MODS>  ,  <M_KP  LG(TAB) > ,      <ALL_MODS> )
+		#define HOLD_SUPER    M_HOLD  &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LGUI
+		#define REL_ALL_MODS  M_REL   &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LGUI  RH_MODS   // release rh mods just in case.
+		#define ONLY_CTRL     M_REL   &kp LSHIFT             &kp LALT  &kp LGUI  RH_MODS   //   also useful if some mod gets
+		#define ONLY_ALT      M_REL   &kp LSHIFT  &kp LCTRL            &kp LGUI  RH_MODS   //   stuck for whatever reason
 
-		MACRO(  utl_ATAB,  <HOLD_ALT> ,  <M_KP     TAB  > ) // these will not hold all mods back,
-		MACRO( utl_SATAB,  <HOLD_ALT> ,  <M_KP  LS(TAB) > ) //  so that we can do alt-tab etc
-		MACRO(  utl_CTAB,  <HOLD_CTRL>,  <M_KP     TAB  > ) //  several times in a row without
-		MACRO( utl_SCTAB,  <HOLD_CTRL>,  <M_KP  LS(TAB) > ) //  dropping the little window
+		MACRO( mo_l_UTIL,  <M_TAP &to l_UTIL>,  <HOLD_SUPER>,  <M_WAIT_REL>,  <REL_ALL_MODS>,  <M_TAP &to l_BASE> )
+		
+		MACRO(  utl_ULIN,  <REL_ALL_MODS>  ,  <M_KP  ULIN_        > , <HOLD_SUPER> )
+		MACRO(  utl_BACK,  <REL_ALL_MODS>  ,  <M_KP  C_AC_BACK    > , <HOLD_SUPER> )
+		MACRO(  utl_FRWD,  <REL_ALL_MODS>  ,  <M_KP  C_AC_FORWARD > , <HOLD_SUPER> )
+		MACRO(  utl_DESK,  <REL_ALL_MODS>  ,  <M_KP  LG(D_)       > , <HOLD_SUPER> )
+		MACRO(  utl_REDO,  <REL_ALL_MODS>  ,  <M_KP  LC(Y_)       > , <HOLD_SUPER> )
+		MACRO(  utl_SAVE,  <REL_ALL_MODS>  ,  <M_KP  LC(S_)       > , <HOLD_SUPER> )
+		MACRO(  utl_LAF4,  <REL_ALL_MODS>  ,  <M_KP  LA(F4)       > , <HOLD_SUPER> )
+									  
+		MACRO(  utl_STAB,  <REL_ALL_MODS>  ,  <M_KP  LS(TAB) > ,      <HOLD_SUPER> )
+		MACRO(  utl_GTAB,  <REL_ALL_MODS>  ,  <M_KP  LG(TAB) > ,      <HOLD_SUPER> )
+		
+		MACRO(  utl_ATAB,     <ONLY_ALT >  ,  <M_KP     TAB  > ) // these will not hold all mods at the
+		MACRO( utl_SATAB,     <ONLY_ALT >  ,  <M_KP  LS(TAB) > ) //  end, so that we can do alt-tab etc
+		MACRO(  utl_CTAB,     <ONLY_CTRL>  ,  <M_KP     TAB  > ) //  several times in a row without
+		MACRO( utl_SCTAB,     <ONLY_CTRL>  ,  <M_KP  LS(TAB) > ) //  dropping the little window
 
 	};
 
@@ -346,15 +349,15 @@
 			};
 
 		// TODO: ok to omit line breaks between defs?
-		#define COMBO(       LAYERS,        BINDINGS,   POSITIONS,   GIBBERISH_NAME) \
-			DEFINE_COMBO(    LAYERS,  GIBBERISH_NAME,   POSITIONS,   BINDINGS)
+		#define COMBO(    LAYERS,        BINDINGS,   POSITIONS,   GIBBERISH_NAME) \
+			DEFINE_COMBO( LAYERS,  GIBBERISH_NAME,   POSITIONS,   BINDINGS)
 
 		// suffix must be added if there's more than one combo for the same key or macro
-		#define COMBO_KP(    LAYERS,     KEY, SUFFIX,   POSITIONS) \
-			DEFINE_COMBO(    LAYERS,     KEY##SUFFIX,   POSITIONS,   &kp KEY)
+		#define COMBO_KP( LAYERS,     KEY, SUFFIX,   POSITIONS) \
+			DEFINE_COMBO( LAYERS,     KEY##SUFFIX,   POSITIONS,   &kp KEY)
 
-		#define COMBO_M( LAYERS,   MACRO, SUFFIX,   POSITIONS) \
-			DEFINE_COMBO(    LAYERS,   MACRO##SUFFIX,   POSITIONS,   &m_##MACRO)
+		#define COMBO_M(  LAYERS,   MACRO, SUFFIX,   POSITIONS) \
+			DEFINE_COMBO( LAYERS,   MACRO##SUFFIX,   POSITIONS,   &m_##MACRO)
 
 
 	/*
@@ -413,10 +416,10 @@
 		COMBO_M(  l_OSCP,      up_TILD_A_O_       ,,     13 11 )  /* Ão */
 		COMBO_M(  l_OSCP,      up_TILD_O_E_       ,,     11 30 )  /* Õe */
 					  		     	  				 	      
-		COMBO_M(  l_CAPS l_CPWD,       cp_Q_U_,,     26 27 )  /* QU */
-		COMBO_M(  l_CAPS l_CPWD,  cp_TILD_A_E_,,     13 30 )  /* ÃE */
-		COMBO_M(  l_CAPS l_CPWD,  cp_TILD_A_O_,,     13 11 )  /* ÃO */
-		COMBO_M(  l_CAPS l_CPWD,  cp_TILD_O_E_,,     11 30 )  /* ÕE */
+		COMBO_M(  l_CAPS l_CPWD,       cp_Q_U_    ,,     26 27 )  /* QU */
+		COMBO_M(  l_CAPS l_CPWD,  cp_TILD_A_E_    ,,     13 30 )  /* ÃE */
+		COMBO_M(  l_CAPS l_CPWD,  cp_TILD_A_O_    ,,     13 11 )  /* ÃO */
+		COMBO_M(  l_CAPS l_CPWD,  cp_TILD_O_E_    ,,     11 30 )  /* ÕE */
 											     	    
 									 				 	 
 		// function layer
@@ -459,14 +462,14 @@
 		#define MNAV   &mokp l_MNAV
 
 	 // HOME-ROW MODS with shift on key
-		#define HMLS_cw(X)   &htls_cw 0 LS(X)
-		#define HMRS_cw(X)   &htrs_cw 0 LS(X)
-		#define HMLC_cw(X)   &htlc_cw 0 LS(X)
-		#define HMRC_cw(X)   &htrc_cw 0 LS(X)
-		#define HMLA_cw(X)   &htla_cw 0 LS(X)
-		#define HMRA_cw(X)   &htra_cw 0 LS(X)
-		#define HMLG_cw(X)   &htlg_cw 0 LS(X)
-		#define HMRG_cw(X)   &htrg_cw 0 LS(X)
+		#define HMLScw(X)   &htls_cw 0 LS(X)
+		#define HMRScw(X)   &htrs_cw 0 LS(X)
+		#define HMLCcw(X)   &htlc_cw 0 LS(X)
+		#define HMRCcw(X)   &htrc_cw 0 LS(X)
+		#define HMLAcw(X)   &htla_cw 0 LS(X)
+		#define HMRAcw(X)   &htra_cw 0 LS(X)
+		#define HMLGcw(X)   &htlg_cw 0 LS(X)
+		#define HMRGcw(X)   &htrg_cw 0 LS(X)
 	 // -------------------		
 
 	 // HOLDTAP SYMBOLS ------------------
@@ -519,24 +522,22 @@
 	 // -------------------
 	 // CAPS LAYER
 	 // -------------------
-#define CAPSDEF &kp    LS(Q_)   &kp  MIN_       &kp  LS(Y_)   DOT_COLN           NBSP_QMRK          &kp LS(K_)       &kp  LS(C_)   &kp  LS(H_)   &kp  LS(W_)   &kp  LS(J_)\
-				UTLAYR LS(U_)   HMLA_cw(O_)	    HMLC_cw(I_)   HMLS_cw(A_)       &kp LS(F_)          &kp LS(G_)       HMRS_cw(T_)   HMRC_cw(R_)   HMRA_cw(S_)   &kp  LS(N_)\
-				  HMLG_cw(Z_)   HMRA_cw(EACT_)  MNAV LS(P_)   COMM_SCLN         &kp LS(X_)          &kp LS(V_)       &kp  LS(D_)   &kp  LS(M_)   HMLA_cw(L_)   HMRG_cw(B_)
-			
-
+#define CAPSDEF &kp    LS(Q_)   &kp    MIN_    &kp  LS(Y_)   DOT_COLN          NBSP_QMRK          &kp LS(K_)       &kp LS(C_)   &kp LS(H_)   &kp LS(W_)   &kp LS(J_)\
+				UTLAYR LS(U_)   HMLAcw(O_)	    HMLCcw(I_)   HMLScw(A_)       &kp LS(F_)          &kp LS(G_)       HMRScw(T_)   HMRCcw(R_)   HMRAcw(S_)   &kp LS(N_)\
+				   HMLGcw(Z_)   HMRAcw(EACT_)  MNAV LS(P_)   COMM_SCLN        &kp LS(X_)          &kp LS(V_)       &kp LS(D_)   &kp LS(M_)   HMLAcw(L_)   HMRGcw(B_)
+	// --------------------
 		caps_layer {
-			bindings = < CAPSDEF
+			bindings = < CAPSDEF	//							        going to another layer does not leave caps layer
 										  				          lt_NUM_E      mosl_SYM             mosl_ACCP   lt_NAV_SPC    >; };		
 		capsword_layer {
-			bindings = < CAPSDEF	//							      both leave capsword          doesn't leave    leaves		
+			bindings = < CAPSDEF	//							      both leave capsword         doesn't leave      leaves		
 										  				          lt_NUM_E_cw   mosl_SYM_cw          mosl_ACCP   lt_NAV_SPC_cw >; };
 		oneshotcaps_layer { 
-			bindings = < CAPSDEF     
+			bindings = < CAPSDEF	//							     all leave oneshotcaps (automatically coz it's oneshot!!)
 												                  lt_NUM_E_cw   mosl_SYM             mosl_ACCP   lt_NAV_SPC_cw >; };
-			
-			// two differences:  * qu combo does Qu, not QU
-	        //                   * default mosl_SYM behavior, since SLCP will be toggled off automatically. 
-            //                     otherwise in a quick roll the second key will arrive after going to BASE and before sl'ing SYM
+			// TWO DIFFERENCES | * qu combo does Qu, not QU
+	        // OF ONESHOTCAPS  | * default mosl_SYM behavior, since SLCP will be toggled off automatically. 
+            //                 |   otherwise in a quick roll the second key will arrive after going to BASE and before sl'ing SYM
 			
 	 // -------------------
 	 // LH AUX LAYERS
@@ -546,17 +547,16 @@
 		#define HMRC_GRV__   &ht_GRV   LCTRL   0
 		#define HMRG_TLD__   &ht_TLD   LGUI    0
 	 // -------------------		
-
 		num_layer {
 			bindings = <
 				&kp  PIPE_   &kp  N7_   &kp  N8_   &kp  N9_      EXCL_QMRK             DLLR_EURO       &kp  LBRK_   &kp  RBRK_   &kp  HASH_   &kp  PCNT_
 				&kp  N0_     &kp  N1_   &kp  N2_   &kp  N3_      &kp SCLN_             &kp COLN_       HMRS PLUS_   HMRC MIN_    HMLA STAR_   HMRG FSLA_
 				HMLC ENTER   &kp  N4_   MNAV N5_   &kp  N6_      &kp COMM_             &kp DOT_        &kp  LT_     &kp  GT_     EQUL_DIFF    &kp  BSLA_
-			//  								  if locked:
+			//  						    leave if locked (l_NAV)
 				                                  &to l_BASE    impossible             &kp ULIN_   &trans
 			>;
 		};
-
+		
 		sym_layer {
 			bindings = <
 				&kp  PIPE_   &kp  AT_     &kp  AE_     &kp  OE_        NBSP_EXCL            _________       &kp  LBRK_   &kp RBRK_    &kp AMPR_   DLLR_EURO
@@ -581,7 +581,7 @@
 				&kp  LSLCK    &kp  LNLCK    &to  l_NUM    &kp  LG(V_)         TASKMAN            _________      HMLS LC(HOME)   HMLC PG_DN    HMLA PG_UP    HMRG LC(END)
 				&kp  LC(Y_)   HMLA INSERT   HMLC PSCRN    HMLS PSBRK         &kp CAPS            _________      &kp  LC(LEFT)   &kp  DOWN     &kp  UP       &kp  LC(RIGHT)
 				HMLG LC(Z_)   HMRA LC(X_)   &kp  LC(C_)   &kp  LC(V_)      PASTEPLAIN            _________      &kp  HOME       &kp  LEFT     &kp  RIGHT    &kp  END
-			//  					                                        				                  double tap:
+			//  					                                        				                  
 												              &to l_CPWD   &to l_CAPS            impossible   impossible
 			>;
 		};
