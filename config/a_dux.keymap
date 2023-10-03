@@ -563,7 +563,7 @@
 		// #define OEU_OE   &ht_TLD   LGUI    0
 		sym_layer {
 			bindings = <
-				&kp  PIPE_   &kp  AT_     &kp  AE_     ht_OE OE_ 0     NBSP_EXCL            _________       &kp  LBRK_   &kp RBRK_    &kp AMPR_   DLLR_EURO
+				&kp  PIPE_   &kp  AT_     &kp  AE_     &ht_OE OE_ 0    NBSP_EXCL            _________       &kp  LBRK_   &kp RBRK_    &kp AMPR_   DLLR_EURO
 				HMLG LCUR_   HMLA RCUR_   HMLC LPAR_   HMLS RPAR_      &kp SCLN_            &kp COLN_       HMRS_CFX__   HMRC_GRV__   &kp RALT    HMRG_TLD__
 			    &kp  NDSH_   HMRA MDSH_   NBSP_LGLM    NBSP_RGLM       &kp COMM_            &kp DOT_        _________    _________    &kp LALT    &kp BSLA_
 			//  									                    double tap:
