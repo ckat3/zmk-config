@@ -150,8 +150,7 @@
 	 // loose accents on tap
 		HT( ht_CFX, <&kp>, <&m_loose_CFX> )
 		HT( ht_GRV, <&kp>, <&m_loose_GRV> )
-		HT( ht_TLD, <&kp>, <&m_loose_TLD> )           
-		HT( ht_TLD, <&kp>, <&m_loose_TLD> )
+		HT( ht_TLD, <&kp>, <&m_loose_TLD> ) 
 		
 	 // automatic nbsp on tap
 		HT( ht_LGLM, <&kp>, <&m_nbsp_LGLM> )
