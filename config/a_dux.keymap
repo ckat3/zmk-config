@@ -85,10 +85,10 @@
 		#define _POS_RH   5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33
 		#define _ALL_POSITIONS  _POS_LH  _POS_RH
 
-		#define DEFINE_HOLDTAP(NAME, FLAVOR, DELAY, POSITIONS, BINDINGS...) \
+		#define DEFINE_HOLDTAP(FLAVOR, NAME, DELAY, POSITIONS, BINDINGS...) \
 			NAME: ht_##NAME { \
-				label           = #NAME; \
 				flavor          = #FLAVOR; \
+				label           = #NAME; \
 				tapping-term-ms = <DELAY>; \
 				quick-tap-ms    = <_HT_QUICK_TAP>; \
 				bindings        = BINDINGS; \
@@ -99,20 +99,20 @@
 				hold-trigger-key-positions = <POSITIONS>; \
 			};
 
-		#define HT(             NAME,                                                       BINDINGS... ) \
-				DEFINE_HOLDTAP (NAME,  tap-preferred,  _HT_TAPLIMIT,       _ALL_POSITIONS,  BINDINGS)
-
-		#define HT_FAST(        NAME,                                                       BINDINGS... ) \
-				DEFINE_HOLDTAP( NAME,  tap-preferred,  _HT_TAPLIMIT_FAST,  _ALL_POSITIONS,  BINDINGS)
-				
-		#define HT_SLOW(        NAME,                                                       BINDINGS... ) \
-				DEFINE_HOLDTAP( NAME,  tap-preferred,  _HT_TAPLIMIT_SLOW,  _ALL_POSITIONS,  BINDINGS)
-
-		#define HT_BAL(         NAME,                                                       BINDINGS... ) \
-				DEFINE_HOLDTAP( NAME,       balanced,  _HT_TAPLIMIT,       _ALL_POSITIONS,  BINDINGS)
-
-		#define HTPOS(          NAME,                                      POSITIONS,       BINDINGS... ) \
-				DEFINE_HOLDTAP( NAME,  tap-preferred,  _HT_TAPLIMIT,       POSITIONS,       BINDINGS)
+		#define HT(                             NAME,                                       BINDINGS... ) \
+				DEFINE_HOLDTAP (tap-preferred,  NAME,  _HT_TAPLIMIT,       _ALL_POSITIONS,  BINDINGS)
+                                               
+		#define HT_FAST(                        NAME,                                       BINDINGS... ) \
+				DEFINE_HOLDTAP( tap-preferred,  NAME,  _HT_TAPLIMIT_FAST,  _ALL_POSITIONS,  BINDINGS)
+				                               
+		#define HT_SLOW(                        NAME,                                       BINDINGS... ) \
+				DEFINE_HOLDTAP( tap-preferred,  NAME,  _HT_TAPLIMIT_SLOW,  _ALL_POSITIONS,  BINDINGS)
+                                               
+		#define HT_BAL(                         NAME,                                       BINDINGS... ) \
+				DEFINE_HOLDTAP( balanced,       NAME,  _HT_TAPLIMIT,       _ALL_POSITIONS,  BINDINGS)
+                                               
+		#define HTPOS(                          NAME,                           POSITIONS,  BINDINGS... ) \
+				DEFINE_HOLDTAP( tap-preferred,  NAME,  _HT_TAPLIMIT,            POSITIONS,  BINDINGS)
 
 
 	 // HOME-ROW MODS                       // HOLD           TAP             
@@ -145,13 +145,14 @@
 		HT(    mo_slcw_l_SYM,                <&mo>,           <&m_cw_sl_SYM> )  // mo                 sl SYM -> BASE    (was balanced)
 
 
+		HT( ht_OE,  <&kp>, <&m_OE_U_> )
+
 	 // loose accents on tap
 		HT( ht_CFX, <&kp>, <&m_loose_CFX> )
 		HT( ht_GRV, <&kp>, <&m_loose_GRV> )
+		HT( ht_TLD, <&kp>, <&m_loose_TLD> )           
 		HT( ht_TLD, <&kp>, <&m_loose_TLD> )
 		
-		
-	 // NBSP STUFF (for french) ------------------
 	 // automatic nbsp on tap
 		HT( ht_LGLM, <&kp>, <&m_nbsp_LGLM> )
 		HT( ht_RGLM, <&kp>, <&m_nbsp_RGLM> )
@@ -227,8 +228,9 @@
 	 // INCONVENIENT DIGRAMS ------------------
 	 // also defines a caps version (eg &m_cp_Q_U_)
 	 //    and an uppercase version (eg &m_up_Q_U_)
-		MACRO_DIGRAM( Q_, U_ )
-		MACRO_DIGRAM( B_, J_ )
+		MACRO_DIGRAM( Q_,  U_ )
+		MACRO_DIGRAM( B_,  J_ )
+		MACRO_DIGRAM( OE_, U_ )
 
 
 	 // ACCENTED LETTERS ------------------
@@ -258,6 +260,8 @@
 
 		MACRO_ACCENT_SINGLE( TRMA_, I_ )
 
+
+		// MACRO(           OE_U_ ,  <M_TAP  &kp RA(S_)  &kp    S_  >)
 
 	 // NBSP STUFF (for french) ----
 		MACRO(       nbsp_QMRK ,  <M_TAP  &kp NBSP_  &kp QMRK_             >) // &to l_BASE >) // goes back to l_BASE if l_CAPS was on (TODO needed?)
@@ -557,9 +561,10 @@
 			>;
 		};
 		
+		// #define OEU_OE   &ht_TLD   LGUI    0
 		sym_layer {
 			bindings = <
-				&kp  PIPE_   &kp  AT_     &kp  AE_     &kp  OE_        NBSP_EXCL            _________       &kp  LBRK_   &kp RBRK_    &kp AMPR_   DLLR_EURO
+				&kp  PIPE_   &kp  AT_     &kp  AE_     ht_OE OE_ 0     NBSP_EXCL            _________       &kp  LBRK_   &kp RBRK_    &kp AMPR_   DLLR_EURO
 				HMLG LCUR_   HMLA RCUR_   HMLC LPAR_   HMLS RPAR_      &kp SCLN_            &kp COLN_       HMRS_CFX__   HMRC_GRV__   &kp RALT    HMRG_TLD__
 			    &kp  NDSH_   HMRA MDSH_   NBSP_LGLM    NBSP_RGLM       &kp COMM_            &kp DOT_        _________    _________    &kp LALT    &kp BSLA_
 			//  									                    double tap:
