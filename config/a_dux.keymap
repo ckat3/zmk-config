@@ -493,7 +493,7 @@
 
 	 // THUMB KEYS ------------------
 		#define lt_NUM_E           &lt   l_NUM      E_
-		#define lt_NUM_E_cw        &lt   l_NUM   LS(E_)
+		#define lt_NUM_E_cp        &lt   l_NUM   LS(E_)
 
 		#define mosl_SYM          &mosl  l_SYM   l_SYM
 		#define mosl_SYM_cw     &mo_slcw_l_SYM   l_SYM 0
@@ -531,16 +531,17 @@
 	// --------------------
 		caps_layer {
 			bindings = < CAPSDEF	//							        going to another layer does not leave caps layer
-										  				          lt_NUM_E      mosl_SYM             mosl_ACCP   lt_NAV_SPC    >; };		
+										  				          lt_NUM_E_cp   mosl_SYM             mosl_ACCP   lt_NAV_SPC    >; };		
 		capsword_layer {
 			bindings = < CAPSDEF	//							      both leave capsword         doesn't leave      leaves		
-										  				          lt_NUM_E_cw   mosl_SYM_cw          mosl_ACCP   lt_NAV_SPC_cw >; };
+										  				          lt_NUM_E_cp   mosl_SYM_cw          mosl_ACCP   lt_NAV_SPC_cw >; };
 		oneshotcaps_layer { 
 			bindings = < CAPSDEF	//							     all leave oneshotcaps (automatically coz it's oneshot!!)
-												                  lt_NUM_E_cw   mosl_SYM             mosl_ACCP   lt_NAV_SPC_cw >; };
+												                  lt_NUM_E_cp   mosl_SYM             mosl_ACCP   lt_NAV_SPC_cw >; };
 			// TWO DIFFERENCES | * qu combo does Qu, not QU
 	        // OF ONESHOTCAPS  | * default mosl_SYM behavior, since SLCP will be toggled off automatically. 
             //                 |   otherwise in a quick roll the second key will arrive after going to BASE and before sl'ing SYM
+			
 			
 	 // -------------------
 	 // LH AUX LAYERS
