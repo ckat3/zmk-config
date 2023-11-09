@@ -409,9 +409,9 @@
 		
 		
 		// TODO merge these?  
-		COMBO(    l_BASE,             &kp     Q_   ,     21 22 ,  gibberishapopiaioo)
+		COMBO(    l_BASE,             &kp     Q_   ,     21 23 ,  gibberishapopiaioo)
 		COMBO(    l_BASE,             &kp     J_   ,     26 28 ,  gibberishapopiaioooi)
-		COMBO(   ll_CAPS,             &kp  LS(Q_)  ,     21 22 ,  gibberishapopiaioooia)
+		COMBO(   ll_CAPS,             &kp  LS(Q_)  ,     21 23 ,  gibberishapopiaioooia)
 		COMBO(   ll_CAPS,             &kp  LS(J_)  ,     26 28 ,  gibberishapopiaioooiai)
 		
 		COMBO_M(  l_BASE,                 Q_U_    ,,     26 27 )  /* qu */
