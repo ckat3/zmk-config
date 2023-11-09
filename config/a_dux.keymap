@@ -53,6 +53,7 @@
 // combos shouldn't work on game layer, to minimize delay
 #define ll_DEFAULT     l_BASE  l_CAPS  l_CPWD  l_OSCP  l_NUM  l_SYM  l_NAV  l_MNAV  l_ACNT  l_ACCP
 #define ll_NOTCPWD     l_BASE  l_CAPS                  l_NUM  l_SYM  l_NAV  l_MNAV  l_ACNT  l_ACCP
+#define ll_CAPS                l_CAPS  l_CPWD  l_OSCP
 #define ll_CPWD                        l_CPWD  l_OSCP
 
 
@@ -281,7 +282,6 @@
 		MACRO(         cp_SZTT ,  <M_TAP  &kp RA(S_)  &kp LS(S_) >)
 
 	 // CAPS -----------------------
-	    MACRO(         sl_OSCP ,  <M_TAP                          &sl l_OSCP >)
 		MACRO(     SPC_sl_OSCP ,  <M_TAP              &kp SPACE   &sl l_OSCP >)
 		MACRO( DOT_SPC_sl_OSCP ,  <M_TAP  &kp DOT_    &kp SPACE   &sl l_OSCP >)
 	 // key -> capsword off                           
@@ -408,7 +408,12 @@
 		COMBO(    ll_DEFAULT,   &m_SPC_sl_OSCP     ,     32 33 ,  gibberishapopiaio) // TODO: which m_SPC_sl_OSCP is better?  
 		
 		
-		// TODO  merge these?                     
+		// TODO  merge these?  
+		COMBO(    l_BASE,             &kp     Q_  ,,     21 22 )
+		COMBO(    l_BASE,             &kp     J_  ,,     26 28 )
+		COMBO(   ll_CAPS,             &kp  LS(Q_) ,,     21 22 )
+		COMBO(   ll_CAPS,             &kp  LS(J_) ,,     26 28 )
+		
 		COMBO_M(  l_BASE,                 Q_U_    ,,     26 27 )  /* qu */
 		COMBO_M(  l_BASE,            TILD_A_E_    ,,     13 30 )  /* ãe */
 		COMBO_M(  l_BASE,            TILD_A_O_    ,,     13 11 )  /* ão */
@@ -513,7 +518,7 @@
 
 		base_layer {
 			bindings = <
-				&kp    Q_   &kp  MIN_   &kp  Y_   DOT_COLN       NBSP_QMRK           &kp K_      &kp  C_   &kp  H_   &kp  W_   &kp  J_
+				&sl l_OSCP  &kp  MIN_   &kp  Y_   DOT_COLN       NBSP_QMRK           &kp K_      &kp  C_   &kp  H_   &kp  W_   &sl l_OSCP
 				UTLAYR U_   HMLA O_     HMLC I_   HMLS A_           &kp F_           &kp G_      HMRS T_   HMRC R_   HMRA S_   &kp  N_
 				HMLG   Z_   HMRA EACT_  MNAV P_   COMM_SCLN         &kp X_           &kp V_      &kp  D_   &kp  M_   HMLA L_   HMRG B_
 			//  
