@@ -409,10 +409,10 @@
 		
 		
 		// TODO  merge these?  
-		COMBO(    l_BASE,             &kp     Q_  ,,     21 22 )
-		COMBO(    l_BASE,             &kp     J_  ,,     26 28 )
-		COMBO(   ll_CAPS,             &kp  LS(Q_) ,,     21 22 )
-		COMBO(   ll_CAPS,             &kp  LS(J_) ,,     26 28 )
+		COMBO(    l_BASE,             &kp     Q_   ,     21 22 )
+		COMBO(    l_BASE,             &kp     J_   ,     26 28 )
+		COMBO(   ll_CAPS,             &kp  LS(Q_)  ,     21 22 )
+		COMBO(   ll_CAPS,             &kp  LS(J_)  ,     26 28 )
 		
 		COMBO_M(  l_BASE,                 Q_U_    ,,     26 27 )  /* qu */
 		COMBO_M(  l_BASE,            TILD_A_E_    ,,     13 30 )  /* ãe */
