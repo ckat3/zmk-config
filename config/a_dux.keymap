@@ -408,11 +408,11 @@
 		COMBO(    ll_DEFAULT,   &m_SPC_sl_OSCP     ,     32 33 ,  gibberishapopiaio) // TODO: which m_SPC_sl_OSCP is better?  
 		
 		
-		// TODO  merge these?  
-		COMBO(    l_BASE,             &kp     Q_   ,     21 22 )
-		COMBO(    l_BASE,             &kp     J_   ,     26 28 )
-		COMBO(   ll_CAPS,             &kp  LS(Q_)  ,     21 22 )
-		COMBO(   ll_CAPS,             &kp  LS(J_)  ,     26 28 )
+		// TODO merge these?  
+		COMBO(    l_BASE,             &kp     Q_   ,     21 22 ,  gibberishapopiaioo)
+		COMBO(    l_BASE,             &kp     J_   ,     26 28 ,  gibberishapopiaioooi)
+		COMBO(   ll_CAPS,             &kp  LS(Q_)  ,     21 22 ,  gibberishapopiaioooia)
+		COMBO(   ll_CAPS,             &kp  LS(J_)  ,     26 28 ,  gibberishapopiaioooiai)
 		
 		COMBO_M(  l_BASE,                 Q_U_    ,,     26 27 )  /* qu */
 		COMBO_M(  l_BASE,            TILD_A_E_    ,,     13 30 )  /* ãe */
