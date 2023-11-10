@@ -46,8 +46,11 @@
 
 #define ACUT_	RA(EACT_)
 #define GRAV_	RA(EGRV_)
+#define GRVL_	RS(RA(EGRV_))
 #define CFLX_	Y
+#define CFXL_	RA(N6)
 #define TILD_	RA(N_)
+#define TLDL_	RA(K_)
 #define OE_		RA(O_)
 
 #define COMM_	G

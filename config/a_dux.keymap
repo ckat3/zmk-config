@@ -552,9 +552,9 @@
 	 // LH AUX LAYERS
 	 // -------------------
 	 // mod on hold, loose accent on tap
-		#define HMRS_CFX__   &ht_CFX   LSHIFT  0
-		#define HMRC_GRV__   &ht_GRV   LCTRL   0
-		#define HMRG_TLD__   &ht_TLD   LGUI    0
+	 // TODO unused
+		#define HMRS_CFX__   &ht_CFX   RSHIFT  0
+		#define HMRC_GRV__   &ht_GRV   RCTRL   0
 	 // -------------------		
 		num_layer {
 			bindings = <
@@ -570,7 +570,7 @@
 		sym_layer {
 			bindings = <
 				&kp  PIPE_   &kp  AT_     &kp  AE_     &ht_OE OE_ 0    NBSP_EXCL            _________       &kp  LBRK_   &kp RBRK_    &kp AMPR_   DLLR_EURO
-				HMLG LCUR_   HMLA RCUR_   HMLC LPAR_   HMLS RPAR_      &kp SCLN_            &kp COLN_       HMRS_CFX__   HMRC_GRV__   &kp RALT    HMRG_TLD__
+				HMLG LCUR_   HMLA RCUR_   HMLC LPAR_   HMLS RPAR_      &kp SCLN_            &kp COLN_       HMRS CFXL_   HMRC GRVL_   &kp RALT    HMRG TLDL_
 			    &kp  NDSH_   HMRA MDSH_   NBSP_LGLM    NBSP_RGLM       &kp COMM_            &kp DOT_        _________    _________    &kp LALT    &kp BSLA_
 			//  									                    double tap:
 								                                 ______   ______            &kp ULIN_   &trans
@@ -588,9 +588,9 @@
 
 		nav_layer {
 			bindings = <
-				&kp  LSLCK    &kp  LNLCK    &to  l_NUM    &kp  LG(V_)         TASKMAN            _________      HMLS LC(HOME)   HMLC PG_DN    HMLA PG_UP    HMRG LC(END)
+				&kp  LSLCK    &kp  LNLCK    &to  l_NUM    PASTEPLAIN          TASKMAN            _________      HMLS LC(HOME)   HMLC PG_DN    HMLA PG_UP    HMRG LC(END)
 				&kp  LC(Y_)   HMLA INSERT   HMLC PSCRN    HMLS PSBRK         &kp CAPS            _________      &kp  LC(LEFT)   &kp  DOWN     &kp  UP       &kp  LC(RIGHT)
-				HMLG LC(Z_)   HMRA LC(X_)   &kp  LC(C_)   &kp  LC(V_)      PASTEPLAIN            _________      &kp  HOME       &kp  LEFT     &kp  RIGHT    &kp  END
+				HMLG LC(Z_)   HMRA LC(X_)   &kp  LC(C_)   &kp  LC(V_)       _________            _________      &kp  HOME       &kp  LEFT     &kp  RIGHT    &kp  END
 			//  					                                        				                  
 												              &to l_CPWD   &to l_CAPS            impossible   impossible
 			>;
