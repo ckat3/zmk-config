@@ -81,11 +81,6 @@
 	quick-release;
 };
 
-&slfast { // one-shot layer fast
-	release-after-ms = 100;
-	quick-release;
-};
-
 
 // mo  = layer while held
 // lt  = hold-tap layer/kp
@@ -94,6 +89,15 @@
 
 / {
 	behaviors {
+		slfast: slay_fast {
+			label            = "SLFAST";
+			compatible       = "zmk,behavior-sticky-key";
+			#binding-cells = <1>;
+			bindings = <&mo>;
+			release-after-ms = 100;
+			quick-release;
+		};
+		
 		#define _POS_LH   0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31
 		#define _POS_RH   5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33
 		#define _ALL_POSITIONS  _POS_LH  _POS_RH
@@ -347,8 +351,6 @@
 		MACRO( utl_SATAB,     <ONLY_ALT >  ,  <M_KP  LS(TAB) > ) //  end, so that we can do alt-tab etc
 		MACRO(  utl_CTAB,     <ONLY_CTRL>  ,  <M_KP     TAB  > ) //  several times in a row without
 		MACRO( utl_SCTAB,     <ONLY_CTRL>  ,  <M_KP  LS(TAB) > ) //  dropping the little window
-
-
 
 		MACRO( exclrepeat,  <M_TAP &kp EXCL_ &slfast l_EXCL> ) 
 	};
