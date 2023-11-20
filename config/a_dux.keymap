@@ -94,7 +94,7 @@
 			compatible       = "zmk,behavior-sticky-key";
 			#binding-cells = <1>;
 			bindings = <&mo>;
-			release-after-ms = 100;
+			release-after-ms = <100>;
 			quick-release;
 		};
 		
