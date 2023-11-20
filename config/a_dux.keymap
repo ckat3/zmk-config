@@ -18,9 +18,9 @@
 #define _COMBO_TIMEOUT       16   // (18 is good, 15 might be too little) maximum interval between keys to form combo
 #define _COMBO_TIMEOUT_SLOW  50
 
-// holdtap settings
-#define _HT_TAPLIMIT_SLOW    280  // how long must hold to not be tap
-#define _HT_TAPLIMIT         250  // (260 is good) // TODO
+// holdtap settings               // how long must hold to not be tap
+#define _HT_TAPLIMIT_SLOW    280  
+#define _HT_TAPLIMIT         240  // (250 is good)
 #define _HT_TAPLIMIT_FAST    190  // 
 #define _HT_TAPLIMIT_FASTER  110  // 
 
@@ -146,9 +146,9 @@
 		HT(    mo_slcw_l_SYM,                <&mo>,           <&m_cw_sl_SYM> )  // mo                 sl SYM -> BASE    (was balanced)
 
 
-		HT( ht_OE,  <&kp>, <&m_OE_U_> )
+		HT( ht_OEU,  <&kp>, <&m_OE_U_> )
 
-	 // loose accents on tap
+	 // loose accents on tap // TODO unused
 		HT( ht_CFX, <&kp>, <&m_loose_CFX> )
 		HT( ht_GRV, <&kp>, <&m_loose_GRV> )
 		HT( ht_TLD, <&kp>, <&m_loose_TLD> ) 
@@ -514,13 +514,14 @@
 	 // BASE LAYER
 	 // -------------------
 		#define UTLAYR  &mokp_l_UTIL 0  // UTIL layer on hold
+		#define HMLG_OSCP &htsl LGUI l_OSCP // OSS on touch, LG on hold
 	 // -------------------		
 
 		base_layer {
 			bindings = <
-				&sl l_OSCP  &kp  MIN_   &kp  Y_   DOT_COLN       NBSP_QMRK           &kp K_      &kp  C_   &kp  H_   &kp  W_   &sl l_OSCP
-				UTLAYR U_   HMLA O_     HMLC I_   HMLS A_           &kp F_           &kp G_      HMRS T_   HMRC R_   HMRA S_   &kp  N_
-				HMLG   Z_   HMRA EACT_  MNAV P_   COMM_SCLN         &kp X_           &kp V_      &kp  D_   &kp  M_   HMLA L_   HMRG B_
+				&ht Q_ Z_  &kp  MIN_   &kp  Y_   DOT_COLN       NBSP_QMRK           &kp K_      &kp  C_   &kp  H_   &kp  W_   &sl l_OSCP
+				UTLAYR U_  HMLA O_     HMLC I_   HMLS A_           &kp F_           &kp G_      HMRS T_   HMRC R_   HMRA S_   &kp  N_
+				HMLG_OSCP  HMRA EACT_  MNAV P_   COMM_SCLN         &kp X_           &kp V_      &kp  D_   &kp  M_   HMLA L_   HMRG B_
 			//  
 												        lt_NUM_E   mosl_SYM          mosl_ACNT   lt_NAV_SPC
 			>;
@@ -530,9 +531,9 @@
 	 // -------------------
 	 // CAPS LAYER
 	 // -------------------
-#define CAPSDEF &kp    LS(Q_)   &kp    MIN_     &kp LS(Y_)   DOT_COLN          NBSP_QMRK          &kp LS(K_)       &kp LS(C_)   &kp LS(H_)   &kp LS(W_)   &kp LS(J_)\
+#define CAPSDEF &kp    LS(Z_)   &kp    MIN_     &kp LS(Y_)   DOT_COLN          NBSP_QMRK          &kp LS(K_)       &kp LS(C_)   &kp LS(H_)   &kp LS(W_)   &to l_BASE\
 				UTLAYR LS(U_)   HMLAcw(O_)	    HMLCcw(I_)   HMLScw(A_)       &kp LS(F_)          &kp LS(G_)       HMRScw(T_)   HMRCcw(R_)   HMRAcw(S_)   &kp LS(N_)\
-				   HMLGcw(Z_)   HMRAcw(EACT_)  MNAV LS(P_)   COMM_SCLN        &kp LS(X_)          &kp LS(V_)       &kp LS(D_)   &kp LS(M_)   HMLAcw(L_)   HMRGcw(B_)
+				   &to l_BASE  HMRAcw(EACT_)  MNAV LS(P_)   COMM_SCLN        &kp LS(X_)          &kp LS(V_)       &kp LS(D_)   &kp LS(M_)   HMLAcw(L_)   HMRGcw(B_)
 	// --------------------
 		caps_layer {
 			bindings = < CAPSDEF	//							        going to another layer does not leave caps layer
@@ -551,27 +552,23 @@
 	 // -------------------
 	 // LH AUX LAYERS
 	 // -------------------
-	 // mod on hold, loose accent on tap
-	 // TODO unused
-		#define HMRS_CFX__   &ht_CFX   RSHIFT  0
-		#define HMRC_GRV__   &ht_GRV   RCTRL   0
 	 // -------------------		
 		num_layer {
 			bindings = <
-				&kp  PIPE_   &kp  N7_   &kp  N8_   &kp  N9_      EXCL_QMRK             DLLR_EURO       &kp  LBRK_   &kp  RBRK_   &kp  HASH_   &kp  PCNT_
-				&kp  N0_     &kp  N1_   &kp  N2_   &kp  N3_      &kp SCLN_             &kp COLN_       HMRS PLUS_   HMRC MIN_    HMLA STAR_   HMRG FSLA_
-				HMLC ENTER   &kp  N4_   MNAV N5_   &kp  N6_      &kp COMM_             &kp DOT_        &kp  LT_     &kp  GT_     EQUL_DIFF    &kp  BSLA_
+				&kp  PIPE_   &kp  N7_   &kp  N8_   &kp  N9_      EXCL_QMRK             DLLR_EURO       &kp  LBRK_   &kp  RBRK_   HMRA HASH_   &kp  PCNT_
+				&kp  N0_     &kp  N1_   &kp  N2_   &kp  N3_      &kp SCLN_             &kp COLN_       HMLS PLUS_   HMLC MIN_    HMLA STAR_   &kp  FSLA_
+				HMLC ENTER   &kp  N4_   MNAV N5_   &kp  N6_      &kp COMM_             &kp DOT_        &kp  LT_     &kp  GT_     EQUL_DIFF    HMRG BSLA_
 			//  						    leave if locked (l_NAV)
 				                                  &to l_BASE    impossible             &kp ULIN_   &trans
 			>;
 		};
 		
-		// #define OEU_OE   &ht_TLD   LGUI    0
+		#define OEU_OE   &ht_OEU OE_ 0
 		sym_layer {
 			bindings = <
-				&kp  PIPE_   &kp  AT_     &kp  AE_     &ht_OE OE_ 0    NBSP_EXCL            _________       &kp  LBRK_   &kp RBRK_    &kp AMPR_   DLLR_EURO
-				HMLG LCUR_   HMLA RCUR_   HMLC LPAR_   HMLS RPAR_      &kp SCLN_            &kp COLN_       HMRS CFXL_   HMRC GRVL_   &kp RALT    HMRG TLDL_
-			    &kp  NDSH_   HMRA MDSH_   NBSP_LGLM    NBSP_RGLM       &kp COMM_            &kp DOT_        _________    _________    &kp LALT    &kp BSLA_
+				&kp  PIPE_   &kp  AT_     &kp  AE_        OE_OEU       NBSP_EXCL            DLLR_EURO       &kp  LBRK_   &kp RBRK_    &kp AMPR_   &kp  TLDL_
+				HMLG LCUR_   HMLA RCUR_   HMLC LPAR_   HMLS RPAR_      &kp SCLN_            &kp COLN_       HMRS CFXL_   HMRC GRVL_   &kp RALT    &kp  FSLA_
+			    &kp  NDSH_   HMRA MDSH_   NBSP_LGLM    NBSP_RGLM       &kp COMM_            &kp DOT_        &kp  LT_     &kp  GT_     HMLA EQUL_  HMRG BSLA_
 			//  									                    double tap:
 								                                 ______   ______            &kp ULIN_   &trans
 			>;
@@ -665,7 +662,7 @@
 
 		game_layer { // same as base layers, but without mods or combos. arrows on rh.
 			bindings = <
-				&kp Q_     &kp MIN_    &kp Y_     &kp DOT_         &kp R_              &kp  K_          &kp C_    &kp H_    &kp W_     &kp J_
+				&kp Z_     &kp MIN_    &kp Y_     &kp DOT_         &kp R_              &kp  K_          &kp C_    &kp H_    &kp W_     &kp J_
 				&kp U_     &kp O_      &kp I_     &kp A_           &kp F_              &kp  G_          &kp LEFT  &kp UP    &kp RIGHT  &kp N_
 				&kp ESC    &kp S_      &kp P_     &kp COMM_        &kp X_              &tog l_GAME      &kp D_    &kp DOWN  &kp L_     &kp B_
 			//
