@@ -94,7 +94,7 @@
 			compatible       = "zmk,behavior-sticky-key";
 			#binding-cells = <1>;
 			bindings = <&mo>;
-			release-after-ms = <100>;
+			release-after-ms = <200>;
 			quick-release;
 		};
 		
@@ -282,8 +282,8 @@
 	 // NBSP STUFF (for french) ----
 		MACRO(       nbsp_QMRK ,  <M_TAP  &kp NBSP_  &kp QMRK_             >) // &to l_BASE >) // goes back to l_BASE if l_CAPS was on (TODO needed?)
 		MACRO(    cp_nbsp_QMRK ,  <M_TAP  &kp NBSP_  &kp QMRK_             >) 
-		MACRO(       pure_EXCL ,  <M_TAP             &kp EXCL_  &m_exclrepeat >)
-		MACRO(       nbsp_EXCL ,  <M_TAP  &kp NBSP_  &kp EXCL_  &m_exclrepeat >)
+		MACRO(       pure_EXCL ,  <M_TAP             &m_exclrepeat >)
+		MACRO(       nbsp_EXCL ,  <M_TAP  &kp NBSP_  &m_exclrepeat >)
 		MACRO(       nbsp_COLN ,  <M_TAP  &kp NBSP_  &kp COLN_  &kp SPACE  >)
 		MACRO(       nbsp_SCLN ,  <M_TAP  &kp NBSP_  &kp SCLN_  &kp SPACE  >)
 		MACRO(       nbsp_RGLM ,  <M_TAP  &kp NBSP_  &kp RGLM_             >)
@@ -329,28 +329,35 @@
 	 
 		#define RH_MODS               &kp RSHIFT  &kp RCTRL  &kp RALT  &kp RGUI
 		
-		#define HOLD_SUPER    M_HOLD  &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LGUI
-		#define REL_ALL_MODS  M_REL   &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LGUI  RH_MODS   // release rh mods just in case.
-		#define ONLY_CTRL     M_REL   &kp LSHIFT             &kp LALT  &kp LGUI  RH_MODS   //   also useful if some mod gets
-		#define ONLY_ALT      M_REL   &kp LSHIFT  &kp LCTRL            &kp LGUI  RH_MODS   //   stuck for whatever reason
+		#define HOLD_HYPER    M_HOLD  &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LGUI
+		#define REL_LH_MODS   M_REL   &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LGUI
+		#define REL_ALL_MODS  M_REL   &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LGUI  RH_MODS   // also useful if some mod gets stuck for whatever reason
+		#define ONLY_CTRL     M_REL   &kp LSHIFT             &kp LALT  &kp LGUI  RH_MODS
+		#define ONLY_ALT      M_REL   &kp LSHIFT  &kp LCTRL            &kp LGUI  RH_MODS
 
-		MACRO( mo_l_UTIL,  <M_TAP &to l_UTIL>,  <HOLD_SUPER>,  <M_WAIT_REL>,  <REL_ALL_MODS>,  <M_TAP &to l_BASE> )
+		MACRO( mo_l_UTIL,  <M_TAP &to l_UTIL>,  <HOLD_HYPER>,  <M_WAIT_REL>,  <REL_ALL_MODS>,  <M_TAP &to l_BASE> )
 		
-		MACRO(  utl_ULIN,  <REL_ALL_MODS>  ,  <M_KP  ULIN_        > , <HOLD_SUPER> )
-		MACRO(  utl_BACK,  <REL_ALL_MODS>  ,  <M_KP  C_AC_BACK    > , <HOLD_SUPER> )
-		MACRO(  utl_FRWD,  <REL_ALL_MODS>  ,  <M_KP  C_AC_FORWARD > , <HOLD_SUPER> )
-		MACRO(  utl_DESK,  <REL_ALL_MODS>  ,  <M_KP  LG(D_)       > , <HOLD_SUPER> )
-		MACRO(  utl_REDO,  <REL_ALL_MODS>  ,  <M_KP  LC(Y_)       > , <HOLD_SUPER> )
-		MACRO(  utl_SAVE,  <REL_ALL_MODS>  ,  <M_KP  LC(S_)       > , <HOLD_SUPER> )
-		MACRO(  utl_LAF4,  <REL_ALL_MODS>  ,  <M_KP  LA(F4)       > , <HOLD_SUPER> )
+		MACRO(  utl_ULIN,  <REL_ALL_MODS>  ,  <M_KP  ULIN_        > , <HOLD_HYPER> )
+		MACRO(  utl_BACK,  <REL_ALL_MODS>  ,  <M_KP  C_AC_BACK    > , <HOLD_HYPER> )
+		MACRO(  utl_FRWD,  <REL_ALL_MODS>  ,  <M_KP  C_AC_FORWARD > , <HOLD_HYPER> )
+		MACRO(  utl_DESK,  <REL_ALL_MODS>  ,  <M_KP  LG(D_)       > , <HOLD_HYPER> )
+		MACRO(  utl_REDO,  <REL_ALL_MODS>  ,  <M_KP  LC(Y_)       > , <HOLD_HYPER> )
+		MACRO(  utl_SAVE,  <REL_ALL_MODS>  ,  <M_KP  LC(S_)       > , <HOLD_HYPER> )
+		MACRO(  utl_LAF4,  <REL_ALL_MODS>  ,  <M_KP  LA(F4)       > , <HOLD_HYPER> )
 									  
-		MACRO(  utl_STAB,  <REL_ALL_MODS>  ,  <M_KP  LS(TAB) > ,      <HOLD_SUPER> )
-		MACRO(  utl_GTAB,  <REL_ALL_MODS>  ,  <M_KP  LG(TAB) > ,      <HOLD_SUPER> )
+		MACRO(  utl_STAB,  <REL_ALL_MODS>  ,  <M_KP  LS(TAB) > ,      <HOLD_HYPER> )
+		MACRO(  utl_GTAB,  <REL_ALL_MODS>  ,  <M_KP  LG(TAB) > ,      <HOLD_HYPER> )
+		
+		MACRO(  utl_LMB,    <REL_LH_MODS>  ,  <M_TAP &mkp LCLK > ,    <HOLD_HYPER> )
+		MACRO(  utl_RMB,    <REL_LH_MODS>  ,  <M_TAP &mkp RCLK > ,    <HOLD_HYPER> )
+		MACRO(  utl_MMB,    <REL_LH_MODS>  ,  <M_TAP &mkp MCLK > ,    <HOLD_HYPER> )
 		
 		MACRO(  utl_ATAB,     <ONLY_ALT >  ,  <M_KP     TAB  > ) // these will not hold all mods at the
 		MACRO( utl_SATAB,     <ONLY_ALT >  ,  <M_KP  LS(TAB) > ) //  end, so that we can do alt-tab etc
 		MACRO(  utl_CTAB,     <ONLY_CTRL>  ,  <M_KP     TAB  > ) //  several times in a row without
 		MACRO( utl_SCTAB,     <ONLY_CTRL>  ,  <M_KP  LS(TAB) > ) //  dropping the little window
+		
+		
 
 		MACRO( exclrepeat,  <M_TAP &kp EXCL_ &slfast l_EXCL> ) 
 	};
@@ -505,7 +512,7 @@
 		#define EXCL_QMRK    &htslow    EXCL_  QMRK_     //  ?     !
 
 		#define NBSP_QMRK    &ht_QMRK   0      QMRK_     // ■?     ?
-		#define NBSP_EXCL    &ht_EXCL   0      0     // ■!     !
+		#define NBSP_EXCL    &ht_EXCL   0      0         // ■!     !
 		#define DOT_COLN     &ht_COLN   0      DOT_      // ■:□    .
 		#define COMM_SCLN    &ht_SCLN   0      COMM_     // ■;□    ,
 
@@ -671,9 +678,9 @@
 		utility_layer {
 	 // -------------------		
 			bindings = <                                                                             // all left-hand mods are held down here
-				impossible  &m_utl_SAVE  &m_utl_BACK   &m_utl_FRWD      &m_utl_LAF4         &mkp MCLK   &kp C_   &kp H_   &kp W_  &kp  J_
-				impossible  &m_utl_GTAB  &m_utl_SATAB  &m_utl_ATAB      &m_utl_REDO         &mkp LCLK   &kp T_   &kp R_   &kp S_  &kp  N_ // ahk controls mouse movement
-				impossible  &trans       &m_utl_SCTAB  &m_utl_CTAB      &m_utl_DESK         &mkp RCLK   &kp D_   &kp M_   &kp L_  &kp  B_
+				impossible  &m_utl_SAVE  &m_utl_BACK   &m_utl_FRWD      &m_utl_LAF4         &m_utl_MMB   &kp C_   &kp H_   &kp W_  &kp  J_
+				impossible  &m_utl_GTAB  &m_utl_SATAB  &m_utl_ATAB      &m_utl_REDO         &m_utl_LMB   &kp T_   &kp R_   &kp S_  &kp  N_ // ahk controls mouse movement
+				impossible  &trans       &m_utl_SCTAB  &m_utl_CTAB      &m_utl_DESK         &m_utl_RMB   &kp D_   &kp M_   &kp L_  &kp  B_
 			//                                                                                  pointer speed
 			                                              &m_utl_STAB   &m_utl_ULIN         &kp RCTRL   &kp RSHIFT
 			//                                                                                slow         fast
