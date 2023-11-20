@@ -2,6 +2,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/mouse.h>
 
 #include "bepo_bindings.h"
 
@@ -41,18 +42,19 @@
 #define l_OSCP 3
 #define l_NUM  4
 #define l_SYM  5
-#define l_NAV  6
-#define l_MNAV 7 
-#define l_ACNT 8
-#define l_ACCP 9
-#define l_UTIL 10
-#define l_FUNC 11
-#define l_GAME 12
-#define l_GAM2 13
+#define l_EXCL 6
+#define l_NAV  7 
+#define l_MNAV 8
+#define l_ACNT 9
+#define l_ACCP 10
+#define l_UTIL 11
+#define l_FUNC 12
+#define l_GAME 13
+#define l_GAM2 14
 
 // combos shouldn't work on game layer, to minimize delay
-#define ll_DEFAULT     l_BASE  l_CAPS  l_CPWD  l_OSCP  l_NUM  l_SYM  l_NAV  l_MNAV  l_ACNT  l_ACCP
-#define ll_NOTCPWD     l_BASE  l_CAPS                  l_NUM  l_SYM  l_NAV  l_MNAV  l_ACNT  l_ACCP
+#define ll_DEFAULT     l_BASE  l_CAPS  l_CPWD  l_OSCP  l_NUM  l_SYM  l_EXCL  l_NAV  l_MNAV  l_ACNT  l_ACCP
+#define ll_NOTCPWD     l_BASE  l_CAPS                  l_NUM  l_SYM  l_EXCL  l_NAV  l_MNAV  l_ACNT  l_ACCP
 #define ll_CAPS                l_CAPS  l_CPWD  l_OSCP
 #define ll_CPWD                        l_CPWD  l_OSCP
 
@@ -69,8 +71,18 @@
 	quick-tap-ms    = <_HT_QUICK_TAP>;
 };
 
-&sk { // one-shot layer
+&sk { // one-shot key
 	release-after-ms = <_STICKY_TIMEOUT>;
+	quick-release;
+};
+
+&sl { // one-shot layer
+	release-after-ms = <_STICKY_TIMEOUT>;
+	quick-release;
+};
+
+&slfast { // one-shot layer fast
+	release-after-ms = 100;
 	quick-release;
 };
 
@@ -161,7 +173,7 @@
 		HT_FAST( ht_COLN, <&m_nbsp_COLN>, <&kp> )
 		HT_FAST( ht_SCLN, <&m_nbsp_SCLN>, <&kp> )
 		HT_FAST( ht_QMRK, <&m_nbsp_QMRK>, <&kp> )
-		HT_FAST( ht_EXCL, <&m_nbsp_EXCL>, <&kp> )
+		HT_FAST( ht_EXCL, <&m_nbsp_EXCL>, <&m_pure_EXCL> )
 	};
 
 
@@ -266,7 +278,8 @@
 	 // NBSP STUFF (for french) ----
 		MACRO(       nbsp_QMRK ,  <M_TAP  &kp NBSP_  &kp QMRK_             >) // &to l_BASE >) // goes back to l_BASE if l_CAPS was on (TODO needed?)
 		MACRO(    cp_nbsp_QMRK ,  <M_TAP  &kp NBSP_  &kp QMRK_             >) 
-		MACRO(       nbsp_EXCL ,  <M_TAP  &kp NBSP_  &kp EXCL_             >)
+		MACRO(       pure_EXCL ,  <M_TAP             &kp EXCL_  &m_exclrepeat >)
+		MACRO(       nbsp_EXCL ,  <M_TAP  &kp NBSP_  &kp EXCL_  &m_exclrepeat >)
 		MACRO(       nbsp_COLN ,  <M_TAP  &kp NBSP_  &kp COLN_  &kp SPACE  >)
 		MACRO(       nbsp_SCLN ,  <M_TAP  &kp NBSP_  &kp SCLN_  &kp SPACE  >)
 		MACRO(       nbsp_RGLM ,  <M_TAP  &kp NBSP_  &kp RGLM_             >)
@@ -305,7 +318,6 @@
 		MACRO(      cp_hmrg    ,  <M_TAP  &to l_BASE >,  <M_KP_HOLD RGUI   >,  <M_WAIT_REL>,  <M_KP_REL RGUI   >)
 		
 
-
 	 // UTIL LAYER ------------------
 	 // upon entering this layer, shift + control + alt are held.
 	 // each key releases some mods, then holds them all again.
@@ -336,6 +348,9 @@
 		MACRO(  utl_CTAB,     <ONLY_CTRL>  ,  <M_KP     TAB  > ) //  several times in a row without
 		MACRO( utl_SCTAB,     <ONLY_CTRL>  ,  <M_KP  LS(TAB) > ) //  dropping the little window
 
+
+
+		MACRO( exclrepeat,  <M_TAP &kp EXCL_ &slfast l_EXCL> ) 
 	};
 
 
@@ -488,7 +503,7 @@
 		#define EXCL_QMRK    &htslow    EXCL_  QMRK_     //  ?     !
 
 		#define NBSP_QMRK    &ht_QMRK   0      QMRK_     // ■?     ?
-		#define NBSP_EXCL    &ht_EXCL   0      EXCL_     // ■!     !
+		#define NBSP_EXCL    &ht_EXCL   0      0     // ■!     !
 		#define DOT_COLN     &ht_COLN   0      DOT_      // ■:□    .
 		#define COMM_SCLN    &ht_SCLN   0      COMM_     // ■;□    ,
 
@@ -510,14 +525,13 @@
 		#define lt_NAV_SPC_cw   &cw_mokp_l_NAV_SPC 0 0
 
 
-	 // -------------------
-	 // BASE LAYER
+
 	 // -------------------
 		#define UTLAYR  &mokp_l_UTIL 0  // UTIL layer on hold
 		#define HMLG_OSCP &htsl LGUI l_OSCP // OSS on touch, LG on hold
 	 // -------------------		
-
 		base_layer {
+	 // -------------------
 			bindings = <
 				&ht Q_ Z_  &kp  MIN_   &kp  Y_   DOT_COLN       NBSP_QMRK           &kp K_      &kp  C_   &kp  H_   &kp  W_   &sl l_OSCP
 				UTLAYR U_  HMLA O_     HMLC I_   HMLS A_           &kp F_           &kp G_      HMRS T_   HMRC R_   HMRA S_   &kp  N_
@@ -531,7 +545,8 @@
 	 // -------------------
 	 // CAPS LAYER
 	 // -------------------
-#define CAPSDEF &kp    LS(Z_)   &kp    MIN_     &kp LS(Y_)   DOT_COLN          NBSP_QMRK          &kp LS(K_)       &kp LS(C_)   &kp LS(H_)   &kp LS(W_)   &to l_BASE\
+		#define Q_Z LS(Q_) LS(Z_)
+#define CAPSDEF    &ht Q_Z       &kp  MIN_      &kp LS(Y_)   DOT_COLN          NBSP_QMRK          &kp LS(K_)       &kp LS(C_)   &kp LS(H_)   &kp LS(W_)   &to l_BASE\
 				UTLAYR LS(U_)   HMLAcw(O_)	    HMLCcw(I_)   HMLScw(A_)       &kp LS(F_)          &kp LS(G_)       HMRScw(T_)   HMRCcw(R_)   HMRAcw(S_)   &kp LS(N_)\
 				   &to l_BASE  HMRAcw(EACT_)  MNAV LS(P_)   COMM_SCLN        &kp LS(X_)          &kp LS(V_)       &kp LS(D_)   &kp LS(M_)   HMLAcw(L_)   HMRGcw(B_)
 	// --------------------
@@ -552,8 +567,8 @@
 	 // -------------------
 	 // LH AUX LAYERS
 	 // -------------------
-	 // -------------------		
 		num_layer {
+	 // -------------------
 			bindings = <
 				&kp  PIPE_   &kp  N7_   &kp  N8_   &kp  N9_      EXCL_QMRK             DLLR_EURO       &kp  LBRK_   &kp  RBRK_   HMRA HASH_   &kp  PCNT_
 				&kp  N0_     &kp  N1_   &kp  N2_   &kp  N3_      &kp SCLN_             &kp COLN_       HMLS PLUS_   HMLC MIN_    HMLA STAR_   &kp  FSLA_
@@ -563,8 +578,11 @@
 			>;
 		};
 		
+
 		#define OEU_OE   &ht_OEU OE_ 0
+	 // -------------------
 		sym_layer {
+	 // -------------------
 			bindings = <
 				&kp  PIPE_   &kp  AT_     &kp  AE_        OEU_OE       NBSP_EXCL            DLLR_EURO       &kp  LBRK_   &kp RBRK_    &kp AMPR_   &kp  TLDL_
 				HMLG LCUR_   HMLA RCUR_   HMLC LPAR_   HMLS RPAR_      &kp SCLN_            &kp COLN_       HMRS CFXL_   HMRC GRVL_   &kp RALT    &kp  FSLA_
@@ -574,6 +592,18 @@
 			>;
 		};
 
+	 // -------------------
+		excl_layer {
+	 // -------------------
+			bindings = <
+				&trans &trans &trans &trans    &m_exclrepeat  &trans    &trans &trans &trans &trans
+				&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
+				&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
+				                     &trans  &trans             &trans  &trans
+			>;
+		};
+
+
 
 
 	 // -------------------
@@ -582,8 +612,8 @@
 		#define TASKMAN      &kp LC(LS(ESC))    // ctrl shift esc
 		#define PASTEPLAIN   &kp LC(LG(LA(V_))) // plaintext paste (power toys)
 	 // -------------------		
-
 		nav_layer {
+	 // -------------------		
 			bindings = <
 				&kp  LSLCK    &kp  LNLCK    &to  l_NUM    PASTEPLAIN          TASKMAN            _________      HMLS LC(HOME)   HMLC PG_DN    HMLA PG_UP    HMRG LC(END)
 				&kp  LC(Y_)   HMLA INSERT   HMLC PSCRN    HMLS PSBRK         &kp CAPS            _________      &kp  LC(LEFT)   &kp  DOWN     &kp  UP       &kp  LC(RIGHT)
@@ -592,8 +622,10 @@
 												              &to l_CPWD   &to l_CAPS            impossible   impossible
 			>;
 		};
-		
+	
+	 // -------------------	
 		mini_nav_layer {
+	 // -------------------
 			bindings = <
 				&kp LC(HOME)  &kp LC(END)    impossible   _________      _________               _________      _________   _________   _________   _________
 				&kp LC(LEFT)  &kp LC(RIGHT)  impossible   &kp UP          &kp HOME               _________      _________   _________   _________   _________
@@ -603,12 +635,14 @@
 			>;
 		};
 
-	 // questionable syntactic sugar to define several parameters beginning with &m_
+	    // questionable syntactic sugar to define several parameters beginning with &m_
 		#define MACRO_ROW_3(PREFIX, ONE, TWO, THREE)               &m_##PREFIX##ONE &m_##PREFIX##TWO &m_##PREFIX##THREE
 		#define MACRO_ROW_4(PREFIX, ONE, TWO, THREE, FOUR)         &m_##PREFIX##ONE &m_##PREFIX##TWO &m_##PREFIX##THREE &m_##PREFIX##FOUR
 		#define MACRO_ROW_5(PREFIX, ONE, TWO, THREE, FOUR, FIVE)   &m_##PREFIX##ONE &m_##PREFIX##TWO &m_##PREFIX##THREE &m_##PREFIX##FOUR &m_##PREFIX##FIVE
 
+	 // -------------------
 		accent_layer {
+	 // -------------------
 			bindings = <
  MACRO_ROW_4(,    CFLX_U_,   CFLX_O_,   CFLX_I_,   CFLX_A_ )     IEXCL_IQMRK         _________     &kp  CCED_  &kp  APST_  &kp  QUOT_   &m_B_J_
  MACRO_ROW_5(,    ACUT_U_,   ACUT_O_,   ACUT_I_,   ACUT_A_,          TILD_A_ )       _________     HMRS CFLX_  HMRC GRAV_  HMLA ACUT_   &m_TILD_N_
@@ -618,7 +652,9 @@
 			>;
 		};
 
+	 // -------------------
 		accent_caps_layer {
+	 // -------------------
 			bindings = <
  MACRO_ROW_4(cp_, CFLX_U_,   CFLX_O_,   CFLX_I_,   CFLX_A_ )         _________            _________       &kp  LS(CCED_)  &kp  APST_  &kp  QUOT_  &m_cp_B_J_
  MACRO_ROW_5(cp_, ACUT_U_,   ACUT_O_,   ACUT_I_,   ACUT_A_,           TILD_A_ )           _________       HMRS ACUT_      HMRC CFLX_  HMLA GRAV_  &m_cp_TILD_N_
@@ -628,23 +664,23 @@
 			>;
 		};
 
-
-
 	 // -------------------
-	 // FUNCTION LAYER
-	 // -------------------
-
+	 // FUNCTION LAYERS
 		utility_layer {
-			bindings = <                                                                    // autohotkey controls these for mouse movement
-				impossible  &m_utl_SAVE  &m_utl_BACK   &m_utl_FRWD      &m_utl_LAF4         &kp K_      &kp C_   &kp H_   &kp W_  &kp  J_ // mmb, slow mvmt
-				impossible  &m_utl_GTAB  &m_utl_SATAB  &m_utl_ATAB      &m_utl_REDO         &kp G_      &kp T_   &kp R_   &kp S_  &kp  N_ // lmb, fast mvmt
-				impossible  &trans       &m_utl_SCTAB  &m_utl_CTAB      &m_utl_DESK         &kp V_      &kp D_   &kp M_   &kp L_  &kp  B_ // rmb, avrg mvmt
-			//
-			                                              &m_utl_STAB   &m_utl_ULIN         &kp A_   &kp E_
+	 // -------------------		
+			bindings = <                                                                             // all left-hand mods are held down here
+				impossible  &m_utl_SAVE  &m_utl_BACK   &m_utl_FRWD      &m_utl_LAF4         &mkp MCLK   &kp C_   &kp H_   &kp W_  &kp  J_
+				impossible  &m_utl_GTAB  &m_utl_SATAB  &m_utl_ATAB      &m_utl_REDO         &mkp LCLK   &kp T_   &kp R_   &kp S_  &kp  N_ // ahk controls mouse movement
+				impossible  &trans       &m_utl_SCTAB  &m_utl_CTAB      &m_utl_DESK         &mkp RCLK   &kp D_   &kp M_   &kp L_  &kp  B_
+			//                                                                                  pointer speed
+			                                              &m_utl_STAB   &m_utl_ULIN         &kp RCTRL   &kp RSHIFT
+			//                                                                                slow         fast
 			>;
 		};
 
-		func_layer {                                                                            
+	 // -------------------		
+		func_layer {
+	 // -------------------		                                                                       
 			bindings = <
 				&bt  BT_SEL 3   &bt  BT_SEL 0   &bt  BT_SEL 1   &bt  BT_SEL 2       &bt  BT_CLR         &sk LALT       &kp F7  &kp F8  &kp F9  &kp F12
 				HMLG C_BRI_UP   HMLA M2_BRI_U   HMLC C_VOL_UP   HMLS C_PP  	       &out OUT_BLE         &sk LSHIFT     &kp F1  &kp F2  &kp F3  &kp F10
@@ -659,8 +695,8 @@
 	 // -------------------
 	 // GAMING LAYERS
 	 // -------------------
-
 		game_layer { // same as base layers, but without mods or combos. arrows on rh.
+	 // -------------------		
 			bindings = <
 				&kp Z_     &kp MIN_    &kp Y_     &kp DOT_         &kp R_              &kp  K_          &kp C_    &kp H_    &kp W_     &kp J_
 				&kp U_     &kp O_      &kp I_     &kp A_           &kp F_              &kp  G_          &kp LEFT  &kp UP    &kp RIGHT  &kp N_
@@ -670,7 +706,9 @@
 			>;
 		};
 
+	 // -------------------		
 		game_layer_2 { // more closely modeled after bépo. might be useless
+	 // -------------------		
 			bindings = <
 				&kp LSHIFT  &kp A_     &kp EACT_  &kp I_        &kp O_             &kp  Y_            &kp U_   &kp I_     &kp O_    &kp P_
 				&kp LCTRL   &kp B_     &kp U_     &kp P_        &kp E_             &kp  H_            &kp J_   &kp K_     &kp L_    &kp N_
