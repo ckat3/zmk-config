@@ -566,7 +566,7 @@
 		#define OEU_OE   &ht_OEU OE_ 0
 		sym_layer {
 			bindings = <
-				&kp  PIPE_   &kp  AT_     &kp  AE_        OE_OEU       NBSP_EXCL            DLLR_EURO       &kp  LBRK_   &kp RBRK_    &kp AMPR_   &kp  TLDL_
+				&kp  PIPE_   &kp  AT_     &kp  AE_        OEU_OE       NBSP_EXCL            DLLR_EURO       &kp  LBRK_   &kp RBRK_    &kp AMPR_   &kp  TLDL_
 				HMLG LCUR_   HMLA RCUR_   HMLC LPAR_   HMLS RPAR_      &kp SCLN_            &kp COLN_       HMRS CFXL_   HMRC GRVL_   &kp RALT    &kp  FSLA_
 			    &kp  NDSH_   HMRA MDSH_   NBSP_LGLM    NBSP_RGLM       &kp COMM_            &kp DOT_        &kp  LT_     &kp  GT_     HMLA EQUL_  HMRG BSLA_
 			//  									                    double tap:
