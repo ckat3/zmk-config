@@ -2,4 +2,6 @@ Custom layout I made for my [A. Dux](https://github.com/tapioki/cephalopoda/tree
 
 It has been optimized for English and French by statistical analysis of a personal corpus, but also works great for coding and has features meant for Portuguese, Spanish and German. I ran some benchmarks for fun and it tends to score very high. It's low on SFBs and redirects and high on alternation, while still featuring some very enjoyable movements (`'s`, `you`, `which`…). The lower row is greatly favored, the number layer has 0-3 on the home row (this will change your life), and it's meant to be useful also when the right hand is on the mouse (sorry lefties!), though it does take into account that I have Enter, Cut, Copy, and Paste mapped to mouse buttons and gestures.
 
-Feel free to fork and/or steal ideas from it!
+The bindings are made to be used with Bépo, not QWERTY or AZERTY. Shouldn't be much of a hassle to adapt it to something else. The `.keymap` has a few macros that might be useful to anyone.
+
+Feel free to fork and/or steal ideas!
