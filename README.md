@@ -1,5 +1,5 @@
-Rather complicated layout for an A. Dux (or any 34-key shield, tho some ergonomics are made with the Dux in mind). 
+Custom layout I made for my [A. Dux](https://github.com/tapioki/cephalopoda/tree/main/Architeuthis%20dux). It naturally works with any 34-key shield, but some of the ergonomics were made with the Dux in mind. 
 
-Optimized for French, English and coding, with useful functions for Portuguese, Spanish and I guess you could say German (it has an eszett!).
+It has been optimized for English and French by statistical analysis of a personal corpus, but also works great for coding and has features meant for Portuguese, Spanish and German. I ran some benchmarks for fun and it tends to score very high. It's low on SFBs and redirects and high on alternation, while still featuring some very enjoyable movements (`'s`, `you`, `which`…). The lower row is greatly favored, the number layer has 0-3 on the home row (this will change your life), and it's meant to be useful also when the right hand is on the mouse (sorry lefties!), though it does take into account that I have Enter, Cut, Copy, and Paste mapped to mouse buttons and gestures.
 
-I spend too much time on this. It's a hobby project and probably won't be of much interest to anyone else, though I would eventually like to write a little documentation since it does have a feature or two that could be of use.
+Feel free to fork and/or steal ideas from it!
