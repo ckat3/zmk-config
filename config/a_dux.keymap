@@ -570,7 +570,7 @@
 
 
 	 // -------------------
-		#define UTLAYR  &mokp_l_UTIL 0      // UTIL layer on hold               : currently on u
+		#define UTLAYR    &mokp_l_UTIL 0      // UTIL layer on hold               : currently on u
 		#define HMLG_OSCP &htsl LGUI l_OSCP // one-shift on touch, LGUI on hold : currently on bottom left pinky
 	 // -------------------		
 		base_layer {
@@ -589,9 +589,9 @@
 	 // CAPS LAYER
 	 // -------------------
 		#define Q_Z LS(Q_) LS(Z_)
-#define CAPSDEF    &ht Q_Z       &kp  MIN_      &kp LS(Y_)   DOT_COLN          NBSP_QMRK          &kp LS(K_)       &kp LS(C_)   &kp LS(H_)   &kp LS(W_)   &to l_BASE\
-				UTLAYR LS(U_)   HMLAcw(O_)	    HMLCcw(I_)   HMLScw(A_)       &kp LS(F_)          &kp LS(G_)       HMRScw(T_)   HMRCcw(R_)   HMRAcw(S_)   &kp LS(N_)\
-				   &to l_BASE  HMRAcw(EACT_)  MNAV LS(P_)   COMM_SCLN        &kp LS(X_)          &kp LS(V_)       &kp LS(D_)   &kp LS(M_)   HMLAcw(L_)   HMRGcw(B_)
+		#define CAPSDEF      &ht Q_Z        &kp  MIN_      &kp LS(Y_)   DOT_COLN          NBSP_QMRK          &kp LS(K_)       &kp LS(C_)   &kp LS(H_)   &kp LS(W_)   &to l_BASE   \
+						UTLAYR LS(U_)   HMLAcw(O_)	     HMLCcw(I_)   HMLScw(A_)       &kp LS(F_)          &kp LS(G_)       HMRScw(T_)   HMRCcw(R_)   HMRAcw(S_)   &kp LS(N_)     \
+						   &to l_BASE      HMRAcw(EACT_)   MNAV LS(P_)   COMM_SCLN        &kp LS(X_)          &kp LS(V_)       &kp LS(D_)   &kp LS(M_)   HMLAcw(L_)   HMRGcw(B_)
 	// --------------------
 		caps_layer {
 			bindings = < CAPSDEF	//							        going to another layer does not leave caps layer
@@ -686,8 +686,8 @@
 	 // -------------------
 	 // l_ACNT
 	 // -------------------
-	    #define HMCP &mo l_ACCP // otherwise shift is applied to ralt and messes up some keys.
-	                            // TODO maybe replace by transp shift layer + conditional ACCP?
+	    #define HMCP &mokp l_ACCP // otherwise shift is applied to ralt and messes up some keys.
+	                              // TODO maybe replace by transp shift layer + conditional ACCP?
 		accent_layer {	 
 			bindings = <
  MACRO_ROW_4(,    CFLX_U_,   CFLX_O_,   CFLX_I_,   CFLX_A_ )     IEXCL_IQMRK       ______     &kp  CCED_  &kp  APST_  &kp  QUOT_   &m_B_J_

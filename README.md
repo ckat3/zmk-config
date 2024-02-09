@@ -15,6 +15,6 @@ features:
 
 being based on bépo instead of qwerty (ugh) or azerty (EUGH), it also gives you access to several rarer symbols. i can't say i use any of them on a regular basis, except for the narrow non-breaking space for french. (as to bépo's chic inverted comma, i think i threw that out the window.)
 
-shouldn't be much of a hassle to adapt it to something else, anyway. the `.keymap` has a few macros that might be useful to anyone.
+shouldn't be much of a hassle to adapt it to something else, anyway — provided the code is legible, which i haven't always been polite enough to ensure! either way, the `.keymap` has a few macros that could be useful for other projects too.
 
 feel free to fork and/or steal ideas, and let me know what you think!
