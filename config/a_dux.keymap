@@ -470,8 +470,8 @@
 		COMBO_M(    l_BASE,            TILD_A_E_    ,,     13 30 )  /* ãe */
 		COMBO_M(    l_BASE,            TILD_A_O_    ,,     13 11 )  /* ão */
 		COMBO_MSL(  l_BASE,            TILD_O_E_    ,,     11 30 )  /* õe */
-		COMBO_M(    l_BASE, l_ACCNT,        CAO    ,,       6  7 )  /* ção */
-		COMBO_M(    l_BASE, l_ACCNT,        COES    ,,      6  8 )  /* ções */
+		COMBO_M(    l_BASE,                 CAO     ,,       6  7 )  /* ção */
+		COMBO_M(    l_BASE,                 COES    ,,      6  8 )  /* ções */
 					  		     	  			      
 		COMBO_M(    l_OSCP,              up_Q_U_    ,,     26 27 )  /* Qu */
 		COMBO_M(    l_OSCP,         up_TILD_A_E_    ,,     13 30 )  /* Ãe */
