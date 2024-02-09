@@ -405,23 +405,13 @@
 		#define COMBO_MSL(  LAYERS,   MACRO, SUFFIX,   POSITIONS) \
 			DEFINE_COMBO( LAYERS,   MACRO##SUFFIX,   POSITIONS,  _COMBO_TIMEOUT_SLOW,   &m_##MACRO)
 
-
-	/* wip
-	    lpu  lau  lpu  liu  lxu | xur  iur  mur  aur  pur
-	    lpm  lam  lpm  lim  lxm | xmr  imr  mmr  amr  pmr
-	    lpb  lab  lpb  lib  lxb | xbl  ibl  mbl  abl  pbl      
-							 |
-	                tll trl   |   32  33
-	*/
-	
-		/*
+	/*
 	    0    1   2   3     4 |  5     6   7   8   9
 	    10  11  12  13    14 | 15    16  17  18  19
 	    20  21  22  23    24 | 25    26  27  28  29
 							 |
 	                30  31   |   32  33
 	*/
-	
 
 												     
 		// left hand    
@@ -470,8 +460,8 @@
 		COMBO_M(    l_BASE,            TILD_A_E_    ,,     13 30 )  /* ãe */
 		COMBO_M(    l_BASE,            TILD_A_O_    ,,     13 11 )  /* ão */
 		COMBO_MSL(  l_BASE,            TILD_O_E_    ,,     11 30 )  /* õe */
-		COMBO_M(    l_BASE, l_ACCNT,        CAO    ,,       6  7 )  /* ção */
-		COMBO_M(    l_BASE, l_ACCNT,        COES    ,,      6  8 )  /* ções */
+		COMBO_M(    l_BASE,                 CAO    ,,       6  7 )  /* ção */
+		COMBO_M(    l_BASE,                 COES    ,,      6  8 )  /* ções */
 					  		     	  			      
 		COMBO_M(    l_OSCP,              up_Q_U_    ,,     26 27 )  /* Qu */
 		COMBO_M(    l_OSCP,         up_TILD_A_E_    ,,     13 30 )  /* Ãe */
@@ -569,8 +559,8 @@
 
 
 	 // -------------------
-		#define UTLAYR  &mokp_l_UTIL 0      // UTIL layer on hold               : currently on u
-		#define HMLG_OSCP &htsl LGUI l_OSCP // one-shift on touch, LGUI on hold : currently on bottom left pinky
+		#define UTLAYR  &mokp_l_UTIL 0  // UTIL layer on hold
+		#define HMLG_OSCP &htsl LGUI l_OSCP // OSS on touch, LG on hold
 	 // -------------------		
 		base_layer {
 	 // -------------------
@@ -683,22 +673,17 @@
 		#define MACRO_ROW_5(PREFIX, ONE, TWO, THREE, FOUR, FIVE)   &m_##PREFIX##ONE &m_##PREFIX##TWO &m_##PREFIX##THREE &m_##PREFIX##FOUR &m_##PREFIX##FIVE
 
 	 // -------------------
-	 // l_ACNT
-	 // -------------------
 		accent_layer {
 	 // -------------------
-	 #define HMCP &mo l_ACCP // otherwise holding shift would make O, not Ó. should rather have a transfparent shift layer and a conditional caps layer.
 			bindings = <
  MACRO_ROW_4(,    CFLX_U_,   CFLX_O_,   CFLX_I_,   CFLX_A_ )     IEXCL_IQMRK         _________     &kp  CCED_  &kp  APST_  &kp  QUOT_   &m_B_J_
- MACRO_ROW_5(,    ACUT_U_,   ACUT_O_,   ACUT_I_,   ACUT_A_,          TILD_A_ )       _________     HMCP CFLX_  HMRC GRAV_  HMLA ACUT_   &m_TILD_N_
+ MACRO_ROW_5(,    ACUT_U_,   ACUT_O_,   ACUT_I_,   ACUT_A_,          TILD_A_ )       _________     HMRS CFLX_  HMRC GRAV_  HMLA ACUT_   &m_TILD_N_
  MACRO_ROW_3(,    GRAV_U_,   TILD_O_,   TRMA_I_ )  &kp AGRV_       _________         _________     &kp  TRMA_  _________     &m_SZTT   &kp TILD_
 			//  									                               double tap:
 												       &m_CFLX_E_   &kp EGRV_        ______   &trans
 			>;
 		};
 
-	 // -------------------
-	 // l_ACCP
 	 // -------------------
 		accent_caps_layer {
 	 // -------------------
