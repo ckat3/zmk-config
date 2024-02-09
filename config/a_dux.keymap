@@ -25,7 +25,7 @@
 #define _HT_TAPLIMIT_FAST    190  // 
 #define _HT_TAPLIMIT_FASTER  110  // 
 
-#define _HT_QUICK_TAP        200  // how fast must press twice for second to start repeating tap
+#define _HT_QUICK_TAP        150  // how fast must press twice for second to start repeating tap (200 is upper limit)
 
 // AUTOHOTKEY
 #define DISPLAY_OFF  SUPR(Q_)  // turns screen off
@@ -470,7 +470,7 @@
 		COMBO_M(    l_BASE,            TILD_A_E_    ,,     13 30 )  /* ãe */
 		COMBO_M(    l_BASE,            TILD_A_O_    ,,     13 11 )  /* ão */
 		COMBO_MSL(  l_BASE,            TILD_O_E_    ,,     11 30 )  /* õe */
-		COMBO_M(    l_BASE,                 CAO     ,,       6  7 )  /* ção */
+		COMBO_M(    l_BASE,                 CAO     ,,      6  7 )  /* ção */
 		COMBO_M(    l_BASE,                 COES    ,,      6  8 )  /* ções */
 					  		     	  			      
 		COMBO_M(    l_OSCP,              up_Q_U_    ,,     26 27 )  /* Qu */
@@ -685,15 +685,15 @@
 	 // -------------------
 	 // l_ACNT
 	 // -------------------
-		accent_layer {
-	 // -------------------
-	 #define &mo l_ACCP // otherwise holding shift would make O, not Ó. should rather have a transfparent shift layer and a conditional caps layer.
+	    #define &mo l_ACCP // otherwise shift is applied to ralt and messes up some keys.
+	                       // TODO maybe raplece by transp shift layer + conditional ACCP?
+		accent_layer {	 
 			bindings = <
- MACRO_ROW_4(,    CFLX_U_,   CFLX_O_,   CFLX_I_,   CFLX_A_ )     IEXCL_IQMRK         _________     &kp  CCED_  &kp  APST_  &kp  QUOT_   &m_B_J_
- MACRO_ROW_5(,    ACUT_U_,   ACUT_O_,   ACUT_I_,   ACUT_A_,          TILD_A_ )       _________     HMCP CFLX_  HMRC GRAV_  HMLA ACUT_   &m_TILD_N_
- MACRO_ROW_3(,    GRAV_U_,   TILD_O_,   TRMA_I_ )  &kp AGRV_       _________         _________     &kp  TRMA_  _________     &m_SZTT   &kp TILD_
-			//  									                               double tap:
-												       &m_CFLX_E_   &kp EGRV_        ______   &trans
+ MACRO_ROW_4(,    CFLX_U_,   CFLX_O_,   CFLX_I_,   CFLX_A_ )     IEXCL_IQMRK       ______     &kp  CCED_  &kp  APST_  &kp  QUOT_   &m_B_J_
+ MACRO_ROW_5(,    ACUT_U_,   ACUT_O_,   ACUT_I_,   ACUT_A_,         TILD_A_)       ______     HMCP CFLX_  HMRC GRAV_  HMLA ACUT_   &m_TILD_N_
+ MACRO_ROW_3(,    GRAV_U_,   TILD_O_,   TRMA_I_ )  &kp AGRV_          ______       ______     &kp  TRMA_  _________     &m_SZTT   &kp TILD_
+			//  									                             double tap:
+												       &m_CFLX_E_   &kp EGRV_      ______   &trans
 			>;
 		};
 
@@ -703,11 +703,11 @@
 		accent_caps_layer {
 	 // -------------------
 			bindings = <
- MACRO_ROW_4(cp_, CFLX_U_,   CFLX_O_,   CFLX_I_,   CFLX_A_ )         _________            _________       &kp  LS(CCED_)  &kp  APST_  &kp  QUOT_  &m_cp_B_J_
- MACRO_ROW_5(cp_, ACUT_U_,   ACUT_O_,   ACUT_I_,   ACUT_A_,           TILD_A_ )           _________       HMRS ACUT_      HMRC CFLX_  HMLA GRAV_  &m_cp_TILD_N_
- MACRO_ROW_3(cp_, GRAV_U_,   TILD_O_,   TRMA_I_)   &kp LS(AGRV_)     _________            _________       &kp  TRMA_      _________  &m_cp_SZTT   &kp   TILD_
-			//  									                                    double tap:
-											      &m_cp_CFLX_E_   &kp LS(EGRV_)           ______   &trans
+ MACRO_ROW_4(cp_, CFLX_U_,   CFLX_O_,   CFLX_I_,   CFLX_A_ )           ______           ______       &kp  LS(CCED_)  &kp  APST_  &kp  QUOT_  &m_cp_B_J_
+ MACRO_ROW_5(cp_, ACUT_U_,   ACUT_O_,   ACUT_I_,   ACUT_A_,          TILD_A_)           ______       HMRS ACUT_      HMRC CFLX_  HMLA GRAV_  &m_cp_TILD_N_
+ MACRO_ROW_3(cp_, GRAV_U_,   TILD_O_,   TRMA_I_)   &kp LS(AGRV_)       ______           ______       &kp  TRMA_      _________  &m_cp_SZTT   &kp   TILD_
+			//  									                                  double tap:
+											      &m_cp_CFLX_E_   &kp LS(EGRV_)         ______   &trans
 			>;
 		};
 
@@ -775,7 +775,7 @@
 	 		______ ______ ______ ______    ______         ______    ______ ______ ______ _____
 	 		______ ______ ______ ______    ______         ______    ______ ______ ______ _____
 	 		______ ______ ______ ______    ______         ______    ______ ______ ______ _____
-	 	                          ______   ______         ______   ______
+	 	                           ______  ______         ______  ______
 	 	>;
 		
 	 	bindings = <
