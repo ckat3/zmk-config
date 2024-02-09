@@ -90,7 +90,7 @@
 / {
 	behaviors {
 		slfast: slay_fast {
-			label            = "SLFAST";
+			//label            = "SLFAST";
 			compatible       = "zmk,behavior-sticky-key";
 			#binding-cells = <1>;
 			bindings = <&mo>;
@@ -105,7 +105,6 @@
 		#define DEFINE_HOLDTAP(FLAVOR, NAME, DELAY, POSITIONS, BINDINGS...) \
 			NAME: ht_##NAME { \
 				flavor          = #FLAVOR; \
-				label           = #NAME; \
 				tapping-term-ms = <DELAY>; \
 				quick-tap-ms    = <_HT_QUICK_TAP>; \
 				bindings        = BINDINGS; \
@@ -115,7 +114,8 @@
 				 \
 				hold-trigger-key-positions = <POSITIONS>; \
 			};
-
+			  //label           = #NAME; // deprecated?
+			
 		#define HT(                             NAME,                                       BINDINGS... ) \
 				DEFINE_HOLDTAP (tap-preferred,  NAME,  _HT_TAPLIMIT,       _ALL_POSITIONS,  BINDINGS)
                                                
@@ -687,7 +687,7 @@
 	 // -------------------
 		accent_layer {
 	 // -------------------
-	 #define HMCP &mo l_ACCP // otherwise holding shift would make O, not Ó. should rather have a transfparent shift layer and a conditional caps layer.
+	 #define &mo l_ACCP // otherwise holding shift would make O, not Ó. should rather have a transfparent shift layer and a conditional caps layer.
 			bindings = <
  MACRO_ROW_4(,    CFLX_U_,   CFLX_O_,   CFLX_I_,   CFLX_A_ )     IEXCL_IQMRK         _________     &kp  CCED_  &kp  APST_  &kp  QUOT_   &m_B_J_
  MACRO_ROW_5(,    ACUT_U_,   ACUT_O_,   ACUT_I_,   ACUT_A_,          TILD_A_ )       _________     HMCP CFLX_  HMRC GRAV_  HMLA ACUT_   &m_TILD_N_
