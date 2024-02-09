@@ -685,8 +685,8 @@
 	 // -------------------
 	 // l_ACNT
 	 // -------------------
-	    #define &mo l_ACCP // otherwise shift is applied to ralt and messes up some keys.
-	                       // TODO maybe raplece by transp shift layer + conditional ACCP?
+	    #define HMCP &mo l_ACCP // otherwise shift is applied to ralt and messes up some keys.
+	                            // TODO maybe replace by transp shift layer + conditional ACCP?
 		accent_layer {	 
 			bindings = <
  MACRO_ROW_4(,    CFLX_U_,   CFLX_O_,   CFLX_I_,   CFLX_A_ )     IEXCL_IQMRK       ______     &kp  CCED_  &kp  APST_  &kp  QUOT_   &m_B_J_
