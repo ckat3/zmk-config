@@ -3,8 +3,8 @@
 
 ; Requires Nir Sofer's ControlMyMonitor:
 ; https://www.nirsoft.net/utils/control_my_monitor.html
-; Either add it to PATH or edit the CMM_PATH variable.
-CMM_PATH := 'ControlMyMonitor.exe'
+; Either add ControlMyMonitor.exe to PATH or add the full path below.
+CONTROL_MY_MONITOR_PATH := 'ControlMyMonitor.exe'
 
 ; Monitor-specific constants, must get from ControlMyMonitor
 EXT_DISPLAY_CODE := '"LEN66ED"'
@@ -55,7 +55,7 @@ moveMouse(dir) {
 
 
 ControlMyMonitor(command, vcp, value:='') {
-	return Run(CMM_PATH . ' /' . command . ' ' . EXT_DISPLAY_CODE . ' ' . vcp . ' ' . value)
+	return Run(CONTROL_MY_MONITOR_PATH . ' /' . command . ' ' . EXT_DISPLAY_CODE . ' ' . vcp . ' ' . value)
 }
 
 ; start with DCR off
