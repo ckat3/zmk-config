@@ -5,6 +5,10 @@
 #include <dt-bindings/zmk/mouse.h>
 
 #include "bepo_bindings.h"
+/* #include "layers.h"
+#include "combos.h"
+#include "macros.h"
+#include "keymap.h" */
 
 // special mods
 #define SUPR(x)     LS(LC(LA(x)))
