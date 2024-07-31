@@ -19,7 +19,7 @@
 #define _COMBO_TIMEOUT       16   // (18 is good, 15 might be too little) maximum interval between keys to form combo
 #define _COMBO_TIMEOUT_SLOW  32
 
-// holdtap settings               // how long must hold to not be tap
+// how long must hold to not be tap
 #define _HT_TAPLIMIT_SLOW    280  
 #define _HT_TAPLIMIT         240  // (250 is good)
 #define _HT_TAPLIMIT_FAST    190  // 
@@ -60,18 +60,8 @@
 
 
 
-&lt { // tap for kp, hold for layer
-	flavor          = "tap-preferred"; //"balanced";
-	tapping-term-ms = < _HT_TAPLIMIT >;
-	quick-tap-ms    = < _HT_QUICKTAP >;
-};
 
-&mt { // hold-tap
-	tapping-term-ms = < _HT_TAPLIMIT_FASTER >;
-	quick-tap-ms    = < _HT_QUICKTAP >;
-};
-
-&sk { // one-shot key
+&sk { // one-shot modifier
 	release-after-ms = < _STICKY_TIMEOUT >;
 	quick-release;
 };
@@ -81,11 +71,17 @@
 	quick-release;
 };
 
+&mt { // hold-tap
+	tapping-term-ms = < _HT_TAPLIMIT_FASTER >;
+	quick-tap-ms    = < _HT_QUICKTAP >;
+};
 
-// mo  = layer while held
-// lt  = hold-tap layer/kp
-// to  = enables only this layer
-// tog = toggle layer
+&lt { // hold layer, tap kp
+	flavor          = "tap-preferred"; //"balanced"; // (which one is better?)
+	tapping-term-ms = < _HT_TAPLIMIT >;
+	quick-tap-ms    = < _HT_QUICKTAP >;
+};
+
 
 / {
 	behaviors {
@@ -504,7 +500,13 @@
 		COMBO(    l_FUNC,         &tog l_GAM2      ,     14 24 ,  gameLayer2)		
 	};
 
-
+// to  = enables only this layer
+// tog = toggle layer
+// mo  = layer while held
+// sk  = one-shot modifier
+// sl  = one-shot layer
+// mt  = hold-tap
+// lt  = hold layer, tap kp
 
 	keymap {
 		compatible = "zmk,keymap";
@@ -589,9 +591,9 @@
 	 // CAPS LAYER
 	 // -------------------
 		#define Q_Z LS(Q_) LS(Z_)
-		#define CAPSDEF      &ht Q_Z        &kp  MIN_      &kp LS(Y_)   DOT_COLN          NBSP_QMRK          &kp LS(K_)       &kp LS(C_)   &kp LS(H_)   &kp LS(W_)   &sl l_BASE   \
-						UTLAYR LS(U_)   HMLAcw(O_)	     HMLCcw(I_)   HMLScw(A_)       &kp LS(F_)          &kp LS(G_)       HMRScw(T_)   HMRCcw(R_)   HMRAcw(S_)   &kp LS(N_)     \
-						   &sl l_BASE      HMRAcw(EACT_)   MNAV LS(P_)   COMM_SCLN        &kp LS(X_)          &kp LS(V_)       &kp LS(D_)   &kp LS(M_)   HMLAcw(L_)   HMRGcw(B_)
+		#define CAPSDEF       &ht Q_Z     &kp  MIN_      &kp LS(Y_)   DOT_COLN          NBSP_QMRK          &kp LS(K_)       &kp LS(C_)   &kp LS(H_)   &kp LS(W_)   &to l_BASE   \
+						UTLAYR LS(U_)   HMLAcw(O_)	     HMLCcw(I_)   HMLScw(A_)       &kp LS(F_)          &kp LS(G_)       HMRScw(T_)   HMRCcw(R_)   HMRAcw(S_)   &kp LS(N_)   \
+						   &to l_BASE   HMRAcw(EACT_)   MNAV LS(P_)   COMM_SCLN        &kp LS(X_)          &kp LS(V_)       &kp LS(D_)   &kp LS(M_)   HMLAcw(L_)   HMRGcw(B_)
 	// --------------------
 		caps_layer {
 			bindings = < CAPSDEF	//							        going to another layer does not leave caps layer
@@ -659,9 +661,9 @@
 		nav_layer {
 	 // -------------------		
 			bindings = <
-				&kp  LSLCK    &kp  LNLCK    &to  l_NUM    PASTEPLAIN          TASKMAN            _________      HMLS LC(HOME)   HMLC PG_DN    HMLA PG_UP    HMRG LC(END)
-				&kp  LC(Y_)   HMLA INSERT   HMLC PSCRN    HMLS PSBRK         &kp CAPS            _________      &kp  LC(LEFT)   &kp  DOWN     &kp  UP       &kp  LC(RIGHT)
-				HMLG LC(Z_)   HMRA LC(X_)   &kp  LC(C_)   &kp  LC(V_)       _________            _________      &kp  HOME       &kp  LEFT     &kp  RIGHT    &kp  END
+				&kp  LSLCK    &kp  LNLCK    &to  l_NUM   PASTEPLAIN         TASKMAN            _________      HMLS LC(HOME)   HMLC PG_DN    HMLA PG_UP    HMRG LC(END)
+				&kp  LC(Z_)   HMLA LC(X_)   HMLC LC(C_)  HMLS LC(V_)       &kp CAPS            _________      &kp  LC(LEFT)   &kp  DOWN     &kp  UP       &kp  LC(RIGHT)
+				HMLG LC(Y_)   HMRA INSERT   &kp  PSCRN   &kp  PSBRK       _________            _________      &kp  HOME       &kp  LEFT     &kp  RIGHT    &kp  END
 			//  					                                        				                  
 												              &tog l_CPWD   &tog l_CAPS            impossible   impossible
 															  // !!!!! CHANGED &TO -> &TOG HERE!!
@@ -686,7 +688,7 @@
 		#define MACRO_ROW_5(PREFIX, ONE, TWO, THREE, FOUR, FIVE)   &m_##PREFIX##ONE &m_##PREFIX##TWO &m_##PREFIX##THREE &m_##PREFIX##FOUR &m_##PREFIX##FIVE
 
 	 // -------------------
-	 // l_ACNT
+	 // Accents (l_ACNT)
 	 // -------------------
 	    #define HMCP &mokp l_ACCP // otherwise shift is applied to ralt and messes up some keys.
 	                              // TODO maybe replace by transp shift layer + conditional ACCP?
