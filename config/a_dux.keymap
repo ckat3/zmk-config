@@ -215,7 +215,8 @@
 				HMLC ENTER   &kp  N4_   MNAV N5_   &kp  N6_      &kp COMM_             &kp DOT_        &kp  LT_     &kp  GT_     EQUL_DIFF    HMRG BSLA_
 			//  					                                        				                  
 				                                  &to l_BASE    impossible             &lt l_NUM ULIN_  &trans
-			>; //                                   unlock
+		    //                                      unlock
+			>;
 		};
 		
 
@@ -229,7 +230,8 @@
 			    &kp  NDSH_   HMRA MDSH_   NBSP_LGLM    NBSP_RGLM       &kp COMM_            &kp DOT_        &kp  LT_     &kp  GT_     HMLA EQUL_  HMRG BSLA_
 			//  					                                        				                  
 								                                 ______   ______            &lt l_NUM ULIN_  &trans
-			>; //  									                    double tap
+			>;
+			//  									                    double tap
 		};
 
 	 // -------------------
@@ -292,7 +294,8 @@
  MACRO_ROW_3(,    GRAV_U_,   TILD_O_,   TRMA_I_ )  &kp AGRV_          ______       ______     &kp  TRMA_  _________     &m_SZTT   &kp TILD_
 			//  					                                        				                  
 												       &m_CFLX_E_   &kp EGRV_      ______   &trans
-			>; //  									                             double tap
+			>;
+			//  									                             double tap
 		};
 
 	 // -------------------
@@ -306,7 +309,8 @@
  MACRO_ROW_3(cp_, GRAV_U_,   TILD_O_,   TRMA_I_)   &kp LS(AGRV_)       ______           ______       &kp  TRMA_      _________  &m_cp_SZTT   &kp   TILD_
 			//  					                                        				                  
 											      &m_cp_CFLX_E_   &kp LS(EGRV_)         ______   &trans
-			>; //  									                                  double tap
+			>;
+			//  									                                  double tap
 		};
 
 	 // -------------------
@@ -321,7 +325,8 @@
 				impossible  &trans       &m_utl_SCTAB  &m_utl_CTAB      &m_utl_DESK         &m_utl_RMB   &kp D_   &kp M_   &kp L_  &kp  B_
 			//  					                                        				                  
 			                                              &m_utl_STAB   &m_utl_ULIN         &kp RCTRL   &kp RSHIFT
-			>; //                                                                              slow         fast
+			>;
+			//                                                                              slow         fast
 		};
 
 	 // -------------------		
