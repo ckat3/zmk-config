@@ -1,20 +1,75 @@
-custom layout I made for my [A. Dux](https://github.com/tapioki/cephalopoda/tree/main/Architeuthis%20dux). a couple of ergonomical choices were made with the Dux in mind, but it will work fine in any 34-key layout.
+[def_sfb]: ## "Same Finger Bigram, i.e. pressing two successive keys in the same column."
+[def_mod]: ## "Shift, Ctrl, Alt, and Windows key."
 
-i haven't really explored anything else since mid-2022, after studying and playing around with a host of other layouts. i find it a joy to use; the annoyances are minimal, and i think i'll be carrying around with me for a long time still (tho i sometimes ask myself if it could be nice to have a couple of extra keys for some very specific cases).
+# The Zé Quoia 34-key layout
 
-i ran some benchmarks for fun, and it tends to agglutinate with every other top-ranking layout. it has been optimized for english and french by statistical analysis of a personal corpus, but i also made sure that it works great for portuguese, spanish, and various kinds of coding. it also has umlaut and eszett, but the sfb rate dies rise a little when writing german.
+simultaneously optimized for English, French and Portuguese. also performs very well in Spanish, and can find its way to ß for the occasional Notstandsmaßnamen.
 
-features:
- * low on SFBs and redirects and high on alternation, but
+i find this layout a joy to use for both writing and coding — despite a few quirks, and partially because of some others. the name sounds funny in Brazilian Portuguese, and you can sort of make it out on the base layer.
+
+the ergonomics are lightly premised on the [A. Dux](https://github.com/tapioki/cephalopoda/tree/main/Architeuthis%20dux)'s aggressive column stagger and pinky splay, but it should work fine on any 34-key board. 
+
+the one major caveat is that it was written to be used on top of Bépo [Bépo](https://bépo.fr). i haven't yet looked into how well QWERTY could handle all the non-English characters i need, but having to recur to ascii alt-sequences would be at the very least worrisome for cross-platform usage.
+
+## Features
+
+### Innovations
+
+ * vim-style home row arrows, but left and right mapped to jump to previous or next word.
+ * number layer with 0-3 on the home row, which is thus the most used (unlike with a traditional numpad)
+ * promptly accessible one-shot layers to insert the most common symbols and accented vowels with only two key taps
+ * utility layer on home row for unlimited alt-tab or ctrl-tab in both ways, history navigation, and full mouse control with three cursor/wheel speeds
+ 
+### Integrations
+
+#### Dedicated scripts included for
+ * AutoHotKey: mouse control, dark mode toggle, and double/single display toggle
+ * ControlMyMonitor: change brightness and other settings of external displays
+ 
+#### Suggested shortcuts for
+ * PowerToys launch and clipboard history, both from base layer
+ * Everything search from home row
+ 
+ # 
+ * low on [SFB][def_sfb] and redirects and high on alternation, but
  * still features some very enjoyable rolls (`'s`, `you`, `which`…)
  * lower row favored to the upper (personal choice) 
- * number layer with 0-3 on the home row, which will change your life
- * left side made to optionally complement shortcuts and gestures i have on the mouse (enter, cut, copy, paste), but
+ 
+ * left side made to optionally complement shortcuts and gestures i have on the mouse (enter, cut, copy, paste)
  * entirely mouse-independent, with mouse movement on a utilitiy layer
  * shortcuts for clipboard log, light/dark windows theme switch, and external screen controls (powered by autohotkey and controlmymonitor)
 
-being based on bépo instead of qwerty (ugh) or azerty (EUGH), it also gives you access to several rarer symbols. i can't say i use any of them on a regular basis, except for the narrow non-breaking space for french. (as to bépo's chic inverted comma, i think i threw that out the window.)
+## Layout
+the outer home row keys act as [modifiers][def_mod] when held.
 
-shouldn't be much of a hassle to adapt it to something else, anyway — provided the code is legible, which i haven't always been polite enough to ensure! either way, the `.keymap` has a few macros that could be useful for other projects too.
+all thumb keys change to different layers when held down. the thumbs' home are their outer keys; the inner ones, when pressed, are a one-shot switch. this works great for symbols and accents, which are less often used in sequence.
 
-feel free to fork and/or steal ideas, and let me know what you think!
+the main layers are outlined below. i'll eventually complete this by using images instead of text.
+
+### Base
+    q - y . ?    k c h w j
+    u o i a f    g t r s n
+    z é p , x    v d m l b
+            e   spc
+			
+### Accents (inner right thumb)
+    û ô î â ¿      ç ' " bj
+    ú ó í á ã      ^ ` ´ ñ 
+    ù õ ï à        ¨   ß ~ 
+			          
+### Numbers (hold outer left thumb)
+     | 7 8 9 ?    $ [ ] # %       
+    0 1 2 3 ;    : + - * /          
+      4 5 6 ,    . < > = \          
+	             _ spc         
+
+### Symbols (outer left thumb)
+    | @ æ œu !      $ [ ] & ~			  
+	{ } (  ) ;      : ^ `   /		  
+	— − «  » ,      . < > = \		  
+	             _ spc
+
+## Performance
+i ran some benchmarks out of curiosity, and it has scored close to top-ranking layouts such as [RSTHD](https://xsznix.wordpress.com/2021/01/13/rsthd-today/) and [MTGAP](https://mathematicalmulticore.wordpress.com/the-keyboard-layout-project/). however, it depends so heavily on combos and layers for non-English characters and whatnot that any mechanical analysis of it would have to be highly opinionated in its parametrization.
+
+
