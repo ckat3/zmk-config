@@ -121,12 +121,11 @@ GetDeepLTranslation() {
 	Send "^a"
 	Send "^c"
 	Send "!{Tab}"
-	sleep 150
+	sleep 200
 	Send "{Tab}"
+	sleep 50
 	Send "^v"
 	}
-
-#f::GetDeepLTranslation()
 
 Hotkey DISPLAY_OFF               , DisplayOff
 Hotkey EXT_DISPLAY_BRIGHTNESS_UP , ExternalBrightness
@@ -134,3 +133,50 @@ Hotkey EXT_DISPLAY_BRIGHTNESS_DN , ExternalBrightness
 Hotkey TOGGLE_DCR                , DcrOn
 Hotkey TOGGLE_DISPLAY_MODE       , ToggleDisplayMode
 Hotkey TOGGLE_THEME              , ToggleTheme
+
+ctrlV_timeWindow := false
+$^v::
+{
+	global ctrlV_timeWindow
+			
+	if (ctrlV_timeWindow and A_PriorHotkey = A_ThisHotkey and A_TimeSincePriorHotkey < 250) {
+		Send "{Enter}"
+		ctrlV_timeWindow := false
+		return
+	}
+	
+	Send "^v"
+	ctrlV_timeWindow := true
+}
+/* 
+ctrlC_timeWindow := false
+$^c::
+{
+	global ctrlC_timeWindow
+			
+	if (ctrlC_timeWindow and A_PriorHotkey = A_ThisHotkey and A_TimeSincePriorHotkey < 350) {
+		Run 'C:\Users\Cai\OneDrive\git\gpt\translator.py -c', , 'Min'
+		ctrlC_timeWindow := false
+		return
+	}
+	
+	Send "^c"
+	ctrlC_timeWindow := true
+}
+
+translate(l2, copy) {
+	clipboardPrevious := ClipboardAll()
+	send "^c"
+	
+	if (copy) {
+		Run 'C:\Users\Cai\OneDrive\git\gpt\translator.py -c ' . l2, , 'Min'
+	} else {
+		RunWait 'C:\Users\Cai\OneDrive\git\gpt\translator.py ' . l2, , 'Min'
+		A_Clipboard := clipboardPrevious
+	}
+}
+
+#^c::{
+	copy := GetKeyState('Shift')
+	translate('pt', copy)
+} */

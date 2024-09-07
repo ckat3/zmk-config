@@ -1,0 +1,121 @@
+
+		compatible = "zmk,combos";
+
+		#define DEFINE_COMBO(LAYERS, NAME, POSITIONS, TIMEOUT, BINDINGS...) \
+			combo_##NAME { \
+				layers        = <LAYERS>; \
+				key-positions = <POSITIONS>; \
+				bindings      = <BINDINGS>; \
+				timeout-ms    = <TIMEOUT>; \
+			};
+
+		// TODO: ok to omit line breaks between defs?
+		#define COMBO(    LAYERS,  BINDINGS,  POSITIONS,  a_NAME) \
+			DEFINE_COMBO( LAYERS,  a_NAME,  POSITIONS,  _COMBO_TIMEOUT,  BINDINGS)
+
+		// suffix must be added if there's more than one combo for the same key or macro
+		#define COMBO_KP( LAYERS,     KEY, SUFFIX,   POSITIONS) \
+			DEFINE_COMBO( LAYERS,     KEY##SUFFIX,   POSITIONS,  _COMBO_TIMEOUT,   &kp KEY)
+
+		#define COMBO_M(  LAYERS,   MACRO, SUFFIX,   POSITIONS) \
+			DEFINE_COMBO( LAYERS,   MACRO##SUFFIX,   POSITIONS,  _COMBO_TIMEOUT,        &m_##MACRO)
+			
+		#define COMBO_MSL(  LAYERS,   MACRO, SUFFIX,   POSITIONS) \
+			DEFINE_COMBO( LAYERS,   MACRO##SUFFIX,   POSITIONS,  _COMBO_TIMEOUT_SLOW,   &m_##MACRO)
+
+
+	/*
+	    lpu  lru  lmu  liu  lxu | rxu riu rmu rru rpu
+	    lph  lrh  lmh  lih  lxh | rxh rih rmh rrh rph
+	    lpd  lrd  lmd  lid  lxd | rxd rid rmd rrd rpd
+					            |
+	                  lth lto   |   lto lth
+	*/
+	
+		/*
+	    0    1   2   3     4 |  5     6   7   8   9
+	    10  11  12  13    14 | 15    16  17  18  19
+	    20  21  22  23    24 | 25    26  27  28  29
+							 |
+	                30  31   |   32  33
+	*/
+	
+
+												     
+		// left hand    
+		COMBO_KP( ll_DEFAULT,          ULIN_      ,,      1  2 ) //                                   
+		COMBO(    ll_DEFAULT,      &kp LG(V_)      ,      2  3 ,    clipboardHistory_PowerToys)
+		
+		COMBO_KP( ll_NOTCPWD,          ESC        ,,     10 11 ) // 
+		COMBO_M(  ll_CPWD,          cw_ESC        ,,     10 11 ) // 
+		
+		COMBO_KP( ll_DEFAULT,          BSPC       ,,     11 12 ) // 
+		COMBO_KP( ll_DEFAULT,          DEL        ,,     21 22 ) //      
+		
+		COMBO_KP( ll_NOTCPWD,          TAB        ,,     12 13 ) //      
+		COMBO_M(  ll_CPWD,          cw_TAB        ,,     12 13 ) //      
+		COMBO_KP( ll_DEFAULT,          SPACE      ,,     22 23 ) //      
+		
+		COMBO(    ll_DEFAULT,       &sl l_OSCP     ,  11 12 13 ,    oneShotCaps)
+		COMBO_KP( ll_DEFAULT,          ENTER,l     ,     10 13 )
+		
+		COMBO(    ll_DEFAULT,       &m_SPC_sl_OSCP ,  20 21 22 ,        space_1ShotCaps)
+		COMBO(    ll_DEFAULT,   &m_DOT_SPC_sl_OSCP ,  21 22 23 ,    dot_Space_1ShotCaps)
+		
+		COMBO(    ll_DEFAULT,      &kp LC(Z_)      ,     20 21 ,) // ^z
+		
+		COMBO(    ll_DEFAULT,    &mosl l_FUNC l_FUNC,    30 31 ,  functionLayer)
+											
+											
+		// right hand                                        
+		COMBO_KP( ll_NOTCPWD,          ENTER,r     ,     16 17 )
+		COMBO_M(  ll_CPWD,          cw_ENTER      ,,     16 17 )	
+		
+		COMBO(    ll_DEFAULT,      &kp LC(BSPC)    ,     17 18 ,  aapoip)		
+		COMBO(    ll_DEFAULT,      &kp LC(DEL)     ,     27 28 ,  aaioipp)
+		
+		COMBO(    ll_DEFAULT,       &sl l_OSCP     ,  16 17 18 ,  aaioaipo)										
+		COMBO(    ll_DEFAULT,   &m_SPC_sl_OSCP     ,     32 33 ,  aapopiaio) // TODO: which m_SPC_sl_OSCP is better?  
+		
+		
+		// TODO merge these?  
+		COMBO(      l_BASE,             &kp     Q_   ,     21 23 ,  aapopiaioo)
+		COMBO(      l_BASE,             &kp     J_   ,     26 28 ,  aapopiaioooi)
+		COMBO(     ll_CAPS,             &kp  LS(Q_)  ,     21 23 ,  aapopiaioooia)
+		COMBO(     ll_CAPS,             &kp  LS(J_)  ,     26 28 ,  aapopiaioooiai)
+		
+		COMBO_M(    l_BASE,                 Q_U_    ,,     26 27 )  /* qu */
+		COMBO_M(    l_BASE,            TILD_A_E_    ,,     13 30 )  /* ãe */
+		COMBO_M(    l_BASE,            TILD_A_O_    ,,     13 11 )  /* ão */
+		COMBO_MSL(  l_BASE,            TILD_O_E_    ,,     11 30 )  /* õe */
+		COMBO_M(    l_BASE,                 CAO     ,,      6  7 )  /* ção */
+		COMBO_M(    l_BASE,                 COES    ,,      6  8 )  /* ções */
+					  		     	  			      
+		COMBO_M(    l_OSCP,              up_Q_U_    ,,     26 27 )  /* Qu */
+		COMBO_M(    l_OSCP,         up_TILD_A_E_    ,,     13 30 )  /* Ãe */
+		COMBO_M(    l_OSCP,         up_TILD_A_O_    ,,     13 11 )  /* Ão */
+		COMBO_MSL(  l_OSCP,         up_TILD_O_E_    ,,     11 30 )  /* Õe */
+					  		     	  				 	      
+		COMBO_M(    l_CAPS l_CPWD,       cp_Q_U_    ,,     26 27 )  /* QU */
+		COMBO_M(    l_CAPS l_CPWD,  cp_TILD_A_E_    ,,     13 30 )  /* ÃE */
+		COMBO_M(    l_CAPS l_CPWD,  cp_TILD_A_O_    ,,     13 11 )  /* ÃO */
+		COMBO_MSL(  l_CAPS l_CPWD,  cp_TILD_O_E_    ,,     11 30 )  /* ÕE */
+		COMBO_M(    l_CAPS l_CPWD,       cp_CAO    ,,       6  7 )  /* ÇÃO */
+		COMBO_M(    l_CAPS l_CPWD,       cp_COES    ,,      6  8 )  /* ÇÕES */
+
+											     	    
+									 				 	 
+		// function layer
+		COMBO(    l_FUNC,         &sys_reset       ,      0  4 ,  aaiouaioua)	
+		COMBO(    l_FUNC,         &bootloader      ,     20 24 ,  aayuqaiouea)
+		
+		COMBO(    l_FUNC,         &kp  C_NEXT      ,     12 13 ,  aon)
+		COMBO(    l_FUNC,         &kp  C_PREV      ,     22 23 ,  aaille)
+		
+		COMBO(    l_FUNC,         &kp  TOG_DCR     ,     10 11 ,  ainha)
+		COMBO(    l_FUNC,         &kp  DISPLAY_OFF ,  11 12 13 ,  aaca)	
+		COMBO(    l_FUNC,         &kp  TOG_DISPLAY ,     20 21 ,  ainho)
+		COMBO(    l_FUNC,         &kp  TOG_THEME   ,     21 22 ,  aaco)
+		
+		COMBO(    l_FUNC,         &tog l_GAME      ,      4 14 ,  gameLayer1)
+		COMBO(    l_FUNC,         &tog l_GAM2      ,     14 24 ,  gameLayer2)		
