@@ -3,7 +3,6 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/mouse.h>
 #include "bepo_bindings.h"
-#include "behavior_settings.dtsi"
 
 // SPECIAL MODS ----------------------
 #define SUPR(x)     LS(LC(LA(x)))
@@ -39,6 +38,48 @@
 #define ll_NOTCPWD     l_BASE  l_CAPS                  l_NUM  l_SYM  l_EXCL  l_NAV  l_MNAV  l_ACNT  l_ACCP
 #define ll_CAPS                l_CAPS  l_CPWD  l_OSCP
 #define ll_CPWD                        l_CPWD  l_OSCP
+
+
+
+// SETTINGS
+#define _STICKY_TIMEOUT      2000
+
+#define _MACRO_TAP_PADDING   1    // delay between key presses
+#define _MACRO_TAP_FOR       1    // how long to hold tapped key_MACRO_TAP_FOR_SLOW
+
+#define _COMBO_TIMEOUT       16   // (18 is good, 15 might be too little) maximum interval between keys to form combo
+#define _COMBO_TIMEOUT_SLOW  32
+
+// how long must hold to not be tap
+#define _HT_TAPLIMIT_SLOW    280  
+#define _HT_TAPLIMIT         240  // (250 is good)
+#define _HT_TAPLIMIT_FAST    190  // 
+#define _HT_TAPLIMIT_FASTER  110  // 
+
+#define _HT_QUICKTAP         150  // how fast must press twice for second to start repeating tap (200 is upper limit)
+
+
+
+&sk { // one-shot modifier
+	release-after-ms = < _STICKY_TIMEOUT >;
+	quick-release;
+};
+
+&sl { // one-shot layer
+	release-after-ms = < _STICKY_TIMEOUT >;
+	quick-release;
+};
+
+&mt { // hold-tap
+	tapping-term-ms = < _HT_TAPLIMIT_FASTER >;
+	quick-tap-ms    = < _HT_QUICKTAP >;
+};
+
+&lt { // hold layer, tap kp
+	flavor          = "tap-preferred"; //"balanced"; // (which one is better?)
+	tapping-term-ms = < _HT_TAPLIMIT >;
+	quick-tap-ms    = < _HT_QUICKTAP >;
+};
 
 
 
@@ -94,7 +135,7 @@
 		#define HMLGcw(X)   &htlg_cw 0 LS(X)
 		#define HMRGcw(X)   &htrg_cw 0 LS(X)
 
-	 // HOLDTAP SYMBOLS ------------------           // HOLD  TAP
+	 // HOLDTAP SYMBOLS ------------------               // HOLD  TAP
 		#define DLLR_EURO    &htslow    EURO_  DLLR_     //  €     $
 		#define EQUL_DIFF    &htslow    DIFF_  EQUL_     //  ≠     =
 		#define IEXCL_IQMRK  &htslow    IEXC_  IQMR_     //  ¿     ¡
@@ -218,7 +259,7 @@
 				&kp  LC(Z_)   HMLA LC(X_)   HMLC LC(C_)  HMLS LC(V_)       &kp CAPS            _________      &kp  LC(LEFT)   &kp  DOWN     &kp  UP       &kp  LC(RIGHT)
 				HMLG LC(Y_)   HMRA INSERT   &kp  PSCRN   &kp  PSBRK       _________            _________      &kp  HOME       &kp  LEFT     &kp  RIGHT    &kp  END
 			//  					                                        				                  
-												              &tog l_CPWD   &tog l_CAPS            impossible   impossible
+												          &tog l_CPWD   &tog l_CAPS            impossible   impossible
 			>;
 		};
 	
@@ -274,14 +315,13 @@
 		utility_layer {
 	 // ahk controls mouse movement
 	 // -------------------		
-			bindings = <                                                                           // virtually holding down all left-hand mods
+			bindings = <  //                                                                virtually holding down all left-hand mods
 				impossible  &m_utl_SAVE  &m_utl_BACK   &m_utl_FRWD      &m_utl_LAF4         &m_utl_MMB   &kp C_   &kp H_   &kp W_  &kp  J_
 				impossible  &m_utl_GTAB  &m_utl_SATAB  &m_utl_ATAB      &m_utl_REDO         &m_utl_LMB   &kp T_   &kp R_   &kp S_  &kp  N_ 
 				impossible  &trans       &m_utl_SCTAB  &m_utl_CTAB      &m_utl_DESK         &m_utl_RMB   &kp D_   &kp M_   &kp L_  &kp  B_
 			//  					                                        				                  
 			                                              &m_utl_STAB   &m_utl_ULIN         &kp RCTRL   &kp RSHIFT
-			//                                                                                slow         fast
-			>;
+			>; //                                                                              slow         fast
 		};
 
 	 // -------------------		
