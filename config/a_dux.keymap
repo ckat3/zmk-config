@@ -5,6 +5,7 @@
 #include <dt-bindings/zmk/mouse.h>
 
 #include "bepo_bindings.h"
+#include "behavior_settings.dtsi"
 
 // SPECIAL MODS ----------------------
 #define SUPR(x)     LS(LC(LA(x)))
@@ -42,19 +43,16 @@
 #define ll_CPWD                        l_CPWD  l_OSCP
 
 
-
-#include "behavior_settings.dtsi"
-
 / {
-	behaviors {
-		#include "behaviors.dtsi"
-	};
-	macros {
-		#include "macros.dtsi"
-	};
-	combos {
-		#include "combos.dtsi"
-	};
+behaviors { 
+    #include "behaviors.dtsi"
+};
+macros {
+    #include "macros.dtsi"
+};
+combos {
+    #include "combos.dtsi"
+};
 
 // BEHAVIORS -------------------------
 // to  = enables only this layer
@@ -65,284 +63,284 @@
 // mt  = hold-tap
 // lt  = hold layer, tap kp
 
-	keymap {
-		compatible = "zmk,keymap";
+keymap {
+	compatible = "zmk,keymap";
 
-	 // READABILITY ------------------
-		#define impossible  &none // physically impossible
-		#define _________   &none
-		#define ______      &none
-
-
-	 // HOME-ROW MODS ------------------
-		#define HMLS   &htl  LSHIFT // left shift prefers keys on right hand
-		#define HMRS   &htr  RSHIFT // rite shift prefers keys on lefft hand
-		#define HMLC   &ht   LCTRL
-		#define HMRC   &ht   RCTRL
-		#define HMLA   &ht   LALT
-		#define HMRA   &ht   RALT
-		#define HMLG   &ht   LGUI
-		#define HMRG   &ht   RGUI
-		
-		#define MNAV   &mokp l_MNAV
-
-	 // HOME-ROW MODS with shift on key
-		#define HMLScw(X)   &htls_cw 0 LS(X)
-		#define HMRScw(X)   &htrs_cw 0 LS(X)
-		#define HMLCcw(X)   &htlc_cw 0 LS(X)
-		#define HMRCcw(X)   &htrc_cw 0 LS(X)
-		#define HMLAcw(X)   &htla_cw 0 LS(X)
-		#define HMRAcw(X)   &htra_cw 0 LS(X)
-		#define HMLGcw(X)   &htlg_cw 0 LS(X)
-		#define HMRGcw(X)   &htrg_cw 0 LS(X)
-
-	 // HOLDTAP SYMBOLS ------------------           // HOLD  TAP
-		#define DLLR_EURO    &htslow    EURO_  DLLR_     //  €     $
-		#define EQUL_DIFF    &htslow    DIFF_  EQUL_     //  ≠     =
-		#define IEXCL_IQMRK  &htslow    IEXC_  IQMR_     //  ¿     ¡
-		#define EXCL_QMRK    &htslow    EXCL_  QMRK_     //  ?     !
-
-		#define NBSP_QMRK    &ht_QMRK   0      QMRK_     // ■?     ?      // ■ = narrow nbsp
-		#define NBSP_EXCL    &ht_EXCL   0      0         // ■!     !      // □ = space
-		#define DOT_COLN     &ht_COLN   0      DOT_      // ■:□    .
-		#define COMM_SCLN    &ht_SCLN   0      COMM_     // ■;□    ,
-
-		#define NBSP_LGLM    &ht_LGLM   LGLM_  0         //  «     «■
-		#define NBSP_RGLM    &ht_RGLM   RGLM_  0         //  »      ■»
+ // READABILITY ------------------
+	#define impossible  &none // physically impossible
+	#define _________   &none
+	#define ______      &none
 
 
-	 // THUMB KEYS ------------------
-		#define lt_NUM_E           &lt   l_NUM      E_
-		#define lt_NUM_E_cp        &lt   l_NUM   LS(E_)
-
-		#define mosl_SYM          &mosl  l_SYM   l_SYM
-		#define mosl_SYM_cw     &mo_slcw_l_SYM   l_SYM 0
-
-		#define mosl_ACNT         &mosl  l_ACNT  l_ACNT
-		#define mosl_ACCP         &mosl  l_ACCP  l_ACCP
-
-		#define lt_NAV_SPC        &lt    l_NAV SPC
-		#define lt_NAV_SPC_cw   &cw_mokp_l_NAV_SPC 0 0
-
-
-	 // -------------------
-		#define UTLAYR    &mokp_l_UTIL 0    // UTIL layer on hold               : currently on u
-		#define HMLG_OSCP &htsl LGUI l_OSCP // one-shift on touch, LGUI on hold : currently on bottom left pinky
-	 // -------------------		
-		base_layer {
-	 // -------------------
-			bindings = <
-				&ht Q_ Z_  &kp  MIN_   &kp  Y_   DOT_COLN       NBSP_QMRK           &kp K_      &kp  C_   &kp  H_   &kp  W_   &sl l_OSCP
-				UTLAYR U_  HMLA O_     HMLC I_   HMLS A_           &kp F_           &kp G_      HMRS T_   HMRC R_   HMRA S_   &kp  N_
-				HMLG_OSCP  HMRA EACT_  MNAV P_   COMM_SCLN         &kp X_           &kp V_      &kp  D_   &kp  M_   HMLA L_   HMRG B_
-			//  
-												        lt_NUM_E   mosl_SYM          mosl_ACNT   lt_NAV_SPC
-			>;
-		};
-		
-		
-	 // -------------------
-	 // CAPS LAYER
-	 // -------------------
-		#define Q_Z LS(Q_) LS(Z_)
-		#define CAPSDEF       &ht Q_Z     &kp  MIN_      &kp LS(Y_)   DOT_COLN          NBSP_QMRK          &kp LS(K_)       &kp LS(C_)   &kp LS(H_)   &kp LS(W_)   &to l_BASE   \
-						UTLAYR LS(U_)   HMLAcw(O_)	     HMLCcw(I_)   HMLScw(A_)       &kp LS(F_)          &kp LS(G_)       HMRScw(T_)   HMRCcw(R_)   HMRAcw(S_)   &kp LS(N_)   \
-						   &to l_BASE   HMRAcw(EACT_)   MNAV LS(P_)   COMM_SCLN        &kp LS(X_)          &kp LS(V_)       &kp LS(D_)   &kp LS(M_)   HMLAcw(L_)   HMRGcw(B_)
-	// --------------------
-		caps_layer {
-			bindings = < CAPSDEF	//							        going to another layer does not leave caps layer
-										  				          lt_NUM_E_cp   mosl_SYM             mosl_ACCP   lt_NAV_SPC    >; };		
-		capsword_layer {
-			bindings = < CAPSDEF	//							      both leave capsword         doesn't leave      leaves		
-										  				          lt_NUM_E_cp   mosl_SYM_cw          mosl_ACCP   lt_NAV_SPC_cw >; };
-		oneshotcaps_layer { 
-			bindings = < CAPSDEF	//							     all leave oneshotcaps (automatically coz it's oneshot!!)
-												                  lt_NUM_E_cp   mosl_SYM             mosl_ACCP   lt_NAV_SPC_cw >; };
-			// TWO DIFFERENCES OF ONESHOTCAPS
-			// | * qu combo does Qu, not QU
-	        // | * default mosl_SYM behavior, since SLCP will be toggled off automatically. 
-            // |   otherwise in a quick roll the second key will arrive after going to BASE and before sl'ing SYM
-			
-			
-	 // -------------------
-	 // LH AUX LAYERS
-	 // -------------------
-		num_layer {
-	 // can be locked from l_NAV
-	 // -------------------
-			bindings = <
-				&kp  PIPE_   &kp  N7_   &kp  N8_   &kp  N9_      EXCL_QMRK             DLLR_EURO       &kp  LBRK_   &kp  RBRK_   HMRA HASH_   &kp  PCNT_
-				&kp  N0_     &kp  N1_   &kp  N2_   &kp  N3_      &kp SCLN_             &kp COLN_       HMLS PLUS_   HMLC MIN_    HMLA STAR_   &kp  FSLA_
-				HMLC ENTER   &kp  N4_   MNAV N5_   &kp  N6_      &kp COMM_             &kp DOT_        &kp  LT_     &kp  GT_     EQUL_DIFF    HMRG BSLA_
-				
-				                                  &to l_BASE    impossible             &lt l_NUM ULIN_  &trans
-			>; //                                   unlock
-		};
-		
-
-		#define OEU_OE   &ht_OEU OE_ 0
-	 // -------------------
-		sym_layer {
-	 // -------------------
-			bindings = <
-				&kp  PIPE_   &kp  AT_     &kp  AE_        OEU_OE       NBSP_EXCL            DLLR_EURO       &kp  LBRK_   &kp RBRK_    &kp AMPR_   &kp  TLDL_
-				HMLG LCUR_   HMLA RCUR_   HMLC LPAR_   HMLS RPAR_      &kp SCLN_            &kp COLN_       HMRS CFXL_   HMRC GRVL_   &kp RALT    &kp  FSLA_
-			    &kp  NDSH_   HMRA MDSH_   NBSP_LGLM    NBSP_RGLM       &kp COMM_            &kp DOT_        &kp  LT_     &kp  GT_     HMLA EQUL_  HMRG BSLA_
-				
-								                                 ______   ______            &lt l_NUM ULIN_  &trans
-			>; //  									                    double tap
-		};
-
-	 // -------------------
-		excl_layer {
-	 // -------------------
-			bindings = <
-				&trans &trans &trans &trans    &m_exclrepeat  &trans    &trans &trans &trans &trans
-				&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
-				&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
-				                     &trans  &trans             &trans  &trans
-			>;
-		};
-
-
-
-
-	 // -------------------
-	 // RH AUX LAYERS
-	 // -------------------
-		#define TASKMAN      &kp LC(LS(ESC))    // ctrl shift esc
-		#define PASTEPLAIN   &kp LC(LG(LA(V_))) // plaintext paste (power toys)
-	 // -------------------		
-		nav_layer {
-	 // -------------------		
-			bindings = <
-				&kp  LSLCK    &kp  LNLCK    &to  l_NUM   PASTEPLAIN         TASKMAN            _________      HMLS LC(HOME)   HMLC PG_DN    HMLA PG_UP    HMRG LC(END)
-				&kp  LC(Z_)   HMLA LC(X_)   HMLC LC(C_)  HMLS LC(V_)       &kp CAPS            _________      &kp  LC(LEFT)   &kp  DOWN     &kp  UP       &kp  LC(RIGHT)
-				HMLG LC(Y_)   HMRA INSERT   &kp  PSCRN   &kp  PSBRK       _________            _________      &kp  HOME       &kp  LEFT     &kp  RIGHT    &kp  END
-			//  					                                        				                  
-												              &tog l_CPWD   &tog l_CAPS            impossible   impossible
-			>;
-		};
+ // HOME-ROW MODS ------------------
+	#define HMLS   &htl  LSHIFT // left shift prefers keys on right hand
+	#define HMRS   &htr  RSHIFT // rite shift prefers keys on lefft hand
+	#define HMLC   &ht   LCTRL
+	#define HMRC   &ht   RCTRL
+	#define HMLA   &ht   LALT
+	#define HMRA   &ht   RALT
+	#define HMLG   &ht   LGUI
+	#define HMRG   &ht   RGUI
 	
-	 // -------------------	
-		mini_nav_layer {
-	 // -------------------
-			bindings = <
-				&kp LC(HOME)  &kp LC(END)    impossible   _________      _________               _________      _________   _________   _________   _________
-				&kp LC(LEFT)  &kp LC(RIGHT)  impossible   &kp UP          &kp HOME               _________      _________   _________   _________   _________
-				&kp    LEFT   &kp    RIGHT   impossible   &kp DOWN        &kp  END               _________      _________   _________   _________   _________
-			//  					                                        				                  
-												            &kp LSHIFT   _________               _________   _________
-			>;
-		};
+	#define MNAV   &mokp l_MNAV
 
-	    // questionable syntactic sugar to define several parameters beginning with &m_
-		#define MACRO_ROW_3(PREFIX, ONE, TWO, THREE)               &m_##PREFIX##ONE &m_##PREFIX##TWO &m_##PREFIX##THREE
-		#define MACRO_ROW_4(PREFIX, ONE, TWO, THREE, FOUR)         &m_##PREFIX##ONE &m_##PREFIX##TWO &m_##PREFIX##THREE &m_##PREFIX##FOUR
-		#define MACRO_ROW_5(PREFIX, ONE, TWO, THREE, FOUR, FIVE)   &m_##PREFIX##ONE &m_##PREFIX##TWO &m_##PREFIX##THREE &m_##PREFIX##FOUR &m_##PREFIX##FIVE
+ // HOME-ROW MODS with shift on key
+	#define HMLScw(X)   &htls_cw 0 LS(X)
+	#define HMRScw(X)   &htrs_cw 0 LS(X)
+	#define HMLCcw(X)   &htlc_cw 0 LS(X)
+	#define HMRCcw(X)   &htrc_cw 0 LS(X)
+	#define HMLAcw(X)   &htla_cw 0 LS(X)
+	#define HMRAcw(X)   &htra_cw 0 LS(X)
+	#define HMLGcw(X)   &htlg_cw 0 LS(X)
+	#define HMRGcw(X)   &htrg_cw 0 LS(X)
 
-	 // -------------------
-	 // Accents (l_ACNT)
-	 // -------------------
-	    #define HMCP &mokp l_ACCP // otherwise shift is applied to ralt and messes up some keys.
-	                              // TODO maybe replace by transp shift layer + conditional ACCP?
-		accent_layer {	 
-			bindings = <
- MACRO_ROW_4(,    CFLX_U_,   CFLX_O_,   CFLX_I_,   CFLX_A_ )     IEXCL_IQMRK       ______     &kp  CCED_  &kp  APST_  &kp  QUOT_   &m_B_J_
- MACRO_ROW_5(,    ACUT_U_,   ACUT_O_,   ACUT_I_,   ACUT_A_,         TILD_A_)       ______     HMCP CFLX_  HMRC GRAV_  HMLA ACUT_   &m_TILD_N_
- MACRO_ROW_3(,    GRAV_U_,   TILD_O_,   TRMA_I_ )  &kp AGRV_          ______       ______     &kp  TRMA_  _________     &m_SZTT   &kp TILD_
- 
-												       &m_CFLX_E_   &kp EGRV_      ______   &trans
-			>; //  									                             double tap
-		};
+ // HOLDTAP SYMBOLS ------------------           // HOLD  TAP
+	#define DLLR_EURO    &htslow    EURO_  DLLR_     //  €     $
+	#define EQUL_DIFF    &htslow    DIFF_  EQUL_     //  ≠     =
+	#define IEXCL_IQMRK  &htslow    IEXC_  IQMR_     //  ¿     ¡
+	#define EXCL_QMRK    &htslow    EXCL_  QMRK_     //  ?     !
 
-	 // -------------------
-	 // l_ACCP
-	 // -------------------
-		accent_caps_layer {
-	 // -------------------
-			bindings = <
- MACRO_ROW_4(cp_, CFLX_U_,   CFLX_O_,   CFLX_I_,   CFLX_A_ )           ______           ______       &kp  LS(CCED_)  &kp  APST_  &kp  QUOT_  &m_cp_B_J_
- MACRO_ROW_5(cp_, ACUT_U_,   ACUT_O_,   ACUT_I_,   ACUT_A_,          TILD_A_)           ______       HMRS ACUT_      HMRC CFLX_  HMLA GRAV_  &m_cp_TILD_N_
- MACRO_ROW_3(cp_, GRAV_U_,   TILD_O_,   TRMA_I_)   &kp LS(AGRV_)       ______           ______       &kp  TRMA_      _________  &m_cp_SZTT   &kp   TILD_
- 
-											      &m_cp_CFLX_E_   &kp LS(EGRV_)         ______   &trans
-			>; //  									                                  double tap
-		};
+	#define NBSP_QMRK    &ht_QMRK   0      QMRK_     // ■?     ?      // ■ = narrow nbsp
+	#define NBSP_EXCL    &ht_EXCL   0      0         // ■!     !      // □ = space
+	#define DOT_COLN     &ht_COLN   0      DOT_      // ■:□    .
+	#define COMM_SCLN    &ht_SCLN   0      COMM_     // ■;□    ,
 
-	 // -------------------
-	 // FUNCTION LAYERS
-	 // -------------------
-		utility_layer {
-	 // ahk controls mouse movement
-	 // -------------------		
-			bindings = <                                                                           // virtually holding down all left-hand mods
-				impossible  &m_utl_SAVE  &m_utl_BACK   &m_utl_FRWD      &m_utl_LAF4         &m_utl_MMB   &kp C_   &kp H_   &kp W_  &kp  J_
-				impossible  &m_utl_GTAB  &m_utl_SATAB  &m_utl_ATAB      &m_utl_REDO         &m_utl_LMB   &kp T_   &kp R_   &kp S_  &kp  N_ 
-				impossible  &trans       &m_utl_SCTAB  &m_utl_CTAB      &m_utl_DESK         &m_utl_RMB   &kp D_   &kp M_   &kp L_  &kp  B_
-				
-			                                              &m_utl_STAB   &m_utl_ULIN         &kp RCTRL   &kp RSHIFT
-			//                                                                                slow         fast
-			>;
-		};
+	#define NBSP_LGLM    &ht_LGLM   LGLM_  0         //  «     «■
+	#define NBSP_RGLM    &ht_RGLM   RGLM_  0         //  »      ■»
 
-	 // -------------------		
-		func_layer {
-	 // -------------------		                                                                       
-			bindings = <
-				&bt  BT_SEL 3   &bt  BT_SEL 0   &bt  BT_SEL 1   &bt  BT_SEL 2       &bt  BT_CLR         &sk LALT       &kp F7  &kp F8  &kp F9  &kp F12
-				HMLG C_BRI_UP   HMLA M2_BRI_U   HMLC C_VOL_UP   HMLS C_PP  	       &out OUT_BLE         &sk LSHIFT     &kp F1  &kp F2  &kp F3  &kp F10
-				&kp  C_BRI_DN   &kp  M2_BRI_D   &kp  C_VOL_DN   &kp  C_MUTE        &out OUT_USB         &sk LCTRL      &kp F4  &kp F5  &kp F6  &kp F11
-			//
-															            impossible   impossible         &kp LSHIFT   &kp LALT
-			>;
-		};
 
-	 // -------------------
-	 // GAMING LAYERS
-	 // -------------------
-		game_layer {
-	 // similar to base layer
-	 // -------------------		
-			bindings = <
-				&kp Z_     &kp MIN_    &kp Y_     &kp DOT_         &kp R_              &kp  K_          &kp C_    &kp H_    &kp W_     &kp J_
-				&kp U_     &kp O_      &kp I_     &kp A_           &kp F_              &kp  G_          &kp LEFT  &kp UP    &kp RIGHT  &kp N_
-				&kp ESC    &kp S_      &kp P_     &kp COMM_        &kp X_              &tog l_GAME      &kp D_    &kp DOWN  &kp L_     &kp B_
-			//
-										            &kp ENTER   &kp SPACE              &kp TAB   &kp LALT
-			>;
-		};
+ // THUMB KEYS ------------------
+	#define lt_NUM_E           &lt   l_NUM      E_
+	#define lt_NUM_E_cp        &lt   l_NUM   LS(E_)
 
-	 // -------------------		
-		game_layer_2 { 
-	 // more closely modeled after bépo. might be useless
-	 // -------------------		
-			bindings = <
-				&kp LSHIFT  &kp A_     &kp EACT_  &kp I_        &kp O_             &kp  Y_            &kp U_   &kp I_     &kp O_    &kp P_
-				&kp LCTRL   &kp B_     &kp U_     &kp P_        &kp E_             &kp  H_            &kp J_   &kp K_     &kp L_    &kp N_
-				&kp ESC     &kp AGRV_  &kp Y_     &kp X_        &kp DOT            &tog l_GAM2        &kp M_   &kp COMM_  &kp DOT_  &kp BSPC
-			//
-											      &kp ENTER   &kp SPACE            &kp TAB   &kp LALT
-			>;
-		};
+	#define mosl_SYM          &mosl  l_SYM   l_SYM
+	#define mosl_SYM_cw     &mo_slcw_l_SYM   l_SYM 0
 
-	 // -------------------
-	 // DEBUGGING
-	 // -------------------
-	 /*
-	 	bindings = <
-	 		______ ______ ______ ______    ______         ______    ______ ______ ______ _____
-	 		______ ______ ______ ______    ______         ______    ______ ______ ______ _____
-	 		______ ______ ______ ______    ______         ______    ______ ______ ______ _____
-	 	                           ______  ______         ______  ______
-	 	>;
+	#define mosl_ACNT         &mosl  l_ACNT  l_ACNT
+	#define mosl_ACCP         &mosl  l_ACCP  l_ACCP
+
+	#define lt_NAV_SPC        &lt    l_NAV SPC
+	#define lt_NAV_SPC_cw   &cw_mokp_l_NAV_SPC 0 0
+
+
+ // -------------------
+	#define UTLAYR    &mokp_l_UTIL 0    // UTIL layer on hold               : currently on u
+	#define HMLG_OSCP &htsl LGUI l_OSCP // one-shift on touch, LGUI on hold : currently on bottom left pinky
+ // -------------------		
+	base_layer {
+ // -------------------
+		bindings = <
+			&ht Q_ Z_  &kp  MIN_   &kp  Y_   DOT_COLN       NBSP_QMRK           &kp K_      &kp  C_   &kp  H_   &kp  W_   &sl l_OSCP
+			UTLAYR U_  HMLA O_     HMLC I_   HMLS A_           &kp F_           &kp G_      HMRS T_   HMRC R_   HMRA S_   &kp  N_
+			HMLG_OSCP  HMRA EACT_  MNAV P_   COMM_SCLN         &kp X_           &kp V_      &kp  D_   &kp  M_   HMLA L_   HMRG B_
+		//  
+											        lt_NUM_E   mosl_SYM          mosl_ACNT   lt_NAV_SPC
+		>;
+	};
+	
+	
+ // -------------------
+ // CAPS LAYER
+ // -------------------
+	#define Q_Z LS(Q_) LS(Z_)
+	#define CAPSDEF       &ht Q_Z     &kp  MIN_      &kp LS(Y_)   DOT_COLN          NBSP_QMRK          &kp LS(K_)       &kp LS(C_)   &kp LS(H_)   &kp LS(W_)   &to l_BASE   \
+					UTLAYR LS(U_)   HMLAcw(O_)	     HMLCcw(I_)   HMLScw(A_)       &kp LS(F_)          &kp LS(G_)       HMRScw(T_)   HMRCcw(R_)   HMRAcw(S_)   &kp LS(N_)   \
+					   &to l_BASE   HMRAcw(EACT_)   MNAV LS(P_)   COMM_SCLN        &kp LS(X_)          &kp LS(V_)       &kp LS(D_)   &kp LS(M_)   HMLAcw(L_)   HMRGcw(B_)
+// --------------------
+	caps_layer {
+		bindings = < CAPSDEF	//							        going to another layer does not leave caps layer
+									  				          lt_NUM_E_cp   mosl_SYM             mosl_ACCP   lt_NAV_SPC    >; };		
+	capsword_layer {
+		bindings = < CAPSDEF	//							      both leave capsword         doesn't leave      leaves		
+									  				          lt_NUM_E_cp   mosl_SYM_cw          mosl_ACCP   lt_NAV_SPC_cw >; };
+	oneshotcaps_layer { 
+		bindings = < CAPSDEF	//							     all leave oneshotcaps (automatically coz it's oneshot!!)
+											                  lt_NUM_E_cp   mosl_SYM             mosl_ACCP   lt_NAV_SPC_cw >; };
+		// TWO DIFFERENCES OF ONESHOTCAPS
+		// | * qu combo does Qu, not QU
+        // | * default mosl_SYM behavior, since SLCP will be toggled off automatically. 
+        // |   otherwise in a quick roll the second key will arrive after going to BASE and before sl'ing SYM
 		
-	 	bindings = <
-			&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
+		
+ // -------------------
+ // LH AUX LAYERS
+ // -------------------
+	num_layer {
+ // can be locked from l_NAV
+ // -------------------
+		bindings = <
+			&kp  PIPE_   &kp  N7_   &kp  N8_   &kp  N9_      EXCL_QMRK             DLLR_EURO       &kp  LBRK_   &kp  RBRK_   HMRA HASH_   &kp  PCNT_
+			&kp  N0_     &kp  N1_   &kp  N2_   &kp  N3_      &kp SCLN_             &kp COLN_       HMLS PLUS_   HMLC MIN_    HMLA STAR_   &kp  FSLA_
+			HMLC ENTER   &kp  N4_   MNAV N5_   &kp  N6_      &kp COMM_             &kp DOT_        &kp  LT_     &kp  GT_     EQUL_DIFF    HMRG BSLA_
+			
+			                                  &to l_BASE    impossible             &lt l_NUM ULIN_  &trans
+		>; //                                   unlock
+	};
+	
+
+	#define OEU_OE   &ht_OEU OE_ 0
+ // -------------------
+	sym_layer {
+ // -------------------
+		bindings = <
+			&kp  PIPE_   &kp  AT_     &kp  AE_        OEU_OE       NBSP_EXCL            DLLR_EURO       &kp  LBRK_   &kp RBRK_    &kp AMPR_   &kp  TLDL_
+			HMLG LCUR_   HMLA RCUR_   HMLC LPAR_   HMLS RPAR_      &kp SCLN_            &kp COLN_       HMRS CFXL_   HMRC GRVL_   &kp RALT    &kp  FSLA_
+		    &kp  NDSH_   HMRA MDSH_   NBSP_LGLM    NBSP_RGLM       &kp COMM_            &kp DOT_        &kp  LT_     &kp  GT_     HMLA EQUL_  HMRG BSLA_
+			
+							                                 ______   ______            &lt l_NUM ULIN_  &trans
+		>; //  									                    double tap
+	};
+
+ // -------------------
+	excl_layer {
+ // -------------------
+		bindings = <
+			&trans &trans &trans &trans    &m_exclrepeat  &trans    &trans &trans &trans &trans
 			&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
 			&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
 			                     &trans  &trans             &trans  &trans
 		>;
-	 */
 	};
+
+
+
+
+ // -------------------
+ // RH AUX LAYERS
+ // -------------------
+	#define TASKMAN      &kp LC(LS(ESC))    // ctrl shift esc
+	#define PASTEPLAIN   &kp LC(LG(LA(V_))) // plaintext paste (power toys)
+ // -------------------		
+	nav_layer {
+ // -------------------		
+		bindings = <
+			&kp  LSLCK    &kp  LNLCK    &to  l_NUM   PASTEPLAIN         TASKMAN            _________      HMLS LC(HOME)   HMLC PG_DN    HMLA PG_UP    HMRG LC(END)
+			&kp  LC(Z_)   HMLA LC(X_)   HMLC LC(C_)  HMLS LC(V_)       &kp CAPS            _________      &kp  LC(LEFT)   &kp  DOWN     &kp  UP       &kp  LC(RIGHT)
+			HMLG LC(Y_)   HMRA INSERT   &kp  PSCRN   &kp  PSBRK       _________            _________      &kp  HOME       &kp  LEFT     &kp  RIGHT    &kp  END
+		//  					                                        				                  
+											              &tog l_CPWD   &tog l_CAPS            impossible   impossible
+		>;
+	};
+
+ // -------------------	
+	mini_nav_layer {
+ // -------------------
+		bindings = <
+			&kp LC(HOME)  &kp LC(END)    impossible   _________      _________               _________      _________   _________   _________   _________
+			&kp LC(LEFT)  &kp LC(RIGHT)  impossible   &kp UP          &kp HOME               _________      _________   _________   _________   _________
+			&kp    LEFT   &kp    RIGHT   impossible   &kp DOWN        &kp  END               _________      _________   _________   _________   _________
+		//  					                                        				                  
+											            &kp LSHIFT   _________               _________   _________
+		>;
+	};
+
+    // questionable syntactic sugar to define several parameters beginning with &m_
+	#define MACRO_ROW_3(PREFIX, ONE, TWO, THREE)               &m_##PREFIX##ONE &m_##PREFIX##TWO &m_##PREFIX##THREE
+	#define MACRO_ROW_4(PREFIX, ONE, TWO, THREE, FOUR)         &m_##PREFIX##ONE &m_##PREFIX##TWO &m_##PREFIX##THREE &m_##PREFIX##FOUR
+	#define MACRO_ROW_5(PREFIX, ONE, TWO, THREE, FOUR, FIVE)   &m_##PREFIX##ONE &m_##PREFIX##TWO &m_##PREFIX##THREE &m_##PREFIX##FOUR &m_##PREFIX##FIVE
+
+ // -------------------
+ // Accents (l_ACNT)
+ // -------------------
+    #define HMCP &mokp l_ACCP // otherwise shift is applied to ralt and messes up some keys.
+                              // TODO maybe replace by transp shift layer + conditional ACCP?
+	accent_layer {	 
+		bindings = <
+ MACRO_ROW_4(,    CFLX_U_,   CFLX_O_,   CFLX_I_,   CFLX_A_ )     IEXCL_IQMRK       ______     &kp  CCED_  &kp  APST_  &kp  QUOT_   &m_B_J_
+ MACRO_ROW_5(,    ACUT_U_,   ACUT_O_,   ACUT_I_,   ACUT_A_,         TILD_A_)       ______     HMCP CFLX_  HMRC GRAV_  HMLA ACUT_   &m_TILD_N_
+ MACRO_ROW_3(,    GRAV_U_,   TILD_O_,   TRMA_I_ )  &kp AGRV_          ______       ______     &kp  TRMA_  _________     &m_SZTT   &kp TILD_
+
+											       &m_CFLX_E_   &kp EGRV_      ______   &trans
+		>; //  									                             double tap
+	};
+
+ // -------------------
+ // l_ACCP
+ // -------------------
+	accent_caps_layer {
+ // -------------------
+		bindings = <
+ MACRO_ROW_4(cp_, CFLX_U_,   CFLX_O_,   CFLX_I_,   CFLX_A_ )           ______           ______       &kp  LS(CCED_)  &kp  APST_  &kp  QUOT_  &m_cp_B_J_
+ MACRO_ROW_5(cp_, ACUT_U_,   ACUT_O_,   ACUT_I_,   ACUT_A_,          TILD_A_)           ______       HMRS ACUT_      HMRC CFLX_  HMLA GRAV_  &m_cp_TILD_N_
+ MACRO_ROW_3(cp_, GRAV_U_,   TILD_O_,   TRMA_I_)   &kp LS(AGRV_)       ______           ______       &kp  TRMA_      _________  &m_cp_SZTT   &kp   TILD_
+
+										      &m_cp_CFLX_E_   &kp LS(EGRV_)         ______   &trans
+		>; //  									                                  double tap
+	};
+
+ // -------------------
+ // FUNCTION LAYERS
+ // -------------------
+	utility_layer {
+ // ahk controls mouse movement
+ // -------------------		
+		bindings = <                                                                           // virtually holding down all left-hand mods
+			impossible  &m_utl_SAVE  &m_utl_BACK   &m_utl_FRWD      &m_utl_LAF4         &m_utl_MMB   &kp C_   &kp H_   &kp W_  &kp  J_
+			impossible  &m_utl_GTAB  &m_utl_SATAB  &m_utl_ATAB      &m_utl_REDO         &m_utl_LMB   &kp T_   &kp R_   &kp S_  &kp  N_ 
+			impossible  &trans       &m_utl_SCTAB  &m_utl_CTAB      &m_utl_DESK         &m_utl_RMB   &kp D_   &kp M_   &kp L_  &kp  B_
+			
+		                                              &m_utl_STAB   &m_utl_ULIN         &kp RCTRL   &kp RSHIFT
+		//                                                                                slow         fast
+		>;
+	};
+
+ // -------------------		
+	func_layer {
+ // -------------------		                                                                       
+		bindings = <
+			&bt  BT_SEL 3   &bt  BT_SEL 0   &bt  BT_SEL 1   &bt  BT_SEL 2       &bt  BT_CLR         &sk LALT       &kp F7  &kp F8  &kp F9  &kp F12
+			HMLG C_BRI_UP   HMLA M2_BRI_U   HMLC C_VOL_UP   HMLS C_PP  	       &out OUT_BLE         &sk LSHIFT     &kp F1  &kp F2  &kp F3  &kp F10
+			&kp  C_BRI_DN   &kp  M2_BRI_D   &kp  C_VOL_DN   &kp  C_MUTE        &out OUT_USB         &sk LCTRL      &kp F4  &kp F5  &kp F6  &kp F11
+		//
+														            impossible   impossible         &kp LSHIFT   &kp LALT
+		>;
+	};
+
+ // -------------------
+ // GAMING LAYERS
+ // -------------------
+	game_layer {
+ // similar to base layer
+ // -------------------		
+		bindings = <
+			&kp Z_     &kp MIN_    &kp Y_     &kp DOT_         &kp R_              &kp  K_          &kp C_    &kp H_    &kp W_     &kp J_
+			&kp U_     &kp O_      &kp I_     &kp A_           &kp F_              &kp  G_          &kp LEFT  &kp UP    &kp RIGHT  &kp N_
+			&kp ESC    &kp S_      &kp P_     &kp COMM_        &kp X_              &tog l_GAME      &kp D_    &kp DOWN  &kp L_     &kp B_
+		//
+									            &kp ENTER   &kp SPACE              &kp TAB   &kp LALT
+		>;
+	};
+
+ // -------------------		
+	game_layer_2 { 
+ // more closely modeled after bépo. might be useless
+ // -------------------		
+		bindings = <
+			&kp LSHIFT  &kp A_     &kp EACT_  &kp I_        &kp O_             &kp  Y_            &kp U_   &kp I_     &kp O_    &kp P_
+			&kp LCTRL   &kp B_     &kp U_     &kp P_        &kp E_             &kp  H_            &kp J_   &kp K_     &kp L_    &kp N_
+			&kp ESC     &kp AGRV_  &kp Y_     &kp X_        &kp DOT            &tog l_GAM2        &kp M_   &kp COMM_  &kp DOT_  &kp BSPC
+		//
+										      &kp ENTER   &kp SPACE            &kp TAB   &kp LALT
+		>;
+	};
+
+ // -------------------
+ // DEBUGGING
+ // -------------------
+ /*
+ 	bindings = <
+ 		______ ______ ______ ______    ______         ______    ______ ______ ______ _____
+ 		______ ______ ______ ______    ______         ______    ______ ______ ______ _____
+ 		______ ______ ______ ______    ______         ______    ______ ______ ______ _____
+ 	                           ______  ______         ______  ______
+ 	>;
+	
+ 	bindings = <
+		&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
+		&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
+		&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
+		                     &trans  &trans             &trans  &trans
+	>;
+ */
+};
 };

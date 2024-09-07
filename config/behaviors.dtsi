@@ -13,33 +13,33 @@ slfast: slay_fast {
 
 // TODO "label" deprecated?
 #define DEFINE_HOLDTAP(FLAVOR, NAME, DELAY, POSITIONS, BINDINGS...) \
-	NAME: ht_##NAME { \
-		flavor          = #FLAVOR; \
-		label           = #NAME; \
-		tapping-term-ms = <DELAY>; \
-		quick-tap-ms    = <_HT_QUICKTAP>; \
-		bindings        = BINDINGS; \
-		 \
-		#binding-cells  = <2>; \
-		compatible      = "zmk,behavior-hold-tap"; \
-		 \
-		hold-trigger-key-positions = <POSITIONS>; \
-	};
+    NAME: ht_##NAME { \
+    	flavor          = #FLAVOR; \
+    	label           = #NAME; \
+    	tapping-term-ms = <DELAY>; \
+    	quick-tap-ms    = <_HT_QUICKTAP>; \
+    	bindings        = BINDINGS; \
+    	 \
+    	#binding-cells  = <2>; \
+    	compatible      = "zmk,behavior-hold-tap"; \
+    	 \
+    	hold-trigger-key-positions = <POSITIONS>; \
+    };
 	
 #define HT(                             NAME,                                       BINDINGS... ) \
-		DEFINE_HOLDTAP (tap-preferred,  NAME,  _HT_TAPLIMIT,       _ALL_POSITIONS,  BINDINGS)
+    DEFINE_HOLDTAP (tap-preferred,  NAME,  _HT_TAPLIMIT,       _ALL_POSITIONS,  BINDINGS)
 									   
 #define HT_FAST(                        NAME,                                       BINDINGS... ) \
-		DEFINE_HOLDTAP( tap-preferred,  NAME,  _HT_TAPLIMIT_FAST,  _ALL_POSITIONS,  BINDINGS)
+    DEFINE_HOLDTAP( tap-preferred,  NAME,  _HT_TAPLIMIT_FAST,  _ALL_POSITIONS,  BINDINGS)
 									   
 #define HT_SLOW(                        NAME,                                       BINDINGS... ) \
-		DEFINE_HOLDTAP( tap-preferred,  NAME,  _HT_TAPLIMIT_SLOW,  _ALL_POSITIONS,  BINDINGS)
+    DEFINE_HOLDTAP( tap-preferred,  NAME,  _HT_TAPLIMIT_SLOW,  _ALL_POSITIONS,  BINDINGS)
 									   
 #define HT_BAL(                         NAME,                                       BINDINGS... ) \
-		DEFINE_HOLDTAP( balanced,       NAME,  _HT_TAPLIMIT,       _ALL_POSITIONS,  BINDINGS)
+    DEFINE_HOLDTAP( balanced,       NAME,  _HT_TAPLIMIT,       _ALL_POSITIONS,  BINDINGS)
 									   
 #define HTPOS(                          NAME,                           POSITIONS,  BINDINGS... ) \
-		DEFINE_HOLDTAP( tap-preferred,  NAME,  _HT_TAPLIMIT,            POSITIONS,  BINDINGS)
+    DEFINE_HOLDTAP( tap-preferred,  NAME,  _HT_TAPLIMIT,            POSITIONS,  BINDINGS)
 
 
 // HOME-ROW MODS                       // HOLD           TAP             

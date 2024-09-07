@@ -1,194 +1,199 @@
+// syntactic sugar		
+#define  LH_MODS       &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LGUI
+#define  RH_MODS       &kp RSHIFT  &kp RCTRL  &kp RALT  &kp RGUI
+#define ALL_MODS       LH_MODS RH_MODS
 
-		// syntactic sugar		
-		#define  LH_MODS       &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LGUI
-		#define  RH_MODS       &kp RSHIFT  &kp RCTRL  &kp RALT  &kp RGUI
-		#define ALL_MODS       LH_MODS RH_MODS
-		
-		#define M_TAP         &macro_tap
-		#define M_HOLD        &macro_press
-		#define M_REL         &macro_release
+#define M_TAP         &macro_tap
+#define M_HOLD        &macro_press
+#define M_REL         &macro_release
 
-		#define M_KP          &macro_tap &kp
-		#define M_KP_HOLD     &macro_press &kp
-		#define M_KP_REL      &macro_release &kp
+#define M_KP          &macro_tap &kp
+#define M_KP_HOLD     &macro_press &kp
+#define M_KP_REL      &macro_release &kp
 
-		#define M_WAIT_REL    &macro_pause_for_release
+#define M_WAIT_REL    &macro_pause_for_release
 
-		#define M_HOLD_SHIFT  <M_REL ALL_MODS>, <M_KP_HOLD LSHFT>
-		#define M_REL_SHIFT   <M_KP_REL  LSHFT>, <M_KP_REL RSHFT>
+#define M_HOLD_SHIFT  <M_REL ALL_MODS>, <M_KP_HOLD LSHFT>
+#define M_REL_SHIFT   <M_KP_REL  LSHFT>, <M_KP_REL RSHFT>
 
-		// BASE MACRO
-		// (all macro names will be prefixed by m_)
-		#define MACRO(NAME, BINDINGS...) \
-			ZMK_MACRO(m_##NAME, \
-				tap-ms   = <_MACRO_TAP_FOR>; \
-				wait-ms  = <_MACRO_TAP_PADDING>; \
-				bindings = BINDINGS; \
-				)
+// BASE MACRO
+// (all macro names will be prefixed by m_)
+#define MACRO(NAME, BINDINGS...) \
+	ZMK_MACRO(m_##NAME, \
+		tap-ms   = <_MACRO_TAP_FOR>; \
+		wait-ms  = <_MACRO_TAP_PADDING>; \
+		bindings = BINDINGS; \
+		)
 
-		// #define MACRO_TWO_KP(NAME, ONE, TWO) \
-			// NAME: NAME { \
-				// compatible = "zmk,behavior-macro-two-param"; \
-				// label = "M2_##NAME"; \
-				// #binding-cells = <2>; \
-				// tap-ms   = <_MACRO_TAP_FOR>; \
-				// wait-ms  = <_MACRO_TAP_PADDING>; \
-				// bindings = <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>, <&macro_param_2to1>, <&kp MACRO_PLACEHOLDER>; \
-			// };
+// #define MACRO_TWO_KP(NAME, ONE, TWO) \
+	// NAME: NAME { \
+		// compatible = "zmk,behavior-macro-two-param"; \
+		// label = "M2_##NAME"; \
+		// #binding-cells = <2>; \
+		// tap-ms   = <_MACRO_TAP_FOR>; \
+		// wait-ms  = <_MACRO_TAP_PADDING>; \
+		// bindings = <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER>, <&macro_param_2to1>, <&kp MACRO_PLACEHOLDER>; \
+	// };
 
-		// MACRO_DIGRAM : tap a key, release shift if held, tap another
-		//                (so can eg hold shift and do &m_Q_U_ to get Qu)
-		//                also defines a capsword version which holds shift during both
-		#define MACRO_DIGRAM(FIRST, SECOND) \
-			MACRO(     FIRST##SECOND,                <M_KP FIRST>, M_REL_SHIFT, <M_KP SECOND>) \
-			\
-			MACRO(up_##FIRST##SECOND,  M_HOLD_SHIFT, <M_KP FIRST>, M_REL_SHIFT, <M_KP SECOND>) \
-			\
-			MACRO(cp_##FIRST##SECOND,  M_HOLD_SHIFT, <M_KP FIRST>,              <M_KP SECOND>,  M_REL_SHIFT)
-
-
-		#define MACRO_ACCENT_SINGLE(ACCENT, LETTER) \
-			MACRO(ACCENT##LETTER,      <M_KP ACCENT>, M_REL_SHIFT,  <M_KP LETTER>) \
-			\
-			MACRO(cp_##ACCENT##LETTER, <M_KP ACCENT>, M_HOLD_SHIFT, <M_KP LETTER>, M_REL_SHIFT)
+// MACRO_DIGRAM : tap a key, release shift if held, tap another
+//                (so can eg hold shift and do &m_Q_U_ to get Qu)
+//                also defines a capsword version which holds shift during both
+#define MACRO_DIGRAM(FIRST, SECOND) \
+	MACRO(     FIRST##SECOND,                <M_KP FIRST>, M_REL_SHIFT, <M_KP SECOND>) \
+	\
+	MACRO(up_##FIRST##SECOND,  M_HOLD_SHIFT, <M_KP FIRST>, M_REL_SHIFT, <M_KP SECOND>) \
+	\
+	MACRO(cp_##FIRST##SECOND,  M_HOLD_SHIFT, <M_KP FIRST>,              <M_KP SECOND>,  M_REL_SHIFT)
 
 
-		#define MACRO_ACCENT_DIGRAM(ACCENT, FIRST, SECOND) \
-			MACRO(     ACCENT##FIRST##SECOND, <M_KP ACCENT>,               <M_KP FIRST>, M_REL_SHIFT, <M_KP SECOND>) \
-			\
-			MACRO(up_##ACCENT##FIRST##SECOND, <M_KP ACCENT>, M_HOLD_SHIFT, <M_KP FIRST>, M_REL_SHIFT, <M_KP SECOND>) \
-			\
-			MACRO(cp_##ACCENT##FIRST##SECOND, <M_KP ACCENT>, M_HOLD_SHIFT, <M_KP FIRST>,              <M_KP SECOND>,  M_REL_SHIFT)
+#define MACRO_ACCENT_SINGLE(ACCENT, LETTER) \
+	MACRO(ACCENT##LETTER,      <M_KP ACCENT>, M_REL_SHIFT,  <M_KP LETTER>) \
+	\
+	MACRO(cp_##ACCENT##LETTER, <M_KP ACCENT>, M_HOLD_SHIFT, <M_KP LETTER>, M_REL_SHIFT)
 
 
-	 // --------------------
-	 // INCONVENIENT DIGRAMS
-	 // also defines a caps version (eg &m_cp_Q_U_)
-	 //    and an uppercase version (eg &m_up_Q_U_)
-		MACRO_DIGRAM( Q_,  U_ )
-		MACRO_DIGRAM( B_,  J_ )
-		MACRO_DIGRAM( OE_, U_ )
+#define MACRO_ACCENT_DIGRAM(ACCENT, FIRST, SECOND) \
+	MACRO(     ACCENT##FIRST##SECOND, <M_KP ACCENT>,               <M_KP FIRST>, M_REL_SHIFT, <M_KP SECOND>) \
+	\
+	MACRO(up_##ACCENT##FIRST##SECOND, <M_KP ACCENT>, M_HOLD_SHIFT, <M_KP FIRST>, M_REL_SHIFT, <M_KP SECOND>) \
+	\
+	MACRO(cp_##ACCENT##FIRST##SECOND, <M_KP ACCENT>, M_HOLD_SHIFT, <M_KP FIRST>,              <M_KP SECOND>,  M_REL_SHIFT)
 
 
-	 // --------------------
-	 // ACCENTED LETTERS
-	 // also defines a caps version (eg &m_cp_ACUT_A_)
-	 //    and an uppercase version (eg &m_up_ACUT_A_)
-		MACRO_ACCENT_SINGLE( ACUT_, A_ )
-		MACRO_ACCENT_SINGLE( ACUT_, I_ )
-		MACRO_ACCENT_SINGLE( ACUT_, O_ )
-		MACRO_ACCENT_SINGLE( ACUT_, U_ )
+// --------------------
+// INCONVENIENT DIGRAMS
+// also defines a caps version (eg &m_cp_Q_U_)
+//    and an uppercase version (eg &m_up_Q_U_)
 
-		MACRO_ACCENT_SINGLE( CFLX_, A_ )
-		MACRO_ACCENT_SINGLE( CFLX_, E_ )
-		MACRO_ACCENT_SINGLE( CFLX_, I_ )
-		MACRO_ACCENT_SINGLE( CFLX_, O_ )
-		MACRO_ACCENT_SINGLE( CFLX_, U_ )
+MACRO_DIGRAM( Q_,  U_ )
+MACRO_DIGRAM( B_,  J_ )
+MACRO_DIGRAM( OE_, U_ )
 
-		MACRO_ACCENT_SINGLE( GRAV_, E_ )
-		MACRO_ACCENT_SINGLE( GRAV_, O_ )
-		MACRO_ACCENT_SINGLE( GRAV_, U_ )
 
-		MACRO_ACCENT_SINGLE( TILD_, A_ )
-		MACRO_ACCENT_SINGLE( TILD_, O_ )
-		MACRO_ACCENT_SINGLE( TILD_, N_ )
-		MACRO_ACCENT_DIGRAM( TILD_, A_, E_ )
-		MACRO_ACCENT_DIGRAM( TILD_, A_, O_ )
-		MACRO_ACCENT_DIGRAM( TILD_, O_, E_ )
+// --------------------
+// ACCENTED LETTERS
+// also defines a caps version (eg &m_cp_ACUT_A_)
+//    and an uppercase version (eg &m_up_ACUT_A_)
 
-		MACRO_ACCENT_SINGLE( TRMA_, I_ )
+MACRO_ACCENT_SINGLE( ACUT_, A_ )
+MACRO_ACCENT_SINGLE( ACUT_, I_ )
+MACRO_ACCENT_SINGLE( ACUT_, O_ )
+MACRO_ACCENT_SINGLE( ACUT_, U_ )
 
-		// MACRO(           OE_U_ ,  <M_TAP  &kp RA(S_)  &kp    S_  >)
+MACRO_ACCENT_SINGLE( CFLX_, A_ )
+MACRO_ACCENT_SINGLE( CFLX_, E_ )
+MACRO_ACCENT_SINGLE( CFLX_, I_ )
+MACRO_ACCENT_SINGLE( CFLX_, O_ )
+MACRO_ACCENT_SINGLE( CFLX_, U_ )
 
-	 // --------------------
-	 // NBSP STUFF (for french)
-		MACRO(       nbsp_QMRK ,  <M_TAP  &kp NBSP_  &kp QMRK_            >) // &to l_BASE >) // goes back to l_BASE if l_CAPS was on (TODO needed?)
-		MACRO(    cp_nbsp_QMRK ,  <M_TAP  &kp NBSP_  &kp QMRK_            >) 
-		MACRO(       pure_EXCL ,  <M_TAP             &m_exclrepeat        >)
-		MACRO(       nbsp_EXCL ,  <M_TAP  &kp NBSP_  &m_exclrepeat        >)
-		MACRO(       nbsp_COLN ,  <M_TAP  &kp NBSP_  &kp COLN_  &kp SPACE >)
-		MACRO(       nbsp_SCLN ,  <M_TAP  &kp NBSP_  &kp SCLN_  &kp SPACE >)
-		MACRO(       nbsp_RGLM ,  <M_TAP  &kp NBSP_  &kp RGLM_            >)
-		MACRO(       nbsp_LGLM ,  <M_TAP  &kp LGLM_  &kp NBSP_            >)
-		
-		
-		MACRO(            CAO  ,                <M_TAP  &kp CCED_  &kp TILD_  &kp  A_  &kp  O_ >                      )    
-		MACRO(         cp_CAO  ,  M_HOLD_SHIFT, <M_TAP  &kp CCED_  &kp TILD_  &kp  A_  &kp  O_ >,          M_REL_SHIFT)     
-		MACRO(            COES ,                <M_TAP  &kp CCED_  &kp TILD_  &kp  O_  &kp  E_  &kp  S_ >             )         
-		MACRO(         cp_COES ,  M_HOLD_SHIFT, <M_TAP  &kp CCED_  &kp TILD_  &kp  O_  &kp  E_  &kp  S_ >, M_REL_SHIFT)
+MACRO_ACCENT_SINGLE( GRAV_, E_ )
+MACRO_ACCENT_SINGLE( GRAV_, O_ )
+MACRO_ACCENT_SINGLE( GRAV_, U_ )
 
-	 // --------------------
-	 // LOOSE ACCENTS 
-		MACRO(      loose_CFX  ,  <M_TAP  &kp CFLX_  &kp SPACE >)
-		MACRO(      loose_GRV  ,  <M_TAP  &kp GRAV_  &kp SPACE >)
-		MACRO(      loose_TLD  ,  <M_TAP  &kp TILD_  &kp SPACE >)
+MACRO_ACCENT_SINGLE( TILD_, A_ )
+MACRO_ACCENT_SINGLE( TILD_, O_ )
+MACRO_ACCENT_SINGLE( TILD_, N_ )
+MACRO_ACCENT_DIGRAM( TILD_, A_, E_ )
+MACRO_ACCENT_DIGRAM( TILD_, A_, O_ )
+MACRO_ACCENT_DIGRAM( TILD_, O_, E_ )
 
-	 // --------------------
-	 // ESZETT 
-		MACRO(            SZTT ,  <M_TAP  &kp RA(S_)  &kp    S_  >)
-		MACRO(         cp_SZTT ,  <M_TAP  &kp RA(S_)  &kp LS(S_) >)
+MACRO_ACCENT_SINGLE( TRMA_, I_ )
 
-	 // --------------------
-	 // CAPS 
-		MACRO(     SPC_sl_OSCP ,  <M_TAP              &kp SPACE   &sl l_OSCP >)
-		MACRO( DOT_SPC_sl_OSCP ,  <M_TAP  &kp DOT_    &kp SPACE   &sl l_OSCP >)
-	 // key -> capsword off                           
-		MACRO(         cw_SPC  ,  <M_TAP  &kp SPACE   &to l_BASE >)
-		MACRO(         cw_TAB  ,  <M_TAP  &kp TAB     &to l_BASE >)
-		MACRO(         cw_ENTER,  <M_TAP  &kp ENTER   &to l_BASE >)
-		MACRO(         cw_ESC  ,  <M_TAP  &kp ESC     &to l_BASE >)
-	 // capsword off + one-shot SYM
-		MACRO(      cw_sl_SYM  ,  <M_TAP  &sl l_SYM  &tog l_CPWD >)
-	 // capsword off + hold NAV
-		MACRO(      cw_mo_NAV  ,  <M_TAP  &to l_NAV >,  <M_WAIT_REL>,  <M_TAP  &to l_BASE >)
-		
-	 // --------------------
-	 // homerow mods pass through to l_BASE
-		MACRO(      cp_hmls    ,  <M_TAP  &to l_BASE >,  <M_KP_HOLD LSHIFT >,  <M_WAIT_REL>,  <M_KP_REL LSHIFT >)
-		MACRO(      cp_hmlc    ,  <M_TAP  &to l_BASE >,  <M_KP_HOLD LCTRL  >,  <M_WAIT_REL>,  <M_KP_REL LCTRL  >)
-		MACRO(      cp_hmla    ,  <M_TAP  &to l_BASE >,  <M_KP_HOLD LALT   >,  <M_WAIT_REL>,  <M_KP_REL LALT   >)
-		MACRO(      cp_hmlg    ,  <M_TAP  &to l_BASE >,  <M_KP_HOLD LGUI   >,  <M_WAIT_REL>,  <M_KP_REL LGUI   >)
-		MACRO(      cp_hmrs    ,  <M_TAP  &to l_BASE >,  <M_KP_HOLD RSHIFT >,  <M_WAIT_REL>,  <M_KP_REL RSHIFT >)
-		MACRO(      cp_hmrc    ,  <M_TAP  &to l_BASE >,  <M_KP_HOLD RCTRL  >,  <M_WAIT_REL>,  <M_KP_REL RCTRL  >)
-		MACRO(      cp_hmra    ,  <M_TAP  &to l_BASE >,  <M_KP_HOLD RALT   >,  <M_WAIT_REL>,  <M_KP_REL RALT   >)
-		MACRO(      cp_hmrg    ,  <M_TAP  &to l_BASE >,  <M_KP_HOLD RGUI   >,  <M_WAIT_REL>,  <M_KP_REL RGUI   >)
-		
+// MACRO(           OE_U_ ,  <M_TAP  &kp RA(S_)  &kp    S_  >)
 
-	 // UTIL LAYER -------------------
-	 // upon entering this layer, shift + control + alt are held.
-	 // each key releases some mods, then holds them all again.
-	 // this allows us e.g. to alt-tab without letting go of alt.
-	 
-		
-		#define HOLD_HYPER    M_HOLD  &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LGUI
-		#define REL_LH_MODS   M_REL   &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LGUI
-		#define REL_ALL_MODS  M_REL   &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LGUI  RH_MODS   // also useful if some mod gets stuck for whatever reason
-		#define ONLY_SHIFT    M_REL               &kp LCTRL  &kp LALT  &kp LGUI  RH_MODS
-		#define ONLY_CTRL     M_REL   &kp LSHIFT             &kp LALT  &kp LGUI  RH_MODS
-		#define ONLY_ALT      M_REL   &kp LSHIFT  &kp LCTRL            &kp LGUI  RH_MODS
+// --------------------
+// NBSP STUFF (for french)
 
-		MACRO( mo_l_UTIL,  <M_TAP &to l_UTIL>,  <HOLD_HYPER>,  <M_WAIT_REL>,  <REL_ALL_MODS>,  <M_TAP &to l_BASE> )
-		
-		MACRO(  utl_ULIN,  <REL_ALL_MODS>  ,  <M_KP  ULIN_        > , <HOLD_HYPER> )
-		MACRO(  utl_BACK,  <REL_ALL_MODS>  ,  <M_KP  C_AC_BACK    > , <HOLD_HYPER> )
-		MACRO(  utl_FRWD,  <REL_ALL_MODS>  ,  <M_KP  C_AC_FORWARD > , <HOLD_HYPER> )
-		MACRO(  utl_DESK,  <REL_ALL_MODS>  ,  <M_KP  LG(D_)       > , <HOLD_HYPER> )
-		MACRO(  utl_REDO,  <REL_ALL_MODS>  ,  <M_KP  LC(Y_)       > , <HOLD_HYPER> )
-		MACRO(  utl_SAVE,  <REL_ALL_MODS>  ,  <M_KP  LC(S_)       > , <HOLD_HYPER> )
-		MACRO(  utl_LAF4,  <REL_ALL_MODS>  ,  <M_KP  LA(F4)       > , <HOLD_HYPER> )
-									  
-		MACRO(  utl_STAB,  <REL_ALL_MODS>  ,  <M_KP  LS(TAB) > ,      <HOLD_HYPER> )
-		MACRO(  utl_GTAB,  <REL_ALL_MODS>  ,  <M_KP  LG(TAB) > ,      <HOLD_HYPER> )
-		
-		MACRO(  utl_LMB,    <REL_LH_MODS>  ,  <M_TAP &mkp LCLK > ,    <HOLD_HYPER> )
-		MACRO(  utl_RMB,    <REL_LH_MODS>  ,  <M_TAP &mkp RCLK > ,    <HOLD_HYPER> )
-		MACRO(  utl_MMB,    <REL_LH_MODS>  ,  <M_TAP &mkp MCLK > ,    <HOLD_HYPER> )
-		
-		MACRO(  utl_ATAB,     <ONLY_ALT >  ,  <M_KP     TAB  > ) // these will not hold all mods at the
-		MACRO( utl_SATAB,     <ONLY_ALT >  ,  <M_KP  LS(TAB) > ) //  end, so that we can do alt-tab etc
-		MACRO(  utl_CTAB,     <ONLY_CTRL>  ,  <M_KP     TAB  > ) //  several times in a row without
-		MACRO( utl_SCTAB,     <ONLY_CTRL>  ,  <M_KP  LS(TAB) > ) //  dropping the little window
-		
-		
+MACRO(       nbsp_QMRK ,  <M_TAP  &kp NBSP_  &kp QMRK_            >) // &to l_BASE >) // goes back to l_BASE if l_CAPS was on (TODO needed?)
+MACRO(    cp_nbsp_QMRK ,  <M_TAP  &kp NBSP_  &kp QMRK_            >) 
+MACRO(       pure_EXCL ,  <M_TAP             &m_exclrepeat        >)
+MACRO(       nbsp_EXCL ,  <M_TAP  &kp NBSP_  &m_exclrepeat        >)
+MACRO(       nbsp_COLN ,  <M_TAP  &kp NBSP_  &kp COLN_  &kp SPACE >)
+MACRO(       nbsp_SCLN ,  <M_TAP  &kp NBSP_  &kp SCLN_  &kp SPACE >)
+MACRO(       nbsp_RGLM ,  <M_TAP  &kp NBSP_  &kp RGLM_            >)
+MACRO(       nbsp_LGLM ,  <M_TAP  &kp LGLM_  &kp NBSP_            >)
 
-		MACRO( exclrepeat,  <M_TAP &kp EXCL_ &slfast l_EXCL> ) 
+
+MACRO(            CAO  ,                <M_TAP  &kp CCED_  &kp TILD_  &kp  A_  &kp  O_ >                      )    
+MACRO(         cp_CAO  ,  M_HOLD_SHIFT, <M_TAP  &kp CCED_  &kp TILD_  &kp  A_  &kp  O_ >,          M_REL_SHIFT)     
+MACRO(            COES ,                <M_TAP  &kp CCED_  &kp TILD_  &kp  O_  &kp  E_  &kp  S_ >             )         
+MACRO(         cp_COES ,  M_HOLD_SHIFT, <M_TAP  &kp CCED_  &kp TILD_  &kp  O_  &kp  E_  &kp  S_ >, M_REL_SHIFT)
+
+// --------------------
+// LOOSE ACCENTS 
+
+MACRO(      loose_CFX  ,  <M_TAP  &kp CFLX_  &kp SPACE >)
+MACRO(      loose_GRV  ,  <M_TAP  &kp GRAV_  &kp SPACE >)
+MACRO(      loose_TLD  ,  <M_TAP  &kp TILD_  &kp SPACE >)
+
+// --------------------
+// ESZETT 
+
+MACRO(            SZTT ,  <M_TAP  &kp RA(S_)  &kp    S_  >)
+MACRO(         cp_SZTT ,  <M_TAP  &kp RA(S_)  &kp LS(S_) >)
+
+// --------------------
+// CAPS 
+
+MACRO(     SPC_sl_OSCP ,  <M_TAP              &kp SPACE   &sl l_OSCP >)
+MACRO( DOT_SPC_sl_OSCP ,  <M_TAP  &kp DOT_    &kp SPACE   &sl l_OSCP >)
+
+// key -> capsword off                           
+MACRO(         cw_SPC  ,  <M_TAP  &kp SPACE   &to l_BASE >)
+MACRO(         cw_TAB  ,  <M_TAP  &kp TAB     &to l_BASE >)
+MACRO(         cw_ENTER,  <M_TAP  &kp ENTER   &to l_BASE >)
+MACRO(         cw_ESC  ,  <M_TAP  &kp ESC     &to l_BASE >)
+
+// capsword off + one-shot SYM
+MACRO(      cw_sl_SYM  ,  <M_TAP  &sl l_SYM  &tog l_CPWD >)
+
+// capsword off + hold NAV
+MACRO(      cw_mo_NAV  ,  <M_TAP  &to l_NAV >,  <M_WAIT_REL>,  <M_TAP  &to l_BASE >)
+	
+// --------------------
+// homerow mods pass through to l_BASE
+MACRO(      cp_hmls    ,  <M_TAP  &to l_BASE >,  <M_KP_HOLD LSHIFT >,  <M_WAIT_REL>,  <M_KP_REL LSHIFT >)
+MACRO(      cp_hmlc    ,  <M_TAP  &to l_BASE >,  <M_KP_HOLD LCTRL  >,  <M_WAIT_REL>,  <M_KP_REL LCTRL  >)
+MACRO(      cp_hmla    ,  <M_TAP  &to l_BASE >,  <M_KP_HOLD LALT   >,  <M_WAIT_REL>,  <M_KP_REL LALT   >)
+MACRO(      cp_hmlg    ,  <M_TAP  &to l_BASE >,  <M_KP_HOLD LGUI   >,  <M_WAIT_REL>,  <M_KP_REL LGUI   >)
+MACRO(      cp_hmrs    ,  <M_TAP  &to l_BASE >,  <M_KP_HOLD RSHIFT >,  <M_WAIT_REL>,  <M_KP_REL RSHIFT >)
+MACRO(      cp_hmrc    ,  <M_TAP  &to l_BASE >,  <M_KP_HOLD RCTRL  >,  <M_WAIT_REL>,  <M_KP_REL RCTRL  >)
+MACRO(      cp_hmra    ,  <M_TAP  &to l_BASE >,  <M_KP_HOLD RALT   >,  <M_WAIT_REL>,  <M_KP_REL RALT   >)
+MACRO(      cp_hmrg    ,  <M_TAP  &to l_BASE >,  <M_KP_HOLD RGUI   >,  <M_WAIT_REL>,  <M_KP_REL RGUI   >)
+	
+
+// UTIL LAYER -------------------
+// upon entering this layer, shift + control + alt are held.
+// each key releases some mods, then holds them all again.
+// this allows us e.g. to alt-tab without letting go of alt.
+
+	#define HOLD_HYPER    M_HOLD  &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LGUI
+	#define REL_LH_MODS   M_REL   &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LGUI
+	#define REL_ALL_MODS  M_REL   &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LGUI  RH_MODS   // also useful if some mod gets stuck for whatever reason
+	#define ONLY_SHIFT    M_REL               &kp LCTRL  &kp LALT  &kp LGUI  RH_MODS
+	#define ONLY_CTRL     M_REL   &kp LSHIFT             &kp LALT  &kp LGUI  RH_MODS
+	#define ONLY_ALT      M_REL   &kp LSHIFT  &kp LCTRL            &kp LGUI  RH_MODS
+
+	MACRO( mo_l_UTIL,  <M_TAP &to l_UTIL>,  <HOLD_HYPER>,  <M_WAIT_REL>,  <REL_ALL_MODS>,  <M_TAP &to l_BASE> )
+	
+	MACRO(  utl_ULIN,  <REL_ALL_MODS>  ,  <M_KP  ULIN_        > , <HOLD_HYPER> )
+	MACRO(  utl_BACK,  <REL_ALL_MODS>  ,  <M_KP  C_AC_BACK    > , <HOLD_HYPER> )
+	MACRO(  utl_FRWD,  <REL_ALL_MODS>  ,  <M_KP  C_AC_FORWARD > , <HOLD_HYPER> )
+	MACRO(  utl_DESK,  <REL_ALL_MODS>  ,  <M_KP  LG(D_)       > , <HOLD_HYPER> )
+	MACRO(  utl_REDO,  <REL_ALL_MODS>  ,  <M_KP  LC(Y_)       > , <HOLD_HYPER> )
+	MACRO(  utl_SAVE,  <REL_ALL_MODS>  ,  <M_KP  LC(S_)       > , <HOLD_HYPER> )
+	MACRO(  utl_LAF4,  <REL_ALL_MODS>  ,  <M_KP  LA(F4)       > , <HOLD_HYPER> )
+								  
+	MACRO(  utl_STAB,  <REL_ALL_MODS>  ,  <M_KP  LS(TAB) > ,      <HOLD_HYPER> )
+	MACRO(  utl_GTAB,  <REL_ALL_MODS>  ,  <M_KP  LG(TAB) > ,      <HOLD_HYPER> )
+	
+	MACRO(  utl_LMB,    <REL_LH_MODS>  ,  <M_TAP &mkp LCLK > ,    <HOLD_HYPER> )
+	MACRO(  utl_RMB,    <REL_LH_MODS>  ,  <M_TAP &mkp RCLK > ,    <HOLD_HYPER> )
+	MACRO(  utl_MMB,    <REL_LH_MODS>  ,  <M_TAP &mkp MCLK > ,    <HOLD_HYPER> )
+	
+	MACRO(  utl_ATAB,     <ONLY_ALT >  ,  <M_KP     TAB  > ) // these will not hold all mods at the
+	MACRO( utl_SATAB,     <ONLY_ALT >  ,  <M_KP  LS(TAB) > ) //  end, so that we can do alt-tab etc
+	MACRO(  utl_CTAB,     <ONLY_CTRL>  ,  <M_KP     TAB  > ) //  several times in a row without
+	MACRO( utl_SCTAB,     <ONLY_CTRL>  ,  <M_KP  LS(TAB) > ) //  dropping the little window
+
+	MACRO( exclrepeat,  <M_TAP &kp EXCL_ &slfast l_EXCL> ) 
