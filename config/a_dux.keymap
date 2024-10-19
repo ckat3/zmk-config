@@ -130,11 +130,11 @@ keymap {
 	base_layer {
  // -------------------
 		bindings = <
-			&ht Q_ Z_  &kp  MIN_   &kp  Y_   DOT_COLN       NBSP_QMRK           &kp K_      &kp  C_   &kp  H_   &kp  W_   &sl l_OSCP
-			UTLAYR U_  HMLA O_     HMLC I_   HMLS A_           &kp F_           &kp G_      HMRS T_   HMRC R_   HMRA S_   &kp  N_
-			HMLG_OSCP  HMRA EACT_  MNAV P_   COMM_SCLN         &kp X_           &kp V_      &kp  D_   &kp  M_   HMLA L_   HMRG B_
+			&ht Q_ Z_  &kp  MIN_  &kp  Y_  DOT_COLN      NBSP_QMRK        &kp K_     &kp  C_  &kp  H_  &kp  W_  &sl l_OSCP
+			UTLAYR U_  HMLA O_    HMLC I_  HMLS A_       &kp F_           &kp G_     HMRS T_  HMRC R_  HMRA S_  &kp  N_
+			HMLG_OSCP  HMRA EACT_ MNAV P_  COMM_SCLN     &kp X_           &kp V_     &kp  D_  &kp  M_  HMLA L_  HMRG B_
 		//  
-											        lt_NUM_E   mosl_SYM          mosl_ACNT   lt_NAV_SPC
+                                               lt_NUM_E  mosl_SYM         mosl_ACNT  lt_NAV_SPC
 		>;
 	};
 	
@@ -143,9 +143,9 @@ keymap {
  // CAPS LAYER
  // -------------------
 	#define Q_Z LS(Q_) LS(Z_)
-	#define CAPSDEF       &ht Q_Z     &kp  MIN_      &kp LS(Y_)   DOT_COLN          NBSP_QMRK          &kp LS(K_)       &kp LS(C_)   &kp LS(H_)   &kp LS(W_)   &to l_BASE   \
-					UTLAYR LS(U_)   HMLAcw(O_)	     HMLCcw(I_)   HMLScw(A_)       &kp LS(F_)          &kp LS(G_)       HMRScw(T_)   HMRCcw(R_)   HMRAcw(S_)   &kp LS(N_)   \
-					   &to l_BASE   HMRAcw(EACT_)   MNAV LS(P_)   COMM_SCLN        &kp LS(X_)          &kp LS(V_)       &kp LS(D_)   &kp LS(M_)   HMLAcw(L_)   HMRGcw(B_)
+	#define CAPSDEF       &ht Q_Z    &kp  MIN_     &kp LS(Y_)  DOT_COLN       NBSP_QMRK         &kp LS(K_)      &kp LS(C_)  &kp LS(H_)  &kp LS(W_)  &to l_BASE   \
+					UTLAYR LS(U_)  HMLAcw(O_)	   HMLCcw(I_)  HMLScw(A_)     &kp LS(F_)        &kp LS(G_)      HMRScw(T_)  HMRCcw(R_)  HMRAcw(S_)  &kp LS(N_)   \
+					   &to l_BASE  HMRAcw(EACT_)  MNAV LS(P_)  COMM_SCLN      &kp LS(X_)        &kp LS(V_)      &kp LS(D_)  &kp LS(M_)  HMLAcw(L_)  HMRGcw(B_)
 // --------------------
 	caps_layer {
 		bindings = < CAPSDEF	//							        going to another layer does not leave caps layer
@@ -198,7 +198,7 @@ keymap {
 			&trans &trans &trans &trans    &m_exclrepeat  &trans    &trans &trans &trans &trans
 			&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
 			&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
-			                     &trans  &trans             &trans  &trans
+			                       &trans  &trans         &trans  &trans
 		>;
 	};
 
@@ -218,7 +218,7 @@ keymap {
 			&kp  LC(Z_)   HMLA LC(X_)   HMLC LC(C_)  HMLS LC(V_)       &kp CAPS            _________      &kp  LC(LEFT)   &kp  DOWN     &kp  UP       &kp  LC(RIGHT)
 			HMLG LC(Y_)   HMRA INSERT   &kp  PSCRN   &kp  PSBRK       _________            _________      &kp  HOME       &kp  LEFT     &kp  RIGHT    &kp  END
 		//  					                                        				                  
-											              &tog l_CPWD   &tog l_CAPS            impossible   impossible
+											              &tog l_CPWD   &tog l_CAPS        impossible   impossible
 		>;
 	};
 
@@ -247,10 +247,10 @@ keymap {
 	accent_layer {	 
 		bindings = <
  MACRO_ROW_4(,    CFLX_U_,   CFLX_O_,   CFLX_I_,   CFLX_A_ )     IEXCL_IQMRK       ______     &kp  CCED_  &kp  APST_  &kp  QUOT_   &m_B_J_
- MACRO_ROW_5(,    ACUT_U_,   ACUT_O_,   ACUT_I_,   ACUT_A_,         TILD_A_)       ______     HMCP CFLX_  HMRC GRAV_  HMLA ACUT_   &m_TILD_N_
+ MACRO_ROW_5(,    ACUT_U_,   ACUT_O_,   ACUT_I_,   ACUT_A_,          TILD_A_)      ______     HMCP CFLX_  HMRC GRAV_  HMLA ACUT_   &m_TILD_N_
  MACRO_ROW_3(,    GRAV_U_,   TILD_O_,   TRMA_I_ )  &kp AGRV_          ______       ______     &kp  TRMA_  _________     &m_SZTT   &kp TILD_
 
-											       &m_CFLX_E_   &kp EGRV_      ______   &trans
+											          &m_CFLX_E_   &kp EGRV_       ______   &trans
 		>; //  									                             double tap
 	};
 
@@ -261,10 +261,10 @@ keymap {
  // -------------------
 		bindings = <
  MACRO_ROW_4(cp_, CFLX_U_,   CFLX_O_,   CFLX_I_,   CFLX_A_ )           ______           ______       &kp  LS(CCED_)  &kp  APST_  &kp  QUOT_  &m_cp_B_J_
- MACRO_ROW_5(cp_, ACUT_U_,   ACUT_O_,   ACUT_I_,   ACUT_A_,          TILD_A_)           ______       HMRS ACUT_      HMRC CFLX_  HMLA GRAV_  &m_cp_TILD_N_
+ MACRO_ROW_5(cp_, ACUT_U_,   ACUT_O_,   ACUT_I_,   ACUT_A_,           TILD_A_)          ______       HMRS ACUT_      HMRC CFLX_  HMLA GRAV_  &m_cp_TILD_N_
  MACRO_ROW_3(cp_, GRAV_U_,   TILD_O_,   TRMA_I_)   &kp LS(AGRV_)       ______           ______       &kp  TRMA_      _________  &m_cp_SZTT   &kp   TILD_
 
-										      &m_cp_CFLX_E_   &kp LS(EGRV_)         ______   &trans
+										      &m_cp_CFLX_E_   &kp LS(EGRV_)       		______   &trans
 		>; //  									                                  double tap
 	};
 
@@ -288,7 +288,7 @@ keymap {
 	func_layer {
  // -------------------		                                                                       
 		bindings = <
-			&bt  BT_SEL 3   &bt  BT_SEL 0   &bt  BT_SEL 1   &bt  BT_SEL 2       &bt  BT_CLR         &sk LALT       &kp F7  &kp F8  &kp F9  &kp F12
+			&bt  BT_SEL 3   &bt  BT_SEL 0   &bt  BT_SEL 1   &bt  BT_SEL 2      &bt   BT_CLR         &sk LALT       &kp F7  &kp F8  &kp F9  &kp F12
 			HMLG C_BRI_UP   HMLA M2_BRI_U   HMLC C_VOL_UP   HMLS C_PP  	       &out OUT_BLE         &sk LSHIFT     &kp F1  &kp F2  &kp F3  &kp F10
 			&kp  C_BRI_DN   &kp  M2_BRI_D   &kp  C_VOL_DN   &kp  C_MUTE        &out OUT_USB         &sk LCTRL      &kp F4  &kp F5  &kp F6  &kp F11
 		//
@@ -303,24 +303,24 @@ keymap {
  // similar to base layer
  // -------------------		
 		bindings = <
-			&kp Z_     &kp MIN_    &kp Y_     &kp DOT_         &kp R_              &kp  K_          &kp C_    &kp H_    &kp W_     &kp J_
-			&kp U_     &kp O_      &kp I_     &kp A_           &kp F_              &kp  G_          &kp LEFT  &kp UP    &kp RIGHT  &kp N_
-			&kp ESC    &kp S_      &kp P_     &kp COMM_        &kp X_              &tog l_GAME      &kp D_    &kp DOWN  &kp L_     &kp B_
+			&kp TAB     &kp MIN_  &kp Y_  &kp DOT_		&kp QMRK_         &kp  K_		&kp C_    &kp H_    &kp W_     &kp J_
+			&kp LSHIFT  &kp O_    &kp I_  &kp A_		&kp F_            &kp  G_		&kp LEFT  &kp UP    &kp RIGHT  &kp N_
+			&kp LCTRL   &kp EACT_ &kp P_  &kp COMM_		&kp ESC           &to l_BASE	&kp D_    &kp DOWN  &kp L_     &kp B_
 		//
-									            &kp ENTER   &kp SPACE              &kp TAB   &kp LALT
+									      &kp SPACE     &kp ENTER         &kp BSPC   &kp LALT
 		>;
 	};
 
  // -------------------		
 	game_layer_2 { 
- // more closely modeled after bépo. might be useless
+ // more closely modeled after bépo, for games that hard-code qwerty
  // -------------------		
 		bindings = <
-			&kp LSHIFT  &kp A_     &kp EACT_  &kp I_        &kp O_             &kp  Y_            &kp U_   &kp I_     &kp O_    &kp P_
-			&kp LCTRL   &kp B_     &kp U_     &kp P_        &kp E_             &kp  H_            &kp J_   &kp K_     &kp L_    &kp N_
-			&kp ESC     &kp AGRV_  &kp Y_     &kp X_        &kp DOT            &tog l_GAM2        &kp M_   &kp COMM_  &kp DOT_  &kp BSPC
+			&kp TAB     &kp B_    &kp Y_    &kp P_		&kp O_            &kp EGRV_  		______    ______    ______     ______
+			&kp LSHIFT  &kp A_    &kp EACT_ &kp I_		&kp E_            &kp  H_  			&kp LEFT  &kp UP    &kp RIGHT  ______
+			&kp LCTRL   &kp LALT  &kp U_    &kp X_		&kp ESC           &to l_BASE  		______    &kp DOWN  ______     ______
 		//
-										      &kp ENTER   &kp SPACE            &kp TAB   &kp LALT
+										    &kp SPACE  &kp ENTER          &kp BSPC  &kp LALT
 		>;
 	};
 

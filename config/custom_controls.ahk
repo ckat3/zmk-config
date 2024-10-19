@@ -134,7 +134,7 @@ Hotkey TOGGLE_DCR                , DcrOn
 Hotkey TOGGLE_DISPLAY_MODE       , ToggleDisplayMode
 Hotkey TOGGLE_THEME              , ToggleTheme
 
-ctrlV_timeWindow := false
+/* ctrlV_timeWindow := false
 $^v::
 {
 	global ctrlV_timeWindow
@@ -148,7 +148,7 @@ $^v::
 	Send "^v"
 	ctrlV_timeWindow := true
 }
-/* 
+
 ctrlC_timeWindow := false
 $^c::
 {

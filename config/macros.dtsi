@@ -129,8 +129,8 @@ MACRO(      loose_TLD  ,  <M_TAP  &kp TILD_  &kp SPACE >)
 // --------------------
 // ESZETT 
 
-MACRO(            SZTT ,  <M_TAP  &kp RA(S_)  &kp    S_  >)
-MACRO(         cp_SZTT ,  <M_TAP  &kp RA(S_)  &kp LS(S_) >)
+MACRO(            SZTT ,  <M_TAP  &kp SZTTMOD_  &kp    S_  >)
+MACRO(         cp_SZTT ,  <M_TAP  &kp SZTTMOD_  &kp LS(S_) >)
 
 // --------------------
 // CAPS 

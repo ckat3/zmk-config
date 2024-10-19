@@ -9,7 +9,7 @@
 
 // how long must hold to not be tap
 #define _HT_TAPLIMIT_SLOW    280  
-#define _HT_TAPLIMIT         240  // (250 is good)
+#define _HT_TAPLIMIT         200  // (240 is good)
 #define _HT_TAPLIMIT_FAST    190  // 
 #define _HT_TAPLIMIT_FASTER  110  // 
 
