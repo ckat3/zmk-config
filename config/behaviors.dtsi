@@ -72,7 +72,7 @@ HT(    cw_mokp_l_NAV_SPC,            <&m_cw_mo_NAV>,  <&m_cw_SPC> )     // mo NA
 HT(    mo_slcw_l_SYM,                <&mo>,           <&m_cw_sl_SYM> )  // mo                 sl SYM -> BASE    (was balanced)
 
 
-HT( ht_OEU,  <&kp>, <&m_OE_U_> )
+// HT( ht_OEU,  <&kp>, <&m_OE_U_> )
 
 // loose accents on tap // TODO unused
 HT( ht_CFX, <&kp>, <&m_loose_CFX> )
