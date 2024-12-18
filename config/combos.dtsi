@@ -62,10 +62,10 @@ COMBO(    ll_DEFAULT,    &mosl l_FUNC l_FUNC,    30 31 ,  functionLayer)
 COMBO_KP( ll_NOTCPWD,          ENTER,r     ,     16 17 )
 COMBO_M(  ll_CPWD,          cw_ENTER      ,,     16 17 )	
 
-COMBO(    ll_DEFAULT,      &kp LC(BSPC)    ,     17 18 ,  aapoip)		
+COMBO(    ll_DEFAULT,      &kp LC(BSPC)    ,     17 18 ,  aapoip)
 COMBO(    ll_DEFAULT,      &kp LC(DEL)     ,     27 28 ,  aaioipp)
 
-COMBO(    ll_DEFAULT,       &sl l_OSCP     ,  16 17 18 ,  aaioaipo)										
+COMBO(    ll_DEFAULT,       &sl l_OSCP     ,  16 17 18 ,  aaioaipo)
 COMBO(    ll_DEFAULT,   &m_SPC_sl_OSCP     ,     32 33 ,  aapopiaio) // TODO: which m_SPC_sl_OSCP is better?  
 
 

@@ -67,7 +67,6 @@
 
 MACRO_DIGRAM( Q_,  U_ )
 MACRO_DIGRAM( B_,  J_ )
-MACRO_DIGRAM( OE_, U_ )
 
 
 // --------------------
