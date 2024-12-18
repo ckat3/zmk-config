@@ -137,7 +137,7 @@ keymap {
 	HMLG_OSCP  HMRA EACT_ MNAV P_  COMM_SCLN     &kp X_           &kp V_     &kp  D_  &kp  M_  HMLA L_  HMRG B_
 	//  
 									   lt_NUM_E  mosl_SYM         mosl_ACNT  lt_NAV_SPC
-	>;};
+	>; };
 	
 	
  // -------------------
@@ -150,13 +150,13 @@ keymap {
 // --------------------
 	caps_layer { bindings = <
 	CAPSDEF	//							 going to another layer does not leave caps layer
-									lt_NUM_E_cp   mosl_SYM             mosl_ACCP   lt_NAV_SPC     >;};		
+									lt_NUM_E_cp   mosl_SYM             mosl_ACCP   lt_NAV_SPC     >; };		
 	capsword_layer { bindings = <
 	CAPSDEF	//					      left thumb keys and main right thumb key leave caps layer
-									lt_NUM_E_cp   mosl_SYM_cw          mosl_ACCP   lt_NAV_SPC_cw  >;};
+									lt_NUM_E_cp   mosl_SYM_cw          mosl_ACCP   lt_NAV_SPC_cw  >; };
 	oneshotcaps_layer { bindings = <
 	CAPSDEF	//					  all thumb keys leave oneshotcaps (automatically, since it's one-shot!)
-									lt_NUM_E_cp   mosl_SYM             mosl_ACCP   lt_NAV_SPC_cw  >;};
+									lt_NUM_E_cp   mosl_SYM             mosl_ACCP   lt_NAV_SPC_cw  >; };
 		// TWO DIFFERENCES OF ONESHOTCAPS
 		// | * qu combo does Qu, not QU
         // | * default mosl_SYM behavior, since SLCP will be toggled off automatically. 
@@ -174,7 +174,7 @@ keymap {
 	HMLC ENTER   &kp  N4_   MNAV N5_   &kp  N6_      &kp COMM_             &kp DOT_        &kp  LT_     &kp  GT_     EQUL_DIFF    HMRG BSLA_
 	
 									  &to l_BASE    impossible             &lt l_NUM ULIN_  &trans
-	>;}; //                             unlock
+	>; }; //                             unlock
 	
 
 	
@@ -187,7 +187,7 @@ keymap {
 	&kp  NDSH_   HMRA MDSH_   NBSP_LGLM    NBSP_RGLM       &kp COMM_            &kp DOT_        &kp  LT_     &kp  GT_     HMLA EQUL_  HMRG BSLA_
 	
 													 ______   ______            &lt l_NUM ULIN_  &trans
-	>;}; //  								                double tap
+	>; }; //  								                double tap
 
  // -------------------
 	exclamation_mark_layer { bindings = <
@@ -198,7 +198,7 @@ keymap {
 	&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
 	&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
 						   &trans  &trans         &trans  &trans
-	>;};
+	>; };
 
 
 
@@ -216,7 +216,7 @@ keymap {
 	HMLG LC(Y_)   HMRA INSERT   &kp  PSCRN   &kp  PSBRK       _________            _________      &kp  HOME       &kp  LEFT     &kp  RIGHT    &kp  END
 	//  					                                        				                  
 												  &tog l_CPWD   &tog l_CAPS        impossible   impossible
-	>;};
+	>; };
 
  // -------------------	
 	mini_navigation_layer { bindings = <
@@ -227,7 +227,7 @@ keymap {
 	&kp    LEFT   &kp    RIGHT   impossible   &kp DOWN        &kp  END               _________      _________   _________   _________   _________
 	//  					                                        				                  
 												&kp LSHIFT   _________               _________   _________
-	>;};
+	>; };
 
     // questionable syntactic sugar to define several parameters beginning with &m_
 	#define MACRO_ROW_3(PREFIX, ONE, TWO, THREE)               &m_##PREFIX##ONE &m_##PREFIX##TWO &m_##PREFIX##THREE
@@ -245,7 +245,7 @@ keymap {
  MACRO_ROW_3(,    GRAV_U_,   TILD_O_,   TRMA_I_ )  &kp AGRV_          ______       ______     &kp  TRMA_  _________     &m_SZTT   &kp TILD_
 
 											          &m_CFLX_E_   &kp EGRV_       ______   &trans
-	>;}; //  								                                     double tap
+	>; }; //  								                                     double tap
 
  // -------------------
  // l_ACCP
@@ -257,7 +257,7 @@ keymap {
  MACRO_ROW_3(cp_, GRAV_U_,   TILD_O_,   TRMA_I_)   &kp LS(AGRV_)       ______           ______       &kp  TRMA_      _________  &m_cp_SZTT   &kp   TILD_
 
 										      &m_cp_CFLX_E_   &kp LS(EGRV_)       		______   &trans
-	>;};//  		   							                                     double tap
+	>; };//  		   							                                     double tap
 
  // -------------------
  // FUNCTION LAYERS
@@ -270,7 +270,7 @@ keymap {
 	impossible  &trans       &m_utl_SCTAB  &m_utl_CTAB      &m_utl_DESK         &m_utl_RMB   &kp D_   &kp M_   &kp L_  &kp  B_
 	
 											  &m_utl_STAB   &m_utl_ULIN         &kp RCTRL   &kp RSHIFT
-	>;};//                                                                      slow mouse  fast mouse
+	>; };//                                                                      slow mouse  fast mouse
 	
 
  // -------------------		
@@ -281,7 +281,7 @@ keymap {
 	&kp  C_BRI_DN   &kp  M2_BRI_D   &kp  C_VOL_DN   &kp  C_MUTE        &out OUT_USB         &sk LCTRL      &kp F4  &kp F5  &kp F6  &kp F11
 	//
 															impossible   impossible         &kp LSHIFT   &kp LALT
-	>;};
+	>; };
 
  // -------------------
  // GAMING LAYERS
@@ -294,7 +294,7 @@ keymap {
 	&kp LCTRL   &kp EACT_ &kp P_  &kp COMM_		&kp ESC           &to l_BASE	&kp D_    &kp DOWN  &kp L_     &kp B_
 	//
 								  &kp SPACE     &kp ENTER         &kp BSPC   &kp LALT
-	>;};
+	>; };
 
  // -------------------		
 	game_bepo_layer { bindings = <
@@ -305,7 +305,7 @@ keymap {
 	&kp LCTRL   &kp LALT  &kp U_    &kp X_		&kp ESC           &to l_BASE  		______    &kp DOWN  ______     ______
 	//
 									&kp SPACE  &kp ENTER          &kp BSPC  &kp LALT
-	>;};
+	>; };
 
  // -------------------
  // BACKSPACE layers
@@ -316,21 +316,21 @@ keymap {
 	&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
 	&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
 						 &trans  &trans             &trans  &trans
-	>;};
+	>; };
 	
 	backspace_layer_3 { bindings = <
 	&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
 	&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
 	&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
 						 &trans  &trans             &trans  &trans
-	>;};
+	>; };
 	
 	backspace_layer_4 { bindings = <
 	&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
 	&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
 	&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
 						 &trans  &trans             &trans  &trans
-	>;};
+	>; };
  
  // -------------------
  // DEBUGGING
