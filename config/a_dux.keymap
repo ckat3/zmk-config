@@ -130,7 +130,7 @@ keymap {
 	#define UTLAYR    &mokp_l_UTIL 0    // UTIL layer on hold               : currently on u
 	#define HMLG_OSCP &htsl LGUI l_OSCP // one-shift on touch, LGUI on hold : currently on bottom left pinky
  // -------------------		
-	base_layer {bindings=<
+	base_layer { bindings = <
  // -------------------
 	&ht Q_ Z_  &kp  MIN_  &kp  Y_  DOT_COLN      NBSP_QMRK        &kp K_     &kp  C_  &kp  H_  &kp  W_  &sl l_OSCP
 	UTLAYR U_  HMLA O_    HMLC I_  HMLS A_       &kp F_           &kp G_     HMRS T_  HMRC R_  HMRA S_  &kp  N_
@@ -148,13 +148,13 @@ keymap {
 					UTLAYR LS(U_)  HMLAcw(O_)	   HMLCcw(I_)  HMLScw(A_)     &kp LS(F_)        &kp LS(G_)      HMRScw(T_)  HMRCcw(R_)  HMRAcw(S_)  &kp LS(N_)   \
 					   &to l_BASE  HMRAcw(EACT_)  MNAV LS(P_)  COMM_SCLN      &kp LS(X_)        &kp LS(V_)      &kp LS(D_)  &kp LS(M_)  HMLAcw(L_)  HMRGcw(B_)
 // --------------------
-	caps_layer {bindings=<
+	caps_layer { bindings = <
 	CAPSDEF	//							 going to another layer does not leave caps layer
 									lt_NUM_E_cp   mosl_SYM             mosl_ACCP   lt_NAV_SPC     >;};		
-	capsword_layer {bindings=<
+	capsword_layer { bindings = <
 	CAPSDEF	//					      left thumb keys and main right thumb key leave caps layer
 									lt_NUM_E_cp   mosl_SYM_cw          mosl_ACCP   lt_NAV_SPC_cw  >;};
-	oneshotcaps_layer {bindings=<
+	oneshotcaps_layer { bindings = <
 	CAPSDEF	//					  all thumb keys leave oneshotcaps (automatically, since it's one-shot!)
 									lt_NUM_E_cp   mosl_SYM             mosl_ACCP   lt_NAV_SPC_cw  >;};
 		// TWO DIFFERENCES OF ONESHOTCAPS
@@ -166,7 +166,7 @@ keymap {
  // -------------------
  // LH AUX LAYERS
  // -------------------
-	num_layer {bindings=<
+	num_layer { bindings = <
  // can be locked by pressing Y on l_NAV
  // -------------------
 	&kp  PIPE_   &kp  N7_   &kp  N8_   &kp  N9_      EXCL_QMRK             DLLR_EURO       &kp  LBRK_   &kp  RBRK_   HMRA HASH_   &kp  PCNT_
@@ -180,7 +180,7 @@ keymap {
 	
  // -------------------
 	#define OEU_OE   &ht_OEU OE_ 0
-	symbol_layer {bindings=<
+	symbol_layer { bindings = <
  // -------------------
 	&kp  PIPE_   &kp  AT_     &kp  AE_     &kp  OE_        NBSP_EXCL            DLLR_EURO       &kp  LBRK_   &kp RBRK_    &kp AMPR_   &kp  TLDL_
 	HMLG LCUR_   HMLA RCUR_   HMLC LPAR_   HMLS RPAR_      &kp SCLN_            &kp COLN_       HMRS CFXL_   HMRC GRVL_   &kp RALT    &kp  FSLA_
@@ -190,7 +190,7 @@ keymap {
 	>;}; //  								                double tap
 
  // -------------------
-	exclamation_mark_layer {bindings=<
+	exclamation_mark_layer { bindings = <
  // allows exclamation mark to be repeated by tapping after its long press
  // TODO: add other hold-tap kps
  // -------------------
@@ -209,7 +209,7 @@ keymap {
 	#define TASKMAN      &kp LC(LS(ESC))    // ctrl shift esc
 	#define PASTEPLAIN   &kp LC(LG(LA(V_))) // plaintext paste (power toys)
  // -------------------		
-	navigation_layer {bindings=<
+	navigation_layer { bindings = <
  // -------------------
 	&kp  LSLCK    &kp  LNLCK    &to  l_NUM   PASTEPLAIN         TASKMAN            _________      HMLS LC(HOME)   HMLC PG_DN    HMLA PG_UP    HMRG LC(END)
 	&kp  LC(Z_)   HMLA LC(X_)   HMLC LC(C_)  HMLS LC(V_)       &kp CAPS            _________      &kp  LC(LEFT)   &kp  DOWN     &kp  UP       &kp  LC(RIGHT)
@@ -219,7 +219,7 @@ keymap {
 	>;};
 
  // -------------------	
-	mini_navigation_layer {bindings=<
+	mini_navigation_layer { bindings = <
  // left-handed navigation, accessed by holding P
  // -------------------
 	&kp LC(HOME)  &kp LC(END)    impossible   _________      _________               _________      _________   _________   _________   _________
@@ -239,7 +239,7 @@ keymap {
  // -------------------
     #define HMCP &mokp l_ACCP // otherwise shift is applied to ralt and messes up some keys.
                               // TODO maybe replace by transp shift layer + conditional ACCP?
-	accent_layer {bindings=<
+	accent_layer { bindings = <
  MACRO_ROW_4(,    CFLX_U_,   CFLX_O_,   CFLX_I_,   CFLX_A_ )     IEXCL_IQMRK       ______     &kp  CCED_  &kp  APST_  &kp  QUOT_   &m_B_J_
  MACRO_ROW_5(,    ACUT_U_,   ACUT_O_,   ACUT_I_,   ACUT_A_,          TILD_A_)      ______     HMCP CFLX_  HMRC GRAV_  HMLA ACUT_   &m_TILD_N_
  MACRO_ROW_3(,    GRAV_U_,   TILD_O_,   TRMA_I_ )  &kp AGRV_          ______       ______     &kp  TRMA_  _________     &m_SZTT   &kp TILD_
@@ -250,7 +250,7 @@ keymap {
  // -------------------
  // l_ACCP
  // -------------------
-	accent_caps_layer {bindings=<
+	accent_caps_layer { bindings = <
  // -------------------
  MACRO_ROW_4(cp_, CFLX_U_,   CFLX_O_,   CFLX_I_,   CFLX_A_ )           ______           ______       &kp  LS(CCED_)  &kp  APST_  &kp  QUOT_  &m_cp_B_J_
  MACRO_ROW_5(cp_, ACUT_U_,   ACUT_O_,   ACUT_I_,   ACUT_A_,           TILD_A_)          ______       HMRS ACUT_      HMRC CFLX_  HMLA GRAV_  &m_cp_TILD_N_
@@ -262,7 +262,7 @@ keymap {
  // -------------------
  // FUNCTION LAYERS
  // -------------------
-	utility_layer {bindings=<
+	utility_layer { bindings = <
  // ahk controls mouse movement
  // -------------------		                                                               // virtually holding down all left-hand mods
 	impossible  &m_utl_SAVE  &m_utl_BACK   &m_utl_FRWD      &m_utl_LAF4         &m_utl_MMB   &kp C_   &kp H_   &kp W_  &kp  J_
@@ -274,7 +274,7 @@ keymap {
 	
 
  // -------------------		
-	function_layer {bindings=<
+	function_layer { bindings = <
  // -------------------		
 	&bt  BT_SEL 3   &bt  BT_SEL 0   &bt  BT_SEL 1   &bt  BT_SEL 2      &bt   BT_CLR         &sk LALT       &kp F7  &kp F8  &kp F9  &kp F12
 	HMLG C_BRI_UP   HMLA M2_BRI_U   HMLC C_VOL_UP   HMLS C_PP  	       &out OUT_BLE         &sk LSHIFT     &kp F1  &kp F2  &kp F3  &kp F10
@@ -286,7 +286,7 @@ keymap {
  // -------------------
  // GAMING LAYERS
  // -------------------
-	game_layer {bindings=<
+	game_layer { bindings = <
  // similar to base layer
  // -------------------		
 	&kp TAB     &kp MIN_  &kp Y_  &kp DOT_		&kp QMRK_         &kp  K_		&kp C_    &kp H_    &kp W_     &kp J_
@@ -297,7 +297,7 @@ keymap {
 	>;};
 
  // -------------------		
-	game_bepo_layer {bindings=<
+	game_bepo_layer { bindings = <
  // more closely modeled after bépo, for games that hard-code qwerty
  // -------------------	
 	&kp TAB     &kp B_    &kp Y_    &kp P_		&kp O_            &kp EGRV_  		______    ______    ______     ______
@@ -311,21 +311,21 @@ keymap {
  // BACKSPACE layers
  // -------------------
  
-	backspace_layer_2 {bindings=<
+	backspace_layer_2 { bindings = <
 	&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
 	&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
 	&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
 						 &trans  &trans             &trans  &trans
 	>;};
 	
-	backspace_layer_3 {bindings=<
+	backspace_layer_3 { bindings = <
 	&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
 	&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
 	&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
 						 &trans  &trans             &trans  &trans
 	>;};
 	
-	backspace_layer_4 {bindings=<
+	backspace_layer_4 { bindings = <
 	&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
 	&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
 	&trans &trans &trans &trans    &trans         &trans    &trans &trans &trans &trans
