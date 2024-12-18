@@ -42,6 +42,7 @@
 // combos don't work on game layer (to minimize delay)
 #define ll_DEFAULT     l_BASE  l_CAPS  l_CPWD  l_OSCP  l_NUM  l_SYM  l_EXCL  l_NAV  l_MNAV  l_ACNT  l_ACCP  l_BSP2 l_BSP3 l_BSP4
 #define ll_NOTCPWD     l_BASE  l_CAPS                  l_NUM  l_SYM  l_EXCL  l_NAV  l_MNAV  l_ACNT  l_ACCP  l_BSP2 l_BSP3 l_BSP4
+#define ll_NOTBSPC     l_BASE  l_CAPS  l_CPWD  l_OSCP  l_NUM  l_SYM  l_EXCL  l_NAV  l_MNAV  l_ACNT  l_ACCP
 #define ll_CAPS                l_CAPS  l_CPWD  l_OSCP
 #define ll_CPWD                        l_CPWD  l_OSCP
 
@@ -179,7 +180,6 @@ keymap {
 
 	
  // -------------------
-	#define OEU_OE   &ht_OEU OE_ 0
 	symbol_layer {bindings=<
  // -------------------
 	&kp  PIPE_   &kp  AT_     &kp  AE_     &kp  OE_        NBSP_EXCL            DLLR_EURO       &kp  LBRK_   &kp RBRK_    &kp AMPR_   &kp  TLDL_

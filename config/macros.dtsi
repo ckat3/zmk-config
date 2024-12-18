@@ -39,11 +39,11 @@
 //                (so can eg hold shift and do &m_Q_U_ to get Qu)
 //                also defines a capsword version which holds shift during both
 #define MACRO_DIGRAM(FIRST, SECOND) \
-	MACRO(     FIRST##SECOND,                <M_KP FIRST>, M_REL_SHIFT, <M_KP SECOND>) \
+	MACRO(     FIRST##SECOND,                <M_KP FIRST>, M_REL_SHIFT, <M_KP SECOND>, <M_TAP &sl l_BSP2>) \
 	\
-	MACRO(up_##FIRST##SECOND,  M_HOLD_SHIFT, <M_KP FIRST>, M_REL_SHIFT, <M_KP SECOND>) \
+	MACRO(up_##FIRST##SECOND,  M_HOLD_SHIFT, <M_KP FIRST>, M_REL_SHIFT, <M_KP SECOND>, <M_TAP &sl l_BSP2>) \
 	\
-	MACRO(cp_##FIRST##SECOND,  M_HOLD_SHIFT, <M_KP FIRST>,              <M_KP SECOND>,  M_REL_SHIFT)
+	MACRO(cp_##FIRST##SECOND,  M_HOLD_SHIFT, <M_KP FIRST>,              <M_KP SECOND>, <M_TAP &sl l_BSP2>, M_REL_SHIFT)
 
 
 #define MACRO_ACCENT_SINGLE(ACCENT, LETTER) \
@@ -53,15 +53,15 @@
 
 
 #define MACRO_ACCENT_DIGRAM(ACCENT, FIRST, SECOND) \
-	MACRO(     ACCENT##FIRST##SECOND, <M_KP ACCENT>,               <M_KP FIRST>, M_REL_SHIFT, <M_KP SECOND>) \
+	MACRO(     ACCENT##FIRST##SECOND, <M_KP ACCENT>,               <M_KP FIRST>, M_REL_SHIFT, <M_KP SECOND>, <M_TAP &sl l_BSP2>) \
 	\
-	MACRO(up_##ACCENT##FIRST##SECOND, <M_KP ACCENT>, M_HOLD_SHIFT, <M_KP FIRST>, M_REL_SHIFT, <M_KP SECOND>) \
+	MACRO(up_##ACCENT##FIRST##SECOND, <M_KP ACCENT>, M_HOLD_SHIFT, <M_KP FIRST>, M_REL_SHIFT, <M_KP SECOND>, <M_TAP &sl l_BSP2>) \
 	\
-	MACRO(cp_##ACCENT##FIRST##SECOND, <M_KP ACCENT>, M_HOLD_SHIFT, <M_KP FIRST>,              <M_KP SECOND>,  M_REL_SHIFT)
+	MACRO(cp_##ACCENT##FIRST##SECOND, <M_KP ACCENT>, M_HOLD_SHIFT, <M_KP FIRST>,              <M_KP SECOND>, <M_TAP &sl l_BSP2>, M_REL_SHIFT)
 
 
 // --------------------
-// INCONVENIENT DIGRAMS
+// DIGRAMS
 // also defines a caps version (eg &m_cp_Q_U_)
 //    and an uppercase version (eg &m_up_Q_U_)
 
@@ -98,8 +98,6 @@ MACRO_ACCENT_DIGRAM( TILD_, O_, E_ )
 
 MACRO_ACCENT_SINGLE( TRMA_, I_ )
 
-// MACRO(           OE_U_ ,  <M_TAP  &kp RA(S_)  &kp    S_  >)
-
 // --------------------
 // NBSP STUFF (for french)
 
@@ -113,10 +111,10 @@ MACRO(       nbsp_RGLM ,  <M_TAP  &kp NBSP_  &kp RGLM_            >)
 MACRO(       nbsp_LGLM ,  <M_TAP  &kp LGLM_  &kp NBSP_            >)
 
 
-MACRO(            CAO  ,                <M_TAP  &kp CCED_  &kp TILD_  &kp  A_  &kp  O_ >                      )    
-MACRO(         cp_CAO  ,  M_HOLD_SHIFT, <M_TAP  &kp CCED_  &kp TILD_  &kp  A_  &kp  O_ >,          M_REL_SHIFT)     
-MACRO(            COES ,                <M_TAP  &kp CCED_  &kp TILD_  &kp  O_  &kp  E_  &kp  S_ >             )         
-MACRO(         cp_COES ,  M_HOLD_SHIFT, <M_TAP  &kp CCED_  &kp TILD_  &kp  O_  &kp  E_  &kp  S_ >, M_REL_SHIFT)
+MACRO(            CAO  ,                <M_TAP  &kp CCED_  &kp TILD_  &kp  A_  &kp  O_          &sl l_BSP3 >)    
+MACRO(         cp_CAO  ,  M_HOLD_SHIFT, <M_TAP  &kp CCED_  &kp TILD_  &kp  A_  &kp  O_          &sl l_BSP3 >, M_REL_SHIFT)     
+MACRO(            COES ,                <M_TAP  &kp CCED_  &kp TILD_  &kp  O_  &kp  E_  &kp  S_ &sl l_BSP4 >)         
+MACRO(         cp_COES ,  M_HOLD_SHIFT, <M_TAP  &kp CCED_  &kp TILD_  &kp  O_  &kp  E_  &kp  S_ &sl l_BSP4 >, M_REL_SHIFT)
 
 // --------------------
 // LOOSE ACCENTS 
@@ -149,6 +147,12 @@ MACRO(      cw_sl_SYM  ,  <M_TAP  &sl l_SYM  &tog l_CPWD >)
 // capsword off + hold NAV
 MACRO(      cw_mo_NAV  ,  <M_TAP  &to l_NAV >,  <M_WAIT_REL>,  <M_TAP  &to l_BASE >)
 	
+// --------------------
+// MULTI-BACKSPACE 
+MACRO(BSP2,  <M_TAP  &kp BSPC &kp BSPC >)
+MACRO(BSP3,  <M_TAP  &kp BSPC &kp BSPC &kp BSPC >)
+MACRO(BSP4,  <M_TAP  &kp BSPC &kp BSPC &kp BSPC &kp BSPC >)
+
 // --------------------
 // homerow mods pass through to l_BASE
 MACRO(      cp_hmls    ,  <M_TAP  &to l_BASE >,  <M_KP_HOLD LSHIFT >,  <M_WAIT_REL>,  <M_KP_REL LSHIFT >)

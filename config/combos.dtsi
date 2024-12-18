@@ -62,7 +62,10 @@ COMBO(    ll_DEFAULT,    &mosl l_FUNC l_FUNC,    30 31 ,  functionLayer)
 COMBO_KP( ll_NOTCPWD,          ENTER,r     ,     16 17 )
 COMBO_M(  ll_CPWD,          cw_ENTER      ,,     16 17 )	
 
-COMBO(    ll_DEFAULT,      &kp LC(BSPC)    ,     17 18 ,  aapoip)
+COMBO(    ll_NOTBSPC,      &kp LC(BSPC)    ,     17 18 ,  aapoip)
+COMBO(     l_BSP2,         &m_BSP2         ,     17 18 ,  aapoaioaip)
+COMBO(     l_BSP3,         &m_BSP3         ,     17 18 ,  aapoipaioai)
+COMBO(     l_BSP4,         &m_BSP4         ,     17 18 ,  aapoipaioaio)
 COMBO(    ll_DEFAULT,      &kp LC(DEL)     ,     27 28 ,  aaioipp)
 
 COMBO(    ll_DEFAULT,       &sl l_OSCP     ,  16 17 18 ,  aaioaipo)
