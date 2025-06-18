@@ -148,7 +148,7 @@ keymap {
  // CAPS LAYER
  // -------------------
 	#define Q_Z LS(Q_) LS(Z_)
-	#define CAPSDEF    &to l_BASE   &ht   Q_Z      &kp   MIN_  &kp LS(Y_)     DOT_COLN          NBSP_QMRK       &kp LS(K_)  &kp LS(C_)  &kp LS(H_)  &kp LS(W_)  &to l_BASE   \
+	#define CAPSDEF    &to l_BASE  &kp   MIN_      &kp LS(Y_)    DOT_COLN      NBSP_QMRK        &kp LS(K_)      &kp LS(C_)  &kp LS(H_)  &kp LS(W_)  &to l_BASE   \
 					UTLAYR LS(U_)  HMLAcw(O_)	   HMLCcw(I_)  HMLScw(A_)     &kp LS(F_)        &kp LS(G_)      HMRScw(T_)  HMRCcw(R_)  HMRAcw(S_)  &kp LS(N_)   \
 					   &ht Q_Z     HMRAcw(EACT_)  MNAV LS(P_)  COMM_SCLN      &kp LS(X_)        &kp LS(V_)      &kp LS(D_)  &kp LS(M_)  HMLAcw(L_)  HMRGcw(B_)
 // --------------------
@@ -229,7 +229,7 @@ keymap {
 	&kp LC(LEFT)  &kp LC(RIGHT)  impossible   &kp UP          &kp HOME               _________      _________   _________   _________   _________
 	&kp    LEFT   &kp    RIGHT   impossible   &kp DOWN        &kp  END               _________      _________   _________   _________   _________
 	//  					                                        				                  
-												&kp LSHIFT   _________               _________   _________
+											          &kp LSHIFT   _________        _________   _________
 	>;};
 
  // -------------------
@@ -267,12 +267,11 @@ keymap {
  // -------------------
 	utility_layer {bindings=<
  // -------------------		                                                               // virtually holding down all left-hand mods
-	impossible  &m_utl_SAVE  &m_utl_BACK   &m_utl_FRWD      &m_utl_LAF4         &mkp MCLK   ______			  ______			______			   ______
-	impossible  &m_utl_GTAB  &m_utl_SATAB  &m_utl_ATAB      &m_utl_REDO         &mkp LCLK   &mmv MOVE_X(-600)  &mmv MOVE_Y(600)  &mmv MOVE_Y(-600)  &mmv MOVE_X(600)
-	impossible  &trans       &m_utl_SCTAB  &m_utl_CTAB      &m_utl_DESK         &mkp RCLK   &msc SCRL_LEFT    &msc SCRL_DOWN    &msc SCRL_UP       &msc SCRL_RIGHT
+	impossible  &m_utl_SAVE  &m_utl_BACK   &m_utl_FRWD      &m_utl_LAF4         &mkp MCLK   ______			______			______		  ______
+	impossible  &m_utl_GTAB  &m_utl_SATAB  &m_utl_ATAB      &m_utl_REDO         &mkp LCLK   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT
+	impossible  &trans       &m_utl_SCTAB  &m_utl_CTAB      &m_utl_DESK         &mkp RCLK   &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT
 	
 											  &m_utl_STAB   &m_utl_ULIN         &kp RCTRL   &kp RSHIFT
-	>;};//                                                                TODO: slow mouse  fast mouse
 	
 
  // -------------------		

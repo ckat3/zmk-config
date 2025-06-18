@@ -65,7 +65,7 @@ HT(    htlg_cw,            <&m_cp_hmlg>,  <&kp> )    // lgui           kp
 HT(    htrg_cw,            <&m_cp_hmrg>,  <&kp> )    // rgui           kp 
 
 
-// OTHER HOLDTAPS                                                          // HOLD               TAP
+// OTHER HOLDTAPS                                                       // HOLD               TAP
 HTPOS(    mokp_l_UTIL,     _POS_LH,  <&m_mo_l_UTIL>,  <&kp> )           // mo UTIL            kp                (slow for lh, tap-preferred)
 // capsword thumbs - TODO should be BAL like the base layer thumbs?
 HT(    cw_mokp_l_NAV_SPC,            <&m_cw_mo_NAV>,  <&m_cw_SPC> )     // mo NAV -> BASE     SPC    -> BASE    (was balanced)
