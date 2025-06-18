@@ -272,7 +272,7 @@ keymap {
 	impossible  &trans       &m_utl_SCTAB  &m_utl_CTAB      &m_utl_DESK         &mkp RCLK   &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT
 	
 											  &m_utl_STAB   &m_utl_ULIN         &kp RCTRL   &kp RSHIFT
-	
+	>;};
 
  // -------------------		
 	function_layer {bindings=<
