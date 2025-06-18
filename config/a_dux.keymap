@@ -268,7 +268,7 @@ keymap {
 	utility_layer {bindings=<
  // -------------------		                                                               // virtually holding down all left-hand mods
 	impossible  &m_utl_SAVE  &m_utl_BACK   &m_utl_FRWD      &m_utl_LAF4         &mkp MCLK   ______			  ______			______			   ______
-	impossible  &m_utl_GTAB  &m_utl_SATAB  &m_utl_ATAB      &m_utl_REDO         &mkp LCLK   &mmv MOVE_X(600)  &mmv MOVE_Y(600)  &mmv MOVE_Y(-600)  &mmv MOVE_X(600)
+	impossible  &m_utl_GTAB  &m_utl_SATAB  &m_utl_ATAB      &m_utl_REDO         &mkp LCLK   &mmv MOVE_X(-600)  &mmv MOVE_Y(600)  &mmv MOVE_Y(-600)  &mmv MOVE_X(600)
 	impossible  &trans       &m_utl_SCTAB  &m_utl_CTAB      &m_utl_DESK         &mkp RCLK   &msc SCRL_LEFT    &msc SCRL_DOWN    &msc SCRL_UP       &msc SCRL_RIGHT
 	
 											  &m_utl_STAB   &m_utl_ULIN         &kp RCTRL   &kp RSHIFT
