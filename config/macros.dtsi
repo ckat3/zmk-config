@@ -101,33 +101,33 @@ MACRO_ACCENT_SINGLE( TRMA_, I_ )
 // --------------------
 // NBSP STUFF (for french)
 
-MACRO(       nbsp_QMRK ,  <M_TAP  &kp NBSP_  &kp QMRK_            >) // &to l_BASE >) // goes back to l_BASE if l_CAPS was on (TODO needed?)
-MACRO(    cp_nbsp_QMRK ,  <M_TAP  &kp NBSP_  &kp QMRK_            >) 
-MACRO(       pure_EXCL ,  <M_TAP             &m_exclrepeat        >)
-MACRO(       nbsp_EXCL ,  <M_TAP  &kp NBSP_  &m_exclrepeat        >)
-MACRO(       nbsp_COLN ,  <M_TAP  &kp NBSP_  &kp COLN_  &kp SPACE >)
-MACRO(       nbsp_SCLN ,  <M_TAP  &kp NBSP_  &kp SCLN_  &kp SPACE >)
-MACRO(       nbsp_RGLM ,  <M_TAP  &kp NBSP_  &kp RGLM_            >)
-MACRO(       nbsp_LGLM ,  <M_TAP  &kp LGLM_  &kp NBSP_            >)
+MACRO(   nbsp_QMRK ,  <M_TAP  &kp NBSP_  &kp QMRK_            >) // &to l_BASE >) // goes back to l_BASE if l_CAPS was on (TODO needed?)
+MACRO(cp_nbsp_QMRK ,  <M_TAP  &kp NBSP_  &kp QMRK_            >) 
+MACRO(   pure_EXCL ,  <M_TAP             &m_exclrepeat        >)
+MACRO(   nbsp_EXCL ,  <M_TAP  &kp NBSP_  &m_exclrepeat        >)
+MACRO(   nbsp_COLN ,  <M_TAP  &kp NBSP_  &kp COLN_  &kp SPACE >)
+MACRO(   nbsp_SCLN ,  <M_TAP  &kp NBSP_  &kp SCLN_  &kp SPACE >)
+MACRO(   nbsp_RGLM ,  <M_TAP  &kp NBSP_  &kp RGLM_            >)
+MACRO(   nbsp_LGLM ,  <M_TAP  &kp LGLM_  &kp NBSP_            >)
 
 
-MACRO(            CAO  ,                <M_TAP  &kp CCED_  &kp TILD_  &kp  A_  &kp  O_          &sl l_BSP3 >)    
-MACRO(         cp_CAO  ,  M_HOLD_SHIFT, <M_TAP  &kp CCED_  &kp TILD_  &kp  A_  &kp  O_          &sl l_BSP3 >, M_REL_SHIFT)     
-MACRO(            COES ,                <M_TAP  &kp CCED_  &kp TILD_  &kp  O_  &kp  E_  &kp  S_ &sl l_BSP4 >)         
-MACRO(         cp_COES ,  M_HOLD_SHIFT, <M_TAP  &kp CCED_  &kp TILD_  &kp  O_  &kp  E_  &kp  S_ &sl l_BSP4 >, M_REL_SHIFT)
+MACRO(        CAO  ,                <M_TAP  &kp CCED_  &kp TILD_  &kp  A_  &kp  O_          &sl l_BSP3 >)    
+MACRO(     cp_CAO  ,  M_HOLD_SHIFT, <M_TAP  &kp CCED_  &kp TILD_  &kp  A_  &kp  O_          &sl l_BSP3 >, M_REL_SHIFT)     
+MACRO(        COES ,                <M_TAP  &kp CCED_  &kp TILD_  &kp  O_  &kp  E_  &kp  S_ &sl l_BSP4 >)         
+MACRO(     cp_COES ,  M_HOLD_SHIFT, <M_TAP  &kp CCED_  &kp TILD_  &kp  O_  &kp  E_  &kp  S_ &sl l_BSP4 >, M_REL_SHIFT)
 
 // --------------------
 // LOOSE ACCENTS 
 
-MACRO(      loose_CFX  ,  <M_TAP  &kp CFLX_  &kp SPACE >)
-MACRO(      loose_GRV  ,  <M_TAP  &kp GRAV_  &kp SPACE >)
-MACRO(      loose_TLD  ,  <M_TAP  &kp TILD_  &kp SPACE >)
+MACRO(loose_CFX,  <M_TAP  &kp CFLX_  &kp SPACE >)
+MACRO(loose_GRV,  <M_TAP  &kp GRAV_  &kp SPACE >)
+MACRO(loose_TLD,  <M_TAP  &kp TILD_  &kp SPACE >)
 
 // --------------------
 // ESZETT 
 
-MACRO(            SZTT ,  <M_TAP  &kp SZTTMOD_  &kp    S_  >)
-MACRO(         cp_SZTT ,  <M_TAP  &kp SZTTMOD_  &kp LS(S_) >)
+MACRO(   SZTT ,  <M_TAP  &kp SZTTMOD_  &kp    S_  >)
+MACRO(cp_SZTT ,  <M_TAP  &kp SZTTMOD_  &kp LS(S_) >)
 
 // --------------------
 // CAPS 
@@ -155,14 +155,14 @@ MACRO(BSP4,  <M_TAP  &kp BSPC &kp BSPC &kp BSPC &kp BSPC >)
 
 // --------------------
 // homerow mods pass through to l_BASE
-MACRO(      cp_hmls    ,  <M_TAP  &to l_BASE >,  <M_KP_HOLD LSHIFT >,  <M_WAIT_REL>,  <M_KP_REL LSHIFT >)
-MACRO(      cp_hmlc    ,  <M_TAP  &to l_BASE >,  <M_KP_HOLD LCTRL  >,  <M_WAIT_REL>,  <M_KP_REL LCTRL  >)
-MACRO(      cp_hmla    ,  <M_TAP  &to l_BASE >,  <M_KP_HOLD LALT   >,  <M_WAIT_REL>,  <M_KP_REL LALT   >)
-MACRO(      cp_hmlg    ,  <M_TAP  &to l_BASE >,  <M_KP_HOLD LGUI   >,  <M_WAIT_REL>,  <M_KP_REL LGUI   >)
-MACRO(      cp_hmrs    ,  <M_TAP  &to l_BASE >,  <M_KP_HOLD RSHIFT >,  <M_WAIT_REL>,  <M_KP_REL RSHIFT >)
-MACRO(      cp_hmrc    ,  <M_TAP  &to l_BASE >,  <M_KP_HOLD RCTRL  >,  <M_WAIT_REL>,  <M_KP_REL RCTRL  >)
-MACRO(      cp_hmra    ,  <M_TAP  &to l_BASE >,  <M_KP_HOLD RALT   >,  <M_WAIT_REL>,  <M_KP_REL RALT   >)
-MACRO(      cp_hmrg    ,  <M_TAP  &to l_BASE >,  <M_KP_HOLD RGUI   >,  <M_WAIT_REL>,  <M_KP_REL RGUI   >)
+MACRO(cp_hmls,  <M_TAP  &to l_BASE >,  <M_KP_HOLD LSHIFT >,  <M_WAIT_REL>,  <M_KP_REL LSHIFT >)
+MACRO(cp_hmlc,  <M_TAP  &to l_BASE >,  <M_KP_HOLD LCTRL  >,  <M_WAIT_REL>,  <M_KP_REL LCTRL  >)
+MACRO(cp_hmla,  <M_TAP  &to l_BASE >,  <M_KP_HOLD LALT   >,  <M_WAIT_REL>,  <M_KP_REL LALT   >)
+MACRO(cp_hmlg,  <M_TAP  &to l_BASE >,  <M_KP_HOLD LGUI   >,  <M_WAIT_REL>,  <M_KP_REL LGUI   >)
+MACRO(cp_hmrs,  <M_TAP  &to l_BASE >,  <M_KP_HOLD RSHIFT >,  <M_WAIT_REL>,  <M_KP_REL RSHIFT >)
+MACRO(cp_hmrc,  <M_TAP  &to l_BASE >,  <M_KP_HOLD RCTRL  >,  <M_WAIT_REL>,  <M_KP_REL RCTRL  >)
+MACRO(cp_hmra,  <M_TAP  &to l_BASE >,  <M_KP_HOLD RALT   >,  <M_WAIT_REL>,  <M_KP_REL RALT   >)
+MACRO(cp_hmrg,  <M_TAP  &to l_BASE >,  <M_KP_HOLD RGUI   >,  <M_WAIT_REL>,  <M_KP_REL RGUI   >)
 	
 
 // UTIL LAYER -------------------
@@ -190,9 +190,11 @@ MACRO(      cp_hmrg    ,  <M_TAP  &to l_BASE >,  <M_KP_HOLD RGUI   >,  <M_WAIT_R
 	MACRO(  utl_STAB,  <REL_ALL_MODS>  ,  <M_KP  LS(TAB) > ,      <HOLD_HYPER> )
 	MACRO(  utl_GTAB,  <REL_ALL_MODS>  ,  <M_KP  LG(TAB) > ,      <HOLD_HYPER> )
 	
-	MACRO(  utl_LMB,    <REL_LH_MODS>  ,  <M_TAP &mkp LCLK > ,    <HOLD_HYPER> )
+/*
+ 	MACRO(  utl_LMB,    <REL_LH_MODS>  ,  <M_TAP &mkp LCLK > ,    <HOLD_HYPER> )
 	MACRO(  utl_RMB,    <REL_LH_MODS>  ,  <M_TAP &mkp RCLK > ,    <HOLD_HYPER> )
-	MACRO(  utl_MMB,    <REL_LH_MODS>  ,  <M_TAP &mkp MCLK > ,    <HOLD_HYPER> )
+	MACRO(  utl_MMB,    <REL_LH_MODS>  ,  <M_TAP &mkp MCLK > ,    <HOLD_HYPER> ) 
+*/
 	
 	MACRO(  utl_ATAB,     <ONLY_ALT >  ,  <M_KP     TAB  > ) // these will not hold all mods at the
 	MACRO( utl_SATAB,     <ONLY_ALT >  ,  <M_KP  LS(TAB) > ) //  end, so that we can do alt-tab etc
@@ -200,3 +202,7 @@ MACRO(      cp_hmrg    ,  <M_TAP  &to l_BASE >,  <M_KP_HOLD RGUI   >,  <M_WAIT_R
 	MACRO( utl_SCTAB,     <ONLY_CTRL>  ,  <M_KP  LS(TAB) > ) //  dropping the little window
 
 	MACRO( exclrepeat,  <M_TAP &kp EXCL_ &slfast l_EXCL> ) 
+	
+	
+
+MACRO(soft_reset,  <REL_ALL_MODS>,  <M_TAP  &to l_BASE >)

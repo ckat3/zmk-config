@@ -63,9 +63,10 @@ COMBO_KP( ll_NOTCPWD,          ENTER,r     ,     16 17 )
 COMBO_M(  ll_CPWD,          cw_ENTER      ,,     16 17 )	
 
 COMBO(    ll_NOTBSPC,      &kp LC(BSPC)    ,     17 18 ,  aapoip)
-COMBO(     l_BSP2,         &m_BSP2         ,     17 18 ,  aapoaioaip)
-COMBO(     l_BSP3,         &m_BSP3         ,     17 18 ,  aapoipaioai)
-COMBO(     l_BSP4,         &m_BSP4         ,     17 18 ,  aapoipaioaio)
+COMBO(     l_BSP2,             &m_BSP2     ,     17 18 ,  aapoaioaip)
+COMBO(     l_BSP3,             &m_BSP3     ,     17 18 ,  aapoipaioai)
+COMBO(     l_BSP4,             &m_BSP4     ,     17 18 ,  aapoipaioaio)
+
 COMBO(    ll_DEFAULT,      &kp LC(DEL)     ,     27 28 ,  aaioipp)
 
 COMBO(    ll_DEFAULT,       &sl l_OSCP     ,  16 17 18 ,  aaioaipo)
@@ -100,16 +101,20 @@ COMBO_M(    l_CAPS l_CPWD,       cp_COES    ,,      6  8 )  /* ÇÕES */
 									     	    
 							 				 	 
 // function layer
-COMBO(    l_FUNC,         &sys_reset       ,      0  4 ,  aaiouaioua)	
-COMBO(    l_FUNC,         &bootloader      ,     20 24 ,  aayuqaiouea)
+COMBO( l_FUNC,  &bootloader      ,     20 24 ,  aayuqaiouea)
+			    
+COMBO( l_FUNC,  &kp  C_NEXT      ,     12 13 ,  aon)
+COMBO( l_FUNC,  &kp  C_PREV      ,     22 23 ,  aaille)
+			    
+COMBO( l_FUNC,  &kp  TOG_DCR     ,     10 11 ,  ainha)
+COMBO( l_FUNC,  &kp  DISPLAY_OFF ,  11 12 13 ,  aaca)	
+COMBO( l_FUNC,  &kp  TOG_DISPLAY ,     20 21 ,  ainho)
+COMBO( l_FUNC,  &kp  TOG_THEME   ,     21 22 ,  aaco)
+			    
+COMBO( l_FUNC,  &tog l_GAME      ,      4 14 ,  gameLayer1)
+COMBO( l_FUNC,  &tog l_GAM2      ,     14 24 ,  gameLayer2)		
 
-COMBO(    l_FUNC,         &kp  C_NEXT      ,     12 13 ,  aon)
-COMBO(    l_FUNC,         &kp  C_PREV      ,     22 23 ,  aaille)
 
-COMBO(    l_FUNC,         &kp  TOG_DCR     ,     10 11 ,  ainha)
-COMBO(    l_FUNC,         &kp  DISPLAY_OFF ,  11 12 13 ,  aaca)	
-COMBO(    l_FUNC,         &kp  TOG_DISPLAY ,     20 21 ,  ainho)
-COMBO(    l_FUNC,         &kp  TOG_THEME   ,     21 22 ,  aaco)
 
-COMBO(    l_FUNC,         &tog l_GAME      ,      4 14 ,  gameLayer1)
-COMBO(    l_FUNC,         &tog l_GAM2      ,     14 24 ,  gameLayer2)		
+COMBO( ll_DEFAULT,  &m_soft_reset ,  1 2 3 4 ,  atirsoatsats)
+COMBO( ll_DEFAULT,  &sys_reset ,     5 6 7 8 ,  aioaiortasiotraisoat)

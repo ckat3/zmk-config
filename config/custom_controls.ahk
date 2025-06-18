@@ -14,7 +14,7 @@ VCP_BRIGHTNESS   := '10'
 ; User configs
 BRIGHTNESS_MOD_BASE      := 5
 BRIGHTNESS_MOD_INCREMENT := 5
-POINTER_SPEED            := 60
+;POINTER_SPEED            := 60
 
 ; Hotkeys (for ease of configuration)
 SUPR := "+^!"
@@ -25,6 +25,34 @@ TOGGLE_DISPLAY_MODE        := SUPR . "y"
 TOGGLE_DCR                 := SUPR . "i"
 TOGGLE_THEME               := SUPR . "p"
 
+/* 
+super_layer := false
+super_layer_reset_timers := 0
+
+superLayerOff() {
+	super_layer_reset_timers -= 1
+	if (super_layer_reset_timers <= 0) {
+		super_layer_reset_timers := 0
+		super_layer := false
+	}
+}
+	
+superLayerOn() {
+	super_layer := true	
+	;SetTimer superLayerOff, 500       ; TODO needed?
+	super_layer_reset_timers += 1
+}
+
+superLayerToggle() {
+	super_layer ? superLayerOff() : superLayerOn()
+}
+
+
+
+
+; ---------------------
+; MOUSE
+; ---------------------
 
 moveMouse(dir) {
 	sp := POINTER_SPEED
@@ -52,7 +80,11 @@ moveMouse(dir) {
 
 +^!#m::WheelDown
 +^!#l::WheelUp
+ */
 
+; ---------------------
+; MONITOR
+; ---------------------
 
 ControlMyMonitor(command, vcp, value:='') {
 	return Run(CMM_PATH . ' /' . command . ' ' . EXT_DISPLAY_CODE . ' ' . vcp . ' ' . value)
@@ -95,11 +127,10 @@ DcrOn(hk) {
 	ControlMyMonitor('SetValue', VCP_DCR, dcr_on := 1)
 	dcr_on := 1
 }
-																												   
-ToggleTheme(hk) {
-	current_theme := RegRead("HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize", "AppsUseLightTheme")
-	RegWrite(!current_theme, "REG_DWORD", "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize", "SystemUsesLightTheme")
-	RegWrite(!current_theme, "REG_DWORD", "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize", "AppsUseLightTheme")
+
+DisplayOff(hk) {
+	sleep 600
+	SendMessage(0x0112, 0xF170, 2,, "Program Manager")
 }
 
 ToggleDisplayMode(hk) {
@@ -107,11 +138,29 @@ ToggleDisplayMode(hk) {
 	Run('DisplaySwitch.exe ' . (internal_display_on ? '/external' : '/extend'))
 }
 
-DisplayOff(hk) {
-	sleep 600
-	SendMessage(0x0112, 0xF170, 2,, "Program Manager")
+; ---------------------
+; ETC
+; ---------------------
+																									   
+ToggleTheme(hk) {
+	current_theme := RegRead("HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize", "AppsUseLightTheme")
+	RegWrite(!current_theme, "REG_DWORD", "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize", "SystemUsesLightTheme")
+	RegWrite(!current_theme, "REG_DWORD", "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize", "AppsUseLightTheme")
 }
 
+; ---------------------
+; HOTKEYS
+; ---------------------
+
+Hotkey DISPLAY_OFF               , DisplayOff
+Hotkey EXT_DISPLAY_BRIGHTNESS_UP , ExternalBrightness
+Hotkey EXT_DISPLAY_BRIGHTNESS_DN , ExternalBrightness
+Hotkey TOGGLE_DCR                , DcrOn
+Hotkey TOGGLE_DISPLAY_MODE       , ToggleDisplayMode
+Hotkey TOGGLE_THEME              , ToggleTheme
+
+
+/*
 GetDeepLTranslation() {
 	Send "+{Tab}"
 	Send "^a"
@@ -125,14 +174,11 @@ GetDeepLTranslation() {
 	Send "{Tab}"
 	sleep 50
 	Send "^v"
-	}
+}
+*/
 
-Hotkey DISPLAY_OFF               , DisplayOff
-Hotkey EXT_DISPLAY_BRIGHTNESS_UP , ExternalBrightness
-Hotkey EXT_DISPLAY_BRIGHTNESS_DN , ExternalBrightness
-Hotkey TOGGLE_DCR                , DcrOn
-Hotkey TOGGLE_DISPLAY_MODE       , ToggleDisplayMode
-Hotkey TOGGLE_THEME              , ToggleTheme
+
+
 
 /* ctrlV_timeWindow := false
 $^v::
