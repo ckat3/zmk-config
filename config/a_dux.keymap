@@ -267,8 +267,8 @@ keymap {
  // -------------------
 	utility_layer {bindings=<
  // -------------------
-	impossible  &pkp LC(S)   &pkp C_AC_BACK  &pkp C_AC_FORWARD  &pkp LA(F4)         &pmkp MCLK   ______			  ______		   ______		  ______
-	impossible  &m_utl_GTAB  &m_utl_SATAB 	 &m_utl_ATAB		&pkp LC(Y_)        	&pmkp LCLK   &pmmv MOVE_LEFT  &pmmv MOVE_DOWN  &pmmv MOVE_UP  &pmmv MOVE_RIGHT
+	impossible  &pkp LC(S)   &pkp C_AC_BACK  &pkp C_AC_FORWARD  &pkp LA(F4)         &pmkp MCLK   &trans			  &trans		   &trans		  &trans
+	impossible  &pkp LG(TAB)  &m_utl_SATAB 	 &m_utl_ATAB		&pkp ESC        	&pmkp LCLK   &pmmv MOVE_LEFT  &pmmv MOVE_DOWN  &pmmv MOVE_UP  &pmmv MOVE_RIGHT
 	impossible  &trans       &m_utl_SCTAB    &m_utl_CTAB        &pkp LG(D)         	&pmkp RCLK   &pmsc SCRL_LEFT  &pmsc SCRL_DOWN  &pmsc SCRL_UP  &pmsc SCRL_RIGHT
 	
 											  &pkp LS(TAB)   &pkp ULIN_              &kp RCTRL   &kp RSHIFT
