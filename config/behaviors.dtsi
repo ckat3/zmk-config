@@ -161,12 +161,12 @@ pmsc: pmsc {
 	wait-ms  = <_MACRO_TAP_PADDING>;
 	#binding-cells = <1>;
 	bindings 
-		= <REL_LH_MODS>
+		= <&macro_release  &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LGUI>
 		, <&macro_param_1to1>
 		, <&macro_tap &msc MACRO_PLACEHOLDER>
 		, <&macro_pause_for_release>
 		, <&macro_param_1to1>
 		, <&macro_release &msc MACRO_PLACEHOLDER>
-		, <HOLD_LH_MODS>
+		, <&macro_press  &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LGUI>
 		;
 };
