@@ -90,25 +90,22 @@ HT_FAST( ht_SCLN, <&m_nbsp_SCLN>, <&kp> )
 HT_FAST( ht_QMRK, <&m_nbsp_QMRK>, <&kp> )
 HT_FAST( ht_EXCL, <&m_nbsp_EXCL>, <&m_pure_EXCL> )
 
-#define REL_LH_MODS   &macro_release  &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LGUI
-#define HOLD_LH_MODS  &macro_press  &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LGUI
-
-#define DEFINE_PURE(PURE_BEHAVIOR) \
+/* #define DEFINE_PURE(PURE_BEHAVIOR) \
     p##PURE_BEHAVIOR: p##PURE_BEHAVIOR { \
 		compatible = "zmk,behavior-macro-one-param"; \
 		tap-ms   = <_MACRO_TAP_FOR>; \
 		wait-ms  = <_MACRO_TAP_PADDING>;
     	#binding-cells  = <1>; \
 		bindings \
-			= <REL_LH_MODS> \
+			= <&macro_release  &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LGUI> \
 			, <&macro_param_1to1> \
 			, <&macro_tap &##PURE_BEHAVIOR MACRO_PLACEHOLDER> \
 			, <&macro_pause_for_release> \
 			, <&macro_param_1to1> \
 			, <&macro_release &##PURE_BEHAVIOR MACRO_PLACEHOLDER> \
-			, <HOLD_LH_MODS> \
+			, <&macro_press  &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LGUI> \
 			; \
-	};
+	}; */
 
 pkp: pkp {
 	compatible = "zmk,behavior-macro-one-param";
@@ -116,13 +113,13 @@ pkp: pkp {
 	wait-ms  = <_MACRO_TAP_PADDING>;
 	#binding-cells = <1>;
 	bindings 
-		= <REL_LH_MODS>
+		= <&macro_release  &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LGUI>
 		, <&macro_param_1to1>
 		, <&macro_tap &kp MACRO_PLACEHOLDER>
 		, <&macro_pause_for_release>
 		, <&macro_param_1to1>
 		, <&macro_release &kp MACRO_PLACEHOLDER>
-		, <HOLD_LH_MODS>
+		, <&macro_press  &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LGUI>
 		;
 };
 
@@ -132,13 +129,13 @@ pmkp: pmpk {
 	wait-ms  = <_MACRO_TAP_PADDING>;
 	#binding-cells = <1>;
 	bindings 
-		= <REL_LH_MODS>
+		= <&macro_release  &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LGUI>
 		, <&macro_param_1to1>
 		, <&macro_tap &mkp MACRO_PLACEHOLDER>
 		, <&macro_pause_for_release>
 		, <&macro_param_1to1>
 		, <&macro_release &mkp MACRO_PLACEHOLDER>
-		, <HOLD_LH_MODS>
+		, <&macro_press  &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LGUI>
 		;
 };
 
@@ -148,13 +145,13 @@ pmmv: pmmv {
 	wait-ms  = <_MACRO_TAP_PADDING>;
 	#binding-cells = <1>;
 	bindings 
-		= <REL_LH_MODS>
+		= <&macro_release  &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LGUI>
 		, <&macro_param_1to1>
 		, <&macro_tap &mmv MACRO_PLACEHOLDER>
 		, <&macro_pause_for_release>
 		, <&macro_param_1to1>
 		, <&macro_release &mmv MACRO_PLACEHOLDER>
-		, <HOLD_LH_MODS>
+		, <&macro_press  &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LGUI>
 		;
 };
 
