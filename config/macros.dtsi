@@ -170,6 +170,7 @@ MACRO(cp_hmrg,  <M_TAP  &to l_BASE >,  <M_KP_HOLD RGUI   >,  <M_WAIT_REL>,  <M_K
 	MACRO( utl_SCTAB,     <ONLY_CTRL>  ,  <M_KP  LS(TAB) > ) //  dropping the little window
 
 
-
-	MACRO( exclrepeat,  <M_TAP &kp EXCL_ &slfast l_EXCL> ) 
-	MACRO(soft_reset,  <REL_ALL_MODS>,  <M_TAP  &to l_BASE >)
+// OTHER MACROS
+MACRO( paste_QUOT,  <M_TAP &kp QUOT_ LC(V_) &kp QUOT_ > )
+MACRO( exclrepeat,  <M_TAP &kp EXCL_ &slfast l_EXCL> ) 
+MACRO( soft_reset,  <REL_ALL_MODS>,  <M_TAP  &to l_BASE >)

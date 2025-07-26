@@ -23,7 +23,6 @@ EXT_DISPLAY_BRIGHTNESS_UP  := SUPR . "u"
 EXT_DISPLAY_BRIGHTNESS_DN  := SUPR . "z"
 TOGGLE_DISPLAY_MODE        := SUPR . "y"
 TOGGLE_DCR                 := SUPR . "i"
-TOGGLE_THEME               := SUPR . "p"
 
 /* 
 super_layer := false
@@ -142,11 +141,11 @@ ToggleDisplayMode(hk) {
 ; ETC
 ; ---------------------
 																									   
-ToggleTheme(hk) {
+/* ToggleTheme(hk) {
 	current_theme := RegRead("HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize", "AppsUseLightTheme")
 	RegWrite(!current_theme, "REG_DWORD", "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize", "SystemUsesLightTheme")
 	RegWrite(!current_theme, "REG_DWORD", "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize", "AppsUseLightTheme")
-}
+} */
 
 ; ---------------------
 ; HOTKEYS
@@ -157,7 +156,7 @@ Hotkey EXT_DISPLAY_BRIGHTNESS_UP , ExternalBrightness
 Hotkey EXT_DISPLAY_BRIGHTNESS_DN , ExternalBrightness
 Hotkey TOGGLE_DCR                , DcrOn
 Hotkey TOGGLE_DISPLAY_MODE       , ToggleDisplayMode
-Hotkey TOGGLE_THEME              , ToggleTheme
+; Hotkey TOGGLE_THEME              , ToggleTheme
 
 
 /*

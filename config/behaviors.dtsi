@@ -10,34 +10,51 @@ slfast: slay_fast {
 #define _POS_RH   5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33
 #define _ALL_POSITIONS  _POS_LH  _POS_RH
 
-#define DEFINE_HOLDTAP(FLAVOR, NAME, DELAY, POSITIONS, BINDINGS...) \
+#define DEFINE_HOLDTAP(FLAVOR, NAME, TAP_THRESHOLD, POSITIONS, BINDINGS...) \
     NAME: ht_##NAME { \
-    	compatible      = "zmk,behavior-hold-tap"; \
-    	#binding-cells  = <2>; \
+    	compatible = "zmk,behavior-hold-tap"; \
+    	#binding-cells = <2>; \
     	 \
-    	flavor          = #FLAVOR; \
-    	tapping-term-ms = <DELAY>; \
-    	quick-tap-ms    = <_HT_QUICKTAP>; \
-    	bindings        = BINDINGS; \
+    	flavor = #FLAVOR; \
+    	tapping-term-ms = <TAP_THRESHOLD>; \
+    	quick-tap-ms = <_HT_QUICKTAP>; \
+    	bindings = BINDINGS; \
     	 \
     	hold-trigger-key-positions = <POSITIONS>; \
     };
 	
+#define DEFINE_HOMEROW_MOD(FLAVOR, NAME, TAP_THRESHOLD, POSITIONS, BINDINGS...) \
+    NAME: ht_##NAME { \
+    	compatible = "zmk,behavior-hold-tap"; \
+    	#binding-cells = <2>; \
+    	 \
+    	flavor = #FLAVOR; \
+		require-prior-idle-ms = <_HT_PRIOR_IDLE>; \
+    	tapping-term-ms = <TAP_THRESHOLD>; \
+    	quick-tap-ms = <_HT_QUICKTAP>; \
+    	bindings = BINDINGS; \
+    	 \
+    	hold-trigger-key-positions = <POSITIONS>; \
+		hold-trigger-on-release; \
+    };
 	
-#define HT(                             NAME,                                       BINDINGS... ) \
-    DEFINE_HOLDTAP (tap-preferred,  NAME,  _HT_TAPLIMIT,       _ALL_POSITIONS,  BINDINGS)
+#define HT( NAME, BINDINGS... ) \
+    DEFINE_HOLDTAP (tap-preferred,  NAME,  _HT_TAP_THRESHOLD,  _ALL_POSITIONS,  BINDINGS)
 									   
-#define HT_FAST(                        NAME,                                       BINDINGS... ) \
-    DEFINE_HOLDTAP( tap-preferred,  NAME,  _HT_TAPLIMIT_FAST,  _ALL_POSITIONS,  BINDINGS)
+#define HT_BAL( NAME, BINDINGS... ) \
+    DEFINE_HOLDTAP( balanced,  NAME,  _HT_TAP_THRESHOLD,  _ALL_POSITIONS,  BINDINGS)
 									   
-#define HT_SLOW(                        NAME,                                       BINDINGS... ) \
-    DEFINE_HOLDTAP( tap-preferred,  NAME,  _HT_TAPLIMIT_SLOW,  _ALL_POSITIONS,  BINDINGS)
+#define HTPOS( NAME, POSITIONS,  BINDINGS... ) \
+    DEFINE_HOMEROW_MOD( tap-preferred,  NAME,  _HT_TAP_THRESHOLD,  POSITIONS,  BINDINGS)
 									   
-#define HT_BAL(                         NAME,                                       BINDINGS... ) \
-    DEFINE_HOLDTAP( balanced,       NAME,  _HT_TAPLIMIT,       _ALL_POSITIONS,  BINDINGS)
+#define HT_FAST( NAME, BINDINGS... ) \
+    DEFINE_HOLDTAP( tap-preferred,  NAME,  _HT_TAP_THRESHOLD_FAST,  _ALL_POSITIONS,  BINDINGS)
 									   
-#define HTPOS(                          NAME,                           POSITIONS,  BINDINGS... ) \
-    DEFINE_HOLDTAP( tap-preferred,  NAME,  _HT_TAPLIMIT,            POSITIONS,  BINDINGS)
+#define HT_SLOW( NAME, BINDINGS... ) \
+    DEFINE_HOLDTAP( tap-preferred,  NAME,  _HT_TAP_THRESHOLD_SLOW,  _ALL_POSITIONS,  BINDINGS)
+	/* 
+#define HT_MACRO( NAME, BINDINGS... ) \
+    DEFINE_HOLDTAP( tap-preferred,  NAME,  _HT_TAP_THRESHOLD_SLOW,  _ALL_POSITIONS,  BINDINGS) */
 
 
 // HOME-ROW MODS                       // HOLD           TAP             
@@ -48,7 +65,7 @@ HT_BAL(  mosl,   <&mo>,  <&sl> )    // layer          one-shot layer    (balance
 HT(      mokp,   <&mo>,  <&kp> )    // layer          kp                (tap-preferred)
 
 
-// hrm for opposite hand only (used for shift)
+// hrm for opposite hand only
 HTPOS( htl,  _POS_RH,  <&kp>, <&kp> )
 HTPOS( htr,  _POS_LH,  <&kp>, <&kp> )
 
@@ -86,6 +103,9 @@ HT_FAST( ht_COLN, <&m_nbsp_COLN>, <&kp> )
 HT_FAST( ht_SCLN, <&m_nbsp_SCLN>, <&kp> )
 HT_FAST( ht_QMRK, <&m_nbsp_QMRK>, <&kp> )
 HT_FAST( ht_EXCL, <&m_nbsp_EXCL>, <&m_pure_EXCL> )
+
+// paste between on hold
+HT( ht_QUOT, <&m_paste_QUOT>, <&kp> )
 
 #define DEFINE_PURE(PURE_BEHAVIOR) \
     p##PURE_BEHAVIOR: p##PURE_BEHAVIOR { \

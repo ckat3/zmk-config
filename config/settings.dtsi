@@ -5,15 +5,19 @@
 #define _MACRO_TAP_FOR       1    // how long to hold tapped key
 
 #define _COMBO_TIMEOUT       17   // (16 might be too little) maximum interval between keys to form combo
-#define _COMBO_TIMEOUT_SLOW  32
+#define _COMBO_TIMEOUT_SLOW  32   // for harder combos (notably OE)
 
 // how long must hold to not be tap
-#define _HT_TAPLIMIT_SLOW    280  
-#define _HT_TAPLIMIT         200  // (200 is good)
-#define _HT_TAPLIMIT_FAST    190  // 
-#define _HT_TAPLIMIT_FASTER  110  // 
+#define _HT_TAP_THRESHOLD_SLOW    280  
+#define _HT_TAP_THRESHOLD         200  // (200 is good)
+#define _HT_TAP_THRESHOLD_FAST    190  // 
+#define _HT_TAP_THRESHOLD_FASTER  110  // 
 
-#define _HT_QUICKTAP        150  // how fast must press twice for second to start repeating tap
+// how long must have passed since the last key to count as a hold
+#define _HT_PRIOR_IDLE 150
+
+// how fast must press twice for second to start repeating tap
+#define _HT_QUICKTAP 150 
 
 &sk { // one-shot modifier
 	release-after-ms = < _STICKY_TIMEOUT >;
