@@ -171,6 +171,6 @@ MACRO(cp_hmrg,  <M_TAP  &to l_BASE >,  <M_KP_HOLD RGUI   >,  <M_WAIT_REL>,  <M_K
 
 
 // OTHER MACROS
-MACRO( paste_QUOT,  <M_TAP &kp QUOT_ LC(V_) &kp QUOT_ > )
-MACRO( exclrepeat,  <M_TAP &kp EXCL_ &slfast l_EXCL> ) 
+MACRO( paste_QUOT,  <M_TAP  &kp QUOT_  &kp LC(V_)  &kp QUOT_ > )
+MACRO( exclrepeat,  <M_TAP  &kp EXCL_  &slfast l_EXCL> ) 
 MACRO( soft_reset,  <REL_ALL_MODS>,  <M_TAP  &to l_BASE >)
