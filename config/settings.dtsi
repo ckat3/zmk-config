@@ -30,12 +30,12 @@
 };
 
 &mt { // hold-tap
-	tapping-term-ms = < _HT_TAPLIMIT_FASTER >;
+	tapping-term-ms = < _HT_TAP_THRESHOLD_FASTER >;
 	quick-tap-ms    = < _HT_QUICKTAP >;
 };
 
 &lt { // hold layer, tap kp
 	flavor          = "tap-preferred"; //"balanced"; // (which one is better?)
-	tapping-term-ms = < _HT_TAPLIMIT >;
+	tapping-term-ms = < _HT_TAP_THRESHOLD >;
 	quick-tap-ms    = < _HT_QUICKTAP >;
 };
