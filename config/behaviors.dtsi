@@ -116,7 +116,7 @@ HT( ht_QUOT, <&m_paste_QUOT>, <&kp> )
 		bindings \
 			= <&macro_release  &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LGUI> \
 			, <&macro_param_1to1> \
-			, <&macro_tap &##PURE_BEHAVIOR  MACRO_PLACEHOLDER> \
+			, <&macro_press &##PURE_BEHAVIOR  MACRO_PLACEHOLDER> \
 			, <&macro_pause_for_release> \
 			, <&macro_param_1to1> \
 			, <&macro_release &##PURE_BEHAVIOR  MACRO_PLACEHOLDER> \
