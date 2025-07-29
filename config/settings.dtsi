@@ -9,7 +9,7 @@
 
 // how long must hold to not be tap
 #define _HT_TAP_THRESHOLD_SLOW    280  
-#define _HT_TAP_THRESHOLD         200  // (200 is good)
+#define _HT_TAP_THRESHOLD         235  // (200 is too low)
 #define _HT_TAP_THRESHOLD_FAST    190  // 
 #define _HT_TAP_THRESHOLD_FASTER  110  // 
 
