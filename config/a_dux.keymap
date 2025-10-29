@@ -271,10 +271,9 @@ keymap {
  // -------------------
 	utility_layer {bindings=<
  // -------------------
- // those letters do nothing by default when pressed with hyper on w11/bépo: B L U I M ̛Q
-	xxxxxx   &pkp LC(S)   &pkp C_AC_BACK  &pkp C_AC_FORWARD &pkp LA(F4)         &pmkp MCLK   _________        _________        _________      _________
+	xxxxxx   &pkp LC(S)   &pkp C_AC_BACK  &pkp C_AC_FORWARD &pkp LA(F4)         &pmkp MCLK   _________        _________        _________      &kp B_
 	holding  &pkp LG(TAB) &m_utl_SATAB 	  &m_utl_ATAB		&pkp ESC        	&pmkp LCLK   &pmmv MOVE_LEFT  &pmmv MOVE_DOWN  &pmmv MOVE_UP  &pmmv MOVE_RIGHT
-	xxxxxx   _________    &m_utl_SCTAB    &m_utl_CTAB       &pkp LG(D)         	&pmkp RCLK   &pmsc SCRL_LEFT  &pmsc SCRL_DOWN  &pmsc SCRL_UP  &pmsc SCRL_RIGHT
+	xxxxxx   &kp J_       &m_utl_SCTAB    &m_utl_CTAB       &pkp LG(D)         	&pmkp RCLK   &pmsc SCRL_LEFT  &pmsc SCRL_DOWN  &pmsc SCRL_UP  &pmsc SCRL_RIGHT
 	
 											 &pkp LS(TAB)   &pkp ULIN_          &kp RCTRL   &kp RSHIFT
 	>;};

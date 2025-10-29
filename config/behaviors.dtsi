@@ -90,9 +90,9 @@ HT(    mo_slcw_l_SYM,                <&mo>,           <&m_cw_sl_SYM> )  // mo   
 // HT( ht_OEU,  <&kp>, <&m_OE_U_> )
 
 // loose accents on tap // TODO unused
-HT( ht_CFX, <&kp>, <&m_loose_CFX> )
-HT( ht_GRV, <&kp>, <&m_loose_GRV> )
-HT( ht_TLD, <&kp>, <&m_loose_TLD> ) 
+//HT( ht_CFX, <&kp>, <&m_loose_CFX> )
+//HT( ht_GRV, <&kp>, <&m_loose_GRV> )
+//HT( ht_TLD, <&kp>, <&m_loose_TLD> ) 
 
 // automatic nbsp on tap
 HT( ht_LGLM, <&kp>, <&m_nbsp_LGLM> )
@@ -104,8 +104,21 @@ HT_FAST( ht_SCLN, <&m_nbsp_SCLN>, <&kp> )
 HT_FAST( ht_QMRK, <&m_nbsp_QMRK>, <&kp> )
 HT_FAST( ht_EXCL, <&m_nbsp_EXCL>, <&m_pure_EXCL> )
 
-// paste between on hold
-HT( ht_QUOT, <&m_paste_QUOT>, <&kp> )
+// paste-between on hold
+HT_SLOW( ht_QUOT, <&m_paste_QUOT>, <&kp> )
+//HT_SLOW( ht_APST, <&m_paste_APST>, <&kp> ) // unused
+//HT_SLOW( ht_PAR,  <&m_paste_PAR >, <&kp> ) // unused
+//HT_SLOW( ht_BRK,  <&m_paste_BRK >, <&kp> ) // unused
+//HT_SLOW( ht_CUR,  <&m_paste_CUR >, <&kp> ) // unused
+//HT_SLOW( ht_LTGT, <&m_paste_LTGT>, <&kp> ) // unused
+
+
+
+
+
+
+
+
 
 #define DEFINE_PURE(PURE_BEHAVIOR) \
     p##PURE_BEHAVIOR: p##PURE_BEHAVIOR { \
@@ -116,7 +129,8 @@ HT( ht_QUOT, <&m_paste_QUOT>, <&kp> )
 		bindings \
 			= <&macro_release  &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LGUI> \
 			, <&macro_param_1to1> \
-			, <&macro_press &##PURE_BEHAVIOR  MACRO_PLACEHOLDER> \
+			/*substituted tap for press to try to fix the bug wherein the cursor would keep moving */ \
+			, <&macro_tap &##PURE_BEHAVIOR  MACRO_PLACEHOLDER> \
 			, <&macro_pause_for_release> \
 			, <&macro_param_1to1> \
 			, <&macro_release &##PURE_BEHAVIOR  MACRO_PLACEHOLDER> \
