@@ -116,5 +116,5 @@ COMBO( l_FUNC,  &tog l_GAM2      ,     14 24 ,  gameLayer2)
 
 
 
-COMBO( ll_DEFAULT,  &m_soft_reset ,  1 2 3 4 ,  atirsoatsats)
+COMBO( ll_DEFAULT,  &m_state_reset ,  1 2 3 4 ,  atirsoatsats)
 COMBO( ll_DEFAULT,  &sys_reset ,     5 6 7 8 ,  aioaiortasiotraisoat)

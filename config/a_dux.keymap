@@ -270,10 +270,10 @@ keymap {
  // FUNCTION LAYERS
  // -------------------
 	utility_layer {bindings=<
- // -------------------
-	xxxxxx   &pkp LC(S)   &pkp C_AC_BACK  &pkp C_AC_FORWARD &pkp LA(F4)         &pmkp MCLK   _________        _________        _________      &kp B_
-	holding  &pkp LG(TAB) &m_utl_SATAB 	  &m_utl_ATAB		&pkp ESC        	&pmkp LCLK   &pmmv MOVE_LEFT  &pmmv MOVE_DOWN  &pmmv MOVE_UP  &pmmv MOVE_RIGHT
-	xxxxxx   &kp J_       &m_utl_SCTAB    &m_utl_CTAB       &pkp LG(D)         	&pmkp RCLK   &pmsc SCRL_LEFT  &pmsc SCRL_DOWN  &pmsc SCRL_UP  &pmsc SCRL_RIGHT
+ // -------------------                                                                      for some reason all directions are inverted???
+	xxxxxx   &pkp LC(S)   &pkp C_AC_BACK  &pkp C_AC_FORWARD &pkp LA(F4)         &pmkp MCLK   _________        _________        _________   &kp B_
+	holding  &pkp LG(TAB) &m_utl_SATAB 	  &m_utl_ATAB		&pkp ESC        	&pmkp LCLK   &mmv MOVE_RIGHT &mmv MOVE_UP  &mmv MOVE_DOWN  &mmv MOVE_LEFT
+	xxxxxx   &kp J_       &m_utl_SCTAB    &m_utl_CTAB       &pkp LG(D)         	&pmkp RCLK   &msc SCRL_LEFT  &msc SCRL_UP  &msc SCRL_DOWN  &msc SCRL_RIGHT
 	
 											 &pkp LS(TAB)   &pkp ULIN_          &kp RCTRL   &kp RSHIFT
 	>;};

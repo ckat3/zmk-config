@@ -1,7 +1,4 @@
-// syntactic sugar		
-#define  LH_MODS       &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LGUI
-#define  RH_MODS       &kp RSHIFT  &kp RCTRL  &kp RALT  &kp RGUI
-#define ALL_MODS       LH_MODS RH_MODS
+
 
 #define M_TAP         &macro_tap
 #define M_HOLD        &macro_press
@@ -162,9 +159,10 @@ MACRO(cp_hmrg,  <M_TAP  &to l_BASE >,  <M_KP_HOLD RGUI   >,  <M_WAIT_REL>,  <M_K
 	#define ONLY_CTRL     M_REL   &kp LSHIFT             &kp LALT  &kp LGUI  RH_MODS
 	#define ONLY_ALT      M_REL   &kp LSHIFT  &kp LCTRL            &kp LGUI  RH_MODS
 	
-	#define REL_MOUSE     M_REL   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  // TODO: strange bug wherein the pointer wouldn't stop moving
-
-	MACRO( mo_l_UTIL,  <M_TAP &to l_UTIL>,  <HOLD_LH_MODS>,  <M_WAIT_REL>,  <REL_ALL_MODS>,  <REL_MOUSE>,  <M_TAP &to l_BASE> )
+	// #define REL_MOUSE     M_REL   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  // TODO: strange bug wherein the pointer wouldn't stop moving
+	
+	MACRO( mo_l_UTIL,  <M_TAP &to l_UTIL>,  <HOLD_LH_MODS>,  <M_WAIT_REL>,  <REL_ALL_MODS>,  <M_TAP &to l_BASE> )
+	//MACRO( mo_l_UTIL,  <M_TAP &to l_UTIL>,  <HOLD_LH_MODS>,  <M_WAIT_REL>,  <REL_ALL_MODS>,  <REL_MOUSE>,  <M_TAP &to l_BASE> )
 	
 	MACRO(  utl_ATAB,     <ONLY_ALT >  ,  <M_KP     TAB  > ) // these will not hold all mods at the
 	MACRO( utl_SATAB,     <ONLY_ALT >  ,  <M_KP  LS(TAB) > ) //  end, so that we can do alt-tab etc
@@ -173,7 +171,8 @@ MACRO(cp_hmrg,  <M_TAP  &to l_BASE >,  <M_KP_HOLD RGUI   >,  <M_WAIT_REL>,  <M_K
 
 
 MACRO( exclrepeat,  <M_TAP  &kp EXCL_  &slfast l_EXCL> ) 
-MACRO( soft_reset,  <REL_ALL_MODS>,  <REL_MOUSE>,  <M_TAP  &to l_BASE >)
+//MACRO( state_reset,  <REL_ALL_MODS>,  <REL_MOUSE>,  <M_TAP  &to l_BASE >)
+MACRO( state_reset,  <REL_ALL_MODS>,  <M_TAP  &to l_BASE >)
 
 
 // SURROUND MACROS:

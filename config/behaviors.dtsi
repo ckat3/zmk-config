@@ -116,7 +116,10 @@ HT_SLOW( ht_QUOT, <&m_paste_QUOT>, <&kp> )
 
 
 
-
+// syntactic sugar		
+#define  LH_MODS       &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LGUI
+#define  RH_MODS       &kp RSHIFT  &kp RCTRL  &kp RALT  &kp RGUI
+#define ALL_MODS       LH_MODS RH_MODS
 
 
 
@@ -127,14 +130,15 @@ HT_SLOW( ht_QUOT, <&m_paste_QUOT>, <&kp> )
 		wait-ms = <_MACRO_TAP_PADDING>; \
     	#binding-cells = <1>; \
 		bindings \
-			= <&macro_release  &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LGUI> \
+			= <&macro_release  ALL_MODS> \
 			, <&macro_param_1to1> \
-			/*substituted tap for press to try to fix the bug wherein the cursor would keep moving */ \
 			, <&macro_tap &##PURE_BEHAVIOR  MACRO_PLACEHOLDER> \
+			/*
+			, <&macro_press &##PURE_BEHAVIOR  MACRO_PLACEHOLDER> \
 			, <&macro_pause_for_release> \
 			, <&macro_param_1to1> \
-			, <&macro_release &##PURE_BEHAVIOR  MACRO_PLACEHOLDER> \
-			, <&macro_press  &kp LSHIFT  &kp LCTRL  &kp LALT  &kp LGUI> \
+			, <&macro_release &##PURE_BEHAVIOR  MACRO_PLACEHOLDER> \ */ \
+			, <&macro_press  LH_MODS> \
 			; \
 	};
 	
