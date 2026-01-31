@@ -50,7 +50,6 @@
 MACRO_DIGRAM( Q_,  U_ )
 MACRO_DIGRAM( B_,  J_ )
 
-
 // --------------------
 // ACCENTED LETTERS
 // also defines a caps version (eg &m_cp_ACUT_A_)
@@ -93,17 +92,27 @@ MACRO(   nbsp_RGLM ,  <M_TAP  &kp NBSP_  &kp RGLM_            >)
 MACRO(   nbsp_LGLM ,  <M_TAP  &kp LGLM_  &kp NBSP_            >)
 
 
-MACRO(        CAO  ,                <M_TAP  &kp CCED_  &kp TILD_  &kp  A_  &kp  O_          &sl l_BSP3 >)    
-MACRO(     cp_CAO  ,  M_HOLD_SHIFT, <M_TAP  &kp CCED_  &kp TILD_  &kp  A_  &kp  O_          &sl l_BSP3 >, M_REL_SHIFT)     
-MACRO(        COES ,                <M_TAP  &kp CCED_  &kp TILD_  &kp  O_  &kp  E_  &kp  S_ &sl l_BSP4 >)         
-MACRO(     cp_COES ,  M_HOLD_SHIFT, <M_TAP  &kp CCED_  &kp TILD_  &kp  O_  &kp  E_  &kp  S_ &sl l_BSP4 >, M_REL_SHIFT)
+// --------------------
+// USEFUL SYMBOLS
+MACRO( larrow ,  <M_TAP  &kp LA(D_)  &kp EGRV_ >)
+MACRO( rarrow ,  <M_TAP  &kp LA(D_)  &kp CFLX_ >)
+MACRO( scwha  ,  <M_TAP  &kp LA(S_)  &kp E_ >)
+
+// --------------------
+// NASALIZED PORTUGUESE SEQUENCES
+MACRO(   CAO  ,                <M_TAP  &kp CCED_  &kp TILD_  &kp  A_  &kp  O_          &sl l_BSP3 >)    
+MACRO(cp_CAO  ,  M_HOLD_SHIFT, <M_TAP  &kp CCED_  &kp TILD_  &kp  A_  &kp  O_          &sl l_BSP3 >, M_REL_SHIFT)     
+MACRO(   COES ,                <M_TAP  &kp CCED_  &kp TILD_  &kp  O_  &kp  E_  &kp  S_ &sl l_BSP4 >)         
+MACRO(cp_COES ,  M_HOLD_SHIFT, <M_TAP  &kp CCED_  &kp TILD_  &kp  O_  &kp  E_  &kp  S_ &sl l_BSP4 >, M_REL_SHIFT)
+
+
 
 // --------------------
 // LOOSE ACCENTS 
 
-MACRO(loose_CFX,  <M_TAP  &kp CFLX_  &kp SPACE >)
-MACRO(loose_GRV,  <M_TAP  &kp GRAV_  &kp SPACE >)
-MACRO(loose_TLD,  <M_TAP  &kp TILD_  &kp SPACE >)
+MACRO( loose_CFX,  <M_TAP  &kp CFLX_  &kp SPACE >)
+MACRO( loose_GRV,  <M_TAP  &kp GRAV_  &kp SPACE >)
+MACRO( loose_TLD,  <M_TAP  &kp TILD_  &kp SPACE >)
 
 // --------------------
 // ESZETT 
@@ -118,10 +127,10 @@ MACRO(     SPC_sl_OSCP ,  <M_TAP              &kp SPACE   &sl l_OSCP >)
 MACRO( DOT_SPC_sl_OSCP ,  <M_TAP  &kp DOT_    &kp SPACE   &sl l_OSCP >)
 
 // key -> capsword off                           
-MACRO(         cw_SPC  ,  <M_TAP  &kp SPACE   &to l_BASE >)
-MACRO(         cw_TAB  ,  <M_TAP  &kp TAB     &to l_BASE >)
-MACRO(         cw_ENTER,  <M_TAP  &kp ENTER   &to l_BASE >)
-MACRO(         cw_ESC  ,  <M_TAP  &kp ESC     &to l_BASE >)
+MACRO( cw_SPC  ,  <M_TAP  &kp SPACE   &to l_BASE >)
+MACRO( cw_TAB  ,  <M_TAP  &kp TAB     &to l_BASE >)
+MACRO( cw_ENTER,  <M_TAP  &kp ENTER   &to l_BASE >)
+MACRO( cw_ESC  ,  <M_TAP  &kp ESC     &to l_BASE >)
 
 // capsword off + one-shot SYM
 MACRO(      cw_sl_SYM  ,  <M_TAP  &sl l_SYM  &tog l_CPWD >)
@@ -130,21 +139,21 @@ MACRO(      cw_sl_SYM  ,  <M_TAP  &sl l_SYM  &tog l_CPWD >)
 MACRO(      cw_mo_NAV  ,  <M_TAP  &to l_NAV >,  <M_WAIT_REL>,  <M_TAP  &to l_BASE >)
 	
 // --------------------
-// MULTI-BACKSPACE 
-MACRO(BSP2,  <M_TAP  &kp BSPC &kp BSPC >)
-MACRO(BSP3,  <M_TAP  &kp BSPC &kp BSPC &kp BSPC >)
-MACRO(BSP4,  <M_TAP  &kp BSPC &kp BSPC &kp BSPC &kp BSPC >)
+// MULTI-BACKSPACE (to erase a string input from a macro)
+MACRO( BSP2,  <M_TAP  &kp BSPC &kp BSPC >)
+MACRO( BSP3,  <M_TAP  &kp BSPC &kp BSPC &kp BSPC >)
+MACRO( BSP4,  <M_TAP  &kp BSPC &kp BSPC &kp BSPC &kp BSPC >)
 
 // --------------------
 // homerow mods pass through to l_BASE
-MACRO(cp_hmls,  <M_TAP  &to l_BASE >,  <M_KP_HOLD LSHIFT >,  <M_WAIT_REL>,  <M_KP_REL LSHIFT >)
-MACRO(cp_hmlc,  <M_TAP  &to l_BASE >,  <M_KP_HOLD LCTRL  >,  <M_WAIT_REL>,  <M_KP_REL LCTRL  >)
-MACRO(cp_hmla,  <M_TAP  &to l_BASE >,  <M_KP_HOLD LALT   >,  <M_WAIT_REL>,  <M_KP_REL LALT   >)
-MACRO(cp_hmlg,  <M_TAP  &to l_BASE >,  <M_KP_HOLD LGUI   >,  <M_WAIT_REL>,  <M_KP_REL LGUI   >)
-MACRO(cp_hmrs,  <M_TAP  &to l_BASE >,  <M_KP_HOLD RSHIFT >,  <M_WAIT_REL>,  <M_KP_REL RSHIFT >)
-MACRO(cp_hmrc,  <M_TAP  &to l_BASE >,  <M_KP_HOLD RCTRL  >,  <M_WAIT_REL>,  <M_KP_REL RCTRL  >)
-MACRO(cp_hmra,  <M_TAP  &to l_BASE >,  <M_KP_HOLD RALT   >,  <M_WAIT_REL>,  <M_KP_REL RALT   >)
-MACRO(cp_hmrg,  <M_TAP  &to l_BASE >,  <M_KP_HOLD RGUI   >,  <M_WAIT_REL>,  <M_KP_REL RGUI   >)
+MACRO( cp_hmls,  <M_TAP  &to l_BASE >,  <M_KP_HOLD LSHIFT >,  <M_WAIT_REL>,  <M_KP_REL LSHIFT >)
+MACRO( cp_hmlc,  <M_TAP  &to l_BASE >,  <M_KP_HOLD LCTRL  >,  <M_WAIT_REL>,  <M_KP_REL LCTRL  >)
+MACRO( cp_hmla,  <M_TAP  &to l_BASE >,  <M_KP_HOLD LALT   >,  <M_WAIT_REL>,  <M_KP_REL LALT   >)
+MACRO( cp_hmlg,  <M_TAP  &to l_BASE >,  <M_KP_HOLD LGUI   >,  <M_WAIT_REL>,  <M_KP_REL LGUI   >)
+MACRO( cp_hmrs,  <M_TAP  &to l_BASE >,  <M_KP_HOLD RSHIFT >,  <M_WAIT_REL>,  <M_KP_REL RSHIFT >)
+MACRO( cp_hmrc,  <M_TAP  &to l_BASE >,  <M_KP_HOLD RCTRL  >,  <M_WAIT_REL>,  <M_KP_REL RCTRL  >)
+MACRO( cp_hmra,  <M_TAP  &to l_BASE >,  <M_KP_HOLD RALT   >,  <M_WAIT_REL>,  <M_KP_REL RALT   >)
+MACRO( cp_hmrg,  <M_TAP  &to l_BASE >,  <M_KP_HOLD RGUI   >,  <M_WAIT_REL>,  <M_KP_REL RGUI   >)
 	
 	
 	
@@ -170,14 +179,14 @@ MACRO(cp_hmrg,  <M_TAP  &to l_BASE >,  <M_KP_HOLD RGUI   >,  <M_WAIT_REL>,  <M_K
 	MACRO( utl_SCTAB,     <ONLY_CTRL>  ,  <M_KP  LS(TAB) > ) //  dropping the little window
 
 
-MACRO( exclrepeat,  <M_TAP  &kp EXCL_  &slfast l_EXCL> ) 
-//MACRO( state_reset,  <REL_ALL_MODS>,  <REL_MOUSE>,  <M_TAP  &to l_BASE >)
+MACRO( exclrepeat,  <M_TAP  &kp EXCL_  &slfast l_EXCL> )
 MACRO( state_reset,  <REL_ALL_MODS>,  <M_TAP  &to l_BASE >)
 
 
 // SURROUND MACROS:
 // These are a huge pain to implement (each needs a custom behavior),
 // so for now Autohotkey is the much better option.
+// TODO: give up.
 // ----------------------------------------------------------
 // Pastes from clipboard within symbols
 

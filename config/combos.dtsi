@@ -15,10 +15,11 @@ compatible = "zmk,combos";
 // suffix must be added if there's more than one combo for the same key or macro
 #define COMBO_KP( LAYERS,     KEY, SUFFIX,   POSITIONS) \
 	DEFINE_COMBO( LAYERS,     KEY##SUFFIX,   POSITIONS,  _COMBO_TIMEOUT,   &kp KEY)
+#define COMBO_KP_SLOW( LAYERS,     KEY, SUFFIX,   POSITIONS) \
+	DEFINE_COMBO( LAYERS,     KEY##SUFFIX,   POSITIONS,  _COMBO_TIMEOUT,   &kp KEY)
 
 #define COMBO_M(  LAYERS,   MACRO, SUFFIX,   POSITIONS) \
 	DEFINE_COMBO( LAYERS,   MACRO##SUFFIX,   POSITIONS,  _COMBO_TIMEOUT,        &m_##MACRO)
-	
 #define COMBO_MSL(  LAYERS,   MACRO, SUFFIX,   POSITIONS) \
 	DEFINE_COMBO( LAYERS,   MACRO##SUFFIX,   POSITIONS,  _COMBO_TIMEOUT_SLOW,   &m_##MACRO)
 
@@ -37,8 +38,8 @@ compatible = "zmk,combos";
 COMBO_KP( ll_DEFAULT,          ULIN_      ,,      1  2 ) //                                   
 COMBO(    ll_DEFAULT,      &kp LG(V_)      ,      2  3 ,    clipboardHistory_PowerToys)
 
-COMBO_KP( ll_NOTCPWD,          ESC        ,,     10 11 ) // 
-COMBO_M(  ll_CPWD,          cw_ESC        ,,     10 11 ) // 
+COMBO_KP_SLOW( ll_NOTCPWD,       ESC      ,,     10 11 ) // 
+COMBO_MSL(     ll_CPWD,          cw_ESC   ,,     10 11 ) // 
 
 COMBO_KP( ll_DEFAULT,          BSPC       ,,     11 12 ) // 
 COMBO_KP( ll_DEFAULT,          DEL        ,,     21 22 ) //      
@@ -73,10 +74,10 @@ COMBO(    ll_DEFAULT,       &sl l_OSCP     ,  16 17 18 ,  aaioaipo)
 COMBO(    ll_DEFAULT,   &m_SPC_sl_OSCP     ,     32 33 ,  aapopiaio) // TODO: which m_SPC_sl_OSCP is better?  
 
 
-// TODO merge these?  
-COMBO(      l_BASE,             &kp     Q_   ,     21 23 ,  aapopiaioo)
+// TODO merge these? 
+COMBO(      l_BASE,             &kp     Q_   ,     26 29 ,  aapopiaioo)
 COMBO(      l_BASE,             &kp     J_   ,     26 28 ,  aapopiaioooi)
-COMBO(     ll_CAPS,             &kp  LS(Q_)  ,     21 23 ,  aapopiaioooia)
+COMBO(     ll_CAPS,             &kp  LS(Q_)  ,     26 29 ,  aapopiaioooia)
 COMBO(     ll_CAPS,             &kp  LS(J_)  ,     26 28 ,  aapopiaioooiai)
 
 COMBO_M(    l_BASE,                 Q_U_    ,,     26 27 )  /* qu */
