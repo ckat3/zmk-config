@@ -59,6 +59,7 @@ slfast: slay_fast {
 
 // HOME-ROW MODS                       // HOLD           TAP             
 HT(      ht,     <&kp>,  <&kp> )    // kp             kp                (tap-preferred)
+HT_BAL(  htb,    <&kp>,  <&kp> )    // kp             kp                (balanced)
 HT_SLOW( htslow, <&kp>,  <&kp> )    // kp (slow)      kp (slow)         (tap-preferred)
 HT(      htsl,   <&kp>,  <&sl> )    // kp             one-shot layer    (tap-preferred)
 HT_BAL(  mosl,   <&mo>,  <&sl> )    // layer          one-shot layer    (balanced)

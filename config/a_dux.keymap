@@ -90,6 +90,17 @@ keymap {
 	#define HMRA   &htr  RALT
 	#define HMLG   &htl  LGUI
 	#define HMRG   &htr  RGUI
+	
+	// todo: does this need to be positional?
+	#define HBLS   &htb  LSHIFT
+	#define HBRS   &htb  RSHIFT
+	#define HBLC   &htb  LCTRL
+	#define HBRC   &htb  RCTRL
+	#define HBLA   &htb  LALT
+	#define HBRA   &htb  RALT
+	#define HBLG   &htb  LGUI
+	#define HBRG   &htb  RGUI
+	
 	#define MNAV   &mokp l_MNAV // mini nav layer
 
  // HOME-ROW MODS (CAPS LAYER)
@@ -188,8 +199,8 @@ keymap {
 	symbol_layer {bindings=<
  // -------------------
 	&kp  PIPE_   &kp  AT_     &kp  AE_     &kp  OE_        NBSP_EXCL            DLLR_EURO       &kp  LBRK_   &kp RBRK_    &kp AMPR_   &kp  TLDL_
-	HMLG LCUR_   HMLA RCUR_   HMLC LPAR_   HMLS RPAR_      &kp SCLN_            &kp COLN_       HMRS CFXL_   HMRC GRVL_   &kp RALT    &kp  FSLA_
-	&kp  NDSH_   HMRA MDSH_   NBSP_LGLM    NBSP_RGLM       &kp COMM_            &kp DOT_        &kp  LT_     &kp  GT_     HMLA EQUL_  HMRG BSLA_
+	HBLG LCUR_   HBLA RCUR_   HBLC LPAR_   HBLS RPAR_      &kp SCLN_            &kp COLN_       HBRS CFXL_   HBRC GRVL_   &kp RALT    &kp  FSLA_
+	&kp  NDSH_   HBRA MDSH_   NBSP_LGLM    NBSP_RGLM       &kp COMM_            &kp DOT_        &kp  LT_     &kp  GT_     HBLA EQUL_  HMRG BSLA_
 	
 													 xxxxxx   xxxxxx            &lt l_NUM ULIN_  ______
 	>;}; //  								                double tap
@@ -216,11 +227,11 @@ keymap {
  // -------------------		
 	navigation_layer {bindings=<
  // -------------------
-	&kp  LSLCK    &kp  LNLCK    &to  l_NUM   PASTEPLAIN         TASKMAN            xxxxxxxxx      HMLS LC(HOME)   HMLC PG_DN    HMLA PG_UP    HMRG LC(END)
-	&kp  LC(Z_)   HMLA LC(X_)   HMLC LC(C_)  &kp  LC(V_)       &kp CAPS            xxxxxxxxx      &kp  LC(LEFT)   &kp  DOWN     &kp  UP       &kp  LC(RIGHT)
-	HMLG LC(Y_)   HMRA INSERT   &kp  PSCRN   &kp  PSBRK       xxxxxxxxx            xxxxxxxxx      &kp  HOME       &kp  LEFT     &kp  RIGHT    &kp  END
+	&kp  LSLCK    &kp  LNLCK    &to  l_NUM   PASTEPLAIN         TASKMAN            xxxxxxxxx      HBLS LC(HOME)   HBLC PG_DN    HBLA PG_UP    HBRG LC(END)
+	&kp  LC(Z_)   HBLA LC(X_)   HBLC LC(C_)  HBLS LC(V_)       &kp CAPS            xxxxxxxxx      &kp  LC(LEFT)   &kp  DOWN     &kp  UP       &kp  LC(RIGHT)
+	HBLG LC(Y_)   HBRA INSERT   &kp  PSCRN   &kp  PSBRK       xxxxxxxxx            xxxxxxxxx      &kp  HOME       &kp  LEFT     &kp  RIGHT    &kp  END
 	//  					                                        				                  
-										&lt l_CPWD LSHIFT   &tog l_CAPS        	   xxxxxxxxx   holding
+											  &tog l_CPWD   &tog l_CAPS        	   xxxxxxxxx   holding
 	>;};
 
  // -------------------	
