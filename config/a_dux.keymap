@@ -115,8 +115,6 @@ keymap {
 
 	#define NBSP_LGLM    &ht_LGLM   LGLM_  0         //  «     «■
 	#define NBSP_RGLM    &ht_RGLM   RGLM_  0         //  »      ■»
-	
-	#define QUOT_PASTE   &ht_QUOT   0      QUOT_     // "V"     "    // V = paste
 
 
  // THUMB KEYS ------------------
@@ -247,7 +245,7 @@ keymap {
     #define HMCP &mokp l_ACCP // otherwise shift is applied to ralt and messes up some keys.
                               // TODO maybe replace by transp shift layer + conditional ACCP?
 	accent_layer {bindings=<
- MACRO_ROW_4(,    CFLX_U_,   CFLX_O_,   CFLX_I_,   CFLX_A_ )     IEXCL_IQMRK       xxxxxx     &kp  CCED_  &kp  APST_  QUOT_PASTE   &m_B_J_
+ MACRO_ROW_4(,    CFLX_U_,   CFLX_O_,   CFLX_I_,   CFLX_A_ )     IEXCL_IQMRK       xxxxxx     &kp  CCED_  &kp  APST_  &kp  QUOT_   &m_B_J_
  MACRO_ROW_5(,    ACUT_U_,   ACUT_O_,   ACUT_I_,   ACUT_A_,          TILD_A_)      xxxxxx     HMCP CFLX_  HMRC GRAV_  HMLA ACUT_   &m_TILD_N_
  MACRO_ROW_3(,    GRAV_U_,   TILD_O_,   TRMA_I_ )  &kp AGRV_          xxxxxx       xxxxxx     &kp  TRMA_  xxxxxxxxx     &m_SZTT   &kp TILD_
 
@@ -259,7 +257,7 @@ keymap {
  // -------------------
 	accent_caps_layer {bindings=<
  // -------------------
- MACRO_ROW_4(cp_, CFLX_U_,   CFLX_O_,   CFLX_I_,   CFLX_A_ )           xxxxxx           xxxxxx       &kp  LS(CCED_)  &kp  APST_  QUOT_PASTE  &m_cp_B_J_
+ MACRO_ROW_4(cp_, CFLX_U_,   CFLX_O_,   CFLX_I_,   CFLX_A_ )           xxxxxx           xxxxxx       &kp  LS(CCED_)  &kp  APST_  &kp  QUOT_  &m_cp_B_J_
  MACRO_ROW_5(cp_, ACUT_U_,   ACUT_O_,   ACUT_I_,   ACUT_A_,           TILD_A_)          xxxxxx       HMRS ACUT_      HMRC CFLX_  HMLA GRAV_  &m_cp_TILD_N_
  MACRO_ROW_3(cp_, GRAV_U_,   TILD_O_,   TRMA_I_)   &kp LS(AGRV_)       xxxxxx           xxxxxx       &kp  TRMA_      xxxxxxxxx   &m_cp_SZTT  &kp   TILD_
 
