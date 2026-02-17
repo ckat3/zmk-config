@@ -181,29 +181,3 @@ MACRO( cp_hmrg,  <M_TAP  &to l_BASE >,  <M_KP_HOLD RGUI   >,  <M_WAIT_REL>,  <M_
 
 MACRO( exclrepeat,  <M_TAP  &kp EXCL_  &slfast l_EXCL> )
 MACRO( state_reset,  <REL_ALL_MODS>,  <M_TAP  &to l_BASE >)
-
-
-// SURROUND MACROS:
-// These are a huge pain to implement (each needs a custom behavior),
-// so for now Autohotkey is the much better option.
-// TODO: give up.
-// ----------------------------------------------------------
-// Pastes from clipboard within symbols
-
-MACRO( paste_QUOT,  <M_TAP  &kp QUOT_  &kp LC(V_)  &kp QUOT_ >)
-MACRO( paste_APST,  <M_TAP  &kp APST_  &kp LC(V_)  &kp APST_ >)
-MACRO( paste_PAR,   <M_TAP  &kp LPAR_  &kp LC(V_)  &kp RPAR_ >)
-MACRO( paste_BRK,   <M_TAP  &kp LBRK_  &kp LC(V_)  &kp RBRK_ >)
-MACRO( paste_CUR,   <M_TAP  &kp LCUR_  &kp LC(V_)  &kp RCUR_ >)
-MACRO( paste_LTGT,  <M_TAP  &kp LT_    &kp LC(V_)  &kp GT_   >)
-
-// Surrounds selected text with symbols
-// ahk shortcuts:         save clipboard                           restore clipboard
-MACRO( surr_QUOT,  <M_TAP  &kp HYPR(C_)  &kp LC(X_)  &m_paste_QUOT  &kp HYPR(V_) >)
-MACRO( surr_APST,  <M_TAP  &kp HYPR(C_)  &kp LC(X_)  &m_paste_APST  &kp HYPR(V_) >)
-MACRO( surr_PAR,   <M_TAP  &kp HYPR(C_)  &kp LC(X_)  &m_paste_PAR   &kp HYPR(V_) >)
-MACRO( surr_BRK,   <M_TAP  &kp HYPR(C_)  &kp LC(X_)  &m_paste_BRK   &kp HYPR(V_) >)
-MACRO( surr_CUR,   <M_TAP  &kp HYPR(C_)  &kp LC(X_)  &m_paste_CUR   &kp HYPR(V_) >)
-MACRO( surr_LTGT,  <M_TAP  &kp HYPR(C_)  &kp LC(X_)  &m_paste_LTGT  &kp HYPR(V_) >)
-
-

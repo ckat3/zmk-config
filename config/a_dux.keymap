@@ -82,8 +82,8 @@ keymap {
 	
 
  // HOME-ROW MODS ------------------
-	#define HMLS   &htl  LSHIFT // left shift prefers keys on right hand
-	#define HMRS   &htr  RSHIFT // rite shift prefers keys on left hand
+	#define HMLS   &htl  LSHIFT // LH shift prefers keys on RH
+	#define HMRS   &htr  RSHIFT // and vice-versa
 	#define HMLC   &htl  LCTRL
 	#define HMRC   &htr  RCTRL
 	#define HMLA   &htl  LALT
@@ -219,10 +219,10 @@ keymap {
 	navigation_layer {bindings=<
  // -------------------
 	&kp  LSLCK    &kp  LNLCK    &to  l_NUM   PASTEPLAIN         TASKMAN            xxxxxxxxx      HMLS LC(HOME)   HMLC PG_DN    HMLA PG_UP    HMRG LC(END)
-	&kp  LC(Z_)   HMLA LC(X_)   HMLC LC(C_)  HMLS LC(V_)       &kp CAPS            xxxxxxxxx      &kp  LC(LEFT)   &kp  DOWN     &kp  UP       &kp  LC(RIGHT)
+	&kp  LC(Z_)   HMLA LC(X_)   HMLC LC(C_)  &kp  LC(V_)       &kp CAPS            xxxxxxxxx      &kp  LC(LEFT)   &kp  DOWN     &kp  UP       &kp  LC(RIGHT)
 	HMLG LC(Y_)   HMRA INSERT   &kp  PSCRN   &kp  PSBRK       xxxxxxxxx            xxxxxxxxx      &kp  HOME       &kp  LEFT     &kp  RIGHT    &kp  END
 	//  					                                        				                  
-												  &tog l_CPWD   &tog l_CAPS        xxxxxxxxx   holding
+										&lt l_CPWD LSHIFT   &tog l_CAPS        	   xxxxxxxxx   holding
 	>;};
 
  // -------------------	
