@@ -94,9 +94,9 @@ MACRO(   nbsp_LGLM ,  <M_TAP  &kp LGLM_  &kp NBSP_            >)
 
 // --------------------
 // USEFUL SYMBOLS
-MACRO( larrow ,  <M_TAP  &kp LA(D_)  &kp EGRV_ >)
-MACRO( rarrow ,  <M_TAP  &kp LA(D_)  &kp CFLX_ >)
-MACRO( scwha  ,  <M_TAP  &kp LA(S_)  &kp E_ >)
+MACRO( larrow ,  <M_TAP  &kp RA(D_)  &kp EGRV_ >)
+MACRO( rarrow ,  <M_TAP  &kp RA(D_)  &kp CFLX_ >)
+MACRO( scwha  ,  <M_TAP  &kp RA(S_)  &kp E_ >)
 
 // --------------------
 // NASALIZED PORTUGUESE SEQUENCES

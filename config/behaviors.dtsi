@@ -105,6 +105,9 @@ HT_FAST( ht_SCLN, <&m_nbsp_SCLN>, <&kp> )
 HT_FAST( ht_QMRK, <&m_nbsp_QMRK>, <&kp> )
 HT_FAST( ht_EXCL, <&m_nbsp_EXCL>, <&m_pure_EXCL> )
 
+// automatic nbsp on tap
+HT( ht_LT, <&kp>, <&m_larrow> )
+HT( ht_GT, <&kp>, <&m_rarrow> )
 
 
 
