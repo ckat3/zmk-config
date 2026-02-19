@@ -1,5 +1,3 @@
-
-
 #define M_TAP         &macro_tap
 #define M_HOLD        &macro_press
 #define M_REL         &macro_release
