@@ -127,8 +127,8 @@ keymap {
 	#define NBSP_LGLM    &ht_LGLM   LGLM_  0         //  «     «■
 	#define NBSP_RGLM    &ht_RGLM   RGLM_  0         //  »      ■»
 	
-	#define LARR_LT      &ht_LT     LT_    0         //  ←      <
-	#define RARR_GT      &ht_GT     GT_    0         //  →      >
+	#define LT_LARR      &ht_LT     0      LT_       //  ←      <
+	#define GT_RARR      &ht_GT     0      GT_       //  →      >
 
 
  // THUMB KEYS ------------------
@@ -192,7 +192,7 @@ keymap {
  // -------------------
 	&kp  PIPE_   &kp  N7_   &kp  N8_   &kp  N9_      EXCL_QMRK             DLLR_EURO       &kp  LBRK_   &kp  RBRK_   HMRA HASH_   &kp  PCNT_
 	&kp  N0_     &kp  N1_   &kp  N2_   &kp  N3_      &kp SCLN_             &kp COLN_       HMLS PLUS_   HMLC MIN_    HMLA STAR_   &kp  FSLA_
-	HMLC ENTER   &kp  N4_   MNAV N5_   &kp  N6_      &kp COMM_             &kp DOT_        LARR_LT      RARR_GT      EQUL_DIFF    HMRG BSLA_
+	HMLC ENTER   &kp  N4_   MNAV N5_   &kp  N6_      &kp COMM_             &kp DOT_        LT_LARR      GT_RARR      EQUL_DIFF    HMRG BSLA_
 	
 									  &to l_BASE    holding             &lt l_NUM ULIN_  ______
 	>;}; //                             unlock
@@ -204,7 +204,7 @@ keymap {
  // -------------------
 	&kp  PIPE_   &kp  AT_     &kp  AE_     &kp  OE_        NBSP_EXCL            DLLR_EURO       &kp  LBRK_   &kp RBRK_    &kp AMPR_   &kp  TLDL_
 	HBLG LCUR_   HBLA RCUR_   HBLC LPAR_   HBLS RPAR_      &kp SCLN_            &kp COLN_       HBRS CFXL_   HBRC GRVL_   &kp RALT    &kp  FSLA_
-	&kp  NDSH_   HBRA MDSH_   NBSP_LGLM    NBSP_RGLM       &kp COMM_            &kp DOT_        LARR_LT      RARR_GT      HBLA EQUL_  HMRG BSLA_
+	&kp  NDSH_   HBRA MDSH_   NBSP_LGLM    NBSP_RGLM       &kp COMM_            &kp DOT_        LT_LARR      GT_RARR      HBLA EQUL_  HMRG BSLA_
 	
 													 xxxxxx   xxxxxx            &lt l_NUM ULIN_  ______
 	>;}; //  								                double tap
