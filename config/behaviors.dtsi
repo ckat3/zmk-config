@@ -57,7 +57,7 @@ slfast: slay_fast {
     DEFINE_HOLDTAP( tap-preferred,  NAME,  _HT_TAP_THRESHOLD_SLOW,  _ALL_POSITIONS,  BINDINGS) */
 
 
-// HOME-ROW MODS                       // HOLD           TAP             
+// HOLD-TAP MODS                       // HOLD           TAP             
 HT(      ht,     <&kp>,  <&kp> )    // kp             kp                (tap-preferred)
 HT_BAL(  htb,    <&kp>,  <&kp> )    // kp             kp                (balanced)
 HT_SLOW( htslow, <&kp>,  <&kp> )    // kp (slow)      kp (slow)         (tap-preferred)
@@ -66,7 +66,7 @@ HT_BAL(  mosl,   <&mo>,  <&sl> )    // layer          one-shot layer    (balance
 HT(      mokp,   <&mo>,  <&kp> )    // layer          kp                (tap-preferred)
 
 
-// hrm for opposite hand only
+// hold-tap mods for opposite hand only
 HTPOS( htl,  _POS_RH,  <&kp>, <&kp> )
 HTPOS( htr,  _POS_LH,  <&kp>, <&kp> )
 

@@ -91,6 +91,7 @@ keymap {
 	#define HMLG   &htl  LGUI
 	#define HMRG   &htr  RGUI
 	
+	// balanced hold-tap mods
 	// todo: does this need to be positional?
 	#define HBLS   &htb  LSHIFT
 	#define HBRS   &htb  RSHIFT
@@ -152,7 +153,7 @@ keymap {
  // -------------------		
 	base_layer {bindings=<
  // -------------------
-	HMLG_OSCP  &kp  MIN_  &kp  Y_  DOT_COLN      NBSP_QMRK        &kp K_     &kp  C_  &kp  H_  &kp  W_  &sl l_OSCP
+	HMLG_OSCP  HBLG MIN_  &kp  Y_  DOT_COLN      NBSP_QMRK        &kp K_     &kp  C_  &kp  H_  &kp  W_  &sl l_OSCP
 	UTLAYR U_  HMLA O_    HMLC I_  HMLS A_       &kp F_           &kp G_     HMRS T_  HMRC R_  HMRA S_  &kp  N_
 	&ht Q_ Z_  HMRA EACT_ MNAV P_  COMM_SCLN     &kp X_           &kp V_     &kp  D_  &kp  M_  HMLA L_  HMRG B_
 	//  
@@ -164,7 +165,7 @@ keymap {
  // CAPS LAYER
  // -------------------
 	#define CAPSDEF \
-		       &to l_BASE  &kp   MIN_     &kp LS(Y_)  DOT_COLN    NBSP_QMRK         &kp LS(K_)  &kp LS(C_)  &kp LS(H_)  &kp LS(W_)  &to l_BASE   \
+		       &to l_BASE  HBLG  MIN_     &kp LS(Y_)  DOT_COLN    NBSP_QMRK         &kp LS(K_)  &kp LS(C_)  &kp LS(H_)  &kp LS(W_)  &to l_BASE   \
 		    UTLAYR LS(U_)  HMLAcw(O_)	  HMLCcw(I_)  HMLScw(A_)  &kp LS(F_)        &kp LS(G_)  HMRScw(T_)  HMRCcw(R_)  HMRAcw(S_)  &kp LS(N_)   \
 		&ht LS(Q_) LS(Z_)  HMRAcw(EACT_) MNAV LS(P_)  COMM_SCLN   &kp LS(X_)        &kp LS(V_)  &kp LS(D_)  &kp LS(M_)  HMLAcw(L_)  HMRGcw(B_)
 // --------------------
