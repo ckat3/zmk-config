@@ -98,10 +98,10 @@ MACRO( scwha  ,  <M_TAP  &kp RA(S_)  &kp E_ >)
 
 // --------------------
 // NASALIZED PORTUGUESE SEQUENCES
-MACRO(   CAO  ,                <M_TAP  &kp CCED_  &kp TILD_  &kp  A_  &kp  O_          &sl l_BSP3 >)    
-MACRO(cp_CAO  ,  M_HOLD_SHIFT, <M_TAP  &kp CCED_  &kp TILD_  &kp  A_  &kp  O_          &sl l_BSP3 >, M_REL_SHIFT)     
-MACRO(   COES ,                <M_TAP  &kp CCED_  &kp TILD_  &kp  O_  &kp  E_  &kp  S_ &sl l_BSP4 >)         
-MACRO(cp_COES ,  M_HOLD_SHIFT, <M_TAP  &kp CCED_  &kp TILD_  &kp  O_  &kp  E_  &kp  S_ &sl l_BSP4 >, M_REL_SHIFT)
+MACRO(   CAO  ,                <M_TAP  &kp CCED_  &kp TILD_  &kp  A_  &kp  O_           &sl l_BSP3 >)    
+MACRO(cp_CAO  ,  M_HOLD_SHIFT, <M_TAP  &kp CCED_  &kp TILD_  &kp  A_  &kp  O_           &sl l_BSP3 >, M_REL_SHIFT)     
+MACRO(   COES ,                <M_TAP  &kp CCED_  &kp TILD_  &kp  O_  &kp  E_  &kp  S_  &sl l_BSP4 >)         
+MACRO(cp_COES ,  M_HOLD_SHIFT, <M_TAP  &kp CCED_  &kp TILD_  &kp  O_  &kp  E_  &kp  S_  &sl l_BSP4 >, M_REL_SHIFT)
 
 
 

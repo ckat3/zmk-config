@@ -36,9 +36,10 @@
 #define l_FUNC 12 // special keys and bluetooth config on LH, F-keys on RH. activated by holding both LH thumb keys
 #define l_GAME 13 // layer similar to base, with combos disabled for gaming
 #define l_GAM2 14 // same but more closely modeled after bépo, for games that hard-code qwerty (must change OS input to qwerty)
-#define l_BSP2 15 // |
-#define l_BSP3 16 // | ephemeral layers for erasing 2- to 4-letter sequences with bksp when a corresponding macro is used
-#define l_BSP4 17 // | 
+#define l_GAMX 15 // extra keys for lh on game layers
+#define l_BSP2 16 // |
+#define l_BSP3 17 // | ephemeral layers for erasing 2- to 4-letter sequences with bksp when a corresponding macro is used
+#define l_BSP4 18 // | 
 
 // combos don't work on game layer (to minimize delay)
 #define ll_DEFAULT     l_BASE  l_CAPS  l_CPWD  l_OSCP  l_NUM  l_SYM  l_EXCL  l_NAV  l_MNAV  l_ACNT  l_ACCP  l_BSP2 l_BSP3 l_BSP4
@@ -161,9 +162,9 @@ keymap {
 	>;};
 	
 	
- // -------------------
- // CAPS LAYER
- // -------------------
+ // -------------------            
+ // CAPS LAYER                     
+ // -------------------            
 	#define CAPSDEF \
 		       &to l_BASE  HBLG  MIN_     &kp LS(Y_)  DOT_COLN    NBSP_QMRK         &kp LS(K_)  &kp LS(C_)  &kp LS(H_)  &kp LS(W_)  &to l_BASE   \
 		    UTLAYR LS(U_)  HMLAcw(O_)	  HMLCcw(I_)  HMLScw(A_)  &kp LS(F_)        &kp LS(G_)  HMRScw(T_)  HMRCcw(R_)  HMRAcw(S_)  &kp LS(N_)   \
@@ -171,18 +172,25 @@ keymap {
 // --------------------
 	caps_layer {bindings=<
 	CAPSDEF	//							 going to another layer does not leave caps layer
-									lt_NUM_E_cp   mosl_SYM             mosl_ACCP   lt_NAV_SPC     >;};		
+									lt_NUM_E_cp   mosl_SYM             mosl_ACCP   lt_NAV_SPC     >;};	
+									
 	capsword_layer {bindings=<
 	CAPSDEF	//					      left thumb keys and main right thumb key leave caps layer
 									lt_NUM_E_cp   mosl_SYM_cw          mosl_ACCP   lt_NAV_SPC_cw  >;};
+									
 	oneshotcaps_layer {bindings=<
-	CAPSDEF	//					  all thumb keys leave oneshotcaps (automatically, since it's one-shot!)
-									lt_NUM_E_cp   mosl_SYM             mosl_ACCP   lt_NAV_SPC_cw  >;};
+		       &to l_BASE  HBLG  MIN_     &kp LS(Y_)  &kp COLN_    NBSP_QMRK         &kp LS(K_)   &kp LS(C_)  &kp LS(H_)  &kp LS(W_)  &to l_BASE
+		    UTLAYR LS(U_)  HMLAcw(O_)	  HMLCcw(I_)  HMLScw(A_)   &kp LS(F_)        &kp LS(G_)   HMRScw(T_)  HMRCcw(R_)  HMRAcw(S_)  &kp LS(N_)
+		&ht LS(Q_) LS(Z_)  HMRAcw(EACT_) MNAV LS(P_)  &kp SCLN_    &kp LS(X_)        &kp LS(V_)   &kp LS(D_)  &kp LS(M_)  HMLAcw(L_)  HMRGcw(B_)
+						   ______  ______         ______  ______
+	>;};
+	//old oneshotcaps layer: //TODO remove
+	//CAPSDEF	//					  all thumb keys leave oneshotcaps (automatically, since it's one-shot!)
+	//								lt_NUM_E_cp   mosl_SYM             mosl_ACCP   lt_NAV_SPC_cw  >;};
 		// TWO DIFFERENCES OF ONESHOTCAPS
 		// | * qu combo does Qu, not QU
         // | * default mosl_SYM behavior, since SLCP will be toggled off automatically. 
         // |   otherwise in a quick roll the second key will arrive after going to BASE and before sl'ing SYM
-		
 		
  // -------------------
  // LH AUX LAYERS
@@ -308,11 +316,11 @@ keymap {
 	game_layer {bindings=<
  // similar to base layer
  // -------------------		
-	&kp TAB     &kp MIN_  &kp Y_  &kp DOT_		&kp QMRK_         &kp  K_		&kp C_    &kp H_    &kp W_     &kp J_
+	&kp TAB     &kp MIN_  &kp Y_  &kp DOT_		&kp ESC           &kp  K_		&kp C_    &kp H_    &kp W_     &kp J_
 	&kp LSHIFT  &kp O_    &kp I_  &kp A_		&kp F_            &kp  G_		&kp LEFT  &kp UP    &kp RIGHT  &kp N_
-	&kp LCTRL   &kp EACT_ &kp P_  &kp COMM_		&kp ESC           &to l_BASE	&kp D_    &kp DOWN  &kp L_     &kp B_
+	&kp LCTRL   &kp EACT_ &kp P_  &kp COMM_		&kp ENTER         &to l_BASE	&kp D_    &kp DOWN  &kp L_     &kp B_
 	//
-								  &kp SPACE     &kp ENTER         &kp BSPC   &kp LALT
+								  &kp SPACE     &sl l_GAMX         &kp BSPC   &kp LALT
 	>;};
 
  // -------------------		
@@ -324,6 +332,17 @@ keymap {
 	&kp LCTRL   &kp LALT  &kp U_    &kp X_		&kp ESC           &to l_BASE  		xxxxxx    &kp DOWN  xxxxxx     xxxxxx
 	//
 									&kp SPACE  &kp ENTER          &kp BSPC  &kp LALT
+	>;};
+
+// -------------------		
+	game_second_layer {bindings=<
+ // extra keys on lh
+ // -------------------	
+	&kp C_  &kp H_  &kp W_  &kp J_    &kp K_            &kp EGRV_  		xxxxxx    xxxxxx    xxxxxx     xxxxxx
+	&kp T_  &kp R_  &kp S_  &kp N_	  &kp G_            &kp  H_  		&kp LEFT  &kp UP    &kp RIGHT  xxxxxx
+	&kp D_  &kp M_  &kp L_  &kp B_	  &kp V_            &to l_BASE  	xxxxxx    &kp DOWN  xxxxxx     xxxxxx
+	//
+						&kp SPACE  &kp ENTER            &kp BSPC  &kp LALT
 	>;};
 
  // -------------------
