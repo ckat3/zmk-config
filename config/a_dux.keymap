@@ -182,7 +182,7 @@ keymap {
 		       &to l_BASE  HBLG  MIN_     &kp LS(Y_)  &kp COLN_    NBSP_QMRK         &kp LS(K_)   &kp LS(C_)  &kp LS(H_)  &kp LS(W_)  &to l_BASE
 		    UTLAYR LS(U_)  HMLAcw(O_)	  HMLCcw(I_)  HMLScw(A_)   &kp LS(F_)        &kp LS(G_)   HMRScw(T_)  HMRCcw(R_)  HMRAcw(S_)  &kp LS(N_)
 		&ht LS(Q_) LS(Z_)  HMRAcw(EACT_) MNAV LS(P_)  &kp SCLN_    &kp LS(X_)        &kp LS(V_)   &kp LS(D_)  &kp LS(M_)  HMLAcw(L_)  HMRGcw(B_)
-						   lt_NUM_E_cp  ______         ______  ______
+						   lt_NUM_E_cp  ______         mosl_ACCP  ______
 	>;};
 	//old oneshotcaps layer: //TODO remove
 	//CAPSDEF	//					  all thumb keys leave oneshotcaps (automatically, since it's one-shot!)
