@@ -4,7 +4,7 @@
 #define _MACRO_TAP_PADDING   1    // delay between automatic key taps in a macro
 #define _MACRO_TAP_FOR       1    // how long to hold tapped key
 
-#define _COMBO_TIMEOUT       20   // (17 might be too little) maximum interval between keys to form combo
+#define _COMBO_TIMEOUT       17   // (17 might be too little) maximum interval between keys to form combo
 #define _COMBO_TIMEOUT_SLOW  32   // for harder combos (notably OE)
 
 // how long must hold to not be tap

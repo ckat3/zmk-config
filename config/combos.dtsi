@@ -85,7 +85,7 @@ COMBO(              ll_CAPS,             &kp  LS(J_)  ,     26 28 ,  aapopiaiooo
 
 COMBO_M(             l_BASE,                 Q_U_    ,,     26 27 )  /* qu */
 COMBO_M(             l_BASE,            TILD_A_E_    ,,     13 30 )  /* ãe */
-COMBO_M(             l_BASE,            TILD_A_O_    ,,     13 11 )  /* ão */
+COMBO_M_SLOW(        l_BASE,            TILD_A_O_    ,,     13 11 )  /* ão */
 COMBO_M_SLOW(        l_BASE,            TILD_O_E_    ,,     11 30 )  /* õe */
 COMBO_M(             l_BASE,                 CAO     ,,      6  7 )  /* ção */
 COMBO_M(             l_BASE,                 COES    ,,      6  8 )  /* ções */
