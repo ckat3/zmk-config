@@ -92,14 +92,14 @@ COMBO_M(             l_BASE,                 COES    ,,      6  8 )  /* ções *
 
 COMBO_M(             l_OSCP,              up_Q_U_    ,,     26 27 )  /* Qu */
 COMBO_M(             l_OSCP,         up_TILD_A_E_    ,,     13 30 )  /* Ãe */
-COMBO_M(             l_OSCP,         up_TILD_A_O_    ,,     13 11 )  /* Ão */
+COMBO_M_SLOW(        l_OSCP,         up_TILD_A_O_    ,,     13 11 )  /* Ão */
 COMBO_M_SLOW(        l_OSCP,         up_TILD_O_E_    ,,     11 30 )  /* Õe */
 
 COMBO_M(      l_CAPS l_CPWD,       cp_Q_U_    ,,     26 27 )  /* QU */
 COMBO_M(      l_CAPS l_CPWD,  cp_TILD_A_E_    ,,     13 30 )  /* ÃE */
-COMBO_M(      l_CAPS l_CPWD,  cp_TILD_A_O_    ,,     13 11 )  /* ÃO */
+COMBO_M_SLOW( l_CAPS l_CPWD,  cp_TILD_A_O_    ,,     13 11 )  /* ÃO */
 COMBO_M_SLOW( l_CAPS l_CPWD,  cp_TILD_O_E_    ,,     11 30 )  /* ÕE */
-COMBO_M(      l_CAPS l_CPWD,       cp_CAO    ,,       6  7 )  /* ÇÃO */
+COMBO_M(      l_CAPS l_CPWD,       cp_CAO     ,,      6  7 )  /* ÇÃO */
 COMBO_M(      l_CAPS l_CPWD,       cp_COES    ,,      6  8 )  /* ÇÕES */
 
 
