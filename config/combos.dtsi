@@ -38,7 +38,7 @@ compatible = "zmk,combos";
 //             ---layer----,-------key,(l/r)-------,---position---,---name (optional)---
 // left hand                                                       
 COMBO_KP(      ll_DEFAULT  ,          ULIN_       ,,     1  2     )//                                   
-COMBO(         ll_DEFAULT  ,      &kp LG(V_)       ,     2  3     ,  clipboardHistory_PowerToys)
+COMBO(         ll_DEFAULT  ,  &kp LC(LG(LA(V_)))   ,     2  3     ,  pastePlaintext_PowerToys)
 						  									    
 COMBO_KP_SLOW( ll_NOTCPWD  ,          ESC         ,,    10 11     )// 
 COMBO_M_SLOW(     ll_CPWD  ,       cw_ESC         ,,    10 11     )// 

@@ -236,11 +236,12 @@ keymap {
  // RH AUX LAYERS
  // -------------------
 	#define TASKMAN      &kp LC(LS(ESC))    // ctrl shift esc
-	#define PASTEPLAIN   &kp LC(LG(LA(V_))) // plaintext paste (power toys)
+	ˇ//#define PASTEPLAIN   &kp LC(LG(LA(V_))) // plaintext paste (power toys)
+	#define PASTEHISTORY &kp LG(V_)
  // -------------------		
 	navigation_layer {bindings=<
  // -------------------
-	&kp  LSLCK    &kp  LNLCK    &to  l_NUM   PASTEPLAIN         TASKMAN            xxxxxxxxx      HBLS LC(HOME)   HBLC PG_DN    HBLA PG_UP    HBRG LC(END)
+	&kp  LSLCK    &kp  LNLCK    &to  l_NUM   PASTEHISTORY       TASKMAN            xxxxxxxxx      HBLS LC(HOME)   HBLC PG_DN    HBLA PG_UP    HBRG LC(END)
 	&kp  LC(Z_)   HBLA LC(X_)   HBLC LC(C_)  HBLS LC(V_)       &kp CAPS            xxxxxxxxx      &kp  LC(LEFT)   &kp  DOWN     &kp  UP       &kp  LC(RIGHT)
 	HBLG LC(Y_)   HBRA INSERT   &kp  PSCRN   &kp  PSBRK       xxxxxxxxx            xxxxxxxxx      &kp  HOME       &kp  LEFT     &kp  RIGHT    &kp  END
 	//  					                                        				                  
