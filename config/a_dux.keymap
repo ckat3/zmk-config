@@ -236,7 +236,7 @@ keymap {
  // RH AUX LAYERS
  // -------------------
 	#define TASKMAN      &kp LC(LS(ESC))    // ctrl shift esc
-	ˇ//#define PASTEPLAIN   &kp LC(LG(LA(V_))) // plaintext paste (power toys)
+	//#define PASTEPLAIN   &kp LC(LG(LA(V_))) // plaintext paste (power toys)
 	#define PASTEHISTORY &kp LG(V_)
  // -------------------		
 	navigation_layer {bindings=<
