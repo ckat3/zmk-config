@@ -45,7 +45,7 @@ slfast: slay_fast {
     DEFINE_HOLDTAP( balanced,  NAME,  _HT_TAP_THRESHOLD,  _ALL_POSITIONS,  BINDINGS)
 									   
 #define HTPOS( NAME, POSITIONS,  BINDINGS... ) \
-    DEFINE_HOMEROW_MOD( tap-preferred,  NAME,  _HT_TAP_THRESHOLD,  POSITIONS,  BINDINGS)
+    DEFINE_HOMEROW_MOD( balanced,  NAME,  _HT_TAP_THRESHOLD,  POSITIONS,  BINDINGS) // changed from tap-preferred — makes HT_BAL redundant?
 									   
 #define HT_FAST( NAME, BINDINGS... ) \
     DEFINE_HOLDTAP( tap-preferred,  NAME,  _HT_TAP_THRESHOLD_FAST,  _ALL_POSITIONS,  BINDINGS)
@@ -66,7 +66,7 @@ HT_BAL(  mosl,   <&mo>,  <&sl> )    // layer          one-shot layer    (balance
 HT(      mokp,   <&mo>,  <&kp> )    // layer          kp                (tap-preferred)
 
 
-// hold-tap mods for opposite hand only
+// hold-tap mods for opposite hand
 HTPOS( htl,  _POS_RH,  <&kp>, <&kp> )
 HTPOS( htr,  _POS_LH,  <&kp>, <&kp> )
 

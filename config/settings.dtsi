@@ -5,7 +5,7 @@
 #define _MACRO_TAP_FOR       1    // how long to hold tapped key
 
 #define _COMBO_TIMEOUT       17   // (17 might be too little) maximum interval between keys to form combo
-#define _COMBO_TIMEOUT_SLOW  36   // for harder combos (notably OE) (32 might be too little)
+#define _COMBO_TIMEOUT_SLOW  34   // for harder combos (notably OE) (32 might be too little, 36 too much)
 
 // how long must hold to not be tap
 #define _HT_TAP_THRESHOLD_SLOW    280  
