@@ -75,7 +75,7 @@ keymap {
 	compatible = "zmk,keymap";
 
  // READABILITY ------------------
-	#define holding     &none // button being held for accessing current layer
+	#define _pivot_       &none // button being held for accessing current layer
 	#define xxxxxxxxx   &none
 	#define xxxxxx      &none
 	#define ______      &trans
@@ -151,7 +151,9 @@ keymap {
 	#define UTLAYR    &mokp_l_UTIL 0    // UTIL layer on hold               : currently on u
 	#define HMLG_OSCP &htsl LGUI l_OSCP // one-shift on touch, LGUI on hold : currently on bottom left pinky
 	
- // -------------------		
+ // ------------------------------------------------------------------------------------------------------------------        
+ //                                                         BASE                     
+ // ------------------------------------------------------------------------------------------------------------------        
 	base_layer {bindings=<
  // -------------------
 	HMLG_OSCP  HBLG MIN_  &kp  Y_  DOT_COLN      NBSP_QMRK        &kp K_     &kp  C_  &kp  H_  &kp  W_  &sl l_OSCP
@@ -162,9 +164,9 @@ keymap {
 	>;};
 	
 	
- // -------------------            
- // CAPS LAYER                     
- // -------------------            
+ // --------------------------------------------------------------------------------------------------------------------------------------------------------
+ //                                                                           CAPS
+ // --------------------------------------------------------------------------------------------------------------------------------------------------------
 	#define CAPSDEF \
 		       &to l_BASE  HBLG  MIN_     &kp LS(Y_)  DOT_COLN    NBSP_QMRK         &kp LS(K_)  &kp LS(C_)  &kp LS(H_)  &kp LS(W_)  &to l_BASE   \
 		    UTLAYR LS(U_)  HMLAcw(O_)	  HMLCcw(I_)  HMLScw(A_)  &kp LS(F_)        &kp LS(G_)  HMRScw(T_)  HMRCcw(R_)  HMRAcw(S_)  &kp LS(N_)   \
@@ -192,9 +194,9 @@ keymap {
         // | * default mosl_SYM behavior, since SLCP will be toggled off automatically. 
         // |   otherwise in a quick roll the second key will arrive after going to BASE and before sl'ing SYM
 		
- // -------------------
- // LH AUX LAYERS
- // -------------------
+ // --------------------------------------------------------------------------------------------------------------------------------------------------------
+ //                                                             NUMBERS
+ // --------------------------------------------------------------------------------------------------------------------------------------------------------
  
 	num_layer {bindings=<
  // can be locked by pressing Y on l_NAV
@@ -203,10 +205,12 @@ keymap {
 	&kp  N0_     &kp  N1_   &kp  N2_   &kp  N3_      &kp SCLN_             &kp COLN_       HMLS PLUS_   HMLC MIN_    HMLA STAR_   &kp  FSLA_
 	HMLC ENTER   &kp  N4_   MNAV N5_   &kp  N6_      &kp COMM_             &kp DOT_        LT_LARR      GT_RARR      EQUL_DIFF    HMRG BSLA_
 	
-									  &to l_BASE    holding             &lt l_NUM ULIN_  ______
-	>;}; //                             unlock
+										   &to l_BASE   _pivot_            &kp ULIN_   ______
+	>;}; //                                  unlock 
 	
-
+ // --------------------------------------------------------------------------------------------------------------------------------------------------------
+ //                                                                   SYMBOLS
+ // --------------------------------------------------------------------------------------------------------------------------------------------------------
 	
  // -------------------
 	symbol_layer {bindings=<
@@ -238,30 +242,32 @@ keymap {
 	#define TASKMAN      &kp LC(LS(ESC))    // ctrl shift esc
 	//#define PASTEPLAIN   &kp LC(LG(LA(V_))) // plaintext paste (power toys)
 	#define PASTEHISTORY &kp LG(V_)
- // -------------------		
+ // --------------------------------------------------------------------------------------------------------------------------------------------------------
+ //                                                                        NAV
+ // --------------------------------------------------------------------------------------------------------------------------------------------------------
 	navigation_layer {bindings=<
- // -------------------
-	&kp  LSLCK    &kp  LNLCK    &to  l_NUM   PASTEHISTORY       TASKMAN            xxxxxxxxx      HBLS LC(HOME)   HBLC PG_DN    HBLA PG_UP    HBRG LC(END)
-	&kp  LC(Z_)   HBLA LC(X_)   HBLC LC(C_)  HBLS LC(V_)       &kp CAPS            xxxxxxxxx      &kp  LC(LEFT)   &kp  DOWN     &kp  UP       &kp  LC(RIGHT)
-	HBLG LC(Y_)   HBRA INSERT   &kp  PSCRN   &kp  PSBRK       xxxxxxxxx            xxxxxxxxx      &kp  HOME       &kp  LEFT     &kp  RIGHT    &kp  END
+ // -------------------       lock num layer
+	&kp  LSLCK    &kp  LNLCK    &to  l_NUM   PASTEHISTORY       TASKMAN			xxxxxx   HBLS LC(HOME)   HBLC PG_DN    HBLA PG_UP    HBRG LC(END)
+	&kp  LC(Z_)   HBLA LC(X_)   HBLC LC(C_)  HBLS LC(V_)       &kp CAPS			xxxxxx   &kp  LC(LEFT)   &kp  DOWN     &kp  UP       &kp  LC(RIGHT)
+	HBLG LC(Y_)   HBRA INSERT   &kp  PSCRN   &kp  PSBRK       xxxxxxxxx			xxxxxx   &kp  HOME       &kp  LEFT     &kp  RIGHT    &kp  END
 	//  					                                        				                  
-											  &tog l_CPWD   &tog l_CAPS        	   xxxxxxxxx   holding
+											  &tog l_CPWD   &tog l_CAPS			xxxxxx   _pivot_
 	>;};
 
  // -------------------	
 	mini_navigation_layer {bindings=<
  // accessed by holding P
  // -------------------
-	&kp LC(HOME)  &kp LC(END)    xxxxxx    xxxxxxxxx      xxxxxxxxx               xxxxxxxxx      xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
-	&kp LC(LEFT)  &kp LC(RIGHT)  xxxxxx    &kp UP          &kp HOME               xxxxxxxxx      xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
-	&kp    LEFT   &kp    RIGHT   holding   &kp DOWN        &kp  END               xxxxxxxxx      xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
+	&kp LC(HOME)  &kp LC(END)    xxxxxx    xxxxxxxxx	xxxxxxxxx			xxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
+	&kp LC(LEFT)  &kp LC(RIGHT)  xxxxxx    &kp UP		&kp HOME			xxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
+	&kp    LEFT   &kp    RIGHT   _pivot_   &kp DOWN		&kp  END			xxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx   xxxxxxxxx
 	//  					                                        				                  
-											          &kp LSHIFT   xxxxxxxxx        xxxxxxxxx   xxxxxxxxx
+												&kp LSHIFT  xxxxxx			xxxxxx   xxxxxx
 	>;};
 
- // -------------------
- // Accents (l_ACNT)
- // -------------------
+ // --------------------------------------------------------------------------------------------------------------------------------------------------------
+ //                                                                     ACCENTS (l_ACNT)
+ // --------------------------------------------------------------------------------------------------------------------------------------------------------
     // questionable syntactic sugar to define several parameters beginning with &m_
 	#define MACRO_ROW_3(PREFIX, ONE, TWO, THREE)               &m_##PREFIX##ONE &m_##PREFIX##TWO &m_##PREFIX##THREE
 	#define MACRO_ROW_4(PREFIX, ONE, TWO, THREE, FOUR)         &m_##PREFIX##ONE &m_##PREFIX##TWO &m_##PREFIX##THREE &m_##PREFIX##FOUR
@@ -270,6 +276,7 @@ keymap {
     #define HMCP &mokp l_ACCP // otherwise shift is applied to ralt and messes up some keys.
                               // TODO maybe replace by transp shift layer + conditional ACCP?
 	accent_layer {bindings=<
+ // -------------------
  MACRO_ROW_4(,    CFLX_U_,   CFLX_O_,   CFLX_I_,   CFLX_A_ )     IEXCL_IQMRK       xxxxxx     &kp  CCED_  &kp  APST_  &kp  QUOT_   &m_B_J_
  MACRO_ROW_5(,    ACUT_U_,   ACUT_O_,   ACUT_I_,   ACUT_A_,          TILD_A_)      xxxxxx     HMCP CFLX_  HMRC GRAV_  HMLA ACUT_   &m_TILD_N_
  MACRO_ROW_3(,    GRAV_U_,   TILD_O_,   TRMA_I_ )  &kp AGRV_          xxxxxx       xxxxxx     &kp  TRMA_  xxxxxxxxx     &m_SZTT   &kp TILD_
@@ -277,8 +284,6 @@ keymap {
 											          &m_CFLX_E_   &kp EGRV_       xxxxxx   ______
 	>;}; //  								                                     double tap
 
- // -------------------
- // l_ACCP
  // -------------------
 	accent_caps_layer {bindings=<
  // -------------------
@@ -289,34 +294,36 @@ keymap {
 										      &m_cp_CFLX_E_   &kp LS(EGRV_)       		xxxxxx   ______
 	>;};//  		   							                                     double tap
 
- // -------------------
- // FUNCTION LAYERS
- // -------------------
+ // --------------------------------------------------------------------------------------------------------------------------------------------------------
+ //                                                                     UTILITY
+ // --------------------------------------------------------------------------------------------------------------------------------------------------------
 	utility_layer {bindings=<
  // -------------------                                                                      
 	xxxxxx   &pkp LC(S)   &pkp C_AC_BACK  &pkp C_AC_FORWARD &pkp LA(F4)         &pmkp MCLK   _________        _________        _________   &kp B_
-	holding  &pkp LG(TAB) &m_utl_SATAB 	  &m_utl_ATAB		&pkp ESC        	&pmkp LCLK   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT
+	_pivot_  &pkp LG(TAB) &m_utl_SATAB 	  &m_utl_ATAB		&pkp ESC        	&pmkp LCLK   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT
 	xxxxxx   &kp J_       &m_utl_SCTAB    &m_utl_CTAB       &pkp LG(D)         	&pmkp RCLK   &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT
 	
 											 &pkp LS(TAB)   &pkp ULIN_          &kp RCTRL   &kp RSHIFT
 	>;};
 
- // -------------------		
+ // ------------------------------------------------------------------------------------------------------------------------------------------
+ //                                                                                FUNCTION
+ // ------------------------------------------------------------------------------------------------------------------------------------------
 	function_layer {bindings=<
  // -------------------		
 	&bt  BT_SEL 3   &bt  BT_SEL 0   &bt  BT_SEL 1   &bt  BT_SEL 2      &bt   BT_CLR         &sk LALT       &kp F7  &kp F8  &kp F9  &kp F12
 	HMLG C_BRI_UP   HMLA M2_BRI_U   HMLC C_VOL_UP   HMLS C_PP  	       &out OUT_BLE         &sk LSHIFT     &kp F1  &kp F2  &kp F3  &kp F10
 	&kp  C_BRI_DN   &kp  M2_BRI_D   &kp  C_VOL_DN   &kp  C_MUTE        &out OUT_USB         &sk LCTRL      &kp F4  &kp F5  &kp F6  &kp F11
 	//
-															holding   holding         &kp LSHIFT   &kp LALT
+																  _pivot_   _pivot_         &kp LSHIFT   &kp LALT
 	>;};
 
- // -------------------
- // GAMING LAYERS
- // -------------------
-	game_layer {bindings=<
+ // --------------------------------------------------------------------------------------------------------------------
+ //                                                       GAMING
+ // --------------------------------------------------------------------------------------------------------------------
+  game_layer {bindings=<
  // similar to base layer
- // -------------------		
+ // -------------------
 	&kp TAB     &kp MIN_  &kp Y_  &kp DOT_		&kp ESC           &kp  K_		&kp C_    &kp H_    &kp W_     &kp J_
 	&kp LSHIFT  &kp O_    &kp I_  &kp A_		&kp F_            &kp  G_		&kp LEFT  &kp UP    &kp RIGHT  &kp N_
 	&kp LCTRL   &kp EACT_ &kp P_  &kp COMM_		&kp ENTER         &to l_BASE	&kp D_    &kp DOWN  &kp L_     &kp B_
@@ -324,9 +331,10 @@ keymap {
 								  &kp SPACE     &sl l_GAMX         &kp BSPC   &kp LALT
 	>;};
 
- // -------------------		
-	game_bepo_layer {bindings=<
+ // -------------------
+ // BÉPO GAMING
  // more closely modeled after bépo, for games that hard-code qwerty
+	game_bepo_layer {bindings=<
  // -------------------	
 	&kp TAB     &kp B_    &kp Y_    &kp P_		&kp O_            &kp EGRV_  		xxxxxx    xxxxxx    xxxxxx     xxxxxx
 	&kp LSHIFT  &kp A_    &kp EACT_ &kp I_		&kp E_            &kp  H_  			&kp LEFT  &kp UP    &kp RIGHT  xxxxxx
@@ -335,9 +343,10 @@ keymap {
 									&kp SPACE  &kp ENTER          &kp BSPC  &kp LALT
 	>;};
 
-// -------------------		
-	game_second_layer {bindings=<
+ // -------------------
+ // GAMING SECOND LAYER
  // extra keys on lh
+	game_second_layer {bindings=<
  // -------------------	
 	&kp C_  &kp H_  &kp W_  &kp J_    &kp K_            &kp EGRV_  		xxxxxx    xxxxxx    xxxxxx     xxxxxx
 	&kp T_  &kp R_  &kp S_  &kp N_	  &kp G_            &kp  H_  		&kp LEFT  &kp UP    &kp RIGHT  xxxxxx
@@ -346,10 +355,10 @@ keymap {
 						&kp SPACE  &kp ENTER            &kp BSPC  &kp LALT
 	>;};
 
- // -------------------
- // BACKSPACE layers
+ // ----------------------------------------------------------------------------------------
+ //                                   BACKSPACE LAYERS
  // when active, multiple characters inserted by a macro will be deleted together by bksp
- // -------------------
+ // ----------------------------------------------------------------------------------------
  
 	backspace_layer_2 {bindings=<
 	______ ______ ______ ______    ______         ______    ______ ______ ______ ______
@@ -372,9 +381,9 @@ keymap {
 						 ______  ______             ______  ______
 	>;};
  
- // -------------------
- // DEBUGGING
- // -------------------
+ // ----------------------------------------------------------------------------------------
+ //                                          DEBUGGING
+ // ----------------------------------------------------------------------------------------
  /*
  	bindings = <
  		xxxxxx xxxxxx xxxxxx xxxxxx    xxxxxx         xxxxxx    xxxxxx xxxxxx xxxxxx _____

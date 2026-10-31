@@ -39,22 +39,19 @@ slfast: slay_fast {
     };
 	
 #define HT( NAME, BINDINGS... ) \
-    DEFINE_HOLDTAP (tap-preferred,  NAME,  _HT_TAP_THRESHOLD,  _ALL_POSITIONS,  BINDINGS)
+    DEFINE_HOLDTAP ( tap-preferred,  NAME,  _HT_TAP_THRESHOLD,  _ALL_POSITIONS,  BINDINGS )
 									   
 #define HT_BAL( NAME, BINDINGS... ) \
-    DEFINE_HOLDTAP( balanced,  NAME,  _HT_TAP_THRESHOLD,  _ALL_POSITIONS,  BINDINGS)
+    DEFINE_HOLDTAP( balanced,  NAME,  _HT_TAP_THRESHOLD,  _ALL_POSITIONS,  BINDINGS )
 									   
 #define HTPOS( NAME, POSITIONS,  BINDINGS... ) \
-    DEFINE_HOMEROW_MOD( balanced,  NAME,  _HT_TAP_THRESHOLD,  POSITIONS,  BINDINGS) // changed from tap-preferred — makes HT_BAL redundant?
+    DEFINE_HOMEROW_MOD( tap-preferred,  NAME,  _HT_TAP_THRESHOLD,  POSITIONS,  BINDINGS )
 									   
 #define HT_FAST( NAME, BINDINGS... ) \
-    DEFINE_HOLDTAP( tap-preferred,  NAME,  _HT_TAP_THRESHOLD_FAST,  _ALL_POSITIONS,  BINDINGS)
+    DEFINE_HOLDTAP( tap-preferred,  NAME,  _HT_TAP_THRESHOLD_FAST,  _ALL_POSITIONS,  BINDINGS )
 									   
 #define HT_SLOW( NAME, BINDINGS... ) \
-    DEFINE_HOLDTAP( tap-preferred,  NAME,  _HT_TAP_THRESHOLD_SLOW,  _ALL_POSITIONS,  BINDINGS)
-	/* 
-#define HT_MACRO( NAME, BINDINGS... ) \
-    DEFINE_HOLDTAP( tap-preferred,  NAME,  _HT_TAP_THRESHOLD_SLOW,  _ALL_POSITIONS,  BINDINGS) */
+    DEFINE_HOLDTAP( tap-preferred,  NAME,  _HT_TAP_THRESHOLD_SLOW,  _ALL_POSITIONS,  BINDINGS )
 
 
 // HOLD-TAP MODS                       // HOLD           TAP             
