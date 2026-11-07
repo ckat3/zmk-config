@@ -240,8 +240,8 @@ keymap {
  // -------------------
  // RH AUX LAYERS
  // -------------------
-	#define TASKMAN      &htslow   &kp PROC_EXP   &kp LC(LS(ESC))  // hold: procexp, tap: taskman
-	#define PASTEPLAIN   &kp LC(LG(LA(V_)))                        // plaintext paste (power toys)
+	#define TASKMAN      &htslow   PROC_EXP   LC(LS(ESC))  // hold: procexp, tap: taskman
+	#define PASTEPLAIN   &kp LC(LG(LA(V_)))                // plaintext paste (power toys)
  // --------------------------------------------------------------------------------------------------------------------------------------------------------
  //                                                                        NAV
  // --------------------------------------------------------------------------------------------------------------------------------------------------------
