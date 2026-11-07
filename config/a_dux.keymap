@@ -13,12 +13,13 @@
 #define HYPR(x)  LG(LS(LC(LA(x))))
 
 // EXTERNAL INTEGRATIONS ------------------------
-#define M2_BRI_U     SUPR(U_)  // + brightness external display
-#define M2_BRI_D     SUPR(Z_)  // - brightness external display
-#define DISPLAY_OFF  SUPR(Q_)  // turns screen off
-#define TOG_DISPLAY  SUPR(Y_)  // toggles extend/external display
-#define TOG_DCR      SUPR(I_)  // toggles DCR on/off on external display (ahk + controlmymonitor)
-#define TOG_THEME    HYPR(M_)  // toggles dark/light theme (requires Auto Dark Mode)
+#define M2_BRI_U     SUPR(U_)  // + brightness external display           (ahk + controlmymonitor)
+#define M2_BRI_D     SUPR(Z_)  // - brightness external display           (ahk + controlmymonitor)
+#define DISPLAY_OFF  SUPR(Q_)  // turns screen off                        (ahk + controlmymonitor)
+#define TOG_DISPLAY  SUPR(Y_)  // toggles extend/external display         (ahk + controlmymonitor)
+#define TOG_DCR      SUPR(I_)  // toggles DCR on/off on external display  (ahk + controlmymonitor)
+#define PROC_EXP     HYPR(B_)  // opens process explorer                  (ahk)
+#define TOG_THEME    HYPR(M_)  // toggles dark/light theme                (powertoys)
 
 // LAYERS ----------------------------
 #define l_BASE 0  // 
@@ -239,8 +240,8 @@ keymap {
  // -------------------
  // RH AUX LAYERS
  // -------------------
-	#define TASKMAN      &kp LC(LS(ESC))    // ctrl shift esc
-	#define PASTEPLAIN   &kp LC(LG(LA(V_))) // plaintext paste (power toys)
+	#define TASKMAN      &htslow   &kp PROC_EXP   &kp LC(LS(ESC))  // hold: procexp, tap: taskman
+	#define PASTEPLAIN   &kp LC(LG(LA(V_)))                        // plaintext paste (power toys)
  // --------------------------------------------------------------------------------------------------------------------------------------------------------
  //                                                                        NAV
  // --------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -298,7 +299,7 @@ keymap {
  // --------------------------------------------------------------------------------------------------------------------------------------------------------
 	utility_layer {bindings=<
  // -------------------                                                                      
-	xxxxxx   xxxxxx   	  &pkp C_AC_BACK  &pkp C_AC_FORWARD &pkp LA(F4)         &pmkp MCLK   _________        _________        _________   &kp B_
+	xxxxxx   xxxxxx   	  &pkp C_AC_BACK  &pkp C_AC_FORWARD &pkp LA(F4)         &pmkp MCLK   _________       _________       _________     _________
 	_pivot_  &pkp LG(TAB) &m_utl_SATAB 	  &m_utl_ATAB		&pkp ESC        	&pmkp LCLK   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT
 	xxxxxx   &pkp LC(W_)  &m_utl_SCTAB    &m_utl_CTAB       &pkp LG(D_)         &pmkp RCLK   &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT
 	

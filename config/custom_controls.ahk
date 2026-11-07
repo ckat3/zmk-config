@@ -26,6 +26,12 @@ TOGGLE_DISPLAY_MODE        := SUPR . "y"
 TOGGLE_DCR                 := SUPR . "i"
 SURROUND_PASTE             := HYPR . "c"
 SURROUND_SELECTION         := HYPR . "h"
+PROCESS_EXPLORER           := HYPR . "b"
+
+PROC_EXP_PATH := "procexp.exe"
+ProcessExplorer(hk) {
+	return Run(PROC_EXP_PATH)
+}
 
 
 ; ---------------------
@@ -133,3 +139,4 @@ Hotkey TOGGLE_DCR                , DcrOn
 Hotkey TOGGLE_DISPLAY_MODE       , ToggleDisplayMode
 Hotkey SURROUND_PASTE            , PasteSurround
 Hotkey SURROUND_SELECTION        , SurroundSelected
+Hotkey PROCESS_EXPLORER          , ProcessExplorer
