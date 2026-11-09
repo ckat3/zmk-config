@@ -203,7 +203,7 @@ keymap {
  // can be locked by pressing Y on l_NAV
  // -------------------
 	&kp  PIPE_   &kp  N7_   &kp  N8_   &kp  N9_      EXCL_QMRK             DLLR_EURO       &kp  LBRK_   &kp  RBRK_   HMRA HASH_   &kp  PCNT_
-	HBLG N0_     HBLA N1_   HBLC N2_   HBLS N3_      &kp PIPE_             &kp COLN_       HMLS PLUS_   HMLC MIN_    HMLA STAR_   &kp  FSLA_
+	HBLG N0_     HBLA N1_   HBLC N2_   HBLS N3_      &kp SCLN_             &kp COLN_       HMLS PLUS_   HMLC MIN_    HMLA STAR_   &kp  FSLA_
 	DOT_COLN     &kp  N4_   MNAV N5_   &kp  N6_      COMM_SCLN             &kp DOT_        LT_LARR      GT_RARR      EQUL_DIFF    HMRG BSLA_
 	
 										   &to l_BASE   _pivot_            &kp ULIN_   ______
