@@ -143,6 +143,10 @@ MACRO( BSP3,  <M_TAP  &kp BSPC &kp BSPC &kp BSPC >)
 MACRO( BSP4,  <M_TAP  &kp BSPC &kp BSPC &kp BSPC &kp BSPC >)
 
 // --------------------
+// merge with following line
+MACRO( MERGE,  <M_TAP  &kp DEL &kp SPC >)
+
+// --------------------
 // homerow mods pass through to l_BASE
 MACRO( cp_hmls,  <M_TAP  &to l_BASE >,  <M_KP_HOLD LSHIFT >,  <M_WAIT_REL>,  <M_KP_REL LSHIFT >)
 MACRO( cp_hmlc,  <M_TAP  &to l_BASE >,  <M_KP_HOLD LCTRL  >,  <M_WAIT_REL>,  <M_KP_REL LCTRL  >)

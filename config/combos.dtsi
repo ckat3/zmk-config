@@ -56,9 +56,13 @@ COMBO_KP(      ll_DEFAULT  ,          SPACE       ,,    22 23     )//
 											    
 COMBO(         ll_DEFAULT  ,    &sl l_OSCP         ,    11 12 13  ,  oneShotCaps)
 COMBO_KP(      ll_DEFAULT  ,        ENTER,l        ,    10 13     )
-															    
+
+COMBO(         ll_DEFAULT  ,       &m_MERGE        ,    21 22 23  , del_space)
+
+/*															    
 COMBO(         ll_DEFAULT  ,      &m_SPC_sl_OSCP   ,    20 21 22  ,    space_1ShotCaps)
 COMBO(         ll_DEFAULT  ,  &m_DOT_SPC_sl_OSCP   ,    21 22 23  ,dot_Space_1ShotCaps)
+*/
 															    
 COMBO(         ll_DEFAULT  ,    &kp LC(Z_)         ,    20 21     ,  ctrlZ)
 															    
